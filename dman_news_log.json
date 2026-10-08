@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-08T10:04:30.011788-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "'Joe Rogan Re-Ups Lucrative Spotify Deal' - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T10:04:30.441115-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "CrowdStrike Says Suspected Chinese Hacker Used Anthropic's Claude, AI Agent to Steal South Korean Bank Data",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T10:04:35.880120-04:00",
     "symbols": [
       "SPCX"
@@ -5068,5 +5048,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T14:17:11.966828-04:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "Why Is GameStop Stock Gaining Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T14:17:25.478305-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "'Russia Denies Report of Second Case of Illness in Siberia' - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

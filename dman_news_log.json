@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-07T14:04:22.544468-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed Minutes Says Participants Generally Saw Inflation Risks As Skewed To The Upside, Some Saw Those Risks Becoming More Skewed In Recent Months; Many Participants Said That Despite Recent Rise In Long-term Treasury Yields, Financial Conditions Appeared Supportive Of Economic Growth; Staff Economic Outlook Was Stronger Than The One Prepared For July Meeting",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-07T14:06:24.931499-04:00",
     "symbols": [
       "MSFT"
@@ -5052,5 +5042,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T11:25:43.846038-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Transcript: Eli Lilly Q2 2026 Earnings Conference Call",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

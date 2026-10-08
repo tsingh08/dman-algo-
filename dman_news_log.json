@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-07T15:02:56.479347-04:00",
-    "symbols": [
-      "MSGY"
-    ],
-    "headline": "Shares of construction companies are trading lower after the Federal Reserve&#39;s September meeting minutes, which said officials expect another interest rate hike before the end of the year. The sector may be feeling pressure from climbing 10-year Treasury yields.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-07T15:07:28.666848-04:00",
     "symbols": [
       "QCOM"
@@ -5043,6 +5033,16 @@
       "SPCX"
     ],
     "headline": "SpaceX Is Targeting Thursday, October 15 For A Falcon 9 Launch Of The USSF-481 Mission From Space Launch Complex 4E At Vandenberg Space Force Base In California",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T12:01:59.430092-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "UBS Maintains Buy on Chevron, Raises Price Target to $235",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-07T15:25:03.168956-04:00",
-    "symbols": [
-      "BSP"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-07T15:26:54.528411-04:00",
     "symbols": [
       "TLT"
@@ -5042,6 +5032,16 @@
       "SPY"
     ],
     "headline": "Fed Chairman Warsh To Speak On October 16 At IMF",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T12:31:57.106629-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Elon Musk Posts On X &#34;If you have a Grok Bot account, you can just add your @Shopify connector by asking @bot!&#34;",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

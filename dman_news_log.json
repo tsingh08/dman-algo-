@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-08T11:21:10.743571-04:00",
-    "symbols": [
-      "ARGX"
-    ],
-    "headline": "Argenx, Caribou Biosciences And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T11:21:10.749726-04:00",
-    "symbols": [
-      "ARGX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T11:21:10.753716-04:00",
     "symbols": [
       "ARGX"
@@ -5070,5 +5050,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T16:00:04.021266-04:00",
+    "symbols": [
+      "ACRS"
+    ],
+    "headline": "Argenx, Caribou Biosciences And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T16:00:04.426844-04:00",
+    "symbols": [
+      "SECZ"
+    ],
+    "headline": "Securitize Rolls Out Securitize Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

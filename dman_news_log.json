@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-10-07T13:50:51.326458-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Exec Says RTX Spark-Based Machines With NVIDIA Chips Will Begin Shipping Next Week",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:50:51.330263-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Exec Says Call Of Duty Will Come To NVIDIA RTX Spark Machines In 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:50:51.333882-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Exec Says Co. Introduces Surface Laptop Ultra",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:50:51.337469-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Exec Says Meta&#39;s Muse Is Coming To Windows",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:50:51.581409-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Microsoft Exec Says RTX Spark-Based Machines With NVIDIA Chips Will Begin Shipping Next Week",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T13:50:51.585145-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is AST SpaceMobile Stock Falling on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T13:50:51.588639-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Microsoft Exec Says Call Of Duty Will Come To NVIDIA RTX Spark Machines In 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T13:50:51.592055-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Marvell Stock Is Up 230% This Year: Bank of America Sees a Further 40% Upside",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T13:50:52.169759-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Microsoft Exec Says Meta&#39;s Muse Is Coming To Windows",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:50:52.453485-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Marvell Stock Is Up 230% This Year: Bank of America Sees a Further 40% Upside",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:50:52.736481-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T13:50:53.059590-04:00",
     "symbols": [
       "TSLA"
@@ -5032,6 +4922,116 @@
     "headline": "U.S. Labor Secretary Says Is Suspending Some Of The Largest IT Sourcing Firms In The World From Labor Certification Program Including Microsoft, Adobe",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T10:34:23.358818-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Announces Commitments Valued At $1B To Advance U.S. Science Over The Next Five Years",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T10:34:54.086981-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "U.S. Labor Secretary Says Is Suspending Some Of The Largest IT Sourcing Firms In The World From Labor Certification Program Including Microsoft, Adobe",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T10:34:54.271951-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Labor Secretary Says Is Suspending Some Of The Largest IT Sourcing Firms In The World From Labor Certification Program Including Microsoft, Adobe",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T10:34:54.277626-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Vice President Vance Says U.S. Suspending Perm Program For Microsoft; Message To Microsoft Is You&#39;ve Got To Hire American Workers; U.S. Is Reforming H-1B, J-1 Visa Programs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T10:34:57.716447-04:00",
+    "symbols": [
+      "NGNE"
+    ],
+    "headline": "JP Morgan Initiates Coverage On Neurogene with Overweight Rating, Announces Price Target of $60",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T10:34:57.952599-04:00",
+    "symbols": [
+      "BNO"
+    ],
+    "headline": "Jim Cramer Says Oil Surge, Higher Rates Are \u2018Convenient Excuses\u2019 To Sell Semis as QQQ, SOXX Drop and Investors Question Data Center Spending",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T10:34:58.166906-04:00",
+    "symbols": [
+      "USO"
+    ],
+    "headline": "Houthi Military Warns At Saudi Oil Workers To Avoid Target Sites In That Country; Repeats Warning To Airlines And Airports",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T10:34:58.171899-04:00",
+    "symbols": [
+      "USO"
+    ],
+    "headline": "&#39;Russia\u2019s Oil Product Exports Rise Even as Diesel Shipments Slump&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T10:34:58.176408-04:00",
+    "symbols": [
+      "USO"
+    ],
+    "headline": "&#39;Saudi, UAE Join Japan-Led Push to Bolster Asian Oil Buffers&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T10:34:58.181779-04:00",
+    "symbols": [
+      "USO"
+    ],
+    "headline": "Jim Cramer Says Oil Surge, Higher Rates Are \u2018Convenient Excuses\u2019 To Sell Semis as QQQ, SOXX Drop and Investors Question Data Center Spending",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T10:34:58.186829-04:00",
+    "symbols": [
+      "USO"
+    ],
+    "headline": "Iran Foreign Minister Says Will Respond To U.S. Proposals Within A Few Days",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

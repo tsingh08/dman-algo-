@@ -1,26 +1,5 @@
 [
   {
-    "ts": "2026-10-07T14:30:14.035498-04:00",
-    "symbols": [
-      "GOOGL",
-      "META"
-    ],
-    "headline": "Meta, Google Put $300M Into Zuckerberg-Backed $1.8B AI Biology Bet",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T14:41:20.511756-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta, Google Put $300M Into Zuckerberg-Backed $1.8B AI Biology Bet",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T14:41:20.605137-04:00",
     "symbols": [
       "GOOGL"
@@ -5042,6 +5021,29 @@
     ],
     "headline": "Reported Oct. 7: Slovakia Transport Minister Jozef Raz Announces Tesla Full Self-Driving Will Soon Be Available In Country",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T11:47:35.271708-04:00",
+    "symbols": [
+      "GOOGL",
+      "MSFT",
+      "NVDA",
+      "SPCX"
+    ],
+    "headline": "SpaceX\u2019s $500 Billion AI Data Center Gamble Has Real Revenue Behind It, Says FT\u2019s John Foley",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T11:47:49.103178-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX\u2019s $500 Billion AI Data Center Gamble Has Real Revenue Behind It, Says FT\u2019s John Foley",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-07T13:50:54.076634-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T13:50:54.349268-04:00",
     "symbols": [
       "MU"
@@ -5031,6 +5021,16 @@
     ],
     "headline": "U.S. Labor Secretary Says Is Suspending Some Of The Largest IT Sourcing Firms In The World From Labor Certification Program Including Microsoft, Adobe",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T10:42:22.823437-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI Says Recently Banned 2 IO One From Russia And One From Iran That Used Our Models In Combination With More Traditional Techniques And Technologies To Support Sophisticated \u201cFalse Front\u201d Entities",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

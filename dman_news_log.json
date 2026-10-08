@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-07T14:02:39.892954-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed Officials Said Possibility Of More Tariff Increases Risks Boosting Inflation; Officials Generally Expected Inflation To Remain Elevated Short-Term; They Hadn&#39;t Seen Enough Progress On Lowering Inflation In Prior Months; Policy Wasn&#39;t Sufficiently Restrictive; Higher Rate Would Stop Sector-Specific Price Hikes From Spreading",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T14:02:45.302941-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed Minutes Says All Participants At Fed&#39;s September 15-16 Meeting Supported 25 Basis Point Rate Hike And Most Assessed Another Increase Would Likely Be Appropriate By End Of Year; Participants Offered A Range Of Views For Why They Supported A Rate Increase; Participants Generally Emphasized That Inflation Remained Elevated And Job Market Appeared Near Full Employment",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-07T14:03:21.474328-04:00",
     "symbols": [
       "SPY"
@@ -5046,5 +5026,28 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T11:16:50.912555-04:00",
+    "symbols": [
+      "AMAT",
+      "MU",
+      "SKHY"
+    ],
+    "headline": "Memory Chip Sales on Track to Top $2 Trillion By 2030: The Numbers Micron Bulls Need to Know",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T11:17:55.778998-04:00",
+    "symbols": [
+      "GOOGL",
+      "RBLX"
+    ],
+    "headline": "Why Is Unity Software Stock Gaining Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

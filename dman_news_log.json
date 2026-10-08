@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-10-07T13:49:35.068459-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump On Russia, Putin Call Says  Have Call Set Up; Asked About Mortgage Rates Says Interest Rates Should Come Down",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T13:49:56.366754-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Exec Says RTX Spark-Based Machines With NVIDIA Chips Will Begin Shipping Next Week",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:49:56.372097-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Exec Says Call Of Duty Will Come To NVIDIA RTX Spark Machines In 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:49:56.377196-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Exec Says Co. Introduces Surface Laptop Ultra",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:49:56.458204-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Microsoft Exec Says RTX Spark-Based Machines With NVIDIA Chips Will Begin Shipping Next Week",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T13:49:56.463153-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is AST SpaceMobile Stock Falling on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T13:49:56.467858-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Microsoft Exec Says Call Of Duty Will Come To NVIDIA RTX Spark Machines In 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T13:49:57.708491-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Sandisk Stock Is Surging Wednesday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:50:01.676329-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Microsoft Exec Says RTX Spark-Based Machines With NVIDIA Chips Will Begin Shipping Next Week",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T13:50:04.133359-04:00",
     "symbols": [
       "SPCX"
@@ -5028,5 +4938,98 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T10:23:43.413985-04:00",
+    "symbols": [
+      "MSFT",
+      "SPY"
+    ],
+    "headline": "Vice President Vance Says U.S. Suspending Perm Program For Microsoft; Message To Microsoft Is You&#39;ve Got To Hire American Workers; U.S. Is Reforming H-1B, J-1 Visa Programs",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T10:24:27.707275-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Vice President Vance Says Says Universities Employing J-1 Visas Merit Investigation, Including Harvard, Yale, Stanford, Brown, MIT",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T10:24:50.997644-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT"
+    ],
+    "headline": "What Is Going on With Alphabet Stock on Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T10:25:09.489431-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "What Is Going on With Alphabet Stock on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T10:25:09.494723-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Vice President Vance Says U.S. Suspending Perm Program For Microsoft; Message To Microsoft Is You&#39;ve Got To Hire American Workers; U.S. Is Reforming H-1B, J-1 Visa Programs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T10:25:09.513006-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "What Is Going on With Alphabet Stock on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T10:25:09.520447-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "What Is Going on With Alphabet Stock on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T10:25:09.525878-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Jeff Bezos Could Take Blue Origin Public. Amazon Investors Just Got a New Space Question",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T10:25:10.229560-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Jeff Bezos Could Take Blue Origin Public. Amazon Investors Just Got a New Space Question",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

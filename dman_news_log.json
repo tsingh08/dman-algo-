@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-07T15:24:42.845231-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Hewlett Packard Enterprise Stock Hits 52-Week Highs - Here&#39;s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T15:24:43.713668-04:00",
-    "symbols": [
-      "RIOT"
-    ],
-    "headline": "Robinhood Joins Strategy, Tesla In Holding Bitcoin, Exec Says: &#39;We Care Deeply About Bitcoin&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-07T15:24:43.933575-04:00",
     "symbols": [
       "HOOD"
@@ -5045,5 +5025,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T12:12:53.686398-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "What&#39;s Going On With Micron Technology Stock Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T12:13:13.331920-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is AST SpaceMobile Stock Falling Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

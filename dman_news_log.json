@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-07T15:26:54.528411-04:00",
-    "symbols": [
-      "TLT"
-    ],
-    "headline": "Treasury Yields Hit 2002 Highs: Jim Bianco, Ed Yardeni Say There\u2019s No Need To Worry",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-07T15:29:10.271097-04:00",
     "symbols": [
       "FDX"
@@ -5045,5 +5035,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T12:36:56.973374-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "What&#39;s Going On With Microsoft Stock Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-08T10:04:35.880120-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Why Is Planet Labs Stock Falling on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T10:04:35.885521-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk\u2019s \u2018Insatiable Sense of Urgency\u2019 Sets His Companies Apart, Says Former X CEO: &#39;There\u2019s Not a Deadline...it\u2019s Now&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T10:04:36.837610-04:00",
     "symbols": [
       "HELE"
@@ -5066,6 +5046,35 @@
     ],
     "headline": "'Russia Denies Report of Second Case of Illness in Siberia' - Bloomberg",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T14:18:08.553845-04:00",
+    "symbols": [
+      "AMD",
+      "ARM",
+      "AVGO",
+      "IONQ",
+      "MRVL",
+      "ON"
+    ],
+    "headline": "Shares of semiconductor and chip-related companies are trading lower after reports suggesting that OpenAI&#39;s annualized revenue is approximately $20 billion less than previously indicated, which may weaken demand and pricing sentiment in sectors exposed to compute buildout.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T14:18:39.870174-04:00",
+    "symbols": [
+      "AMD",
+      "AVGO",
+      "MSFT",
+      "NVDA",
+      "ORCL"
+    ],
+    "headline": "OpenAI Revenue $20B Below Previous Reports, ORCL, NVDA Tumble",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

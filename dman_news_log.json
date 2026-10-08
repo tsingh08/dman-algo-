@@ -1,199 +1,5 @@
 [
   {
-    "ts": "2026-10-08T09:18:07.672679-04:00",
-    "symbols": [
-      "CRWD",
-      "DDOG",
-      "GOOGL",
-      "META",
-      "PLTR"
-    ],
-    "headline": "Palantir Gets Goldman Sachs Upgrade as Sovereign AI Opens New Market",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T09:19:53.889669-04:00",
-    "symbols": [
-      "LFS"
-    ],
-    "headline": "Full Transcript: Leifras Co Q2 2026 Earnings Call",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T09:20:39.957443-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "TD Cowen Reinstates Hold on JPMorgan Chase, Announces $370 Price Target",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T09:24:32.684341-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "President Trump Bought Up To $25M Of Meta Platforms Stock - CNBC Cites August Report",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T09:24:39.805830-04:00",
-    "symbols": [
-      "BFRI"
-    ],
-    "headline": "Biofrontera Refiles Supplemental New Drug Application For Ameluz Topical Gel To FDA To Treat Actinic Keratoses",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T09:25:44.684187-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Nvidia Vs. CrowdStrike: How ETFs Are Positioned for Dan Ives\u2019 $4T Tech Spending Wave",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T09:25:44.690015-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Samsung\u2019s $80B Quarterly Profit Tops Nvidia, AMD\u2019s Lisa Su Shops In Seoul",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T09:25:44.694410-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "What Is Going on With Palantir Tech Stock on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T09:25:44.698743-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Competitor Analysis: Evaluating Apple And Competitors In Technology Hardware, Storage &amp; Peripherals Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T09:25:44.703976-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple&#39;s Smart Home Ambitions Hammer REZI, ARLO and ALLE Stocks: Here&#39;s What&#39;s Happening",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T09:25:44.790463-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Nvidia Vs. CrowdStrike: How ETFs Are Positioned for Dan Ives\u2019 $4T Tech Spending Wave",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T09:25:44.795366-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Creates New XBOX Division XP; Appoints Kayleen Walters President Of XP",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T09:25:44.799837-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Samsung\u2019s $80B Quarterly Profit Tops Nvidia, AMD\u2019s Lisa Su Shops In Seoul",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T09:25:44.804368-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "What Is Going on With Palantir Tech Stock on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T09:25:44.808838-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Senator Adam Schiff Warns Advanced AI Poses Growing National Security Threat, Calls for Guardrails Before It&#39;s Too Late: &#39;A Pinky Swear Won\u2019t Cut It&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T09:25:44.897304-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Vs. CrowdStrike: How ETFs Are Positioned for Dan Ives\u2019 $4T Tech Spending Wave",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T09:25:44.902659-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Elon Musk\u2019s SpaceX Could Pay Off for Investors Before Tesla Ever Did, Says Jim Cramer \u2014 Top Investment Bank Sees Over 37% Upside for SPCX Investors (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T09:25:44.907430-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Samsung\u2019s $80B Quarterly Profit Tops Nvidia, AMD\u2019s Lisa Su Shops In Seoul",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T09:25:44.911827-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;Nvidia\u2019s big bet on physical AI aims for safer robotaxis, humanoid robots&#39; - Ars Technica",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T09:25:44.916309-04:00",
     "symbols": [
       "NVDA"
@@ -5052,5 +4858,203 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T13:35:12.420286-04:00",
+    "symbols": [
+      "AVGO",
+      "CRWD",
+      "MU",
+      "NVDA",
+      "ORCL",
+      "SNDK"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T13:35:12.692788-04:00",
+    "symbols": [
+      "RIVN",
+      "TSLA"
+    ],
+    "headline": "9 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T13:35:12.954821-04:00",
+    "symbols": [
+      "CAT",
+      "ETN",
+      "GEV"
+    ],
+    "headline": "8 Industrials Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T13:35:45.113208-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T13:35:45.580992-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "President Trump Bought Up To $25M Of Meta Platforms Stock - CNBC Cites August Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T13:35:46.215819-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "9 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T13:35:47.333832-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T13:35:47.721522-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T13:35:47.920027-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T13:35:49.157549-04:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "9 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T13:35:52.116208-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-08T13:35:56.027945-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "8 Industrials Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T13:35:56.652642-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "8 Industrials Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T13:35:56.851237-04:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "8 Industrials Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T13:35:57.046373-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "TD Cowen Reinstates Hold on JPMorgan Chase, Announces $370 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T13:35:57.272357-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "TD Cowen Initiates Coverage On Goldman Sachs Group with Buy Rating, Announces Price Target of $1050",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T13:35:59.013136-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T13:36:00.671230-04:00",
+    "symbols": [
+      "BFRI"
+    ],
+    "headline": "Biofrontera Refiles Supplemental New Drug Application For Ameluz Topical Gel To FDA To Treat Actinic Keratoses",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T13:36:02.529751-04:00",
+    "symbols": [
+      "LFS"
+    ],
+    "headline": "Full Transcript: Leifras Co Q2 2026 Earnings Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

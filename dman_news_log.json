@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-08T09:25:51.194923-04:00",
-    "symbols": [
-      "CPHI"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T09:25:51.199794-04:00",
-    "symbols": [
-      "CPHI"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-08T09:25:51.280820-04:00",
     "symbols": [
       "DBGI"
@@ -5065,6 +5045,26 @@
       "ZS"
     ],
     "headline": "U.S. Cybersecurity Agencies Warn China-Based Cybersecurity Company Enabling Threat Actors To Target Multiple Critical Infrastructure Sectors Worldwide",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T14:01:46.362719-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Live On Bloomberg TV, Fed&#39;s Musalem Says AI Investment And Government Deficits Also Pressuring Yields Higher; AI Investment Is Affecting Government Borrowing Costs; Market Inflation Expectations Anchored Because Investors See Fed Raising Rates To Combat Inflation",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T14:02:30.498872-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Live On Bloomberg TV, Fed&#39;s Musalem Says Strong Demand For Capital Likely To Keep Rates Higher Than They Used To Be; US Government Has Been On An Unsustainable Fiscal Path For Years",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

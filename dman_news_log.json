@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-07T15:24:54.311345-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;US FCC to vote to ban Chinese labs from testing US electronics&#39; - Reuters",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T15:25:03.168956-04:00",
     "symbols": [
       "BSP"
@@ -5042,6 +5032,16 @@
       "SPY"
     ],
     "headline": "President Trump On Truth Social Says We Are Having Productive Discussions With Islamic Republic Of Iran; We Will Not Be Attacking Iran At Any Time Prior To Midterm Elections To Be Held In United States On November 3rd",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T12:26:50.234775-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Chairman Warsh To Speak On October 16 At IMF",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

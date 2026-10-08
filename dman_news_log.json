@@ -1,127 +1,5 @@
 [
   {
-    "ts": "2026-10-08T10:25:09.525878-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Jeff Bezos Could Take Blue Origin Public. Amazon Investors Just Got a New Space Question",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T10:25:10.229560-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Jeff Bezos Could Take Blue Origin Public. Amazon Investors Just Got a New Space Question",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T10:28:31.017879-04:00",
-    "symbols": [
-      "ZENA"
-    ],
-    "headline": "ZenaTech Reports Preliminary Q3 Total Revenue Range $9.5M - $10.5M",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T10:30:12.839092-04:00",
-    "symbols": [
-      "ADBE",
-      "MSFT",
-      "SPY"
-    ],
-    "headline": "U.S. Labor Secretary Says Is Suspending Some Of The Largest IT Sourcing Firms In The World From Labor Certification Program Including Microsoft, Adobe",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T10:34:23.358818-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Announces Commitments Valued At $1B To Advance U.S. Science Over The Next Five Years",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T10:34:54.086981-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "U.S. Labor Secretary Says Is Suspending Some Of The Largest IT Sourcing Firms In The World From Labor Certification Program Including Microsoft, Adobe",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T10:34:54.271951-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Labor Secretary Says Is Suspending Some Of The Largest IT Sourcing Firms In The World From Labor Certification Program Including Microsoft, Adobe",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T10:34:54.277626-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Vice President Vance Says U.S. Suspending Perm Program For Microsoft; Message To Microsoft Is You&#39;ve Got To Hire American Workers; U.S. Is Reforming H-1B, J-1 Visa Programs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T10:34:57.716447-04:00",
-    "symbols": [
-      "NGNE"
-    ],
-    "headline": "JP Morgan Initiates Coverage On Neurogene with Overweight Rating, Announces Price Target of $60",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T10:34:57.952599-04:00",
-    "symbols": [
-      "BNO"
-    ],
-    "headline": "Jim Cramer Says Oil Surge, Higher Rates Are \u2018Convenient Excuses\u2019 To Sell Semis as QQQ, SOXX Drop and Investors Question Data Center Spending",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T10:34:58.166906-04:00",
-    "symbols": [
-      "USO"
-    ],
-    "headline": "Houthi Military Warns At Saudi Oil Workers To Avoid Target Sites In That Country; Repeats Warning To Airlines And Airports",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T10:34:58.171899-04:00",
-    "symbols": [
-      "USO"
-    ],
-    "headline": "&#39;Russia\u2019s Oil Product Exports Rise Even as Diesel Shipments Slump&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-08T10:34:58.176408-04:00",
     "symbols": [
       "USO"
@@ -5067,6 +4945,130 @@
       "MA"
     ],
     "headline": "Forget the AI Bubble: Jordi Visser Says the &#39;Bankpocalypse&#39; Has Begun",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T14:41:40.045001-04:00",
+    "symbols": [
+      "ADBE",
+      "AMD",
+      "AVGO",
+      "MSFT",
+      "NVDA"
+    ],
+    "headline": "Microsoft&#39;s Visa Freeze Could Trigger an AI &#39;Brain Drain&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T14:41:49.695479-04:00",
+    "symbols": [
+      "QNME"
+    ],
+    "headline": "Quanome Signs 60-Month AI Infrastructure Services Agreement Worth More Than $100M, Secures First Enterprise Customer And Orders 32 Additional GPU Servers",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T14:42:08.916392-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft&#39;s Visa Freeze Could Trigger an AI &#39;Brain Drain&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T14:42:09.226456-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Microsoft&#39;s Visa Freeze Could Trigger an AI &#39;Brain Drain&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T14:42:09.583477-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Microsoft&#39;s Visa Freeze Could Trigger an AI &#39;Brain Drain&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T14:42:10.278924-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "What Is Going on With Alphabet Stock on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T14:42:10.284460-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Jeff Bezos Could Take Blue Origin Public. Amazon Investors Just Got a New Space Question",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T14:42:11.528691-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Microsoft&#39;s Visa Freeze Could Trigger an AI &#39;Brain Drain&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T14:42:23.027302-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Microsoft&#39;s Visa Freeze Could Trigger an AI &#39;Brain Drain&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T14:42:23.031970-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "U.S. Labor Secretary Says Is Suspending Some Of The Largest IT Sourcing Firms In The World From Labor Certification Program Including Microsoft, Adobe",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T14:42:27.373997-04:00",
+    "symbols": [
+      "ZENA"
+    ],
+    "headline": "ZenaTech Reports Preliminary Q3 Total Revenue Range $9.5M - $10.5M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T14:42:29.898300-04:00",
+    "symbols": [
+      "NGNE"
+    ],
+    "headline": "JP Morgan Initiates Coverage On Neurogene with Overweight Rating, Announces Price Target of $60",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

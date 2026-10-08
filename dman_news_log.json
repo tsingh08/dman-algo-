@@ -1,46 +1,5 @@
 [
   {
-    "ts": "2026-10-07T14:45:52.119278-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "What&#39;s Going On With Broadcom Stock Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T14:51:02.698342-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "EU Countries Agreed That Any Release Of Oil Stocks Should Be Done Under The Iea&#39;s March Stock Release Action",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T14:51:16.384772-04:00",
-    "symbols": [
-      "ETN",
-      "GEV"
-    ],
-    "headline": "Shares of data center infrastructure-related companies are trading lower as the U.S. 10-year yield spikes to its highest level in 24 years, which can lead to concerns about Fed rate hikes and elevated borrowing costs for a sector that is highly exposed to leveraged capex borrowing.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T14:56:08.456087-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Caterpillar Stock Drops as FTC and USDA Seek Comments",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T14:56:36.550752-04:00",
     "symbols": [
       "MU"
@@ -5044,6 +5003,46 @@
     ],
     "headline": "&#39;SpaceX Crew Capsule Splashes Down in Pacific After ISS Stay&#39;- Bloomberg",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T11:58:28.996619-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "SpaceX\u2019s $500 Billion AI Data Center Gamble Has Real Revenue Behind It, Says FT\u2019s John Foley",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T11:58:29.095095-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "SpaceX\u2019s $500 Billion AI Data Center Gamble Has Real Revenue Behind It, Says FT\u2019s John Foley",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T11:58:29.529715-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "SpaceX\u2019s $500 Billion AI Data Center Gamble Has Real Revenue Behind It, Says FT\u2019s John Foley",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T11:58:40.172245-04:00",
+    "symbols": [
+      "CMG"
+    ],
+    "headline": "QUICK SPARK: Chipotle Stock Eyes Best Day Since July on Starbucks&#39; Takeover Interest",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

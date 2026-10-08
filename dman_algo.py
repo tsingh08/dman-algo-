@@ -7649,7 +7649,8 @@ SIGNAL_POWER_MIN_LABELS   = 150
 SIGNAL_CAPTURE_MIN_N = 20
 
 
-def _mark_signal_not_taken(ticker: str, reason: str) -> bool:
+def _mark_signal_not_taken(ticker: str, reason: str,
+                           only_if_taken: bool = False) -> bool:
     """Undo the scanner's optimistic taken=True when the ORDER PATH refused.
 
     run_pro_scanner() calls _mark_signals_taken() on everything it returns,
@@ -7690,14 +7691,50 @@ def _mark_signal_not_taken(ticker: str, reason: str) -> bool:
                 continue
             if str(_row.get("ticker", "")).upper() != _t:
                 continue
+            # only_if_taken is for the end-of-submit sweep: it corrects a
+            # stale taken=True without overwriting a SPECIFIC reason an
+            # earlier, better-informed refusal already recorded.
+            if only_if_taken and not _row.get("taken"):
+                return False
             _row["taken"] = False
-            _row["reject"] = str(reason or "order path refused")[:60]
+            if not (only_if_taken and _row.get("reject")):
+                _row["reject"] = str(reason or "order path refused")[:60]
             _write_json_atomic(SIGNAL_FEATURES_FILE, _log, indent=0)
             return True
         return False
     except Exception as exc:
         _log_swallowed("mark signal not taken", exc)
         return False
+
+
+def _reconcile_offered_signals(offered, placed) -> int:
+    """Any offered signal that never got an order is not a taken signal.
+
+    Added 2026-10-08. The 2026-10-05 pass instrumented the submit loop's six
+    refusals; the 2026-10-07 pass stopped after-hours scans claiming taken.
+    Wednesday still produced one contradiction -- PENG, taken=True with
+    reject="alert only: off-watchlist", logged 13:18 with the market open, so
+    neither earlier fix covered it.
+
+    The reason is structural: _live_mode_preflight() REASSIGNS `signals`, so a
+    signal it filters never reaches the per-signal loop and never gets a
+    refusal recorded. Instrumenting that path would close this instance and
+    leave the next one. This closes the class instead: whatever happened in
+    between, a ticker that was handed to the order path and did not come out
+    with an order is not taken.
+
+    Non-destructive by design -- it only corrects rows still reading
+    taken=True, and keeps a specific reason over its own generic one.
+    """
+    _n = 0
+    for _t in sorted({str(x).upper() for x in (offered or []) if x}
+                     - {str(x).upper() for x in (placed or []) if x}):
+        try:
+            if _mark_signal_not_taken(_t, "no order placed", only_if_taken=True):
+                _n += 1
+        except Exception as exc:
+            _log_swallowed("reconcile offered signals", exc)
+    return _n
 
 
 def _order_path_can_act() -> tuple:
@@ -28827,11 +28864,20 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
         print(f"  🛑 {_cb_reason[:1].upper()}{_cb_reason[1:]} — no orders.")
         return
 
+    # Everything handed to this function, before any filtering below. The
+    # finally-block reconciles it against what actually got an order.
+    _offered = [getattr(_s, "ticker", "") for _s in signals]
+    _placed: list = []
+
     mode_label = "PAPER" if ALPACA_PAPER else "LIVE"
 
     # ── Live-mode safety warnings ──────────────────────────────────────────
     _pre = _live_mode_preflight(signals)
     if _pre is None:
+        # Nothing was offered to the broker, so nothing here is taken. This is
+        # the branch that produced PENG on 2026-10-07: it returns before the
+        # per-signal loop, so no refusal was ever recorded.
+        _reconcile_offered_signals(_offered, _placed)
         return
     signals, _options_only_overnight, _share_ok = _pre
 
@@ -29123,11 +29169,17 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
         if _skip_shares:
             continue
 
+        _before_submitted = submitted
         _skip_record_fill, submitted = _submit_path_record_fill(_opt_contract, _submit_err, _use_options, _use_puts, cur, mode_label, oid, pt, sig, submitted)
+        if submitted > _before_submitted:
+            _placed.append(sig.ticker)
         if _skip_record_fill:
             continue
 
-    print(f"  📤 {submitted}/{len(signals)} signal(s) submitted [{mode_label}]\n")
+    _unresolved = _reconcile_offered_signals(_offered, _placed)
+    _swept = f" - {_unresolved} stale taken flag(s) corrected" if _unresolved else ""
+    print(f"  📤 {submitted}/{len(signals)} signal(s) submitted [{mode_label}]{_swept}")
+    print()
 
 
 # ═══════════════════════════════════════════════════════════════════════════

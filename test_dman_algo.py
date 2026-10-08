@@ -13562,6 +13562,17 @@ class TestSubmitSignalsSizeMult(unittest.TestCase):
     auto-execute path — verifies it actually compounds into the options
     budget rather than just being accepted and silently ignored."""
 
+    def setUp(self):
+        # Hermetic 2026-10-08: these drive _submit_signals_to_alpaca() with a
+        # "Gap & Hold" signal, and ENABLE_SETUP_KILL reads the LIVE record from
+        # dman_live_outcomes. Gap & Hold crossed the kill thresholds on
+        # 2026-10-07 (7W/28L, -65.6%), so these started failing for a reason
+        # that has nothing to do with what they test. They assert sizing and
+        # routing, not whether a setup is currently enabled.
+        self._nokill = patch.object(a, "_setup_is_disabled", return_value=(False, ""))
+        self._nokill.start()
+        self.addCleanup(self._nokill.stop)
+
     def _run(self, size_mult):
         sig = a.ProSignal(
             ticker="TESTX", bias="LONG", setup="Gap & Hold",   # in OPTIONS_SETUPS
@@ -15199,6 +15210,17 @@ class TestReanchorPreservesTargetRatio(unittest.TestCase):
     overwrite bugs you look at. This locks in that the re-anchor now scales
     the signal's OWN target ratio to the live entry, not a fixed multiplier."""
 
+    def setUp(self):
+        # Hermetic 2026-10-08: these drive _submit_signals_to_alpaca() with a
+        # "Gap & Hold" signal, and ENABLE_SETUP_KILL reads the LIVE record from
+        # dman_live_outcomes. Gap & Hold crossed the kill thresholds on
+        # 2026-10-07 (7W/28L, -65.6%), so these started failing for a reason
+        # that has nothing to do with what they test. They assert sizing and
+        # routing, not whether a setup is currently enabled.
+        self._nokill = patch.object(a, "_setup_is_disabled", return_value=(False, ""))
+        self._nokill.start()
+        self.addCleanup(self._nokill.stop)
+
     def test_custom_ratio_is_preserved_when_re_anchored_to_a_new_entry(self):
         # Signal detected at entry=10, stop=9 (risk=1), target1=13 (3R),
         # target2=16 (6R) -- deliberately not 2.5R/4.0R. Live fill price
@@ -15245,6 +15267,17 @@ class TestSubmitSignalsSkipsZeroShareSizing(unittest.TestCase):
     more than a reasonable margin (see TestKellyFloorDoesNotOvershootRisk)
     -- _submit_signals_to_alpaca() must actually skip that signal, not
     attempt to submit a qty=0 order."""
+
+    def setUp(self):
+        # Hermetic 2026-10-08: these drive _submit_signals_to_alpaca() with a
+        # "Gap & Hold" signal, and ENABLE_SETUP_KILL reads the LIVE record from
+        # dman_live_outcomes. Gap & Hold crossed the kill thresholds on
+        # 2026-10-07 (7W/28L, -65.6%), so these started failing for a reason
+        # that has nothing to do with what they test. They assert sizing and
+        # routing, not whether a setup is currently enabled.
+        self._nokill = patch.object(a, "_setup_is_disabled", return_value=(False, ""))
+        self._nokill.start()
+        self.addCleanup(self._nokill.stop)
 
     def _sig(self):
         return a.ProSignal(
@@ -15327,6 +15360,17 @@ class TestOptionsUnavailableSkipsInsteadOfSharesFallback(unittest.TestCase):
     ever happen for a real low-float catalyst pick, everything else must
     skip outright rather than settle for a consolation equity position."""
 
+    def setUp(self):
+        # Hermetic 2026-10-08: these drive _submit_signals_to_alpaca() with a
+        # "Gap & Hold" signal, and ENABLE_SETUP_KILL reads the LIVE record from
+        # dman_live_outcomes. Gap & Hold crossed the kill thresholds on
+        # 2026-10-07 (7W/28L, -65.6%), so these started failing for a reason
+        # that has nothing to do with what they test. They assert sizing and
+        # routing, not whether a setup is currently enabled.
+        self._nokill = patch.object(a, "_setup_is_disabled", return_value=(False, ""))
+        self._nokill.start()
+        self.addCleanup(self._nokill.stop)
+
     def test_options_eligible_but_unfillable_non_watchlist_signal_is_skipped_not_bought(self):
         sig = a.ProSignal(
             ticker="NDSN", bias="LONG", setup="Gap & Hold",   # Gap & Hold is in OPTIONS_SETUPS
@@ -15374,6 +15418,17 @@ class TestSubmitSignalsRespectsMaxPositionsBeforeSubmission(unittest.TestCase):
     of any kind (no broker-side bracket by design) until a human notices an
     orphan alert. The capacity check must happen before any order is
     submitted, not after."""
+
+    def setUp(self):
+        # Hermetic 2026-10-08: these drive _submit_signals_to_alpaca() with a
+        # "Gap & Hold" signal, and ENABLE_SETUP_KILL reads the LIVE record from
+        # dman_live_outcomes. Gap & Hold crossed the kill thresholds on
+        # 2026-10-07 (7W/28L, -65.6%), so these started failing for a reason
+        # that has nothing to do with what they test. They assert sizing and
+        # routing, not whether a setup is currently enabled.
+        self._nokill = patch.object(a, "_setup_is_disabled", return_value=(False, ""))
+        self._nokill.start()
+        self.addCleanup(self._nokill.stop)
 
     def _sig(self, ticker="TEST"):
         return a.ProSignal(
@@ -15449,6 +15504,17 @@ class TestSubmitSignalsProbationSizing(unittest.TestCase):
     scanner-level guard), and the probation size_mult must compound into
     the same _risk_off_mult chain that already scales shares for
     macro/hot-streak/cold-streak sizing."""
+
+    def setUp(self):
+        # Hermetic 2026-10-08: these drive _submit_signals_to_alpaca() with a
+        # "Gap & Hold" signal, and ENABLE_SETUP_KILL reads the LIVE record from
+        # dman_live_outcomes. Gap & Hold crossed the kill thresholds on
+        # 2026-10-07 (7W/28L, -65.6%), so these started failing for a reason
+        # that has nothing to do with what they test. They assert sizing and
+        # routing, not whether a setup is currently enabled.
+        self._nokill = patch.object(a, "_setup_is_disabled", return_value=(False, ""))
+        self._nokill.start()
+        self.addCleanup(self._nokill.stop)
 
     def _sig(self, shares=10):
         return a.ProSignal(
@@ -23708,3 +23774,104 @@ class TestAnAfterHoursScanCannotClaimASignalWasTaken(unittest.TestCase):
         src = inspect.getsource(a)
         i = src.index("pre-market: ")
         self.assertIn("_mark_signal_not_taken", src[i:i + 700])
+
+
+class TestAnOfferedSignalWithoutAnOrderIsNotTaken(unittest.TestCase):
+    """Wednesday 2026-10-07: PENG, taken=True AND reject="alert only:
+    off-watchlist", logged 13:18 with the market OPEN.
+
+    Third contradiction in three days, and neither earlier fix covered it. The
+    2026-10-05 pass instrumented the submit loop's six refusals; the 2026-10-07
+    pass stopped after-hours scans claiming taken. This one happened mid-session
+    with a working order path.
+
+    The cause is structural: _live_mode_preflight() REASSIGNS `signals`, so a
+    signal it filters never reaches the per-signal loop and never has a refusal
+    recorded. Instrumenting that one path would close this instance and leave
+    the next. So the rule is now stated once, at the end: a ticker handed to the
+    order path that did not come out with an order is not taken."""
+
+    def setUp(self):
+        self._tmp = tempfile.mkdtemp()
+        self._f = os.path.join(self._tmp, "feat.json")
+        self._p = patch.object(a, "SIGNAL_FEATURES_FILE", self._f)
+        self._p.start()
+
+    def tearDown(self):
+        self._p.stop()
+        import shutil as _sh
+        _sh.rmtree(self._tmp, ignore_errors=True)
+
+    def _seed(self, taken=True, reject=""):
+        rows = [{"date": str(a._et_today()), "ticker": "PENG",
+                 "setup": "Gap & Hold", "taken": taken, "reject": reject,
+                 "score": 100}]
+        with open(self._f, "w") as fh:
+            json.dump(rows, fh)
+
+    def _row(self):
+        with open(self._f) as fh:
+            return json.load(fh)[-1]
+
+    def test_an_offered_signal_with_no_order_is_corrected(self):
+        """The PENG case."""
+        self._seed(taken=True, reject="alert only: off-watchlist")
+        self.assertEqual(a._reconcile_offered_signals(["PENG"], []), 1)
+        self.assertFalse(self._row()["taken"])
+
+    def test_it_keeps_the_specific_reason_over_its_own_generic_one(self):
+        """"no order placed" is true but less useful than what the refusal knew."""
+        self._seed(taken=True, reject="alert only: off-watchlist")
+        a._reconcile_offered_signals(["PENG"], [])
+        self.assertEqual(self._row()["reject"], "alert only: off-watchlist")
+
+    def test_it_supplies_a_reason_when_there_was_none(self):
+        self._seed(taken=True, reject="")
+        a._reconcile_offered_signals(["PENG"], [])
+        self.assertEqual(self._row()["reject"], "no order placed")
+
+    def test_a_signal_that_got_an_order_is_left_alone(self):
+        """The feature must survive: a real fill stays taken."""
+        self._seed(taken=True, reject="")
+        self.assertEqual(a._reconcile_offered_signals(["PENG"], ["PENG"]), 0)
+        self.assertTrue(self._row()["taken"])
+
+    def test_it_never_touches_an_already_untaken_row(self):
+        """only_if_taken: it corrects a stale flag, it does not rewrite history."""
+        self._seed(taken=False, reject="mtf: weekly disagrees")
+        self.assertEqual(a._reconcile_offered_signals(["PENG"], []), 0)
+        self.assertEqual(self._row()["reject"], "mtf: weekly disagrees")
+
+    def test_case_and_blanks_do_not_break_the_comparison(self):
+        self._seed(taken=True)
+        self.assertEqual(a._reconcile_offered_signals(["peng", "", None], []), 1)
+
+    def test_a_missing_file_does_not_raise(self):
+        self._seed(taken=True)
+        os.remove(self._f)
+        self.assertEqual(a._reconcile_offered_signals(["PENG"], []), 0)
+
+    # --- wiring -----------------------------------------------------------
+    def test_the_submit_path_reconciles_on_the_normal_exit(self):
+        """Both exits must sweep, not just the bail.
+
+        The first version of this only asserted the name APPEARED in the
+        source, which stayed true when the end-of-function sweep was deleted
+        and the preflight one kept -- mutation testing caught it. So: there
+        must be a call AFTER the per-signal loop, not merely a call."""
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        self.assertGreaterEqual(src.count("_reconcile_offered_signals("), 2)
+        after_loop = src[src.rindex("_submit_path_record_fill("):]
+        self.assertIn("_reconcile_offered_signals(", after_loop)
+
+    def test_it_also_reconciles_on_the_preflight_bail(self):
+        """That bail is the branch that produced PENG."""
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        i = src.index("if _pre is None:")
+        self.assertIn("_reconcile_offered_signals", src[i:i + 400])
+
+    def test_the_offered_list_is_captured_before_any_filtering(self):
+        """If it were captured after preflight, the filtered ones would be
+        invisible to the sweep -- which is the whole bug."""
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        self.assertLess(src.index("_offered = ["), src.index("_live_mode_preflight"))

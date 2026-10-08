@@ -120,6 +120,12 @@ def run(name, over):
         patch.object(a, "is_market_open", return_value=True),
         patch.object(a, "label_signal_features"),
         patch.object(a, "_enforce_setup_drift_restrictions"),
+        # Hermetic 2026-10-08: _disabled_setups_alert() reads the LIVE setup
+        # record, so without this the golden drifts with the trading results --
+        # it would go red on an unrelated day and get re-recorded blindly,
+        # which is how a characterization test stops characterizing anything.
+        # Whether a setup is currently killed is not what this golden pins.
+        patch.object(a, "_setup_live_record", return_value={}),
         patch.object(a, "is_on_probation", return_value=cfg["probation"]),
         patch.object(a, "_scan_consecutive_loss_gate", return_value=cfg["consec"]),
         patch.object(a, "get_todays_loss", return_value=cfg["todays_loss"]),

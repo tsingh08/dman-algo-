@@ -23875,3 +23875,103 @@ class TestAnOfferedSignalWithoutAnOrderIsNotTaken(unittest.TestCase):
         invisible to the sweep -- which is the whole bug."""
         src = inspect.getsource(a._submit_signals_to_alpaca)
         self.assertLess(src.index("_offered = ["), src.index("_live_mode_preflight"))
+
+
+class TestADisabledSetupIsAnnounced(unittest.TestCase):
+    """The kill-switch notice had NEVER fired. 183 alert keys on record,
+    not one SETUP_KILL among them.
+
+    It lived inside _submit_signals_to_alpaca()'s per-signal loop, so it only
+    fired when a signal of that setup REACHED the order path. Every Gap & Hold
+    signal in the week of 2026-10-05 was refused earlier -- MTF gate, pre-9:45
+    gate, watchlist -- and never got that far. So the single most consequential
+    state change the system can undergo, its primary setup turning itself off
+    on a 7W/28L / -65.6% record, was invisible.
+
+    Same failure as the stdout-only heat cap and the blank reject reason, in
+    the place it matters most: this does not reduce trading, it ENDS it for
+    that setup, and it persists until a human acts."""
+
+    REC = {"Gap & Hold": {"n": 35, "wins": 7, "cum_pct": -65.6},
+           "Morning Runner": {"n": 4, "wins": 0, "cum_pct": -22.4}}
+
+    def _run(self, rec=None, dupe=False):
+        sent = []
+        with patch.object(a, "_setup_live_record", return_value=rec or self.REC),              patch.object(a, "send_telegram", side_effect=lambda m, **k: sent.append(m)),              patch.object(a, "_is_duplicate_alert", return_value=dupe),              patch.object(a, "_save_last_alert"):
+            names = a._disabled_setups_alert()
+        return names, sent
+
+    def test_it_announces_a_killed_setup_with_no_signal_required(self):
+        """The whole point: it reads the live record, not today's signals."""
+        names, sent = self._run()
+        self.assertIn("Gap & Hold", names)
+        self.assertEqual(len(sent), 1)
+        self.assertIn("Gap &amp; Hold", sent[0])
+
+    def test_it_states_the_record_that_caused_it(self):
+        _n, sent = self._run()
+        self.assertIn("7W/28L", sent[0])
+        self.assertIn("-65.6", sent[0])
+
+    def test_it_names_the_override(self):
+        """A standing block the operator cannot lift is worse than no block."""
+        _n, sent = self._run()
+        self.assertIn("setupkill off", sent[0])
+
+    def test_it_says_this_is_not_a_market_call(self):
+        """Same confusion the heat-cap alert guards against: an empty book read
+        as 'no setups out there'."""
+        _n, sent = self._run()
+        self.assertIn("not a market call", sent[0].lower())
+
+    def test_a_setup_under_the_trade_minimum_is_not_announced(self):
+        """Morning Runner is 0W/4L -- bad, but n=4 is below SETUP_KILL_MIN_TRADES."""
+        names, _s = self._run()
+        self.assertNotIn("Morning Runner", names)
+
+    def test_nothing_disabled_means_no_message(self):
+        names, sent = self._run(rec={"Day 2 Continuation": {"n": 2, "wins": 1, "cum_pct": 3.6}})
+        self.assertEqual(names, [])
+        self.assertEqual(sent, [])
+
+    def test_it_is_deduped_on_the_SET_not_the_clock(self):
+        """So it re-announces when another setup joins, and stays quiet
+        otherwise -- the standing instruction here is fewer, higher-signal
+        messages."""
+        with patch.object(a, "_setup_live_record", return_value=self.REC),              patch.object(a, "send_telegram"),              patch.object(a, "_is_duplicate_alert") as dup,              patch.object(a, "_save_last_alert"):
+            dup.return_value = False
+            a._disabled_setups_alert()
+        key = dup.call_args[0][0]
+        self.assertIn("Gap & Hold", key)
+
+    def test_a_duplicate_is_not_resent(self):
+        _n, sent = self._run(dupe=True)
+        self.assertEqual(sent, [])
+
+    def test_it_never_raises(self):
+        with patch.object(a, "_setup_live_record", side_effect=RuntimeError("boom")),              patch.object(a, "_log_swallowed"):
+            self.assertEqual(a._disabled_setups_alert(), [])
+
+    # --- wiring ------------------------------------------------------------
+    def test_the_scanner_calls_it_every_scan(self):
+        """Fourth appearance of the needle-in-a-comment trap, so this asserts
+        the ASSIGNMENT, not the name.
+
+        The first version checked that run_pro_scanner's source contained
+        "_disabled_setups_alert" -- which stayed true with the call deleted,
+        because the comment directly above it reads "See
+        _disabled_setups_alert() for why". tools/hollow_assert_check.py did not
+        catch it either: it verifies a needle appears in executable code
+        somewhere in the module, and this one does, just not here."""
+        src = inspect.getsource(a.run_pro_scanner)
+        self.assertIn("_disabled_now = _disabled_setups_alert()", src)
+
+    def test_the_kill_site_now_records_its_reason(self):
+        """Seventh refusal in the submit path; the 2026-10-05 pass covered six.
+        Without it the sweep still fixes the label but logs the generic
+        'no order placed' instead of the most informative reason available."""
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        i = src.index("_setup_is_disabled(sig.setup)")
+        blk = src[i:i + 900]
+        self.assertIn("_mark_signal_not_taken", blk)
+        self.assertIn("setup disabled", blk)

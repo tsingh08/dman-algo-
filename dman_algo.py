@@ -3689,6 +3689,51 @@ def _enforce_setup_drift_restrictions(tracker: "WinRateTracker") -> list[str]:
     return newly
 
 
+def _disabled_setups_alert() -> list:
+    """Say which setups the kill switch has turned off. Returns their names.
+
+    The existing notice lives inside _submit_signals_to_alpaca()'s per-signal
+    loop, so it only fires when a signal of that setup REACHES the order path.
+    Measured 2026-10-08: it had never fired -- 183 alert keys on record, not one
+    SETUP_KILL among them -- because every Gap & Hold signal this week was
+    refused earlier by the MTF gate, the pre-9:45 gate or the watchlist, and
+    never got that far.
+
+    So the single most consequential state change the system can undergo, its
+    primary setup turning itself off on a 7W/28L record, was invisible to the
+    operator. That is the same failure as the stdout-only heat cap and the
+    blank reject reason, in the place where it matters most: this does not
+    reduce trading, it ENDS it for that setup, and it persists until someone
+    acts.
+
+    Reads the live record directly, so it is true whether or not a signal fires
+    today. Deduped on the SET of disabled names, not on time, so it re-announces
+    when another setup joins them and stays quiet otherwise.
+    """
+    _off: list = []
+    try:
+        for _name in sorted(_setup_live_record()):
+            _dis, _why = _setup_is_disabled(_name)
+            if _dis:
+                _off.append((_name, _why))
+        if not _off:
+            return []
+        _key = "__SETUPS_DISABLED__:" + ",".join(_n for _n, _ in _off)
+        if not _is_duplicate_alert(_key, 24 * 60):
+            send_telegram(
+                "\U0001f6d1 <b>" + str(len(_off)) + " setup(s) disabled by the "
+                "kill switch</b>\n"
+                + "\n".join(f"• {html.escape(_n)} — {html.escape(_w)}"
+                            for _n, _w in _off)
+                + "\n\nNo automatic entries on these. This is the live record, "
+                  "not a market call. <b>/flags setupkill off</b> overrides it."
+            )
+            _save_last_alert(_key)
+    except Exception as exc:
+        _log_swallowed("disabled setups alert", exc)
+    return [_n for _n, _ in _off]
+
+
 def _setup_is_disabled(setup: str) -> tuple[bool, str]:
     """(True, reason) if the live record says stop trading this setup."""
     if not flag("ENABLE_SETUP_KILL", ENABLE_SETUP_KILL):
@@ -23501,6 +23546,12 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
 
     signals = []
     rejected_counts = {"no_signal":0, "hard_gate":0, "low_score":0, "heat_cap":0}
+    # Independent of whether any signal survives today: a killed setup is a
+    # standing condition and the operator has to hear about it. See
+    # _disabled_setups_alert() for why the in-loop notice never fired.
+    _disabled_now = _disabled_setups_alert()
+    if _disabled_now:
+        print(f"  \U0001f6d1 setup(s) disabled by live record: {', '.join(_disabled_now)}")
     _ticker_scan_start = time.monotonic()
     _ticker_scan_budget = 15 * 60  # 15-min cap on ticker loop (leaves room for universe build + persist)
     _budget_hit = False
@@ -28949,6 +29000,11 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                     f"{html.escape(_kill_why)}.\n\nNo further entries on this setup. "
                     f"Send <b>/flags setupkill off</b> to override.")
                 _mark_alerted(_kk)
+            # The seventh refusal in this function; the 2026-10-05 pass covered
+            # six. Without this the end-of-function sweep still corrects the
+            # label, but records the generic "no order placed" instead of the
+            # most informative reason in the system right now.
+            _mark_signal_not_taken(sig.ticker, f"setup disabled: {_kill_why}")
             continue
 
         # Watchlist-only auto-execution -- see ENABLE_WATCHLIST_ONLY_AUTO for

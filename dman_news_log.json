@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-08T11:14:43.109739-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Energy Leads",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T11:14:43.634879-04:00",
     "symbols": [
       "ORCL"
@@ -5064,5 +5054,19 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T15:25:57.185718-04:00",
+    "symbols": [
+      "CEG",
+      "OKLO",
+      "SMR",
+      "TLN",
+      "VST"
+    ],
+    "headline": "Shares of power and electrical-related companies are trading lower following reports suggesting that OpenAI&#39;s annualized revenue is approximately $20 billion less than previously indicated, which pressures hyperscaler growth and slows demand for electrical grid upgrades and data center power infrastructure. Rising oil prices and climbing yields also weigh on the industry.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

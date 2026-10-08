@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-07T13:44:58.378928-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Marvell Stock Is Up 230% This Year: Bank of America Sees a Further 40% Upside",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:44:58.389439-04:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:44:58.393915-04:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-07T13:44:58.408264-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T13:44:58.421500-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Cloudflare Could Reach $800 Million Revenue in Q4, Analyst Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:44:58.426813-04:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Cloudflare Could Reach $800 Million Revenue in Q4, Analyst Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-07T13:44:58.442037-04:00",
     "symbols": [
       "ZS"
@@ -5027,5 +4967,68 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-08T10:05:56.195269-04:00",
+    "symbols": [
+      "ELAB"
+    ],
+    "headline": "PMGC Holdings Registers A Doing-Business-As Name As Northstrive Holdings, And Enters Into A Trademark License Agreement With NorthStrive Companies",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T10:08:42.886184-04:00",
+    "symbols": [
+      "MA",
+      "MU",
+      "NVDA",
+      "V"
+    ],
+    "headline": "Forget the AI Bubble: Jordi Visser Says the &#39;Bankpocalypse&#39; Has Begun",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T10:09:04.699126-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir Technologies shares are trading higher after Goldman Sachs upgraded the stock from Neutral to Buy and announced a $230 price target.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T10:09:17.855129-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Forget the AI Bubble: Jordi Visser Says the &#39;Bankpocalypse&#39; Has Begun",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T10:09:17.880783-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Elon Musk\u2019s \u2018Insatiable Sense of Urgency\u2019 Sets His Companies Apart, Says Former X CEO: &#39;There\u2019s Not a Deadline...it\u2019s Now&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T10:09:17.898196-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Forget the AI Bubble: Jordi Visser Says the &#39;Bankpocalypse&#39; Has Begun",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-08T09:25:46.706325-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Dow Jones, Nasdaq 100 Futures Decline as Pentagon Prepares for Potential Military Strikes on Iran \u2014 APLD, LEVI, MU in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T09:25:46.711143-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "What&#39;s Going On With Broadcom Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T09:25:46.715591-04:00",
     "symbols": [
       "MRVL"
@@ -5055,6 +5035,30 @@
     ],
     "headline": "&#39;Taylor Farms To Curb Lettuce Sales From Mexico After Massive Cyclospora Outbreak; After Thousands Of Foodborne Illnesses This Year, The Produce Giant Will Suspend Some Harvesting And Processing During Peak Summer Months&#39; - WSJ Exclusive",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T13:45:22.081833-04:00",
+    "symbols": [
+      "AMD",
+      "MU"
+    ],
+    "headline": "Micron Analyst Sees Stock Nearly Tripling to $3,000, Warns Short Sellers: &#39;You Have an Expiry&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T13:47:07.947275-04:00",
+    "symbols": [
+      "APLD",
+      "MARA",
+      "NBIS",
+      "RIOT"
+    ],
+    "headline": "Shares of AI cloud services companies are trading lower after reports suggesting that OpenAI&#39;s annualized revenue is approximately $20 billion less than previously indicated, which may dampen the demand outlook for suppliers of turnkey compute capacity.",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

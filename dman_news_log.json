@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-08T09:25:49.265495-04:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "What&#39;s Going On With IonQ Stock Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T09:25:49.342644-04:00",
-    "symbols": [
-      "WOLF"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-08T09:25:49.347674-04:00",
     "symbols": [
       "WOLF"
@@ -5060,6 +5040,26 @@
     "headline": "Hallador Energy Secures Record Capacity Pricing for Merom Station, Boosts Sales Book to $3 Billion",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T13:50:15.514014-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Live On Bloomberg TV, Fed&#39;s Musalem Says The Economy Is Pretty Strong Right Now, Best Thing Fed Can Do Is Lower Inflation",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T13:51:56.270648-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Live On Bloomberg TV, Fed&#39;s Musalem Says Job Market Is Overall Balanced And Stable, No Need To Cool Job Market To Get Inflation Down",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

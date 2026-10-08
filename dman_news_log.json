@@ -1,66 +1,5 @@
 [
   {
-    "ts": "2026-10-07T14:23:05.563333-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla Sold Less Than 1,000 EVs in India in First 12 Months: Here\u2019s Why There\u2019s Good News for Investors",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T14:24:51.391834-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "OpenAI Introduces GPT\u20116 And Intelligent UI For Everyone",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T14:26:27.874144-04:00",
-    "symbols": [
-      "LUNR",
-      "RKLB"
-    ],
-    "headline": "Shares of aerospace and defense companies are trading lower. Weakness may be amid sympathy with SpaceX after a report suggested that the company is looking to issue $40 billion in new debt to buy Nvidia chips for its data centers.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T14:26:44.225188-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Jefferies Maintains Buy on Marvell Technology, Raises Price Target to $450",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T14:26:44.602217-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Why Is BKV Stock Surging Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T14:26:44.999008-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Why Is BKV Stock Surging Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T14:26:45.081348-04:00",
     "symbols": [
       "AMZN"
@@ -5045,5 +4984,65 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T11:33:22.967584-04:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "Spotify Won&#39;t Let Go of Joe Rogan, Podcast King Secures Another Multiyear Deal",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T11:33:31.677561-04:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "Bitcoin Slide Meets 5.7% Bond Yields: Neoclouds Get Hit From Both Sides",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-08T11:33:31.804230-04:00",
+    "symbols": [
+      "CLSK"
+    ],
+    "headline": "Bitcoin Slide Meets 5.7% Bond Yields: Neoclouds Get Hit From Both Sides",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T11:33:31.856978-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Bitcoin Slide Meets 5.7% Bond Yields: Neoclouds Get Hit From Both Sides",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T11:33:31.878485-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Bitcoin Slide Meets 5.7% Bond Yields: Neoclouds Get Hit From Both Sides",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T11:33:31.898529-04:00",
+    "symbols": [
+      "PCRX"
+    ],
+    "headline": "Needham Downgrades Pacira BioSciences to Hold",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

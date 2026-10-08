@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-08T09:25:51.280820-04:00",
-    "symbols": [
-      "DBGI"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T09:25:51.366955-04:00",
-    "symbols": [
-      "FGL"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-08T09:25:51.449728-04:00",
     "symbols": [
       "FMFC"
@@ -5065,6 +5045,26 @@
       "SPY"
     ],
     "headline": "Live On Bloomberg TV, Fed&#39;s Musalem Says Strong Demand For Capital Likely To Keep Rates Higher Than They Used To Be; US Government Has Been On An Unsustainable Fiscal Path For Years",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T14:03:22.772776-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Live On Bloomberg TV, Fed&#39;s Musalem Says It&#39;s Possible Government Debt Levels May Eventually Create Risks; Fed Does Not Focus On Government Debt Management; Monetary Policy Independence Is A Valuable Asset",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T14:05:42.485464-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Live On Bloomberg TV, Fed&#39;s Musalem Says Important To Keep Government Debt Management And Monetary Policy Seperate; Financial Conditions Have Tightened Modestly But Are Accomodative And Supporting Growth; Credit Conditions Solid And Good Amid Some &#39;Slight&#39; Issues In Market",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

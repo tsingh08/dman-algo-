@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-07T14:45:46.653154-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon AI Boom: Analysts See AWS, AI Agents Driving Bigger Growth",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T14:45:52.111228-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Dan Ives Names 5 Potential Tech Winners for 2027 as Investors Underestimate $4 Trillion Spending Wave",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-07T14:45:52.119278-04:00",
     "symbols": [
       "AVGO"
@@ -5046,5 +5026,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T11:53:24.708994-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Iran Will Not Give Up Right To Enrich Uranium&#39; - WANA News Agency",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T11:54:00.757991-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "&#39;SpaceX Crew Capsule Splashes Down in Pacific After ISS Stay&#39;- Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

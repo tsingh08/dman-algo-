@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-07T13:25:45.346280-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Global Bond Selloff Dents Market Bullishness \u2014 Treasury Auction To Test Sentiment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T13:25:45.350673-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is Super Micro Computer Stock Trading Higher Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T13:25:45.522848-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Global Bond Selloff Dents Market Bullishness \u2014 Treasury Auction To Test Sentiment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T13:25:45.615166-04:00",
     "symbols": [
       "META"
@@ -5042,5 +5012,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-08T09:56:40.549153-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "Susquehanna Maintains Positive on DraftKings, Lowers Price Target to $27",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T09:57:32.835181-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "What&#39;s Going On With Adobe Stock Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T10:00:27.304920-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Wholesale Trade Sales (MoM) For August 1.8% Vs 1.0% Prior",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

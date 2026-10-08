@@ -1,38 +1,5 @@
 [
   {
-    "ts": "2026-10-07T13:44:58.480643-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:46:31.454835-04:00",
-    "symbols": [
-      "NVDA",
-      "SPCX"
-    ],
-    "headline": "Why Is AST SpaceMobile Stock Falling on Wednesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-07T13:49:34.036585-04:00",
-    "symbols": [
-      "MSFT",
-      "NVDA",
-      "RTX"
-    ],
-    "headline": "Microsoft Exec Says RTX Spark-Based Machines With NVIDIA Chips Will Begin Shipping Next Week",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T13:49:35.068459-04:00",
     "symbols": [
       "SPY"
@@ -5028,6 +4995,37 @@
     ],
     "headline": "RBC Capital Maintains Outperform on Vertex Pharmaceuticals, Raises Price Target to $576",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T10:17:25.677244-04:00",
+    "symbols": [
+      "AMZN",
+      "SPCX"
+    ],
+    "headline": "Jeff Bezos Could Take Blue Origin Public. Amazon Investors Just Got a New Space Question",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T10:17:44.475598-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Forget the AI Bubble: Jordi Visser Says the &#39;Bankpocalypse&#39; Has Begun",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T10:17:44.580829-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Forget the AI Bubble: Jordi Visser Says the &#39;Bankpocalypse&#39; Has Begun",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

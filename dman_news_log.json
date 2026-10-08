@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-07T13:25:45.196713-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Rolls Out AI Coding Model That Can Run On Indivdual Laptops; New Nvidia Nemotron Model Will Run On Individual Laptops, PCs; OpenAI, Anthropic Will Adopt Microsoft Execution Containers For Agent Containment; Microsoft Execution Containers Will Work Across Windows, MacOS, Linux But Have Deeper Integration With Windows",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:25:45.202388-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Global Bond Selloff Dents Market Bullishness \u2014 Treasury Auction To Test Sentiment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:25:45.341080-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Microsoft Rolls Out AI Coding Model That Can Run On Indivdual Laptops; New Nvidia Nemotron Model Will Run On Individual Laptops, PCs; OpenAI, Anthropic Will Adopt Microsoft Execution Containers For Agent Containment; Microsoft Execution Containers Will Work Across Windows, MacOS, Linux But Have Deeper Integration With Windows",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-07T13:25:45.346280-04:00",
     "symbols": [
       "NVDA"
@@ -5042,5 +5012,35 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T09:55:40.430614-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Web Services Announces Golden Age of Science Accelerator, Commits Up to $50M in Cloud Credits to Support White House Expansion of Genesis Mission",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T09:55:52.465431-04:00",
+    "symbols": [
+      "GFS"
+    ],
+    "headline": "GlobalFoundries Reaches Deal With TSMC To Create U.S.-Based Supply Of Silicon Interposers For TSMC&#39;s CoWoS Advanced Packaging Ecosystem",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T09:55:52.564724-04:00",
+    "symbols": [
+      "SECZ"
+    ],
+    "headline": "Securitize Rolls Out Securitize Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

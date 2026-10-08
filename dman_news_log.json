@@ -1,26 +1,5 @@
 [
   {
-    "ts": "2026-10-07T13:16:37.271511-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;EU countries will release fresh oil stocks only after top agency assessment&#39;- Politico",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T13:18:09.703988-04:00",
-    "symbols": [
-      "NVDA",
-      "SMCI"
-    ],
-    "headline": "Why Is Super Micro Computer Stock Trading Higher Today?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-07T13:18:53.015679-04:00",
     "symbols": [
       "SPY"
@@ -5043,5 +5022,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T09:46:39.588830-04:00",
+    "symbols": [
+      "WOLF"
+    ],
+    "headline": "What&#39;s Going On With Wolfspeed Stock Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T09:46:59.085695-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "American Airlines To Install Starlink On All Mainline Aircraft Beginning Early 2027",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

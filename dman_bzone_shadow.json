@@ -748,5 +748,65 @@
 "extension_pct": 16.9,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "FRO",
+"date": "2026-10-08",
+"close": 56.26,
+"base_days": 2,
+"above_low_pct": 214.0,
+"extension_pct": 13.6,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "VLO",
+"date": "2026-10-08",
+"close": 443.8,
+"base_days": 0,
+"above_low_pct": 189.8,
+"extension_pct": 11.7,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "MPC",
+"date": "2026-10-08",
+"close": 463.34,
+"base_days": 0,
+"above_low_pct": 188.2,
+"extension_pct": 13.7,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "AMPL",
+"date": "2026-10-08",
+"close": 15.29,
+"base_days": 2,
+"above_low_pct": 172.5,
+"extension_pct": 11.6,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "HAE",
+"date": "2026-10-08",
+"close": 119.47,
+"base_days": 34,
+"above_low_pct": 145.9,
+"extension_pct": 13.3,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "HAFN",
+"date": "2026-10-08",
+"close": 10.85,
+"base_days": 2,
+"above_low_pct": 134.2,
+"extension_pct": 12.6,
+"fresh_base": false,
+"weak_band": false
 }
 ]

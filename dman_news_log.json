@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-07T14:26:48.283419-04:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "Why Is BKV Stock Surging Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T14:30:14.035498-04:00",
     "symbols": [
       "GOOGL",
@@ -5044,5 +5034,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T11:37:39.837103-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Reported Oct. 7: Slovakia Transport Minister Jozef Raz Announces Tesla Full Self-Driving Will Soon Be Available In Country",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

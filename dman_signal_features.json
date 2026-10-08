@@ -38828,8 +38828,8 @@
 "Gap Size": 3,
 "News Catalyst": 0
 },
-"seen": 2,
-"last_ts": "2026-10-08T09:26:05.113463-04:00",
+"seen": 4,
+"last_ts": "2026-10-08T09:30:32.801651-04:00",
 "entry_min": 72.61,
 "entry_max": 72.61
 },
@@ -38840,7 +38840,7 @@
 "setup": "Morning Runner",
 "bias": "LONG",
 "taken": false,
-"reject": "",
+"reject": "alert only: off-watchlist",
 "score": 100,
 "final_score": 100.0,
 "ai_scored": false,
@@ -38890,8 +38890,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 1,
-"last_ts": "2026-10-08T09:26:06.488800-04:00",
+"seen": 2,
+"last_ts": "2026-10-08T09:30:33.044023-04:00",
 "entry_min": 75.84,
 "entry_max": 75.84
 }

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-08T11:14:40.019549-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Energy Leads",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T11:14:43.109739-04:00",
     "symbols": [
       "CVX"
@@ -5064,5 +5054,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T15:23:49.557288-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Could Be the \u2018Toll Collector\u2019 of Consumer AI. Dan Ives Sees $75 More Per Share",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-10-07T09:25:49.100212-04:00",
-    "symbols": [
-      "BIYA"
-    ],
-    "headline": "Why Penguin Solutions Shares Are Trading Higher By Around 8%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T09:25:49.103880-04:00",
-    "symbols": [
-      "BIYA"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T09:25:49.182438-04:00",
-    "symbols": [
-      "MTEN"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T09:25:49.186518-04:00",
-    "symbols": [
-      "MTEN"
-    ],
-    "headline": "Why Penguin Solutions Shares Are Trading Higher By Around 8%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T09:25:49.190238-04:00",
-    "symbols": [
-      "MTEN"
-    ],
-    "headline": "Mingteng International Corporation (MTEN) Stock Rocketed Nearly 83% After Hours on $15 Million Acquisition Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T09:25:49.251835-04:00",
-    "symbols": [
-      "GIPR"
-    ],
-    "headline": "Why Penguin Solutions Shares Are Trading Higher By Around 8%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T09:25:49.316596-04:00",
-    "symbols": [
-      "NCPL"
-    ],
-    "headline": "Why Penguin Solutions Shares Are Trading Higher By Around 8%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-07T09:25:49.382225-04:00",
     "symbols": [
       "BFRG"
@@ -5078,6 +5008,85 @@
     "headline": "SpaceX&#39;s Starlink Going Interplanetary? Elon Musk Outlines Vision for Moon, Mars and Beyond",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T09:10:56.701190-04:00",
+    "symbols": [
+      "AAPL",
+      "CRWD",
+      "MSFT",
+      "NVDA",
+      "PLTR",
+      "QQQ"
+    ],
+    "headline": "Nvidia Vs. CrowdStrike: How ETFs Are Positioned for Dan Ives\u2019 $4T Tech Spending Wave",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T09:12:13.997306-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "TD Cowen Initiates Coverage On Goldman Sachs Group with Buy Rating, Announces Price Target of $1050",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T09:18:07.672679-04:00",
+    "symbols": [
+      "CRWD",
+      "DDOG",
+      "GOOGL",
+      "META",
+      "PLTR"
+    ],
+    "headline": "Palantir Gets Goldman Sachs Upgrade as Sovereign AI Opens New Market",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T09:19:53.889669-04:00",
+    "symbols": [
+      "LFS"
+    ],
+    "headline": "Full Transcript: Leifras Co Q2 2026 Earnings Call",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T09:20:39.957443-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "TD Cowen Reinstates Hold on JPMorgan Chase, Announces $370 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T09:24:32.684341-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "President Trump Bought Up To $25M Of Meta Platforms Stock - CNBC Cites August Report",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T09:24:39.805830-04:00",
+    "symbols": [
+      "BFRI"
+    ],
+    "headline": "Biofrontera Refiles Supplemental New Drug Application For Ameluz Topical Gel To FDA To Treat Actinic Keratoses",
+    "source": "benzinga",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

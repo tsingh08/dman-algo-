@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-07T13:14:01.107817-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Why Is CrowdStrike Stock Falling Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:14:02.197929-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Scotiabank Maintains Sector Outperform on Zscaler, Raises Price Target to $255",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T13:14:02.371043-04:00",
     "symbols": [
       "ABNB"
@@ -5040,6 +5020,26 @@
       "SXTC"
     ],
     "headline": "China\u00a0SXT Pharmaceuticals Commences ~$12M Offering Of 8M Class A Ordinary Shares At $1.50 Per Share",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T09:38:13.199906-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "TD Cowen Reiterates Buy on Meta Platforms, Maintains $865 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T09:39:04.893033-04:00",
+    "symbols": [
+      "SXTC"
+    ],
+    "headline": "Dow Falls Over 100 Points; US Initial Jobless Claims Decline",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null

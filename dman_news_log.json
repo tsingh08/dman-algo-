@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-07T15:55:37.971781-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Earnings Scheduled For October 7, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T15:55:37.974533-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "S&amp;P 500 Hits Record High: Investor Sentiment Improves, Fear &amp; Greed Index Moves to \u2018Neutral\u2019 Zone",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T15:55:37.977202-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Levi Strauss, Constellation Brands and 3 Stocks to Watch Heading Into Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T15:55:38.214033-04:00",
     "symbols": [
       "RELL"
@@ -5051,5 +5021,40 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T13:20:00.006068-04:00",
+    "symbols": [
+      "CVX",
+      "DIA",
+      "IWM",
+      "LLY",
+      "QQQ",
+      "XOM"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500 Slips as Oil Spikes 5%, 10-Year Yields Near 5.35%",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T13:22:27.242407-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike Stock Rises Amid Tech Turbulence: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-08T13:22:38.869672-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft On U.S. Government Suspending Perm Program, Says &#34;We Look Forward To Providing The Administration With Additional Information&#34;; We Pay Our H-1B Employees The Same As Any Other Employees Doing Comparable Work; Vast Majority Of Microsoft Employees In The United States Are Americans; About 80% Of H-1B Visa Applications Co Submitted Last Fiscal Year Were To Extend/Change Status Of Existing Microsoft Employees",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-08T11:21:10.753716-04:00",
-    "symbols": [
-      "ARGX"
-    ],
-    "headline": "Why Applied Digital Shares Are Trading Higher; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T11:21:10.756346-04:00",
     "symbols": [
       "ARGX"
@@ -5070,5 +5060,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-08T16:08:26.753050-04:00",
+    "symbols": [
+      "IMSR"
+    ],
+    "headline": "Terrestrial Energy Files Its Thermal And Electric Facility Topical Report To U.S. Nuclear Regulatory Commission",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

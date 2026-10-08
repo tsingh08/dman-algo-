@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-07T13:50:04.133359-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Why Is AST SpaceMobile Stock Falling on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:50:51.033301-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-07T13:50:51.326458-04:00",
     "symbols": [
       "MSFT"
@@ -5031,5 +5011,27 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T10:28:31.017879-04:00",
+    "symbols": [
+      "ZENA"
+    ],
+    "headline": "ZenaTech Reports Preliminary Q3 Total Revenue Range $9.5M - $10.5M",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T10:30:12.839092-04:00",
+    "symbols": [
+      "ADBE",
+      "MSFT",
+      "SPY"
+    ],
+    "headline": "U.S. Labor Secretary Says Is Suspending Some Of The Largest IT Sourcing Firms In The World From Labor Certification Program Including Microsoft, Adobe",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

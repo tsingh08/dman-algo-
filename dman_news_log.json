@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-07T15:24:43.933575-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Robinhood Joins Strategy, Tesla In Holding Bitcoin, Exec Says: &#39;We Care Deeply About Bitcoin&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T15:24:44.633081-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Tempus Announces Expanded Collaboration With Merck And Moderna For Potential Commercialization Of Cancer Vaccine Intismeran Autogene; Terms Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T15:24:44.847931-04:00",
     "symbols": [
       "ABBV"
@@ -5045,5 +5025,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T12:13:45.873194-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Bloomberg&#39;s Mark Gurman Posts On X &#34;t&#39;s official: Apple has sent out invitations for a &#34;Welcome home&#34; product launch on Oct. 13 in New York.&#34;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T12:15:21.615868-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Here&#39;s How Much $100 Invested In Advanced Micro Devices 5 Years Ago Would Be Worth Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

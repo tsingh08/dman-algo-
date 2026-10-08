@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-07T15:54:56.823535-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Moderna shares are trading higher after Tempus announced an expanded collaboration with Merck and the company for potential commercialization of intismeran autogene. Also, Morgan Stanley raised its price target on the stock from $89 to $95.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T15:55:37.968725-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Dow, Nasdaq Futures Fall as 30-Year Treasury Yield Hits 2002 High; Iran Mocks US Economy \u2014 STZ, PENG, LEVI in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T15:55:37.971781-04:00",
     "symbols": [
       "APLD"
@@ -5046,6 +5026,28 @@
       "SPY"
     ],
     "headline": "&#39;OpenAI annualised revenues $20bn less than previously signalled&#39; - Financial Times",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T13:19:05.815820-04:00",
+    "symbols": [
+      "NVDA",
+      "SMCI"
+    ],
+    "headline": "What Is Going on With Super Micro Stock on Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T13:19:36.100358-04:00",
+    "symbols": [
+      "META",
+      "SPCX"
+    ],
+    "headline": "UPDATE: &#39;Trump Bought Up To $25 Million In Meta And Millions In SpaceX Debt In August&#39; - CNBC",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

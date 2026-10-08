@@ -1,36 +1,5 @@
 [
   {
-    "ts": "2026-10-07T15:29:43.774089-04:00",
-    "symbols": [
-      "LMT",
-      "SPY"
-    ],
-    "headline": "&#39;UPS Worker Missed Security Email, Letting China Get F-35 Parts&#39; - Bloomberg",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T15:40:42.960897-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "&#39;UPS Worker Missed Security Email, Letting China Get F-35 Parts&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T15:40:46.457740-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;UPS Worker Missed Security Email, Letting China Get F-35 Parts&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T15:40:47.591071-04:00",
     "symbols": [
       "BULL"
@@ -5042,6 +5011,36 @@
       "COST"
     ],
     "headline": "The $90 Social Security Payment Is a Tiny Stimulus. The Retiree Economy Is a Market Giant",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T12:44:24.646984-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "What&#39;s Going On With ExxonMobil Stock On Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T12:45:03.201597-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;OpenAI annualised revenues $20bn less than previously signalled&#39; - Financial Times",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T12:45:30.499453-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "$100 Invested In Robinhood Markets 5 Years Ago Would Be Worth This Much Today",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

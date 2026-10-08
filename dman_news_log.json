@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-07T13:25:45.615166-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Global Bond Selloff Dents Market Bullishness \u2014 Treasury Auction To Test Sentiment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:25:45.949069-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Global Bond Selloff Dents Market Bullishness \u2014 Treasury Auction To Test Sentiment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T13:25:46.035368-04:00",
     "symbols": [
       "TSLA"
@@ -5039,6 +5019,26 @@
       "SPY"
     ],
     "headline": "USA Wholesale Trade Sales (MoM) For August 1.8% Vs 1.0% Prior",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T10:00:37.489331-04:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "RBC Capital Maintains Outperform on Biogen, Lowers Price Target to $256",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T10:00:54.913256-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Wholesale Inventories (MoM) For August 0.5% Vs 0.7% Est",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

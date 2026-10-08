@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-08T10:34:58.176408-04:00",
-    "symbols": [
-      "USO"
-    ],
-    "headline": "&#39;Saudi, UAE Join Japan-Led Push to Bolster Asian Oil Buffers&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T10:34:58.181779-04:00",
-    "symbols": [
-      "USO"
-    ],
-    "headline": "Jim Cramer Says Oil Surge, Higher Rates Are \u2018Convenient Excuses\u2019 To Sell Semis as QQQ, SOXX Drop and Investors Question Data Center Spending",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T10:34:58.186829-04:00",
-    "symbols": [
-      "USO"
-    ],
-    "headline": "Iran Foreign Minister Says Will Respond To U.S. Proposals Within A Few Days",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T10:37:15.838524-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Shares of oil and gas-related companies are trading higher amid multiple catalysts including renewed Iranian focus on striking vessels in the Strait of Hormuz, Tehran&#39;s hardline stance on nuclear enrichment limits, and Houthi rebel strikes on Saudi Arabia. Also, elevated refined product prices, refining margins, and tanker day rates are benefiting the wider sector.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-08T10:40:35.757526-04:00",
     "symbols": [
       "CRWD"
@@ -5072,5 +5032,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T14:53:56.020751-04:00",
+    "symbols": [
+      "QNME"
+    ],
+    "headline": "Quanome Signs 60-Month AI Infrastructure Services Agreement Worth More Than $100M, Secures First Enterprise Customer And Orders 32 Additional GPU Servers For A Price Of ~$18.8M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T14:53:58.473270-04:00",
+    "symbols": [
+      "GFUZ"
+    ],
+    "headline": "Why Is General Fusion Stock Soaring On Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T14:54:00.202752-04:00",
+    "symbols": [
+      "MSLE"
+    ],
+    "headline": "Craig-Hallum Initiates Coverage On Satellos Bioscience with Buy Rating, Announces Price Target of $24",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T14:54:13.957109-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Stock Drops Thursday: What&#39;s Happening?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

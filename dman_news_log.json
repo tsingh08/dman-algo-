@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-07T14:26:45.081348-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Why Is BKV Stock Surging Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T14:26:48.283419-04:00",
     "symbols": [
       "CEG"
@@ -5043,6 +5033,16 @@
     "headline": "Needham Downgrades Pacira BioSciences to Hold",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T11:34:17.918413-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Department Of War Announces $350M In Quantum Computing Initiatives",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-07T13:51:08.728958-04:00",
-    "symbols": [
-      "FMS"
-    ],
-    "headline": "Fresenius Medical Care Shares Halted, News Pending",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T13:51:09.475149-04:00",
-    "symbols": [
-      "GILT"
-    ],
-    "headline": "Constellation Brands, Caribou Biosciences And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T13:51:09.478881-04:00",
-    "symbols": [
-      "GILT"
-    ],
-    "headline": "Gilat Satellite Networks Receives Over $10M+ In Orders For Its Multi-Orbit SkyEdge IV Platform From A Satellite Operator",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T13:51:09.945868-04:00",
-    "symbols": [
-      "EWI"
-    ],
-    "headline": "&#39;Italy Explores Buying MTS Bond Market to Ensure Debt Control&#39;- Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-07T13:51:10.427306-04:00",
     "symbols": [
       "EWQ"
@@ -5036,5 +4996,58 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T11:08:10.877482-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Lockheed Martin To Deliver S-70 BLACK HAWK Helicopter Training Devices And Services To The Philippine Air Force",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T11:08:28.356571-04:00",
+    "symbols": [
+      "ADCT"
+    ],
+    "headline": "ADC Therapeutics Announces $86.6M Pipe Financing For 12.9M Shares At $1.42/Share And Warrants To Purchase 48.1M Shares At $1.32/Warrant; Secures Loan And Royalty Amendments",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T11:09:05.925177-04:00",
+    "symbols": [
+      "AVGO",
+      "CVX",
+      "DIA",
+      "GOOGL",
+      "IWM",
+      "LLY",
+      "NFLX",
+      "NVDA",
+      "ORCL",
+      "QQQ",
+      "SPY",
+      "XOM"
+    ],
+    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Energy Leads",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T11:09:51.487089-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT"
+    ],
+    "headline": "Anthropic Is Deepening Its Support For American Scientific Research By Committing $150M Over Three Years To The Genesis Mission",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

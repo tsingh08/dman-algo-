@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-08T09:25:44.916309-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "What Is Going on With Palantir Tech Stock on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T09:25:45.031392-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Samsung\u2019s $80B Quarterly Profit Tops Nvidia, AMD\u2019s Lisa Su Shops In Seoul",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T09:25:45.036182-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "What&#39;s Going On With Marvell Technology Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T09:25:45.040873-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T09:25:45.045531-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Elon Musk, Jensen Huang, Satya Nadella Reportedly to Be Awarded Medals By Trump \u2014 White House Says They Help America Lead &#39;the World in Innovation&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T09:25:45.157379-04:00",
     "symbols": [
       "META"
@@ -5056,5 +5006,56 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T13:36:35.740673-04:00",
+    "symbols": [
+      "QQQ",
+      "SPY"
+    ],
+    "headline": "Major indices are trading lower after reports suggesting that OpenAI&#39;s annualized revenue is approximately $20 billion less than previously indicated, which is weighing on AI-related stocks across the semiconductor, hyperscalers, connectivity, software and infrastructure sectors.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T13:37:18.197233-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "&#39;Apple fixed The Trade Desk\u2019s Safari ad problem\u2014but broader ad tech restrictions could be next&#39;- AdAge",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T13:37:30.668163-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Nvidia Vs. CrowdStrike: How ETFs Are Positioned for Dan Ives\u2019 $4T Tech Spending Wave",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T13:37:30.684593-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Samsung\u2019s $80B Quarterly Profit Tops Nvidia, AMD\u2019s Lisa Su Shops In Seoul",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T13:37:30.689603-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "What&#39;s Going On With Marvell Technology Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

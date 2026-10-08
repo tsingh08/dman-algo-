@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-07T13:50:54.072974-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Marvell Stock Is Up 230% This Year: Bank of America Sees a Further 40% Upside",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-07T13:50:54.076634-04:00",
     "symbols": [
       "AVGO"
@@ -5033,5 +5023,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T10:40:48.755725-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "U.S. Labor Secretary Says Is Suspending Some Of The Largest IT Sourcing Firms In The World From Labor Certification Program Including Microsoft, Adobe",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

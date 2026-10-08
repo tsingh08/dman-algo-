@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-07T15:24:44.847931-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "AbbVie Receives Two New FDA&#39;s Breakthrough Therapy Designations For Telisotuzumab Adizutecan In Colorectal Cancer, Non-Small Cell Lung Cancer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-07T15:24:54.311345-04:00",
     "symbols": [
       "SPY"
@@ -5045,5 +5035,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T12:20:32.038596-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump On Truth Social Says We Are Having Productive Discussions With Islamic Republic Of Iran; We Will Not Be Attacking Iran At Any Time Prior To Midterm Elections To Be Held In United States On November 3rd",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

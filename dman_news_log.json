@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-07T15:29:10.271097-04:00",
-    "symbols": [
-      "FDX"
-    ],
-    "headline": "Citigroup Maintains Buy on FedEx, Raises Price Target to $373",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-07T15:29:25.707523-04:00",
     "symbols": [
       "ANET"
@@ -5045,5 +5035,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T12:41:45.855031-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Trump to Unveil $2.4B in AI Pledges to Boost Research&#39;- Bloomberg",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

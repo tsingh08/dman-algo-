@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-10-07T09:25:48.719146-04:00",
-    "symbols": [
-      "SXTC"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T09:25:48.723113-04:00",
-    "symbols": [
-      "SXTC"
-    ],
-    "headline": "Why Penguin Solutions Shares Are Trading Higher By Around 8%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T09:25:48.727263-04:00",
-    "symbols": [
-      "SXTC"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T09:25:48.793614-04:00",
-    "symbols": [
-      "WLDS"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T09:25:48.905442-04:00",
-    "symbols": [
-      "XHG"
-    ],
-    "headline": "Why Penguin Solutions Shares Are Trading Higher By Around 8%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T09:25:48.966130-04:00",
-    "symbols": [
-      "XHLD"
-    ],
-    "headline": "Why Penguin Solutions Shares Are Trading Higher By Around 8%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T09:25:48.970564-04:00",
-    "symbols": [
-      "XHLD"
-    ],
-    "headline": "11 Communication Services Stocks Moving In Tuesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T09:25:49.032785-04:00",
-    "symbols": [
-      "YYAI"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T09:25:49.095523-04:00",
-    "symbols": [
-      "BIYA"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-07T09:25:49.100212-04:00",
     "symbols": [
       "BIYA"
@@ -5078,6 +4988,96 @@
     "headline": "Wolfspeed Receives $.15B Conditional Financing From U.S. Department Of War For Its Domestic Development, Production Of Silicon Carbide Materials, Wide Bandgap Power Devices",
     "source": "benzinga",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T17:44:57.065223-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Macquarie Maintains Outperform on Zscaler, Raises Price Target to $250",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T17:48:22.732519-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "IonQ Advances to Final Stage of DARPA\u2019s Quantum Benchmarking Initiative;  IonQ And DARPA Have Signed A Stage C Agreement With A Potential Value Of Up To $300M",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T17:52:08.143028-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "&#39;SK Hynix\u2019s Solidigm Is Said to Pick Banks for US IPO Next Year&#39;- Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T17:58:03.010850-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Transcript: Applied Digital Q1 2027 Earnings Conference Call",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T18:03:46.654351-04:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "Rivian Automotive Earlier Announced Funding Of $1B 10-Year Non-Recourse Term Loan From Volkswagen Group At 6.03% Fixed Annual Interest Rate, Secured By Rivian&#39;s 50% Equity Interest In Existing JV",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-07T18:07:40.593092-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "IonQ Advances To Final Stage C Of DARPA&#39;s Quantum Benchmarking Initiative Under Agreement Worth Up To $300M, Will Deliver Multiple Generations Of Quantum Systems For Independent Validation",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T18:15:22.308875-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "$100 Invested In Broadcom 15 Years Ago Would Be Worth This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T19:00:12.867378-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "If You Invested $100 In Caterpillar Stock 5 Years Ago, You Would Have This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-07T19:31:12.792462-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX&#39;s Starlink Going Interplanetary? Elon Musk Outlines Vision for Moon, Mars and Beyond",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

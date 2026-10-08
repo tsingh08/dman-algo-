@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-07T13:50:53.059590-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:50:53.786090-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-07T13:50:54.072974-04:00",
     "symbols": [
       "AVGO"
@@ -5033,5 +5013,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T10:37:15.838524-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Shares of oil and gas-related companies are trading higher amid multiple catalysts including renewed Iranian focus on striking vessels in the Strait of Hormuz, Tehran&#39;s hardline stance on nuclear enrichment limits, and Houthi rebel strikes on Saudi Arabia. Also, elevated refined product prices, refining margins, and tanker day rates are benefiting the wider sector.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T10:40:35.757526-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "BMO Capital Maintains Outperform on CrowdStrike Holdings, Raises Price Target to $295",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

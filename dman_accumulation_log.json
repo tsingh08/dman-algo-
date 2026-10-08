@@ -1555,5 +1555,14 @@
   "drift_pct": 0.0,
   "range_ratio": 0.31,
   "near_high": 0.959
+ },
+ {
+  "ts": "2026-10-08T13:05:40.488046-04:00",
+  "ticker": "SPAB",
+  "price": 24.34,
+  "rvol": 2.04,
+  "drift_pct": 0.25,
+  "range_ratio": 0.31,
+  "near_high": 0.962
  }
 ]

@@ -1,56 +1,5 @@
 [
   {
-    "ts": "2026-10-07T13:18:53.015679-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Global Bond Selloff Dents Market Bullishness \u2014 Treasury Auction To Test Sentiment",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-07T13:19:25.916067-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Rolls Out Microsoft Execution Containers To Block Agents From Unauthorized Data Access",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:20:12.679844-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Truist Securities Reiterates Buy on Zscaler, Raises Price Target to $250",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:25:24.977172-04:00",
-    "symbols": [
-      "MSFT",
-      "NVDA"
-    ],
-    "headline": "Microsoft Rolls Out AI Coding Model That Can Run On Indivdual Laptops; New Nvidia Nemotron Model Will Run On Individual Laptops, PCs; OpenAI, Anthropic Will Adopt Microsoft Execution Containers For Agent Containment; Microsoft Execution Containers Will Work Across Windows, MacOS, Linux But Have Deeper Integration With Windows",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-07T13:25:45.187495-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Global Bond Selloff Dents Market Bullishness \u2014 Treasury Auction To Test Sentiment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-07T13:25:45.196713-04:00",
     "symbols": [
       "MSFT"
@@ -5042,5 +4991,56 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T09:53:07.447662-04:00",
+    "symbols": [
+      "WOLF"
+    ],
+    "headline": "Helen Of Troy Posts Upbeat Q2 Earnings, Joins Pacira Biosciences, Wolfspeed And Other Big Stocks Moving Higher On Thursday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T09:53:38.870076-04:00",
+    "symbols": [
+      "PCRX"
+    ],
+    "headline": "Helen Of Troy Posts Upbeat Q2 Earnings, Joins Pacira Biosciences, Wolfspeed And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T09:53:39.131803-04:00",
+    "symbols": [
+      "HELE"
+    ],
+    "headline": "Helen Of Troy Posts Upbeat Q2 Earnings, Joins Pacira Biosciences, Wolfspeed And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-08T09:53:39.566573-04:00",
+    "symbols": [
+      "HAE"
+    ],
+    "headline": "Helen Of Troy Posts Upbeat Q2 Earnings, Joins Pacira Biosciences, Wolfspeed And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T09:54:36.758608-04:00",
+    "symbols": [
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "Elon Musk\u2019s \u2018Insatiable Sense of Urgency\u2019 Sets His Companies Apart, Says Former X CEO: &#39;There\u2019s Not a Deadline...it\u2019s Now&#39;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

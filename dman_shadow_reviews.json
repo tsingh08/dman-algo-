@@ -376,5 +376,27 @@
    "regime": "BULL",
    "regime_score": 14
   }
+ },
+ {
+  "ts": "2026-10-08T11:22:22.413895-04:00",
+  "kind": "signal",
+  "ticker": "PLTR",
+  "verdict": "skip",
+  "confidence": 85,
+  "reason": "RSI 80.8 is deeply overbought; entry chasing gap after significant move already made. Risk/reward doesn't compensate for poor timing.",
+  "facts": {
+   "setup": "Gap & Hold",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 199.83,
+   "stop": 195.02,
+   "target1": 211.85,
+   "rr": 2.5,
+   "rvol": 3.42,
+   "rsi": 80.8,
+   "reason": "Gap up +2.5% from prior close, holding, RVOL 3.4x",
+   "regime": "BULL",
+   "regime_score": 14
+  }
  }
 ]

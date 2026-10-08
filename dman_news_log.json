@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-07T14:03:21.474328-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed Minutes Says Almost All Participants Saw Inflation Risks Tilted To The Upside, Job Market Risks As Broadly Balanced; Some Participants Saw AI Buildout Possibly Causing Aggregate Demand To Outpace Supply Over Medium Term, Putting Upward Pressure On Inflation",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-07T14:04:22.544468-04:00",
     "symbols": [
       "SPY"
@@ -5049,5 +5039,18 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T11:23:14.254103-04:00",
+    "symbols": [
+      "APLD",
+      "CLSK",
+      "NBIS",
+      "RIOT"
+    ],
+    "headline": "Bitcoin Slide Meets 5.7% Bond Yields: Neoclouds Get Hit From Both Sides",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

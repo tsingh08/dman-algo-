@@ -38902,7 +38902,7 @@
 "setup": "Gap & Hold",
 "bias": "LONG",
 "taken": false,
-"reject": "setup disabled: 7W/28L over 35 live trades (20% WR, -65.6% c",
+"reject": "alert only: off-watchlist",
 "score": 100,
 "final_score": 100.0,
 "ai_scored": false,
@@ -38952,8 +38952,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 9,
-"last_ts": "2026-10-08T10:41:04.626050-04:00",
+"seen": 10,
+"last_ts": "2026-10-08T11:23:39.638914-04:00",
 "entry_min": 49.48,
 "entry_max": 49.48
 }

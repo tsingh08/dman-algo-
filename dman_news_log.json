@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-08T15:36:22.647467-04:00",
-    "symbols": [
-      "CME"
-    ],
-    "headline": "CME Group Q3 International Average Daily Volume Up 22% YoY To 9M Contracts On Energy, Agricultural, Equity Index Growth; Global Up 16% YoY To 29.4M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T15:36:22.728402-04:00",
-    "symbols": [
-      "CIFR"
-    ],
-    "headline": "Cipher Digital Stock Plunges: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-08T15:36:22.733165-04:00",
     "symbols": [
       "CIFR"
@@ -5050,5 +5030,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T13:45:25.464891-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Watching Meta Platforms; Hunterbrook Media Issues Report On Co Stating Meta\u2019s Muse Downloads Dropped 8.1% Week-Over-Week, Signaling A Slowdown In User Growth; Says Hunterbrook Capital Holds Short Position",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T13:45:45.371142-04:00",
+    "symbols": [
+      "NN"
+    ],
+    "headline": "Humana, Evolution Metals &amp; Technologies, Fastly And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

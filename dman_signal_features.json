@@ -39272,7 +39272,7 @@
 "beta": 0.252,
 "catalyst_tier": "D",
 "news_boost": true,
-"regime": "BULL",
+"regime": "CHOP",
 "regime_score": 14,
 "mtf_ok": true,
 "regime_ok": true,
@@ -39280,7 +39280,7 @@
 "macro_ok": true,
 "divergence_free": true,
 "breakdown": {
-"Regime": 14,
+"Regime": 8,
 "MTF": 10,
 "Rel Strength": 15,
 "Sector": 6,
@@ -39302,14 +39302,14 @@
 "Ichimoku": 10,
 "Anchored VWAP": 8,
 "ATR Pctile": 0,
-"RegimeSetup": 8,
+"RegimeSetup": 3,
 "Float/Short": 10,
 "RVOL Tier": 6,
 "Gap Size": 5,
 "News Catalyst": -10
 },
-"seen": 2,
-"last_ts": "2026-10-09T09:28:00.801773-04:00",
+"seen": 3,
+"last_ts": "2026-10-09T09:31:59.418211-04:00",
 "entry_min": 36.39,
 "entry_max": 36.39
 }

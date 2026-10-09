@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-08T13:55:06.973632-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Cantor Fitzgerald Maintains Overweight on Eli Lilly, Raises Price Target to $1440",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T13:55:07.156206-04:00",
     "symbols": [
       "GILD"
@@ -5048,5 +5038,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T10:52:26.483597-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Tanker Rates Hit $1.3M a Day As 9 Shipping Stocks Double in 2026",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

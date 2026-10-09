@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-08T13:48:07.988413-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Amerx Initiates Coverage On Zscaler with Buy Rating, Announces Price Target of $305",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T13:48:13.122710-04:00",
     "symbols": [
       "SPY"
@@ -5044,5 +5034,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T10:23:47.980814-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Could Become a Massive New Customer for Cell Tower Giants \u2014 Stocks Surge",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

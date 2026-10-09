@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-09T09:26:22.244522-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Has Rallied 2,848% Since Steve Jobs\u2019 Death While the S&amp;P 500 Gained 775%\u2014 Market Strategist Says the Rally Is \u2018Incredible\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T09:26:22.249147-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "&#39;Apple cuts iPhone 18 Pro orders due to soft demand&#39; - Nikkei Asia Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T09:26:22.253599-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Is About to Change the MacBook Pro \u2014 Touchscreen, OLED and Dynamic Island Reportedly Coming",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T09:26:22.258795-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Exploring The Competitive Space: Apple Versus Industry Peers In Technology Hardware, Storage &amp; Peripherals",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T09:26:22.499656-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "\u2018Dean of Valuation\u2019 Warns of AI Cash Drain: 4 Ways to Play the Shift",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T09:26:22.504221-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Wall Street Still Treats Micron Like a Commodity Stock \u2014 Analyst Says That&#39;s a Costly Mistake",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-09T09:26:22.508546-04:00",
     "symbols": [
       "MSFT"
@@ -5042,6 +4982,67 @@
     ],
     "headline": "Barclays Initiates Coverage On RTX with Overweight Rating, Announces Price Target of $223",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T14:20:39.920023-04:00",
+    "symbols": [
+      "META",
+      "NVDA"
+    ],
+    "headline": "Nvidia-Backed Fermus Wanted $30 Billion Valuation on Just $51 Million in Revenue",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T14:21:02.749675-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia-Backed Fermus Wanted $30 Billion Valuation on Just $51 Million in Revenue",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T14:21:02.949265-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Nvidia-Backed Fermus Wanted $30 Billion Valuation on Just $51 Million in Revenue",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T14:21:10.796024-04:00",
+    "symbols": [
+      "MI"
+    ],
+    "headline": "NFT Limited Shares Halted, News Pending",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T14:21:11.543534-04:00",
+    "symbols": [
+      "DDOG"
+    ],
+    "headline": "CIBC Maintains Outperformer on Datadog, Raises Price Target to $315",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T14:21:28.418088-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Zscaler shares are trading higher after Citizens maintained its Market Outperform rating and raised its price target on the stock from $210 to $265.",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

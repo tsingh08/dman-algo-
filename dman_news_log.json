@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-08T13:55:05.689248-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "What&#39;s Going On With Broadcom Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T13:55:06.358155-04:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "Enphase Energy Begins Production Shipments Of IQ Gateway Fusion In India, Providing Daytime Solar Backup Without A Battery",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-08T13:55:06.578209-04:00",
-    "symbols": [
-      "FSLR"
-    ],
-    "headline": "Goldman Sachs Maintains Buy on First Solar, Lowers Price Target to $272",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T13:55:06.680571-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "&#39;Russia Denies Report of Second Case of Illness in Siberia&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T13:55:06.803932-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Cantor Fitzgerald Maintains Overweight on AbbVie, Raises Price Target to $290",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-08T13:55:06.968944-04:00",
     "symbols": [
       "LLY"
@@ -5047,5 +4997,56 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T10:49:05.922449-04:00",
+    "symbols": [
+      "GOOGL",
+      "RBLX"
+    ],
+    "headline": "What&#39;s Going on With Unity Software Stock on Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T10:49:39.449832-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "What&#39;s Going on With Unity Software Stock on Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T10:49:43.889779-04:00",
+    "symbols": [
+      "RBLX"
+    ],
+    "headline": "What&#39;s Going on With Unity Software Stock on Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T10:49:46.608884-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Michael Saylor Calls Elon Musk\u2019s SpaceX Vision \u2018Bullish\u2019: Could Bitcoin Benefit?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T10:49:50.570218-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Michael Saylor Calls Elon Musk\u2019s SpaceX Vision \u2018Bullish\u2019: Could Bitcoin Benefit?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

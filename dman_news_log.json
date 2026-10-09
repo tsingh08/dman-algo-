@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-09T09:26:22.806212-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "EXCLUSIVE: MU Stock Could Soar 190% and Hit $3,000 In 24 Months \u2014 Wall Street Bull Says Math Is &#39;Pretty Simple, Frankly&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-09T09:26:22.810580-04:00",
     "symbols": [
       "NVDA"
@@ -5045,5 +5035,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T14:26:33.120732-04:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "Biogen shares are trading higher after UBS maintained its Buy rating and raised its price target on the stock from $240 to $270.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

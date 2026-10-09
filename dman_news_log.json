@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-08T11:21:10.756346-04:00",
-    "symbols": [
-      "ARGX"
-    ],
-    "headline": "Argenx Will Discontinue Phase 3 UNITY Study Of Efgartigimod SC In Sj\u00f6gren&#39;s Disease After IDMC Recommends Stopping For Futility At Interim Analysis; No New Safety Signals Identified",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T11:21:11.279257-04:00",
-    "symbols": [
-      "BYRN"
-    ],
-    "headline": "Byrna Technologies Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T11:21:11.282397-04:00",
-    "symbols": [
-      "BYRN"
-    ],
-    "headline": "Byrna Technologies Q3 EPS $(0.13) Misses $(0.11) Estimate, Sales $15.296M Miss $16.262M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T11:21:11.285085-04:00",
-    "symbols": [
-      "BYRN"
-    ],
-    "headline": "Earnings Scheduled For October 8, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T11:21:11.573902-04:00",
-    "symbols": [
-      "ANGO"
-    ],
-    "headline": "AngioDynamics Q1 2027 Earnings Call: Complete Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-08T11:21:11.577008-04:00",
     "symbols": [
       "ANGO"
@@ -5070,5 +5020,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T17:49:30.843189-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Elon Musk Gets &#39;Very Big Deal&#39; for SpaceX: Why AT&amp;T, Verizon, T-Mobile Stocks are Falling",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-08T18:00:34.323998-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning Microsoft Stock In The Last 20 Years",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T19:00:21.319545-04:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning Arista Networks Stock In The Last 10 Years",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-08T19:19:54.891092-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Bloomberg Reported Meta Bans TikTok From Advertising On Its Apps",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-08T19:28:47.340232-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "The Information Reported Nvidia To Invest In Chip Rival d-Matrix",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-09T09:26:23.723144-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Why Is SpaceX Stock Surging Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-09T09:26:23.728459-04:00",
     "symbols": [
       "GOOGL"
@@ -5047,5 +5037,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T15:03:29.418304-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Deal Dispatch: Uber Buys ezCater For $2.3B, Skydance Takes Over Warner Bros., True Food Kitchen Bankruptcy",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

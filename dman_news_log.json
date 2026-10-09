@@ -1,555 +1,5 @@
 [
   {
-    "ts": "2026-10-09T09:26:31.814096-04:00",
-    "symbols": [
-      "ACHR"
-    ],
-    "headline": "Barclays Upgrades Archer Aviation to Overweight, Raises Price Target to $8",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T09:26:31.818781-04:00",
-    "symbols": [
-      "ACHR"
-    ],
-    "headline": "Bill Gates Says Aviation Is One of the Hardest Sectors to Decarbonize Amid Skyrocketing Fuel Costs\u2014Here&#39;s His Solution",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T09:26:32.054570-04:00",
-    "symbols": [
-      "JOBY"
-    ],
-    "headline": "Barclays Downgrades Joby Aviation to Underweight, Lowers Price Target to $4",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T09:26:32.059238-04:00",
-    "symbols": [
-      "JOBY"
-    ],
-    "headline": "Bill Gates Says Aviation Is One of the Hardest Sectors to Decarbonize Amid Skyrocketing Fuel Costs\u2014Here&#39;s His Solution",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T09:26:32.529461-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "RTX\u2019s Raytheon Lands $6.3 Billion Pentagon Deal To Replenish SM-3 Missile Interceptors After Combat Use in Iran Conflict",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T09:26:32.534046-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "U.S. Department Of War Awards RTX\u2019s Raytheon $6.3B Multi-Year Contract For SM-3 IB Interceptors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T09:26:33.001383-04:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "Dana Receives European Commission Approval To Acquire Eaton&#39;s Mobility Operations",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T09:26:33.229794-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "How to Earn $500 a Month From Goldman Sachs Stock Ahead of Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T09:26:33.703934-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Chevron Announces It has Shut-In Production At Five Of Its Gulf Of America Sites Due To Hurricane Isaias",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T09:26:33.941330-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "Humana Reaffirms FY26 Adjusted EPS Guidance Of At Least $9; Exceeding Goal Of Top Quartile Results In 2027 Medicare Advantage Star Ratings; Expects 2028 Benefit For One-Time Investments And Return To Shareholders",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T09:26:33.945995-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "CMS Releases 2027 Medicare Advantage And Part D Star Ratings, With 37% Of MA-PD Contracts Earning Four Or More Stars And 71% Of Enrollees In High-Rated Plans",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T09:26:34.183440-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Stock of the Day: Where is the Bottom for Oracle?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T09:26:34.188009-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Dan Ives Updates AI 30: Adds DELL, SPCX While Dropping ORCL and PEGA Ahead of IVES Rebalance",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T09:26:34.192703-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Meta Draws a Line With TikTok, Bans ByteDance Ads Across Facebook and Instagram: Their Goal Is to \u2018Pull People off Our Apps\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T09:26:34.197043-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle, Chipotle, Verizon, GameStop and Securitize Corp: Why These 5 Stocks Are on Investors&#39; Radars Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T09:26:34.425382-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Competitor Analysis: Evaluating Adobe And Competitors In Software Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T09:26:34.660540-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Dow Jones, Nasdaq 100 Futures Gain as Scott Bessent Says US Is Starving Iran&#39;s &#39;Tyrannical Regime&#39;\u2014 PKE, HUM, RENX in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T09:26:34.665297-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Germany&#39;s Economy Minister Reiche Says Government Will Release Up To 15M Barrels Of Oil And Petroleum Products; Diesel, Heating Oil To Be Released First, Followed By Crude Oil; Germany Will Fully Implement G7 Agreement On Energy Stock Release; We Must Always Keep Entire Supply Chain In Mind, Crude Alone Is Not Enough",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T09:26:34.670197-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Blockchain.com seeks U.S. approval for prediction markets, crypto derivatives trading&#39; - CNBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T09:26:34.674662-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Treasury\u2019s Bessent hires Trump\u2019s controversial former Fed board pick, Judy Shelton, as adviser&#39; - CNBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T09:26:34.678963-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "\u2018Dean of Valuation\u2019 Warns of AI Cash Drain: 4 Ways to Play the Shift",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T09:26:34.914085-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Dow Jones, Nasdaq 100 Futures Gain as Scott Bessent Says US Is Starving Iran&#39;s &#39;Tyrannical Regime&#39;\u2014 PKE, HUM, RENX in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T09:26:34.919083-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T09:26:35.142638-04:00",
-    "symbols": [
-      "ATOS"
-    ],
-    "headline": "Atossa Therapeutics Inks Stapled Contingent Value Rights Agreement With VStock Transfer; Atossa Declares Dividend Of One Stapled CVR For Each Share Of Atossa Common Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:35.364472-04:00",
-    "symbols": [
-      "BMGL"
-    ],
-    "headline": "Why Veea Shares Are Trading Higher By Around 34%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:35.597900-04:00",
-    "symbols": [
-      "BQ"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:35.823569-04:00",
-    "symbols": [
-      "GXAI"
-    ],
-    "headline": "12 Communication Services Stocks Moving In Thursday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:36.278349-04:00",
-    "symbols": [
-      "IPW"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:36.282866-04:00",
-    "symbols": [
-      "IPW"
-    ],
-    "headline": "Why Veea Shares Are Trading Higher By Around 34%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:36.515720-04:00",
-    "symbols": [
-      "KUST"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:36.751312-04:00",
-    "symbols": [
-      "MIMI"
-    ],
-    "headline": "Mint Incorporation Announces Name Change To Axonex AI Group And Nasdaq Ticker Change From MIMI To AXNX, Effective October 13",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:36.985556-04:00",
-    "symbols": [
-      "NAMI"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:37.219194-04:00",
-    "symbols": [
-      "NCT"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:37.449853-04:00",
-    "symbols": [
-      "OFAL"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:37.454508-04:00",
-    "symbols": [
-      "OFAL"
-    ],
-    "headline": "OFA Group Completes Acquisition And Title Registration Of The Former Tokawaen Property In Choshi, Japan; Plans Development Of Site As Premium, Private-Pay Senior Living Community",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:37.684862-04:00",
-    "symbols": [
-      "QNME"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:37.689390-04:00",
-    "symbols": [
-      "QNME"
-    ],
-    "headline": "Why Veea Shares Are Trading Higher By Around 34%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:37.693712-04:00",
-    "symbols": [
-      "QNME"
-    ],
-    "headline": "Quanome Technologies (QNME) Shares Cool Off After Hours: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:37.700658-04:00",
-    "symbols": [
-      "QNME"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:37.936188-04:00",
-    "symbols": [
-      "RBNE"
-    ],
-    "headline": "Robin Energy Announces Purchase Of 90,000 Volare Shipping Shares At NOK 154.00/Share In Private Placement",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T09:26:37.941738-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk Says SpaceX Can Outgrow Earth. The First Victim May Be Your Phone Bill",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T09:26:37.946126-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Verizon, AT&amp;T, T-Mobile Stocks Slide as SpaceX Expands Wireless Ambitions",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T09:26:37.950580-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk Says SPCX Could Be Worth &#39;Orders of Magnitude More&#39; Than the Entire Earth Economy: &#39;Super Crazy&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T09:26:37.954961-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Why Is SpaceX Stock Surging Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T09:26:38.187008-04:00",
-    "symbols": [
-      "STKH"
-    ],
-    "headline": "Why Veea Shares Are Trading Higher By Around 34%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:38.418734-04:00",
-    "symbols": [
-      "SXTC"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:38.651703-04:00",
-    "symbols": [
-      "TENX"
-    ],
-    "headline": "Tenax Therapeutics Temporarily Pauses Enrollment In LEVEL-2 Trial Of TNX-103 To Amend Criteria; Requests FDA Meeting",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:38.915873-04:00",
-    "symbols": [
-      "VEEA"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Dow Jones, Nasdaq 100 Futures Gain as Scott Bessent Says US Is Starving Iran&#39;s &#39;Tyrannical Regime&#39;\u2014 PKE, HUM, RENX in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:38.921434-04:00",
-    "symbols": [
-      "VEEA"
-    ],
-    "headline": "10 Information Technology Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:38.925912-04:00",
-    "symbols": [
-      "VEEA"
-    ],
-    "headline": "Why Veea Shares Are Trading Higher By Around 34%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:38.933275-04:00",
-    "symbols": [
-      "VEEA"
-    ],
-    "headline": "Veea Stock Climbs 49% After-Hours: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:38.937692-04:00",
-    "symbols": [
-      "VEEA"
-    ],
-    "headline": "Veea Regains Nasdaq Compliance",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:39.249130-04:00",
-    "symbols": [
-      "FRGT"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:39.253844-04:00",
-    "symbols": [
-      "FRGT"
-    ],
-    "headline": "Why Veea Shares Are Trading Higher By Around 34%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:39.486882-04:00",
-    "symbols": [
-      "HUM"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Dow Jones, Nasdaq 100 Futures Gain as Scott Bessent Says US Is Starving Iran&#39;s &#39;Tyrannical Regime&#39;\u2014 PKE, HUM, RENX in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-09T09:26:39.491923-04:00",
     "symbols": [
       "HUM"
@@ -5052,5 +4502,555 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T15:18:30.907566-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "&#39;Netflix Is Sharpening the Layoff Axe; Facing pressure over weakened engagement and a depressed stock price, the streamer is prepping for a round of layoffs in the near future, per sources&#39; - Puck",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:18:30.911470-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Securitize Stock Jumps After Hours As It Launches Tokenized Apple, Nvidia, Tesla Shares On Solana",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:18:30.917236-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Securitize Stock Jumps After Hours As It Launches Tokenized Apple, Nvidia, Tesla Shares On Solana",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:18:30.921479-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "What&#39;s Going On With Broadcom Stock Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:18:30.924969-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "\u2018Dean of Valuation\u2019 Warns of AI Cash Drain: 4 Ways to Play the Shift",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:18:30.928660-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Jim Cramer Calls Kulicke &amp; Soffa \u2018Terrific,\u2019 But Prefers These 2 Chip Equipment Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:18:30.932699-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "EXCLUSIVE: MU Stock Could Soar 190% and Hit $3,000 In 24 Months \u2014 Wall Street Bull Says Math Is &#39;Pretty Simple, Frankly&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:18:30.936366-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Wall Street Still Treats Micron Like a Commodity Stock \u2014 Analyst Says That&#39;s a Costly Mistake",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:18:30.939976-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Ross Gerber Expects Micron to Buy Back &#39;Tons of Stock&#39; in December \u2014 &#39;A Big Buyer Is Coming Soon&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:18:30.944701-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Why Is Marvell Technology Stock Gaining Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:18:30.948807-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "CrowdStrike To Rally Around 18%? Here Are 10 Top Analyst Forecasts For Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:18:30.952254-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on Robinhood Markets, Raises Price Target to $160",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:18:30.961723-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Presents New Exploratory Data From The TOGETHER-PSO Phase 3B Clinical Trial Taltz And Zepbound Compared With Taltz Alone In Adults With Moderate-To-Severe Plaque Psoriasis And Obesity Or Overweight; Data Showed Broader Biomarker Changes With Taltz And Zepbound Vs Taltz Alone",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:18:30.967573-04:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "Oracle, Chipotle, Verizon, GameStop and Securitize Corp: Why These 5 Stocks Are on Investors&#39; Radars Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T15:18:30.972000-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "&#39;Exxon Blocked Proposal to Settle $5 Billion Kashagan Dispute&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:18:30.977982-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike To Rally Around 18%? Here Are 10 Top Analyst Forecasts For Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T15:18:30.981656-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Needham Maintains Buy on CrowdStrike Holdings, Raises Price Target to $310",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T15:18:30.986715-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Citizens Maintains Market Outperform on Coinbase Global, Lowers Price Target to $280",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:18:30.990188-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Morgan Stanley Maintains Equal-Weight on Coinbase Global, Raises Price Target to $258",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:18:30.996327-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Securitize Stock Jumps After Hours As It Launches Tokenized Apple, Nvidia, Tesla Shares On Solana",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T15:18:31.000616-04:00",
+    "symbols": [
+      "CLSK"
+    ],
+    "headline": "CleanSpark Produces 529 Bitcoins In September, 5,432 BTC This Year",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-09T15:18:31.235947-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Citizens Maintains Market Outperform on Zscaler, Raises Price Target to $265",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:18:31.239685-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Performance Comparison: Airbnb And Competitors In Hotels, Restaurants &amp; Leisure Industry",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:18:31.244206-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "IonQ Says Quantum Networking Link Achieved More Than 1,000 Entanglements Per Second, More Than 4x Prior Record",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-09T15:18:31.247826-04:00",
+    "symbols": [
+      "ACHR"
+    ],
+    "headline": "Barclays Upgrades Archer Aviation to Overweight, Raises Price Target to $8",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:18:31.251690-04:00",
+    "symbols": [
+      "ACHR"
+    ],
+    "headline": "Bill Gates Says Aviation Is One of the Hardest Sectors to Decarbonize Amid Skyrocketing Fuel Costs\u2014Here&#39;s His Solution",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:18:31.256009-04:00",
+    "symbols": [
+      "JOBY"
+    ],
+    "headline": "Barclays Downgrades Joby Aviation to Underweight, Lowers Price Target to $4",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:18:31.259458-04:00",
+    "symbols": [
+      "JOBY"
+    ],
+    "headline": "Bill Gates Says Aviation Is One of the Hardest Sectors to Decarbonize Amid Skyrocketing Fuel Costs\u2014Here&#39;s His Solution",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:18:31.377505-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "RTX\u2019s Raytheon Lands $6.3 Billion Pentagon Deal To Replenish SM-3 Missile Interceptors After Combat Use in Iran Conflict",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:18:31.381520-04:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "Dana Receives European Commission Approval To Acquire Eaton&#39;s Mobility Operations",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:18:31.386798-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "How to Earn $500 a Month From Goldman Sachs Stock Ahead of Q3 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T15:18:31.393830-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Humana Reaffirms FY26 Adjusted EPS Guidance Of At Least $9; Exceeding Goal Of Top Quartile Results In 2027 Medicare Advantage Star Ratings; Expects 2028 Benefit For One-Time Investments And Return To Shareholders",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T15:18:31.401220-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Stock of the Day: Where is the Bottom for Oracle?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T15:18:31.404696-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Competitor Analysis: Evaluating Adobe And Competitors In Software Industry",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:18:31.412058-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500, Dow Jones, Nasdaq 100 Futures Gain as Scott Bessent Says US Is Starving Iran&#39;s &#39;Tyrannical Regime&#39;\u2014 PKE, HUM, RENX in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T15:18:31.415755-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T15:18:31.420473-04:00",
+    "symbols": [
+      "ATOS"
+    ],
+    "headline": "Atossa Therapeutics Inks Stapled Contingent Value Rights Agreement With VStock Transfer; Atossa Declares Dividend Of One Stapled CVR For Each Share Of Atossa Common Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T15:18:31.424286-04:00",
+    "symbols": [
+      "BMGL"
+    ],
+    "headline": "Why Veea Shares Are Trading Higher By Around 34%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T15:18:31.427970-04:00",
+    "symbols": [
+      "BQ"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T15:18:31.432698-04:00",
+    "symbols": [
+      "IPW"
+    ],
+    "headline": "12 Industrials Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T15:18:31.436182-04:00",
+    "symbols": [
+      "IPW"
+    ],
+    "headline": "Why Veea Shares Are Trading Higher By Around 34%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T15:18:31.439644-04:00",
+    "symbols": [
+      "MIMI"
+    ],
+    "headline": "Mint Incorporation Announces Name Change To Axonex AI Group And Nasdaq Ticker Change From MIMI To AXNX, Effective October 13",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T15:18:31.443570-04:00",
+    "symbols": [
+      "NAMI"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T15:18:31.447957-04:00",
+    "symbols": [
+      "OFAL"
+    ],
+    "headline": "12 Industrials Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T15:18:31.451367-04:00",
+    "symbols": [
+      "OFAL"
+    ],
+    "headline": "OFA Group Completes Acquisition And Title Registration Of The Former Tokawaen Property In Choshi, Japan; Plans Development Of Site As Premium, Private-Pay Senior Living Community",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T15:18:31.455261-04:00",
+    "symbols": [
+      "QNME"
+    ],
+    "headline": "12 Industrials Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T15:18:31.458947-04:00",
+    "symbols": [
+      "QNME"
+    ],
+    "headline": "Why Veea Shares Are Trading Higher By Around 34%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T15:18:31.462369-04:00",
+    "symbols": [
+      "QNME"
+    ],
+    "headline": "Quanome Technologies (QNME) Shares Cool Off After Hours: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T15:18:31.465829-04:00",
+    "symbols": [
+      "RBNE"
+    ],
+    "headline": "Robin Energy Announces Purchase Of 90,000 Volare Shipping Shares At NOK 154.00/Share In Private Placement",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:18:31.471755-04:00",
+    "symbols": [
+      "STKH"
+    ],
+    "headline": "Why Veea Shares Are Trading Higher By Around 34%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T15:18:31.476572-04:00",
+    "symbols": [
+      "SXTC"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T15:18:31.481587-04:00",
+    "symbols": [
+      "VEEA"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500, Dow Jones, Nasdaq 100 Futures Gain as Scott Bessent Says US Is Starving Iran&#39;s &#39;Tyrannical Regime&#39;\u2014 PKE, HUM, RENX in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T15:18:31.485032-04:00",
+    "symbols": [
+      "VEEA"
+    ],
+    "headline": "10 Information Technology Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T15:18:31.493112-04:00",
+    "symbols": [
+      "FRGT"
+    ],
+    "headline": "12 Industrials Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T15:18:31.496570-04:00",
+    "symbols": [
+      "FRGT"
+    ],
+    "headline": "Why Veea Shares Are Trading Higher By Around 34%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

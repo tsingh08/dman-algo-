@@ -808,5 +808,115 @@
 "extension_pct": 12.6,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "WFF",
+"date": "2026-10-09",
+"close": 12.29,
+"base_days": 134,
+"above_low_pct": 1070.5,
+"extension_pct": 465.6,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "HUM",
+"date": "2026-10-09",
+"close": 431.87,
+"base_days": 69,
+"above_low_pct": 165.9,
+"extension_pct": 10.9,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "MRNA",
+"date": "2026-10-09",
+"close": 225.0,
+"base_days": 7,
+"above_low_pct": 906.3,
+"extension_pct": 25.7,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "HPE",
+"date": "2026-10-09",
+"close": 73.46,
+"base_days": 1,
+"above_low_pct": 273.5,
+"extension_pct": 16.0,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "OKTA",
+"date": "2026-10-09",
+"close": 232.13,
+"base_days": 3,
+"above_low_pct": 268.9,
+"extension_pct": 15.6,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "DDOG",
+"date": "2026-10-09",
+"close": 293.26,
+"base_days": 46,
+"above_low_pct": 185.8,
+"extension_pct": 14.7,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "AMPL",
+"date": "2026-10-09",
+"close": 15.67,
+"base_days": 0,
+"above_low_pct": 179.3,
+"extension_pct": 13.2,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "FTNT",
+"date": "2026-10-09",
+"close": 194.75,
+"base_days": 2,
+"above_low_pct": 158.9,
+"extension_pct": 10.1,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "PBR",
+"date": "2026-10-09",
+"close": 25.3,
+"base_days": 3,
+"above_low_pct": 135.3,
+"extension_pct": 17.1,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "RSKD",
+"date": "2026-10-09",
+"close": 8.53,
+"base_days": 10,
+"above_low_pct": 125.1,
+"extension_pct": 18.2,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "XP",
+"date": "2026-10-09",
+"close": 32.22,
+"base_days": 2,
+"above_low_pct": 115.7,
+"extension_pct": 44.9,
+"fresh_base": false,
+"weak_band": true
 }
 ]

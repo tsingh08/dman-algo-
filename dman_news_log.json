@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-09T09:26:39.739110-04:00",
-    "symbols": [
-      "NN"
-    ],
-    "headline": "10 Information Technology Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:26:39.743801-04:00",
-    "symbols": [
-      "NN"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-09T09:26:39.977860-04:00",
     "symbols": [
       "WQEY"
@@ -5052,5 +5032,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:45:34.684172-04:00",
+    "symbols": [
+      "DDOG"
+    ],
+    "headline": "Datadog shares are trading higher after CIBC maintained an Outperform rating on the stock and raised its price target from $280 to $315.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T15:46:46.481612-04:00",
+    "symbols": [
+      "NN"
+    ],
+    "headline": "10 Information Technology Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-08T13:55:03.168915-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Stock Reaction To Samsung And TSMC Earnings Is An Early Indicator Of A Market Character Shift\u2014Watch Oil And Yields",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-08T13:55:03.285481-04:00",
     "symbols": [
       "NVDA"
@@ -5042,6 +5032,16 @@
     ],
     "headline": "SpaceX Could Become a Massive New Customer for Cell Tower Giants \u2014 Stocks Surge",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T10:30:17.230370-04:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "If You Invested $100 In Vertex Pharmaceuticals Stock 5 Years Ago, You Would Have This Much Today",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

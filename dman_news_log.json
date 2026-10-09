@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-09T09:26:23.709010-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Amazon Is Undervalued, Says Analyst \u2014 and AI Could Be Its Biggest Advantage",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T09:26:23.713602-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "\u2018Dean of Valuation\u2019 Warns of AI Cash Drain: 4 Ways to Play the Shift",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T09:26:23.718726-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Wall Street Still Treats Micron Like a Commodity Stock \u2014 Analyst Says That&#39;s a Costly Mistake",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-09T09:26:23.723144-04:00",
     "symbols": [
       "GOOGL"
@@ -5046,5 +5016,36 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T14:59:06.778602-04:00",
+    "symbols": [
+      "FSLR",
+      "NEM"
+    ],
+    "headline": "Something Is Breaking In Casino Stocks: MGM, Wynn Hit Record Losing Streaks",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T14:59:23.382630-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Amazon Is Undervalued, Says Analyst \u2014 and AI Could Be Its Biggest Advantage",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T14:59:23.386347-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "\u2018Dean of Valuation\u2019 Warns of AI Cash Drain: 4 Ways to Play the Shift",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

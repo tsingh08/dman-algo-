@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-08T14:10:53.734726-04:00",
-    "symbols": [
-      "SLB"
-    ],
-    "headline": "SLB Inks 15-Year Deal With TotalEnergies To Use DrillPlan Well Planning, Engineering Solutions",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-08T14:10:53.913449-04:00",
     "symbols": [
       "NVO"
@@ -5051,5 +5041,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T12:27:31.783374-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Chevron Announces It Has Evacuated Majority Of Its Personnel In Gulf Of America; Safely Continuing Production At Four Platforms; Shut-In Production At Remaining Five Facilities; Deploying Processes, Technology Across Gulf Coast",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

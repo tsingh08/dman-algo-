@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-08T14:10:50.626634-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Alibaba Explores Spanish Expansion Amid Global AI Push",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T14:10:50.814356-04:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "What&#39;s Going On With IonQ Stock Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T14:10:51.016339-04:00",
     "symbols": [
       "WOLF"
@@ -5051,5 +5031,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T11:41:30.026501-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "TD Cowen Maintains Hold on Lockheed Martin, Lowers Price Target to $570",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T11:42:37.731047-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Why Is Coinbase Stock Surging Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

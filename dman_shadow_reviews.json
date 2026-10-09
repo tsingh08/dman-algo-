@@ -398,27 +398,5 @@
    "regime": "BULL",
    "regime_score": 14
   }
- },
- {
-  "ts": "2026-10-09T11:40:25.241153-04:00",
-  "kind": "signal",
-  "ticker": "VEEA",
-  "verdict": "skip",
-  "confidence": 85,
-  "reason": "Regime CHOP (score 14) conflicts with morning runner momentum setup. Entry 6.55 chases 43% move already made; risk/reward attractive but timing weak.",
-  "facts": {
-   "setup": "Morning Runner",
-   "bias": "LONG",
-   "confluence_score": 100,
-   "entry": 6.55,
-   "stop": 5.32,
-   "target1": 9.63,
-   "rr": 2.5,
-   "rvol": 6.95,
-   "rsi": 64.7,
-   "reason": "News gap +43.2% on 7.0x vol, holding open | ULTRA-LOW FLOAT 1.6M",
-   "regime": "CHOP",
-   "regime_score": 14
-  }
  }
 ]

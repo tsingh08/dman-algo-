@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-08T13:55:07.504788-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "&#39;Joe Rogan Re-Ups Lucrative Spotify Deal&#39; - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T13:55:07.509220-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "Piper Sandler Initiates Coverage On Spotify Technology with Neutral Rating, Announces Price Target of $540",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T13:55:07.787640-04:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "Why Is Arm Stock Falling Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T13:55:08.066864-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Palantir Gets Goldman Sachs Upgrade as Sovereign AI Opens New Market",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-08T13:55:08.071800-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Nvidia Vs. CrowdStrike: How ETFs Are Positioned for Dan Ives\u2019 $4T Tech Spending Wave",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-08T13:55:12.309239-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Live On Bloomberg TV, Fed&#39;s Musalem Says There Is A Risk Consumer Vigor Could Wane",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T13:55:12.313995-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Live On Bloomberg TV, Fed&#39;s Musalem Says Job Market Is Overall Balanced And Stable, No Need To Cool Job Market To Get Inflation Down",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T13:55:12.318526-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Live On Bloomberg TV, Fed&#39;s Musalem Says The Economy Is Pretty Strong Right Now, Best Thing Fed Can Do Is Lower Inflation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T13:55:12.322990-04:00",
     "symbols": [
       "SPY"
@@ -5048,6 +4968,86 @@
     "headline": "Reported Earlier: &#39;Cancer Vaccines Are the N.I.H&#39;s Next Big Bet&#39; - The New York Times",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T11:02:26.714037-04:00",
+    "symbols": [
+      "OFAL"
+    ],
+    "headline": "OFA Group shares are trading higher after the company announced that its wholly owned subsidiary, OFA Japan Asset Management has completed the acquisition and title registration of the former Tokawaen property in Choshi, Japan.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T11:02:47.274609-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Reported Earlier: &#39;Cancer Vaccines Are the N.I.H&#39;s Next Big Bet&#39; - The New York Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T11:02:57.386081-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Reported Earlier: &#39;Cancer Vaccines Are the N.I.H&#39;s Next Big Bet&#39; - The New York Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T11:03:06.614624-04:00",
+    "symbols": [
+      "HUM"
+    ],
+    "headline": "Humana, Evolution Metals &amp; Technologies, Fastly And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T11:03:09.133108-04:00",
+    "symbols": [
+      "CCI"
+    ],
+    "headline": "Humana, Evolution Metals &amp; Technologies, Fastly And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T11:03:10.316790-04:00",
+    "symbols": [
+      "FSLY"
+    ],
+    "headline": "Humana, Evolution Metals &amp; Technologies, Fastly And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T11:03:11.021441-04:00",
+    "symbols": [
+      "AMT"
+    ],
+    "headline": "Humana, Evolution Metals &amp; Technologies, Fastly And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T11:03:11.368583-04:00",
+    "symbols": [
+      "EMAT"
+    ],
+    "headline": "Humana, Evolution Metals &amp; Technologies, Fastly And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

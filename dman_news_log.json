@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-09T09:14:07.757067-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Barclays Initiates Coverage On Lockheed Martin with Equal-Weight Rating, Announces Price Target of $554",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-09T09:16:21.811667-04:00",
     "symbols": [
       "PLTR"
@@ -5046,5 +5036,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T14:10:18.990688-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA&#39;s Rally in Trouble? Analyst Warns of Bull Trap",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

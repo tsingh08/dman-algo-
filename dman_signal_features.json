@@ -39370,10 +39370,10 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 69,
-"last_ts": "2026-10-09T13:46:02.723052-04:00",
+"seen": 67,
+"last_ts": "2026-10-09T13:44:11.475983-04:00",
 "entry_min": 27.96,
-"entry_max": 29.52
+"entry_max": 29.75
 },
 {
 "ts": "2026-10-09T10:15:29.957477-04:00",
@@ -39432,8 +39432,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 39,
-"last_ts": "2026-10-09T13:46:02.964562-04:00",
+"seen": 36,
+"last_ts": "2026-10-09T13:33:11.436154-04:00",
 "entry_min": 178.16,
 "entry_max": 179.44
 },
@@ -39506,16 +39506,16 @@
 "setup": "Morning Runner",
 "bias": "LONG",
 "taken": false,
-"reject": "alert only: off-watchlist",
+"reject": "earnings blackout",
 "score": 100,
 "final_score": 100.0,
 "ai_scored": false,
-"entry": 5.95,
+"entry": 5.63,
 "stop": 5.32,
-"target1": 7.53,
-"rr": 2.51,
-"rsi": 62.5,
-"rvol": 5.6,
+"target1": 6.41,
+"rr": 2.52,
+"rsi": 61.1,
+"rvol": 5.15,
 "atr": 1.0544357142857144,
 "beta": 1.0,
 "catalyst_tier": "C",
@@ -39540,9 +39540,9 @@
 "Earn React": 0,
 "Fibonacci": 0,
 "VWAP": 8,
-"POC": 7,
+"POC": 0,
 "No Divergence": 5,
-"RSI Zone": 0,
+"RSI Zone": 5,
 "52wk Prox": 0,
 "Candle": 0,
 "Supertrend": 8,
@@ -39556,9 +39556,9 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 10,
-"last_ts": "2026-10-09T13:46:02.015718-04:00",
-"entry_min": 5.91,
+"seen": 9,
+"last_ts": "2026-10-09T13:44:09.353980-04:00",
+"entry_min": 5.63,
 "entry_max": 5.95
 },
 {
@@ -39618,9 +39618,9 @@
 "Gap Size": 0,
 "News Catalyst": 10
 },
-"seen": 9,
-"last_ts": "2026-10-09T13:46:02.566305-04:00",
-"entry_min": 77.61,
+"seen": 7,
+"last_ts": "2026-10-09T13:44:13.661779-04:00",
+"entry_min": 77.44,
 "entry_max": 77.62
 },
 {
@@ -39680,8 +39680,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 8,
-"last_ts": "2026-10-09T13:46:02.281192-04:00",
+"seen": 5,
+"last_ts": "2026-10-09T13:33:10.867436-04:00",
 "entry_min": 437.09,
 "entry_max": 437.09
 }

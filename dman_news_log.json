@@ -1,290 +1,5 @@
 [
   {
-    "ts": "2026-10-08T15:36:22.733165-04:00",
-    "symbols": [
-      "CIFR"
-    ],
-    "headline": "Bitcoin Slide Meets 5.7% Bond Yields: Neoclouds Get Hit From Both Sides",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T15:36:22.737736-04:00",
-    "symbols": [
-      "CIFR"
-    ],
-    "headline": "Cipher Digital (CIFR) Stock Trending After Hours: Here&#39;s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T15:36:22.822493-04:00",
-    "symbols": [
-      "SMH"
-    ],
-    "headline": "Elon Musk\u2019s SpaceX Could Become Nvidia\u2019s Biggest Customer: The ETF Trade Emerging From His $40B AI Bet",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T15:36:22.893782-04:00",
-    "symbols": [
-      "EDIT"
-    ],
-    "headline": "Wells Fargo Upgrades Editas Medicine to Overweight, Raises Price Target to $6",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T15:36:22.898293-04:00",
-    "symbols": [
-      "EDIT"
-    ],
-    "headline": "Editas Medicine Receives Approval To Initiate Its Phase 1/2 Strive Clinical Trial Of EDIT-401 In Patients With Heterozygous Familial Hypercholesterolemia In Australia",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T15:36:22.973875-04:00",
-    "symbols": [
-      "SOXX"
-    ],
-    "headline": "What&#39;s Going On With Micron Technology Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T15:36:22.978430-04:00",
-    "symbols": [
-      "SOXX"
-    ],
-    "headline": "Intel Stock Is Falling Thursday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T15:36:22.982864-04:00",
-    "symbols": [
-      "SOXX"
-    ],
-    "headline": "Jim Cramer Says Oil Surge, Higher Rates Are \u2018Convenient Excuses\u2019 To Sell Semis as QQQ, SOXX Drop and Investors Question Data Center Spending",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T15:36:23.064910-04:00",
-    "symbols": [
-      "DSX"
-    ],
-    "headline": "Diana Shipping Secures Time Charter Contract With Classic Maritime For M/V Zafirakis At $38,000 Per Day, Generating Up To ~$13.34M In Revenue",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T15:36:23.154791-04:00",
-    "symbols": [
-      "ZCSH"
-    ],
-    "headline": "XRP ETFs Are Growing but Why Does the Zcash ETF Get all the Attention?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T15:47:09.342917-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Moomoo Expands Real-Time Account Funding Through Visa And Checkout.com, Allowing Users To Deposit Funds Via Apple Pay And Google Pay 24/7 For Faster Access To Stocks, Crypto, ETFs And Options",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T15:47:26.582623-04:00",
-    "symbols": [
-      "AMAT",
-      "CLSK",
-      "QMCO",
-      "SMCI",
-      "TE",
-      "VEEA"
-    ],
-    "headline": "Shares of companies within the broader tech sector are trading lower alongside NVIDIA following reports suggesting that OpenAI&#39;s annualized revenue is approximately $20 billion less than previously indicated. This raises concerns about weaker demand and pricing sentiment.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T15:47:46.824011-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Anthropic Is Deepening Its Support For American Scientific Research By Committing $150M Over Three Years To The Genesis Mission",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T15:47:47.233931-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Energy Leads",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T15:47:47.978215-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Energy Leads",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T15:47:47.982997-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Memory Chip Sales on Track to Top $2 Trillion By 2030: The Numbers Micron Bulls Need to Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T15:47:48.176816-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Memory Chip Sales on Track to Top $2 Trillion By 2030: The Numbers Micron Bulls Need to Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T15:47:48.521159-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Memory Chip Sales on Track to Top $2 Trillion By 2030: The Numbers Micron Bulls Need to Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T15:47:49.977837-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Energy Leads",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T15:47:50.627015-04:00",
-    "symbols": [
-      "RBLX"
-    ],
-    "headline": "Why Is Unity Software Stock Gaining Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T15:47:50.631687-04:00",
-    "symbols": [
-      "RBLX"
-    ],
-    "headline": "Roblox Says Over 100,000 Players Have Used Build To Try Creating A Game, And ~9,000 Build Games Have Been Published",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T15:47:51.128109-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Energy Leads",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T15:47:56.505296-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Energy Leads",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T15:47:57.723726-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Energy Leads",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T15:47:57.855327-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "8 Of 11 Sectors Fall In Thursday Trading As Energy Leads",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T16:00:04.021266-04:00",
-    "symbols": [
-      "ACRS"
-    ],
-    "headline": "Argenx, Caribou Biosciences And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T16:00:04.426844-04:00",
-    "symbols": [
-      "SECZ"
-    ],
-    "headline": "Securitize Rolls Out Securitize Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-08T16:08:26.753050-04:00",
-    "symbols": [
-      "IMSR"
-    ],
-    "headline": "Terrestrial Energy Files Its Thermal And Electric Facility Topical Report To U.S. Nuclear Regulatory Commission",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-08T17:49:30.843189-04:00",
     "symbols": [
       "SPCX"
@@ -5030,6 +4745,286 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T13:43:38.812693-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T13:43:38.817296-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Strategy Faces \u2018Dilution Drag\u2019 as TD Cowen Raises Bitcoin Forecast to $109,000",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T13:43:39.080830-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T13:43:39.912648-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "9 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T13:43:40.175464-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "9 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T13:43:40.180147-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Strategy Faces \u2018Dilution Drag\u2019 as TD Cowen Raises Bitcoin Forecast to $109,000",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T13:43:41.247192-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T13:43:42.272445-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T13:43:43.263750-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T13:43:43.767200-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T13:43:46.975670-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T13:43:46.980563-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Strategy Faces \u2018Dilution Drag\u2019 as TD Cowen Raises Bitcoin Forecast to $109,000",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T13:43:47.995955-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "9 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T13:43:50.709733-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Shell, Chevron, BP Pull Crews as Hurricane Isaias Barrels Toward Gulf Coast Refineries",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T13:43:51.320621-04:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "Why Is Newmont Stock Surging Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T13:43:51.814551-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T13:43:52.314558-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump To Issue Directive To U.S. Officials That Seeks To Control Cost Of Diesel; Directive On Diesel Will Push U.S. Department Heads To Find Ways To Bypass Local, State Regulations Blocking Energy Production; Directive Will Push U.S. Officials To Use Defense Production Act To Find Ways To Increase Production Of Oil And Fuel",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T13:43:53.788172-04:00",
+    "symbols": [
+      "VZ"
+    ],
+    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T13:43:53.792883-04:00",
+    "symbols": [
+      "VZ"
+    ],
+    "headline": "QUICK SPARK: SpaceX Spectrum Deal Triggers T-Mobile\u2019s Worst Day Since 2013",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T13:43:54.046267-04:00",
+    "symbols": [
+      "ASTS"
+    ],
+    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-09T13:43:54.295881-04:00",
+    "symbols": [
+      "TMUS"
+    ],
+    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T13:43:54.300654-04:00",
+    "symbols": [
+      "TMUS"
+    ],
+    "headline": "QUICK SPARK: SpaceX Spectrum Deal Triggers T-Mobile\u2019s Worst Day Since 2013",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T13:43:54.305176-04:00",
+    "symbols": [
+      "TMUS"
+    ],
+    "headline": "Gold Rises Over 1%; US Consumer Sentiment Falls",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T13:43:54.799635-04:00",
+    "symbols": [
+      "T"
+    ],
+    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T13:43:54.804547-04:00",
+    "symbols": [
+      "T"
+    ],
+    "headline": "QUICK SPARK: SpaceX Spectrum Deal Triggers T-Mobile\u2019s Worst Day Since 2013",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T13:43:55.825041-04:00",
+    "symbols": [
+      "ALHC"
+    ],
+    "headline": "Gold Rises Over 1%; US Consumer Sentiment Falls",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T13:43:56.804436-04:00",
+    "symbols": [
+      "GRRR"
+    ],
+    "headline": "Why Is Gorilla Technology Stock Falling After Its US Data Center Plan?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T13:43:56.809196-04:00",
+    "symbols": [
+      "GRRR"
+    ],
+    "headline": "Gorilla Technology Entered Into Non-Binding Letter Of Intent With Proposed Data Center Acquisition",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   },
   {
     "ts": "2026-10-09T13:45:25.464891-04:00",

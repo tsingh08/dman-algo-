@@ -1627,5 +1627,32 @@
   "drift_pct": 0.0,
   "range_ratio": 0.13,
   "near_high": 0.994
+ },
+ {
+  "ts": "2026-10-09T13:45:00.030104-04:00",
+  "ticker": "CGUI",
+  "price": 25.23,
+  "rvol": 3.62,
+  "drift_pct": 0.0,
+  "range_ratio": 0.13,
+  "near_high": 0.994
+ },
+ {
+  "ts": "2026-10-09T13:45:00.030128-04:00",
+  "ticker": "HYDB",
+  "price": 44.905,
+  "rvol": 1.77,
+  "drift_pct": 0.28,
+  "range_ratio": 0.16,
+  "near_high": 0.961
+ },
+ {
+  "ts": "2026-10-09T13:45:00.030133-04:00",
+  "ticker": "UTZ",
+  "price": 14.31,
+  "rvol": 1.58,
+  "drift_pct": 0.21,
+  "range_ratio": 0.54,
+  "near_high": 0.999
  }
 ]

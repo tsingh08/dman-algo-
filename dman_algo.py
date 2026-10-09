@@ -3477,6 +3477,15 @@ ENABLE_SETUP_KILL      = True
 SETUP_KILL_MIN_TRADES  = 8       # never judge a setup on a small sample
 SETUP_KILL_MAX_WR      = 0.20    # at or below this win rate, with...
 SETUP_KILL_MAX_CUM_PCT = -20.0   # ...this much cumulative damage, it stops
+# And a cumulative this bad stops it WHATEVER the win rate. Added 2026-10-09:
+# Gap & Hold was disabled 2026-10-07 at 7W/28L (20% WR, -65.6%). One win on
+# 2026-10-08 took it to 8W/28L -- 22% WR, just over the 20% bar -- and the AND
+# condition re-enabled it FULLY while the cumulative moved from -65.6% to
+# -65.2%. A kill switch that re-arms on a single marginal observation
+# oscillates, and each oscillation spends real money on a setup the system had
+# already judged unfit. Win rate is too easy to flip at n=36; a -65% book is
+# disqualifying on its own.
+SETUP_KILL_CUM_HARD_PCT = -40.0
 
 SETUP_PROBATION_SCORE_BONUS = 10    # extra confluence points required for a restricted
                                       # setup, on top of whatever SETUP_MIN_CONFLUENCE
@@ -3742,7 +3751,9 @@ def _setup_is_disabled(setup: str) -> tuple[bool, str]:
     if not _e or _e["n"] < SETUP_KILL_MIN_TRADES:
         return False, ""
     _wr = _e["wins"] / _e["n"]
-    if _wr <= SETUP_KILL_MAX_WR and _e["cum_pct"] <= SETUP_KILL_MAX_CUM_PCT:
+    if (_e["cum_pct"] <= SETUP_KILL_CUM_HARD_PCT
+            or (_wr <= SETUP_KILL_MAX_WR
+                and _e["cum_pct"] <= SETUP_KILL_MAX_CUM_PCT)):
         return True, (f"{_e['wins']}W/{_e['n'] - _e['wins']}L over {_e['n']} live "
                       f"trades ({_wr*100:.0f}% WR, {_e['cum_pct']:+.1f}% cumulative)")
     return False, ""
@@ -9633,14 +9644,94 @@ def _signal_can_use_options(sig) -> bool:
     return False
 
 
+def _orphaned_short_legs(closing_occ: str) -> list:
+    """Short option legs left uncovered if closing_occ were closed on its own.
+
+    Added 2026-10-09 after a live near-miss. A PLTR 200/205 call spread opened
+    2026-10-08 was tracked as setup "Options Call PLTR261016C00200000" -- a
+    SINGLE-leg name. _is_spread_setup() keys on the "Earnings " / "Momentum
+    Call Spread" prefixes, so it returned False, and its own docstring had
+    already predicted the consequence: "A spread under any other name would
+    have been opened at the broker and then never monitored, never closed by
+    /close, and never counted against the spread exposure caps."
+
+    The danger is not mis-measured P/L. /close PLTR reads setup.split()[2],
+    gets the LONG 200 call and sells it -- leaving a naked short 205 call with
+    undefined upside risk on a $2,538 account, five sessions from expiry. Any
+    monitor-driven stop or target on the long leg does the same thing.
+
+    Keyed on the broker's ACTUAL legs, not on a name, because the name is what
+    failed. Same underlying and expiry with opposite signs is a spread whatever
+    anything calls it.
+    """
+    try:
+        _c = get_alpaca_client()
+        if _c is None or not closing_occ:
+            return []
+        _occ = str(closing_occ)
+        _under = _occ[:6].rstrip("0123456789")
+        _exp = _occ[len(_under):len(_under) + 6]
+        _left = []
+        for _p in _c.get_all_positions():
+            _sym = str(_p.symbol)
+            if _sym == _occ or not _sym.startswith(_under):
+                continue
+            if _sym[len(_under):len(_under) + 6] != _exp:
+                continue
+            try:
+                if float(_p.qty) < 0:
+                    _left.append(_sym)
+            except (TypeError, ValueError):
+                continue
+        return _left
+    except Exception as exc:
+        _log_swallowed("orphaned short legs", exc)
+        return []
+
+
+def _refuse_orphaning_close(occ_symbol: str, reason: str) -> bool:
+    """True if closing occ_symbol alone would strand a short leg. Says so once.
+
+    Placed at the single choke point every one-legged close goes through, so
+    the manual /close path, the monitor's stop, its target and its trailing
+    exit are all covered by one check rather than four.
+    """
+    _orphans = _orphaned_short_legs(occ_symbol)
+    if not _orphans:
+        return False
+    _list = ", ".join(_orphans)
+    print("  refusing to close " + str(occ_symbol) + " alone - would leave "
+          + _list + " naked")
+    _key = "__WOULD_ORPHAN__:" + str(occ_symbol)
+    try:
+        if not _is_duplicate_alert(_key, 6 * 60):
+            send_telegram(
+                "⛔ <b>Refused a one-legged option close</b>" + chr(10)
+                + str(occ_symbol) + " is part of a spread. Closing it alone "
+                "would leave <b>" + _list + "</b> SHORT and uncovered "
+                "— undefined risk." + chr(10) + chr(10)
+                + "Reason given: " + str(reason) + chr(10)
+                + "Close both legs together, or the short leg first.")
+            _save_last_alert(_key)
+    except Exception as exc:
+        _log_swallowed("orphan refusal alert", exc)
+    return True
+
+
 def _submit_options_close(occ_symbol: str, qty: int, reason: str,
-                          urgent: bool = False) -> tuple[str, Optional[str]]:
+                          urgent: bool = False,
+                          allow_orphan: bool = False) -> tuple[str, Optional[str]]:
     """
     Submit a closing SELL for an options position — the enforcement arm of the
     momentum-watch monitor (stops/targets execute instead of just alerting).
 
+    allow_orphan: only True when the caller has already handled the other leg.
+    Every other path is refused when closing this contract alone would strand a
+    short leg -- see _orphaned_short_legs().
+
     Returns (status, order_id) where status is one of:
       "submitted"      — closing order placed
+      "would_orphan"   — refused: closing this leg alone leaves a naked short
       "pending"        — a SELL is already working for this contract (no double-submit)
       "already_closed" — Alpaca no longer holds the position (sync will record P&L)
       "pdt_blocked"    — selling today would be a PDT violation; position held
@@ -9662,6 +9753,8 @@ def _submit_options_close(occ_symbol: str, qty: int, reason: str,
     An urgent close therefore prices a limit at
     OPTIONS_URGENT_INTRINSIC_FRAC of intrinsic instead of refusing.
     """
+    if not allow_orphan and _refuse_orphaning_close(occ_symbol, reason):
+        return "would_orphan", None
     client = get_alpaca_client()
     if client is None:
         return "failed", None

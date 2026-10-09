@@ -23975,3 +23975,181 @@ class TestADisabledSetupIsAnnounced(unittest.TestCase):
         blk = src[i:i + 900]
         self.assertIn("_mark_signal_not_taken", blk)
         self.assertIn("setup disabled", blk)
+
+
+class TestNeverCloseOneLegOfASpread(unittest.TestCase):
+    """A PLTR 200/205 call spread was tracked under a SINGLE-leg name.
+
+    Opened 2026-10-08 as setup "Options Call PLTR261016C00200000".
+    _is_spread_setup() keys on the "Earnings " / "Momentum Call Spread"
+    prefixes, returned False, and its own docstring had already predicted it:
+    "A spread under any other name would have been opened at the broker and
+    then never monitored, never closed by /close, and never counted against
+    the spread exposure caps."
+
+    The danger is not the mis-measured P/L (tracker said entry $4.80 / stop
+    $2.40 / target $7.20; the real position was a $2.00 net debit capped at
+    $5.00). It is that /close reads setup.split()[2], gets the LONG 200 call
+    and sells it -- leaving a naked short 205 call with undefined upside risk
+    on a $2,538 account, five sessions from expiry.
+
+    So the check keys on the broker's actual legs, not on a name, because the
+    name is what failed."""
+
+    LONG = "PLTR261016C00200000"
+    SHORT = "PLTR261016C00205000"
+
+    def _legs(self, *specs):
+        return [SimpleNamespace(symbol=sym, qty=str(q)) for sym, q in specs]
+
+    def _with(self, legs):
+        cl = MagicMock()
+        cl.get_all_positions.return_value = legs
+        return patch.object(a, "get_alpaca_client", return_value=cl)
+
+    def test_closing_the_long_leg_alone_is_detected(self):
+        """The live case."""
+        with self._with(self._legs((self.LONG, 1), (self.SHORT, -1))):
+            self.assertEqual(a._orphaned_short_legs(self.LONG), [self.SHORT])
+
+    def test_closing_the_short_leg_alone_strands_nothing(self):
+        """Closing the short first is the safe order, so it must be allowed."""
+        with self._with(self._legs((self.LONG, 1), (self.SHORT, -1))):
+            self.assertEqual(a._orphaned_short_legs(self.SHORT), [])
+
+    def test_a_lone_long_call_is_not_a_spread(self):
+        """Single-leg positions must keep closing normally."""
+        with self._with(self._legs((self.LONG, 1))):
+            self.assertEqual(a._orphaned_short_legs(self.LONG), [])
+
+    def test_a_different_expiry_is_a_different_position(self):
+        """Same underlying, other expiry -- not the other leg of this spread."""
+        other = "PLTR261120C00205000"
+        with self._with(self._legs((self.LONG, 1), (other, -1))):
+            self.assertEqual(a._orphaned_short_legs(self.LONG), [])
+
+    def test_another_underlying_is_ignored(self):
+        with self._with(self._legs((self.LONG, 1), ("AMPL261016C00020000", -1))):
+            self.assertEqual(a._orphaned_short_legs(self.LONG), [])
+
+    def test_a_broker_error_does_not_raise(self):
+        cl = MagicMock()
+        cl.get_all_positions.side_effect = RuntimeError("boom")
+        with patch.object(a, "get_alpaca_client", return_value=cl), \
+             patch.object(a, "_log_swallowed"):
+            self.assertEqual(a._orphaned_short_legs(self.LONG), [])
+
+    # --- the refusal --------------------------------------------------------
+    def test_it_refuses_and_says_so_once(self):
+        sent = []
+        with self._with(self._legs((self.LONG, 1), (self.SHORT, -1))), \
+             patch.object(a, "send_telegram", side_effect=lambda m, **k: sent.append(m)), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"):
+            self.assertTrue(a._refuse_orphaning_close(self.LONG, "target hit"))
+        self.assertEqual(len(sent), 1)
+        self.assertIn(self.SHORT, sent[0])
+        self.assertIn("uncovered", sent[0])
+
+    def test_the_alert_names_the_safe_order(self):
+        """Useless to refuse without saying what to do instead."""
+        sent = []
+        with self._with(self._legs((self.LONG, 1), (self.SHORT, -1))), \
+             patch.object(a, "send_telegram", side_effect=lambda m, **k: sent.append(m)), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"):
+            a._refuse_orphaning_close(self.LONG, "stop")
+        self.assertIn("short leg first", sent[0])
+
+    def test_it_does_not_refuse_a_safe_close(self):
+        with self._with(self._legs((self.LONG, 1))), \
+             patch.object(a, "send_telegram") as tg:
+            self.assertFalse(a._refuse_orphaning_close(self.LONG, "target"))
+        tg.assert_not_called()
+
+    # --- the choke point ----------------------------------------------------
+    def test_every_one_legged_close_goes_through_the_guard(self):
+        """Behavioural, not textual. The first version asserted the source
+        CONTAINED the call and that it preceded get_alpaca_client() -- both
+        stayed true under `if False and _refuse_orphaning_close(...)`, which
+        mutation testing applied and the class survived. Fifth time this trap
+        has appeared, so this one calls the function."""
+        with self._with(self._legs((self.LONG, 1), (self.SHORT, -1))),              patch.object(a, "send_telegram"),              patch.object(a, "_is_duplicate_alert", return_value=True),              patch.object(a, "_save_last_alert"):
+            status, oid = a._submit_options_close(self.LONG, 1, "target hit")
+        self.assertEqual(status, "would_orphan")
+        self.assertIsNone(oid)
+
+    def test_the_opt_out_actually_lets_the_close_proceed(self):
+        """allow_orphan must reach past the guard, or a caller that HAS handled
+        both legs would be permanently blocked."""
+        with self._with(self._legs((self.LONG, 1), (self.SHORT, -1))),              patch.object(a, "_refuse_orphaning_close") as refuse:
+            try:
+                a._submit_options_close(self.LONG, 1, "both legs handled",
+                                        allow_orphan=True)
+            except Exception:
+                pass
+        refuse.assert_not_called()
+
+    def test_the_guard_is_ahead_of_any_order_submission(self):
+        src = inspect.getsource(a._submit_options_close)
+        self.assertLess(src.index("_refuse_orphaning_close"),
+                        src.index("get_alpaca_client()"))
+
+    def test_a_caller_can_opt_out_once_it_has_handled_both_legs(self):
+        self.assertIn("allow_orphan",
+                      str(inspect.signature(a._submit_options_close)))
+
+
+class TestAKillSwitchMustNotReArmOnOneWin(unittest.TestCase):
+    """Gap & Hold came back from the dead on a single trade.
+
+    Disabled 2026-10-07 at 7W/28L (20% WR, -65.6% cumulative). One win on
+    2026-10-08 made it 8W/28L -- 22% WR, just over the 20% bar -- and because
+    the kill condition was `WR <= bar AND cum <= bar`, it re-enabled FULLY
+    while the cumulative had moved from -65.6% to -65.2%.
+
+    A kill switch that re-arms on a single marginal observation oscillates,
+    and every oscillation spends real money on a setup the system had already
+    judged unfit. Win rate is far too easy to flip at n=36; a -65% book is
+    disqualifying on its own."""
+
+    def _rec(self, n, wins, cum):
+        return {"X": {"n": n, "wins": wins, "cum_pct": cum}}
+
+    def _dis(self, n, wins, cum):
+        with patch.object(a, "_setup_live_record", return_value=self._rec(n, wins, cum)):
+            return a._setup_is_disabled("X")[0]
+
+    def test_the_exact_resurrection_is_prevented(self):
+        """8W/28L, 22% WR, -65.2% -- what actually happened."""
+        self.assertTrue(self._dis(36, 8, -65.2))
+
+    def test_it_was_already_disabled_the_day_before(self):
+        """7W/28L, 20% WR, -65.6% -- still disabled, unchanged behaviour."""
+        self.assertTrue(self._dis(35, 7, -65.6))
+
+    def test_a_catastrophic_book_is_disqualifying_whatever_the_win_rate(self):
+        """Even a coin-flip win rate cannot rescue a -40%+ cumulative."""
+        self.assertTrue(self._dis(30, 15, -45.0))
+
+    def test_the_original_and_condition_still_applies(self):
+        """Low WR plus moderate damage must still disable -- the fix ADDS a
+        condition, it does not replace one."""
+        self.assertTrue(self._dis(20, 3, -25.0))
+
+    def test_a_merely_poor_setup_is_not_killed(self):
+        """-25% at a 40% win rate is bad, not disqualifying. Killing this would
+        make the switch fire on noise."""
+        self.assertFalse(self._dis(20, 8, -25.0))
+
+    def test_a_small_sample_is_never_judged(self):
+        """SETUP_KILL_MIN_TRADES still guards the front door."""
+        self.assertFalse(self._dis(4, 0, -90.0))
+
+    def test_a_profitable_setup_is_untouched(self):
+        self.assertFalse(self._dis(30, 15, 12.0))
+
+    def test_the_hard_bar_is_stricter_than_the_soft_one(self):
+        """Pinned: if the hard bar drifted above the soft one it would swallow
+        the AND condition entirely and change what the switch means."""
+        self.assertLess(a.SETUP_KILL_CUM_HARD_PCT, a.SETUP_KILL_MAX_CUM_PCT)

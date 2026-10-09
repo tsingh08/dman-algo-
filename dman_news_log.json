@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-09T09:26:39.505607-04:00",
-    "symbols": [
-      "HUM"
-    ],
-    "headline": "Humana FY2026  Adj EPS expected to be more than $9.00 vs $9.15 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-09T09:26:39.739110-04:00",
     "symbols": [
       "NN"
@@ -5052,5 +5042,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T15:36:46.637564-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Muse Downloads Are Slowing \u2014 And Hunterbrook is Short",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1570,5 +1570,17 @@
     "pnl_pct": -8.04,
     "score": 16,
     "is_live": true
+  },
+  {
+    "ticker": "PLTR",
+    "date": "2026-10-09",
+    "bias": "LONG",
+    "setup": "Options Call PLTR261016C00200000",
+    "entry": 4.8,
+    "exit": 9.29,
+    "outcome": "WIN",
+    "pnl_pct": 93.54,
+    "score": 0,
+    "is_live": true
   }
 ]

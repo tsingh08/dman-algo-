@@ -98,30 +98,5 @@
     "trail_pct": 0.0,
     "day_only": false,
     "elevated_size": false
-  },
-  {
-    "ticker": "PLTR",
-    "bias": "LONG",
-    "setup": "Options Call PLTR261016C00200000",
-    "entry": 4.8,
-    "stop": 4.8,
-    "target1": 7.2,
-    "target2": 12.0,
-    "shares": 100,
-    "entry_date": "2026-10-07",
-    "atr": 0.0,
-    "score": 0,
-    "legs": [],
-    "spread_qty": 0,
-    "max_loss": 0.0,
-    "max_gain": 0.0,
-    "earn_date": "",
-    "stop_stage": "initial",
-    "milestone_gain_alerted": 100.0,
-    "milestone_loss_alerted": 30.0,
-    "peak_premium": 9.9,
-    "trail_pct": 0.0,
-    "day_only": false,
-    "elevated_size": false
   }
 ]

@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-08T15:17:07.998543-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Solana Tops NYSE Trade Count: Can Robinhood, Coinbase, Hyperliquid Keep Up?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T15:17:08.245684-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Solana Tops NYSE Trade Count: Can Robinhood, Coinbase, Hyperliquid Keep Up?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T15:17:08.706404-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Anthropic Announces Claude Docs, Slides, And Design Are Out Of Beta And On Every Claude Plan, Including Free; Build Live Dashboards And Animate Explainers With Claude Dashboards And Claude Motion, Now In Beta; Claude Dashboards Is In Beta On Paid Plans, And Claude Motion Is In Beta On Team And Enterprise Plans",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T15:17:08.920685-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Anthropic Announces Claude Docs, Slides, And Design Are Out Of Beta And On Every Claude Plan, Including Free; Build Live Dashboards And Animate Explainers With Claude Dashboards And Claude Motion, Now In Beta; Claude Dashboards Is In Beta On Paid Plans, And Claude Motion Is In Beta On Team And Enterprise Plans",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T15:17:08.928335-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "70 Million Kids Just Got Trump Accounts. The Bigger Winner Could Be State Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T15:17:09.133841-04:00",
     "symbols": [
       "TSLA"
@@ -5043,6 +4993,66 @@
     "headline": "&#39;Donald Trump pressures Mexico for energy deals in crunch trade talks&#39; - Financial Times",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T13:34:25.214035-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump To Issue Directive To U.S. Officials That Seeks To Control Cost Of Diesel; Directive On Diesel Will Push U.S. Department Heads To Find Ways To Bypass Local, State Regulations Blocking Energy Production; Directive Will Push U.S. Officials To Use Defense Production Act To Find Ways To Increase Production Of Oil And Fuel",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T13:35:10.352225-04:00",
+    "symbols": [
+      "AMD",
+      "AVGO",
+      "MRVL",
+      "MSTR",
+      "NVDA",
+      "ORCL",
+      "PLTR"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T13:35:10.966441-04:00",
+    "symbols": [
+      "IOVA",
+      "LLY",
+      "MRNA"
+    ],
+    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T13:35:11.388216-04:00",
+    "symbols": [
+      "AMZN",
+      "BABA",
+      "TSLA"
+    ],
+    "headline": "9 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T13:35:17.530939-04:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "Why Is Newmont Stock Surging Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

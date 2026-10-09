@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-08T13:47:58.481308-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Stock Reaction To Samsung And TSMC Earnings Is An Early Indicator Of A Market Character Shift\u2014Watch Oil And Yields",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T13:47:58.781311-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Stock Reaction To Samsung And TSMC Earnings Is An Early Indicator Of A Market Character Shift\u2014Watch Oil And Yields",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-08T13:47:58.920452-04:00",
     "symbols": [
       "SPY"
@@ -5038,6 +5018,26 @@
     ],
     "headline": "SpaceX Is Coming For Telecom Companies: AT&amp;T, Verizon And T-Mobile Tumble",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T09:48:19.304471-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Reportedly Cuts iPhone 18 Pro Component Orders 15% as AI Memory Crunch Bites",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T09:48:36.237904-04:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "Reported On October 8th: 'Networking Startup Eliyan Draws Takeover Interest, Held Early Talks With Arm'- The Information",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

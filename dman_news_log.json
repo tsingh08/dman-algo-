@@ -1,129 +1,5 @@
 [
   {
-    "ts": "2026-10-08T15:17:09.133841-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Solana Tops NYSE Trade Count: Can Robinhood, Coinbase, Hyperliquid Keep Up?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T15:17:12.067105-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Solana Tops NYSE Trade Count: Can Robinhood, Coinbase, Hyperliquid Keep Up?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T15:17:13.050267-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Why is AbbVie (ABBV) Stock Trending After Hours?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T15:17:15.345169-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Anthropic Launches Cyber Mission To Equip Defenders With AI Tools, Research, And Resources To Strengthen Software And Systems Security",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-08T15:17:15.634495-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Anthropic Launches Cyber Mission To Equip Defenders With AI Tools, Research, And Resources To Strengthen Software And Systems Security",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T15:17:16.197169-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Solana Tops NYSE Trade Count: Can Robinhood, Coinbase, Hyperliquid Keep Up?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-08T15:17:19.495744-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Lockheed Martin To Deliver S-70 BLACK HAWK Helicopter Training Devices And Services To The Philippine Air Force",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T15:17:31.065879-04:00",
-    "symbols": [
-      "ADCT"
-    ],
-    "headline": "ADC Therapeutics Announces $86.6M Pipe Financing For 12.9M Shares At $1.42/Share And Warrants To Purchase 48.1M Shares At $1.32/Warrant; Secures Loan And Royalty Amendments",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T15:17:31.445072-04:00",
-    "symbols": [
-      "CMG"
-    ],
-    "headline": "Chipotle Stock Jumps: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T15:21:42.641248-04:00",
-    "symbols": [
-      "CMG"
-    ],
-    "headline": "Why Is Jersey Mike&#39;s Subs Stock Gaining Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T15:23:49.557288-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Could Be the \u2018Toll Collector\u2019 of Consumer AI. Dan Ives Sees $75 More Per Share",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T15:25:57.185718-04:00",
-    "symbols": [
-      "CEG",
-      "OKLO",
-      "SMR",
-      "TLN",
-      "VST"
-    ],
-    "headline": "Shares of power and electrical-related companies are trading lower following reports suggesting that OpenAI&#39;s annualized revenue is approximately $20 billion less than previously indicated, which pressures hyperscaler growth and slows demand for electrical grid upgrades and data center power infrastructure. Rising oil prices and climbing yields also weigh on the industry.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T15:36:22.647467-04:00",
     "symbols": [
       "CME"
@@ -5054,5 +4930,125 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T13:41:53.540820-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Shell, Chevron, BP Pull Crews as Hurricane Isaias Barrels Toward Gulf Coast Refineries",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T13:42:14.883850-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T13:42:14.977821-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T13:42:15.403709-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "9 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T13:42:15.485683-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "9 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T13:42:16.093494-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T13:42:16.478514-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T13:42:16.864178-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T13:42:17.047016-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T13:42:18.197431-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T13:42:18.512021-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "9 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T13:42:19.569218-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

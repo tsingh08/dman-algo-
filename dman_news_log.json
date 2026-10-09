@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-09T09:26:23.420571-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Securitize Stock Jumps After Hours As It Launches Tokenized Apple, Nvidia, Tesla Shares On Solana",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-09T09:26:23.709010-04:00",
     "symbols": [
       "GOOGL"
@@ -5046,5 +5036,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T14:49:46.128526-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Posts On Truth Social &#34;I have just concluded a highly successful discussion with President Vladimir Putin, of Russia, wherein it was agreed that Russia will immediately supply over 300,000 Tons of Diesel Fuel to the American and Global Marketplace, another 500,000 Tons during the month of November, and 1,000,000 Tons immediately thereafter. Additionally, based on the condition of their Diesel Refineries, Russia will then deliver, within a short period of time, 3,000,000 Tons of Diesel Fuel.&#34;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

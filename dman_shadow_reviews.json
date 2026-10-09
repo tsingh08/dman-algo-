@@ -398,49 +398,5 @@
    "regime": "BULL",
    "regime_score": 14
   }
- },
- {
-  "ts": "2026-10-09T12:42:33.494004-04:00",
-  "kind": "signal",
-  "ticker": "VEEA",
-  "verdict": "skip",
-  "confidence": 85,
-  "reason": "Regime score 14 (CHOP) contradicts morning runner setup. Already +43% gapped; entry chases after move. Risk of mean reversion.",
-  "facts": {
-   "setup": "Morning Runner",
-   "bias": "LONG",
-   "confluence_score": 100,
-   "entry": 6.16,
-   "stop": 5.32,
-   "target1": 8.28,
-   "rr": 2.52,
-   "rvol": 5.99,
-   "rsi": 63.3,
-   "reason": "News gap +43.2% on 6.0x vol, holding open | ULTRA-LOW FLOAT 1.5M",
-   "regime": "CHOP",
-   "regime_score": 14
-  }
- },
- {
-  "ts": "2026-10-09T12:42:34.559873-04:00",
-  "kind": "signal",
-  "ticker": "CCI",
-  "verdict": "skip",
-  "confidence": 85,
-  "reason": "CHOP regime (score 14) conflicts with morning runner setup. Gap already captured 7.9%; limited room before resistance.",
-  "facts": {
-   "setup": "Morning Runner",
-   "bias": "LONG",
-   "confluence_score": 100,
-   "entry": 78.02,
-   "stop": 74.31,
-   "target1": 94.71,
-   "rr": 4.5,
-   "rvol": 3.59,
-   "rsi": 62.2,
-   "reason": "News gap +7.9% on 3.6x vol, holding open",
-   "regime": "CHOP",
-   "regime_score": 14
-  }
  }
 ]

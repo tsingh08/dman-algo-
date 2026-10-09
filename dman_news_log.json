@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-09T09:26:22.508546-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Bill Gates Says Aviation Is One of the Hardest Sectors to Decarbonize Amid Skyrocketing Fuel Costs\u2014Here&#39;s His Solution",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T09:26:22.512833-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Elon Musk A \u2018National Treasure,\u2019 Says Trump: President Compares Tesla CEO With Edison As He Awards National Medal of Science",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T09:26:22.517177-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "OpenAI Says Three Employees Violated Sensitive Information Policies, Denies Safety-Concern Firings, Will Announce Third-Party Safety Assessors In Coming Weeks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T09:26:22.801632-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "AWS CEO Says AI Spending Isn\u2019t a Bubble Just Yet \u2014 Amazon\u2019s Cloud Chief Says \u2018We Feel Really Good\u2019 as Ray Dalio Warns the Boom Is Near a Breaking Point",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-09T09:26:22.806212-04:00",
     "symbols": [
       "NVDA"
@@ -5045,5 +5005,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T14:24:37.643425-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USGS Reports Magnitude 7.6 Earthquake Strikes Off Panama&#39;s Pacific Coast; 10km WSW Of Pitaloza Arriba, Panama",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T14:25:07.505053-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Stock Drops Thursday: What&#39;s Happening? (CORRECTED)",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T14:25:13.703152-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "\u2018Dean of Valuation\u2019 Warns of AI Cash Drain: 4 Ways to Play the Shift",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T14:25:13.708251-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Wall Street Still Treats Micron Like a Commodity Stock \u2014 Analyst Says That&#39;s a Costly Mistake",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

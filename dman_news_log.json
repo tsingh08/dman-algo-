@@ -1,67 +1,5 @@
 [
   {
-    "ts": "2026-10-09T09:20:40.185310-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Barclays Initiates Coverage On Rocket Lab with Overweight Rating, Announces Price Target of $85",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:21:07.675115-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Guggenheim Reiterates Buy on AbbVie, Maintains $288 Price Target",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T09:21:52.836227-04:00",
-    "symbols": [
-      "QQQ",
-      "SPY",
-      "VEEA"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Dow Jones, Nasdaq 100 Futures Gain as Scott Bessent Says US Is Starving Iran&#39;s &#39;Tyrannical Regime&#39;\u2014 PKE, HUM, RENX in Focus (UPDATED)",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T09:25:51.925024-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "TD Cowen Reiterates Buy on SpaceX, Maintains $200 Price Target",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T09:26:11.073724-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Barclays Initiates Coverage On RTX with Overweight Rating, Announces Price Target of $223",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T09:26:22.239868-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Stock Falls on Reports It Cut iPhone 18 Pro Component Orders by 15% to 20%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-09T09:26:22.244522-04:00",
     "symbols": [
       "AAPL"
@@ -5044,6 +4982,66 @@
     ],
     "headline": "QUICK SPARK: AT&amp;T Sinks 11% In Worst Day Since 2000 As SpaceX Spectrum Deal Rattles Carriers",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T14:18:08.919578-04:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Cloudflare shares are trading higher after Oppenheimer maintained its Outperform rating on the stock and raised its price target from $380 to $430.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T14:18:15.977641-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Barclays Initiates Coverage On Palantir Technologies with Overweight Rating, Announces Price Target of $265",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T14:18:15.996846-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Guggenheim Reiterates Buy on AbbVie, Maintains $288 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T14:18:16.009160-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Barclays Initiates Coverage On Rocket Lab with Overweight Rating, Announces Price Target of $85",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T14:18:16.032238-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Barclays Initiates Coverage On Lockheed Martin with Equal-Weight Rating, Announces Price Target of $554",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T14:18:16.038833-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "Barclays Initiates Coverage On RTX with Overweight Rating, Announces Price Target of $223",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

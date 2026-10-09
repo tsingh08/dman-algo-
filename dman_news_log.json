@@ -1,165 +1,5 @@
 [
   {
-    "ts": "2026-10-08T14:11:00.091351-04:00",
-    "symbols": [
-      "HELE"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T14:11:00.307759-04:00",
-    "symbols": [
-      "HYPR"
-    ],
-    "headline": "Hyperfine Affirms FY2026 Sales Guidance of $20.000M-$22.000M vs $20.163M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T14:11:00.312892-04:00",
-    "symbols": [
-      "HYPR"
-    ],
-    "headline": "Hyperfine Reports Preliminary Q3 Revenue Of ~$6M, Up 53% Sequentially; Net Cash Burn ~$5.6M, Down 29%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T14:11:00.556945-04:00",
-    "symbols": [
-      "PROF"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T14:11:00.561830-04:00",
-    "symbols": [
-      "PROF"
-    ],
-    "headline": "Why Applied Digital Shares Are Trading Higher; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T14:11:00.765071-04:00",
-    "symbols": [
-      "GFUZ"
-    ],
-    "headline": "General Fusion Achieves World-First 1 keV Electron Temperature Milestone",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T14:11:01.241007-04:00",
-    "symbols": [
-      "HAE"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T14:11:01.431564-04:00",
-    "symbols": [
-      "RCKT"
-    ],
-    "headline": "This Palantir Analyst Turns Bullish; Here Are Top 5 Upgrades For Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T14:11:01.436296-04:00",
-    "symbols": [
-      "RCKT"
-    ],
-    "headline": "Goldman Sachs Upgrades Rocket Pharmaceuticals to Neutral, Raises Price Target to $4",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T14:11:01.989823-04:00",
-    "symbols": [
-      "HNRG"
-    ],
-    "headline": "Hallador Energy Enters Six-Year, $700M Capacity And Energy Agreements With A MISO Zone 6 Utility Covering Deliveries From The Merom Generating Station From June 1, 2029, Through May 31, 2035; Revenue Jumps from $46/MWh For 2026 To $75/MWh For 2031-2035",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T14:14:07.988530-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Four Senior Leaders Of Trump&#39;s AI Task Force To Meet On Thursday; Vice Chair Kupor Expects Full AI Task Force To Meet Next Week; Kupor Expects AI Task Force To Release Its Charter After First Full Group Meeting&#39; - Reuters Exclusive",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T14:14:21.520455-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "TD Cowen Reiterates Buy on Meta Platforms, Maintains $865 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T14:14:21.536984-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "&#39;Tesla Leaned On Dutch Regulator To Ease Its FSD Review&#39; - Electrek.co",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T14:14:21.675787-04:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "RBC Capital Maintains Outperform on Biogen, Lowers Price Target to $256",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T14:14:21.686923-04:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "RBC Capital Maintains Sector Perform on Gilead Sciences, Raises Price Target to $126",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T14:14:21.724689-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "Susquehanna Maintains Positive on DraftKings, Lowers Price Target to $27",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-08T14:14:21.731814-04:00",
     "symbols": [
       "WOLF"
@@ -5048,6 +4888,166 @@
       "FSLY"
     ],
     "headline": "Why Is Fastly Stock Soaring Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T13:09:04.655600-04:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: UnitedHealth Group, Arista Networks, Hewlett Packard Enterprise, Wells Fargo &amp; Company",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T13:09:06.153602-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "Alibaba Stock Rises as China Limits Sell Orders",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T13:09:08.171846-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: UnitedHealth Group, Arista Networks, Hewlett Packard Enterprise, Wells Fargo &amp; Company",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T13:09:08.483911-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Stock Reverses: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T13:09:08.753000-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Baker Hughes Oil Rig Count +6 To 462; U.S. Baker Hughes NatGas Rig Count -1 To 132; U.S. Baker Hughes Total Rig Count 603 Vs 598 Prior",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T13:09:08.755766-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Gulf Shuts Down 72% Of Oil Production, ~1.5M Barrels/Day; The U.S. Gulf Of Mexico Has Shut In 71.5% Of Daily Oil Production And 58.8% Of Natural Gas Output, According To The Marine Minerals Administration;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T13:09:09.417631-04:00",
+    "symbols": [
+      "VIVK"
+    ],
+    "headline": "Vivakor Stock Rallies on Proposed $40M Direct Midstream Acquisition",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T13:09:09.588997-04:00",
+    "symbols": [
+      "VEEA"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T13:09:09.907366-04:00",
+    "symbols": [
+      "VZ"
+    ],
+    "headline": "Why Is AST SpaceMobile Stock Falling on Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T13:09:10.045923-04:00",
+    "symbols": [
+      "ASTS"
+    ],
+    "headline": "Why Is AST SpaceMobile Stock Falling on Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-09T13:09:10.208063-04:00",
+    "symbols": [
+      "TMUS"
+    ],
+    "headline": "Why Is AST SpaceMobile Stock Falling on Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T13:09:10.376601-04:00",
+    "symbols": [
+      "T"
+    ],
+    "headline": "Why Is AST SpaceMobile Stock Falling on Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T13:09:10.564175-04:00",
+    "symbols": [
+      "FSLY"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T13:09:10.875969-04:00",
+    "symbols": [
+      "CCI"
+    ],
+    "headline": "Crown Castle Stock Jumping as SpaceX Acquires 800 MHz Spectrum",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T13:09:11.639588-04:00",
+    "symbols": [
+      "ARQQ"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T13:09:11.798668-04:00",
+    "symbols": [
+      "CCC"
+    ],
+    "headline": "Humana, Evolution Metals &amp; Technologies, Fastly And Other Big Stocks Moving Higher On Friday",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

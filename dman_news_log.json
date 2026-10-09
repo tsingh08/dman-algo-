@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-08T13:48:07.792440-04:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "Amerx Initiates Coverage On Fortinet with Overweight Rating, Announces Price Target of $240",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T13:48:07.988413-04:00",
     "symbols": [
       "ZS"
@@ -5043,5 +5033,16 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T10:19:23.267494-04:00",
+    "symbols": [
+      "NFLX",
+      "V"
+    ],
+    "headline": "Disney, Netflix, Visa And More: CNBC\u2019s \u2018Final Trades\u2019",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

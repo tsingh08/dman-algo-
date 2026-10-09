@@ -486,5 +486,27 @@
    "regime": "CHOP",
    "regime_score": 14
   }
+ },
+ {
+  "ts": "2026-10-09T16:01:05.115169-04:00",
+  "kind": "signal",
+  "ticker": "VEEA",
+  "verdict": "skip",
+  "confidence": 85,
+  "reason": "Ultra-low float (1.5M) creates extreme slippage risk. Stop at 5.24 won't execute reliably on gap-up runner. Uncontrollable risk.",
+  "facts": {
+   "setup": "Morning Runner",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 5.71,
+   "stop": 5.24,
+   "target1": 6.91,
+   "rr": 2.55,
+   "rvol": 3.26,
+   "rsi": 61.5,
+   "reason": "News gap +43.2% on 3.3x vol, holding open | ULTRA-LOW FLOAT 1.5M",
+   "regime": "BULL",
+   "regime_score": 14
+  }
  }
 ]

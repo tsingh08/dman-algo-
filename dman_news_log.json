@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-08T17:49:30.843189-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk Gets &#39;Very Big Deal&#39; for SpaceX: Why AT&amp;T, Verizon, T-Mobile Stocks are Falling",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-08T18:00:34.323998-04:00",
     "symbols": [
       "MSFT"
@@ -5045,5 +5035,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T14:03:31.037799-04:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "Arm Holdings shares are trading lower after reports suggesting that the company has held early stage discussions to acquire chiplet interconnection maker Eliyan.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-08T14:08:15.539076-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Adobe And Heathrow Extend Partnership, Deploying Adobe CX Enterprise For New Flagship Website And Personalised AI-Powered Experiences",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T14:08:15.673652-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Live On Bloomberg TV, Fed&#39;s Musalem Says Important To Keep Government Debt Management And Monetary Policy Seperate; Financial Conditions Have Tightened Modestly But Are Accomodative And Supporting Growth; Credit Conditions Solid And Good Amid Some &#39;Slight&#39; Issues In Market",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T14:08:15.678138-04:00",
     "symbols": [
       "SPY"
@@ -5053,5 +5033,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T11:27:43.226682-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Dan Ives Calls Tesla a &#39;Physical AI&#39; Play. Robotaxis Could Make or Break the $500 Case",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T11:28:14.247429-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "UBS Maintains Neutral on AbbVie, Raises Price Target to $275",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

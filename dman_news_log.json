@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-08T14:41:49.695479-04:00",
-    "symbols": [
-      "QNME"
-    ],
-    "headline": "Quanome Signs 60-Month AI Infrastructure Services Agreement Worth More Than $100M, Secures First Enterprise Customer And Orders 32 Additional GPU Servers",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T14:42:08.916392-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft&#39;s Visa Freeze Could Trigger an AI &#39;Brain Drain&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-08T14:42:09.226456-04:00",
     "symbols": [
       "NVDA"
@@ -5048,6 +5028,28 @@
     ],
     "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T13:29:10.045190-04:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "Why Is Newmont Stock Surging on Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T13:30:13.631001-04:00",
+    "symbols": [
+      "MSTR",
+      "NVDA",
+      "TSLA"
+    ],
+    "headline": "Strategy Faces \u2018Dilution Drag\u2019 as TD Cowen Raises Bitcoin Forecast to $109,000",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-08T14:10:53.541392-04:00",
-    "symbols": [
-      "OXY"
-    ],
-    "headline": "Trump EPA Moves To Roll Back Biden-Era Methane Rules, Says Changes Could Save Oil and Gas Producers $45 Billion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-08T14:10:53.734726-04:00",
     "symbols": [
       "SLB"
@@ -5051,5 +5041,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T12:25:30.630870-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple&#39;s Next MacBook Pro Could Help Make OLED the New Premium Laptop Standard",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-09T09:26:22.810580-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "\u2018Dean of Valuation\u2019 Warns of AI Cash Drain: 4 Ways to Play the Shift",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T09:26:22.814996-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is SpaceX Stock Surging Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T09:26:22.819380-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;Firmus Explores $3 Billion Private Round After IPO Flop&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-09T09:26:23.096524-04:00",
     "symbols": [
       "AMD"
@@ -5045,5 +5015,36 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T14:34:27.741499-04:00",
+    "symbols": [
+      "RKLB",
+      "SPCX"
+    ],
+    "headline": "ASTS Stock Drops 15% on SpaceX Threat: This ETF Holds Both Sides of the Satellite War",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T14:34:51.204890-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "ASTS Stock Drops 15% on SpaceX Threat: This ETF Holds Both Sides of the Satellite War",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T14:34:54.802842-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "ASTS Stock Drops 15% on SpaceX Threat: This ETF Holds Both Sides of the Satellite War",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

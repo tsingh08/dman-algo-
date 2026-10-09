@@ -398,5 +398,49 @@
    "regime": "BULL",
    "regime_score": 14
   }
+ },
+ {
+  "ts": "2026-10-09T13:10:19.444343-04:00",
+  "kind": "signal",
+  "ticker": "FSLY",
+  "verdict": "skip",
+  "confidence": 85,
+  "reason": "CHOP regime (14/100) undermines gap-and-hold catalyst. Choppy conditions make holding unlikely; risk/reward attractive but regime opposition is concrete flaw.",
+  "facts": {
+   "setup": "Gap & Hold",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 29.34,
+   "stop": 26.27,
+   "target1": 36.99,
+   "rr": 2.49,
+   "rvol": 2.07,
+   "rsi": 55.7,
+   "reason": "Gap up +6.4% from prior close, holding, RVOL 2.1x",
+   "regime": "CHOP",
+   "regime_score": 14
+  }
+ },
+ {
+  "ts": "2026-10-09T13:10:20.463509-04:00",
+  "kind": "signal",
+  "ticker": "CCI",
+  "verdict": "skip",
+  "confidence": 92,
+  "reason": "CHOP regime (14 score) incompatible with morning runner. Gap holding in choppy conditions risks mean reversion into stop.",
+  "facts": {
+   "setup": "Morning Runner",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 77.62,
+   "stop": 73.91,
+   "target1": 93.31,
+   "rr": 4.23,
+   "rvol": 3.54,
+   "rsi": 61.4,
+   "reason": "News gap +7.9% on 3.5x vol, holding open",
+   "regime": "CHOP",
+   "regime_score": 14
+  }
  }
 ]

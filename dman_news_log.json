@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-08T13:55:05.583212-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Why Is Arm Stock Falling Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T13:55:05.684592-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Dow Jones, Nasdaq 100 Futures Decline as Pentagon Prepares for Potential Military Strikes on Iran \u2014 APLD, LEVI, MU in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T13:55:05.689248-04:00",
     "symbols": [
       "MRVL"
@@ -5047,5 +5027,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T10:47:29.589654-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Michael Saylor Calls Elon Musk\u2019s SpaceX Vision \u2018Bullish\u2019: Could Bitcoin Benefit?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-09T10:47:29.609146-04:00",
+    "symbols": [
+      "HUM"
+    ],
+    "headline": "Barclays Maintains Overweight on Humana, Raises Price Target to $582",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

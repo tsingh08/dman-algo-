@@ -1,68 +1,5 @@
 [
   {
-    "ts": "2026-10-08T11:21:11.577008-04:00",
-    "symbols": [
-      "ANGO"
-    ],
-    "headline": "Earnings Scheduled For October 8, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T11:21:11.579768-04:00",
-    "symbols": [
-      "ANGO"
-    ],
-    "headline": "AngioDynamics Appoints Eric Honroth As President And CEO, Effective November 2",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T11:21:11.582503-04:00",
-    "symbols": [
-      "ANGO"
-    ],
-    "headline": "AngioDynamics Affirms FY2027 Adj EPS Guidance of $(0.29)-$(0.24) vs $(0.27) Est; Affirms FY2027 Sales Guidance of $336.000M-$341.000M vs $337.400M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T11:21:11.585249-04:00",
-    "symbols": [
-      "ANGO"
-    ],
-    "headline": "AngioDynamics Q1 Adj. EPS $(0.04) Beats $(0.11) Estimate, Sales $80.915M Beat $80.500M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T11:23:14.254103-04:00",
-    "symbols": [
-      "APLD",
-      "CLSK",
-      "NBIS",
-      "RIOT"
-    ],
-    "headline": "Bitcoin Slide Meets 5.7% Bond Yields: Neoclouds Get Hit From Both Sides",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T11:25:43.846038-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Transcript: Eli Lilly Q2 2026 Earnings Conference Call",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T11:33:22.967584-04:00",
     "symbols": [
       "SPOT"
@@ -5070,5 +5007,68 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T09:11:44.953182-04:00",
+    "symbols": [
+      "CRWD",
+      "HOOD"
+    ],
+    "headline": "CrowdStrike To Rally Around 18%? Here Are 10 Top Analyst Forecasts For Friday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-09T09:14:07.757067-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Barclays Initiates Coverage On Lockheed Martin with Equal-Weight Rating, Announces Price Target of $554",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T09:16:21.811667-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Barclays Initiates Coverage On Palantir Technologies with Overweight Rating, Announces Price Target of $265",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T09:20:40.185310-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Barclays Initiates Coverage On Rocket Lab with Overweight Rating, Announces Price Target of $85",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T09:21:07.675115-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Guggenheim Reiterates Buy on AbbVie, Maintains $288 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T09:21:52.836227-04:00",
+    "symbols": [
+      "QQQ",
+      "SPY",
+      "VEEA"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500, Dow Jones, Nasdaq 100 Futures Gain as Scott Bessent Says US Is Starving Iran&#39;s &#39;Tyrannical Regime&#39;\u2014 PKE, HUM, RENX in Focus (UPDATED)",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

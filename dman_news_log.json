@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-08T14:10:52.179970-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Applied Digital, Webull Corp., Super Micro Computer, Micron and Caterpillar: Why These 5 Stocks Are on Investors&#39; Radars Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T14:10:52.731256-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Elon Musk\u2019s SpaceX Could Pay Off for Investors Before Tesla Ever Did, Says Jim Cramer \u2014 Top Investment Bank Sees Over 37% Upside for SPCX Investors (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T14:10:52.736518-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Broadcom Eyes Over $50 Billion to Fund OpenAI\u2019s Custom AI Chips as Oracle Also Pursues Major Chip Financing: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T14:10:52.742805-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Elon Musk\u2019s SpaceX Gets Green Light from Trump&#39;s FCC for 15,000 Starlink Satellites: Here\u2019s What Comes Next",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-08T14:10:53.144480-04:00",
     "symbols": [
       "MA"
@@ -5050,6 +5010,46 @@
     "headline": "USDA Estimates U.S. 2026/27 Wheat End Stocks 0.74B BU; Estimates 2026/27 U.S. Wheat Crop 1.534B BU; Estimates U.S. 2026/27 Soybean End Stocks 315M BU",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T12:12:10.996065-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Just Spooked Verizon. The Sneaky Winners May Be America&#39;s Cell-Tower Owners",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-09T12:15:20.125371-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "If You Invested $1000 In Apple Stock 5 Years Ago, You Would Have This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T12:16:02.823456-04:00",
+    "symbols": [
+      "CCI"
+    ],
+    "headline": "SpaceX Just Spooked Verizon. The Sneaky Winners May Be America&#39;s Cell-Tower Owners",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T12:16:02.841265-04:00",
+    "symbols": [
+      "AMT"
+    ],
+    "headline": "SpaceX Just Spooked Verizon. The Sneaky Winners May Be America&#39;s Cell-Tower Owners",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

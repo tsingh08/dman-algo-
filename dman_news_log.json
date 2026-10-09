@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-08T13:55:03.739085-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Stock Reaction To Samsung And TSMC Earnings Is An Early Indicator Of A Market Character Shift\u2014Watch Oil And Yields",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-08T13:55:04.073831-04:00",
     "symbols": [
       "AMZN"
@@ -5045,5 +5035,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T10:38:07.284976-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "RBC Capital Reiterates Sector Perform on Costco Wholesale, Maintains $1000 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

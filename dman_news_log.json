@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-08T13:55:12.441823-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Reaction To Samsung And TSMC Earnings Is An Early Indicator Of A Market Character Shift\u2014Watch Oil And Yields",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-08T13:55:12.982134-04:00",
     "symbols": [
       "ANGO"
@@ -5050,5 +5040,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T11:10:01.799774-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Treasury&#39;s Bessent To Skip IMF-World Bank And G20 Meetings In Bangkok Due To Domestic Engagements; Deputy Treasury Secretary Brooke And Undersecretary Browne To Lead U.S. Treasury Delegation",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

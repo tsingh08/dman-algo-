@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-08T14:10:51.016339-04:00",
-    "symbols": [
-      "WOLF"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-08T14:10:51.021144-04:00",
     "symbols": [
       "WOLF"
@@ -5051,5 +5041,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T11:45:03.526086-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Live On CNBC, Federal Communications Commission Chair Carr Says Agency Would Defer To Pentagon On Whether Military Execution Could Be Aired On Broadcast Networks",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

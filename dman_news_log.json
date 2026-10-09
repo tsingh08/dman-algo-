@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-08T13:55:03.488154-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Stock Reaction To Samsung And TSMC Earnings Is An Early Indicator Of A Market Character Shift\u2014Watch Oil And Yields",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T13:55:03.739085-04:00",
     "symbols": [
       "META"
@@ -5044,5 +5034,16 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T10:33:26.578586-04:00",
+    "symbols": [
+      "BABA",
+      "PDD"
+    ],
+    "headline": "Shares of U.S.-traded Chinese companies are trading higher amid speculation that China government authorities intervened to limit the placement of sell orders during Asia trading.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

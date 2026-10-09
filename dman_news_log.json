@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-09T09:26:23.416188-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Draws a Line With TikTok, Bans ByteDance Ads Across Facebook and Instagram: Their Goal Is to \u2018Pull People off Our Apps\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-09T09:26:23.420571-04:00",
     "symbols": [
       "META"
@@ -5044,6 +5034,16 @@
     ],
     "headline": "Humana, Evolution Metals &amp; Technologies, Fastly And Other Big Stocks Moving Higher On Friday",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T14:45:17.770593-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla&#39;s China Retail Sales Fall 9% Even as Shanghai Exports Surge 58%",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

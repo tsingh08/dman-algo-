@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-08T14:42:09.226456-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Microsoft&#39;s Visa Freeze Could Trigger an AI &#39;Brain Drain&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T14:42:09.583477-04:00",
     "symbols": [
       "AMD"
@@ -5051,6 +5041,16 @@
     "headline": "Strategy Faces \u2018Dilution Drag\u2019 as TD Cowen Raises Bitcoin Forecast to $109,000",
     "source": "benzinga",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T13:32:49.601076-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Donald Trump pressures Mexico for energy deals in crunch trade talks&#39; - Financial Times",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

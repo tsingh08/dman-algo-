@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-08T13:47:58.920452-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Musalem Says Inflation Is Elevated And Being Driven By Persistent Demand Pressures And Supply Shocks; Key To Bring Inflation Back To 2% In Timely Manner And Limit Second Round Effects; To Bring Inflation Back To Target More Monetary Policy Firming Will Be Required; Goes Into All Meetings With An Open Mind; Current Level Of Inflation Requires Fed To Think About Rate Increases; Contacts Mostly Worried About Inflation, Does Not See Job Market Worries",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T13:47:59.294487-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Stock Reaction To Samsung And TSMC Earnings Is An Early Indicator Of A Market Character Shift\u2014Watch Oil And Yields",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T13:47:59.533583-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Stock Reaction To Samsung And TSMC Earnings Is An Early Indicator Of A Market Character Shift\u2014Watch Oil And Yields",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T13:48:01.222674-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Analyst Sees Stock Nearly Tripling to $3,000, Warns Short Sellers: &#39;You Have an Expiry&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T13:48:01.889073-04:00",
     "symbols": [
       "QCOM"
@@ -5040,5 +5000,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T09:51:57.743362-04:00",
+    "symbols": [
+      "NIO"
+    ],
+    "headline": "&#39;EU Says Accord With China Could Cut Hybrid Car Exports by Half&#39;- Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T09:52:57.534089-04:00",
+    "symbols": [
+      "XPEV"
+    ],
+    "headline": "&#39;EU Says Accord With China Could Cut Hybrid Car Exports by Half&#39;- Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T09:53:01.152615-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Baird Maintains Outperform on Mastercard, Raises Price Target to $710",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T09:54:13.357834-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Full Transcript: Constellation Energy Q2 2026 Earnings Call",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

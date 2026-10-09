@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-08T14:08:15.678138-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Live On Bloomberg TV, Fed&#39;s Musalem Says It&#39;s Possible Government Debt Levels May Eventually Create Risks; Fed Does Not Focus On Government Debt Management; Monetary Policy Independence Is A Valuable Asset",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T14:08:15.684806-04:00",
     "symbols": [
       "SPY"
@@ -5050,6 +5040,16 @@
       "ABBV"
     ],
     "headline": "UBS Maintains Neutral on AbbVie, Raises Price Target to $275",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T11:30:56.359358-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "TD Cowen Maintains Buy on RTX, Lowers Price Target to $225",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

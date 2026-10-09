@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-08T14:08:15.684806-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Live On Bloomberg TV, Fed&#39;s Musalem Says Strong Demand For Capital Likely To Keep Rates Higher Than They Used To Be; US Government Has Been On An Unsustainable Fiscal Path For Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T14:08:15.689177-04:00",
     "symbols": [
       "SPY"
@@ -5053,5 +5043,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T11:31:53.311979-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "TD Cowen Maintains Buy on Rocket Lab, Lowers Price Target to $90",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

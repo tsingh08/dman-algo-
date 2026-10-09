@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-09T09:26:23.728459-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google Cloud And CaixaBank Extend 2023 Strategic Collaboration To 2033 With Focus On Agentic AI, Hybrid Infrastructure And Security, And Workforce Training",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T09:26:23.957676-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Is Undervalued, Says Analyst \u2014 and AI Could Be Its Biggest Advantage",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-09T09:26:23.962343-04:00",
     "symbols": [
       "AMZN"
@@ -5047,5 +5027,30 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T15:04:10.575000-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Issues General License Authorizing Transactions Related To Sale, Delivery, Offloading, And Importation Of Diesel Fuel Of Russian Origin Through April 7, 2027",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T15:05:09.109475-04:00",
+    "symbols": [
+      "CEG",
+      "GOOGL",
+      "GS",
+      "JPM",
+      "MU",
+      "SPCX"
+    ],
+    "headline": "Treasury Yields Reach 24-Year Highs, Telecom Stocks Sell Off: This Week On Wall Street",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

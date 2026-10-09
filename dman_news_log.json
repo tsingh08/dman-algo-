@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-08T14:10:51.412799-04:00",
-    "symbols": [
-      "TLN"
-    ],
-    "headline": "Top 3 Utilities Stocks That May Keep You Up At Night In October",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T14:10:51.788988-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Portugal&#39;s Foreign Minister Says Government Will Decide On F-35 Jet Purchases In Accordance With National Interests; Portugal Is Seriously Considering F-35 Jets Proposal, As It Does With Other Options",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-08T14:10:51.972784-04:00",
     "symbols": [
       "RTX"
@@ -5051,5 +5031,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T11:49:46.631836-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Strategy shares are trading higher after Barclays maintained its Overweight rating and raised its price target on the stock from $160 to $175.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T11:50:40.271901-04:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "Rivian Ain\u2019t Afraid of No Ghosts: Could Ghostbusters Collaboration Spotlight New R2?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

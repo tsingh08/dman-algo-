@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-08T13:55:12.322990-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Live On Bloomberg TV, Fed&#39;s Musalem Says Inflation Is Elevated And Being Driven By Persistent Demand Pressures And Supply Shocks; Key To Bring Inflation Back To 2% In Timely Manner And Limit Second Round Effects; To Bring Inflation Back To Target More Monetary Policy Firming Will Be Required; Goes Into All Meetings With An Open Mind; Current Level Of Inflation Requires Fed To Think About Rate Increases; Contacts Mostly Worried About Inflation, Does Not See Job Market Worries",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T13:55:12.327691-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Stock Reaction To Samsung And TSMC Earnings Is An Early Indicator Of A Market Character Shift\u2014Watch Oil And Yields",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T13:55:12.441823-04:00",
     "symbols": [
       "QQQ"
@@ -5049,5 +5029,26 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T11:04:29.906608-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Barclays Maintains Overweight on Strategy, Raises Price Target to $175",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T11:04:46.461318-04:00",
+    "symbols": [
+      "GOOGL",
+      "MSFT"
+    ],
+    "headline": "Google Could &#39;Eat OpenAI&#39;s Lunch,&#39; Warns Cal Newport",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

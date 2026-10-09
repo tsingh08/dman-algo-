@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-08T13:55:04.073831-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Stock Reaction To Samsung And TSMC Earnings Is An Early Indicator Of A Market Character Shift\u2014Watch Oil And Yields",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T13:55:04.289712-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Stock Reaction To Samsung And TSMC Earnings Is An Early Indicator Of A Market Character Shift\u2014Watch Oil And Yields",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T13:55:05.170770-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Analyst Sees Stock Nearly Tripling to $3,000, Warns Short Sellers: &#39;You Have an Expiry&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T13:55:05.583212-04:00",
     "symbols": [
       "QCOM"
@@ -5045,5 +5015,37 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T10:41:14.096061-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Among AI Boom&#39;s Most Vulnerable as 4 Bubble Risks Converge, VC Paul Kedrosky Warns",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T10:41:35.615928-04:00",
+    "symbols": [
+      "FSLY"
+    ],
+    "headline": "Watching Fastly; Hearing Zackstech Innovators Buys Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T10:41:46.580880-04:00",
+    "symbols": [
+      "GS",
+      "MSTR",
+      "SPCX"
+    ],
+    "headline": "Michael Saylor Calls Elon Musk\u2019s SpaceX Vision \u2018Bullish\u2019: Could Bitcoin Benefit?",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

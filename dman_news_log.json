@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-10-08T13:48:13.122710-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Stock Reaction To Samsung And TSMC Earnings Is An Early Indicator Of A Market Character Shift\u2014Watch Oil And Yields",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T13:48:13.306751-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Reaction To Samsung And TSMC Earnings Is An Early Indicator Of A Market Character Shift\u2014Watch Oil And Yields",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T13:48:20.530432-04:00",
-    "symbols": [
-      "HNRG"
-    ],
-    "headline": "Hallador Energy Secures Record Capacity Pricing for Merom Station, Boosts Sales Book to $3 Billion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T13:50:15.514014-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Live On Bloomberg TV, Fed&#39;s Musalem Says The Economy Is Pretty Strong Right Now, Best Thing Fed Can Do Is Lower Inflation",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T13:51:56.270648-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Live On Bloomberg TV, Fed&#39;s Musalem Says Job Market Is Overall Balanced And Stable, No Need To Cool Job Market To Get Inflation Down",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T13:53:46.348827-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Live On Bloomberg TV, Fed&#39;s Musalem Says There Is A Risk Consumer Vigor Could Wane",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T13:55:03.018577-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Stock Reaction To Samsung And TSMC Earnings Is An Early Indicator Of A Market Character Shift\u2014Watch Oil And Yields",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-08T13:55:03.168915-04:00",
     "symbols": [
       "MSFT"
@@ -5044,5 +4974,75 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T10:26:56.996632-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood CEO Sells $42M in Stock. No, He Didn&#39;t Cash Out of HOOD",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T10:27:34.747176-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Disney, Netflix, Visa And More: CNBC\u2019s \u2018Final Trades\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T10:27:44.393378-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Disney, Netflix, Visa And More: CNBC\u2019s \u2018Final Trades\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T10:27:52.500175-04:00",
+    "symbols": [
+      "SAIQ"
+    ],
+    "headline": "WISeQey, SEALSQ Back $666 Million Quantisimo Nasdaq Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T10:27:53.272185-04:00",
+    "symbols": [
+      "CCI"
+    ],
+    "headline": "SpaceX Could Become a Massive New Customer for Cell Tower Giants \u2014 Stocks Surge",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T10:27:53.741893-04:00",
+    "symbols": [
+      "WQEY"
+    ],
+    "headline": "WISeQey, SEALSQ Back $666 Million Quantisimo Nasdaq Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T10:27:54.474590-04:00",
+    "symbols": [
+      "AMT"
+    ],
+    "headline": "SpaceX Could Become a Massive New Customer for Cell Tower Giants \u2014 Stocks Surge",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

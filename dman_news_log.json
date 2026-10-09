@@ -1,56 +1,5 @@
 [
   {
-    "ts": "2026-10-08T18:00:34.323998-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Here\u2019s How Much You Would Have Made Owning Microsoft Stock In The Last 20 Years",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T19:00:21.319545-04:00",
-    "symbols": [
-      "ANET"
-    ],
-    "headline": "Here\u2019s How Much You Would Have Made Owning Arista Networks Stock In The Last 10 Years",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T19:19:54.891092-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Bloomberg Reported Meta Bans TikTok From Advertising On Its Apps",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T19:28:47.340232-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "The Information Reported Nvidia To Invest In Chip Rival d-Matrix",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T09:11:44.953182-04:00",
-    "symbols": [
-      "CRWD",
-      "HOOD"
-    ],
-    "headline": "CrowdStrike To Rally Around 18%? Here Are 10 Top Analyst Forecasts For Friday",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-09T09:14:07.757067-04:00",
     "symbols": [
       "LMT"
@@ -5043,6 +4992,58 @@
     ],
     "headline": "Arm Holdings shares are trading lower after reports suggesting that the company has held early stage discussions to acquire chiplet interconnection maker Eliyan.",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T14:08:23.019636-04:00",
+    "symbols": [
+      "ARM",
+      "META",
+      "QCOM"
+    ],
+    "headline": "Why Is Arm Stock Falling on Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T14:08:41.838440-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Why Is Arm Stock Falling on Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T14:08:43.045269-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Why Is Arm Stock Falling on Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T14:08:44.271550-04:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "Why Is Arm Stock Falling on Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T14:08:44.359435-04:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning Arista Networks Stock In The Last 10 Years",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

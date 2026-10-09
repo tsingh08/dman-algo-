@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-08T13:48:05.507848-04:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "Why Is Arm Stock Falling Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-08T13:48:05.909031-04:00",
     "symbols": [
       "CRWD"
@@ -5040,5 +5030,18 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-09T10:07:01.814976-04:00",
+    "symbols": [
+      "OFAL",
+      "SXTC",
+      "VEEA",
+      "WFF"
+    ],
+    "headline": "Dow Gains Over 100 Points; Delta Air Lines Shares Fall After Q3 Results",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

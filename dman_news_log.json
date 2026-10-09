@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-08T13:48:05.061085-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "Piper Sandler Initiates Coverage On Spotify Technology with Neutral Rating, Announces Price Target of $540",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-08T13:48:05.507848-04:00",
     "symbols": [
       "ARM"
@@ -5040,5 +5030,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T10:02:45.501500-04:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Oppenheimer Maintains Outperform on Cloudflare, Raises Price Target to $430",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

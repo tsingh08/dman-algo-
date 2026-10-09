@@ -442,5 +442,49 @@
    "regime": "CHOP",
    "regime_score": 14
   }
+ },
+ {
+  "ts": "2026-10-09T13:44:58.272868-04:00",
+  "kind": "signal",
+  "ticker": "FSLY",
+  "verdict": "skip",
+  "confidence": 85,
+  "reason": "CHOP regime (score 14) conflicts with gap-and-hold strategy. Low regime conviction undermines catalyst reliability.",
+  "facts": {
+   "setup": "Gap & Hold",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 29.75,
+   "stop": 26.27,
+   "target1": 38.44,
+   "rr": 2.5,
+   "rvol": 2.04,
+   "rsi": 56.8,
+   "reason": "Gap up +6.4% from prior close, holding, RVOL 2.0x",
+   "regime": "CHOP",
+   "regime_score": 14
+  }
+ },
+ {
+  "ts": "2026-10-09T13:44:59.333773-04:00",
+  "kind": "signal",
+  "ticker": "CCI",
+  "verdict": "skip",
+  "confidence": 82,
+  "reason": "CHOP regime (score 14) contradicts morning runner reliability. Gap holding is positive, but choppy conditions undermine follow-through probability.",
+  "facts": {
+   "setup": "Morning Runner",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 77.44,
+   "stop": 73.73,
+   "target1": 92.68,
+   "rr": 4.11,
+   "rvol": 3.5,
+   "rsi": 61.1,
+   "reason": "News gap +7.9% on 3.5x vol, holding open",
+   "regime": "CHOP",
+   "regime_score": 14
+  }
  }
 ]

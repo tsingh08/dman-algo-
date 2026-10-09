@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-08T13:55:07.156206-04:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "Cantor Fitzgerald Reiterates Overweight on Gilead Sciences, Maintains $155 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T13:55:07.500102-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "This Generac Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-08T13:55:07.504788-04:00",
     "symbols": [
       "SPOT"
@@ -5045,6 +5025,27 @@
       "SPY"
     ],
     "headline": "Tanker Rates Hit $1.3M a Day As 9 Shipping Stocks Double in 2026",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T10:56:38.856660-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "US Consumers Expect Inflation at 4.7%: UMich Survey Shows Second-Worst Print Ever",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T11:00:04.456428-04:00",
+    "symbols": [
+      "MRNA",
+      "SPY"
+    ],
+    "headline": "Reported Earlier: &#39;Cancer Vaccines Are the N.I.H&#39;s Next Big Bet&#39; - The New York Times",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

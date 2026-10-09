@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-08T14:10:53.913449-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Pharma Lobby Sues Trump Administration Over Medicare Drug Pricing Rule, Calls It \u2018Unlawful Overreach\u2019 \u2014 \u2018The Results Are Preordained\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-08T14:10:54.379854-04:00",
     "symbols": [
       "ORCL"
@@ -5048,6 +5038,16 @@
       "CVX"
     ],
     "headline": "Chevron Announces It Has Evacuated Majority Of Its Personnel In Gulf Of America; Safely Continuing Production At Four Platforms; Shut-In Production At Remaining Five Facilities; Deploying Processes, Technology Across Gulf Coast",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T12:28:59.067307-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia-Backed Data Center IPO Collapses\u2014OpenAI Revenue Questions\u2014Apple customers Are Not Price Insensitive",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

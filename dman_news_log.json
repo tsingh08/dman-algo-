@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-08T14:14:21.870452-04:00",
-    "symbols": [
-      "SOAR"
-    ],
-    "headline": "Volato Group Changing Corporate Name To SOAR AI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T14:14:21.876207-04:00",
-    "symbols": [
-      "HAE"
-    ],
-    "headline": "Helen Of Troy Posts Upbeat Q2 Earnings, Joins Pacira Biosciences, Wolfspeed And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-08T14:14:21.883350-04:00",
-    "symbols": [
-      "FNGR"
-    ],
-    "headline": "FingerMotion Begins Discussions With Prospective Offtake Clients Regarding Capacity At Brooks Campus #1, A 9.9 MW Behind-The-Meter Site In Alberta",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-08T14:14:21.891463-04:00",
     "symbols": [
       "KAPA"
@@ -5049,6 +5019,38 @@
     ],
     "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T13:17:13.833445-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Shares of vaccine stocks are trading higher following a New York Times report detailing a new public-private partnership involving the National Institutes of Health to accelerate cancer vaccine development.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T13:17:18.385093-04:00",
+    "symbols": [
+      "SPCX",
+      "VEEA",
+      "WFF"
+    ],
+    "headline": "Gold Rises Over 1%; US Consumer Sentiment Falls",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-09T13:17:30.742981-04:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "Vertex Presents Study Reporting ALYFTREK Data Shows Pancreatic Function Recovery In Some Children Ages 2\u20135 With Cystic Fibrosis",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

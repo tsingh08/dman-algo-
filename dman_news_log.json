@@ -1,117 +1,5 @@
 [
   {
-    "ts": "2026-10-08T14:08:15.827765-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Nvidia Vs. CrowdStrike: How ETFs Are Positioned for Dan Ives\u2019 $4T Tech Spending Wave",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T14:09:57.045411-04:00",
-    "symbols": [
-      "MU",
-      "SKHY",
-      "SNDK"
-    ],
-    "headline": "Shares of memory- and storage-related chip companies are trading after reports suggesting that OpenAI&#39;s annualized revenue is approximately $20 billion less than previously indicated, which could weigh on demand sentiment in the AI-exposed hardware sector.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T14:10:42.566374-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "U.S. Cybersecurity Agencies Warn China-Based Cybersecurity Company Enabling Threat Actors To Target Multiple Critical Infrastructure Sectors Worldwide",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T14:10:47.656804-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "U.S. Cybersecurity Agencies Warn China-Based Cybersecurity Company Enabling Threat Actors To Target Multiple Critical Infrastructure Sectors Worldwide",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-08T14:10:47.884236-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "U.S. Cybersecurity Agencies Warn China-Based Cybersecurity Company Enabling Threat Actors To Target Multiple Critical Infrastructure Sectors Worldwide",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T14:10:48.096336-04:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "U.S. Cybersecurity Agencies Warn China-Based Cybersecurity Company Enabling Threat Actors To Target Multiple Critical Infrastructure Sectors Worldwide",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T14:10:48.290872-04:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "U.S. Cybersecurity Agencies Warn China-Based Cybersecurity Company Enabling Threat Actors To Target Multiple Critical Infrastructure Sectors Worldwide",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-08T14:10:49.635092-04:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "U.S. Cybersecurity Agencies Warn China-Based Cybersecurity Company Enabling Threat Actors To Target Multiple Critical Infrastructure Sectors Worldwide",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T14:10:49.860117-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "U.S. Cybersecurity Agencies Warn China-Based Cybersecurity Company Enabling Threat Actors To Target Multiple Critical Infrastructure Sectors Worldwide",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T14:10:50.251319-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "ServiceTitan, Meta, SK Hynix And A Consumer Cyclical Stock On CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-08T14:10:50.256209-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "In-Depth Analysis: Airbnb Versus Competitors In Hotels, Restaurants &amp; Leisure Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-08T14:10:50.626634-04:00",
     "symbols": [
       "BABA"
@@ -5050,6 +4938,116 @@
       "VSAT"
     ],
     "headline": "Humana, Evolution Metals &amp; Technologies, Fastly And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T11:39:31.154940-04:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "UBS Maintains Buy on Biogen, Raises Price Target to $270",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T11:39:34.729873-04:00",
+    "symbols": [
+      "TMUS"
+    ],
+    "headline": "SpaceX Is Coming For Telecom Companies: AT&amp;T, Verizon And T-Mobile Tumble",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T11:39:34.733720-04:00",
+    "symbols": [
+      "TMUS"
+    ],
+    "headline": "Elon Musk Says SpaceX Can Outgrow Earth. The First Victim May Be Your Phone Bill",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T11:39:34.737293-04:00",
+    "symbols": [
+      "TMUS"
+    ],
+    "headline": "Scotiabank Maintains Sector Outperform on T-Mobile US, Lowers Price Target to $212",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T11:39:34.740896-04:00",
+    "symbols": [
+      "TMUS"
+    ],
+    "headline": "Alignment Healthcare, RenX Enterprises And Other Big Stocks Moving Lower In Friday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T11:39:34.744476-04:00",
+    "symbols": [
+      "TMUS"
+    ],
+    "headline": "Verizon, AT&amp;T, T-Mobile Stocks Slide as SpaceX Expands Wireless Ambitions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T11:39:34.902439-04:00",
+    "symbols": [
+      "ALHC"
+    ],
+    "headline": "Keybanc Maintains Overweight on Alignment Healthcare, Lowers Price Target to $12",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T11:39:34.906258-04:00",
+    "symbols": [
+      "ALHC"
+    ],
+    "headline": "Alignment Healthcare Stock Hit by Bearish Outlook After Costly Medicare Advantage Rating Downgrade",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T11:39:34.909847-04:00",
+    "symbols": [
+      "ALHC"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T11:39:34.913467-04:00",
+    "symbols": [
+      "ALHC"
+    ],
+    "headline": "Alignment Healthcare, RenX Enterprises And Other Big Stocks Moving Lower In Friday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-09T11:39:34.916967-04:00",
+    "symbols": [
+      "ALHC"
+    ],
+    "headline": "Why Veea Shares Are Trading Higher By Around 34%; Here Are 20 Stocks Moving Premarket",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

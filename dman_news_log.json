@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-09T09:16:21.811667-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Barclays Initiates Coverage On Palantir Technologies with Overweight Rating, Announces Price Target of $265",
-    "source": "benzinga",
-    "tag": "held",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-09T09:20:40.185310-04:00",
     "symbols": [
       "RKLB"
@@ -5043,6 +5033,16 @@
       "NVDA"
     ],
     "headline": "NVIDIA&#39;s Rally in Trouble? Analyst Warns of Bull Trap",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-09T14:17:01.307334-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "QUICK SPARK: AT&amp;T Sinks 11% In Worst Day Since 2000 As SpaceX Spectrum Deal Rattles Carriers",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

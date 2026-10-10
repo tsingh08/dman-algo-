@@ -12316,6 +12316,26 @@ BZONE_MAX_EXPOSURE_PCT = 0.40
 # the cushion it needed while the most volatile name got the least. The floor
 # is now priced in the name's OWN ATR, so each position is protected to the
 # same standard. 0.35 survives as the CEILING.
+# A zone has no trailing stop and no target: it exits on TIME, and
+# _progress_equity_stop_to_trailing() refuses it outright (2026-10-01) so its
+# catastrophe floor can never ratchet. That is deliberate and the backtest
+# supports it -- but it also means a zone is the ONE position type with no
+# awareness of its own peak at all. Options track peak_premium and close on a
+# giveback; share setups have a 15%-activate trailing stop; zones have nothing.
+#
+# Measured 2026-10-09 across 50 labelled signals: mean best-moment +4.68%,
+# mean realised -3.23%. On Friday alone the seven rejected signals averaged
+# +5.26% at their best and +0.21% at the close; VEEA reached +17.4% and
+# finished -5.6%. The entries find moves and nothing harvests them.
+#
+# This does NOT add an exit -- changing a frozen, backtested rule on this
+# evidence would be unjustified. It ALERTS, once per name per day, so the
+# operator can do deliberately what they did with the PLTR spread on
+# 2026-10-09: take the profit near the peak. Information, not a strategy
+# change.
+BZONE_GIVEBACK_MIN_PEAK_PCT = 10.0   # below this a pullback is just noise
+BZONE_GIVEBACK_ALERT_PCT    = 0.40   # fraction of the peak gain handed back
+
 BZONE_CATASTROPHE_STOP_ATR = 3.0
 # Never tighter than this, whatever the ATR says. A very quiet stretch would
 # otherwise compute a floor inside the spread, and this also keeps the 8%
@@ -12513,6 +12533,67 @@ def _bzone_floor_pct(ticker: str = "") -> float:
     return min(BZONE_CATASTROPHE_STOP_PCT,
                max(BZONE_CATASTROPHE_STOP_MIN_PCT,
                    BZONE_CATASTROPHE_STOP_ATR * _a))
+
+
+def _zone_giveback_check(notify: bool = True) -> list:
+    """Alert on zones that have handed back most of a real gain. Returns names.
+
+    Updates each zone's peak_gain_pct high-water mark and reports any whose
+    current gain has fallen BZONE_GIVEBACK_ALERT_PCT off that peak, provided
+    the peak was at least BZONE_GIVEBACK_MIN_PEAK_PCT so an ordinary wobble
+    does not trigger it.
+
+    Deliberately read-only with respect to the position: no order, no stop
+    change, no exit. The zone rule is frozen and time-based; this only makes
+    the peak visible, which is the single thing the PLTR spread had on
+    2026-10-09 that every zone lacked.
+    """
+    _hit: list = []
+    try:
+        _c = get_alpaca_client()
+        if _c is None:
+            return []
+        _live = {str(p.symbol).upper(): p for p in _c.get_all_positions()}
+        _pt = PositionTracker()
+        _changed = False
+        for _pos in _pt.positions:
+            if not _is_bzone_position(_pos):
+                continue
+            _ap = _live.get(str(_pos.ticker).upper())
+            if _ap is None:
+                continue
+            try:
+                _gain = float(_ap.unrealized_plpc) * 100.0
+            except (TypeError, ValueError):
+                continue
+            _peak = float(getattr(_pos, "peak_gain_pct", 0) or 0)
+            if _gain > _peak:
+                _pos.peak_gain_pct = _gain
+                _peak, _changed = _gain, True
+            if _peak < BZONE_GIVEBACK_MIN_PEAK_PCT:
+                continue
+            if _gain > _peak * (1.0 - BZONE_GIVEBACK_ALERT_PCT):
+                continue
+            _hit.append(_pos.ticker)
+            _key = "__GIVEBACK__:" + str(_pos.ticker)
+            if notify and not _is_duplicate_alert(_key, 24 * 60):
+                send_telegram(
+                    "⏳ <b>" + str(_pos.ticker) + " has given back "
+                    + ("%.0f%%" % ((_peak - _gain) / _peak * 100))
+                    + " of its peak</b>" + chr(10)
+                    + ("peaked +%.1f%%, now %+.1f%%" % (_peak, _gain)) + chr(10)
+                    + chr(10)
+                    + "A zone exits on TIME and has no trailing stop, so this "
+                    + "is yours to act on if you want it. Measured across the "
+                    + "logged signals, the average best moment is +4.7% and "
+                    + "the average close is -3.2%." + chr(10)
+                    + "<b>/close " + str(_pos.ticker) + "</b> to take it.")
+                _save_last_alert(_key)
+        if _changed:
+            _pt._save()
+    except Exception as exc:
+        _log_swallowed("zone giveback check", exc)
+    return _hit
 
 
 def _place_bzone_catastrophe_stop(ticker: str, qty: int, entry: float):
@@ -12924,6 +13005,9 @@ def run_breakout_zone_manage(notify: bool = True) -> dict:
                     f"({BZONE_CATASTROPHE_STOP_ATR:.1f} ATR on this name), far "
                     f"outside noise, so an unattended collapse cannot take the "
                     f"whole position. Position ${_qty * _px:.0f}.</i>")
+    # Read-only: makes the peak visible. See the constants block for why this
+    # alerts instead of exiting.
+    out["giveback"] = _zone_giveback_check(notify=notify)
     print(f"  🏔 Breakout zone manage: exits {out['exited']}, entries {out['entered']}"
           f"{' — ' + out['skipped'] if out['skipped'] else ''}")
     return out
@@ -18115,6 +18199,7 @@ class OpenPosition:
                                             # extra visibility into P&L swings on top
                                             # of the existing stop/T1/T2 alerts.
     peak_premium: float = 0.0   # options only — highest premium seen since entry
+    peak_gain_pct: float = 0.0  # shares — best unrealised gain % seen since entry
                                   # (or since T1, once taken). Drives the trailing-
                                   # exit in _monitor_option_position: added 2026-08-10
                                   # so exits react to how the trade is actually

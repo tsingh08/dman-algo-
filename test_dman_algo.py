@@ -24153,3 +24153,129 @@ class TestAKillSwitchMustNotReArmOnOneWin(unittest.TestCase):
         """Pinned: if the hard bar drifted above the soft one it would swallow
         the AND condition entirely and change what the switch means."""
         self.assertLess(a.SETUP_KILL_CUM_HARD_PCT, a.SETUP_KILL_MAX_CUM_PCT)
+
+
+class TestAZoneKnowsItsOwnPeak(unittest.TestCase):
+    """Zones were the one position type with no awareness of their own peak.
+
+    Options track peak_premium and close on a giveback off it. Share setups
+    have a 15%-activate trailing stop. Zones have neither -- deliberately:
+    they exit on TIME and _progress_equity_stop_to_trailing() refuses them
+    outright (2026-10-01) so the catastrophe floor can never ratchet.
+
+    That is defensible and backtested. It also means zones are exactly the
+    positions that round-trip. Measured 2026-10-09 over 50 labelled signals:
+    mean best moment +4.68%, mean realised -3.23%. Friday's seven rejected
+    signals averaged +5.26% at their best and +0.21% at the close, and VEEA
+    reached +17.4% before finishing -5.6%.
+
+    The PLTR 200/205 spread on the same day is the counter-example: it had a
+    peak-aware structure AND a human who harvested near the high, and it
+    returned +$204 on $200. This gives zones the first half -- visibility --
+    and leaves the decision to the operator. It places no order and moves no
+    stop, because changing a frozen rule on this evidence would not be
+    justified."""
+
+    def _pos(self, ticker="AMPL", peak=0.0):
+        return SimpleNamespace(ticker=ticker, setup="Breakout Zone +165% off low",
+                               peak_gain_pct=peak)
+
+    def _run(self, gain, peak=0.0, setup=None, dupe=False):
+        pos = self._pos(peak=peak)
+        if setup:
+            pos.setup = setup
+        cl = MagicMock()
+        cl.get_all_positions.return_value = [
+            SimpleNamespace(symbol="AMPL", unrealized_plpc=str(gain / 100.0))]
+        tracker = MagicMock()
+        tracker.positions = [pos]
+        sent = []
+        with patch.object(a, "get_alpaca_client", return_value=cl), \
+             patch.object(a, "PositionTracker", return_value=tracker), \
+             patch.object(a, "send_telegram", side_effect=lambda m, **k: sent.append(m)), \
+             patch.object(a, "_is_duplicate_alert", return_value=dupe), \
+             patch.object(a, "_save_last_alert"):
+            hit = a._zone_giveback_check()
+        return hit, sent, pos
+
+    # --- the high-water mark ------------------------------------------------
+    def test_it_records_a_new_peak(self):
+        _h, _s, pos = self._run(gain=6.0)
+        self.assertAlmostEqual(pos.peak_gain_pct, 6.0, places=3)
+
+    def test_the_peak_never_goes_down(self):
+        _h, _s, pos = self._run(gain=4.0, peak=12.0)
+        self.assertAlmostEqual(pos.peak_gain_pct, 12.0, places=3)
+
+    # --- when it fires ------------------------------------------------------
+    def test_a_big_giveback_off_a_real_peak_is_flagged(self):
+        """Peaked +20%, now +5% -- 75% handed back."""
+        hit, sent, _p = self._run(gain=5.0, peak=20.0)
+        self.assertEqual(hit, ["AMPL"])
+        self.assertEqual(len(sent), 1)
+        self.assertIn("20.0", sent[0])
+
+    def test_a_small_peak_is_treated_as_noise(self):
+        """Peaked +4%, now +1%. Technically 75% back, but 4% was never a gain
+        worth protecting -- alerting here would fire constantly."""
+        hit, sent, _p = self._run(gain=1.0, peak=4.0)
+        self.assertEqual(hit, [])
+        self.assertEqual(sent, [])
+
+    def test_a_shallow_pullback_from_a_real_peak_is_not_flagged(self):
+        """Peaked +20%, now +15% -- only 25% back, inside tolerance."""
+        hit, _s, _p = self._run(gain=15.0, peak=20.0)
+        self.assertEqual(hit, [])
+
+    def test_a_position_at_a_new_high_is_never_flagged(self):
+        hit, _s, _p = self._run(gain=25.0, peak=20.0)
+        self.assertEqual(hit, [])
+
+    def test_a_loss_after_a_real_peak_is_flagged(self):
+        """The VEEA shape: +17% available, negative realised."""
+        hit, sent, _p = self._run(gain=-5.0, peak=17.0)
+        self.assertEqual(hit, ["AMPL"])
+        self.assertIn("-5.0", sent[0])
+
+    # --- scope and safety ---------------------------------------------------
+    def test_a_non_zone_position_is_ignored(self):
+        """Share setups already have a trailing stop; this is not for them."""
+        hit, _s, _p = self._run(gain=5.0, peak=20.0, setup="Gap & Hold")
+        self.assertEqual(hit, [])
+
+    def test_it_places_no_order_and_moves_no_stop(self):
+        """The zone rule is frozen and time-based. This informs, it does not
+        trade -- if that ever changes it is a strategy decision, not a tweak."""
+        body = inspect.getsource(a._zone_giveback_check).split('"""')[2]
+        for forbidden in ("submit_order", "replace_order", "cancel_order",
+                          "close_position", "_place_bzone_catastrophe_stop"):
+            self.assertNotIn(forbidden, body)
+
+    def test_it_tells_the_operator_how_to_act(self):
+        _h, sent, _p = self._run(gain=5.0, peak=20.0)
+        self.assertIn("/close AMPL", sent[0])
+
+    def test_it_is_deduped_per_day(self):
+        """Fewer, higher-signal messages: a giveback persists, so repeating it
+        every ten minutes would be noise."""
+        hit, sent, _p = self._run(gain=5.0, peak=20.0, dupe=True)
+        self.assertEqual(hit, ["AMPL"])
+        self.assertEqual(sent, [])
+
+    def test_a_broker_failure_does_not_raise(self):
+        cl = MagicMock()
+        cl.get_all_positions.side_effect = RuntimeError("boom")
+        with patch.object(a, "get_alpaca_client", return_value=cl), \
+             patch.object(a, "_log_swallowed"):
+            self.assertEqual(a._zone_giveback_check(), [])
+
+    def test_the_zone_manager_runs_it(self):
+        src = inspect.getsource(a.run_breakout_zone_manage)
+        self.assertIn('out["giveback"] = _zone_giveback_check(notify=notify)', src)
+
+    def test_the_thresholds_are_ordered_sanely(self):
+        """A giveback fraction at or above 1.0 could never fire; a minimum peak
+        of 0 would make every wobble an alert."""
+        self.assertGreater(a.BZONE_GIVEBACK_ALERT_PCT, 0.0)
+        self.assertLess(a.BZONE_GIVEBACK_ALERT_PCT, 1.0)
+        self.assertGreaterEqual(a.BZONE_GIVEBACK_MIN_PEAK_PCT, 5.0)

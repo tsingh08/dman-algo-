@@ -24287,3 +24287,68 @@ class TestAZoneKnowsItsOwnPeak(unittest.TestCase):
         trail would be the only protection, which is not what was measured."""
         self.assertGreater(a.BZONE_HOLD_SESSIONS, 0)
         self.assertGreater(a.BZONE_CATASTROPHE_STOP_ATR, 0)
+
+
+class TestASpreadLegIsNeverAdoptedAlone(unittest.TestCase):
+    """The root cause of the PLTR episode of 2026-10-08.
+
+    The momentum path built a 200/205 call spread correctly and tagged it
+    "Momentum Call Spread - ...", but _open_earnings_spread_position() raised,
+    so both legs orphaned. _adopt_single_leg_option() then adopted the LONG leg
+    alone as "Options Call PLTR261016C00200000" and the short leg stayed
+    orphaned. The alert log records all three steps:
+
+        __ORPHAN_POSITIONS__:PLTR261016C00200000,PLTR261016C00205000
+        __ORPHAN_POSITIONS__:PLTR261016C00205000
+        __WOULD_ORPHAN__:PLTR261016C00200000
+
+    The third is the 2026-10-09 guard refusing an automated one-legged close on
+    the mislabelled row -- it stopped the damage. This stops the mislabelling:
+    a spread managed as a single long call has the wrong cost basis ($4.80
+    rather than the $2.00 net), the wrong ceiling (no cap at the short strike)
+    and an exit that strands a short."""
+
+    LONG = "PLTR261016C00200000"
+    SHORT = "PLTR261016C00205000"
+
+    def _adopt(self, siblings):
+        pos = SimpleNamespace(symbol=self.LONG, qty="1", avg_entry_price="4.80")
+        occ = {"right": "call", "underlying": "PLTR"}
+        pt = MagicMock()
+        sent = []
+        with patch.object(a, "_orphaned_short_legs", return_value=siblings),              patch.object(a, "send_telegram", side_effect=lambda m, **k: sent.append(m)),              patch.object(a, "_is_duplicate_alert", return_value=False),              patch.object(a, "_save_last_alert"):
+            n = a._adopt_single_leg_option(pos, occ, pt)
+        return n, sent, pt
+
+    def test_a_leg_with_a_sibling_is_not_adopted(self):
+        """The exact PLTR case."""
+        n, _s, pt = self._adopt([self.SHORT])
+        self.assertEqual(n, 0)
+        pt.open.assert_not_called()
+
+    def test_it_says_why_and_how_to_get_out(self):
+        _n, sent, _pt = self._adopt([self.SHORT])
+        self.assertEqual(len(sent), 1)
+        self.assertIn(self.SHORT, sent[0])
+        self.assertIn("short first", sent[0])
+
+    def test_a_genuine_lone_option_is_still_adopted(self):
+        """The feature must survive: a real orphaned single call still gets
+        managed, which is the whole point of this function."""
+        n, _s, pt = self._adopt([])
+        self.assertEqual(n, 1)
+        pt.open.assert_called_once()
+
+    def test_a_sibling_check_failure_does_not_block_adoption(self):
+        """Fails OPEN deliberately: if the broker lookup breaks, leaving a real
+        orphan unmanaged is worse than the mislabelling this guards against --
+        the 2026-10-09 close guard still backs it up."""
+        pos = SimpleNamespace(symbol=self.LONG, qty="1", avg_entry_price="4.80")
+        pt = MagicMock()
+        with patch.object(a, "_orphaned_short_legs", side_effect=RuntimeError("boom")),              patch.object(a, "_log_swallowed"):
+            n = a._adopt_single_leg_option(pos, {"right": "call", "underlying": "PLTR"}, pt)
+        self.assertEqual(n, 1)
+
+    def test_the_check_runs_before_anything_is_opened(self):
+        src = inspect.getsource(a._adopt_single_leg_option)
+        self.assertLess(src.index("_orphaned_short_legs"), src.index("pt.open("))

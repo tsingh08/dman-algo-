@@ -25475,7 +25475,43 @@ def _adopt_single_leg_option(pos, occ: dict, pt) -> int:
     Stop and target use the same premium multiples the submit path writes
     (-50% / +50%), so an adopted contract is managed on exactly the terms it
     would have had if its record had never been lost.
+
+    It refuses a leg that has a SIBLING, and that refusal is the root cause of
+    the PLTR episode of 2026-10-08. The momentum path built a 200/205 call
+    spread correctly and tagged it "Momentum Call Spread - ...", but
+    _open_earnings_spread_position() raised, so both legs orphaned. This
+    function then adopted the LONG leg alone as "Options Call
+    PLTR261016C00200000" -- a single-leg name -- and the short leg stayed
+    orphaned. From the alert log:
+
+        __ORPHAN_POSITIONS__:PLTR261016C00200000,PLTR261016C00205000
+        __ORPHAN_POSITIONS__:PLTR261016C00205000
+        __WOULD_ORPHAN__:PLTR261016C00200000
+
+    The third line is the 2026-10-09 guard refusing an automated one-legged
+    close on that mislabelled row. That guard stopped the damage; this stops
+    the mislabelling, because a spread managed as a single long call has the
+    wrong cost basis, the wrong ceiling, and an exit that strands a short.
     """
+    try:
+        _siblings = _orphaned_short_legs(str(pos.symbol))
+        if _siblings:
+            print(f"  not adopting {pos.symbol} as a single leg - it has "
+                  f"{', '.join(_siblings)} on the same expiry")
+            _k = "__SPREAD_NOT_ADOPTED__:" + str(pos.symbol)
+            if not _is_duplicate_alert(_k, 12 * 60):
+                send_telegram(
+                    "⚠️ <b>Untracked SPREAD, not adopted</b>" + chr(10)
+                    + str(pos.symbol) + " and " + ", ".join(_siblings)
+                    + " are legs of one position." + chr(10) + chr(10)
+                    + "Adopting a single leg would give it the wrong cost "
+                    + "basis and an exit that strands the short side, so it "
+                    + "has been left alone. Close both legs together "
+                    + "(short first) if you want out.")
+                _save_last_alert(_k)
+            return 0
+    except Exception as exc:
+        _log_swallowed("spread sibling check on adoption", exc)
     try:
         _qty = float(pos.qty)
         if _qty <= 0:

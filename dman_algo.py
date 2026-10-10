@@ -12355,8 +12355,34 @@ BZONE_MAX_EXPOSURE_PCT = 0.40
 # Operator-authorised 2026-10-10: "I want the algo to be always tracking the
 # position on its own, knowing the right time to sell out of that position."
 # This supersedes the earlier alert-only version, which only told them.
+#
+# ACTIVATION RAISED 5% -> 10% the same day, after replaying the trail on REAL
+# MINUTE PATHS via the Massive MCP server instead of the daily-bar proxy. The
+# daily grid above cannot see an intraday retrace, so it systematically
+# favoured arming early; real paths punish that. Close-based replay (matching
+# how this function actually samples, via unrealized_plpc on a poll cadence)
+# over 4 multi-day paths -- GRML, SDEV, GLND and USDE, the three worst losers
+# and the single best winner in the labelled set:
+#
+#     actual                 -4.63%/trade
+#     A=25% G=0.33  (3/4)   +10.90%
+#     A=20% G=0.25  (3/4)    +7.92%
+#     A=10% G=0.25  (4/4)    +7.87%   <- shipped
+#     A= 5% G=0.25  (4/4)    +5.12%   <- was shipped, near the BOTTOM
+#
+# What 5% did wrong, concretely: GRML peaked at +52.88% on closes and the trail
+# bailed at +3.50%; USDE's +28.06% target win was cut to +6.54%. Arming on a
+# small early gain means the first ordinary retrace shakes you out before the
+# real move. Every setting still beats doing nothing, so the mechanism is
+# sound; the threshold was not.
+#
+# 10% rather than the top-scoring 25%: n=4, and those four were SELECTED as
+# extremes, so this is not a representative sample. 25%/33% also rests on 3 of
+# 4 firing. 10%/25% fires on all four, scores within 3 points of the best, and
+# is a defensible step rather than a jump fitted to three observations. Widen
+# the replay set before moving it again.
 ENABLE_BZONE_TRAIL        = True
-BZONE_TRAIL_ACTIVATE_PCT  = 5.0    # peak gain that arms the trail
+BZONE_TRAIL_ACTIVATE_PCT  = 10.0   # peak gain that arms the trail
 BZONE_TRAIL_GIVEBACK_PCT  = 0.25   # exit once this fraction of the peak is back
 
 BZONE_CATASTROPHE_STOP_ATR = 3.0

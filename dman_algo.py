@@ -12356,33 +12356,36 @@ BZONE_MAX_EXPOSURE_PCT = 0.40
 # position on its own, knowing the right time to sell out of that position."
 # This supersedes the earlier alert-only version, which only told them.
 #
-# ACTIVATION RAISED 5% -> 10% the same day, after replaying the trail on REAL
-# MINUTE PATHS via the Massive MCP server instead of the daily-bar proxy. The
-# daily grid above cannot see an intraday retrace, so it systematically
-# favoured arming early; real paths punish that. Close-based replay (matching
-# how this function actually samples, via unrealized_plpc on a poll cadence)
-# over 4 multi-day paths -- GRML, SDEV, GLND and USDE, the three worst losers
-# and the single best winner in the labelled set:
+# CONFIRMED on REAL MINUTE PATHS, 2026-10-10, via the Massive MCP server --
+# which is the test the daily grid above could not do. Close-based replay
+# (matching how this function samples: unrealized_plpc on a poll cadence, NOT
+# intrabar lows, which would reintroduce intra-minute ordering ambiguity and
+# fire on the fill bar), across 16 of the 18 signals in the labelled set whose
+# MFE could arm a trail:
 #
-#     actual                 -4.63%/trade
-#     A=25% G=0.33  (3/4)   +10.90%
-#     A=20% G=0.25  (3/4)    +7.92%
-#     A=10% G=0.25  (4/4)    +7.87%   <- shipped
-#     A= 5% G=0.25  (4/4)    +5.12%   <- was shipped, near the BOTTOM
+#     actual                  -4.75%/trade
+#     A= 5% G=0.25  (16/16)   +4.84%   <- shipped, BEST
+#     A=20% G=0.25  ( 6/16)   +4.12%
+#     A=10% G=0.25  ( 9/16)   +2.96%
+#     A=25% G=0.33  ( 5/16)   +2.12%   worst
 #
-# What 5% did wrong, concretely: GRML peaked at +52.88% on closes and the trail
-# bailed at +3.50%; USDE's +28.06% target win was cut to +6.54%. Arming on a
-# small early gain means the first ordinary retrace shakes you out before the
-# real move. Every setting still beats doing nothing, so the mechanism is
-# sound; the threshold was not.
+# The daily grid and the minute replay AGREE on 5%/25%, from different data.
 #
-# 10% rather than the top-scoring 25%: n=4, and those four were SELECTED as
-# extremes, so this is not a representative sample. 25%/33% also rests on 3 of
-# 4 firing. 10%/25% fires on all four, scores within 3 points of the best, and
-# is a defensible step rather than a jump fitted to three observations. Widen
-# the replay set before moving it again.
+# A warning for whoever tunes this next. I briefly raised activation to 10% on
+# the strength of a 4-path replay -- GRML, SDEV, GLND, USDE -- on which 5% came
+# out WORST and 25% best. That sample was selection bias of my own making: I
+# picked the three worst losers plus the single best winner, so protecting that
+# one winner dominated the average. On the actual arming population the result
+# inverts, because most signals lose and firing often is what pays. The
+# individual anecdotes stay true (GRML peaked +52.88% on closes and a 5% trail
+# exits at +3.50%; USDE's +28.06% becomes +6.54%) and they are simply not
+# representative.
+#
+# What this makes the strategy: a small-profit harvester. 16 of 16 arming
+# signals get trailed out for a mean +4.84%. That is the character change the
+# numbers support -- not bigger winners, but far fewer large losers.
 ENABLE_BZONE_TRAIL        = True
-BZONE_TRAIL_ACTIVATE_PCT  = 10.0   # peak gain that arms the trail
+BZONE_TRAIL_ACTIVATE_PCT  = 5.0    # peak gain that arms the trail
 BZONE_TRAIL_GIVEBACK_PCT  = 0.25   # exit once this fraction of the peak is back
 
 BZONE_CATASTROPHE_STOP_ATR = 3.0

@@ -24220,10 +24220,13 @@ class TestAZoneKnowsItsOwnPeak(unittest.TestCase):
         closer.assert_called_once()
 
     def test_a_peak_below_the_activation_bar_is_left_alone(self):
-        """Below BZONE_TRAIL_ACTIVATE_PCT nothing arms. Raised to 10% on
-        2026-10-10 after a real-minute-path replay showed 5% armed so early
-        that an ordinary retrace shook the position out before the move --
-        GRML peaked +52.88% and the 5% trail exited at +3.50%."""
+        """Below BZONE_TRAIL_ACTIVATE_PCT nothing arms.
+
+        5% is confirmed by both the daily grid (n=76) and a close-based replay
+        on real minute paths (16 of the 18 arming signals): +4.84%/trade
+        against -4.75% actual, firing 16/16. A 4-path detour on 2026-10-10
+        suggested 10% was better; that sample was three hand-picked losers plus
+        the single best winner, and the result inverted on the full set."""
         hit, _s, _p, closer = self._run(gain=1.0, peak=4.0)
         self.assertEqual(hit, [])
         closer.assert_not_called()
@@ -24281,7 +24284,7 @@ class TestAZoneKnowsItsOwnPeak(unittest.TestCase):
     def test_the_parameters_match_the_measured_optimum(self):
         """Pinned to the grid. If these drift, the +3.55pp claim in the
         constants block stops describing what the code does."""
-        self.assertAlmostEqual(a.BZONE_TRAIL_ACTIVATE_PCT, 10.0, places=3)
+        self.assertAlmostEqual(a.BZONE_TRAIL_ACTIVATE_PCT, 5.0, places=3)
         self.assertAlmostEqual(a.BZONE_TRAIL_GIVEBACK_PCT, 0.25, places=3)
 
     def test_the_floor_and_the_time_exit_are_still_the_backstops(self):

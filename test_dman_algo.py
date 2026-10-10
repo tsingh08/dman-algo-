@@ -24159,28 +24159,24 @@ class TestAZoneKnowsItsOwnPeak(unittest.TestCase):
     """Zones were the one position type with no awareness of their own peak.
 
     Options track peak_premium and close on a giveback off it. Share setups
-    have a 15%-activate trailing stop. Zones have neither -- deliberately:
-    they exit on TIME and _progress_equity_stop_to_trailing() refuses them
-    outright (2026-10-01) so the catastrophe floor can never ratchet.
+    have a 15%-activate trailing stop. Zones had neither -- they exit on TIME
+    and _progress_equity_stop_to_trailing() refuses them outright (2026-10-01)
+    so the catastrophe floor can never ratchet. They are also exactly the
+    positions that round-trip.
 
-    That is defensible and backtested. It also means zones are exactly the
-    positions that round-trip. Measured 2026-10-09 over 50 labelled signals:
-    mean best moment +4.68%, mean realised -3.23%. Friday's seven rejected
-    signals averaged +5.26% at their best and +0.21% at the close, and VEEA
-    reached +17.4% before finishing -5.6%.
+    Simulated over the labelled set (n=76) on 2026-10-10, "activate at A% peak,
+    exit at (1-G) of peak" beat doing nothing in ALL 16 cells of the grid, by
+    +1.26 to +3.55 points per trade, monotonically favouring earlier and
+    tighter. Best was A=5%, G=0.25: -0.23%/trade against -3.77% actual.
 
-    The PLTR 200/205 spread on the same day is the counter-example: it had a
-    peak-aware structure AND a human who harvested near the high, and it
-    returned +$204 on $200. This gives zones the first half -- visibility --
-    and leaves the decision to the operator. It places no order and moves no
-    stop, because changing a frozen rule on this evidence would not be
-    justified."""
+    Operator-authorised 2026-10-10 to act rather than alert. The catastrophe
+    floor and the 20-session time exit are unchanged underneath it."""
 
     def _pos(self, ticker="AMPL", peak=0.0):
         return SimpleNamespace(ticker=ticker, setup="Breakout Zone +165% off low",
                                peak_gain_pct=peak)
 
-    def _run(self, gain, peak=0.0, setup=None, dupe=False):
+    def _run(self, gain, peak=0.0, setup=None, flag_on=True):
         pos = self._pos(peak=peak)
         if setup:
             pos.setup = setup
@@ -24192,90 +24188,102 @@ class TestAZoneKnowsItsOwnPeak(unittest.TestCase):
         sent = []
         with patch.object(a, "get_alpaca_client", return_value=cl), \
              patch.object(a, "PositionTracker", return_value=tracker), \
+             patch.object(a, "flag", return_value=flag_on), \
+             patch.object(a, "_close_position_at_market",
+                          return_value=("submitted", "oid-1")) as closer, \
              patch.object(a, "send_telegram", side_effect=lambda m, **k: sent.append(m)), \
-             patch.object(a, "_is_duplicate_alert", return_value=dupe), \
              patch.object(a, "_save_last_alert"):
-            hit = a._zone_giveback_check()
-        return hit, sent, pos
+            hit = a._zone_trail_exit_check()
+        return hit, sent, pos, closer
 
     # --- the high-water mark ------------------------------------------------
     def test_it_records_a_new_peak(self):
-        _h, _s, pos = self._run(gain=6.0)
-        self.assertAlmostEqual(pos.peak_gain_pct, 6.0, places=3)
+        _h, _s, pos, _c = self._run(gain=4.0)
+        self.assertAlmostEqual(pos.peak_gain_pct, 4.0, places=3)
 
     def test_the_peak_never_goes_down(self):
-        _h, _s, pos = self._run(gain=4.0, peak=12.0)
+        _h, _s, pos, _c = self._run(gain=4.0, peak=12.0)
         self.assertAlmostEqual(pos.peak_gain_pct, 12.0, places=3)
 
-    # --- when it fires ------------------------------------------------------
-    def test_a_big_giveback_off_a_real_peak_is_flagged(self):
-        """Peaked +20%, now +5% -- 75% handed back."""
-        hit, sent, _p = self._run(gain=5.0, peak=20.0)
+    # --- when it exits ------------------------------------------------------
+    def test_a_giveback_past_the_threshold_exits(self):
+        """Peaked +20%, now +5% -- 75% handed back, well past 25%."""
+        hit, sent, _p, closer = self._run(gain=5.0, peak=20.0)
         self.assertEqual(hit, ["AMPL"])
-        self.assertEqual(len(sent), 1)
-        self.assertIn("20.0", sent[0])
+        closer.assert_called_once()
+        self.assertIn("trail exit", sent[0])
 
-    def test_a_small_peak_is_treated_as_noise(self):
-        """Peaked +4%, now +1%. Technically 75% back, but 4% was never a gain
-        worth protecting -- alerting here would fire constantly."""
-        hit, sent, _p = self._run(gain=1.0, peak=4.0)
-        self.assertEqual(hit, [])
-        self.assertEqual(sent, [])
-
-    def test_a_shallow_pullback_from_a_real_peak_is_not_flagged(self):
-        """Peaked +20%, now +15% -- only 25% back, inside tolerance."""
-        hit, _s, _p = self._run(gain=15.0, peak=20.0)
-        self.assertEqual(hit, [])
-
-    def test_a_position_at_a_new_high_is_never_flagged(self):
-        hit, _s, _p = self._run(gain=25.0, peak=20.0)
-        self.assertEqual(hit, [])
-
-    def test_a_loss_after_a_real_peak_is_flagged(self):
-        """The VEEA shape: +17% available, negative realised."""
-        hit, sent, _p = self._run(gain=-5.0, peak=17.0)
+    def test_the_loss_shape_exits(self):
+        """VEEA on 2026-10-09: +17.4% available, -5.6% realised."""
+        hit, _s, _p, closer = self._run(gain=-5.0, peak=17.0)
         self.assertEqual(hit, ["AMPL"])
-        self.assertIn("-5.0", sent[0])
+        closer.assert_called_once()
+
+    def test_a_peak_below_the_activation_bar_is_left_alone(self):
+        """+4% peak is not a gain worth harvesting; acting here would scalp
+        noise and the grid shows activation below 5% was not tested."""
+        hit, _s, _p, closer = self._run(gain=1.0, peak=4.0)
+        self.assertEqual(hit, [])
+        closer.assert_not_called()
+
+    def test_a_shallow_pullback_is_left_alone(self):
+        """Peaked +20%, now +18% -- only 10% back, inside the 25% tolerance."""
+        hit, _s, _p, closer = self._run(gain=18.0, peak=20.0)
+        self.assertEqual(hit, [])
+        closer.assert_not_called()
+
+    def test_a_position_at_a_new_high_is_never_exited(self):
+        hit, _s, _p, closer = self._run(gain=25.0, peak=20.0)
+        self.assertEqual(hit, [])
+        closer.assert_not_called()
 
     # --- scope and safety ---------------------------------------------------
     def test_a_non_zone_position_is_ignored(self):
-        """Share setups already have a trailing stop; this is not for them."""
-        hit, _s, _p = self._run(gain=5.0, peak=20.0, setup="Gap & Hold")
+        """Share setups already have their own trailing stop."""
+        hit, _s, _p, closer = self._run(gain=5.0, peak=20.0, setup="Gap & Hold")
         self.assertEqual(hit, [])
+        closer.assert_not_called()
 
-    def test_it_places_no_order_and_moves_no_stop(self):
-        """The zone rule is frozen and time-based. This informs, it does not
-        trade -- if that ever changes it is a strategy decision, not a tweak."""
-        body = inspect.getsource(a._zone_giveback_check).split('"""')[2]
-        for forbidden in ("submit_order", "replace_order", "cancel_order",
-                          "close_position", "_place_bzone_catastrophe_stop"):
+    def test_the_flag_can_switch_it_off(self):
+        """A new auto-exit on a live account needs a kill switch."""
+        hit, _s, _p, closer = self._run(gain=5.0, peak=20.0, flag_on=False)
+        self.assertEqual(hit, [])
+        closer.assert_not_called()
+
+    def test_it_closes_through_the_helper_that_cancels_the_floor_first(self):
+        """_close_position_at_market() cancels the resting catastrophe stop
+        before selling. A second SELL against shares the floor already holds
+        would be rejected by the broker."""
+        body = inspect.getsource(a._zone_trail_exit_check).split('"""')[2]
+        self.assertIn("_close_position_at_market", body)
+        for forbidden in ("submit_order", "_place_bzone_catastrophe_stop"):
             self.assertNotIn(forbidden, body)
 
-    def test_it_tells_the_operator_how_to_act(self):
-        _h, sent, _p = self._run(gain=5.0, peak=20.0)
-        self.assertIn("/close AMPL", sent[0])
-
-    def test_it_is_deduped_per_day(self):
-        """Fewer, higher-signal messages: a giveback persists, so repeating it
-        every ten minutes would be noise."""
-        hit, sent, _p = self._run(gain=5.0, peak=20.0, dupe=True)
-        self.assertEqual(hit, ["AMPL"])
-        self.assertEqual(sent, [])
+    def test_the_alert_says_it_was_automatic_and_what_remains(self):
+        _h, sent, _p, _c = self._run(gain=5.0, peak=20.0)
+        self.assertIn("automatically", sent[0])
+        self.assertIn("time exit", sent[0])
 
     def test_a_broker_failure_does_not_raise(self):
         cl = MagicMock()
         cl.get_all_positions.side_effect = RuntimeError("boom")
         with patch.object(a, "get_alpaca_client", return_value=cl), \
+             patch.object(a, "flag", return_value=True), \
              patch.object(a, "_log_swallowed"):
-            self.assertEqual(a._zone_giveback_check(), [])
+            self.assertEqual(a._zone_trail_exit_check(), [])
 
     def test_the_zone_manager_runs_it(self):
         src = inspect.getsource(a.run_breakout_zone_manage)
-        self.assertIn('out["giveback"] = _zone_giveback_check(notify=notify)', src)
+        self.assertIn('out["trail_exits"] = _zone_trail_exit_check(notify=notify)', src)
 
-    def test_the_thresholds_are_ordered_sanely(self):
-        """A giveback fraction at or above 1.0 could never fire; a minimum peak
-        of 0 would make every wobble an alert."""
-        self.assertGreater(a.BZONE_GIVEBACK_ALERT_PCT, 0.0)
-        self.assertLess(a.BZONE_GIVEBACK_ALERT_PCT, 1.0)
-        self.assertGreaterEqual(a.BZONE_GIVEBACK_MIN_PEAK_PCT, 5.0)
+    def test_the_parameters_match_the_measured_optimum(self):
+        """Pinned to the grid. If these drift, the +3.55pp claim in the
+        constants block stops describing what the code does."""
+        self.assertAlmostEqual(a.BZONE_TRAIL_ACTIVATE_PCT, 5.0, places=3)
+        self.assertAlmostEqual(a.BZONE_TRAIL_GIVEBACK_PCT, 0.25, places=3)
+
+    def test_the_floor_and_the_time_exit_are_still_the_backstops(self):
+        """This ADDS a reason to leave. If either backstop were removed the
+        trail would be the only protection, which is not what was measured."""
+        self.assertGreater(a.BZONE_HOLD_SESSIONS, 0)
+        self.assertGreater(a.BZONE_CATASTROPHE_STOP_ATR, 0)

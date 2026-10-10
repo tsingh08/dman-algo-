@@ -12333,8 +12333,31 @@ BZONE_MAX_EXPOSURE_PCT = 0.40
 # operator can do deliberately what they did with the PLTR spread on
 # 2026-10-09: take the profit near the peak. Information, not a strategy
 # change.
-BZONE_GIVEBACK_MIN_PEAK_PCT = 10.0   # below this a pullback is just noise
-BZONE_GIVEBACK_ALERT_PCT    = 0.40   # fraction of the peak gain handed back
+# Measured on the labelled set (n=76) on 2026-10-10, simulating "activate at
+# A% peak, exit at (1-G) of peak" over the full grid A in {5,8,10,15} and
+# G in {0.25,0.33,0.40,0.50}:
+#
+#     actual                         -3.77%/trade
+#     A=5%  G=0.25  (18/76 fire)     -0.23%/trade   <- best
+#     A=15% G=0.50  ( 4/76 fire)     -2.51%/trade   <- worst
+#
+# EVERY combination improved on doing nothing, by +1.26 to +3.55 points per
+# trade, and the gradient is monotonic: earlier activation and a tighter
+# giveback are better. That is the capture finding restated -- the moves are
+# real and they are being handed back, so harvest sooner.
+#
+# Two honest caveats. The simulation assumes a triggered exit realises exactly
+# peak*(1-G), so it cannot see a path that dipped through the trigger and then
+# recovered; it is therefore optimistic in level even though the direction is
+# robust across all 16 cells. And at -0.23%/trade this converts a bleed into
+# roughly breakeven, not into a profitable system.
+#
+# Operator-authorised 2026-10-10: "I want the algo to be always tracking the
+# position on its own, knowing the right time to sell out of that position."
+# This supersedes the earlier alert-only version, which only told them.
+ENABLE_BZONE_TRAIL        = True
+BZONE_TRAIL_ACTIVATE_PCT  = 5.0    # peak gain that arms the trail
+BZONE_TRAIL_GIVEBACK_PCT  = 0.25   # exit once this fraction of the peak is back
 
 BZONE_CATASTROPHE_STOP_ATR = 3.0
 # Never tighter than this, whatever the ATR says. A very quiet stretch would
@@ -12535,19 +12558,27 @@ def _bzone_floor_pct(ticker: str = "") -> float:
                    BZONE_CATASTROPHE_STOP_ATR * _a))
 
 
-def _zone_giveback_check(notify: bool = True) -> list:
-    """Alert on zones that have handed back most of a real gain. Returns names.
+def _zone_trail_exit_check(notify: bool = True) -> list:
+    """Sell any zone that has handed back BZONE_TRAIL_GIVEBACK_PCT of its peak.
 
-    Updates each zone's peak_gain_pct high-water mark and reports any whose
-    current gain has fallen BZONE_GIVEBACK_ALERT_PCT off that peak, provided
-    the peak was at least BZONE_GIVEBACK_MIN_PEAK_PCT so an ordinary wobble
-    does not trigger it.
+    Returns the tickers it exited.
 
-    Deliberately read-only with respect to the position: no order, no stop
-    change, no exit. The zone rule is frozen and time-based; this only makes
-    the peak visible, which is the single thing the PLTR spread had on
-    2026-10-09 that every zone lacked.
+    This is the thing the PLTR 200/205 spread had on 2026-10-09 and no zone
+    did. Options track peak_premium and close on a giveback off it; share
+    setups have a 15%-activate trailing stop; zones had neither, because they
+    exit on TIME and _progress_equity_stop_to_trailing() refuses them outright
+    so the catastrophe floor can never ratchet.
+
+    The floor and the 20-session time exit are both UNCHANGED and remain the
+    backstops. This only adds an earlier, profit-taking reason to leave, which
+    the grid in the constants block says is worth +3.55 points per trade.
+
+    _close_position_at_market() is used rather than a new order because it
+    already cancels the resting catastrophe stop first -- submitting a second
+    SELL against shares the floor is holding would be rejected.
     """
+    if not flag("ENABLE_BZONE_TRAIL", ENABLE_BZONE_TRAIL):
+        return []
     _hit: list = []
     try:
         _c = get_alpaca_client()
@@ -12570,25 +12601,25 @@ def _zone_giveback_check(notify: bool = True) -> list:
             if _gain > _peak:
                 _pos.peak_gain_pct = _gain
                 _peak, _changed = _gain, True
-            if _peak < BZONE_GIVEBACK_MIN_PEAK_PCT:
+            if _peak < BZONE_TRAIL_ACTIVATE_PCT:
                 continue
-            if _gain > _peak * (1.0 - BZONE_GIVEBACK_ALERT_PCT):
+            if _gain > _peak * (1.0 - BZONE_TRAIL_GIVEBACK_PCT):
                 continue
+            _st, _oid = _close_position_at_market(
+                _pos, "zone trail: %+.1f%% off a %+.1f%% peak" % (_gain, _peak))
             _hit.append(_pos.ticker)
-            _key = "__GIVEBACK__:" + str(_pos.ticker)
-            if notify and not _is_duplicate_alert(_key, 24 * 60):
+            if notify:
                 send_telegram(
-                    "⏳ <b>" + str(_pos.ticker) + " has given back "
-                    + ("%.0f%%" % ((_peak - _gain) / _peak * 100))
-                    + " of its peak</b>" + chr(10)
-                    + ("peaked +%.1f%%, now %+.1f%%" % (_peak, _gain)) + chr(10)
-                    + chr(10)
-                    + "A zone exits on TIME and has no trailing stop, so this "
-                    + "is yours to act on if you want it. Measured across the "
-                    + "logged signals, the average best moment is +4.7% and "
-                    + "the average close is -3.2%." + chr(10)
-                    + "<b>/close " + str(_pos.ticker) + "</b> to take it.")
-                _save_last_alert(_key)
+                    "\U0001f4b0 <b>" + str(_pos.ticker)
+                    + " trail exit — " + str(_st) + "</b>" + chr(10)
+                    + ("peaked +%.1f%%, now %+.1f%% (gave back %.0f%%)"
+                       % (_peak, _gain, (_peak - _gain) / _peak * 100))
+                    + chr(10) + chr(10)
+                    + "Taken automatically: a zone has no trailing stop and "
+                    + "the logged signals average +4.6% at their best against "
+                    + "-3.8% realised. The catastrophe floor and the "
+                    + str(BZONE_HOLD_SESSIONS) + "-session time exit are "
+                    + "unchanged underneath this.")
         if _changed:
             _pt._save()
     except Exception as exc:
@@ -13007,7 +13038,7 @@ def run_breakout_zone_manage(notify: bool = True) -> dict:
                     f"whole position. Position ${_qty * _px:.0f}.</i>")
     # Read-only: makes the peak visible. See the constants block for why this
     # alerts instead of exiting.
-    out["giveback"] = _zone_giveback_check(notify=notify)
+    out["trail_exits"] = _zone_trail_exit_check(notify=notify)
     print(f"  🏔 Breakout zone manage: exits {out['exited']}, entries {out['entered']}"
           f"{' — ' + out['skipped'] if out['skipped'] else ''}")
     return out

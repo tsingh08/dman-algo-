@@ -1,0 +1,17 @@
+﻿{
+  "mcpServers": {
+    "massive": {
+      "command": "C:\\Users\\singh\\AppData\\Local\\Python\\pythoncore-3.14-64\\Scripts\\uvx.exe",
+      "args": [
+        "--from",
+        "git+https://github.com/massive-com/mcp_massive",
+        "--with",
+        "mcp<2",
+        "mcp_massive"
+      ],
+      "env": {
+        "MASSIVE_API_KEY": "${MASSIVE_MCP_KEY}"
+      }
+    }
+  }
+}

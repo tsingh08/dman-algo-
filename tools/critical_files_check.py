@@ -60,6 +60,16 @@ CRITICAL = {
     "tools/py311_check.py": "catches 3.12-only syntax before the 3.11 jobs hit it",
     "tools/hollow_assert_check.py": "catches tests that cannot fail",
 
+    # Added 2026-10-10. Not part of the trading path at all -- it is what gives
+    # an analysis session the Massive MCP server, and therefore minute-bar and
+    # tick data. Losing it does not break a session; it silently removes the
+    # only way to replay an exit on real intrabar paths, which is how the
+    # trailing-exit parameters were settled. It carries no secret: the key is
+    # passed as ${MASSIVE_MCP_KEY} from the environment, and deliberately NOT
+    # the MASSIVE_API_KEY the algo trades on, so exploratory queries cannot
+    # rate-limit the live news and earnings calls.
+    ".mcp.json": "the Massive MCP server config -- minute/tick data for analysis",
+
     # Characterization harnesses: without these the goldens cannot be checked,
     # and a missing harness looks identical to a passing one.
     "golden/submit_signals_harness.py": "order-submission golden",

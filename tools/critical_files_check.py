@@ -7,10 +7,10 @@ on origin/main -- the cause was never established. They were restored by name
 and nothing was lost.
 
 PROBABLE CAUSE, established 2026-10-10. Every disappearance this gate has
-caught happened in a working CLONE living under %LOCALAPPDATA%\Temp, not in a
+caught happened in a working CLONE living under %LOCALAPPDATA%\\Temp, not in a
 checkout a human opened. Windows Storage Sense is enabled on this machine with
 "Delete temporary files that my apps aren't using" ON
-(HKCU\...\StorageSense\Parameters\StoragePolicy, value 04 = 0x1), and that
+(HKCU\\...\\StorageSense\\Parameters\\StoragePolicy, value 04 = 0x1), and that
 heuristic deletes files under %TEMP% that nothing has touched recently.
 
 The pattern matches exactly. dman_algo.py and test_dman_algo.py are edited
@@ -111,11 +111,11 @@ def main() -> int:
     print(f"critical files: {len(CRITICAL) - len(missing)}/{len(CRITICAL)} present")
     if not missing:
         return 0
-    print(f"\n{len(missing)} MISSING -- refusing the build:\n")
+    print(f"\\n{len(missing)} MISSING -- refusing the build:\\n")
     for p, why in missing:
         print(f"  {p}")
         print(f"     {why}")
-    print("\nIf one of these was removed on purpose, delete its line from")
+    print("\\nIf one of these was removed on purpose, delete its line from")
     print("tools/critical_files_check.py in the SAME commit, so the removal is")
     print("a decision someone made rather than something that happened.")
     return 1

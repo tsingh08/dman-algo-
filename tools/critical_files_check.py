@@ -6,6 +6,30 @@ DELETED. Nothing had touched them, no commit removed them, and both were intact
 on origin/main -- the cause was never established. They were restored by name
 and nothing was lost.
 
+PROBABLE CAUSE, established 2026-10-10. Every disappearance this gate has
+caught happened in a working CLONE living under %LOCALAPPDATA%\Temp, not in a
+checkout a human opened. Windows Storage Sense is enabled on this machine with
+"Delete temporary files that my apps aren't using" ON
+(HKCU\...\StorageSense\Parameters\StoragePolicy, value 04 = 0x1), and that
+heuristic deletes files under %TEMP% that nothing has touched recently.
+
+The pattern matches exactly. dman_algo.py and test_dman_algo.py are edited
+constantly and have never vanished. The files that DO vanish -- requirements.txt,
+both fallback scripts, start_daemon.bat, the premarket advisory, action.yml,
+dman_pro_test.py -- are ones nothing touches between incidents; after the last
+restore their mtimes all sat at one timestamp with no activity since. Different
+files each time, because it is whichever went untouched longest. No commit
+removed them, and they were always intact on origin.
+
+Not proof -- it has never been caught in the act, and LastSnapshotTime is not
+recorded on this machine, so the run times cannot be matched to the incidents.
+One earlier occurrence (2026-09-29) was recorded only as "a working tree" and if
+that one was a human checkout rather than a Temp clone, this does not explain it.
+
+It also does not change what to do. A disposable clone under %TEMP% is working
+as intended; this gate is what stops a disposable copy's losses from reaching
+main, and it has now done that twice.
+
 The cause is not the interesting part. A `git add -A` or `git commit -a` at that
 moment would have silently deleted the GitHub-Actions-independent fallback guard,
 and the only thing standing between that and a push was someone reading

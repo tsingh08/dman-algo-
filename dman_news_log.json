@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-09T12:39:13.635314-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Nvidia-Backed Data Center IPO Collapses\u2014OpenAI Revenue Questions\u2014Apple customers Are Not Price Insensitive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-09T12:39:18.942999-04:00",
     "symbols": [
       "CLOV"
@@ -5038,5 +5028,16 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T09:28:19.783839-04:00",
+    "symbols": [
+      "GS",
+      "JPM"
+    ],
+    "headline": "We Asked 3 AI Chatbots for the Week&#39;s Top Stock Picks - 2 Bet on TSMC Earnings",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

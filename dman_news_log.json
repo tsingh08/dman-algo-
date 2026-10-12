@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-09T13:27:44.057544-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T13:27:44.129474-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:27:44.943032-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-09T13:27:44.949015-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Gold Rises Over 1%; US Consumer Sentiment Falls",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-09T13:27:44.953550-04:00",
     "symbols": [
       "SPCX"
@@ -5034,6 +4994,48 @@
       "IREN"
     ],
     "headline": "IREN Reportedly Signed Multiyear Cloud Deal With Anthropic",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:41:42.050742-04:00",
+    "symbols": [
+      "CRWD",
+      "PANW",
+      "PLTR"
+    ],
+    "headline": "Palantir Stock Hits New Record High, Wipes Out Its Nearly 50% Drawdown",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:42:19.067343-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir Stock Hits New Record High, Wipes Out Its Nearly 50% Drawdown",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T10:42:24.400530-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Palantir Stock Hits New Record High, Wipes Out Its Nearly 50% Drawdown",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:42:24.648125-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palantir Stock Hits New Record High, Wipes Out Its Nearly 50% Drawdown",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

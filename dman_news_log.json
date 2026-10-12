@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-09T13:09:08.755766-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Gulf Shuts Down 72% Of Oil Production, ~1.5M Barrels/Day; The U.S. Gulf Of Mexico Has Shut In 71.5% Of Daily Oil Production And 58.8% Of Natural Gas Output, According To The Marine Minerals Administration;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T13:09:09.417631-04:00",
-    "symbols": [
-      "VIVK"
-    ],
-    "headline": "Vivakor Stock Rallies on Proposed $40M Direct Midstream Acquisition",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T13:09:09.588997-04:00",
-    "symbols": [
-      "VEEA"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:09:09.907366-04:00",
-    "symbols": [
-      "VZ"
-    ],
-    "headline": "Why Is AST SpaceMobile Stock Falling on Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T13:09:10.045923-04:00",
-    "symbols": [
-      "ASTS"
-    ],
-    "headline": "Why Is AST SpaceMobile Stock Falling on Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-09T13:09:10.208063-04:00",
     "symbols": [
       "TMUS"
@@ -5038,6 +4988,56 @@
     ],
     "headline": "IonQ shares are trading lower after the company announced that it will acquire quantum security firm Elisity for up to $1.3 billion in stock.",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:01:16.635244-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "L3Harris Wins $250M Follow-On Contract From Lockheed Martin To Produce GMLRS Rocket Propulsion Units",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T10:01:59.736589-04:00",
+    "symbols": [
+      "TRAX"
+    ],
+    "headline": "First Tracks Biotherapeutics, C3.ai, CCC Intelligent Solutions And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:02:00.009389-04:00",
+    "symbols": [
+      "ENVX"
+    ],
+    "headline": "US Stocks Mixed; Enovix Shares Jump",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:02:00.020029-04:00",
+    "symbols": [
+      "AI"
+    ],
+    "headline": "First Tracks Biotherapeutics, C3.ai, CCC Intelligent Solutions And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:02:00.373570-04:00",
+    "symbols": [
+      "NDIV"
+    ],
+    "headline": "TotalEnergies, KKR Strike $1.2 Billion Solar Deal",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

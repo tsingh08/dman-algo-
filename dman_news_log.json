@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-09T13:27:46.028471-04:00",
-    "symbols": [
-      "CCI"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-09T13:27:46.455836-04:00",
     "symbols": [
       "AMT"
@@ -5042,6 +5032,16 @@
     "headline": "S&amp;P 500\u2014What Happens In Q4 After A Negative September?",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:52:53.897223-04:00",
+    "symbols": [
+      "WFF"
+    ],
+    "headline": "WF Holding Shares Halted On Circuit Breaker To The Upside, Stock Now Up 114.89%",
+    "source": "benzinga",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

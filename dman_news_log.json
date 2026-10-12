@@ -1,86 +1,5 @@
 [
   {
-    "ts": "2026-10-09T14:42:14.176267-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Elon Musk Hypes \u2018Very Big Deal,\u2019 but Cathie Wood Hits Sell on SpaceX Along With Meta, AMD and Google \u2014 Ark Loads Up on This Defense Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T14:42:14.437368-04:00",
-    "symbols": [
-      "NVAX"
-    ],
-    "headline": "Reported Earlier: &#39;Cancer Vaccines Are the N.I.H&#39;s Next Big Bet&#39; - The New York Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T14:42:14.442817-04:00",
-    "symbols": [
-      "NVAX"
-    ],
-    "headline": "Humana, Evolution Metals &amp; Technologies, Fastly And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T14:45:17.770593-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla&#39;s China Retail Sales Fall 9% Even as Shanghai Exports Surge 58%",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T14:49:46.128526-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Posts On Truth Social &#34;I have just concluded a highly successful discussion with President Vladimir Putin, of Russia, wherein it was agreed that Russia will immediately supply over 300,000 Tons of Diesel Fuel to the American and Global Marketplace, another 500,000 Tons during the month of November, and 1,000,000 Tons immediately thereafter. Additionally, based on the condition of their Diesel Refineries, Russia will then deliver, within a short period of time, 3,000,000 Tons of Diesel Fuel.&#34;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T14:59:06.778602-04:00",
-    "symbols": [
-      "FSLR",
-      "NEM"
-    ],
-    "headline": "Something Is Breaking In Casino Stocks: MGM, Wynn Hit Record Losing Streaks",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T14:59:23.382630-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Amazon Is Undervalued, Says Analyst \u2014 and AI Could Be Its Biggest Advantage",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T14:59:23.386347-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "\u2018Dean of Valuation\u2019 Warns of AI Cash Drain: 4 Ways to Play the Shift",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-09T15:03:29.418304-04:00",
     "symbols": [
       "UBER"
@@ -5061,5 +4980,85 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T12:42:11.264078-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Stock Nears Record High As iPhone Market Share Hits 22% Despite 20% Smartphone Market Slump",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T12:42:47.584779-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Broadcom CEO Says Many AI Investors Have \u2018No Clue,\u2019 Likens Boom to a Casino",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T12:42:50.981771-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Broadcom CEO Says Many AI Investors Have \u2018No Clue,\u2019 Likens Boom to a Casino",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T12:42:51.614121-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Sandisk Stock Is Falling Monday: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T12:42:51.863436-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Sandisk Stock Is Falling Monday: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-12T12:42:52.291962-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Sandisk Stock Is Falling Monday: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T12:43:47.830017-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Two Turkish Citizens Arrested In Germany In Connection With Starlink Station Fire; Polish Special Services Minister: No Doubt Russia Is Behind Starlink Station Sabotage; Starlink Station Sabotage Is Hybrid Warfare; Perpetrators Of The Sabotage Will Face The Polish Justice System",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T12:46:01.966649-04:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "GE Aerospace Announces Plans To Nearly Double Supplier Spend In-Country To Help Meet India\u2019s Aviation Industry Growth",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

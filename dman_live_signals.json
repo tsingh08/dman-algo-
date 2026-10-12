@@ -155,6 +155,30 @@
       "score": 100,
       "date": "2026-10-09",
       "timestamp": "2026-10-09T13:14:45.486259-04:00"
+    },
+    {
+      "ticker": "VEEA",
+      "setup": "Morning Runner",
+      "bias": "LONG",
+      "entry": 5.7,
+      "stop": 5.24,
+      "target1": 6.86,
+      "target2": 7.55,
+      "score": 100,
+      "date": "2026-10-12",
+      "timestamp": "2026-10-12T09:27:22.518097-04:00"
+    },
+    {
+      "ticker": "CCI",
+      "setup": "Morning Runner",
+      "bias": "LONG",
+      "entry": 79.64,
+      "stop": 75.49,
+      "target1": 100.38,
+      "target2": 112.83,
+      "score": 100,
+      "date": "2026-10-12",
+      "timestamp": "2026-10-12T09:27:22.519760-04:00"
     }
   ]
 }

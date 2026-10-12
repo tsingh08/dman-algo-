@@ -1,135 +1,5 @@
 [
   {
-    "ts": "2026-10-09T15:18:30.981656-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Needham Maintains Buy on CrowdStrike Holdings, Raises Price Target to $310",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T15:18:30.986715-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Citizens Maintains Market Outperform on Coinbase Global, Lowers Price Target to $280",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T15:18:30.990188-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Morgan Stanley Maintains Equal-Weight on Coinbase Global, Raises Price Target to $258",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T15:18:30.996327-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Securitize Stock Jumps After Hours As It Launches Tokenized Apple, Nvidia, Tesla Shares On Solana",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T15:18:31.000616-04:00",
-    "symbols": [
-      "CLSK"
-    ],
-    "headline": "CleanSpark Produces 529 Bitcoins In September, 5,432 BTC This Year",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-09T15:18:31.235947-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Citizens Maintains Market Outperform on Zscaler, Raises Price Target to $265",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T15:18:31.239685-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Performance Comparison: Airbnb And Competitors In Hotels, Restaurants &amp; Leisure Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T15:18:31.244206-04:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "IonQ Says Quantum Networking Link Achieved More Than 1,000 Entanglements Per Second, More Than 4x Prior Record",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-09T15:18:31.247826-04:00",
-    "symbols": [
-      "ACHR"
-    ],
-    "headline": "Barclays Upgrades Archer Aviation to Overweight, Raises Price Target to $8",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T15:18:31.251690-04:00",
-    "symbols": [
-      "ACHR"
-    ],
-    "headline": "Bill Gates Says Aviation Is One of the Hardest Sectors to Decarbonize Amid Skyrocketing Fuel Costs\u2014Here&#39;s His Solution",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T15:18:31.256009-04:00",
-    "symbols": [
-      "JOBY"
-    ],
-    "headline": "Barclays Downgrades Joby Aviation to Underweight, Lowers Price Target to $4",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T15:18:31.259458-04:00",
-    "symbols": [
-      "JOBY"
-    ],
-    "headline": "Bill Gates Says Aviation Is One of the Hardest Sectors to Decarbonize Amid Skyrocketing Fuel Costs\u2014Here&#39;s His Solution",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T15:18:31.377505-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "RTX\u2019s Raytheon Lands $6.3 Billion Pentagon Deal To Replenish SM-3 Missile Interceptors After Combat Use in Iran Conflict",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-09T15:18:31.381520-04:00",
     "symbols": [
       "ETN"
@@ -5056,5 +4926,141 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-12T13:35:09.993071-04:00",
+    "symbols": [
+      "AVGO",
+      "MRVL",
+      "ORCL",
+      "SMCI",
+      "SNDK"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T13:35:10.342045-04:00",
+    "symbols": [
+      "AMZN",
+      "DKNG"
+    ],
+    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T13:35:10.496071-04:00",
+    "symbols": [
+      "MRNA",
+      "UNH"
+    ],
+    "headline": "10 Health Care Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T13:35:29.754694-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T13:35:30.341505-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T13:35:30.488858-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T13:35:30.789168-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-12T13:35:31.056730-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T13:35:31.745741-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "10 Health Care Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T13:35:31.997192-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Hammack Says Treasury Rates Right Now Are &#34;Modest&#34; By Historic Standards; If The Economy Were To Return To A 3% Home Mortgage It Would Likely Mean Something Had Gone Wrong In The Economy; The Neutral Rate Is Likely Higher But It Is Hard To Pin Down; Hearing &#34;Early Warning Signs&#34; Of A Possible Problem With Inflation Expectations; Need To &#34;Cool The Economy At The Margins&#34;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T13:35:33.311072-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T13:35:34.456002-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "10 Health Care Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T13:35:34.705700-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

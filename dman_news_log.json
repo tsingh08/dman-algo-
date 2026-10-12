@@ -1,195 +1,5 @@
 [
   {
-    "ts": "2026-10-09T13:30:56.029017-04:00",
-    "symbols": [
-      "VZ"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T13:30:56.033783-04:00",
-    "symbols": [
-      "VZ"
-    ],
-    "headline": "QUICK SPARK: SpaceX Spectrum Deal Triggers T-Mobile\u2019s Worst Day Since 2013",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T13:30:56.288259-04:00",
-    "symbols": [
-      "ASTS"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-09T13:30:56.428162-04:00",
-    "symbols": [
-      "TMUS"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:30:56.436292-04:00",
-    "symbols": [
-      "TMUS"
-    ],
-    "headline": "QUICK SPARK: SpaceX Spectrum Deal Triggers T-Mobile\u2019s Worst Day Since 2013",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:30:56.443094-04:00",
-    "symbols": [
-      "TMUS"
-    ],
-    "headline": "Gold Rises Over 1%; US Consumer Sentiment Falls",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:30:56.764470-04:00",
-    "symbols": [
-      "T"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:30:56.769416-04:00",
-    "symbols": [
-      "T"
-    ],
-    "headline": "QUICK SPARK: SpaceX Spectrum Deal Triggers T-Mobile\u2019s Worst Day Since 2013",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:30:57.226349-04:00",
-    "symbols": [
-      "CCI"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:30:57.593406-04:00",
-    "symbols": [
-      "ALHC"
-    ],
-    "headline": "Gold Rises Over 1%; US Consumer Sentiment Falls",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:30:57.915686-04:00",
-    "symbols": [
-      "AMT"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:30:58.094083-04:00",
-    "symbols": [
-      "GRRR"
-    ],
-    "headline": "Why Is Gorilla Technology Stock Falling After Its US Data Center Plan?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:30:58.098960-04:00",
-    "symbols": [
-      "GRRR"
-    ],
-    "headline": "Gorilla Technology Entered Into Non-Binding Letter Of Intent With Proposed Data Center Acquisition",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:32:49.601076-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Donald Trump pressures Mexico for energy deals in crunch trade talks&#39; - Financial Times",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:34:25.214035-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump To Issue Directive To U.S. Officials That Seeks To Control Cost Of Diesel; Directive On Diesel Will Push U.S. Department Heads To Find Ways To Bypass Local, State Regulations Blocking Energy Production; Directive Will Push U.S. Officials To Use Defense Production Act To Find Ways To Increase Production Of Oil And Fuel",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:35:10.352225-04:00",
-    "symbols": [
-      "AMD",
-      "AVGO",
-      "MRVL",
-      "MSTR",
-      "NVDA",
-      "ORCL",
-      "PLTR"
-    ],
-    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "held",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T13:35:10.966441-04:00",
-    "symbols": [
-      "IOVA",
-      "LLY",
-      "MRNA"
-    ],
-    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "held",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T13:35:11.388216-04:00",
-    "symbols": [
-      "AMZN",
-      "BABA",
-      "TSLA"
-    ],
-    "headline": "9 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-09T13:35:17.530939-04:00",
     "symbols": [
       "NEM"
@@ -5050,6 +4860,189 @@
     "ts": "2026-10-12T11:16:17.507665-04:00",
     "symbols": [
       "TSLA"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T11:16:17.776807-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T11:16:19.072135-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T11:16:23.433880-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T11:16:28.373766-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T11:16:28.934809-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T11:16:29.965740-04:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "$1000 Invested In Newmont 5 Years Ago Would Be Worth This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T11:16:31.049360-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T11:16:31.376580-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T11:16:35.276402-04:00",
+    "symbols": [
+      "WFF"
+    ],
+    "headline": "WF Holding Shares Halted On Circuit Breaker To The Downside, Stock Now Up 150.85%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T11:16:39.343402-04:00",
+    "symbols": [
+      "CCC"
+    ],
+    "headline": "First Tracks Biotherapeutics, C3.ai, CCC Intelligent Solutions And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T11:16:39.348726-04:00",
+    "symbols": [
+      "CCC"
+    ],
+    "headline": "Why Is CCC Intelligent Solutions Stock Surging Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T11:16:40.656850-04:00",
+    "symbols": [
+      "CNTB"
+    ],
+    "headline": "Leerink Partners Assumes Connect Biopharma Hldgs at Outperform, Announces Price Target of $4",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T11:19:20.138670-04:00",
+    "symbols": [
+      "LCID"
+    ],
+    "headline": "Lucid Group shares are trading lower after RBC Capital lowered its price target on the stock from $7 to $4.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T11:19:31.747468-04:00",
+    "symbols": [
+      "AMZN",
+      "IONQ",
+      "MSFT",
+      "PLTR"
+    ],
+    "headline": "Quantum Computing Is Eyeing a 2028 Breakthrough, 2 ETFs Could Capture It",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T11:20:27.553178-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Is \u2018Compelling\u2019 For Fintech Exposure Given Deposits Growth: Analyst",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T11:20:46.850698-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T11:20:46.862371-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T11:20:46.875019-04:00",
+    "symbols": [
+      "AMZN"
     ],
     "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
     "source": "scan-prefetch",

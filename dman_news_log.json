@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-09T15:18:31.401220-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Stock of the Day: Where is the Bottom for Oracle?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-09T15:18:31.404696-04:00",
     "symbols": [
       "ADBE"
@@ -5062,5 +5052,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T13:41:07.067397-04:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "GE Aerospace, Shield AI, And Poland&#39;s WZL-2 Sign MOU To Advance F110 Engine MRO Support In Poland",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

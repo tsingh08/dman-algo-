@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-09T13:09:06.153602-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Alibaba Stock Rises as China Limits Sell Orders",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-09T13:09:08.171846-04:00",
     "symbols": [
       "UNH"
@@ -5038,6 +5028,16 @@
     ],
     "headline": "C3.Ai Shares Edges Higher Monday: What&#39;s Going On?",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T09:54:57.630944-04:00",
+    "symbols": [
+      "RCAT"
+    ],
+    "headline": "What&#39;s Going On With Red Cat Stock Monday?",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

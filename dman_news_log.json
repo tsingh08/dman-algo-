@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-09T13:43:47.995955-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "9 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T13:43:50.709733-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Shell, Chevron, BP Pull Crews as Hurricane Isaias Barrels Toward Gulf Coast Refineries",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T13:43:51.320621-04:00",
-    "symbols": [
-      "NEM"
-    ],
-    "headline": "Why Is Newmont Stock Surging Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:43:51.814551-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-09T13:43:52.314558-04:00",
     "symbols": [
       "SPY"
@@ -5048,5 +5008,45 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T11:32:29.615171-04:00",
+    "symbols": [
+      "LQDA"
+    ],
+    "headline": "First Tracks Biotherapeutics, C3.ai, CCC Intelligent Solutions And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T11:32:31.154276-04:00",
+    "symbols": [
+      "ECO"
+    ],
+    "headline": "First Tracks Biotherapeutics, C3.ai, CCC Intelligent Solutions And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T11:32:31.159474-04:00",
+    "symbols": [
+      "ECO"
+    ],
+    "headline": "Reported Earlier, &#39;Oil Tanker Rates Surge Amid Rising Attacks, Longer Voyages&#39; - WSJ",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T11:33:05.484861-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Ondas Takes Its Palantir Partnership Deeper With New Sovereign AI Company",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

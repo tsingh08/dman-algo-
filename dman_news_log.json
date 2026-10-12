@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-09T13:27:44.953550-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "What&#39;s Going On With Snap Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-09T13:27:45.165446-04:00",
-    "symbols": [
-      "VEEA"
-    ],
-    "headline": "Gold Rises Over 1%; US Consumer Sentiment Falls",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:27:45.240664-04:00",
-    "symbols": [
-      "WFF"
-    ],
-    "headline": "Gold Rises Over 1%; US Consumer Sentiment Falls",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:27:45.506899-04:00",
-    "symbols": [
-      "HUM"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T13:27:45.511977-04:00",
-    "symbols": [
-      "HUM"
-    ],
-    "headline": "Gold Rises Over 1%; US Consumer Sentiment Falls",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-09T13:27:46.028471-04:00",
     "symbols": [
       "CCI"
@@ -5038,6 +4988,60 @@
     "headline": "Palantir Stock Hits New Record High, Wipes Out Its Nearly 50% Drawdown",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:46:24.141576-04:00",
+    "symbols": [
+      "GEV",
+      "NVDA",
+      "SPY"
+    ],
+    "headline": "Steve Eisman Warns S&amp;P 500 Is One Giant AI Bet: &#39;I Own NVDA and I Worry&#39;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:48:01.924397-04:00",
+    "symbols": [
+      "HOOD",
+      "MSTR",
+      "SPY"
+    ],
+    "headline": "Bitmine Buys 12,532 More ETH as Tom Lee\u2019s Buying \u2018Stop\u2019 Draws Closer",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:48:27.274521-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "TD Cowen Maintains Hold on Chevron, Raises Price Target to $225",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T10:48:47.714770-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "QUICK SPARK: S&amp;P 500 Bull Market Turns 4, More Than Doubling From Its 2022 Low",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:49:36.084443-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "S&amp;P 500\u2014What Happens In Q4 After A Negative September?",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

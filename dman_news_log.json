@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-09T13:14:33.505832-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Crown Castle Stock Jumping as SpaceX Acquires 800 MHz Spectrum",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-09T13:14:33.515069-04:00",
     "symbols": [
       "SXTC"
@@ -5047,5 +5037,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:15:21.182454-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "AST SpaceMobile Stock Surges After Deutsche Bank Upgrade",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

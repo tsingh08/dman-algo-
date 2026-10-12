@@ -94,6 +94,17 @@ CRITICAL = {
     # rate-limit the live news and earnings calls.
     ".mcp.json": "the Massive MCP server config -- minute/tick data for analysis",
 
+    # Added 2026-10-12. Not used by the algo at all -- it is what makes
+    # dman_algo.py readable in the editor. The repo root is the HOME directory,
+    # so Pylance is asked to index ~36 GB and, worse, the toolchain lives
+    # INSIDE the workspace: typeshed-fallback under .vscode/extensions, the
+    # interpreter stdlib under AppData/Local/Python. This file carries the
+    # settings that make that workable, and a note saying which exclude
+    # patterns must never go back in. Twice now its absence or a bad value in
+    # it has produced ~5,900 bogus "is not defined" findings on a file that
+    # compiles cleanly and passes 1,941 tests.
+    ".vscode/settings.json": "Pylance config for a home-directory workspace -- see its _note key",
+
     # Characterization harnesses: without these the goldens cannot be checked,
     # and a missing harness looks identical to a passing one.
     "golden/submit_signals_harness.py": "order-submission golden",

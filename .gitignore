@@ -25,3 +25,11 @@ __pycache__/
 # OS
 .DS_Store
 Thumbs.db
+
+# The repo root is the HOME directory, so .vscode/ here holds the entire VS Code
+# extension tree and CLI payload -- hundreds of MB. A stray `git add -A` would
+# stage all of it. Ignore those, but KEEP settings.json tracked (see the
+# negation): it carries the Pylance configuration this workspace needs, and on
+# 2026-10-12 a bad analysis.exclude in it cost an hour of false errors.
+.vscode/*
+!.vscode/settings.json

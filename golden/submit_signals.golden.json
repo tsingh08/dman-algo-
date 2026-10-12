@@ -59,6 +59,7 @@
    "  🌍 Fetching global context for adaptive sizing...",
    "  ────────────────────────────────────────────────────────────────────",
    "  [LIVE] Validating 1 signal(s) for Alpaca submission…",
+   "  ⬆️  Elevated size for NVDA: $4,500 (base $3,000) — score 100/100, WATCHLIST large cap, 0/1 elevated slots used",
    "  🎯 Options mode: finding call for NVDA  budget=$400",
    "  📤 1/1 signal(s) submitted [LIVE]"
   ]
@@ -100,6 +101,7 @@
    "  🌍 Fetching global context for adaptive sizing...",
    "  ────────────────────────────────────────────────────────────────────",
    "  [LIVE] Validating 1 signal(s) for Alpaca submission…",
+   "  ⬆️  Elevated size for NVDA: $4,500 (base $3,000) — score 100/100, WATCHLIST large cap, 0/1 elevated slots used",
    "  🎯 Options mode: finding call for NVDA  budget=$400",
    "  ↩️  Options unavailable for NVDA — falling back to shares",
    "  📤 1/1 signal(s) submitted [LIVE]"
@@ -137,6 +139,7 @@
    "  🌍 Fetching global context for adaptive sizing...",
    "  ────────────────────────────────────────────────────────────────────",
    "  [LIVE] Validating 1 signal(s) for Alpaca submission…",
+   "  ⬆️  Elevated size for NVDA: $4,500 (base $3,000) — score 100/100, WATCHLIST large cap, 0/1 elevated slots used",
    "  🎯 Options mode: finding call for NVDA  budget=$400",
    "  📤 1/1 signal(s) submitted [LIVE]"
   ]
@@ -148,7 +151,7 @@
    {
     "type": "options_call",
     "symbol": "NVDA",
-    "risk": "300.0"
+    "risk": "400.0"
    },
    {
     "type": "submit_alpaca_trade",
@@ -181,7 +184,8 @@
    "  🌍 Fetching global context for adaptive sizing...",
    "  ────────────────────────────────────────────────────────────────────",
    "  [LIVE] Validating 1 signal(s) for Alpaca submission…",
-   "  🎯 Options mode: finding call for NVDA  budget=$300",
+   "  ⬆️  Elevated size for NVDA: $420 (base $280) — score 100/100, WATCHLIST large cap, 0/1 elevated slots used",
+   "  🎯 Options mode: finding call for NVDA  budget=$400",
    "  ↩️  Options unavailable for NVDA — falling back to shares",
    "  🩹 NVDA: no option exists, but genuine case (Tier-A catalyst, no chain, +2.0% (not extended), liquid) — 79sh, NO stop today",
    "  📤 1/1 signal(s) submitted [LIVE]"
@@ -194,7 +198,7 @@
    {
     "type": "options_call",
     "symbol": "NVDA",
-    "risk": "300.0"
+    "risk": "400.0"
    }
   ],
   "telegram": [
@@ -209,7 +213,8 @@
    "  🌍 Fetching global context for adaptive sizing...",
    "  ────────────────────────────────────────────────────────────────────",
    "  [LIVE] Validating 1 signal(s) for Alpaca submission…",
-   "  🎯 Options mode: finding call for NVDA  budget=$300",
+   "  ⬆️  Elevated size for NVDA: $420 (base $280) — score 100/100, WATCHLIST large cap, 0/1 elevated slots used",
+   "  🎯 Options mode: finding call for NVDA  budget=$400",
    "  ↩️  Options unavailable for NVDA — falling back to shares",
    "  🚫 NVDA: options unavailable and PDT budget is 0 — no shares (no Tier-A catalyst — not a genuine case)",
    "  📤 0/1 signal(s) submitted [LIVE]"
@@ -247,6 +252,7 @@
    "  🌍 Fetching global context for adaptive sizing...",
    "  ────────────────────────────────────────────────────────────────────",
    "  [LIVE] Validating 1 signal(s) for Alpaca submission…",
+   "  ⬆️  Elevated size for NVDA: $4,500 (base $3,000) — score 100/100, WATCHLIST large cap, 0/1 elevated slots used",
    "  🎯 Options mode: finding call for NVDA  budget=$400",
    "  📤 1/1 signal(s) submitted [LIVE]"
   ]
@@ -322,6 +328,7 @@
    "  🟡 Probation sizing: ×0.50 → net ×0.22",
    "  ────────────────────────────────────────────────────────────────────",
    "  [LIVE] Validating 1 signal(s) for Alpaca submission…",
+   "  ⬆️  Elevated size for NVDA: $4,500 (base $3,000) — score 100/100, WATCHLIST large cap, 0/1 elevated slots used",
    "  🎯 Options mode: finding call for NVDA  budget=$400",
    "  📤 1/1 signal(s) submitted [LIVE]"
   ]
@@ -350,6 +357,7 @@
    "  🌍 Fetching global context for adaptive sizing...",
    "  ────────────────────────────────────────────────────────────────────",
    "  [LIVE] Validating 1 signal(s) for Alpaca submission…",
+   "  ⬆️  Elevated size for NVDA: $4,500 (base $3,000) — score 100/100, WATCHLIST large cap, 0/1 elevated slots used",
    "  🧯 NVDA: options aggregate cap — premium at risk $600 > cap $560",
    "  📤 0/1 signal(s) submitted [LIVE]"
   ]

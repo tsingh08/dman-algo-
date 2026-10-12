@@ -111,6 +111,15 @@ def run(name, over):
         patch.object(a, "is_market_open", return_value=cfg["market_open"]),
         patch.object(a, "is_halted", return_value=cfg["halted"]),
         patch.object(a, "is_on_probation", return_value=cfg["probation"]),
+        # SETUP probation, which is a different thing from the ACCOUNT probation
+        # above and was never stubbed. _setup_probation_bonus() reads
+        # dman_setup_probation.json AND emits the "Setup probation expired"
+        # Telegram, so this golden was wired to both live state and the clock:
+        # on 2026-10-12 Gap & Hold's 10-day window lapsed, the expiry message
+        # appeared, the bar dropped, NVDA at score 100 became eligible for
+        # elevated size, and CI went red on whatever commit happened to be next.
+        # A characterization baseline has to pin behaviour, not the calendar.
+        patch.object(a, "_setup_probation_bonus", return_value=0),
         patch.object(a, "get_todays_loss", return_value=cfg["todays_loss"]),
         # the daily stop latches to a file; keep each scenario's latch out of
         # the repo and out of the next scenario

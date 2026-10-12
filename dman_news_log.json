@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-09T14:08:44.359435-04:00",
-    "symbols": [
-      "ANET"
-    ],
-    "headline": "Here\u2019s How Much You Would Have Made Owning Arista Networks Stock In The Last 10 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T14:10:18.990688-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "NVIDIA&#39;s Rally in Trouble? Analyst Warns of Bull Trap",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T14:17:01.307334-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "QUICK SPARK: AT&amp;T Sinks 11% In Worst Day Since 2000 As SpaceX Spectrum Deal Rattles Carriers",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T14:18:08.919578-04:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Cloudflare shares are trading higher after Oppenheimer maintained its Outperform rating on the stock and raised its price target from $380 to $430.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T14:18:15.977641-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Barclays Initiates Coverage On Palantir Technologies with Overweight Rating, Announces Price Target of $265",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T14:18:15.996846-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Guggenheim Reiterates Buy on AbbVie, Maintains $288 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-09T14:18:16.009160-04:00",
     "symbols": [
       "RKLB"
@@ -5049,5 +4989,65 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T12:15:12.912185-04:00",
+    "symbols": [
+      "DCX"
+    ],
+    "headline": "Digital Currency X Technology Enters Investment And Exclusive Commercialization Agreement With Whales AI To Advance Commercialization Its AI-Powered STEM Education Robotics Platform In North America; DCX To Provide Initial Investment Of $4M",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T12:15:21.615286-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "$100 Invested In Visa 10 Years Ago Would Be Worth This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T12:16:19.795533-04:00",
+    "symbols": [
+      "CLWT"
+    ],
+    "headline": "Dow Gains Over 200 Points; Chipotle Shares Move Lower",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T12:16:20.788695-04:00",
+    "symbols": [
+      "TRAX"
+    ],
+    "headline": "Dow Gains Over 200 Points; Chipotle Shares Move Lower",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T12:16:21.504149-04:00",
+    "symbols": [
+      "ENVX"
+    ],
+    "headline": "Enovix Bets Big on Defense Batteries with $216 Million Pipeline, Korea Expansion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T12:16:21.738425-04:00",
+    "symbols": [
+      "MEDS"
+    ],
+    "headline": "DataMeds AI Stock Rises After Humana Adds Medicaid Coverage for ChemoFx Cancer Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,300 +1,5 @@
 [
   {
-    "ts": "2026-10-09T15:04:10.575000-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Issues General License Authorizing Transactions Related To Sale, Delivery, Offloading, And Importation Of Diesel Fuel Of Russian Origin Through April 7, 2027",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T15:05:09.109475-04:00",
-    "symbols": [
-      "CEG",
-      "GOOGL",
-      "GS",
-      "JPM",
-      "MU",
-      "SPCX"
-    ],
-    "headline": "Treasury Yields Reach 24-Year Highs, Telecom Stocks Sell Off: This Week On Wall Street",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T15:08:48.994037-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Treasury Yields Reach 24-Year Highs, Telecom Stocks Sell Off: This Week On Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T15:08:50.542678-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Treasury Yields Reach 24-Year Highs, Telecom Stocks Sell Off: This Week On Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T15:08:51.505462-04:00",
-    "symbols": [
-      "FSLR"
-    ],
-    "headline": "Something Is Breaking In Casino Stocks: MGM, Wynn Hit Record Losing Streaks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T15:08:54.351383-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Deal Dispatch: Uber Buys ezCater For $2.3B, Skydance Takes Over Warner Bros., True Food Kitchen Bankruptcy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T15:08:55.406658-04:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "Treasury Yields Reach 24-Year Highs, Telecom Stocks Sell Off: This Week On Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T15:08:56.042681-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Treasury Yields Reach 24-Year Highs, Telecom Stocks Sell Off: This Week On Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T15:08:56.221139-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Treasury Yields Reach 24-Year Highs, Telecom Stocks Sell Off: This Week On Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T15:08:56.956128-04:00",
-    "symbols": [
-      "NEM"
-    ],
-    "headline": "Something Is Breaking In Casino Stocks: MGM, Wynn Hit Record Losing Streaks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T15:08:57.586537-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Issues General License Authorizing Transactions Related To Sale, Delivery, Offloading, And Importation Of Diesel Fuel Of Russian Origin Through April 7, 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T15:08:59.243072-04:00",
-    "symbols": [
-      "VZ"
-    ],
-    "headline": "Treasury Yields Reach 24-Year Highs, Telecom Stocks Sell Off: This Week On Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T15:08:59.245978-04:00",
-    "symbols": [
-      "VZ"
-    ],
-    "headline": "QUICK SPARK: AT&amp;T Sinks 11% In Worst Day Since 2000 As SpaceX Spectrum Deal Rattles Carriers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T15:08:59.248618-04:00",
-    "symbols": [
-      "VZ"
-    ],
-    "headline": "Analyst Raises Concerns Over Wireless Carrier Pricing and Retention Following SpaceX News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T15:08:59.508979-04:00",
-    "symbols": [
-      "TMUS"
-    ],
-    "headline": "Treasury Yields Reach 24-Year Highs, Telecom Stocks Sell Off: This Week On Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-09T15:08:59.511945-04:00",
-    "symbols": [
-      "TMUS"
-    ],
-    "headline": "Analyst Raises Concerns Over Wireless Carrier Pricing and Retention Following SpaceX News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-09T15:08:59.654940-04:00",
-    "symbols": [
-      "ASTS"
-    ],
-    "headline": "ASTS Stock Drops 15% on SpaceX Threat: This ETF Holds Both Sides of the Satellite War",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-09T15:08:59.783137-04:00",
-    "symbols": [
-      "T"
-    ],
-    "headline": "Treasury Yields Reach 24-Year Highs, Telecom Stocks Sell Off: This Week On Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T15:08:59.786196-04:00",
-    "symbols": [
-      "T"
-    ],
-    "headline": "QUICK SPARK: AT&amp;T Sinks 11% In Worst Day Since 2000 As SpaceX Spectrum Deal Rattles Carriers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T15:08:59.788995-04:00",
-    "symbols": [
-      "T"
-    ],
-    "headline": "Analyst Raises Concerns Over Wireless Carrier Pricing and Retention Following SpaceX News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T15:09:00.051780-04:00",
-    "symbols": [
-      "CCI"
-    ],
-    "headline": "Treasury Yields Reach 24-Year Highs, Telecom Stocks Sell Off: This Week On Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T15:09:00.876539-04:00",
-    "symbols": [
-      "CABO"
-    ],
-    "headline": "Cable One Shares Resume Trade",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T15:09:00.879519-04:00",
-    "symbols": [
-      "CABO"
-    ],
-    "headline": "Cable One Shares Halted On Circuit Breaker To The Upside, Stock Now Down -25.16%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T15:09:00.882173-04:00",
-    "symbols": [
-      "CABO"
-    ],
-    "headline": "&#39;Cable One&#39;s Financing Package Is On Track To Close Friday Despite CoBank Lawsuit, Sources Say&#39; - WSJ Pro Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T15:09:00.884808-04:00",
-    "symbols": [
-      "CABO"
-    ],
-    "headline": "CoBank ACB Sues Cable One From Transferring ~$480M To Acquire Stake In Mega Broadband Investments",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T15:09:01.434537-04:00",
-    "symbols": [
-      "ENTX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T15:09:01.437419-04:00",
-    "symbols": [
-      "ENTX"
-    ],
-    "headline": "Alignment Healthcare, RenX Enterprises And Other Big Stocks Moving Lower In Friday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T15:09:01.768806-04:00",
-    "symbols": [
-      "ELV"
-    ],
-    "headline": "Humana Reaffirms FY26 Adjusted EPS Guidance Of At Least $9; Exceeding Goal Of Top Quartile Results In 2027 Medicare Advantage Star Ratings; Expects 2028 Benefit For One-Time Investments And Return To Shareholders",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T15:09:01.933972-04:00",
-    "symbols": [
-      "VOD"
-    ],
-    "headline": "Alignment Healthcare, RenX Enterprises And Other Big Stocks Moving Lower In Friday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-09T15:09:02.069082-04:00",
     "symbols": [
       "FTXN"
@@ -5058,6 +4763,296 @@
     ],
     "headline": "Morgan Stanley Maintains Underweight on MARA Holdings, Lowers Price Target to $10",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T13:13:32.215942-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Why Is Oracle Stock Falling on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T13:13:32.369426-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is Oracle Stock Falling on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T13:13:32.472969-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Why Is Oracle Stock Falling on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T13:13:32.685706-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Mark Zuckerberg Announces Meta Platforms Rolls Out Muse Wonder Frontier Models",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T13:13:33.075288-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: AbbVie, DocuSign, Netflix",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-12T13:13:33.770469-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Nasdaq 100 Drops, SanDisk Tumbles 6% as AI Trade Falters: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-12T13:13:33.923668-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Nasdaq 100 Drops, SanDisk Tumbles 6% as AI Trade Falters: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T13:13:34.137047-04:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on Riot Platforms, Lowers Price Target to $35.5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T13:13:34.537450-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: AbbVie, DocuSign, Netflix",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T13:13:36.081798-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "Nasdaq 100 Drops, SanDisk Tumbles 6% as AI Trade Falters: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T13:13:36.659408-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Nasdaq 100 Drops, SanDisk Tumbles 6% as AI Trade Falters: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T13:13:36.814188-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Nasdaq 100 Drops, SanDisk Tumbles 6% as AI Trade Falters: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T13:13:37.319339-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Why Is Oracle Stock Falling on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T13:13:37.626717-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Hammack Says Do Not Take Anchored Inflation Expectations For Granted, With Businesses Planning Price Increases Beyond Any Rise In Input Costs A Sign Of Inflationary Mindset Taking Hold; Fed Officials Have A Responsibility To Explain Their Decisions; It Is Important To Spell Out Reaction Function So Businesses And Households Can Plan Effectively; If The Public Understands Where The Fed Is Heading, It Can Limit Market Volatility, Avoid Mistakes; A Reaction Function Is Not The Same As Committed Forward",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T13:13:37.630594-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Hammack Says Broad-Based Inflation, Ongoing Growth Need Restrictive Monetary Policy; Trend Inflation Currently In The Mid-To-High 2% Range, Expect It Will Take Some Time To Return To 2% Target Even With Appropriate Monetary Policy; Would Prefer Fed Make Smaller Adjustments To Policy Rate But Do So &#39;relatively Quickly&#39;; Energy Is Not Only Factor, With Strong Demand Also Contributing To Price Pressures; Stable Labor Market Leaves Room To Address Inflation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T13:13:37.696141-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Nasdaq 100 Drops, SanDisk Tumbles 6% as AI Trade Falters: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T13:13:37.758668-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Nasdaq 100 Drops, SanDisk Tumbles 6% as AI Trade Falters: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T13:13:38.345463-04:00",
+    "symbols": [
+      "OFAL"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T13:13:38.510375-04:00",
+    "symbols": [
+      "QNME"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T13:13:38.645494-04:00",
+    "symbols": [
+      "SXTC"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T13:13:38.776942-04:00",
+    "symbols": [
+      "VEEA"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T13:13:39.098144-04:00",
+    "symbols": [
+      "CLWT"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T13:13:39.166088-04:00",
+    "symbols": [
+      "LNKS"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T13:13:39.296624-04:00",
+    "symbols": [
+      "SKYA"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T13:13:39.427260-04:00",
+    "symbols": [
+      "DAIC"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T13:13:39.684198-04:00",
+    "symbols": [
+      "CCC"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T13:13:39.688301-04:00",
+    "symbols": [
+      "CCC"
+    ],
+    "headline": "Nasdaq 100 Drops, SanDisk Tumbles 6% as AI Trade Falters: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T13:13:39.935424-04:00",
+    "symbols": [
+      "FRGT"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T13:13:40.056234-04:00",
+    "symbols": [
+      "JXG"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

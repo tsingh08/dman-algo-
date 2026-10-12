@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-12T09:26:27.932968-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Palantir CTO Blasts Silicon Valley\u2019s \u2018Doomsday Cult\u2019 Over AI Safety \u2014 Says Pentagon Has &#39;Already Replaced&#39; Anthropic",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-12T09:26:27.937806-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Palantir CTO Says \u2018Human Error\u2019 Likely Caused Deadly Iran Strike That Killed 123 Children \u2014 Disputes Claims Military Personnel Relied Too Much on AI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-12T09:26:27.942184-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Reported Sunday, Palantir Returns To Seoul For Second Annual Sovereign AI-Themed Pop-Up, Giving Korean Fans First Access To Winter 2026 Merchandise",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-12T09:26:28.273782-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Forget Chip Shortages: Intel, Broadcom CEOs Warn AI&#39;s Next Big Crisis Could Be Cash",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T09:26:28.278753-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Broadcom, Intel CEOs Flag Capital Crunch, ROI as Bigger AI Bottlenecks Than Chip Shortages: &#39;The Biggest Constraint...&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T09:26:28.510121-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Flexcompute Secures Strategic Investment From Samsung Ventures And Applied Ventures To Advance AI-Powered Physics World Model; Details Of The Investment Were Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-12T09:26:28.514728-04:00",
     "symbols": [
       "MU"
@@ -5099,5 +5039,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T16:17:05.417337-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Navitas Semiconductor Announces 24 Kilowatts, 800 Volts To 12 12 V DC-DC GaNFast-Powered Power Delivery Board Developed In Partnership With Nvidia",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T16:31:13.316959-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Applied Materials Demonstrates Its $5B Equipment And Process Innovation And Commercialization Center",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T16:40:56.011296-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Citigroup Maintains Buy on Caterpillar, Lowers Price Target to $950",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T16:43:16.864248-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Navitas Semiconductor Stock Rises After Hours: Here&#39;s Why",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T16:45:20.957044-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning Alphabet Stock In The Last 10 Years",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T16:56:09.523207-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "Citigroup Maintains Buy on DraftKings, Lowers Price Target to $28",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

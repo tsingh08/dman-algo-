@@ -1,56 +1,5 @@
 [
   {
-    "ts": "2026-10-09T14:18:16.009160-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Barclays Initiates Coverage On Rocket Lab with Overweight Rating, Announces Price Target of $85",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T14:18:16.032238-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Barclays Initiates Coverage On Lockheed Martin with Equal-Weight Rating, Announces Price Target of $554",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T14:18:16.038833-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Barclays Initiates Coverage On RTX with Overweight Rating, Announces Price Target of $223",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T14:20:39.920023-04:00",
-    "symbols": [
-      "META",
-      "NVDA"
-    ],
-    "headline": "Nvidia-Backed Fermus Wanted $30 Billion Valuation on Just $51 Million in Revenue",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T14:21:02.749675-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia-Backed Fermus Wanted $30 Billion Valuation on Just $51 Million in Revenue",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-09T14:21:02.949265-04:00",
     "symbols": [
       "META"
@@ -5049,5 +4998,61 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T12:17:34.932981-04:00",
+    "symbols": [
+      "AMAT",
+      "AMD",
+      "AVGO",
+      "MRVL",
+      "MU",
+      "NVDA",
+      "QQQ"
+    ],
+    "headline": "Michael Burry&#39;s Big Short Gets Broader: Nvidia-Heavy Chip ETF, Nasdaq Now in Focus",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T12:18:50.658063-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Ondas Wants to Run Pentagon AI with Palantir-Powered Regna AI",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T12:19:10.605101-04:00",
+    "symbols": [
+      "ONDS"
+    ],
+    "headline": "Ondas Wants to Run Pentagon AI with Palantir-Powered Regna AI",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T12:19:11.099822-04:00",
+    "symbols": [
+      "SOXS"
+    ],
+    "headline": "Michael Burry&#39;s Big Short Gets Broader: Nvidia-Heavy Chip ETF, Nasdaq Now in Focus",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T12:19:14.554150-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "JP Morgan Maintains Overweight on Alibaba Gr Hldgs, Lowers Price Target to $200",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

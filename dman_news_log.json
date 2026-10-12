@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-09T15:18:31.427970-04:00",
-    "symbols": [
-      "BQ"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-09T15:18:31.432698-04:00",
     "symbols": [
       "IPW"
@@ -5062,5 +5052,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-12T13:53:55.129584-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "IonQ Pays $1.3B in Stock for Cybersecurity \u2014 What Shareholders Are Giving Up",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

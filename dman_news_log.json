@@ -1,117 +1,5 @@
 [
   {
-    "ts": "2026-10-09T13:27:46.455836-04:00",
-    "symbols": [
-      "AMT"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:29:10.045190-04:00",
-    "symbols": [
-      "NEM"
-    ],
-    "headline": "Why Is Newmont Stock Surging on Friday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:30:13.631001-04:00",
-    "symbols": [
-      "MSTR",
-      "NVDA",
-      "TSLA"
-    ],
-    "headline": "Strategy Faces \u2018Dilution Drag\u2019 as TD Cowen Raises Bitcoin Forecast to $109,000",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:30:45.409027-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T13:30:45.574303-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T13:30:45.766754-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Strategy Faces \u2018Dilution Drag\u2019 as TD Cowen Raises Bitcoin Forecast to $109,000",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T13:30:45.771285-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T13:30:45.775674-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "What&#39;s Going On With Snap Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T13:30:46.363245-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T13:30:46.554109-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T13:30:46.558763-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "What&#39;s Going On With Snap Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-09T13:30:46.702260-04:00",
     "symbols": [
       "TSLA"
@@ -5041,6 +4929,116 @@
     ],
     "headline": "WF Holding Shares Halted On Circuit Breaker To The Upside, Stock Now Up 114.89%",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:59:58.963527-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Steve Eisman Warns S&amp;P 500 Is One Giant AI Bet: &#39;I Own NVDA and I Worry&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T11:00:04.766845-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Bitmine Buys 12,532 More ETH as Tom Lee\u2019s Buying \u2018Stop\u2019 Draws Closer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T11:00:09.768191-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Bitmine Buys 12,532 More ETH as Tom Lee\u2019s Buying \u2018Stop\u2019 Draws Closer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T11:00:12.279861-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "Steve Eisman Warns S&amp;P 500 Is One Giant AI Bet: &#39;I Own NVDA and I Worry&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T11:00:15.237485-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Bitmine Buys 12,532 More ETH as Tom Lee\u2019s Buying \u2018Stop\u2019 Draws Closer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T11:00:15.242668-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Steve Eisman Warns S&amp;P 500 Is One Giant AI Bet: &#39;I Own NVDA and I Worry&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T11:00:22.339872-04:00",
+    "symbols": [
+      "DHT"
+    ],
+    "headline": "The Oil Market Is Breaking Apart: Brent-WTI Price Gap Hits $13",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T11:00:22.584692-04:00",
+    "symbols": [
+      "TRMD"
+    ],
+    "headline": "TORM Raises FY26 Time Charter Equivalent Guidance In Range Of $1.7B - $1.9B From $1.4B - $1.6B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T11:00:22.829847-04:00",
+    "symbols": [
+      "FRO"
+    ],
+    "headline": "The Oil Market Is Breaking Apart: Brent-WTI Price Gap Hits $13",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T11:00:24.174528-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Here&#39;s How Much $100 Invested In Tesla 10 Years Ago Would Be Worth Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T11:00:24.211451-04:00",
+    "symbols": [
+      "ALLT"
+    ],
+    "headline": "First Tracks Biotherapeutics, C3.ai, CCC Intelligent Solutions And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

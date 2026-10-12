@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-12T09:26:26.292150-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "IREN Scores Major AI Cloud Deal With Anthropic: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T09:26:26.297433-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Meta&#39;s Muse Has the Downloads \u2014 Now It Needs to Prove It Can Make Money",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T09:26:26.301832-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Cantor Fitzgerald Reiterates Overweight on Alphabet, Maintains $420 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T09:26:26.306184-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Micron&#39;s Monster Rally Faces New Threat As Traders Pile Into Bearish Bets",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T09:26:26.624923-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "IREN Scores Major AI Cloud Deal With Anthropic: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T09:26:26.629982-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon To $310? Here Are 10 Top Analyst Forecasts For Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T09:26:26.634370-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Charles Gasparino Defends Jeff Bezos, Elon Musk \u2014 Says America Needs \u2018More Bezos\u2019 and a Tax System That Rewards Risk-Taking",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T09:26:26.639138-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Cantor Fitzgerald Maintains Overweight on Amazon.com, Lowers Price Target to $310",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-12T09:26:26.643530-04:00",
     "symbols": [
       "AMZN"
@@ -5089,5 +5009,95 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T16:00:39.337502-04:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "$100 Invested In Spotify Technology 5 Years Ago Would Be Worth This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T16:00:54.064130-04:00",
+    "symbols": [
+      "AAPL",
+      "AMZN",
+      "AVGO",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "MU",
+      "NVDA",
+      "SPCX",
+      "SPY",
+      "TSLA"
+    ],
+    "headline": "S&amp;P 500 Dominated by AI Stocks, Adding SpaceX Would Create History Last Seen in 1880s",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T16:01:04.366243-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "IREN Scores Major AI Cloud Deal With Anthropic: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T16:01:06.160993-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "China Chip Concerns Hit Micron, SanDisk: Monday&#39;s Selloff Brings Double Pain for This ETF",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T16:01:06.286103-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "China Chip Concerns Hit Micron, SanDisk: Monday&#39;s Selloff Brings Double Pain for This ETF",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T16:01:06.378455-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "China Chip Concerns Hit Micron, SanDisk: Monday&#39;s Selloff Brings Double Pain for This ETF",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T16:01:11.546829-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "S&amp;P 500 Dominated by AI Stocks, Adding SpaceX Would Create History Last Seen in 1880s",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T16:01:13.670644-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "S&amp;P 500 Dominated by AI Stocks, Adding SpaceX Would Create History Last Seen in 1880s",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

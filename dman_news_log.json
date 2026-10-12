@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-09T13:30:55.725390-04:00",
-    "symbols": [
-      "VEEA"
-    ],
-    "headline": "Gold Rises Over 1%; US Consumer Sentiment Falls",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-09T13:30:56.029017-04:00",
     "symbols": [
       "VZ"
@@ -5053,6 +5043,16 @@
     ],
     "headline": "Cisco Announces Microsoft Moved Into Production On Systems Powered By Cisco Silicon One P200",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T11:16:17.507665-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

@@ -508,5 +508,27 @@
    "regime": "BULL",
    "regime_score": 14
   }
+ },
+ {
+  "ts": "2026-10-12T13:21:45.001193-04:00",
+  "kind": "signal",
+  "ticker": "CCC",
+  "verdict": "skip",
+  "confidence": 92,
+  "reason": "RSI 76 is overbought; entering after 9.4% gap in CHOP regime is chasing. Entry sits deep into already-made move.",
+  "facts": {
+   "setup": "Gap & Hold",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 7.7,
+   "stop": 7.43,
+   "target1": 8.42,
+   "rr": 2.67,
+   "rvol": 2.76,
+   "rsi": 76.0,
+   "reason": "Gap up +9.4% from prior close, holding, RVOL 2.8x",
+   "regime": "CHOP",
+   "regime_score": 14
+  }
  }
 ]

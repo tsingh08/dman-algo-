@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-10-09T13:43:53.792883-04:00",
-    "symbols": [
-      "VZ"
-    ],
-    "headline": "QUICK SPARK: SpaceX Spectrum Deal Triggers T-Mobile\u2019s Worst Day Since 2013",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T13:43:54.046267-04:00",
-    "symbols": [
-      "ASTS"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-09T13:43:54.295881-04:00",
-    "symbols": [
-      "TMUS"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:43:54.300654-04:00",
-    "symbols": [
-      "TMUS"
-    ],
-    "headline": "QUICK SPARK: SpaceX Spectrum Deal Triggers T-Mobile\u2019s Worst Day Since 2013",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:43:54.305176-04:00",
-    "symbols": [
-      "TMUS"
-    ],
-    "headline": "Gold Rises Over 1%; US Consumer Sentiment Falls",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:43:54.799635-04:00",
-    "symbols": [
-      "T"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:43:54.804547-04:00",
-    "symbols": [
-      "T"
-    ],
-    "headline": "QUICK SPARK: SpaceX Spectrum Deal Triggers T-Mobile\u2019s Worst Day Since 2013",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:43:55.825041-04:00",
-    "symbols": [
-      "ALHC"
-    ],
-    "headline": "Gold Rises Over 1%; US Consumer Sentiment Falls",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:43:56.804436-04:00",
-    "symbols": [
-      "GRRR"
-    ],
-    "headline": "Why Is Gorilla Technology Stock Falling After Its US Data Center Plan?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:43:56.809196-04:00",
-    "symbols": [
-      "GRRR"
-    ],
-    "headline": "Gorilla Technology Entered Into Non-Binding Letter Of Intent With Proposed Data Center Acquisition",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-09T13:45:25.464891-04:00",
     "symbols": [
       "META"
@@ -5048,5 +4948,108 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T11:41:29.136053-04:00",
+    "symbols": [
+      "NVDA",
+      "SMCI"
+    ],
+    "headline": "Why Is Super Micro Computer Stock Falling on Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T11:41:41.681639-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Amazon.com, Lowers Price Target to $329",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T11:44:12.810064-04:00",
+    "symbols": [
+      "MU",
+      "SKHY",
+      "SNDK"
+    ],
+    "headline": "QUICK SPARK: Micron, SK Hynix, SanDisk Wipe Out $100 Billion as Memory Rout Worsens",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T11:44:46.582487-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is Super Micro Computer Stock Falling on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T11:44:49.581556-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Why Is Super Micro Computer Stock Falling on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T11:44:50.117342-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "QUICK SPARK: Micron, SK Hynix, SanDisk Wipe Out $100 Billion as Memory Rout Worsens",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T11:44:50.391577-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "QUICK SPARK: Micron, SK Hynix, SanDisk Wipe Out $100 Billion as Memory Rout Worsens",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-12T11:44:50.666153-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "QUICK SPARK: Micron, SK Hynix, SanDisk Wipe Out $100 Billion as Memory Rout Worsens",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T11:45:09.609471-04:00",
+    "symbols": [
+      "SVRN"
+    ],
+    "headline": "Short Seller Says SVRN Stock Is &#39;Uninvestable&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T11:45:10.363449-04:00",
+    "symbols": [
+      "ONDS"
+    ],
+    "headline": "Ondas Takes Its Palantir Partnership Deeper With New Sovereign AI Company",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

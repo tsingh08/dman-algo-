@@ -3567,7 +3567,16 @@ def _effective_min_score(setup: str, ticker: str, base: int) -> tuple[int, int]:
     _eff = SETUP_MIN_CONFLUENCE.get(setup, base)
     if ticker in VOLATILE_TICKERS:
         _eff = max(_eff, VOLATILE_MIN_CONFLUENCE)
-    if datetime.today().month in SEASONAL_WEAK_MONTHS and setup not in SEASONAL_EXEMPT_SETUPS:
+    # _et_today(), not datetime.today(). A bare today() is naive LOCAL, which on
+    # a GitHub runner is UTC -- so from 20:00 ET (19:00 under EST) the month
+    # reads as the NEXT one. SEASONAL_WEAK_MONTHS is {1,7,8,9,12}, so on
+    # 2026-09-30 after 20:00 ET the runner saw October and dropped the seasonal
+    # floor a day early; on 06-30, 07-31, 08-31 and 11-30 evenings it applies it
+    # a day early instead. Scans do run in that window -- 2026-10-06 had passes
+    # at 20:01 and 21:09 ET. Same bug class the module docstring warns about at
+    # line 60 and that was already fixed in _get_day_start_equity(),
+    # record_daily_pnl() and check_macro_safe().
+    if _et_today().month in SEASONAL_WEAK_MONTHS and setup not in SEASONAL_EXEMPT_SETUPS:
         _eff = max(_eff, SEASONAL_MIN_SCORE)
     _uncapped = _eff + _setup_probation_bonus(setup)
     return min(_uncapped, MAX_EFFECTIVE_MIN_SCORE), _uncapped
@@ -21761,7 +21770,10 @@ def explain_ticker(ticker: str, min_score: int = None) -> str:
         if _def_rotation and sig.bias == "LONG" and TICKER_SECTOR.get(sig.ticker, "") == "Technology":
             sig.confluence_score = max(0, sig.confluence_score - 5)
 
-        _curr_month = datetime.today().month
+        # ET, not naive local -- see _effective_min_score(). /why must explain
+        # the bar the scanner actually applied, and a UTC month after 20:00 ET
+        # would explain a different one.
+        _curr_month = _et_today().month
         _seasonal_active = _curr_month in SEASONAL_WEAK_MONTHS
         _SEASONAL_EXEMPT = {"Gap & Hold", "Morning Runner"}
 
@@ -23747,10 +23759,16 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     # while producing no protective benefit specific to those setups.
     # All other setups (if re-enabled) still get the full seasonal filter.
     _SEASONAL_EXEMPT  = {"Gap & Hold", "Morning Runner"}
-    curr_month        = datetime.today().month
+    # ET throughout. This is the fourth place the seasonal month was computed
+    # and the third that read naive LOCAL (= UTC on a runner); get_market_regime()
+    # at the now_et.month line was the only one already correct. From 20:00 ET
+    # (19:00 under EST) a naive month is the NEXT one, so on 2026-09-30 evening
+    # this announced and applied October while the scanner's own gate said
+    # September -- the two disagreed about the same session.
+    curr_month        = _et_today().month
     _seasonal_active  = curr_month in SEASONAL_WEAK_MONTHS
     if _seasonal_active:
-        month_name = datetime.today().strftime("%B")
+        month_name = _et_today().strftime("%B")
         print(f"  📅  {month_name} seasonal filter — non-exempt setups raised to {SEASONAL_MIN_SCORE}/100 (Gap & Hold / Morning Runner exempt)")
 
     # Check open position risk — alert if any pending signal is within 2% of its stop

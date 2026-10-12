@@ -24357,3 +24357,68 @@ class TestASpreadLegIsNeverAdoptedAlone(unittest.TestCase):
     def test_the_check_runs_before_anything_is_opened(self):
         src = inspect.getsource(a._adopt_single_leg_option)
         self.assertLess(src.index("_orphaned_short_legs"), src.index("pt.open("))
+
+
+class TestEverySeasonalMonthReadUsesET(unittest.TestCase):
+    """The seasonal month was computed in four places and three read naive LOCAL.
+
+    Found 2026-10-11 auditing the infrastructure before DST ends on Nov 1. A
+    bare datetime.today() is naive local, which on a GitHub runner is UTC, so
+    from 20:00 ET (19:00 under EST) the month reads as the NEXT one.
+    SEASONAL_WEAK_MONTHS is {1,7,8,9,12}, so on 2026-09-30 after 20:00 ET the
+    runner saw October and dropped the seasonal floor a day early; on 06-30,
+    07-31, 08-31 and 11-30 evenings it applies it a day early instead. Scans
+    genuinely run in that window -- 2026-10-06 had passes at 20:01 and 21:09 ET.
+
+    Worse than being wrong: the four copies disagreed with each other.
+    get_market_regime() used now_et.month and was correct, while
+    _effective_min_score() -- the gate that actually rejects signals -- and the
+    scanner's own announcement both read UTC. On a month-end evening the
+    scanner printed one month and gated on another.
+
+    Same bug class the module docstring warns about, and already fixed once in
+    _get_day_start_equity(), record_daily_pnl() and check_macro_safe()."""
+
+    def test_no_seasonal_month_is_read_from_naive_local_time(self):
+        """The whole class, not the three instances. A new copy reading
+        datetime.today().month would reintroduce it."""
+        src = inspect.getsource(a)
+        self.assertNotIn("datetime.today().month", src)
+
+    def test_the_gate_and_the_announcement_cannot_disagree(self):
+        """They did: _effective_min_score() gated on one month while
+        run_pro_scanner() announced another."""
+        for fn in (a._effective_min_score, a.run_pro_scanner):
+            src = inspect.getsource(fn)
+            if "SEASONAL_WEAK_MONTHS" in src:
+                self.assertIn("_et_today()", src)
+
+    def test_the_gate_uses_et(self):
+        self.assertIn("_et_today().month", inspect.getsource(a._effective_min_score))
+
+    def test_et_and_utc_really_do_disagree_in_that_window(self):
+        """Pins the premise. If this ever stops being true the comments above
+        are wrong, not the code."""
+        import datetime as _dt, zoneinfo as _zi
+        et = _dt.datetime(2026, 9, 30, 21, 0, tzinfo=_zi.ZoneInfo("America/New_York"))
+        self.assertNotEqual(et.month, et.astimezone(_dt.timezone.utc).month)
+
+    def test_a_weak_month_still_raises_the_bar(self):
+        """The fix must not disable the filter it corrects."""
+        import datetime as _dt
+        with patch.object(a, "_et_today", return_value=_dt.date(2026, 9, 15)):
+            eff, _unc = a._effective_min_score("Breakout Zone", "ZZZZ", 80)
+        self.assertGreaterEqual(eff, a.SEASONAL_MIN_SCORE)
+
+    def test_a_normal_month_does_not(self):
+        import datetime as _dt
+        with patch.object(a, "_et_today", return_value=_dt.date(2026, 10, 15)):
+            eff, _unc = a._effective_min_score("Breakout Zone", "ZZZZ", 80)
+        self.assertLess(eff, a.SEASONAL_MIN_SCORE)
+
+    def test_the_exempt_setups_stay_exempt(self):
+        import datetime as _dt
+        with patch.object(a, "_et_today", return_value=_dt.date(2026, 9, 15)):
+            for setup in ("Gap & Hold", "Morning Runner"):
+                eff, _unc = a._effective_min_score(setup, "ZZZZ", 80)
+                self.assertLess(eff, a.SEASONAL_MIN_SCORE, setup)

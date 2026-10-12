@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-09T15:59:31.244444-04:00",
-    "symbols": [
-      "ABR"
-    ],
-    "headline": "Keefe, Bruyette &amp; Woods Maintains Underperform on Arbor Realty Trust, Lowers Price Target to $3",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T15:59:31.248266-04:00",
-    "symbols": [
-      "ABR"
-    ],
-    "headline": "Piper Sandler Maintains Underweight on Arbor Realty Trust, Lowers Price Target to $3.5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T16:00:07.728746-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Congressman Sells Applied Materials Stock Before Recent Rally: Here\u2019s How Much He Missed Out On",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T16:00:27.468438-04:00",
-    "symbols": [
-      "XRTX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T16:00:27.472969-04:00",
-    "symbols": [
-      "XRTX"
-    ],
-    "headline": "XORTX Therapeutics (XRTX) Stock Jumps Over 22% After Hours: Here&#39;s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-09T16:00:28.187648-04:00",
     "symbols": [
       "GFUZ"
@@ -5078,6 +5028,66 @@
     ],
     "headline": "Shares of software companies are trading lower amid a broader technology sell-off led by declines in Micron and other semiconductor stocks. Comments from Intel and Broadcom CEOs that limited access to capital could constrain AI expansion, despite strong demand for computing infrastructure, are adding to concerns about the sustainability of tech-sector growth.",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T14:39:43.573716-04:00",
+    "symbols": [
+      "BABA",
+      "BBAI",
+      "BIDU",
+      "GFAI",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "NVDA",
+      "QCOM",
+      "SOUN",
+      "SPY"
+    ],
+    "headline": "&#39;Trump Administration Plans to Move AI Testing Agency Officials to White House; The White House Seeks To Integrate Caissi Into AI Decision-making Process&#39; - The Information",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T14:41:07.506765-04:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "Shield AI Is Taking GE Aerospace Deeper into AI&#39;s Most Unusual Battleground",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T14:41:13.608865-04:00",
+    "symbols": [
+      "BIDU"
+    ],
+    "headline": "'Trump Administration Plans to Move AI Testing Agency Officials to White House; The White House Seeks To Integrate Caissi Into AI Decision-making Process' - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-12T14:41:13.705361-04:00",
+    "symbols": [
+      "BBAI"
+    ],
+    "headline": "'Trump Administration Plans to Move AI Testing Agency Officials to White House; The White House Seeks To Integrate Caissi Into AI Decision-making Process' - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T14:41:13.875780-04:00",
+    "symbols": [
+      "GFAI"
+    ],
+    "headline": "'Trump Administration Plans to Move AI Testing Agency Officials to White House; The White House Seeks To Integrate Caissi Into AI Decision-making Process' - The Information",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

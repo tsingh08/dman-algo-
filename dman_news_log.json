@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-12T09:26:25.061161-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft President Warns AI Is Less Regulated Than Milk, Washing Machines as He Pushes Governments Toward Tougher Safety Rules",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-12T09:26:25.415769-04:00",
     "symbols": [
       "NVDA"
@@ -5085,5 +5075,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T15:08:08.070418-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Why the US May Lag China in AI Agent Adoption: \u2018Life Is Good\u2019 in the West, IMD Professor Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-10-09T13:27:39.295006-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T13:27:39.472051-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T13:27:39.477062-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "What&#39;s Going On With Snap Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T13:27:39.781286-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T13:27:39.858334-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T13:27:39.863517-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "What&#39;s Going On With Snap Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T13:27:39.938461-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T13:27:40.092482-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "What&#39;s Going On With Snap Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T13:27:41.052638-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-09T13:27:44.057544-04:00",
     "symbols": [
       "QQQ"
@@ -5037,5 +4947,95 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T10:34:46.270147-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "IonQ To Acquire Elisity In $1.3 Billion Deal",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:35:33.744156-04:00",
+    "symbols": [
+      "ONDS"
+    ],
+    "headline": "Ondas Partners Forms Regna AI With Palantir To Help Customers Develop And Deploy Mission-Specialized AI Models",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:35:34.012854-04:00",
+    "symbols": [
+      "FRO"
+    ],
+    "headline": "Reported Earlier, &#39;Oil Tanker Rates Surge Amid Rising Attacks, Longer Voyages&#39; - WSJ",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:35:34.260957-04:00",
+    "symbols": [
+      "BHC"
+    ],
+    "headline": "Bausch Health\u2019s Salix Says Cirrhosis Care Pathway Pilot Raised Hepatic Encephalopathy Treatment Rates From 60.2% To 64.9%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:35:34.266247-04:00",
+    "symbols": [
+      "BHC"
+    ],
+    "headline": "Bausch + Lomb Appoints Chairman Thomas J. Appio As Interim CEO, Effective Immediately; Company And Its Parent Bausch Health Expect To Raise FY26 Adjusted EBITDA Guidance, Excluding Acquired IPR&amp;D",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:35:34.512116-04:00",
+    "symbols": [
+      "MANH"
+    ],
+    "headline": "First Tracks Biotherapeutics, C3.ai, CCC Intelligent Solutions And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:35:34.779735-04:00",
+    "symbols": [
+      "IREN"
+    ],
+    "headline": "IREN Stock Is Rebounding on Anthropic News After a Brutal Week \u2014 Is $40 the Next Test?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:35:34.785277-04:00",
+    "symbols": [
+      "IREN"
+    ],
+    "headline": "IREN Scores Major AI Cloud Deal With Anthropic: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:35:34.789934-04:00",
+    "symbols": [
+      "IREN"
+    ],
+    "headline": "IREN Reportedly Signed Multiyear Cloud Deal With Anthropic",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

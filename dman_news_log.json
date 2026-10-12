@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-09T15:18:30.967573-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "Oracle, Chipotle, Verizon, GameStop and Securitize Corp: Why These 5 Stocks Are on Investors&#39; Radars Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T15:18:30.972000-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "&#39;Exxon Blocked Proposal to Settle $5 Billion Kashagan Dispute&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T15:18:30.977982-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "CrowdStrike To Rally Around 18%? Here Are 10 Top Analyst Forecasts For Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-09T15:18:30.981656-04:00",
     "symbols": [
       "CRWD"
@@ -5056,5 +5026,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T13:29:01.435870-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Supertankers Turn From Gulf Oil Transfer Hub Amid Iran\u2019s Attacks&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T13:31:38.668343-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Snowflake Stock Is Falling Monday: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T13:31:49.017689-04:00",
+    "symbols": [
+      "LCID"
+    ],
+    "headline": "Tesla Faces New Luxury EV Rival in France as Lucid Plans 16 Locations",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

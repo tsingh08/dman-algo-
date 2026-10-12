@@ -1,71 +1,5 @@
 [
   {
-    "ts": "2026-10-12T09:14:44.508961-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "META",
-      "MSFT",
-      "NVDA"
-    ],
-    "headline": "IREN Scores Major AI Cloud Deal With Anthropic: Report",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T09:17:31.219227-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Wells Fargo Downgrades Adobe to Underweight, Says AI Survey Shows It Is Losing Budget Share",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T09:17:35.556521-04:00",
-    "symbols": [
-      "MU",
-      "SKHY",
-      "SNDK"
-    ],
-    "headline": "Reported October 11, &#39;China\u2019s CXMT unveils \u2018key progress\u2019 on chip structure pursued by Samsung, SK Hynix&#39; - SCMP",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T09:26:24.772349-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "AI Bubble Ready to Burst? Investor Raises Alarm Over Anthropic&#39;s Sky-High Valuation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T09:26:24.776974-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Inquiry Into Apple&#39;s Competitor Dynamics In Technology Hardware, Storage &amp; Peripherals Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T09:26:25.043097-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "IREN Scores Major AI Cloud Deal With Anthropic: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-12T09:26:25.047739-04:00",
     "symbols": [
       "MSFT"
@@ -5087,6 +5021,66 @@
       "AI"
     ],
     "headline": "&#39;Trump Administration Plans to Move AI Testing Agency Officials to White House; The White House Seeks To Integrate Caissi Into AI Decision-making Process&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T14:52:11.686655-04:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "GameStop Stock Hits a New 52-Week High: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T14:52:18.242412-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD Rolls Out AMD Helion Agentic AI Rack",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T14:52:18.250936-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Flo Health And Google Health Announce Multi-Year Partnership And Strategic Investment To Advance Personalized Women\u2019s Health Insights; Details Of The Terms Not Disclosed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T14:52:18.261741-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix\u2019s Q3 Guidance Calls for About 12% Revenue Growth. Here\u2019s the Bar for Oct. 20",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-12T14:52:18.288342-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell Technology Unveils Second-Generation Marvell Structera X 3406, Marvell Structera X 3506 CXL Memory Expanders",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T14:52:18.656610-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Wells Fargo Downgrades Adobe to Underweight, Says AI Survey Shows It Is Losing Budget Share",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

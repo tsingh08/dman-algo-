@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-12T09:26:25.976406-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta&#39;s Muse Has the Downloads \u2014 Now It Needs to Prove It Can Make Money",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-12T09:26:26.292150-04:00",
     "symbols": [
       "GOOGL"
@@ -5085,6 +5075,18 @@
     ],
     "headline": "JPMorgan Chase Could Swing $28 Billion After Earnings",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T15:50:44.169792-04:00",
+    "symbols": [
+      "MU",
+      "SKHY",
+      "SNDK"
+    ],
+    "headline": "China Chip Concerns Hit Micron, SanDisk: Monday&#39;s Selloff Brings Double Pain for This ETF",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

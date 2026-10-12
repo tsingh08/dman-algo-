@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-09T15:18:31.432698-04:00",
-    "symbols": [
-      "IPW"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-09T15:18:31.436182-04:00",
     "symbols": [
       "IPW"
@@ -5062,5 +5052,17 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T14:02:36.667026-04:00",
+    "symbols": [
+      "DIA",
+      "GS",
+      "JPM"
+    ],
+    "headline": "JPMorgan, Goldman Sachs Earnings Could Move This Dow ETF\u2014Here\u2019s the Portfolio Math",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

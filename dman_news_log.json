@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-09T15:18:31.420473-04:00",
-    "symbols": [
-      "ATOS"
-    ],
-    "headline": "Atossa Therapeutics Inks Stapled Contingent Value Rights Agreement With VStock Transfer; Atossa Declares Dividend Of One Stapled CVR For Each Share Of Atossa Common Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-09T15:18:31.424286-04:00",
     "symbols": [
       "BMGL"
@@ -5060,6 +5050,16 @@
     ],
     "headline": "Northland Capital Markets Upgrades C3.ai to Outperform, Raises Price Target to $16",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T13:46:17.652819-04:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "Oppenheimer Maintains Outperform on AppLovin, Lowers Price Target to $490",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

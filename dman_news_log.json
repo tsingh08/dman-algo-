@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-09T13:26:28.677312-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "QUICK SPARK: SpaceX Spectrum Deal Triggers T-Mobile\u2019s Worst Day Since 2013",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-09T13:27:07.406486-04:00",
-    "symbols": [
-      "AAPL",
-      "AMZN",
-      "DIA",
-      "GOOGL",
-      "IWM",
-      "MRNA",
-      "MSFT",
-      "NVDA",
-      "QQQ",
-      "SPCX",
-      "TSLA"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:27:16.040727-04:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "Shares of copper-related companies are trading higher amid growing Chinese demand and continued tariff uncertainty. A worker strike at Chile&#39;s Centinela copper mine disrupts supplies and raises high-grade copper prices.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:27:39.164178-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-09T13:27:39.295006-04:00",
     "symbols": [
       "MSFT"
@@ -5047,5 +4997,45 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:29:01.453590-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "RBC Capital Reiterates Outperform on Eli Lilly, Maintains $1500 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T10:29:51.706369-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "SpaceX Shares Up 22% in 2 Months, Crushing S&amp;P 500\u2019s 1% Gain",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T10:29:53.914002-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Shares Up 22% in 2 Months, Crushing S&amp;P 500\u2019s 1% Gain",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T10:30:15.143203-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "IREN Stock Is Rebounding on Anthropic News After a Brutal Week \u2014 Is $40 the Next Test?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

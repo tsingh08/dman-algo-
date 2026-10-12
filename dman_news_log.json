@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-10-09T13:09:10.208063-04:00",
-    "symbols": [
-      "TMUS"
-    ],
-    "headline": "Why Is AST SpaceMobile Stock Falling on Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:09:10.376601-04:00",
-    "symbols": [
-      "T"
-    ],
-    "headline": "Why Is AST SpaceMobile Stock Falling on Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:09:10.564175-04:00",
-    "symbols": [
-      "FSLY"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:09:10.875969-04:00",
-    "symbols": [
-      "CCI"
-    ],
-    "headline": "Crown Castle Stock Jumping as SpaceX Acquires 800 MHz Spectrum",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:09:11.639588-04:00",
-    "symbols": [
-      "ARQQ"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:09:11.798668-04:00",
-    "symbols": [
-      "CCC"
-    ],
-    "headline": "Humana, Evolution Metals &amp; Technologies, Fastly And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:14:33.472950-04:00",
-    "symbols": [
-      "FMFC"
-    ],
-    "headline": "11 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:14:33.477722-04:00",
-    "symbols": [
-      "IPW"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:14:33.484865-04:00",
-    "symbols": [
-      "MSGY"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:14:33.490147-04:00",
-    "symbols": [
-      "OFAL"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:14:33.497944-04:00",
-    "symbols": [
-      "QNME"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-09T13:14:33.505832-04:00",
     "symbols": [
       "SPCX"
@@ -5039,6 +4929,123 @@
     "headline": "TotalEnergies, KKR Strike $1.2 Billion Solar Deal",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:06:22.067455-04:00",
+    "symbols": [
+      "AMD",
+      "GOOGL",
+      "META",
+      "NVDA",
+      "QCOM",
+      "SMCI"
+    ],
+    "headline": "AMD Makes Big Agentic AI Push With Helion",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T10:06:30.151689-04:00",
+    "symbols": [
+      "MU",
+      "SKHY",
+      "SNDK"
+    ],
+    "headline": "Shares of memory- and storage-related chip companies are trading lower after Chinese rival ChangXin Memory Technologies said it has made key progress in developing a new memory cell structure designed to increase DRAM storage density and improve efficiency.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T10:06:53.704114-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "AMD Makes Big Agentic AI Push With Helion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T10:06:53.712620-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD Makes Big Agentic AI Push With Helion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T10:06:54.216410-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "AMD Makes Big Agentic AI Push With Helion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T10:06:54.499481-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "AMD Makes Big Agentic AI Push With Helion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T10:06:56.747769-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "AMD Makes Big Agentic AI Push With Helion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:06:58.168732-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "AMD Makes Big Agentic AI Push With Helion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T10:07:12.986122-04:00",
+    "symbols": [
+      "WFF"
+    ],
+    "headline": "WF Holding Shares Halted On Circuit Breaker To The Upside, Stock Now Up 92.03%",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:08:06.418442-04:00",
+    "symbols": [
+      "FSLR"
+    ],
+    "headline": "First Solar shares are trading higher after Truist Securities upgraded its rating on the stock from Hold to Buy raised its price target from $229 to $270.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:10:11.479557-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Posts On Truth Social &#34;The European Union paid Russia 250 Billion Dollars for Energy, and the Fake News Media doesn\u2019t want to get near that story. I made the right choice for the American People \u2014 ALWAYS, AMERICA FIRST!..&#34;",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

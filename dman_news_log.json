@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-09T15:59:30.764359-04:00",
-    "symbols": [
-      "TIGO"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-09T15:59:31.244444-04:00",
     "symbols": [
       "ABR"
@@ -5072,6 +5062,22 @@
     ],
     "headline": "Bumble Shares Halted On Circuit Breaker To The Upside, Stock Now Up 21.26%",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T14:38:19.248013-04:00",
+    "symbols": [
+      "CRWD",
+      "NBIS",
+      "ORCL",
+      "PANW",
+      "SOUN",
+      "VEEA",
+      "ZS"
+    ],
+    "headline": "Shares of software companies are trading lower amid a broader technology sell-off led by declines in Micron and other semiconductor stocks. Comments from Intel and Broadcom CEOs that limited access to capital could constrain AI expansion, despite strong demand for computing infrastructure, are adding to concerns about the sustainability of tech-sector growth.",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

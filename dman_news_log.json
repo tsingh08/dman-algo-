@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-09T13:43:52.314558-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump To Issue Directive To U.S. Officials That Seeks To Control Cost Of Diesel; Directive On Diesel Will Push U.S. Department Heads To Find Ways To Bypass Local, State Regulations Blocking Energy Production; Directive Will Push U.S. Officials To Use Defense Production Act To Find Ways To Increase Production Of Oil And Fuel",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T13:43:53.788172-04:00",
-    "symbols": [
-      "VZ"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-09T13:43:53.792883-04:00",
     "symbols": [
       "VZ"
@@ -5045,6 +5025,26 @@
       "PLTR"
     ],
     "headline": "Ondas Takes Its Palantir Partnership Deeper With New Sovereign AI Company",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T11:37:33.242837-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Boeing \u2018Holds the Keys to the Future of US Tactical Aircraft,\u2019 Says Bullish Analyst",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T11:40:28.456017-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Gets Rare Double Upgrade From Bank of America: \u2018AI Should Deepen Dependence,\u2019 Analyst Says",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-09T15:48:48.232012-04:00",
-    "symbols": [
-      "WQEY"
-    ],
-    "headline": "10 Information Technology Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-09T15:48:48.235847-04:00",
     "symbols": [
       "WQEY"
@@ -5074,5 +5064,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T14:24:50.001427-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa Stock on Pace for Record Close: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

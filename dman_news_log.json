@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-12T09:26:25.415769-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "IREN Scores Major AI Cloud Deal With Anthropic: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T09:26:25.420284-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Ray Dalio Says the AI Bubble Is Close to Bursting. A Strategist Says Zombie Companies Are the Real Risk",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-12T09:26:25.424667-04:00",
     "symbols": [
       "NVDA"
@@ -5085,5 +5065,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T15:09:40.633228-04:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Barclays Maintains Overweight on Cloudflare, Raises Price Target to $400",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T15:11:08.717480-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Barclays Maintains Equal-Weight on Fortinet, Raises Price Target to $210",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

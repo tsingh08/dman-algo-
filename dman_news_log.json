@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-09T13:30:55.358740-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rebounds From OpenAI Scare, T-Mobile Tumbles 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-09T13:30:55.725390-04:00",
     "symbols": [
       "VEEA"
@@ -5052,6 +5042,16 @@
       "SPCX"
     ],
     "headline": "Verizon Has a 6.8% Dividend Yield, but SpaceX Is Changing the Risk-Reward",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T11:07:40.411577-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Cisco Announces Microsoft Moved Into Production On Systems Powered By Cisco Silicon One P200",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"

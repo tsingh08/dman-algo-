@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-12T09:26:25.047739-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft To Expand Azure Maia System To Multi-Gigawatt Deployments; Expect Maia 300 To Deliver 40% More Tokens Per Megawatt Compared To Leading GPU-Based Systems",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T09:26:25.052163-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Micron&#39;s Monster Rally Faces New Threat As Traders Pile Into Bearish Bets",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T09:26:25.056526-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "AI Bubble Ready to Burst? Investor Raises Alarm Over Anthropic&#39;s Sky-High Valuation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-12T09:26:25.061161-04:00",
     "symbols": [
       "MSFT"
@@ -5084,5 +5054,36 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T15:01:49.980266-04:00",
+    "symbols": [
+      "AAPL",
+      "GOOGL"
+    ],
+    "headline": "Google Comes for Apple\u2019s Health Data Advantage. Here\u2019s What Changes",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T15:02:24.326731-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Google Comes for Apple\u2019s Health Data Advantage. Here\u2019s What Changes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T15:02:25.082884-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google Comes for Apple\u2019s Health Data Advantage. Here\u2019s What Changes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

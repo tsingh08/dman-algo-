@@ -1,47 +1,5 @@
 [
   {
-    "ts": "2026-10-09T14:08:23.019636-04:00",
-    "symbols": [
-      "ARM",
-      "META",
-      "QCOM"
-    ],
-    "headline": "Why Is Arm Stock Falling on Friday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T14:08:41.838440-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Why Is Arm Stock Falling on Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T14:08:43.045269-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Why Is Arm Stock Falling on Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T14:08:44.271550-04:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "Why Is Arm Stock Falling on Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-09T14:08:44.359435-04:00",
     "symbols": [
       "ANET"
@@ -5051,5 +5009,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T12:06:54.230291-04:00",
+    "symbols": [
+      "SOUN"
+    ],
+    "headline": "SoundHound AI Stock Is Falling Monday: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T12:07:08.111726-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "AST SpaceMobile Stock Upgraded: Is it Time to Buy the Dip?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T12:07:38.764482-04:00",
+    "symbols": [
+      "AERT"
+    ],
+    "headline": "&#39;Black Box In Early Talks To Acquire Nasdaq-Listed Aeries Technology; A Deal Could Value Aeries At $70-90 Million&#39; - CNBC TV18",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T12:10:30.262382-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX&#39;s Next Rally May Depend on AI Software, Not Just Rockets",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

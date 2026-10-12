@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-09T13:17:30.742981-04:00",
-    "symbols": [
-      "VRTX"
-    ],
-    "headline": "Vertex Presents Study Reporting ALYFTREK Data Shows Pancreatic Function Recovery In Some Children Ages 2\u20135 With Cystic Fibrosis",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-09T13:26:28.677312-04:00",
     "symbols": [
       "SPCX"
@@ -5046,5 +5036,16 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T10:24:38.069982-04:00",
+    "symbols": [
+      "SPCX",
+      "SPY"
+    ],
+    "headline": "SpaceX Shares Up 22% in 2 Months, Crushing S&amp;P 500\u2019s 1% Gain",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

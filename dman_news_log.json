@@ -1,87 +1,5 @@
 [
   {
-    "ts": "2026-10-09T13:14:33.515069-04:00",
-    "symbols": [
-      "SXTC"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:14:33.526251-04:00",
-    "symbols": [
-      "WFF"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:14:33.533171-04:00",
-    "symbols": [
-      "ZENA"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:14:33.539940-04:00",
-    "symbols": [
-      "FRGT"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:14:33.554656-04:00",
-    "symbols": [
-      "XRTX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:14:33.583157-04:00",
-    "symbols": [
-      "NAUT"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T13:17:13.833445-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Shares of vaccine stocks are trading higher following a New York Times report detailing a new public-private partnership involving the National Institutes of Health to accelerate cancer vaccine development.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T13:17:18.385093-04:00",
-    "symbols": [
-      "SPCX",
-      "VEEA",
-      "WFF"
-    ],
-    "headline": "Gold Rises Over 1%; US Consumer Sentiment Falls",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-09T13:17:30.742981-04:00",
     "symbols": [
       "VRTX"
@@ -5047,5 +4965,86 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T10:16:34.494980-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Why Is Nebius Group Stock Falling Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:17:15.442545-04:00",
+    "symbols": [
+      "MU",
+      "SKHY"
+    ],
+    "headline": "Micron, SK Hynix Face New Challenge as China Makes AI Memory Cheaper",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T10:17:18.997768-04:00",
+    "symbols": [
+      "LCID"
+    ],
+    "headline": "RBC Capital Maintains Sector Perform on Lucid Group, Lowers Price Target to $4",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T10:18:16.852189-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron, SK Hynix Face New Challenge as China Makes AI Memory Cheaper",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T10:18:17.446069-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Micron, SK Hynix Face New Challenge as China Makes AI Memory Cheaper",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T10:18:34.387433-04:00",
+    "symbols": [
+      "NOW"
+    ],
+    "headline": "RBC Capital Maintains Outperform on ServiceNow, Raises Price Target to $176",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T10:18:34.393004-04:00",
+    "symbols": [
+      "NOW"
+    ],
+    "headline": "BTIG Reiterates Buy on ServiceNow, Maintains $170 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T10:19:30.879910-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "ASML CEO Says AI Chip Boom Could Stretch Beyond 2028, but Broadcom Warns of Financing Bottleneck",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

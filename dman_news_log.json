@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-12T09:26:25.433825-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Bernie Sanders Slams Trump Over AI \u2018Hoax\u2019 Claims as He Questions Billions in Family Wealth Tied to Crypto and AI Investments",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-12T09:26:25.671316-04:00",
     "symbols": [
       "AMD"
@@ -5085,5 +5075,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T15:21:58.162332-04:00",
+    "symbols": [
+      "BMBL"
+    ],
+    "headline": "Bumble Stock Jumps as Dating App Nears $1 Billion Take-Private Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-09T12:39:22.469143-04:00",
-    "symbols": [
-      "TEVA"
-    ],
-    "headline": "FDA Approves Teva&#39;s New Once-Monthly Schizophrenia Injection",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-09T12:40:57.094323-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Nvidia-Backed Data Center IPO Collapses\u2014OpenAI Revenue Questions\u2014Apple customers Are Not Price Insensitive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T12:40:57.347683-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Nvidia-Backed Data Center IPO Collapses\u2014OpenAI Revenue Questions\u2014Apple customers Are Not Price Insensitive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T12:40:58.221851-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Nvidia-Backed Data Center IPO Collapses\u2014OpenAI Revenue Questions\u2014Apple customers Are Not Price Insensitive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-09T12:40:58.848726-04:00",
     "symbols": [
       "AMZN"
@@ -5036,6 +4996,47 @@
       "MSTR"
     ],
     "headline": "Strategy Adds 250 Bitcoin: Can MSTR Break Through $160?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T09:31:07.907570-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Robotaxis Accused of Speeding in School Zones As US Weighs New Safety Probe",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T09:31:27.057344-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "RBC Capital Maintains Sector Perform on Fortinet, Raises Price Target to $205",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T09:32:58.537925-04:00",
+    "symbols": [
+      "AAPL",
+      "BABA"
+    ],
+    "headline": "Tim Cook Meets China\u2019s Vice Premier as Apple Doubles Down on Its Biggest Overseas Market \u2014 Beijing Calls for \u2018Stable\u2019 US Ties",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T09:34:53.275573-04:00",
+    "symbols": [
+      "DDOG"
+    ],
+    "headline": "RBC Capital Maintains Outperform on Datadog, Raises Price Target to $320",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null

@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-09T15:18:31.404696-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Competitor Analysis: Evaluating Adobe And Competitors In Software Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T15:18:31.412058-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Dow Jones, Nasdaq 100 Futures Gain as Scott Bessent Says US Is Starving Iran&#39;s &#39;Tyrannical Regime&#39;\u2014 PKE, HUM, RENX in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T15:18:31.415755-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-09T15:18:31.420473-04:00",
     "symbols": [
       "ATOS"
@@ -5060,6 +5030,36 @@
     ],
     "headline": "GE Aerospace, Shield AI, And Poland&#39;s WZL-2 Sign MOU To Advance F110 Engine MRO Support In Poland",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T13:44:43.890457-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Hammack Says There Is More Restraint That Is Needed; If Monetary Policy Does Nothing Market Conditions Would Change; Comments From Low Income Workers Was First About Trading Down, Now They Are Beginning To Juggle What Bills To Pay",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T13:44:54.866594-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Why an Analyst Sees Marvell Beating Its Own Long-Term Earnings Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T13:45:01.075647-04:00",
+    "symbols": [
+      "AI"
+    ],
+    "headline": "Northland Capital Markets Upgrades C3.ai to Outperform, Raises Price Target to $16",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

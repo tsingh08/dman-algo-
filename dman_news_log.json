@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-09T15:18:31.381520-04:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "Dana Receives European Commission Approval To Acquire Eaton&#39;s Mobility Operations",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T15:18:31.386798-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "How to Earn $500 a Month From Goldman Sachs Stock Ahead of Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-09T15:18:31.393830-04:00",
     "symbols": [
       "UNH"
@@ -5062,5 +5042,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T13:36:56.258451-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Hammack Says Higher Interest Rates Won&#39;t Dissuade Hyperscalers, But Might Influence Firms In Other Industries; The Question For The Fed Now Is How Fast To Make Policy More Restrictive; Don&#39;t Want To Threaten The Jobs Side Of The Fed&#39;s Mandate",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T13:38:05.021875-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nebius shares are trading lower amid possible investor concern after reports suggesting that IREN has entered a multi-year cloud compute deal with Anthropic. The company had been viewed as a possible candidate to partner with Anthropic due to its Nvidia clusters and May 2026 capex guidance increase.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

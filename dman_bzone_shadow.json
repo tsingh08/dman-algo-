@@ -918,5 +918,95 @@
 "extension_pct": 44.9,
 "fresh_base": false,
 "weak_band": true
+},
+{
+"ticker": "GTLB",
+"date": "2026-10-12",
+"close": 56.01,
+"base_days": 296,
+"above_low_pct": 188.4,
+"extension_pct": 12.8,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "FIGS",
+"date": "2026-10-12",
+"close": 17.74,
+"base_days": 154,
+"above_low_pct": 157.1,
+"extension_pct": 30.5,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "FRO",
+"date": "2026-10-12",
+"close": 59.19,
+"base_days": 1,
+"above_low_pct": 230.3,
+"extension_pct": 17.0,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "DHT",
+"date": "2026-10-12",
+"close": 26.22,
+"base_days": 4,
+"above_low_pct": 168.9,
+"extension_pct": 14.8,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "NTAP",
+"date": "2026-10-12",
+"close": 239.18,
+"base_days": 2,
+"above_low_pct": 156.8,
+"extension_pct": 14.9,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "HAFN",
+"date": "2026-10-12",
+"close": 10.92,
+"base_days": 1,
+"above_low_pct": 135.8,
+"extension_pct": 11.7,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "RSKD",
+"date": "2026-10-12",
+"close": 8.57,
+"base_days": 0,
+"above_low_pct": 126.1,
+"extension_pct": 16.8,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "DT",
+"date": "2026-10-12",
+"close": 65.25,
+"base_days": 0,
+"above_low_pct": 101.6,
+"extension_pct": 12.4,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "XP",
+"date": "2026-10-12",
+"close": 32.6,
+"base_days": 0,
+"above_low_pct": 118.2,
+"extension_pct": 42.7,
+"fresh_base": false,
+"weak_band": true
 }
 ]

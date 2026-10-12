@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-09T15:09:02.191345-04:00",
-    "symbols": [
-      "DUOT"
-    ],
-    "headline": "This American Express Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-09T15:09:02.194100-04:00",
     "symbols": [
       "DUOT"
@@ -5055,5 +5045,16 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T13:15:47.386095-04:00",
+    "symbols": [
+      "LCID",
+      "TSLA"
+    ],
+    "headline": "Tesla Faces New Luxury EV Rival in France as Lucid Plans 16 Locations",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

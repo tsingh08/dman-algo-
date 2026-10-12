@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-09T15:18:31.424286-04:00",
-    "symbols": [
-      "BMGL"
-    ],
-    "headline": "Why Veea Shares Are Trading Higher By Around 34%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-09T15:18:31.427970-04:00",
     "symbols": [
       "BQ"
@@ -5062,5 +5052,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T13:52:18.151042-04:00",
+    "symbols": [
+      "LCID"
+    ],
+    "headline": "Lucid Stock Under Pressure as Analyst Sees Revenue, Margin Risks",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

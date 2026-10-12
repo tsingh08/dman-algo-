@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-09T12:39:18.942999-04:00",
-    "symbols": [
-      "CLOV"
-    ],
-    "headline": "Clover Health Stock Pops: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-09T12:39:22.469143-04:00",
     "symbols": [
       "TEVA"
@@ -5039,5 +5029,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T09:28:55.249829-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Strategy Adds 250 Bitcoin: Can MSTR Break Through $160?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

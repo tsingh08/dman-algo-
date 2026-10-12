@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-09T15:48:48.235847-04:00",
-    "symbols": [
-      "WQEY"
-    ],
-    "headline": "Quantisimo Signs Definitive Business Combination Agreement With GigCapital8 To List On Nasdaq As QSMO, Implying $666.1M Equity Value At $10.00 Per Share",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-09T15:55:12.541824-04:00",
     "symbols": [
       "GEV"
@@ -5074,5 +5064,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T14:33:06.105849-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Russia\u2019s Novak On Diesel Supply Deal With Trump, Says There Are Talks Between Governments Of Russia And U.S. On Supply; We Have Possibility To Make Additional Supplies Of Diesel On Global Markets; Additional Supplies From Russia Will Partially Balance Supply And Demand; By Year-End Russia May Reach 3-3.5M Tons Of Diesel Exports; Russia Has Supplied Energy Worth $21.3B To EU This Year; OPEC+ Has Discussed Transportation Costs, Which Have Significantly Increased",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

@@ -1771,5 +1771,23 @@
   "drift_pct": 0.38,
   "range_ratio": 0.23,
   "near_high": 0.984
+ },
+ {
+  "ts": "2026-10-12T15:59:52.157272-04:00",
+  "ticker": "DMII",
+  "price": 10.19,
+  "rvol": 7.19,
+  "drift_pct": 0.05,
+  "range_ratio": 0.11,
+  "near_high": 1.0
+ },
+ {
+  "ts": "2026-10-12T15:59:52.157287-04:00",
+  "ticker": "BACC",
+  "price": 10.44,
+  "rvol": 2.7,
+  "drift_pct": 0.38,
+  "range_ratio": 0.23,
+  "near_high": 0.984
  }
 ]

@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-10-09T09:26:43.618665-04:00",
-    "symbols": [
-      "SKYD"
-    ],
-    "headline": "&#39;Disney Has Held Talks With Other Studios About Using Its New Brand For Large-Screen Movie Formats&#39; - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-09T09:26:43.623402-04:00",
-    "symbols": [
-      "SKYD"
-    ],
-    "headline": "&#39;Disney Pitches Paramount, Universal On IMAX Big-Screen Rival&#39; - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-09T09:27:54.669996-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T09:27:54.680066-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-09T09:27:54.688909-04:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "9 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-09T09:27:54.849351-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-09T09:27:54.867868-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "8 Industrials Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-09T09:27:54.874688-04:00",
     "symbols": [
       "CAT"
@@ -5049,6 +4979,82 @@
       "MA"
     ],
     "headline": "Here&#39;s How Much $1000 Invested In Mastercard 20 Years Ago Would Be Worth Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T09:11:19.333660-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix\u2019s Q3 Guidance Calls for About 12% Revenue Growth. Here\u2019s the Bar for Oct. 20",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T09:11:36.363895-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell Technology Unveils Second-Generation Marvell Structera X 3406, Marvell Structera X 3506 CXL Memory Expanders",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T09:12:25.647404-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Flo Health And Google Health Announce Multi-Year Partnership And Strategic Investment To Advance Personalized Women\u2019s Health Insights; Details Of The Terms Not Disclosed",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T09:13:43.054804-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD Rolls Out AMD Helion Agentic AI Rack",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-12T09:14:44.508961-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "NVDA"
+    ],
+    "headline": "IREN Scores Major AI Cloud Deal With Anthropic: Report",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-12T09:17:31.219227-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Wells Fargo Downgrades Adobe to Underweight, Says AI Survey Shows It Is Losing Budget Share",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-12T09:17:35.556521-04:00",
+    "symbols": [
+      "MU",
+      "SKHY",
+      "SNDK"
+    ],
+    "headline": "Reported October 11, &#39;China\u2019s CXMT unveils \u2018key progress\u2019 on chip structure pursued by Samsung, SK Hynix&#39; - SCMP",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-12T11:21:12.848337-04:00",
-    "symbols": [
-      "CTNM"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-12T11:21:13.211266-04:00",
     "symbols": [
       "BLCO"
@@ -5067,5 +5057,16 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T10:12:13.695642-04:00",
+    "symbols": [
+      "BBAI",
+      "MDB"
+    ],
+    "headline": "Bumble, Fermi, Xtend AI Robotics And Other Big Stocks Moving Higher On Tuesday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

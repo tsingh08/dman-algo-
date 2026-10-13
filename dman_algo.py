@@ -12596,6 +12596,50 @@ def _bzone_floor_pct(ticker: str = "") -> float:
                    BZONE_CATASTROPHE_STOP_ATR * _a))
 
 
+def _zone_peak_gain_pct(ticker: str, entry: float, entry_date,
+                        stored: float = 0.0) -> float:
+    """Best CLOSING gain since entry, derived from price history.
+
+    The trail originally read a peak_gain_pct high-water mark persisted on the
+    position. That does not work here and Monday 2026-10-12 proved it: the
+    scanner, the daemon and every manual run are separate processes on separate
+    ephemeral runners, each syncing state to git. bzmanage ran three times that
+    session (11:24, 13:23, 14:21 ET) with RSKD at about +7%, set the peak in its
+    own process, and dman_positions.json on origin was still last written
+    2026-10-09 19:37 UTC -- before the trail even shipped. Every peak it
+    computed was written to a runner that then disappeared.
+
+    Worse than losing the number: a peak that reloads as 0 is set to the
+    CURRENT gain, so `gain > peak * (1 - giveback)` is never true and the trail
+    can never fire. It was silently dead rather than visibly broken.
+
+    Price history is the right source because it needs no coordination. Any
+    process, in any checkout, at any time, derives the same answer from the
+    same bars. CLOSES, not highs, to match how the 2026-10-10 minute replay
+    measured it -- using intrabar highs would reintroduce the ordering
+    ambiguity that replay existed to remove.
+
+    `stored` is a floor, not the source: if a persisted mark is ever higher
+    than anything the bars show, it is honoured rather than discarded.
+    """
+    try:
+        _e = float(entry or 0)
+        if _e <= 0:
+            return float(stored or 0.0)
+        _df = fetch_df(ticker)
+        if _df is None or not len(_df) or "Close" not in _df.columns:
+            return float(stored or 0.0)
+        _since = str(entry_date)[:10]
+        _rows = [_i for _i, _d in enumerate(_df.index) if str(_d)[:10] >= _since]
+        if not _rows:
+            return float(stored or 0.0)
+        _hi = float(_df["Close"].iloc[_rows].max())
+        return max(float(stored or 0.0), (_hi - _e) / _e * 100.0)
+    except Exception as exc:
+        _log_swallowed("zone peak gain", exc)
+        return float(stored or 0.0)
+
+
 def _zone_trail_exit_check(notify: bool = True) -> list:
     """Sell any zone that has handed back BZONE_TRAIL_GIVEBACK_PCT of its peak.
 
@@ -12635,10 +12679,19 @@ def _zone_trail_exit_check(notify: bool = True) -> list:
                 _gain = float(_ap.unrealized_plpc) * 100.0
             except (TypeError, ValueError):
                 continue
-            _peak = float(getattr(_pos, "peak_gain_pct", 0) or 0)
-            if _gain > _peak:
-                _pos.peak_gain_pct = _gain
-                _peak, _changed = _gain, True
+            # Derived from bars, with any persisted mark as a floor. See
+            # _zone_peak_gain_pct() for why a stored high-water mark alone
+            # could not work across separate runner processes.
+            _peak = _zone_peak_gain_pct(
+                _pos.ticker, getattr(_pos, "entry", 0),
+                getattr(_pos, "entry_date", ""),
+                float(getattr(_pos, "peak_gain_pct", 0) or 0))
+            _peak = max(_peak, _gain)
+            if _peak > float(getattr(_pos, "peak_gain_pct", 0) or 0):
+                # Still recorded, so the number is visible in the positions
+                # view and in a diff -- but nothing depends on it surviving.
+                _pos.peak_gain_pct = _peak
+                _changed = True
             if _peak < BZONE_TRAIL_ACTIVATE_PCT:
                 continue
             if _gain > _peak * (1.0 - BZONE_TRAIL_GIVEBACK_PCT):

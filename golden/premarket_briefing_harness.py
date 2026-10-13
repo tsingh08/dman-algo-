@@ -149,6 +149,13 @@ def run(name, over):
 
     ps = [
         patch.object(a, "datetime", dt),
+        # The reconciliation line quotes _bzone_floor_pct(), which derives from
+        # the name's real 14-day ATR via fetch_df. Unstubbed, this baseline moved
+        # with RSKD's actual volatility -- it read 35% when the fetch failed and
+        # 14% once it succeeded. Fourth time in a week a CI-gated harness turned
+        # out to be wired to live state. Pin the ATR so the floor is arithmetic,
+        # not a market quote.
+        patch.object(a, "_bzone_atr_pct", return_value=0.045),
         patch.object(a, "_et_today", return_value=TODAY),
         patch.object(a, "_sessions_since", return_value=cfg["missed_sessions"]),
         patch.object(a, "SCAN_LOG_FILE", scan_log),

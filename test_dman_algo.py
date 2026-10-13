@@ -24422,3 +24422,142 @@ class TestEverySeasonalMonthReadUsesET(unittest.TestCase):
             for setup in ("Gap & Hold", "Morning Runner"):
                 eff, _unc = a._effective_min_score(setup, "ZZZZ", 80)
                 self.assertLess(eff, a.SEASONAL_MIN_SCORE, setup)
+
+
+class TestTheZonePeakComesFromBarsNotFromState(unittest.TestCase):
+    """The trail was silently dead because its peak could not survive a process.
+
+    Monday 2026-10-12: bzmanage ran three times (11:24, 13:23, 14:21 ET) with
+    RSKD around +7%, each run set peak_gain_pct in its own process, and
+    dman_positions.json on origin was STILL last written 2026-10-09 19:37 UTC
+    -- before the trail shipped. The scanner, the daemon and manual runs are
+    separate processes on separate ephemeral runners that sync state through
+    git, so a high-water mark held on the position never made it back.
+
+    The failure mode is the dangerous kind. A peak that reloads as 0 is set to
+    the CURRENT gain, so `gain > peak * (1 - giveback)` is never true and the
+    trail NEVER FIRES. Four days of positions were nominally protected by an
+    exit that could not trigger.
+
+    Deriving it from bars needs no coordination: any process, any checkout, any
+    time, same answer. CLOSES rather than highs, matching the 2026-10-10 minute
+    replay -- intrabar highs would reintroduce the ordering ambiguity that
+    replay existed to remove."""
+
+    def _df(self, closes, start="2026-09-25"):
+        import pandas as pd
+        idx = pd.date_range(start, periods=len(closes), freq="D")
+        return pd.DataFrame({"Close": closes}, index=idx)
+
+    # --- the regression that matters -------------------------------------
+    def test_a_stored_peak_of_zero_no_longer_disables_the_trail(self):
+        """The exact Monday bug: nothing persisted, so stored=0, yet the
+        position really did peak. The bars must supply it."""
+        with patch.object(a, "fetch_df", return_value=self._df([100, 110, 104])):
+            peak = a._zone_peak_gain_pct("RSKD", 100.0, "2026-09-25", stored=0.0)
+        self.assertAlmostEqual(peak, 10.0, places=4)
+
+    def test_that_peak_is_enough_to_arm_the_trail(self):
+        """A +10% peak clears BZONE_TRAIL_ACTIVATE_PCT, which is the whole
+        point -- before this the position could never arm."""
+        with patch.object(a, "fetch_df", return_value=self._df([100, 110, 104])):
+            peak = a._zone_peak_gain_pct("RSKD", 100.0, "2026-09-25")
+        self.assertGreaterEqual(peak, a.BZONE_TRAIL_ACTIVATE_PCT)
+
+    # --- correctness ------------------------------------------------------
+    def test_it_uses_closes_not_highs(self):
+        """Highs would reintroduce intrabar ordering ambiguity."""
+        src = inspect.getsource(a._zone_peak_gain_pct)
+        self.assertIn('"Close"', src)
+        self.assertNotIn('"High"', src)
+
+    def test_bars_before_entry_are_excluded(self):
+        """A pre-entry spike is not a gain this position ever had."""
+        df = self._df([500, 100, 105], start="2026-09-23")
+        with patch.object(a, "fetch_df", return_value=df):
+            peak = a._zone_peak_gain_pct("X", 100.0, "2026-09-24")
+        self.assertAlmostEqual(peak, 5.0, places=4)
+
+    def test_a_never_green_position_peaks_at_zero_or_less(self):
+        """PGEN's shape: down since entry, so nothing to trail."""
+        with patch.object(a, "fetch_df", return_value=self._df([100, 95, 90])):
+            peak = a._zone_peak_gain_pct("PGEN", 100.0, "2026-09-25")
+        self.assertLessEqual(peak, 0.0)
+
+    def test_a_stored_mark_acts_as_a_floor_not_a_source(self):
+        """If a persisted number is ever higher than the bars show, honour it
+        rather than silently lowering the peak."""
+        with patch.object(a, "fetch_df", return_value=self._df([100, 102])):
+            peak = a._zone_peak_gain_pct("X", 100.0, "2026-09-25", stored=25.0)
+        self.assertAlmostEqual(peak, 25.0, places=4)
+
+    # --- degradation ------------------------------------------------------
+    def test_no_data_falls_back_to_the_stored_mark(self):
+        with patch.object(a, "fetch_df", return_value=None):
+            self.assertAlmostEqual(
+                a._zone_peak_gain_pct("X", 100.0, "2026-09-25", stored=7.5), 7.5)
+
+    def test_no_bars_after_entry_falls_back(self):
+        df = self._df([100, 101], start="2026-01-01")
+        with patch.object(a, "fetch_df", return_value=df):
+            self.assertAlmostEqual(
+                a._zone_peak_gain_pct("X", 100.0, "2026-09-25", stored=3.0), 3.0)
+
+    def test_a_bad_entry_price_does_not_raise(self):
+        with patch.object(a, "fetch_df", return_value=self._df([100, 110])):
+            self.assertEqual(a._zone_peak_gain_pct("X", 0, "2026-09-25"), 0.0)
+
+    def test_a_fetch_error_does_not_raise(self):
+        with patch.object(a, "fetch_df", side_effect=RuntimeError("boom")), \
+             patch.object(a, "_log_swallowed"):
+            self.assertAlmostEqual(
+                a._zone_peak_gain_pct("X", 100.0, "2026-09-25", stored=2.0), 2.0)
+
+    # --- wiring -----------------------------------------------------------
+    def test_the_trail_actually_fires_on_a_bar_derived_peak(self):
+        """Behavioural, and the real regression. Mutation testing showed a
+        source-grep version of this survived replacing the call, because the
+        name still appeared elsewhere in the function.
+
+        The Monday shape exactly: nothing persisted (stored peak 0), position
+        currently +4%, bars show it peaked at +10% since entry. With the old
+        stored-peak logic the peak became 4%, the trigger 3%, and 4 > 3 so it
+        held forever. From the bars the peak is 10%, the trigger 7.5%, and
+        +4% is below it -- so it sells."""
+        import pandas as pd
+        pos = SimpleNamespace(ticker="RSKD", setup="Breakout Zone +120% off low",
+                              entry=100.0, entry_date="2026-09-25",
+                              peak_gain_pct=0.0)
+        cl = MagicMock()
+        cl.get_all_positions.return_value = [
+            SimpleNamespace(symbol="RSKD", unrealized_plpc="0.04")]
+        tracker = MagicMock(); tracker.positions = [pos]
+        idx = pd.date_range("2026-09-25", periods=3, freq="D")
+        bars = pd.DataFrame({"Close": [100.0, 110.0, 104.0]}, index=idx)
+        with patch.object(a, "get_alpaca_client", return_value=cl),              patch.object(a, "PositionTracker", return_value=tracker),              patch.object(a, "flag", return_value=True),              patch.object(a, "fetch_df", return_value=bars),              patch.object(a, "_close_position_at_market",
+                          return_value=("submitted", "oid-1")) as closer,              patch.object(a, "send_telegram"),              patch.object(a, "_save_last_alert"):
+            hit = a._zone_trail_exit_check()
+        self.assertEqual(hit, ["RSKD"])
+        closer.assert_called_once()
+
+    def test_the_same_position_does_NOT_fire_on_a_stored_peak_of_zero(self):
+        """The counterfactual that proves the first test is testing the fix:
+        with no bars to derive a peak from, +4% against a stored 0 peak cannot
+        trigger -- which is precisely why the trail was dead all of Monday."""
+        pos = SimpleNamespace(ticker="RSKD", setup="Breakout Zone +120% off low",
+                              entry=100.0, entry_date="2026-09-25",
+                              peak_gain_pct=0.0)
+        cl = MagicMock()
+        cl.get_all_positions.return_value = [
+            SimpleNamespace(symbol="RSKD", unrealized_plpc="0.04")]
+        tracker = MagicMock(); tracker.positions = [pos]
+        with patch.object(a, "get_alpaca_client", return_value=cl),              patch.object(a, "PositionTracker", return_value=tracker),              patch.object(a, "flag", return_value=True),              patch.object(a, "fetch_df", return_value=None),              patch.object(a, "_close_position_at_market") as closer,              patch.object(a, "send_telegram"),              patch.object(a, "_save_last_alert"):
+            hit = a._zone_trail_exit_check()
+        self.assertEqual(hit, [])
+        closer.assert_not_called()
+
+    def test_the_current_gain_can_still_raise_the_peak(self):
+        """Bars are closes and the live gain is a last price, so intraday the
+        position can be above every close since entry."""
+        src = inspect.getsource(a._zone_trail_exit_check)
+        self.assertIn("max(_peak, _gain)", src)

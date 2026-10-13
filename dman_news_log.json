@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-12T11:21:01.884438-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T11:21:02.669102-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Quantum Computing Is Eyeing a 2028 Breakthrough, 2 ETFs Could Capture It",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T11:21:03.080642-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-12T11:21:04.465695-04:00",
     "symbols": [
       "HOOD"
@@ -5065,6 +5035,37 @@
     "headline": "Fly-E Group Shares Halted On Circuit Breaker To The Upside, Stock Now Up 92.68%",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T09:59:12.195953-04:00",
+    "symbols": [
+      "GS",
+      "WFF"
+    ],
+    "headline": "Dow Rises Over 100 Points; Goldman Sachs Posts Upbeat Earnings",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T10:00:08.048142-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Existing Home Sales For September 3.99M Vs 3.95M Est",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T10:00:21.896229-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Existing Home Sales (MoM) For September 1.5% Vs -3.2% Prior",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

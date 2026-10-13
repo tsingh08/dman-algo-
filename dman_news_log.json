@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-12T13:13:32.472969-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Why Is Oracle Stock Falling on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T13:13:32.685706-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Mark Zuckerberg Announces Meta Platforms Rolls Out Muse Wonder Frontier Models",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T13:13:33.075288-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: AbbVie, DocuSign, Netflix",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-12T13:13:33.770469-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Nasdaq 100 Drops, SanDisk Tumbles 6% as AI Trade Falters: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-12T13:13:33.923668-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Nasdaq 100 Drops, SanDisk Tumbles 6% as AI Trade Falters: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T13:13:34.137047-04:00",
-    "symbols": [
-      "RIOT"
-    ],
-    "headline": "Morgan Stanley Maintains Overweight on Riot Platforms, Lowers Price Target to $35.5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-12T13:13:34.537450-04:00",
     "symbols": [
       "ABBV"
@@ -5073,5 +5013,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T11:11:56.991413-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on CrowdStrike Holdings, Raises Price Target to $300",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T11:12:39.498983-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "Cyclicals Lead Sectors In Tuesday Trading As Health Care Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T11:12:39.968973-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Cyclicals Lead Sectors In Tuesday Trading As Health Care Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T11:12:41.478230-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Cyclicals Lead Sectors In Tuesday Trading As Health Care Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T11:12:42.068028-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Cyclicals Lead Sectors In Tuesday Trading As Health Care Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T11:12:42.294963-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Cyclicals Lead Sectors In Tuesday Trading As Health Care Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

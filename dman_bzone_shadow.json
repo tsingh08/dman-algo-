@@ -1008,5 +1008,85 @@
 "extension_pct": 42.7,
 "fresh_base": false,
 "weak_band": true
+},
+{
+"ticker": "PD",
+"date": "2026-10-13",
+"close": 16.68,
+"base_days": 297,
+"above_low_pct": 191.1,
+"extension_pct": 11.0,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "PBF",
+"date": "2026-10-13",
+"close": 91.17,
+"base_days": 2,
+"above_low_pct": 256.8,
+"extension_pct": 16.6,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "VLO",
+"date": "2026-10-13",
+"close": 456.46,
+"base_days": 2,
+"above_low_pct": 198.1,
+"extension_pct": 12.7,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "MPC",
+"date": "2026-10-13",
+"close": 476.98,
+"base_days": 2,
+"above_low_pct": 196.7,
+"extension_pct": 14.4,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "DINO",
+"date": "2026-10-13",
+"close": 128.23,
+"base_days": 1,
+"above_low_pct": 186.0,
+"extension_pct": 14.0,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "DHT",
+"date": "2026-10-13",
+"close": 26.59,
+"base_days": 0,
+"above_low_pct": 172.7,
+"extension_pct": 15.4,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "FIGS",
+"date": "2026-10-13",
+"close": 18.0,
+"base_days": 0,
+"above_low_pct": 160.9,
+"extension_pct": 30.6,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "PSX",
+"date": "2026-10-13",
+"close": 292.73,
+"base_days": 2,
+"above_low_pct": 137.8,
+"extension_pct": 10.3,
+"fresh_base": false,
+"weak_band": false
 }
 ]

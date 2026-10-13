@@ -1,229 +1,5 @@
 [
   {
-    "ts": "2026-10-12T15:09:40.633228-04:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Barclays Maintains Overweight on Cloudflare, Raises Price Target to $400",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T15:11:08.717480-04:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "Barclays Maintains Equal-Weight on Fortinet, Raises Price Target to $210",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T15:12:17.831788-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "This Private AI Chip Startup Has Crushed NVIDIA&#39;s Stock Gains With 3.6X Returns",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T15:12:47.942846-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "EXCLUSIVE: SpaceX&#39;s Starship Has a $650M Problem \u2014 Insurers Can&#39;t Cover the Cargo",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T15:21:58.162332-04:00",
-    "symbols": [
-      "BMBL"
-    ],
-    "headline": "Bumble Stock Jumps as Dating App Nears $1 Billion Take-Private Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T15:26:21.478656-04:00",
-    "symbols": [
-      "BMBL"
-    ],
-    "headline": "Bumble Stock Jumps as Dating App Nears $1 Billion Take-Private Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T15:30:13.165680-04:00",
-    "symbols": [
-      "GS",
-      "JPM",
-      "UNH"
-    ],
-    "headline": "JPMorgan Chase Could Swing $28 Billion After Earnings",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T15:30:25.110539-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "AMD Unveils Its Helion Agentic AI Rack To Provide Partners And Customers With Flexibility For Agentic AI Infrastructure",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T15:41:16.875796-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Chase Could Swing $28 Billion After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T15:41:16.958016-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "JPMorgan Chase Could Swing $28 Billion After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T15:41:17.297157-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "JPMorgan Chase Could Swing $28 Billion After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T15:50:44.169792-04:00",
-    "symbols": [
-      "MU",
-      "SKHY",
-      "SNDK"
-    ],
-    "headline": "China Chip Concerns Hit Micron, SanDisk: Monday&#39;s Selloff Brings Double Pain for This ETF",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T15:58:24.751755-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "China Chip Concerns Hit Micron, SanDisk: Monday&#39;s Selloff Brings Double Pain for This ETF",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T15:58:24.940668-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "China Chip Concerns Hit Micron, SanDisk: Monday&#39;s Selloff Brings Double Pain for This ETF",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T15:58:25.121270-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "China Chip Concerns Hit Micron, SanDisk: Monday&#39;s Selloff Brings Double Pain for This ETF",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T15:58:38.828691-04:00",
-    "symbols": [
-      "BMY"
-    ],
-    "headline": "Why Is Contineum Therapeutics Stock Falling Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T15:58:38.832297-04:00",
-    "symbols": [
-      "BMY"
-    ],
-    "headline": "Why Is Bristol Myers Squibb Stock Gaining Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T15:58:38.835676-04:00",
-    "symbols": [
-      "BMY"
-    ],
-    "headline": "Bristol Myers Squibb Announces Topline Results From Unit RayzeBio&#39;s Planned Interim Analysis Of ACTION-1 Trial; RYZ101 Study Met Primary Endpoint With Statistically Significant And Clinically Meaningful Improvement In Progression-Free Survival By Blinded Independent Central Review, And Safety Results Consistent With Known Safety Profile",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T15:58:38.839031-04:00",
-    "symbols": [
-      "BMY"
-    ],
-    "headline": "Bristol Myers Squibb&#39;s Admilparant Meets Phase 3 Primary Endpoint in Idiopathic Pulmonary Fibrosis Trial",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T15:58:39.108432-04:00",
-    "symbols": [
-      "EBAY"
-    ],
-    "headline": "EBay Stock Jumps: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T15:58:39.112184-04:00",
-    "symbols": [
-      "EBAY"
-    ],
-    "headline": "Nasdaq 100 Drops, SanDisk Tumbles 6% as AI Trade Falters: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T15:58:39.115650-04:00",
-    "symbols": [
-      "EBAY"
-    ],
-    "headline": "Morgan Stanley Maintains Overweight on eBay, Raises Price Target to $132",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-12T15:58:39.119060-04:00",
     "symbols": [
       "EBAY"
@@ -5045,6 +4821,226 @@
       "RGC"
     ],
     "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T13:15:21.516771-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T13:15:21.765334-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: JP Morgan Chase &amp; Co., Meta Platforms, West Pharmaceutical Services, iShares U.S. Energy ETF",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T13:15:21.897222-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Amazon, Walmart Face New AI Shopping Test: Will Chatbots Recommend Them?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T13:15:22.054149-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon, Walmart Face New AI Shopping Test: Will Chatbots Recommend Them?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T13:15:22.278255-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Ben Affleck Says Holding AI Companies Accountable Is Simple. &#39;If You Have A Company That Hurts People, You&#39;re Liable For That&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T13:15:22.688150-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T13:15:22.692694-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Applied Materials To Distribute 80% - 100% Of Free Cash Flow To Shareholders Over Time; Anticipates Over $12B In Revenue By 2030; Ebeam Equipment Portfolio Expected To Generate $2B In Revenue In Calendar Year 2026; Expects Wafer Fab Equipment Market Share Gain Of 2% From 2025 Through 2030",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T13:15:22.795648-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T13:15:22.963328-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T13:15:26.101461-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T13:15:26.200446-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: JP Morgan Chase &amp; Co., Meta Platforms, West Pharmaceutical Services, iShares U.S. Energy ETF",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T13:15:26.209633-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T13:15:26.214050-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Bank of America Q3 Preview: Stock Down in 2026, Could 5th Straight Double Beat Change Momentum?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T13:15:26.334594-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T13:15:26.680274-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "UnitedHealth Raises Guidance: What It Means for XLV and Other Healthcare ETFs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T13:15:26.914553-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Netanyahu Discusses New Military Operation In Iran With Trump - Even Before The Election",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T13:15:26.919260-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Paul Tudor Jones Says Oil Can Rally Another $25, Warns 2027 Will Be &#39;Really Challenging&#39; for Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T13:15:27.026604-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T13:15:27.104469-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T13:15:27.251545-04:00",
+    "symbols": [
+      "BMBL"
+    ],
+    "headline": "11 Communication Services Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T13:15:27.324830-04:00",
+    "symbols": [
+      "FRMI"
+    ],
+    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T13:15:27.396235-04:00",
+    "symbols": [
+      "FUN"
+    ],
+    "headline": "&#39;Six Flags Closes Ten Rides After Fatal Roller Coaster Accident&#39; - Bloomberg",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

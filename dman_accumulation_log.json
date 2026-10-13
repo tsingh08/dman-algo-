@@ -1789,5 +1789,23 @@
   "drift_pct": 0.38,
   "range_ratio": 0.23,
   "near_high": 0.984
+ },
+ {
+  "ts": "2026-10-13T13:16:26.906592-04:00",
+  "ticker": "IBTH",
+  "price": 22.285,
+  "rvol": 1.69,
+  "drift_pct": 0.02,
+  "range_ratio": 0.5,
+  "near_high": 0.996
+ },
+ {
+  "ts": "2026-10-13T13:16:26.906611-04:00",
+  "ticker": "FUMB",
+  "price": 19.975,
+  "rvol": 2.42,
+  "drift_pct": 0.28,
+  "range_ratio": 0.5,
+  "near_high": 0.994
  }
 ]

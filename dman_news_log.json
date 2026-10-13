@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-12T13:13:34.537450-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: AbbVie, DocuSign, Netflix",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T13:13:36.081798-04:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "Nasdaq 100 Drops, SanDisk Tumbles 6% as AI Trade Falters: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T13:13:36.659408-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Nasdaq 100 Drops, SanDisk Tumbles 6% as AI Trade Falters: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-12T13:13:36.814188-04:00",
     "symbols": [
       "GS"
@@ -5073,5 +5043,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T11:17:12.449522-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Palo Alto Networks, Raises Price Target to $525",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T11:17:58.294914-04:00",
+    "symbols": [
+      "BWAY"
+    ],
+    "headline": "Bumble, Fermi, Xtend AI Robotics And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T11:17:58.298939-04:00",
+    "symbols": [
+      "BWAY"
+    ],
+    "headline": "BrainsWay Says Over 70M U.S. Covered Lives Now Have Access To Policies Covering SWIFT Accelerated Depression Treatment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

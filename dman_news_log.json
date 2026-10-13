@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-12T10:42:24.648125-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Palantir Stock Hits New Record High, Wipes Out Its Nearly 50% Drawdown",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-12T10:46:24.141576-04:00",
     "symbols": [
       "GEV",
@@ -5087,5 +5077,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T09:35:25.065054-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "After Blocked Meta Buyout, Muse Rival Manus Raises $500M+",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

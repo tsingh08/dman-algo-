@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-13T09:26:11.891854-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Unveils The New Apple TV 4K, Supercharged By Siri Apple Intelligence; Available For $299; Pre-Orders Start Today; Available In Stores November 13",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T09:26:11.895318-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "JPMorgan Earnings Prediction Market Preview: What Will Jamie Dimon Say?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T09:26:12.141692-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Reported October 12, Microsoft Executive Charles Lamanna Seen As Potential Successor To CEO Satya Nadella - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T09:26:12.145385-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Marvell Technology, Microsoft, Oracle Collaborate For Open Compute Project To Standardize NIST FIPS 140-3 Integrated HSM For Cloud, Hyperscale Data Center Infrastructure",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T09:26:12.148838-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "SpaceX&#39;s Wireless Push Sparks Wall Street Skepticism: Is the Stock Getting Ahead of Itself?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-13T09:26:12.152583-04:00",
     "symbols": [
       "MSFT"
@@ -5043,5 +4993,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T13:41:03.561357-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "AI Boom Faces a Trillion-Dollar Financing Test, Goldman Sachs CEO Warns",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T13:41:25.765212-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Home Collection Available Starting December, Select Accessories Early 2027; LG Video Doorbell Wired Starts At $249.95, Floodlight Cam At $399.95, Outdoor Cam At $299.95; LG Indoor Cam Plug-In Starts At $199.95 In U.S., Canada, And UK; Retail Offers Third-Party Installation From ADT In U.S. Starting This Fall; LG Smart Thermostat Starts At $199.95, Temperature Sensor At $39.95 In U.S. And Canada; LG Smart Deadbolt Lock Starts At $349.95 In U.S. And Canada",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T13:41:27.854582-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Super Micro Computer Announces Expansion Of Portfolio Of Open Compute Project Accepted Systems, Racks, Rear Door Heat Exchangers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T13:41:36.467080-04:00",
+    "symbols": [
+      "ISRG"
+    ],
+    "headline": "10 Health Care Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T13:41:36.655405-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

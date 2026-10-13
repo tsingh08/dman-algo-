@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-12T14:33:34.210391-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "China\u2019s 4F\u00b2 Threat To Micron\u2014Houthis&#39; Deadly Attack On Saudi Arabia Eclipses Trump\u2019s Russian Diesel Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-12T14:33:38.068035-04:00",
     "symbols": [
       "QQQ"
@@ -5065,5 +5055,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T12:53:47.262402-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta&#39;s New AI Models Strengthen Its Case in AI Arms Race: Analyst",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

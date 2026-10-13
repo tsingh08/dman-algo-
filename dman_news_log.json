@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-12T11:21:12.665912-04:00",
-    "symbols": [
-      "YMAT"
-    ],
-    "headline": "US Stocks Mixed; Enovix Shares Jump",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T11:21:12.671115-04:00",
-    "symbols": [
-      "YMAT"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Dow Futures Gain, Nasdaq 100  Falls as Iran Flags \u2018Inadequate\u2019 US Response to Peace Terms \u2014 SMP, QMCO, SVRN in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T11:21:12.675725-04:00",
-    "symbols": [
-      "YMAT"
-    ],
-    "headline": "11 Consumer Discretionary Stocks Moving In Monday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-12T11:21:12.680467-04:00",
     "symbols": [
       "YMAT"
@@ -5067,5 +5037,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T10:07:28.710209-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "MongoDB shares are trading higher after Needham reiterated its Buy rating and maintained a $430 price target.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T10:07:50.863763-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs CEO Says There Is No Succession Transition Or Timeline At GS; Says 5% 10-year Treasury Yield Doesn&#39;t Scare Me In Terms Of An Operating Environment; Says We&#39;ll Watch Markets Carefully. At The Moment, As We Look At Activity Levels, They Feel Good; On AI Financing, CEO Says As The Financing Needs Grow There Will Be Pressure On Rates, And That Will Affect The Returns And The Viability Certain Projects; CFO Says If There Was A Lot More Interest Rate Volatility, That Could Create Headwinds",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T10:08:39.262345-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Stock Rises to New 52-Week High: What&#39;s Happening?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -3486,6 +3486,15 @@ SETUP_KILL_MAX_CUM_PCT = -20.0   # ...this much cumulative damage, it stops
 # already judged unfit. Win rate is too easy to flip at n=36; a -65% book is
 # disqualifying on its own.
 SETUP_KILL_CUM_HARD_PCT = -40.0
+# The hard cumulative bar is NOT gated on SETUP_KILL_MIN_TRADES. That gate
+# exists so a WIN RATE is never inferred from a handful of trades, which is
+# sound -- but a cumulative drawdown is an arithmetic fact, not an estimate,
+# and shielding it produced exactly the hole found on 2026-10-13: Morning
+# Runner sat at 1W/6L and -43.78% cumulative, already past this bar, yet
+# stayed armed because n=7 < 8. It would have been allowed one more entry at
+# an average of -6.3%/trade before disabling itself. Three trades is enough
+# to rule out a single bad fill, which is all this floor is guarding against.
+SETUP_KILL_HARD_MIN_TRADES = 3
 
 SETUP_PROBATION_SCORE_BONUS = 10    # extra confluence points required for a restricted
                                       # setup, on top of whatever SETUP_MIN_CONFLUENCE
@@ -3757,14 +3766,19 @@ def _setup_is_disabled(setup: str) -> tuple[bool, str]:
     if not flag("ENABLE_SETUP_KILL", ENABLE_SETUP_KILL):
         return False, ""
     _e = _setup_live_record().get((setup or "").strip())
-    if not _e or _e["n"] < SETUP_KILL_MIN_TRADES:
+    if not _e or _e["n"] < SETUP_KILL_HARD_MIN_TRADES:
         return False, ""
     _wr = _e["wins"] / _e["n"]
-    if (_e["cum_pct"] <= SETUP_KILL_CUM_HARD_PCT
-            or (_wr <= SETUP_KILL_MAX_WR
-                and _e["cum_pct"] <= SETUP_KILL_MAX_CUM_PCT)):
-        return True, (f"{_e['wins']}W/{_e['n'] - _e['wins']}L over {_e['n']} live "
-                      f"trades ({_wr*100:.0f}% WR, {_e['cum_pct']:+.1f}% cumulative)")
+    _reason = (f"{_e['wins']}W/{_e['n'] - _e['wins']}L over {_e['n']} live "
+               f"trades ({_wr*100:.0f}% WR, {_e['cum_pct']:+.1f}% cumulative)")
+    # Drawdown bar first: it is a fact about money already lost, so it does
+    # not wait for the sample size that judging a win rate requires.
+    if _e["cum_pct"] <= SETUP_KILL_CUM_HARD_PCT:
+        return True, _reason
+    if _e["n"] < SETUP_KILL_MIN_TRADES:
+        return False, ""
+    if _wr <= SETUP_KILL_MAX_WR and _e["cum_pct"] <= SETUP_KILL_MAX_CUM_PCT:
+        return True, _reason
     return False, ""
 
 

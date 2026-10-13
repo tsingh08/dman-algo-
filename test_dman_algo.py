@@ -24153,9 +24153,20 @@ class TestAKillSwitchMustNotReArmOnOneWin(unittest.TestCase):
         make the switch fire on noise."""
         self.assertFalse(self._dis(20, 8, -25.0))
 
-    def test_a_small_sample_is_never_judged(self):
-        """SETUP_KILL_MIN_TRADES still guards the front door."""
-        self.assertFalse(self._dis(4, 0, -90.0))
+    def test_a_small_sample_is_never_judged_on_its_win_rate(self):
+        """SETUP_KILL_MIN_TRADES still guards the WIN-RATE door: a 0% rate
+        over four trades with moderate damage is not enough to disable.
+
+        Narrowed 2026-10-13. This previously asserted that n=4 at -90% also
+        stayed active, but that was describing the min-trades gate rather
+        than arguing for it -- the gate exists so a RATE is not inferred
+        from a handful of trades. A -90% book is money already lost, not an
+        estimate, so the hard drawdown bar now applies from
+        SETUP_KILL_HARD_MIN_TRADES. The motivating case was Morning Runner
+        sitting at 1W/6L and -43.78%, past the bar yet still armed because
+        n=7 < 8. See TestADrawdownIsAFactNotAnInference."""
+        self.assertFalse(self._dis(4, 0, -25.0))    # inside the hard bar
+        self.assertTrue(self._dis(4, 0, -90.0))     # past it
 
     def test_a_profitable_setup_is_untouched(self):
         self.assertFalse(self._dis(30, 15, 12.0))
@@ -25018,3 +25029,85 @@ class TestTheLookbackCountsFilingDaysNotCalendarDays(unittest.TestCase):
             found, _ = a._check_edgar_8k("TEST", hours_back=30)
         m.assert_called_once()
         self.assertTrue(found)
+
+
+class TestADrawdownIsAFactNotAnInference(unittest.TestCase):
+    """SETUP_KILL_MIN_TRADES was shielding the hard drawdown bar.
+
+    Found during the 2026-10-13 pre-open check. Morning Runner sat at 1W/6L
+    and -43.78% cumulative -- already past SETUP_KILL_CUM_HARD_PCT (-40%) --
+    yet stayed armed because n=7 < 8, so it was entitled to one more entry at
+    an average of -6.3%/trade before disabling itself.
+
+    The min-trades gate exists so a WIN RATE is never inferred from a handful
+    of trades, which is sound: a rate is an estimate and small samples flip
+    easily. A cumulative drawdown is not an estimate. It is money already
+    lost, and it does not become more true at n=8. So the hard bar now needs
+    only SETUP_KILL_HARD_MIN_TRADES (3), enough to rule out one bad fill,
+    while the win-rate test keeps the full sample requirement."""
+
+    def _rec(self, n, wins, cum):
+        return {"Trial Setup": {"n": n, "wins": wins, "cum_pct": cum}}
+
+    def _disabled(self, n, wins, cum):
+        with patch.object(a, "_setup_live_record",
+                          return_value=self._rec(n, wins, cum)), \
+             patch.object(a, "flag", return_value=True):
+            return a._setup_is_disabled("Trial Setup")
+
+    # --- the hole that was found -------------------------------------------
+    def test_a_deep_loser_is_disabled_before_the_full_sample(self):
+        """Morning Runner's exact shape on 2026-10-13."""
+        off, why = self._disabled(7, 1, -43.78)
+        self.assertTrue(off)
+        self.assertIn("-43.8%", why)
+
+    def test_the_win_rate_test_still_waits_for_the_full_sample(self):
+        """Shallower damage is still an inference, so it keeps the n>=8 bar.
+        -31% at n=7 is NOT disabled; the same record at n=8 is."""
+        self.assertFalse(self._disabled(7, 1, -31.0)[0])
+        self.assertTrue(self._disabled(8, 1, -31.0)[0])
+
+    def test_one_or_two_trades_never_disable_anything(self):
+        """The floor that keeps a single bad fill from killing a setup."""
+        for n in (1, 2):
+            self.assertFalse(self._disabled(n, 0, -90.0)[0], n)
+
+    def test_three_bad_trades_are_enough_for_the_hard_bar(self):
+        self.assertTrue(self._disabled(3, 0, -41.0)[0])
+
+    def test_a_small_but_positive_record_stays_active(self):
+        """Day 2 Continuation on 2026-10-13: n=2, +3.61%. Nothing about it
+        is disqualifying and it must keep trading."""
+        self.assertFalse(self._disabled(2, 1, 3.61)[0])
+
+    def test_damage_just_short_of_the_bar_stays_active_at_low_n(self):
+        """-39.9% at n=5 is inside the bar and below the win-rate sample, so
+        neither test fires. Guards against the bar drifting."""
+        self.assertFalse(self._disabled(5, 1, -39.9)[0])
+
+    def test_a_profitable_setup_is_never_disabled_however_long_its_record(self):
+        self.assertFalse(self._disabled(40, 20, 55.0)[0])
+
+    def test_a_low_win_rate_with_profit_is_not_disabled(self):
+        """A few large winners among many small losers is a real shape and
+        the cumulative column is what decides, not the hit rate."""
+        self.assertFalse(self._disabled(20, 2, 30.0)[0])
+
+    # --- unchanged guarantees ----------------------------------------------
+    def test_an_unknown_setup_is_not_disabled(self):
+        with patch.object(a, "_setup_live_record", return_value={}), \
+             patch.object(a, "flag", return_value=True):
+            self.assertFalse(a._setup_is_disabled("Never Traded")[0])
+
+    def test_the_flag_still_switches_the_whole_thing_off(self):
+        with patch.object(a, "_setup_live_record",
+                          return_value=self._rec(40, 0, -200.0)), \
+             patch.object(a, "flag", return_value=False):
+            self.assertFalse(a._setup_is_disabled("Trial Setup")[0])
+
+    def test_the_hard_floor_is_below_the_win_rate_sample_requirement(self):
+        """If these ever cross, the hard bar is shielded again -- which is
+        the whole bug this class exists for."""
+        self.assertLess(a.SETUP_KILL_HARD_MIN_TRADES, a.SETUP_KILL_MIN_TRADES)
+        self.assertGreaterEqual(a.SETUP_KILL_HARD_MIN_TRADES, 3)

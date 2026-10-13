@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-13T09:26:13.195075-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Reported October 12, Anthropic Says AI Models May Be Capable Of Self-Replicating Without Access To A Data Center",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T09:26:13.198551-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Micron&#39;s Monster Rally Faces Reality Check: China, Bearish Bets and AI Jitters",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T09:26:13.412228-04:00",
     "symbols": [
       "TSLA"
@@ -5043,5 +5023,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T14:10:45.015293-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Fed\u2019s Williams Currently Sees No Need For Rate Hike In 2027&#39; - Bloomberg News",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T14:11:46.381494-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle shares are trading higher after the company announced a proposed Energy Service Agreement with El Paso Electric for Project Jupiter. Also, the company announced a collaborative effort with Marvell Technology and Microsoft aligned with the Open Compute Project aimed at standardizing a NIST FIPS 140-3 Level 3 integrated HSM for cloud and hyperscale data center infrastructure.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

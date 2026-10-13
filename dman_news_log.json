@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-13T09:26:23.732157-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Reported October 12, Anthropic Says AI Models May Be Capable Of Self-Replicating Without Access To A Data Center",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T09:26:23.737657-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Performance Comparison: Adobe And Competitors In Software Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T09:26:23.943027-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Goldman\u2019s Stock Traders Made $6.4 Billion in 3 Months: Bond Traders Had a Very Different Quarter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T09:26:23.946766-04:00",
     "symbols": [
       "SPY"
@@ -5043,6 +5013,36 @@
       "GOSS"
     ],
     "headline": "Chardan Capital Initiates Coverage On Gossamer Bio with Buy Rating, Announces Price Target of $160",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T15:35:09.302553-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Bitcoin Is Worth $105,000, Mark Yusko Says\u2014But It&#39;ll Take Time",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T15:35:22.459299-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Marvell Technology, Microsoft, Oracle Collaborate For Open Compute Project To Standardize NIST FIPS 140-3 Integrated HSM For Cloud, Hyperscale Data Center Infrastructure",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T15:35:22.467109-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Performance Comparison: Adobe And Competitors In Software Industry",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T09:26:24.173548-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "S&amp;P 500 Above 8,000? Fidelity\u2019s Timmer Sees Q3 Earnings and Seasonal Tailwinds Powering Bull Market",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T09:26:24.177397-04:00",
     "symbols": [
       "QQQ"
@@ -5046,5 +5036,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T16:03:54.093966-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Federal Reserve Bank Of Boston President Susan Collins Said Interest Rates Will Likely Need To Rise More Before The End Of The Year To Help Rein In Inflation&#39; - Bloomberg News",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

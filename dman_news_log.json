@@ -1,362 +1,5 @@
 [
   {
-    "ts": "2026-10-12T14:33:38.068035-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "China\u2019s 4F\u00b2 Threat To Micron\u2014Houthis&#39; Deadly Attack On Saudi Arabia Eclipses Trump\u2019s Russian Diesel Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T14:33:40.809891-04:00",
-    "symbols": [
-      "BMBL"
-    ],
-    "headline": "Bumble Shares Resume Trade",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T14:33:40.813627-04:00",
-    "symbols": [
-      "BMBL"
-    ],
-    "headline": "Bumble Shares Halted On Circuit Breaker To The Upside, Stock Now Up 21.26%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T14:38:19.248013-04:00",
-    "symbols": [
-      "CRWD",
-      "NBIS",
-      "ORCL",
-      "PANW",
-      "SOUN",
-      "VEEA",
-      "ZS"
-    ],
-    "headline": "Shares of software companies are trading lower amid a broader technology sell-off led by declines in Micron and other semiconductor stocks. Comments from Intel and Broadcom CEOs that limited access to capital could constrain AI expansion, despite strong demand for computing infrastructure, are adding to concerns about the sustainability of tech-sector growth.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T14:39:43.573716-04:00",
-    "symbols": [
-      "BABA",
-      "BBAI",
-      "BIDU",
-      "GFAI",
-      "GOOGL",
-      "META",
-      "MSFT",
-      "NVDA",
-      "QCOM",
-      "SOUN",
-      "SPY"
-    ],
-    "headline": "&#39;Trump Administration Plans to Move AI Testing Agency Officials to White House; The White House Seeks To Integrate Caissi Into AI Decision-making Process&#39; - The Information",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T14:41:07.506765-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "Shield AI Is Taking GE Aerospace Deeper into AI&#39;s Most Unusual Battleground",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T14:41:13.608865-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "'Trump Administration Plans to Move AI Testing Agency Officials to White House; The White House Seeks To Integrate Caissi Into AI Decision-making Process' - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-12T14:41:13.705361-04:00",
-    "symbols": [
-      "BBAI"
-    ],
-    "headline": "'Trump Administration Plans to Move AI Testing Agency Officials to White House; The White House Seeks To Integrate Caissi Into AI Decision-making Process' - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T14:41:13.875780-04:00",
-    "symbols": [
-      "GFAI"
-    ],
-    "headline": "'Trump Administration Plans to Move AI Testing Agency Officials to White House; The White House Seeks To Integrate Caissi Into AI Decision-making Process' - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T14:42:43.115678-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Platforms Chief AI Officer Alexander Wang Posts On X &#34;we are working to resolve a bug in how muse wonder and muse wonder full are counting against usage limits for Muse Code subscribers. this is not intended behavior -- we will update everyone once we have fixed it and issue resets&#34;",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T14:49:07.506069-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "JP Morgan Maintains Overweight on Apple, Raises Price Target to $360",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T14:49:18.145751-04:00",
-    "symbols": [
-      "WFF"
-    ],
-    "headline": "WF Holding Shares Halted On Circuit Breaker To The Downside, Stock Now Up 240.76%",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T14:49:31.206458-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;Trump Administration Plans to Move AI Testing Agency Officials to White House; The White House Seeks To Integrate Caissi Into AI Decision-making Process&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T14:49:31.362643-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;Trump Administration Plans to Move AI Testing Agency Officials to White House; The White House Seeks To Integrate Caissi Into AI Decision-making Process&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T14:49:31.613955-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#39;Trump Administration Plans to Move AI Testing Agency Officials to White House; The White House Seeks To Integrate Caissi Into AI Decision-making Process&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T14:49:31.710159-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;Trump Administration Plans to Move AI Testing Agency Officials to White House; The White House Seeks To Integrate Caissi Into AI Decision-making Process&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T14:49:32.730451-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "&#39;Trump Administration Plans to Move AI Testing Agency Officials to White House; The White House Seeks To Integrate Caissi Into AI Decision-making Process&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T14:49:34.931160-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "&#39;Trump Administration Plans to Move AI Testing Agency Officials to White House; The White House Seeks To Integrate Caissi Into AI Decision-making Process&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T14:49:34.936566-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "&#39;Trump Administration Plans to Move AI Testing Agency Officials to White House; The White House Seeks To Integrate Caissi Into AI Decision-making Process&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-12T14:49:35.102243-04:00",
-    "symbols": [
-      "SOUN"
-    ],
-    "headline": "&#39;Trump Administration Plans to Move AI Testing Agency Officials to White House; The White House Seeks To Integrate Caissi Into AI Decision-making Process&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T14:49:35.106987-04:00",
-    "symbols": [
-      "BBAI"
-    ],
-    "headline": "&#39;Trump Administration Plans to Move AI Testing Agency Officials to White House; The White House Seeks To Integrate Caissi Into AI Decision-making Process&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T14:49:36.765142-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Trump Administration Plans to Move AI Testing Agency Officials to White House; The White House Seeks To Integrate Caissi Into AI Decision-making Process&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T14:49:37.246736-04:00",
-    "symbols": [
-      "GFAI"
-    ],
-    "headline": "&#39;Trump Administration Plans to Move AI Testing Agency Officials to White House; The White House Seeks To Integrate Caissi Into AI Decision-making Process&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T14:49:39.380949-04:00",
-    "symbols": [
-      "AI"
-    ],
-    "headline": "&#39;Trump Administration Plans to Move AI Testing Agency Officials to White House; The White House Seeks To Integrate Caissi Into AI Decision-making Process&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T14:52:11.686655-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "GameStop Stock Hits a New 52-Week High: What&#39;s Going On?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T14:52:18.242412-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "AMD Rolls Out AMD Helion Agentic AI Rack",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T14:52:18.250936-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Flo Health And Google Health Announce Multi-Year Partnership And Strategic Investment To Advance Personalized Women\u2019s Health Insights; Details Of The Terms Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T14:52:18.261741-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix\u2019s Q3 Guidance Calls for About 12% Revenue Growth. Here\u2019s the Bar for Oct. 20",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-12T14:52:18.288342-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Marvell Technology Unveils Second-Generation Marvell Structera X 3406, Marvell Structera X 3506 CXL Memory Expanders",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T14:52:18.656610-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Wells Fargo Downgrades Adobe to Underweight, Says AI Survey Shows It Is Losing Budget Share",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T15:01:49.980266-04:00",
-    "symbols": [
-      "AAPL",
-      "GOOGL"
-    ],
-    "headline": "Google Comes for Apple\u2019s Health Data Advantage. Here\u2019s What Changes",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T15:02:24.326731-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Google Comes for Apple\u2019s Health Data Advantage. Here\u2019s What Changes",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T15:02:25.082884-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google Comes for Apple\u2019s Health Data Advantage. Here\u2019s What Changes",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T15:08:08.070418-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Why the US May Lag China in AI Agent Adoption: \u2018Life Is Good\u2019 in the West, IMD Professor Says",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-12T15:09:40.633228-04:00",
     "symbols": [
       "NET"
@@ -5065,5 +4708,345 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T13:14:08.814497-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T13:14:09.005224-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: JP Morgan Chase &amp; Co., Meta Platforms, West Pharmaceutical Services, iShares U.S. Energy ETF",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T13:14:09.167683-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Amazon, Walmart Face New AI Shopping Test: Will Chatbots Recommend Them?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T13:14:09.413510-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon, Walmart Face New AI Shopping Test: Will Chatbots Recommend Them?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T13:14:09.781586-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Ben Affleck Says Holding AI Companies Accountable Is Simple. &#39;If You Have A Company That Hurts People, You&#39;re Liable For That&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T13:14:10.820434-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T13:14:10.825722-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Applied Materials To Distribute 80% - 100% Of Free Cash Flow To Shareholders Over Time; Anticipates Over $12B In Revenue By 2030; Ebeam Equipment Portfolio Expected To Generate $2B In Revenue In Calendar Year 2026; Expects Wafer Fab Equipment Market Share Gain Of 2% From 2025 Through 2030",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T13:14:11.050962-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T13:14:11.569494-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T13:14:18.862085-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T13:14:19.020406-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: JP Morgan Chase &amp; Co., Meta Platforms, West Pharmaceutical Services, iShares U.S. Energy ETF",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T13:14:19.025078-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T13:14:19.030188-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Bank of America Q3 Preview: Stock Down in 2026, Could 5th Straight Double Beat Change Momentum?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T13:14:19.226262-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T13:14:19.969037-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "UnitedHealth Raises Guidance: What It Means for XLV and Other Healthcare ETFs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T13:14:20.493408-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Netanyahu Discusses New Military Operation In Iran With Trump - Even Before The Election",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T13:14:20.498023-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Paul Tudor Jones Says Oil Can Rally Another $25, Warns 2027 Will Be &#39;Really Challenging&#39; for Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T13:14:20.676625-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T13:14:20.857499-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T13:14:21.258384-04:00",
+    "symbols": [
+      "CDT"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T13:14:21.385618-04:00",
+    "symbols": [
+      "CPOP"
+    ],
+    "headline": "11 Communication Services Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T13:14:22.749536-04:00",
+    "symbols": [
+      "SCNI"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T13:14:22.936680-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Paul Tudor Jones Says Oil Can Rally Another $25, Warns 2027 Will Be &#39;Really Challenging&#39; for Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T13:14:23.107738-04:00",
+    "symbols": [
+      "SXTC"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T13:14:23.456520-04:00",
+    "symbols": [
+      "WFF"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T13:14:23.612016-04:00",
+    "symbols": [
+      "YHC"
+    ],
+    "headline": "11 Communication Services Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T13:14:23.784425-04:00",
+    "symbols": [
+      "YJ"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T13:14:24.166000-04:00",
+    "symbols": [
+      "TCRT"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T13:14:24.358345-04:00",
+    "symbols": [
+      "BMBL"
+    ],
+    "headline": "11 Communication Services Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T13:14:24.532101-04:00",
+    "symbols": [
+      "FCHL"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T13:14:25.060759-04:00",
+    "symbols": [
+      "FRMI"
+    ],
+    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T13:14:26.007023-04:00",
+    "symbols": [
+      "JYD"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T13:14:26.646586-04:00",
+    "symbols": [
+      "FLYE"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T13:14:27.128554-04:00",
+    "symbols": [
+      "RGC"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

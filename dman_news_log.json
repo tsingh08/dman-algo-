@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T09:26:12.152583-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "The &#39;Other Yellow Metal&#39;: Why Speculators Are Loading on Uranium",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-13T09:26:12.156263-04:00",
     "symbols": [
       "MSFT"
@@ -5041,6 +5031,16 @@
     ],
     "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T13:46:25.742977-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Sees Deal Delays, Not Cancellations, During Market Uncertainty",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

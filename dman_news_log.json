@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-12T13:13:39.098144-04:00",
-    "symbols": [
-      "CLWT"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T13:13:39.166088-04:00",
-    "symbols": [
-      "LNKS"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T13:13:39.296624-04:00",
-    "symbols": [
-      "SKYA"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T13:13:39.427260-04:00",
-    "symbols": [
-      "DAIC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-12T13:13:39.684198-04:00",
     "symbols": [
       "CCC"
@@ -5073,5 +5033,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T11:33:04.493427-04:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "TD Cowen Maintains Buy on Cloudflare, Raises Price Target to $375",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T11:33:43.518293-04:00",
+    "symbols": [
+      "BBAI"
+    ],
+    "headline": "BigBear.AI Stock Jumps: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-13T11:34:12.576540-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "EXCLUSIVE: Banks Could Lose Deposit Advantage to Stablecoins, Tether Co-Founder Warns",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T11:34:23.917517-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "TD Cowen Maintains Buy on Fortinet, Raises Price Target to $225",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

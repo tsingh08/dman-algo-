@@ -1,31 +1,5 @@
 [
   {
-    "ts": "2026-10-12T12:16:21.738425-04:00",
-    "symbols": [
-      "MEDS"
-    ],
-    "headline": "DataMeds AI Stock Rises After Humana Adds Medicaid Coverage for ChemoFx Cancer Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T12:17:34.932981-04:00",
-    "symbols": [
-      "AMAT",
-      "AMD",
-      "AVGO",
-      "MRVL",
-      "MU",
-      "NVDA",
-      "QQQ"
-    ],
-    "headline": "Michael Burry&#39;s Big Short Gets Broader: Nvidia-Heavy Chip ETF, Nasdaq Now in Focus",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-12T12:18:50.658063-04:00",
     "symbols": [
       "PLTR"
@@ -5064,6 +5038,46 @@
       "TLT"
     ],
     "headline": "Cash Is King Again? Record Money Market Inflows Put These Treasury ETFs on the Radar",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T11:00:14.554135-04:00",
+    "symbols": [
+      "AAPL",
+      "ADBE",
+      "AMZN",
+      "GOOGL",
+      "MSFT",
+      "NFLX",
+      "SPOT"
+    ],
+    "headline": "Google, Amazon and Apple Are in AI&#39;s Inner Circle. These 15 Domains Made the Cut",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T11:01:01.308320-04:00",
+    "symbols": [
+      "ABBV",
+      "AVGO",
+      "CAT",
+      "CVX",
+      "DIA",
+      "GOOGL",
+      "IWM",
+      "META",
+      "NFLX",
+      "NVDA",
+      "ORCL",
+      "QQQ",
+      "RTX",
+      "SPY",
+      "XOM"
+    ],
+    "headline": "Cyclicals Lead Sectors In Tuesday Trading As Health Care Trails",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

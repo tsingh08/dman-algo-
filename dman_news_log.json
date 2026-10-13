@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T09:26:13.191422-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "The &#39;Other Yellow Metal&#39;: Why Speculators Are Loading on Uranium",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T09:26:13.195075-04:00",
     "symbols": [
       "AMZN"
@@ -5043,5 +5033,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T14:05:48.174082-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Elon Musk Says Robot Hands Are &#39;Shockingly Difficult&#39;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

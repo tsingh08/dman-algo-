@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-13T09:26:13.412228-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Goldman Says Tesla\u2019s Robotaxi, Optimus Outlook Will Matter More Than Q3 Earnings. Here\u2019s the Bar for Oct. 21",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T09:26:13.415955-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Maye Musk Praises Elon Musk\u2019s \u2018Safety First\u2019 Focus After Tesla Owner Says EV Saved Him and Son in Crash",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T09:26:13.419528-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Alexandr Wang Brought Elon Musk\u2019s Lean-Team Playbook to Mark Zuckerberg \u2014 It\u2019s Now One of the \u2018Tentpoles\u2019 of Meta\u2019s AI Strategy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T09:26:13.422988-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Bernie Sanders Says \u2018Stop Musk\u2019 as Tesla CEO Spends $366 Million to Keep GOP in Control \u2014 Elon Musk Got $696 Billion Richer Since Trump\u2019s Re-Election",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-13T09:26:13.426511-04:00",
     "symbols": [
       "TSLA"
@@ -5043,5 +5003,46 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T14:13:37.590659-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Fed&#39;s Williams Said There Are Still Signs Inflation Will Slow &#34;Quite A Bit\u201d And Approach The Fed\u2019s 2% Target Next Year&#39; - Bloomberg News",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T14:15:13.125024-04:00",
+    "symbols": [
+      "CVX",
+      "XOM"
+    ],
+    "headline": "Guyana May Scale Back LNG Plans As Exxon Needs More Gas For Its Wells, Sources Say",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T14:15:31.063491-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Goldman Says Tesla\u2019s Robotaxi, Optimus Outlook Will Matter More Than Q3 Earnings. Here\u2019s the Bar for Oct. 21",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-13T14:15:31.068426-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Maye Musk Praises Elon Musk\u2019s \u2018Safety First\u2019 Focus After Tesla Owner Says EV Saved Him and Son in Crash",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T09:26:14.734136-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Elon Musk Fires Back at Broadcom CEO Hock Tan&#39;s AI Investment Warning: &#39;No Crying in the Casino&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T09:26:14.737696-04:00",
     "symbols": [
       "AVGO"
@@ -5044,5 +5034,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T14:20:54.145312-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "BZ Analysis: The S&amp;P 500 Now Has The Highest Number Of Stocks With A Negative Beta In History",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

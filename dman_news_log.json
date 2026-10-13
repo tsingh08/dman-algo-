@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-12T14:17:23.457230-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "China\u2019s 4F\u00b2 Threat to Micron\u2014Houthis&#39; Deadly Attack On Saudi Arabia Eclipses Trump\u2019s Russian Diesel Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T14:17:23.665698-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "China\u2019s 4F\u00b2 Threat to Micron\u2014Houthis&#39; Deadly Attack On Saudi Arabia Eclipses Trump\u2019s Russian Diesel Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T14:17:25.122788-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "China\u2019s 4F\u00b2 Threat to Micron\u2014Houthis&#39; Deadly Attack On Saudi Arabia Eclipses Trump\u2019s Russian Diesel Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T14:17:25.520412-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "China\u2019s 4F\u00b2 Threat to Micron\u2014Houthis&#39; Deadly Attack On Saudi Arabia Eclipses Trump\u2019s Russian Diesel Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T14:17:29.335165-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "Reported Thursday October 8, 2026: &#34;Seminole Tribe Sues Over DraftKings Predictions in Florida&#34; - Bloomberg Law",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-12T14:17:34.286438-04:00",
     "symbols": [
       "QQQ"
@@ -5064,5 +5014,56 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-13T12:39:19.295754-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Fermi Secures AMD Backing For Texas AI Project",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T12:39:43.683671-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Watching Marvell Technology; Hearing Investor Business Daily SwingTrader Buys Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T12:39:43.763967-04:00",
+    "symbols": [
+      "XTND"
+    ],
+    "headline": "Bumble, Fermi, Xtend AI Robotics And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T12:39:43.772094-04:00",
+    "symbols": [
+      "AGBK"
+    ],
+    "headline": "Bumble, Fermi, Xtend AI Robotics And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T12:40:46.598889-04:00",
+    "symbols": [
+      "MU",
+      "SNDK"
+    ],
+    "headline": "Western Digital Stock Under Pressure as Rising Asian Production Raises Supply Concerns",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

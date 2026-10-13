@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-12T13:20:46.290988-04:00",
-    "symbols": [
-      "YMAT"
-    ],
-    "headline": "Dow Gains Over 200 Points; Chipotle Shares Move Lower",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T13:20:46.371580-04:00",
-    "symbols": [
-      "CTNM"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T13:20:46.376457-04:00",
-    "symbols": [
-      "CTNM"
-    ],
-    "headline": "Why Is Contineum Therapeutics Stock Falling Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-12T13:20:46.541297-04:00",
     "symbols": [
       "GRML"
@@ -5073,6 +5043,38 @@
     ],
     "headline": "Samsung, SK Hynix Fall In Seoul On China Memory Threat\u2014Broadcom CEO Compares AI Investors To Casino Gamblers\u2014JPM Whipsaws",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T12:03:28.229609-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Lockheed Martin, Avio Announce Strategic Cooperation Agreement For Solid Rocket Motor Production",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T12:04:48.962169-04:00",
+    "symbols": [
+      "DDOG"
+    ],
+    "headline": "Barclays Maintains Overweight on Datadog, Raises Price Target to $300",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T12:05:35.242107-04:00",
+    "symbols": [
+      "MU",
+      "SKHY",
+      "SNDK"
+    ],
+    "headline": "Shares of memory- and storage-related chip companies are trading lower amid concerns over Chinese competition, following reports this week that ChangXin Memory Technologies advanced development of a new DRAM cell structure to increase storage density and efficiency. The sector is also under pressure after South Korea\u2019s Kospi fell 5.5% to its lowest level since July 31, with SK Hynix plunging more than 10% in Seoul trading.",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

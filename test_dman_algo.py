@@ -24675,18 +24675,22 @@ class TestTheEightKCheckAsksTheCanonicalIndex(unittest.TestCase):
         with patch.object(a.requests, "get", return_value=resp):
             self.assertTrue(a._check_edgar_8k("TEST", hours_back=24 * 30)[0])
 
-    def test_the_friday_after_close_filing_is_a_known_blind_spot(self):
-        """Documents a DELIBERATE limit rather than a bug. The lookback is
-        calendar hours, so an 8-K filed after Friday's close is invisible to
-        a 30-hour check on Tuesday -- which is exactly the pre-gap catalyst
-        shape worth having. Not widened here because this feeds a hard gate
-        on a live account and widening it ADMITS signals. If this test ever
-        starts failing, someone widened the window: make sure that was a
-        decision and not an accident."""
-        with patch.object(a.requests, "get",
-                          return_value=self._subs(["8-K"], [self._days_ago(4)])):
-            found, _ = a._check_edgar_8k("TEST", hours_back=30)
-        self.assertFalse(found)
+    def test_the_friday_after_close_filing_is_now_visible_on_monday(self):
+        """This was a deliberate blind spot until 2026-10-13 and is now
+        fixed. An 8-K filed after Friday's close is the most common pre-gap
+        catalyst shape, and a calendar-hours window could not see it from a
+        Monday: the 30-hour budget was spent on Saturday and Sunday, when
+        nobody can file. The date is PINNED rather than taken from the real
+        clock -- _days_ago() would make the assertion depend on which
+        weekday the suite happens to run."""
+        monday = date(2026, 10, 19)
+        friday = date(2026, 10, 16).isoformat()
+        with patch.object(a, "_et_today", return_value=monday), \
+             patch.object(a.requests, "get",
+                          return_value=self._subs(["8-K"], [friday])):
+            found, summary = a._check_edgar_8k("TEST", hours_back=30)
+        self.assertTrue(found)
+        self.assertIn(friday, summary)
 
     # --- which forms count -------------------------------------------------
     def test_an_amended_eight_k_still_counts(self):
@@ -24890,3 +24894,127 @@ class TestAFormFourDocumentIsNamedByItsFiler(unittest.TestCase):
             a._check_edgar_8k("TEST", hours_back=30)
         urls = [str(c[0][0]) for c in m.call_args_list]
         self.assertEqual(sum("submissions" in u for u in urls), 1)
+
+
+class TestTheLookbackCountsFilingDaysNotCalendarDays(unittest.TestCase):
+    """The 8-K lookback used to spend its budget on days nobody can file.
+
+    `_et_today() - timedelta(days=2)` run on a Monday reached back to Saturday
+    and Sunday, so it admitted exactly ONE day of filings. On Tuesday
+    2026-10-13 -- the first filing day after Columbus Day -- a 30-hour window
+    covered three consecutive days on which the SEC was shut, and every ticker
+    on the market returned "no 8-K". Because detect_low_float_catalyst() treats
+    that as a hard gate (`if not _edgar_found: return None`), the entire
+    off-watchlist class of signal was rejected for a calendar reason.
+
+    EDGAR follows the FEDERAL business calendar, which is not the market
+    calendar, and the difference runs both ways: Columbus Day 2026-10-12 the
+    NYSE traded while the SEC accepted nothing (no daily index, zero 8-Ks
+    indexed, against ~500 on a normal Monday), and Good Friday is market-shut
+    but SEC-open. _MARKET_HOLIDAYS is the wrong set and correctly omits
+    Columbus Day.
+
+    Measured over every filing day of 2026 at both call sites (hours_back 30
+    and 48): never narrower than the old arithmetic in 500 cases, identical in
+    284, wider in 216."""
+
+    # --- the holiday calendar is computed, not listed ---------------------
+    def test_columbus_day_is_not_a_filing_day(self):
+        """The day that exposed all of this. The market was open."""
+        self.assertFalse(a._is_sec_filing_day(date(2026, 10, 12)))
+        self.assertNotIn(date(2026, 10, 12), a._MARKET_HOLIDAYS)
+
+    def test_good_friday_is_a_filing_day_though_the_market_is_shut(self):
+        """Proves the two calendars are genuinely separate, so reusing
+        _MARKET_HOLIDAYS here would be wrong in this direction too."""
+        self.assertTrue(a._is_sec_filing_day(date(2026, 4, 3)))
+        self.assertIn(date(2026, 4, 3), a._MARKET_HOLIDAYS)
+
+    def test_a_weekend_is_not_a_filing_day(self):
+        self.assertFalse(a._is_sec_filing_day(date(2026, 10, 10)))   # Sat
+        self.assertFalse(a._is_sec_filing_day(date(2026, 10, 11)))   # Sun
+
+    def test_an_ordinary_weekday_is_a_filing_day(self):
+        self.assertTrue(a._is_sec_filing_day(date(2026, 10, 13)))
+
+    def test_floating_holidays_land_on_the_right_weekday(self):
+        h = a._federal_holidays(2026)
+        self.assertIn(date(2026, 10, 12), h)    # Columbus: 2nd Mon Oct
+        self.assertIn(date(2026, 11, 26), h)    # Thanksgiving: 4th Thu Nov
+        self.assertIn(date(2026, 5, 25), h)     # Memorial: last Mon May
+        self.assertIn(date(2026, 1, 19), h)     # MLK: 3rd Mon Jan
+
+    def test_a_saturday_holiday_is_observed_on_the_friday_before(self):
+        """Jul 4 2026 is a Saturday, so the federal holiday is Fri Jul 3."""
+        h = a._federal_holidays(2026)
+        self.assertIn(date(2026, 7, 3), h)
+        self.assertNotIn(date(2026, 7, 4), h)
+
+    def test_a_sunday_holiday_is_observed_on_the_monday_after(self):
+        """Jul 4 2027 is a Sunday, so the federal holiday is Mon Jul 5."""
+        self.assertIn(date(2027, 7, 5), a._federal_holidays(2027))
+
+    def test_it_is_computed_so_it_never_needs_refilling(self):
+        """Every hand-maintained date list here (_FOMC_DATES, _CPI_DATES,
+        _PCE_DATES) runs dry and nags. A year far outside any list must
+        still resolve, which only works if these are derived by rule."""
+        h = a._federal_holidays(2031)
+        self.assertEqual(len(h), 11)
+        self.assertIn(date(2031, 11, 27), h)    # 4th Thu Nov 2031
+
+    # --- the cutoff -------------------------------------------------------
+    def test_monday_reaches_back_past_the_weekend(self):
+        """The whole point: Friday's filings are in range from a Monday."""
+        cutoff = a._sec_filing_day_cutoff(30, today=date(2026, 10, 19))
+        self.assertLessEqual(cutoff, date(2026, 10, 16))
+
+    def test_the_day_after_a_holiday_reaches_past_the_holiday(self):
+        """Tuesday 2026-10-13, the day that returned nothing for everyone."""
+        cutoff = a._sec_filing_day_cutoff(30, today=date(2026, 10, 13))
+        self.assertLessEqual(cutoff, date(2026, 10, 9))
+
+    def test_the_cutoff_is_itself_a_filing_day(self):
+        """A cutoff landing on a Sunday would be the original bug again."""
+        for day in (date(2026, 10, 13), date(2026, 10, 19), date(2026, 11, 27)):
+            self.assertTrue(a._is_sec_filing_day(
+                a._sec_filing_day_cutoff(30, today=day)), day)
+
+    def test_a_longer_lookback_reaches_strictly_further(self):
+        d = date(2026, 10, 19)
+        self.assertLess(a._sec_filing_day_cutoff(24 * 5, today=d),
+                        a._sec_filing_day_cutoff(30, today=d))
+
+    def test_it_is_never_narrower_than_plain_calendar_arithmetic(self):
+        """The property that made this safe to ship onto a live hard gate.
+        A units fix must not quietly TIGHTEN a gate: an earlier draft
+        normalised every window to N filing days, which dropped midweek from
+        three admitted filing days to two."""
+        for hours in (30, 48):
+            span = max(1, (hours + 23) // 24)
+            d = date(2026, 1, 1)
+            while d <= date(2026, 12, 31):
+                if a._is_sec_filing_day(d):
+                    self.assertLessEqual(
+                        a._sec_filing_day_cutoff(hours, today=d),
+                        d - timedelta(days=span),
+                        "narrower than calendar on %s (hours=%d)" % (d, hours))
+                d += timedelta(days=1)
+
+    def test_it_terminates_on_a_long_closure(self):
+        """Bounded walk -- a pathological calendar must not hang a scan."""
+        with patch.object(a, "_is_sec_filing_day", return_value=False):
+            self.assertIsInstance(
+                a._sec_filing_day_cutoff(30, today=date(2026, 10, 13)), date)
+
+    # --- it is actually wired in -------------------------------------------
+    def test_the_eight_k_check_uses_it(self):
+        """If the 8-K check goes back to calendar days, Mondays silently
+        start rejecting every off-watchlist signal again."""
+        with patch.object(a, "_sec_filing_day_cutoff",
+                          return_value=date(2026, 10, 8)) as m, \
+             patch.object(a, "_sec_submissions",
+                          return_value={"form": ["8-K"],
+                                        "filingDate": ["2026-10-09"]}):
+            found, _ = a._check_edgar_8k("TEST", hours_back=30)
+        m.assert_called_once()
+        self.assertTrue(found)

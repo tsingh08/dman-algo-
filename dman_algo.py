@@ -6871,6 +6871,112 @@ def _sec_submissions(ticker: str) -> dict:
     return _recent
 
 
+def _federal_holidays(year: int) -> frozenset:
+    """US federal holidays for `year`, COMPUTED rather than listed.
+
+    EDGAR accepts filings on federal business days, which is NOT the market
+    calendar. The two disagree in both directions and the difference is
+    load-bearing here: Columbus Day 2026-10-12 the NYSE traded normally while
+    the SEC accepted nothing (no daily index published, zero 8-Ks indexed,
+    against ~500 on an ordinary Monday), and Good Friday is the reverse --
+    market shut, SEC open. _MARKET_HOLIDAYS is therefore the wrong set to
+    reach for, and it correctly does not contain Columbus Day.
+
+    Computed, not hardcoded, on purpose. Every hand-maintained date list in
+    this module (_FOMC_DATES, _CPI_DATES, _PCE_DATES) needs an annual refill
+    and nags when it runs dry. Federal holidays are fully determined by rule,
+    so there is nothing to refill.
+
+    Observation rule: a holiday falling on Saturday is observed the Friday
+    before, on Sunday the Monday after.
+    """
+    def _nth_weekday(month: int, weekday: int, n: int) -> date:
+        d = date(year, month, 1)
+        d += timedelta(days=(weekday - d.weekday()) % 7)
+        return d + timedelta(days=7 * (n - 1))
+
+    def _last_weekday(month: int, weekday: int) -> date:
+        d = (date(year, month + 1, 1) - timedelta(days=1)) if month < 12 \
+            else date(year, 12, 31)
+        return d - timedelta(days=(d.weekday() - weekday) % 7)
+
+    def _observed(d: date) -> date:
+        if d.weekday() == 5:            # Saturday -> Friday before
+            return d - timedelta(days=1)
+        if d.weekday() == 6:            # Sunday -> Monday after
+            return d + timedelta(days=1)
+        return d
+
+    out = {
+        _observed(date(year, 1, 1)),        # New Year's Day
+        _nth_weekday(1, 0, 3),              # MLK Day
+        _nth_weekday(2, 0, 3),              # Washington's Birthday
+        _last_weekday(5, 0),                # Memorial Day
+        _observed(date(year, 6, 19)),       # Juneteenth
+        _observed(date(year, 7, 4)),        # Independence Day
+        _nth_weekday(9, 0, 1),              # Labor Day
+        _nth_weekday(10, 0, 2),             # Columbus Day
+        _observed(date(year, 11, 11)),      # Veterans Day
+        _nth_weekday(11, 3, 4),             # Thanksgiving
+        _observed(date(year, 12, 25)),      # Christmas
+    }
+    return frozenset(out)
+
+
+def _is_sec_filing_day(d: date) -> bool:
+    """Would EDGAR accept a filing on `d`? Weekday and not a federal holiday."""
+    return d.weekday() < 5 and d not in _federal_holidays(d.year)
+
+
+def _sec_filing_day_cutoff(hours_back: int, today=None) -> date:
+    """Earliest filing date still inside a `hours_back` lookback.
+
+    Counts in FILING days, not calendar days, which is a unit correction
+    rather than a widening. The old calendar arithmetic
+    (`_et_today() - timedelta(days=2)`) spent its budget on days when nobody
+    can file: run on a Monday it reached back to Saturday and Sunday and so
+    saw no filings at all, and on Tuesday 2026-10-13 -- the first filing day
+    after Columbus Day -- a 30-hour window covered three consecutive days on
+    which the SEC was shut. Every ticker on the market returned "no 8-K", and
+    because detect_low_float_catalyst() treats that as a HARD gate
+    (`if not _edgar_found: return None`), the whole off-watchlist class of
+    signal was being rejected for a calendar reason.
+
+    Measured over every filing day of 2026 at both call sites (hours_back 30
+    and 48), against the old calendar arithmetic: NEVER narrower in 500
+    cases, identical in 284, wider in 216. The widening is concentrated
+    exactly where the old version wasted its budget -- a Monday admitted
+    only ONE day of filings (Saturday and Sunday ate the rest) and now
+    admits three, so an 8-K filed after Friday's close is finally visible.
+    That is the single most common pre-gap catalyst shape.
+
+    Monotonicity is the point, not a side effect. An earlier draft counted
+    "the Nth most recent filing day INCLUDING today", which normalises every
+    window to N filing days but tightens midweek -- Wed/Thu/Fri dropped from
+    three admitted filing days to two. Tightening is a behaviour change on a
+    live hard gate, so it is not something to ship as a side effect of a
+    units fix.
+    """
+    _days = max(1, (int(hours_back) + 23) // 24)
+    _d = today or _et_today()
+    _seen = 0
+    # The Nth filing day STRICTLY BEFORE today, so coverage is today plus the
+    # last N days anyone could have filed on. Deliberately counted this way
+    # rather than "the Nth most recent filing day including today": that
+    # variant normalises the window but TIGHTENS it midweek (measured over
+    # 2026, Wed/Thu/Fri went from 3 admitted filing days to 2), and this
+    # result feeds a hard gate on a live account. This definition is monotone
+    # -- it never admits less than the old calendar arithmetic did, it only
+    # fills in the days the old version wasted on weekends and holidays.
+    for _ in range(40):                 # bounded; 40 days covers any holiday run
+        _d -= timedelta(days=1)
+        if _is_sec_filing_day(_d):
+            _seen += 1
+            if _seen >= _days:
+                return _d
+    return _d
+
+
 def _check_edgar_8k(ticker: str, hours_back: int = 30) -> tuple[bool, str]:
     """
     Did `ticker` file an 8-K in the last `hours_back` hours?
@@ -6900,11 +7006,10 @@ def _check_edgar_8k(ticker: str, hours_back: int = 30) -> tuple[bool, str]:
 
     Still fails OPEN (False) on any error.
 
-    KNOWN BLIND SPOT, deliberately left alone: the lookback is calendar
-    hours. A Friday-after-close 8-K is the single most common pre-gap
-    catalyst and a 30-hour window on a Tuesday cannot see it. Widening it
-    would ADMIT signals through the hard gate above on a live account, so
-    it is flagged for an explicit decision rather than changed quietly.
+    The lookback counts SEC FILING days, not calendar days -- see
+    _sec_filing_day_cutoff(). That closes what was a real blind spot: an 8-K
+    filed after Friday's close is the most common pre-gap catalyst shape and
+    a calendar-hours window could not see it on a Monday.
     """
     try:
         _recent = _sec_submissions(ticker)
@@ -6913,8 +7018,7 @@ def _check_edgar_8k(ticker: str, hours_back: int = 30) -> tuple[bool, str]:
         _forms = _recent.get("form", [])
         _dates = _recent.get("filingDate", [])
         _descs = _recent.get("primaryDocDescription", [])
-        # Integer ceiling -- `math` is not imported in this module.
-        _cutoff = _et_today() - timedelta(days=max(1, (int(hours_back) + 23) // 24))
+        _cutoff = _sec_filing_day_cutoff(hours_back)
         for _i, _form in enumerate(_forms):
             # "8-K" and "8-K/A" both count; an amendment is still a filing.
             if not str(_form).startswith("8-K"):

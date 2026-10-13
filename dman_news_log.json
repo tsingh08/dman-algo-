@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-12T13:35:30.341505-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T13:35:30.488858-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T13:35:30.789168-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-12T13:35:31.056730-04:00",
     "symbols": [
       "MRVL"
@@ -5071,5 +5041,38 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T12:18:11.122470-04:00",
+    "symbols": [
+      "ARM",
+      "AVGO",
+      "META",
+      "QCOM"
+    ],
+    "headline": "What&#39;s Going on With Arm Stock on Tuesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T12:21:03.174892-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Barclays Maintains Overweight on Microsoft, Raises Price Target to $600",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T12:21:22.370056-04:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "What's Going on With Arm Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T09:26:23.950370-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Redbook Retail Sales Index Up 10.4% YoY For Week Ended 10/10/26",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T09:26:23.953901-04:00",
     "symbols": [
       "SPY"
@@ -5043,6 +5033,16 @@
       "V"
     ],
     "headline": "Buffett Successor Sold Visa Stock in Q1: Why That May Have Been an $823M Mistake",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T15:39:58.002374-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "QUICK SPARK: UnitedHealth Calls 2026 the Bottom for Medicaid Margins",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-12T11:44:50.666153-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "QUICK SPARK: Micron, SK Hynix, SanDisk Wipe Out $100 Billion as Memory Rout Worsens",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T11:45:09.609471-04:00",
-    "symbols": [
-      "SVRN"
-    ],
-    "headline": "Short Seller Says SVRN Stock Is &#39;Uninvestable&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-12T11:45:10.363449-04:00",
     "symbols": [
       "ONDS"
@@ -5063,6 +5043,26 @@
       "META"
     ],
     "headline": "Pivotal Research Maintains Buy on Meta Platforms, Raises Price Target to $930",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T10:33:25.058343-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Signs Proposed Energy Service Agreement With El Paso Electric To Support Construction, Initial Commissioning, Emergency Backup Power For Project Jupiter",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T10:34:52.293972-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Platforms shares are trading higher after Pivotal Research maintained its Buy rating on the stock and raised its price target from $790 to $930. Also, Truist Securities maintained its Buy rating and raised its price target from $763 to $1000.",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T09:26:23.957412-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "S&amp;P 500 Above 8,000? Fidelity\u2019s Timmer Sees Q3 Earnings and Seasonal Tailwinds Powering Bull Market",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T09:26:24.173548-04:00",
     "symbols": [
       "QQQ"
@@ -5046,5 +5036,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T15:56:43.260594-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI Posts On X &#34;We discovered a sophisticated recording device that was hidden inside one of our offices. We used our models to understand the device and where it had come from, identifying that a specific employee had planted it a few days earlier. We referred the matter to the FBI, and we\u2019re grateful to the agents and prosecutors who moved quickly to make an arrest. The FBI\u2019s investigation is ongoing and we will continue to support their work...&#34;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

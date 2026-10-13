@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-13T09:26:12.922330-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "SpaceX&#39;s Wireless Push Sparks Wall Street Skepticism: Is the Stock Getting Ahead of Itself?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T09:26:12.926040-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "The &#39;Other Yellow Metal&#39;: Why Speculators Are Loading on Uranium",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T09:26:12.929590-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Box CEO Aaron Levie Says AI Agent Swarms Could Become Enterprise \u2018Core\u2019 as Cybersecurity Emerges as a Massive Token Use",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T09:26:12.933101-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Micron&#39;s Monster Rally Faces Reality Check: China, Bearish Bets and AI Jitters",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T09:26:12.936579-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "From Google Deal to Bankruptcy: Character.AI Files for Chapter 11, Puts Disney In Driver\u2019s Seat With $20 Million Deal for Key Assets",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T09:26:13.184132-04:00",
     "symbols": [
       "AMZN"
@@ -5043,5 +4993,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-13T14:00:32.423859-04:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "MDB stock has given up its prior gain. MongoDB shares were trading higher after Needham reiterated its Buy rating and maintained a $430 price target.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T14:01:03.424317-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Credo Technology Group To Unveil Its OmniConnect Weaver Memory Fanout Gearbox On AMD Versal AI Edge Series Gen 2 Adaptive SoC Evaluation Board",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T14:01:03.430080-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "nVent And AMD Collaborate To Bring Rack-Level Cooling To AMD Helios Rackscale Solution",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T14:01:03.435320-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Fermi Inks Credit Support Agreement With AMD To Support Lease For Phase 1 Of Its Project Matador Energy And AI Buiildout In Texas",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T14:01:15.040862-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "QUICK SPARK: Adobe Is Showing Up in AI Search \u2014 Investors Need to Know What that Actually Means",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

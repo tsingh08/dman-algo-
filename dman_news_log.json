@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-12T12:07:38.764482-04:00",
-    "symbols": [
-      "AERT"
-    ],
-    "headline": "&#39;Black Box In Early Talks To Acquire Nasdaq-Listed Aeries Technology; A Deal Could Value Aeries At $70-90 Million&#39; - CNBC TV18",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T12:10:30.262382-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX&#39;s Next Rally May Depend on AI Software, Not Just Rockets",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T12:15:12.912185-04:00",
-    "symbols": [
-      "DCX"
-    ],
-    "headline": "Digital Currency X Technology Enters Investment And Exclusive Commercialization Agreement With Whales AI To Advance Commercialization Its AI-Powered STEM Education Robotics Platform In North America; DCX To Provide Initial Investment Of $4M",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-12T12:15:21.615286-04:00",
     "symbols": [
       "V"
@@ -5064,6 +5034,37 @@
     ],
     "headline": "BP Expects Q3 Upstream Production Of 2,190-2,240 Mboe/d Vs 2,201 Mboe/d In Q2, Net Debt Of $13.5B-$14.5B Vs $22.3B, And Post-Tax Impairments Of $3.0B-$4.5B",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T10:49:41.018876-04:00",
+    "symbols": [
+      "COIN",
+      "HOOD"
+    ],
+    "headline": "EXCLUSIVE: Tether Co-Founder Names Coinbase, Circle and Robinhood as His Top Blockchain Stocks",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T10:50:28.112567-04:00",
+    "symbols": [
+      "JLHL"
+    ],
+    "headline": "Julong Holding Shares Halted On Circuit Breaker To The Upside, Stock Now Up 37.41%",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T10:50:32.914671-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Watching Snowflake; Hearing Investor Business Daily SwingTrader Sells Stock",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

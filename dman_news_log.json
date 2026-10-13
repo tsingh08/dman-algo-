@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-13T09:26:14.723206-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "What&#39;s Going On With Applied Materials Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T09:26:14.727167-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "China&#39;s Memory Chip Push Sends SK hynix, Samsung Reeling: Is the AI Trade Losing Steam?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T09:26:14.730642-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "AI Stock Crash Could Trigger Global Market Turmoil, Warns IMF, as Debt and Cyber Risks Mount: &#39;Resilience Is Not Safety&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T09:26:14.734136-04:00",
     "symbols": [
       "AVGO"
@@ -5044,5 +5014,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-13T14:18:34.312379-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Keybanc Maintains Overweight on Netflix, Lowers Price Target to $85",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T14:18:34.318066-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Buys AI Startup That Tells Businesses What&#39;s Going Wrong",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T14:18:34.328001-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "What&#39;s Going On With Applied Materials Stock Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

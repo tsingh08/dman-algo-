@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-12T12:15:21.615286-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "$100 Invested In Visa 10 Years Ago Would Be Worth This Much Today",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T12:16:19.795533-04:00",
-    "symbols": [
-      "CLWT"
-    ],
-    "headline": "Dow Gains Over 200 Points; Chipotle Shares Move Lower",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T12:16:20.788695-04:00",
-    "symbols": [
-      "TRAX"
-    ],
-    "headline": "Dow Gains Over 200 Points; Chipotle Shares Move Lower",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T12:16:21.504149-04:00",
-    "symbols": [
-      "ENVX"
-    ],
-    "headline": "Enovix Bets Big on Defense Batteries with $216 Million Pipeline, Korea Expansion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-12T12:16:21.738425-04:00",
     "symbols": [
       "MEDS"
@@ -5067,5 +5027,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T10:52:59.434546-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Group Reports Q3 2026 Results: Full Earnings Call Transcript",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T10:53:19.173110-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "EXCLUSIVE: Tether Co-Founder Names Coinbase, Circle and Robinhood as His Top Blockchain Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T10:54:24.509311-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Stock Extends Multi-Day Losing Streak: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T10:55:08.996640-04:00",
+    "symbols": [
+      "TLT"
+    ],
+    "headline": "Cash Is King Again? Record Money Market Inflows Put These Treasury ETFs on the Radar",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

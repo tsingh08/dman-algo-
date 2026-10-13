@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T09:26:23.233745-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "UnitedHealth Exec Says Co Continues To Expect Growth In 2027 And Beyond Within Its 13-16 Percent Long-Term Target Growth Range",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T09:26:23.728429-04:00",
     "symbols": [
       "ORCL"
@@ -5046,5 +5036,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T15:20:30.534736-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "AbbVie Announces Data From Its Phase 3 AFFIRM Study Of SKYRIZI Demonstrates 35.8% Of Patients With Crohn&#39;s Disease Achieved Endoscopic Remission After Treatment",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -552,5 +552,27 @@
    "regime": "CHOP",
    "regime_score": 14
   }
+ },
+ {
+  "ts": "2026-10-13T12:29:57.473411-04:00",
+  "kind": "signal",
+  "ticker": "BMGL",
+  "verdict": "skip",
+  "confidence": 85,
+  "reason": "Entry already 25%+ into move. Low regime_score (14) contradicts bull setup. Stop too wide relative to prior structure.",
+  "facts": {
+   "setup": "Low Float Catalyst",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 3.9077,
+   "stop": 3.1262,
+   "target1": 5.86,
+   "rr": 2.5,
+   "rvol": 13.89,
+   "rsi": 46.0,
+   "reason": "Float 0.5M | RVOL 13.9x | \u26a1 ULTRA-LOW FLOAT | Float 1.3x | Insiders 54% | \ud83d\udcb0 Below cash value (1.4x) | MACD curling bullish, RVOL spike",
+   "regime": "BULL",
+   "regime_score": 14
+  }
  }
 ]

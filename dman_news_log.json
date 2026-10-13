@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-13T09:26:14.737696-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "What&#39;s Going On With Broadcom Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T09:26:14.955364-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Stock Market Today: Dow Jones Futures Gain, Nasdaq, S&amp;P 500 Falls as Scott Bessent Says Iran&#39;s Economy Is &#39;Collapsing&#39;\u2014 SXTC, AMAT, CMG in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T09:26:14.959195-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "What&#39;s Going On With Applied Materials Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T09:26:15.207035-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "SK Hynix Stock Falls Below 200-Day Average: A Chinese Rival\u2019s IPO Filing May Explain Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T09:26:15.211378-04:00",
     "symbols": [
       "MU"
@@ -5044,5 +5004,45 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T14:26:29.358778-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;Zuckerberg Admits Meta Lacked AI Certainty on $200 Billion Bet&#39; - Bloomberg News",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T14:27:17.688672-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Guyana May Scale Back LNG Plans As Exxon Needs More Gas For Its Wells, Sources Say",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T14:27:23.173428-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Guyana May Scale Back LNG Plans As Exxon Needs More Gas For Its Wells, Sources Say",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T14:27:24.040424-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Treasury Yields Briefly Move Lower After Comments From Fed&#39;s Williams; Yield On 10-Year Treasury Note Last Down 2.51 Basis Points At 5.219%; Yield On 30-Year U.S. Treasury Bonds Down 3.42 Basis Points At 5.565%; 2-Year U.S. Treasury Yields Last Flat At 4.795%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

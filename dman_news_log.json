@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-12T13:13:39.684198-04:00",
-    "symbols": [
-      "CCC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-12T13:13:39.688301-04:00",
     "symbols": [
       "CCC"
@@ -5073,5 +5063,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T11:37:09.159631-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says U.S. Still Sharing Intel With Ukraine; We Are Helping Them And Sharing Intelligence; Diesel Is Going To Be Released To The World, Not For Us, Russians Are Releasing It To Entire World",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

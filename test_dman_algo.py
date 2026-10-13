@@ -14791,21 +14791,32 @@ class TestInsiderBuyingSignal(unittest.TestCase):
 
     def setUp(self):
         a._INSIDER_TXN_CACHE.clear()
+        a._SEC_SUBMISSIONS_CACHE.clear()
         a._insider_network_calls_used = 0
         self._sec_cik_map_backup = a._sec_cik_map
         a._sec_cik_map = {"TEST": "0000320193"}
 
     def tearDown(self):
         a._INSIDER_TXN_CACHE.clear()
+        a._SEC_SUBMISSIONS_CACHE.clear()
         a._insider_network_calls_used = 0
         a._sec_cik_map = self._sec_cik_map_backup
 
-    def _submissions_response(self, forms, dates, accessions=None):
+    def _submissions_response(self, forms, dates, accessions=None,
+                              primary_docs=None):
         accessions = accessions or [f"0001-26-{i:06d}" for i in range(len(forms))]
+        # EDGAR returns the primary document path WITH an xsl viewer prefix,
+        # and the filename itself is the filer's choice -- wk-form4_*.xml,
+        # tm*_4seq1.xml, ownership.xml have all been seen live. Reproduced
+        # here because resolving it is the behaviour under test.
+        if primary_docs is None:
+            primary_docs = [f"xslF345X06/wk-form4_{i:010d}.xml"
+                            for i in range(len(forms))]
         resp = MagicMock(status_code=200)
         resp.json.return_value = {
             "filings": {"recent": {
                 "form": forms, "filingDate": dates, "accessionNumber": accessions,
+                "primaryDocument": primary_docs,
             }}
         }
         return resp
@@ -24561,3 +24572,321 @@ class TestTheZonePeakComesFromBarsNotFromState(unittest.TestCase):
         position can be above every close since entry."""
         src = inspect.getsource(a._zone_trail_exit_check)
         self.assertIn("max(_peak, _gain)", src)
+
+
+class TestTheEightKCheckAsksTheCanonicalIndex(unittest.TestCase):
+    """_check_edgar_8k used to query efts.sec.gov full-text search. Probed
+    live on 2026-10-13 it could not work, for two independent reasons.
+
+    The index lags about one BUSINESS DAY. The function asks for 30 hours, so
+    at best it surfaced a filing that was already a day old -- a catalyst
+    AFTER the gap. Probed on 2026-10-13, the first filing day after Columbus
+    Day (the SEC is federal and accepts nothing that day), the newest indexed
+    8-K of ANY filer was 2026-10-09: the window was empty for every ticker on
+    the market. Tier A firing 0/100 across the logged signals was arithmetic.
+
+    And it searched the ticker as FREE TEXT, so q="NVDA" returned 8-Ks from
+    Canadian Derivatives Clearing Corp, Brookfield and FORUM MARKETS -- five
+    distinct filers merely MENTIONING NVDA, against one when joined on CIK.
+    A filing misattributed to another company is worse than finding none: it
+    reads as a confirmed catalyst.
+
+    This reached past scoring. detect_low_float_catalyst() uses the result as
+    a HARD gate (`if not _edgar_found: return None`) for off-watchlist names
+    with no Benzinga article, so a check that could not succeed was silently
+    rejecting that whole class of signal."""
+
+    def setUp(self):
+        a._SEC_SUBMISSIONS_CACHE.clear()
+        self._cik_backup = a._sec_cik_map
+        a._sec_cik_map = {"TEST": "0000320193"}
+
+    def tearDown(self):
+        a._SEC_SUBMISSIONS_CACHE.clear()
+        a._sec_cik_map = self._cik_backup
+
+    def _subs(self, forms, dates, descs=None):
+        resp = MagicMock(status_code=200)
+        rec = {"form": forms, "filingDate": dates,
+               "accessionNumber": [f"0001-26-{i:06d}" for i in range(len(forms))],
+               "primaryDocument": ["x.xml"] * len(forms)}
+        if descs is not None:
+            rec["primaryDocDescription"] = descs
+        resp.json.return_value = {"filings": {"recent": rec}}
+        return resp
+
+    def _days_ago(self, n):
+        return (a._et_today() - a.timedelta(days=n)).isoformat()
+
+    # --- it asks the right service ---------------------------------------
+    def test_it_does_not_query_full_text_search(self):
+        """The regression that matters. efts.sec.gov cannot answer this
+        question in time; if anyone points it back there, tier A silently
+        dies again and the hard gate starts rejecting everything."""
+        with patch.object(a.requests, "get",
+                          return_value=self._subs(["8-K"], [self._days_ago(0)])) as m:
+            a._check_edgar_8k("TEST", hours_back=30)
+        urls = " ".join(str(c[0][0]) for c in m.call_args_list)
+        self.assertIn("data.sec.gov/submissions", urls)
+        self.assertNotIn("efts.sec.gov", urls)
+
+    def test_it_identifies_the_company_by_cik_not_by_ticker_text(self):
+        """Free-text ticker search returned five unrelated filers. The URL
+        must carry the CIK so only this company's filings can come back."""
+        with patch.object(a.requests, "get",
+                          return_value=self._subs(["8-K"], [self._days_ago(0)])) as m:
+            a._check_edgar_8k("TEST", hours_back=30)
+        url = str(m.call_args_list[0][0][0])
+        self.assertIn("0000320193", url)
+
+    def test_it_sends_the_real_contact_user_agent(self):
+        """The old call hardcoded 'DManAlgo research@dman.algo', a fake
+        address, while the module already had a real one. SEC asks for a
+        contact and can throttle on a bad UA."""
+        with patch.object(a.requests, "get",
+                          return_value=self._subs(["8-K"], [self._days_ago(0)])) as m:
+            a._check_edgar_8k("TEST", hours_back=30)
+        sent = m.call_args_list[0][1]["headers"]["User-Agent"]
+        self.assertEqual(sent, a.SEC_EDGAR_USER_AGENT)
+        self.assertIn("@", sent)
+        self.assertNotIn("dman.algo", sent)
+
+    # --- the window -------------------------------------------------------
+    def test_a_filing_inside_the_window_is_found(self):
+        with patch.object(a.requests, "get",
+                          return_value=self._subs(["8-K"], [self._days_ago(0)])):
+            found, summary = a._check_edgar_8k("TEST", hours_back=30)
+        self.assertTrue(found)
+        self.assertIn("8-K", summary)
+
+    def test_a_filing_outside_the_window_is_not_found(self):
+        with patch.object(a.requests, "get",
+                          return_value=self._subs(["8-K"], [self._days_ago(40)])):
+            found, _ = a._check_edgar_8k("TEST", hours_back=30)
+        self.assertFalse(found)
+
+    def test_a_longer_lookback_reaches_further_back(self):
+        """Same filing, same code path, only the window differs -- so the
+        window is really being applied rather than ignored."""
+        resp = self._subs(["8-K"], [self._days_ago(10)])
+        with patch.object(a.requests, "get", return_value=resp):
+            self.assertFalse(a._check_edgar_8k("TEST", hours_back=30)[0])
+        a._SEC_SUBMISSIONS_CACHE.clear()
+        with patch.object(a.requests, "get", return_value=resp):
+            self.assertTrue(a._check_edgar_8k("TEST", hours_back=24 * 30)[0])
+
+    def test_the_friday_after_close_filing_is_a_known_blind_spot(self):
+        """Documents a DELIBERATE limit rather than a bug. The lookback is
+        calendar hours, so an 8-K filed after Friday's close is invisible to
+        a 30-hour check on Tuesday -- which is exactly the pre-gap catalyst
+        shape worth having. Not widened here because this feeds a hard gate
+        on a live account and widening it ADMITS signals. If this test ever
+        starts failing, someone widened the window: make sure that was a
+        decision and not an accident."""
+        with patch.object(a.requests, "get",
+                          return_value=self._subs(["8-K"], [self._days_ago(4)])):
+            found, _ = a._check_edgar_8k("TEST", hours_back=30)
+        self.assertFalse(found)
+
+    # --- which forms count -------------------------------------------------
+    def test_an_amended_eight_k_still_counts(self):
+        """An 8-K/A is still a filing describing a real event."""
+        with patch.object(a.requests, "get",
+                          return_value=self._subs(["8-K/A"], [self._days_ago(0)])):
+            self.assertTrue(a._check_edgar_8k("TEST", hours_back=30)[0])
+
+    def test_other_recent_forms_do_not_count_as_an_eight_k(self):
+        """A Form 4 or a 10-Q is not an event catalyst. If these counted,
+        tier A would fire on routine paperwork."""
+        with patch.object(a.requests, "get",
+                          return_value=self._subs(["4", "10-Q", "SC 13G/A"],
+                                                  [self._days_ago(0)] * 3)):
+            self.assertFalse(a._check_edgar_8k("TEST", hours_back=30)[0])
+
+    def test_a_recent_other_form_does_not_hide_a_recent_eight_k(self):
+        """The scan stops at the first 8-K outside the window, so a
+        non-8-K sitting ahead of it must not end the search early."""
+        with patch.object(a.requests, "get",
+                          return_value=self._subs(["4", "8-K"],
+                                                  [self._days_ago(0), self._days_ago(1)])):
+            self.assertTrue(a._check_edgar_8k("TEST", hours_back=48)[0])
+
+    def test_the_summary_names_the_form_and_the_date(self):
+        """This string reaches Telegram and the briefing, so it has to say
+        what was filed and when."""
+        when = self._days_ago(0)
+        with patch.object(a.requests, "get",
+                          return_value=self._subs(["8-K"], [when], ["FORM 8-K"])):
+            _, summary = a._check_edgar_8k("TEST", hours_back=30)
+        self.assertIn("8-K", summary)
+        self.assertIn(when, summary)
+
+    def test_a_null_description_does_not_leak_the_word_none(self):
+        """EDGAR returns primaryDocDescription as JSON null for some filers,
+        which json.load gives back as None. str(None) would put the literal
+        word "None" into an operator-facing Telegram alert. An absent key is
+        NOT enough to exercise this -- it has to be present and null.
+        (First version of this test omitted the key, so the empty-string
+        path ran and the test survived deleting the guard.)"""
+        with patch.object(a.requests, "get",
+                          return_value=self._subs(["8-K"], [self._days_ago(0)],
+                                                  descs=[None])):
+            _, summary = a._check_edgar_8k("TEST", hours_back=30)
+        self.assertNotIn("None", summary)
+
+    # --- degradation ------------------------------------------------------
+    def test_an_unknown_ticker_fails_open_without_a_request(self):
+        with patch.object(a.requests, "get") as m:
+            self.assertEqual(a._check_edgar_8k("NOPE", hours_back=30), (False, ""))
+        m.assert_not_called()
+
+    def test_a_network_error_fails_open(self):
+        with patch.object(a.requests, "get", side_effect=RuntimeError("boom")), \
+             patch.object(a, "_log_swallowed"):
+            self.assertEqual(a._check_edgar_8k("TEST", hours_back=30), (False, ""))
+
+    def test_a_non_200_fails_open(self):
+        with patch.object(a.requests, "get", return_value=MagicMock(status_code=503)):
+            self.assertEqual(a._check_edgar_8k("TEST", hours_back=30), (False, ""))
+
+    def test_an_unparseable_filing_date_is_skipped_not_fatal(self):
+        with patch.object(a.requests, "get",
+                          return_value=self._subs(["8-K", "8-K"],
+                                                  ["not-a-date", self._days_ago(0)])):
+            self.assertTrue(a._check_edgar_8k("TEST", hours_back=30)[0])
+
+    # --- the shared cache --------------------------------------------------
+    def test_a_second_check_reuses_the_fetched_document(self):
+        """The 8-K check and the Form 4 check want the same document, and a
+        candidate that earns one usually earns the other in the same cycle."""
+        with patch.object(a.requests, "get",
+                          return_value=self._subs(["8-K"], [self._days_ago(0)])) as m:
+            a._check_edgar_8k("TEST", hours_back=30)
+            a._check_edgar_8k("TEST", hours_back=30)
+        self.assertEqual(m.call_count, 1)
+
+
+class TestAFormFourDocumentIsNamedByItsFiler(unittest.TestCase):
+    """Insider scoring fired 0/100 and the cause was one hardcoded filename.
+
+    _fetch_recent_insider_transactions built its XML URL as ".../form4.xml".
+    That name is the FILER's choice, not a fixed convention. Measured live
+    2026-10-13: NVDA files wk-form4_1791579847.xml, IOVA tm2626734-2_4seq1.xml,
+    PGEN ownership.xml. The hardcoded path returned HTTP 404 on every filing
+    of every filer tested, so the function could never return a transaction.
+
+    primaryDocument carries the real name and is already in the submissions
+    response, so resolving it costs no extra request. It arrives with an
+    xslF345X06/ prefix whose path serves the rendered HTML viewer; the raw
+    XML this parses is the sibling, so the prefix has to come off.
+
+    After the fix NVDA returned 5 real Form 4 sales with owner names and
+    dollar values where it had returned 0."""
+
+    def setUp(self):
+        a._INSIDER_TXN_CACHE.clear()
+        a._SEC_SUBMISSIONS_CACHE.clear()
+        a._insider_network_calls_used = 0
+        self._cik_backup = a._sec_cik_map
+        a._sec_cik_map = {"TEST": "0000320193"}
+
+    def tearDown(self):
+        a._INSIDER_TXN_CACHE.clear()
+        a._SEC_SUBMISSIONS_CACHE.clear()
+        a._insider_network_calls_used = 0
+        a._sec_cik_map = self._cik_backup
+
+    def _subs(self, docs, dates=None):
+        dates = dates or [a._et_today().isoformat()] * len(docs)
+        resp = MagicMock(status_code=200)
+        resp.json.return_value = {"filings": {"recent": {
+            "form": ["4"] * len(docs), "filingDate": dates,
+            "accessionNumber": [f"0001-26-{i:06d}" for i in range(len(docs))],
+            "primaryDocument": docs}}}
+        return resp
+
+    def _xml(self, codes=("P",)):
+        txns = "".join(
+            f"<nonDerivativeTransaction><transactionCoding><transactionCode>{c}"
+            f"</transactionCode></transactionCoding><transactionAmounts>"
+            f"<transactionShares><value>1000</value></transactionShares>"
+            f"<transactionPricePerShare><value>10.0</value>"
+            f"</transactionPricePerShare></transactionAmounts>"
+            f"<transactionDate><value>2026-10-01</value></transactionDate>"
+            f"</nonDerivativeTransaction>" for c in codes)
+        resp = MagicMock(status_code=200)
+        resp.content = (
+            '<?xml version="1.0"?><ownershipDocument><reportingOwner>'
+            '<reportingOwnerId><rptOwnerName>Test Insider</rptOwnerName>'
+            f'</reportingOwnerId></reportingOwner>{txns}</ownershipDocument>'
+        ).encode()
+        return resp
+
+    # --- the regression ----------------------------------------------------
+    def test_the_filers_own_document_name_is_requested(self):
+        with patch.object(a.requests, "get",
+                          side_effect=[self._subs(["tm2626734-2_4seq1.xml"]),
+                                       self._xml()]) as m:
+            txns = a._fetch_recent_insider_transactions("TEST")
+        self.assertEqual([t["code"] for t in txns], ["P"])
+        self.assertIn("tm2626734-2_4seq1.xml", str(m.call_args_list[1][0][0]))
+
+    def test_the_hardcoded_form4_name_is_never_requested(self):
+        """It 404s for every filer, so a request for it is a bug by itself."""
+        with patch.object(a.requests, "get",
+                          side_effect=[self._subs(["ownership.xml"]), self._xml()]) as m:
+            a._fetch_recent_insider_transactions("TEST")
+        urls = " ".join(str(c[0][0]) for c in m.call_args_list)
+        self.assertNotIn("/form4.xml", urls)
+
+    def test_the_xsl_viewer_prefix_is_stripped(self):
+        """That path serves rendered HTML; ElementTree needs the raw XML."""
+        with patch.object(a.requests, "get",
+                          side_effect=[self._subs(["xslF345X06/wk-form4_17.xml"]),
+                                       self._xml()]) as m:
+            txns = a._fetch_recent_insider_transactions("TEST")
+        url = str(m.call_args_list[1][0][0])
+        self.assertNotIn("xslF345X06", url)
+        self.assertTrue(url.endswith("/wk-form4_17.xml"), url)
+        self.assertEqual([t["code"] for t in txns], ["P"])
+
+    def test_a_filing_with_no_document_name_is_skipped_not_fetched(self):
+        with patch.object(a.requests, "get",
+                          side_effect=[self._subs([""])]) as m:
+            self.assertEqual(a._fetch_recent_insider_transactions("TEST"), [])
+        self.assertEqual(m.call_count, 1)
+
+    # --- enough filings to find a real transaction -------------------------
+    def test_it_looks_past_the_newest_filings_to_find_an_open_market_trade(self):
+        """Most Form 4s are A (grant), M (option exercise) or F (tax
+        withholding). Measured 2026-10-13, IOVA's four newest were all
+        A/M/F and NVDA's open-market sales sat at positions 2 and 3, so
+        checking only the two newest found nothing even once the URL
+        worked. This is the second half of the 0/100."""
+        docs = [f"d{i}.xml" for i in range(5)]
+        with patch.object(a.requests, "get",
+                          side_effect=[self._subs(docs)]
+                                      + [self._xml(["A"]), self._xml(["M", "F"]),
+                                         self._xml(["F"]), self._xml(["P"]),
+                                         self._xml(["S"])]):
+            txns = a._fetch_recent_insider_transactions("TEST")
+        self.assertIn("P", [t["code"] for t in txns])
+
+    def test_the_filing_budget_is_pinned(self):
+        """Six Form 4 fetches measured 0.28s total on 2026-10-13, so the
+        '~70s per ticker' note this budget was originally sized against no
+        longer describes reality. Still bounded, because this runs per
+        scanned candidate."""
+        import inspect as _i
+        default = _i.signature(
+            a._fetch_recent_insider_transactions).parameters["max_filings"].default
+        self.assertEqual(default, 6)
+
+    # --- it still routes through the shared reader -------------------------
+    def test_it_shares_the_submissions_document_with_the_eight_k_check(self):
+        with patch.object(a.requests, "get",
+                          side_effect=[self._subs(["d.xml"]), self._xml()]) as m:
+            a._fetch_recent_insider_transactions("TEST")
+            a._check_edgar_8k("TEST", hours_back=30)
+        urls = [str(c[0][0]) for c in m.call_args_list]
+        self.assertEqual(sum("submissions" in u for u in urls), 1)

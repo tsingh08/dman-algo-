@@ -6836,35 +6836,104 @@ def _score_news_headline(headline: str) -> tuple[str, str]:
     return "neutral", ""
 
 
+# Both SEC filing paths -- the 8-K catalyst check and the Form 4 insider
+# check -- need the same per-company submissions document, and a candidate
+# that earns one check usually earns the other in the same cycle. One cache
+# serves both. 15 minutes because filings DO land intraday (unlike the
+# ticker/CIK map, which is cached for a week).
+_SEC_SUBMISSIONS_CACHE: dict[str, tuple[float, dict]] = {}
+_SEC_SUBMISSIONS_TTL_S = 15 * 60
+
+
+def _sec_submissions(ticker: str) -> dict:
+    """`filings.recent` for `ticker` from data.sec.gov, or {} on any failure.
+
+    This is the canonical EDGAR filing index, keyed by CIK. Newest first.
+    Fail-open by design: every caller treats {} as "no filing found", which
+    is the same answer it gives for a company that genuinely has not filed.
+    """
+    _c = _SEC_SUBMISSIONS_CACHE.get(ticker)
+    if _c and (time.time() - _c[0]) < _SEC_SUBMISSIONS_TTL_S:
+        return _c[1]
+    _recent: dict = {}
+    try:
+        _cik = _load_sec_cik_map().get(ticker.upper())
+        if _cik:
+            _r = requests.get(
+                f"https://data.sec.gov/submissions/CIK{_cik}.json",
+                headers={"User-Agent": SEC_EDGAR_USER_AGENT}, timeout=10)
+            if _r.status_code == 200:
+                _recent = _r.json().get("filings", {}).get("recent", {}) or {}
+    except Exception as exc:
+        _log_swallowed("sec submissions", exc)
+        _recent = {}
+    _SEC_SUBMISSIONS_CACHE[ticker] = (time.time(), _recent)
+    return _recent
+
+
 def _check_edgar_8k(ticker: str, hours_back: int = 30) -> tuple[bool, str]:
     """
-    Check SEC EDGAR full-text search for recent 8-K filings.
-    Returns (found, summary_string).
-    Tier A validation: real catalyst = real filing.
+    Did `ticker` file an 8-K in the last `hours_back` hours?
+    Returns (found, summary_string). Tier A: real catalyst = real filing.
+
+    Reads data.sec.gov/submissions, NOT the efts.sec.gov full-text search
+    this used to query. Two measured reasons, both probed live 2026-10-13:
+
+      * Full-text search lags about one BUSINESS DAY. This function asks
+        for 30 hours, so at best it could surface a filing that was already
+        a day old -- a catalyst AFTER the gap, which is the wrong side of
+        the trade. Probed on 2026-10-13, the first filing day after Columbus
+        Day (the SEC is a federal agency and accepts nothing that day): the
+        newest indexed 8-K of ANY filer was 2026-10-09, so the window was
+        empty for every ticker on the market. Tier A firing 0/100 over the
+        logged signals was arithmetic, not bad luck.
+      * It searched the ticker as FREE TEXT. q="NVDA" returned 8-Ks from
+        Canadian Derivatives Clearing Corp, Brookfield and FORUM MARKETS --
+        five distinct filers merely MENTIONING NVDA. Joining on CIK returned
+        exactly one filer. A filing misattributed to another company is
+        worse than finding none: it reads as a confirmed catalyst.
+
+    That reached further than scoring. detect_low_float_catalyst() uses this
+    as a HARD gate (`if not _edgar_found: return None`) for off-watchlist
+    names with no Benzinga article, so a check that could not succeed was
+    silently rejecting that entire class of signal.
+
+    Still fails OPEN (False) on any error.
+
+    KNOWN BLIND SPOT, deliberately left alone: the lookback is calendar
+    hours. A Friday-after-close 8-K is the single most common pre-gap
+    catalyst and a 30-hour window on a Tuesday cannot see it. Widening it
+    would ADMIT signals through the hard gate above on a live account, so
+    it is flagged for an explicit decision rather than changed quietly.
     """
-    from urllib.parse import quote
-    from datetime import timezone
-    cutoff = datetime.now(timezone.utc) - timedelta(hours=hours_back)
-    d_from = cutoff.strftime("%Y-%m-%d")
-    d_to   = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    url = (f"https://efts.sec.gov/LATEST/search-index?"
-           f"q=%22{quote(ticker)}%22&forms=8-K"
-           f"&dateRange=custom&startdt={d_from}&enddt={d_to}")
     try:
-        resp = requests.get(url, timeout=10,
-                            headers={"User-Agent": "DManAlgo research@dman.algo"})
-        if resp.status_code != 200:
+        _recent = _sec_submissions(ticker)
+        if not _recent:
             return False, ""
-        hits = resp.json().get("hits", {}).get("hits", [])
-        if not hits:
-            return False, ""
-        src    = hits[0].get("_source", {})
-        names  = src.get("display_names", [])
-        filed  = src.get("file_date", "")
-        form   = src.get("form_type", "8-K")
-        entity = names[0] if names else ticker
-        return True, f"{form} filed {filed} — {entity}"
-    except Exception:
+        _forms = _recent.get("form", [])
+        _dates = _recent.get("filingDate", [])
+        _descs = _recent.get("primaryDocDescription", [])
+        # Integer ceiling -- `math` is not imported in this module.
+        _cutoff = _et_today() - timedelta(days=max(1, (int(hours_back) + 23) // 24))
+        for _i, _form in enumerate(_forms):
+            # "8-K" and "8-K/A" both count; an amendment is still a filing.
+            if not str(_form).startswith("8-K"):
+                continue
+            try:
+                _f_date = date.fromisoformat(_dates[_i])
+            except Exception:
+                continue
+            if _f_date < _cutoff:
+                # Newest first, so the first 8-K already outside the window
+                # means every later one is too.
+                break
+            _raw  = _descs[_i] if _i < len(_descs) else ""
+            _desc = str(_raw or "").strip()
+            return True, (f"{_form} filed {_dates[_i]}"
+                          + (f" — {_desc}" if _desc else ""))
+        return False, ""
+    except Exception as exc:
+        _log_swallowed("edgar 8-K", exc)
         return False, ""
 
 
@@ -16445,7 +16514,7 @@ _INSIDER_TXN_CACHE_TTL_S = 6 * 3600   # 6 hr — only hit for already-scored can
 _INSIDER_NETWORK_BUDGET = 6
 _insider_network_calls_used = 0
 
-def _fetch_recent_insider_transactions(ticker: str, days_back: int = 14, max_filings: int = 2) -> list:
+def _fetch_recent_insider_transactions(ticker: str, days_back: int = 14, max_filings: int = 6) -> list:
     """
     Recent Form 4 open-market transactions for `ticker`, filtered to
     transactionCode in {P, S} — the only two codes reflecting genuine
@@ -16476,18 +16545,15 @@ def _fetch_recent_insider_transactions(ticker: str, days_back: int = 14, max_fil
             return result
 
         headers = {"User-Agent": SEC_EDGAR_USER_AGENT}
-        resp = requests.get(
-            f"https://data.sec.gov/submissions/CIK{cik}.json",
-            headers=headers, timeout=10,
-        )
-        if resp.status_code != 200:
+        recent = _sec_submissions(ticker)
+        if not recent:
             _INSIDER_TXN_CACHE[ticker] = (time.time(), result)
             return result
 
-        recent       = resp.json().get("filings", {}).get("recent", {})
         forms        = recent.get("form", [])
         accessions   = recent.get("accessionNumber", [])
         filing_dates = recent.get("filingDate", [])
+        primary_docs = recent.get("primaryDocument", [])
         cutoff       = _et_today() - timedelta(days=days_back)
         cik_int      = int(cik)
 
@@ -16503,7 +16569,20 @@ def _fetch_recent_insider_transactions(ticker: str, days_back: int = 14, max_fil
                 continue
             checked += 1
             acc = accessions[i].replace("-", "")
-            xml_url = f"https://www.sec.gov/Archives/edgar/data/{cik_int}/{acc}/form4.xml"
+            # The Form 4 document name is chosen by the FILER, not fixed.
+            # Measured 2026-10-13: NVDA files wk-form4_1791579847.xml, IOVA
+            # tm2626734-2_4seq1.xml, PGEN ownership.xml. The hardcoded
+            # "form4.xml" returned HTTP 404 on every filing of every filer
+            # tested, so this function could never return a transaction --
+            # that is the whole reason insider scoring fired 0/100.
+            # primaryDocument carries the real name and is already in the
+            # response we just read, so this costs no extra request. Strip
+            # the xslF345X06/ prefix: that path serves the rendered HTML
+            # viewer, the sibling path serves the raw XML this parses.
+            _doc = str(primary_docs[i] if i < len(primary_docs) else "").split("/")[-1]
+            if not _doc:
+                continue
+            xml_url = f"https://www.sec.gov/Archives/edgar/data/{cik_int}/{acc}/{_doc}"
             try:
                 rx = requests.get(xml_url, headers=headers, timeout=10)
                 if rx.status_code != 200:

@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-13T09:26:23.010009-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "People\u2019s Bank Of China Clears Visa To Begin Preparations For Domestic Bankcard Clearing Institution",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T09:26:23.222152-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "UnitedHealth Says Wall Street May Be Underestimating Its 2027 Earnings Potential",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T09:26:23.226179-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "UnitedHealth Exec Sees Lower End Of Long-Term 13%-16% Growth Rate As Starting Point For 2027 EPS Forecast; Continues To See A Balanced Set Of Tailwinds And Headwinds In 2027; &#34;We Would Offer That Current Analyst Consensus For 2027 May Understate The Opportunity Ahead, And We See The Lower End Of Our Long-term 13%-16% Growth Rate As A More Reasonable Starting Point&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T09:26:23.229752-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "UnitedHealth Group Exec Says Care Intensity Remains Above Historical Norms Even As Trends Are Bending In A More Stable Direction; We Continue To View 2026 As A Trough Year For Core Medicaid Margins, Which We Now Expect To Be Moderately Better Than Negative 1%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T09:26:23.233745-04:00",
     "symbols": [
       "UNH"
@@ -5046,5 +5006,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T15:09:35.233775-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa Eyes China&#39;s Vast Payments Market After Key Regulatory Breakthrough",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T15:09:35.238499-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "People\u2019s Bank Of China Clears Visa To Begin Preparations For Domestic Bankcard Clearing Institution",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T15:09:35.808941-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "UnitedHealth Says Wall Street May Be Underestimating Its 2027 Earnings Potential",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T15:09:35.813538-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "UnitedHealth Exec Sees Lower End Of Long-Term 13%-16% Growth Rate As Starting Point For 2027 EPS Forecast; Continues To See A Balanced Set Of Tailwinds And Headwinds In 2027; &#34;We Would Offer That Current Analyst Consensus For 2027 May Understate The Opportunity Ahead, And We See The Lower End Of Our Long-term 13%-16% Growth Rate As A More Reasonable Starting Point&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

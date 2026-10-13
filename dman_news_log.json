@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-10-12T13:13:36.814188-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Nasdaq 100 Drops, SanDisk Tumbles 6% as AI Trade Falters: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T13:13:37.319339-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Why Is Oracle Stock Falling on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T13:13:37.626717-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Hammack Says Do Not Take Anchored Inflation Expectations For Granted, With Businesses Planning Price Increases Beyond Any Rise In Input Costs A Sign Of Inflationary Mindset Taking Hold; Fed Officials Have A Responsibility To Explain Their Decisions; It Is Important To Spell Out Reaction Function So Businesses And Households Can Plan Effectively; If The Public Understands Where The Fed Is Heading, It Can Limit Market Volatility, Avoid Mistakes; A Reaction Function Is Not The Same As Committed Forward",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T13:13:37.630594-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Hammack Says Broad-Based Inflation, Ongoing Growth Need Restrictive Monetary Policy; Trend Inflation Currently In The Mid-To-High 2% Range, Expect It Will Take Some Time To Return To 2% Target Even With Appropriate Monetary Policy; Would Prefer Fed Make Smaller Adjustments To Policy Rate But Do So &#39;relatively Quickly&#39;; Energy Is Not Only Factor, With Strong Demand Also Contributing To Price Pressures; Stable Labor Market Leaves Room To Address Inflation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T13:13:37.696141-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Nasdaq 100 Drops, SanDisk Tumbles 6% as AI Trade Falters: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T13:13:37.758668-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Nasdaq 100 Drops, SanDisk Tumbles 6% as AI Trade Falters: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T13:13:38.345463-04:00",
-    "symbols": [
-      "OFAL"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T13:13:38.510375-04:00",
-    "symbols": [
-      "QNME"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T13:13:38.645494-04:00",
-    "symbols": [
-      "SXTC"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T13:13:38.776942-04:00",
-    "symbols": [
-      "VEEA"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-12T13:13:39.098144-04:00",
     "symbols": [
       "CLWT"
@@ -5070,6 +4970,106 @@
       "BWAY"
     ],
     "headline": "BrainsWay Says Over 70M U.S. Covered Lives Now Have Access To Policies Covering SWIFT Accelerated Depression Treatment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T11:21:43.494562-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on CrowdStrike Holdings, Raises Price Target to $300",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T11:21:43.767954-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Palo Alto Networks, Raises Price Target to $525",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T11:21:47.662658-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "Cyclicals Lead Sectors In Tuesday Trading As Health Care Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T11:21:48.153127-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Cyclicals Lead Sectors In Tuesday Trading As Health Care Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T11:21:50.280192-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Cyclicals Lead Sectors In Tuesday Trading As Health Care Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T11:21:50.746630-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Cyclicals Lead Sectors In Tuesday Trading As Health Care Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T11:21:51.055051-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Cyclicals Lead Sectors In Tuesday Trading As Health Care Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T11:21:51.494547-04:00",
+    "symbols": [
+      "WORX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T11:21:51.498284-04:00",
+    "symbols": [
+      "WORX"
+    ],
+    "headline": "Why UnitedHealth Group Shares Are Trading Higher; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T11:21:51.501854-04:00",
+    "symbols": [
+      "WORX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s After-Market Session",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-10-12T11:21:04.465695-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Robinhood Is \u2018Compelling\u2019 For Fintech Exposure Given Deposits Growth: Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T11:21:06.594409-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T11:21:08.974953-04:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "Quantum Computing Is Eyeing a 2028 Breakthrough, 2 ETFs Could Capture It",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T11:21:10.250126-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T11:21:10.635865-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T11:21:11.441302-04:00",
-    "symbols": [
-      "NEM"
-    ],
-    "headline": "$1000 Invested In Newmont 5 Years Ago Would Be Worth This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T11:21:12.124020-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-12T11:21:12.302677-04:00",
     "symbols": [
       "QQQ"
@@ -5066,6 +4996,76 @@
     "headline": "USA Existing Home Sales (MoM) For September 1.5% Vs -3.2% Prior",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T10:03:13.810488-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Platforms, 14 Other Tech Firms Join Global Law Enforcement To Disrupt Criminal Scam Networks Operating In West Africa",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T10:04:19.786711-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Dow Rises Over 100 Points; Goldman Sachs Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T10:04:24.940384-04:00",
+    "symbols": [
+      "WFF"
+    ],
+    "headline": "Dow Rises Over 100 Points; Goldman Sachs Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T10:04:27.039893-04:00",
+    "symbols": [
+      "FLYE"
+    ],
+    "headline": "Dow Rises Over 100 Points; Goldman Sachs Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T10:04:27.266380-04:00",
+    "symbols": [
+      "NHP"
+    ],
+    "headline": "This Electra Therapeutics Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T10:04:27.270362-04:00",
+    "symbols": [
+      "NHP"
+    ],
+    "headline": "Raymond James Initiates Coverage On National Healthcare with Outperform Rating, Announces Price Target of $20",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T10:04:27.274240-04:00",
+    "symbols": [
+      "BKYI"
+    ],
+    "headline": "Dow Rises Over 100 Points; Goldman Sachs Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-10-12T09:26:28.519102-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron&#39;s Monster Rally Faces New Threat As Traders Pile Into Bearish Bets",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T09:26:28.773898-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Reported October 11, &#39;China\u2019s CXMT unveils \u2018key progress\u2019 on chip structure pursued by Samsung, SK Hynix&#39; - SCMP",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T09:26:29.031902-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Reported October 11, &#39;China\u2019s CXMT unveils \u2018key progress\u2019 on chip structure pursued by Samsung, SK Hynix&#39; - SCMP",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T09:26:29.545046-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "This Robinhood Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T09:26:29.549762-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Evercore ISI Group Initiates Coverage On Robinhood Markets with Outperform Rating, Announces Price Target of $130",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T09:26:29.781624-04:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "Rivian Stock Flashes Death Cross Pattern Despite Strong R2 Sales Growth",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T09:26:30.029850-04:00",
-    "symbols": [
-      "NIO"
-    ],
-    "headline": "&#39;EU To Cap Chinese Hybrid-Vehicle Imports At 350,000 Units Annually, Official Says; The Cap Will Include A Fixed Annual Increase Of 6%&#39; - WSJ",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T09:26:30.034789-04:00",
-    "symbols": [
-      "NIO"
-    ],
-    "headline": "Standard Motor Products, Phoenix Education Partners And Other Big Stocks Moving Lower In Monday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T09:26:30.039275-04:00",
-    "symbols": [
-      "NIO"
-    ],
-    "headline": "Tesla Rival XPeng Says It Can Adapt Driver-Assist Tech for Europe in Just 2 Weeks as Elon Musk&#39;s TSLA Faces Fresh Regulatory Pushback Over FSD",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T09:26:30.044604-04:00",
-    "symbols": [
-      "NIO"
-    ],
-    "headline": "Nio, Li Auto, XPeng, BYD Stocks Plunge as China EV Headwinds Rise",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-12T09:26:30.278100-04:00",
     "symbols": [
       "FSLR"
@@ -5099,5 +4999,105 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T09:11:06.612900-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "HSBC Downgrades Adobe to Hold, Lowers Price Target to $267",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T09:11:50.095259-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "UnitedHealth Group Q3 2026 Earnings Call Transcript",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:13:42.474633-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Super Micro Computer Announces Expansion Of Portfolio Of Open Compute Project Accepted Systems, Racks, Rear Door Heat Exchangers",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:15:10.706288-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Stock of the Day: Is JP Morgan About to Trend Higher?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T09:16:23.626579-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "U.K. Medicines And Healthcare Products Regulatory Agency Authorizes Eli Lilly&#39;s Onswik For Adults With Type 2 Diabetes",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:16:37.809453-04:00",
+    "symbols": [
+      "BBAI"
+    ],
+    "headline": "BigBear.ai Secures Over $225M In Federal Contract Awards Since July",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-13T09:24:13.648509-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta\u2019s Costs Surged in the Second Quarter. Here\u2019s the Bar for Oct. 21 Earnings",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:24:51.958919-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "This Adobe Analyst Is No Longer Bullish; Here Are Top 5 Downgrades For Tuesday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T09:24:56.412320-04:00",
+    "symbols": [
+      "TLT"
+    ],
+    "headline": "The Stock Market Has Its Iceberg Warning: Fund Managers Put It at a 6% Treasury Yield",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T09:25:09.381242-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Virtuix Become Official Reseller Of Meta Products; Launches New Consumer Bundles Combining Omni One For Quest With Meta Quest 3 And Quest 3S Headsets And Accessories",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

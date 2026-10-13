@@ -1816,5 +1816,23 @@
   "drift_pct": 0.62,
   "range_ratio": 0.37,
   "near_high": 0.983
+ },
+ {
+  "ts": "2026-10-13T14:40:48.662198-04:00",
+  "ticker": "FUMB",
+  "price": 19.98,
+  "rvol": 2.61,
+  "drift_pct": 0.3,
+  "range_ratio": 0.53,
+  "near_high": 0.994
+ },
+ {
+  "ts": "2026-10-13T14:40:48.662212-04:00",
+  "ticker": "GMUB",
+  "price": 49.05,
+  "rvol": 1.52,
+  "drift_pct": 0.62,
+  "range_ratio": 0.36,
+  "near_high": 0.962
  }
 ]

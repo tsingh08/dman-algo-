@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-10-12T13:35:31.056730-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T13:35:31.745741-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "10 Health Care Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T13:35:31.997192-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Hammack Says Treasury Rates Right Now Are &#34;Modest&#34; By Historic Standards; If The Economy Were To Return To A 3% Home Mortgage It Would Likely Mean Something Had Gone Wrong In The Economy; The Neutral Rate Is Likely Higher But It Is Hard To Pin Down; Hearing &#34;Early Warning Signs&#34; Of A Possible Problem With Inflation Expectations; Need To &#34;Cool The Economy At The Margins&#34;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T13:35:33.311072-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T13:35:34.456002-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "10 Health Care Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T13:35:34.705700-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T13:36:56.258451-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Hammack Says Higher Interest Rates Won&#39;t Dissuade Hyperscalers, But Might Influence Firms In Other Industries; The Question For The Fed Now Is How Fast To Make Policy More Restrictive; Don&#39;t Want To Threaten The Jobs Side Of The Fed&#39;s Mandate",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T13:38:05.021875-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nebius shares are trading lower amid possible investor concern after reports suggesting that IREN has entered a multi-year cloud compute deal with Anthropic. The company had been viewed as a possible candidate to partner with Anthropic due to its Nvidia clusters and May 2026 capex guidance increase.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T13:39:44.560050-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "BMO Capital Maintains Market Perform on Novo Nordisk, Lowers Price Target to $40",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T13:41:07.067397-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "GE Aerospace, Shield AI, And Poland&#39;s WZL-2 Sign MOU To Advance F110 Engine MRO Support In Poland",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T13:44:43.890457-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Hammack Says There Is More Restraint That Is Needed; If Monetary Policy Does Nothing Market Conditions Would Change; Comments From Low Income Workers Was First About Trading Down, Now They Are Beginning To Juggle What Bills To Pay",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-12T13:44:54.866594-04:00",
     "symbols": [
       "MRVL"
@@ -5074,5 +4964,117 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T12:22:35.185863-04:00",
+    "symbols": [
+      "CELH"
+    ],
+    "headline": "TD Cowen Maintains Buy on Celsius Holdings, Lowers Price Target to $35",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-13T12:25:13.240032-04:00",
+    "symbols": [
+      "MARA",
+      "MSTR"
+    ],
+    "headline": "Saylor Cheers Strive\u2019s $280 Million Bitcoin Buy While Strategy Bought 85% Less",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T12:25:46.962737-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "What&#39;s Going on With Arm Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T12:25:48.911172-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "What&#39;s Going on With Arm Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T12:25:50.039531-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "What&#39;s Going on With Arm Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T12:25:51.593972-04:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "What&#39;s Going on With Arm Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T12:25:52.952378-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Saylor Cheers Strive\u2019s $280 Million Bitcoin Buy While Strategy Bought 85% Less",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T12:25:52.957455-04:00",
+    "symbols": [
+      "MARA"
+    ],
+    "headline": "Saylor Cheers Strive\u2019s $280 Million Bitcoin Buy While Strategy Bought 85% Less",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T12:26:04.077620-04:00",
+    "symbols": [
+      "TCRT"
+    ],
+    "headline": "Alaunos Therapeutics Shares Resume Trade",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T12:26:04.081576-04:00",
+    "symbols": [
+      "TCRT"
+    ],
+    "headline": "Alaunos Therapeutics Shares Halted On Circuit Breaker To The Upside, Stock Now Up 269.52%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T12:26:37.774688-04:00",
+    "symbols": [
+      "MA",
+      "V"
+    ],
+    "headline": "QUICK SPARK: Visa, Mastercard May Have Less to Fear from Stablecoins Than You Think",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

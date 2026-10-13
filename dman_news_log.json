@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-10-13T09:26:15.211378-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "What&#39;s Going On With Applied Materials Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T09:26:15.214904-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "China&#39;s Memory Chip Push Sends SK hynix, Samsung Reeling: Is the AI Trade Losing Steam?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T09:26:15.218403-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Why Is Sandisk Stock Falling Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T09:26:15.221973-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron&#39;s Monster Rally Faces Reality Check: China, Bearish Bets and AI Jitters",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T09:26:15.428794-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "SK Hynix Stock Falls Below 200-Day Average: A Chinese Rival\u2019s IPO Filing May Explain Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-13T09:26:15.432514-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "China&#39;s Memory Chip Push Sends SK hynix, Samsung Reeling: Is the AI Trade Losing Steam?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-13T09:26:15.436036-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Why Is Sandisk Stock Falling Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-13T09:26:15.439803-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Micron&#39;s Monster Rally Faces Reality Check: China, Bearish Bets and AI Jitters",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-13T09:26:15.443366-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Nasdaq Down Over 100 Points as Memory Stocks Decline: Fear &amp; Greed Index Remains in \u2018Neutral\u2019 Zone",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-13T09:26:15.650347-04:00",
     "symbols": [
       "SKHY"
@@ -5041,6 +4951,98 @@
       "SPY"
     ],
     "headline": "U.S. Treasury Yields Briefly Move Lower After Comments From Fed&#39;s Williams; Yield On 10-Year Treasury Note Last Down 2.51 Basis Points At 5.219%; Yield On 30-Year U.S. Treasury Bonds Down 3.42 Basis Points At 5.565%; 2-Year U.S. Treasury Yields Last Flat At 4.795%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T14:36:56.039035-04:00",
+    "symbols": [
+      "MU",
+      "NVDA",
+      "SKHY"
+    ],
+    "headline": "EXCLUSIVE: Micron Is Not Close to Peak Earnings, Jordi Visser Says. But He Prefers Optics and Crypto",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T14:37:26.642626-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "EXCLUSIVE: Micron Is Not Close to Peak Earnings, Jordi Visser Says. But He Prefers Optics and Crypto",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T14:37:29.045832-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Stock Market Today: Dow Jones Futures Gain, Nasdaq, S&amp;P 500 Falls as Scott Bessent Says Iran&#39;s Economy Is &#39;Collapsing&#39;\u2014 SXTC, AMAT, CMG in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T14:37:29.051046-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "What&#39;s Going On With Applied Materials Stock Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T14:37:29.214097-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "EXCLUSIVE: Micron Is Not Close to Peak Earnings, Jordi Visser Says. But He Prefers Optics and Crypto",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T14:37:29.369025-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "SK Hynix Stock Falls Below 200-Day Average: A Chinese Rival\u2019s IPO Filing May Explain Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-13T14:37:29.373846-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "China&#39;s Memory Chip Push Sends SK hynix, Samsung Reeling: Is the AI Trade Losing Steam?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-13T14:37:29.378410-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Why Is Sandisk Stock Falling Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-13T14:37:29.553437-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "EXCLUSIVE: Micron Is Not Close to Peak Earnings, Jordi Visser Says. But He Prefers Optics and Crypto",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"

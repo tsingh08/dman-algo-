@@ -1,352 +1,5 @@
 [
   {
-    "ts": "2026-10-12T11:03:17.213921-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "NVIDIA And Cisco Unveil USFP Optical Module Technology Supporting 400Gb/s-per-Lane Connectivity For Next-Generation AI Factories",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T11:04:17.358807-04:00",
-    "symbols": [
-      "AMZN",
-      "AVGO",
-      "DIA",
-      "IWM",
-      "JPM",
-      "MA",
-      "META",
-      "NFLX",
-      "NVDA",
-      "ORCL",
-      "QQQ",
-      "SPY",
-      "TSLA",
-      "V",
-      "XOM"
-    ],
-    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T11:05:20.822553-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Stock Climbs as JPMorgan Lifts Target, BofA Reiterates Buy",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T11:05:41.553424-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T11:05:41.840289-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T11:05:42.122636-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T11:06:02.806799-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Verizon Has a 6.8% Dividend Yield, but SpaceX Is Changing the Risk-Reward",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T11:07:40.411577-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Cisco Announces Microsoft Moved Into Production On Systems Powered By Cisco Silicon One P200",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T11:16:17.507665-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T11:16:17.776807-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T11:16:19.072135-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T11:16:23.433880-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T11:16:28.373766-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T11:16:28.934809-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T11:16:29.965740-04:00",
-    "symbols": [
-      "NEM"
-    ],
-    "headline": "$1000 Invested In Newmont 5 Years Ago Would Be Worth This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T11:16:31.049360-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T11:16:31.376580-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T11:16:35.276402-04:00",
-    "symbols": [
-      "WFF"
-    ],
-    "headline": "WF Holding Shares Halted On Circuit Breaker To The Downside, Stock Now Up 150.85%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T11:16:39.343402-04:00",
-    "symbols": [
-      "CCC"
-    ],
-    "headline": "First Tracks Biotherapeutics, C3.ai, CCC Intelligent Solutions And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T11:16:39.348726-04:00",
-    "symbols": [
-      "CCC"
-    ],
-    "headline": "Why Is CCC Intelligent Solutions Stock Surging Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T11:16:40.656850-04:00",
-    "symbols": [
-      "CNTB"
-    ],
-    "headline": "Leerink Partners Assumes Connect Biopharma Hldgs at Outperform, Announces Price Target of $4",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T11:19:20.138670-04:00",
-    "symbols": [
-      "LCID"
-    ],
-    "headline": "Lucid Group shares are trading lower after RBC Capital lowered its price target on the stock from $7 to $4.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T11:19:31.747468-04:00",
-    "symbols": [
-      "AMZN",
-      "IONQ",
-      "MSFT",
-      "PLTR"
-    ],
-    "headline": "Quantum Computing Is Eyeing a 2028 Breakthrough, 2 ETFs Could Capture It",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T11:20:27.553178-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Robinhood Is \u2018Compelling\u2019 For Fintech Exposure Given Deposits Growth: Analyst",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T11:20:46.850698-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T11:20:46.862371-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T11:20:46.875019-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T11:21:00.280886-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Quantum Computing Is Eyeing a 2028 Breakthrough, 2 ETFs Could Capture It",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T11:21:00.483870-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T11:21:00.857552-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T11:21:01.467151-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Quantum Computing Is Eyeing a 2028 Breakthrough, 2 ETFs Could Capture It",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T11:21:01.471700-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T11:21:01.696468-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-12T11:21:01.884438-04:00",
     "symbols": [
       "NFLX"
@@ -5080,6 +4733,336 @@
       "BKYI"
     ],
     "headline": "BIO-key Expands Middle East Footprint With New Government Security Agency Customer, Deployment Nearing Completion With IT Harmony Support",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T09:50:38.344934-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs CFO Says Based On Our Current Outlook, We Expect Incentive Fees To Remain Elevated In Q4; We Expect Regulatory Focus To Soon Shift Towards Liquidity Regulation Reform",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T09:51:18.018288-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "SpaceX's Wireless Push Sparks Wall Street Skepticism: Is the Stock Getting Ahead of Itself?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T09:51:18.271267-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "SpaceX's Wireless Push Sparks Wall Street Skepticism: Is the Stock Getting Ahead of Itself?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T09:51:18.275184-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "The 'Other Yellow Metal': Why Speculators Are Loading on Uranium",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T09:51:18.548286-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "SpaceX's Wireless Push Sparks Wall Street Skepticism: Is the Stock Getting Ahead of Itself?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:51:18.552584-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Loses Ground in China as Huawei's AI Chip Shipments Nearly Double, Capturing 28% Market Share: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:51:18.778050-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Nvidia Loses Ground in China as Huawei's AI Chip Shipments Nearly Double, Capturing 28% Market Share: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:51:19.307921-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "SpaceX's Wireless Push Sparks Wall Street Skepticism: Is the Stock Getting Ahead of Itself?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:51:19.311729-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "The 'Other Yellow Metal': Why Speculators Are Loading on Uranium",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:51:19.315944-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Micron's Monster Rally Faces Reality Check: China, Bearish Bets and AI Jitters",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:51:19.766183-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "SpaceX's Wireless Push Sparks Wall Street Skepticism: Is the Stock Getting Ahead of Itself?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:51:19.769926-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "The 'Other Yellow Metal': Why Speculators Are Loading on Uranium",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:51:19.774821-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Micron's Monster Rally Faces Reality Check: China, Bearish Bets and AI Jitters",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:51:20.811436-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Buys AI Startup That Tells Businesses What's Going Wrong",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:51:21.285081-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "What's Going On With Applied Materials Stock Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:51:21.289020-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "China's Memory Chip Push Sends SK hynix, Samsung Reeling: Is the AI Trade Losing Steam?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:51:21.292876-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "AI Stock Crash Could Trigger Global Market Turmoil, Warns IMF, as Debt and Cyber Risks Mount: 'Resilience Is Not Safety'",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:51:21.296664-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Elon Musk Fires Back at Broadcom CEO Hock Tan's AI Investment Warning: 'No Crying in the Casino'",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:51:21.300422-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "What's Going On With Broadcom Stock Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:51:21.574820-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Stock Market Today: Dow Jones Futures Gain, Nasdaq, S&P 500 Falls as Scott Bessent Says Iran's Economy Is 'Collapsing'\u2014 SXTC, AMAT, CMG in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:51:21.578849-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "What's Going On With Applied Materials Stock Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:51:21.880388-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "What's Going On With Applied Materials Stock Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:51:21.884312-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "China's Memory Chip Push Sends SK hynix, Samsung Reeling: Is the AI Trade Losing Steam?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:51:22.119903-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "China's Memory Chip Push Sends SK hynix, Samsung Reeling: Is the AI Trade Losing Steam?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-13T09:51:22.124738-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Micron's Monster Rally Faces Reality Check: China, Bearish Bets and AI Jitters",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-13T09:51:22.128830-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Nasdaq Down Over 100 Points as Memory Stocks Decline: Fear & Greed Index Remains in \u2018Neutral\u2019 Zone",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-13T09:51:22.364844-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "What's Going On With Applied Materials Stock Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T09:51:22.368626-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "China's Memory Chip Push Sends SK hynix, Samsung Reeling: Is the AI Trade Losing Steam?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T09:51:22.597291-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "'Trump Administration Plans to Move AI Testing Agency Officials to White House; The White House Seeks To Integrate Caissi Into AI Decision-making Process' - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T09:51:23.947942-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "U.K. Medicines And Healthcare Products Regulatory Agency Authorizes Eli Lilly's Onswik For Adults With Type 2 Diabetes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:51:24.403968-04:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "GameStop Stock Hits a New 52-Week High: What's Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T09:54:56.761970-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Earnings Top Estimates as Equities Revenue Surges 72%",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T09:55:26.316406-04:00",
+    "symbols": [
+      "FLYE"
+    ],
+    "headline": "Fly-E Group Shares Halted On Circuit Breaker To The Upside, Stock Now Up 92.68%",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

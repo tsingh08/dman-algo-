@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-12T11:45:10.363449-04:00",
-    "symbols": [
-      "ONDS"
-    ],
-    "headline": "Ondas Takes Its Palantir Partnership Deeper With New Sovereign AI Company",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T11:47:34.619063-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Stock Moves Higher Monday: What&#39;s Happening?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T11:53:47.809318-04:00",
-    "symbols": [
-      "LCID"
-    ],
-    "headline": "Lucid Plans To Open First Three Retail, Service Locations In France In Q1 Next Year; Intends To Expand French Network To Over 16 Locations By End Of 2027; Orders For Lucid Vehicles In France Are Expected To Open In Q1 2027",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T12:05:07.918092-04:00",
-    "symbols": [
-      "SXTC"
-    ],
-    "headline": "Dow Gains Over 200 Points; Chipotle Shares Move Lower",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T12:06:54.230291-04:00",
-    "symbols": [
-      "SOUN"
-    ],
-    "headline": "SoundHound AI Stock Is Falling Monday: What&#39;s Going On?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T12:07:08.111726-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "AST SpaceMobile Stock Upgraded: Is it Time to Buy the Dip?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-12T12:07:38.764482-04:00",
     "symbols": [
       "AERT"
@@ -5064,6 +5004,66 @@
     ],
     "headline": "Meta Platforms shares are trading higher after Pivotal Research maintained its Buy rating on the stock and raised its price target from $790 to $930. Also, Truist Securities maintained its Buy rating and raised its price target from $763 to $1000.",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T10:45:28.555338-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Signs Proposed Energy Service Agreement With El Paso Electric To Support Construction, Initial Commissioning, Emergency Backup Power For Project Jupiter; Oracle Anticipates Paying $10M For Power Annually For 10 Years",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T10:45:35.826706-04:00",
+    "symbols": [
+      "SAFX"
+    ],
+    "headline": "XCF Global Announces September Gross Product Sales Of More Than $12M From Renewable Diesel",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T10:45:36.832726-04:00",
+    "symbols": [
+      "SDRL"
+    ],
+    "headline": "Seadrill Secures ~$420M Indonesia Drilling Contract And Multiple Rig Extensions In Malaysia And Angola; Contract Has An Estimated Firm Duration Of 880 Days, With Priced Options For Up To An Additional 880 Days; Expected To Commence In H1 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T10:45:37.059491-04:00",
+    "symbols": [
+      "INFY"
+    ],
+    "headline": "Bumble, Fermi, Xtend AI Robotics And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T10:45:37.279960-04:00",
+    "symbols": [
+      "COSM"
+    ],
+    "headline": "Cosmos Health Record One-Day U.S. Direct-To-Consumer Sales Of $92K+ On October 11 And $902K In 30 Days",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T10:45:37.500736-04:00",
+    "symbols": [
+      "BP"
+    ],
+    "headline": "BP Expects Q3 Upstream Production Of 2,190-2,240 Mboe/d Vs 2,201 Mboe/d In Q2, Net Debt Of $13.5B-$14.5B Vs $22.3B, And Post-Tax Impairments Of $3.0B-$4.5B",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

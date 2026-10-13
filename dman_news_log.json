@@ -1,56 +1,5 @@
 [
   {
-    "ts": "2026-10-12T13:13:39.688301-04:00",
-    "symbols": [
-      "CCC"
-    ],
-    "headline": "Nasdaq 100 Drops, SanDisk Tumbles 6% as AI Trade Falters: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T13:13:39.935424-04:00",
-    "symbols": [
-      "FRGT"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T13:13:40.056234-04:00",
-    "symbols": [
-      "JXG"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T13:14:35.357256-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#39;Mark Zuckerberg says Meta has reached AI \u2018frontier\u2019 and rejects calls for slowdown&#39; - FT Interview",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T13:15:47.386095-04:00",
-    "symbols": [
-      "LCID",
-      "TSLA"
-    ],
-    "headline": "Tesla Faces New Luxury EV Rival in France as Lucid Plans 16 Locations",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-12T13:20:39.849564-04:00",
     "symbols": [
       "MSFT"
@@ -5073,5 +5022,56 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T11:47:20.506521-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA Says Will Announce $2b Of AI Investments In Europe This Week",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T11:47:55.523040-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA Founder And CEO Jensen Huang Says Open Models A &#39;Great Advantage&#39; For Europe",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T11:48:10.059784-04:00",
+    "symbols": [
+      "MSFT",
+      "NVDA"
+    ],
+    "headline": "Cerebras Stock Braces for 19.4 Million-Share Unlock After Record Low",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T11:48:13.470140-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Samsung, SK Hynix Fall In Seoul On China Memory Threat\u2014Broadcom CEO Compares AI Investors To Casino Gamblers\u2014JPM Whipsaws",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T11:51:17.737552-04:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on AppLovin, Lowers Price Target to $400",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

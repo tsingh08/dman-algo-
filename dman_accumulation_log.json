@@ -1807,5 +1807,14 @@
   "drift_pct": 0.28,
   "range_ratio": 0.5,
   "near_high": 0.994
+ },
+ {
+  "ts": "2026-10-13T14:13:12.251674-04:00",
+  "ticker": "FTMS",
+  "price": 9.75,
+  "rvol": 2.61,
+  "drift_pct": 0.62,
+  "range_ratio": 0.37,
+  "near_high": 0.983
  }
 ]

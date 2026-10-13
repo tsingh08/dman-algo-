@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-12T11:21:12.302677-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "9 Of 11 Sectors Rise Monday As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-12T11:21:12.665912-04:00",
     "symbols": [
       "YMAT"
@@ -5067,5 +5057,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T10:06:37.991122-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Is &#39;Too Big to Fail,&#39; Semafor Editor Warns: &#39;The Government Would Step In&#39;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

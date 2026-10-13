@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-12T11:44:50.117342-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "QUICK SPARK: Micron, SK Hynix, SanDisk Wipe Out $100 Billion as Memory Rout Worsens",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T11:44:50.391577-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "QUICK SPARK: Micron, SK Hynix, SanDisk Wipe Out $100 Billion as Memory Rout Worsens",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-12T11:44:50.666153-04:00",
     "symbols": [
       "SKHY"
@@ -5063,6 +5043,26 @@
       "SPCX"
     ],
     "headline": "EXCLUSIVE: SpaceX\u2019s Mobile Push to Pay Off, 73% of Benzinga Viewers Would Consider Switching",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T10:25:50.993626-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs CEO Says I Don&#39;t Sense That People Are Sitting On The Sidelines Because Of Midterms; Says I Don&#39;t See Mid-Term Affecting Activity Significantly",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T10:28:51.541001-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Pivotal Research Maintains Buy on Meta Platforms, Raises Price Target to $930",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

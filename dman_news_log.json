@@ -1,89 +1,5 @@
 [
   {
-    "ts": "2026-10-12T10:46:24.141576-04:00",
-    "symbols": [
-      "GEV",
-      "NVDA",
-      "SPY"
-    ],
-    "headline": "Steve Eisman Warns S&amp;P 500 Is One Giant AI Bet: &#39;I Own NVDA and I Worry&#39;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T10:48:01.924397-04:00",
-    "symbols": [
-      "HOOD",
-      "MSTR",
-      "SPY"
-    ],
-    "headline": "Bitmine Buys 12,532 More ETH as Tom Lee\u2019s Buying \u2018Stop\u2019 Draws Closer",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T10:48:27.274521-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "TD Cowen Maintains Hold on Chevron, Raises Price Target to $225",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T10:48:47.714770-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "QUICK SPARK: S&amp;P 500 Bull Market Turns 4, More Than Doubling From Its 2022 Low",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T10:49:36.084443-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "S&amp;P 500\u2014What Happens In Q4 After A Negative September?",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T10:52:53.897223-04:00",
-    "symbols": [
-      "WFF"
-    ],
-    "headline": "WF Holding Shares Halted On Circuit Breaker To The Upside, Stock Now Up 114.89%",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T10:59:58.963527-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Steve Eisman Warns S&amp;P 500 Is One Giant AI Bet: &#39;I Own NVDA and I Worry&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T11:00:04.766845-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Bitmine Buys 12,532 More ETH as Tom Lee\u2019s Buying \u2018Stop\u2019 Draws Closer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-12T11:00:09.768191-04:00",
     "symbols": [
       "MSTR"
@@ -5087,5 +5003,85 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:35:50.732438-04:00",
+    "symbols": [
+      "XTND"
+    ],
+    "headline": "XTEND AI Robotics Receives $40.5M Pentagon Order For 6,000 STRIKER Systems",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T09:38:29.848535-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Transcript: JPMorgan Chase Q3 2026 Earnings Conference Call",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T09:39:13.332668-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is Super Micro Computer Stock Falling on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:39:15.282314-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Why Is Super Micro Computer Stock Falling on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:39:16.009304-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "The Third Player: YMTC Overtakes Micron in Global NAND Shipment Volumes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:39:16.473332-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "The Third Player: YMTC Overtakes Micron in Global NAND Shipment Volumes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T09:39:31.869289-04:00",
+    "symbols": [
+      "VFC"
+    ],
+    "headline": "This Exelon Analyst Is No Longer Bearish; Here Are Top 5 Upgrades For Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T09:40:00.047206-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Is Up 10% \u2014 So Why Are These 2X TSLA ETFs Heading in the Opposite Direction?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

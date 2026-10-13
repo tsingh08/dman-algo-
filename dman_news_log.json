@@ -1,111 +1,5 @@
 [
   {
-    "ts": "2026-10-12T13:20:46.541297-04:00",
-    "symbols": [
-      "GRML"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T13:20:46.810512-04:00",
-    "symbols": [
-      "CCC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T13:20:46.815435-04:00",
-    "symbols": [
-      "CCC"
-    ],
-    "headline": "Nasdaq 100 Drops, SanDisk Tumbles 6% as AI Trade Falters: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T13:29:01.435870-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Supertankers Turn From Gulf Oil Transfer Hub Amid Iran\u2019s Attacks&#39; - Bloomberg",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T13:31:38.668343-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Snowflake Stock Is Falling Monday: What&#39;s Going On?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T13:31:49.017689-04:00",
-    "symbols": [
-      "LCID"
-    ],
-    "headline": "Tesla Faces New Luxury EV Rival in France as Lucid Plans 16 Locations",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-12T13:35:09.993071-04:00",
-    "symbols": [
-      "AVGO",
-      "MRVL",
-      "ORCL",
-      "SMCI",
-      "SNDK"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T13:35:10.342045-04:00",
-    "symbols": [
-      "AMZN",
-      "DKNG"
-    ],
-    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T13:35:10.496071-04:00",
-    "symbols": [
-      "MRNA",
-      "UNH"
-    ],
-    "headline": "10 Health Care Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T13:35:29.754694-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-12T13:35:30.341505-04:00",
     "symbols": [
       "SMCI"
@@ -5074,6 +4968,106 @@
       "SNDK"
     ],
     "headline": "Shares of memory- and storage-related chip companies are trading lower amid concerns over Chinese competition, following reports this week that ChangXin Memory Technologies advanced development of a new DRAM cell structure to increase storage density and efficiency. The sector is also under pressure after South Korea\u2019s Kospi fell 5.5% to its lowest level since July 31, with SK Hynix plunging more than 10% in Seoul trading.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T12:12:34.574573-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Analyst Sees SpaceX Squeezing AST SpaceMobile on Launch Access and Pricing",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T12:13:40.307659-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;AI is an inflation problem, Fed\u2019s Goolsbee says; Inflation tied to the AI boom is &#39;jumping out of its lane&#39;&#39; - Semafor Interview",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T12:14:56.075040-04:00",
+    "symbols": [
+      "BMBL"
+    ],
+    "headline": "Crude Oil Edges Higher; Citigroup Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T12:14:57.203461-04:00",
+    "symbols": [
+      "FRMI"
+    ],
+    "headline": "Crude Oil Edges Higher; Citigroup Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T12:14:59.151641-04:00",
+    "symbols": [
+      "OLLI"
+    ],
+    "headline": "Ollie\u2019s Bargain Outlet Holdings Board Unanimously Approves New Share Repurchase Authorization For Repurchase Of Additional $500M Of Outstanding Common Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T12:14:59.621156-04:00",
+    "symbols": [
+      "BKYI"
+    ],
+    "headline": "Crude Oil Edges Higher; Citigroup Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T12:15:22.223304-04:00",
+    "symbols": [
+      "IOVA"
+    ],
+    "headline": "Barclays Maintains Overweight on Iovance Biotherapeutics, Raises Price Target to $18",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T12:15:24.648803-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Platforms Launching New AI-Powered Tools To Shape Feeds, Reels; Updates Three-Dot Menu",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T12:15:56.423414-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google Rolling Out Gemini 4 Argon To Google AI Subscribers In Google Antigravity, Gemini App &amp; AI Mode In Search",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T12:16:14.180711-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Alphabet Could Unlock $100 Billion From AI Chips by 2028, Analyst Says",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

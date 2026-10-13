@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-13T09:26:13.184132-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "SpaceX&#39;s Wireless Push Sparks Wall Street Skepticism: Is the Stock Getting Ahead of Itself?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T09:26:13.187784-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Announces Successful U.S. Army C5ISR Demo Completion Of Amazon Leo Satellite Network",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T09:26:13.191422-04:00",
     "symbols": [
       "AMZN"
@@ -5043,5 +5023,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T14:03:45.761411-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "FAA To Pause Use Of AI Tool In Washington, D.C., Area To Assist Air Traffic Controllers Pending Further Evaluation",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T14:04:14.853095-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "SpaceX&#39;s Wireless Push Sparks Wall Street Skepticism: Is the Stock Getting Ahead of Itself?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-10-12T11:00:09.768191-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitmine Buys 12,532 More ETH as Tom Lee\u2019s Buying \u2018Stop\u2019 Draws Closer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T11:00:12.279861-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "Steve Eisman Warns S&amp;P 500 Is One Giant AI Bet: &#39;I Own NVDA and I Worry&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T11:00:15.237485-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Bitmine Buys 12,532 More ETH as Tom Lee\u2019s Buying \u2018Stop\u2019 Draws Closer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T11:00:15.242668-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Steve Eisman Warns S&amp;P 500 Is One Giant AI Bet: &#39;I Own NVDA and I Worry&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T11:00:22.339872-04:00",
-    "symbols": [
-      "DHT"
-    ],
-    "headline": "The Oil Market Is Breaking Apart: Brent-WTI Price Gap Hits $13",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T11:00:22.584692-04:00",
-    "symbols": [
-      "TRMD"
-    ],
-    "headline": "TORM Raises FY26 Time Charter Equivalent Guidance In Range Of $1.7B - $1.9B From $1.4B - $1.6B",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T11:00:22.829847-04:00",
-    "symbols": [
-      "FRO"
-    ],
-    "headline": "The Oil Market Is Breaking Apart: Brent-WTI Price Gap Hits $13",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-12T11:00:24.174528-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Here&#39;s How Much $100 Invested In Tesla 10 Years Ago Would Be Worth Today",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T11:00:24.211451-04:00",
-    "symbols": [
-      "ALLT"
-    ],
-    "headline": "First Tracks Biotherapeutics, C3.ai, CCC Intelligent Solutions And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-12T11:03:17.213921-04:00",
     "symbols": [
       "NVDA"
@@ -5083,5 +4993,95 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T09:44:23.998018-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs CEO Says In Our Conversations With Clients, Demand For Compute Significantly Exceeds Supply At The Moment; We Also Recognize The Broader Concerns Around The Accelerating Pace Of AI Technology And The Unchecked Advancement Of Frontier Models; We Are Highly Selective About The Risk We Underwrite On AI And The Capital We Commit, Particularly As Client&#39;s Financing Needs Become Larger And More Complex",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T09:45:07.674938-04:00",
+    "symbols": [
+      "RYDE"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T09:45:08.013391-04:00",
+    "symbols": [
+      "BDRX"
+    ],
+    "headline": "Biodexa Pharmaceuticals Enrolls 100 Patients In Its Registrational Phase 3 Serenta Trial Of eRapa In Familial Adenomatous Polyposis; Trial Is Recruiting At 29 Clinical Sites In U.S., Canada And Europe And Is Expected To Be Initiated Shortly",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T09:45:08.313462-04:00",
+    "symbols": [
+      "CGTX"
+    ],
+    "headline": "Cognition Therapeutics Receives U.S. Patent Covering A Polymorph Version Of Its Lead Drug Candidate Zervimesine",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T09:45:08.566028-04:00",
+    "symbols": [
+      "RZAI"
+    ],
+    "headline": "Roze AI Announces ~$14.8M, Including VAT, In Three South Korea Contracts With Hajo And IJ; Says Values Not Revenue Guidance",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T09:45:08.869054-04:00",
+    "symbols": [
+      "BKYI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T09:45:08.872978-04:00",
+    "symbols": [
+      "BKYI"
+    ],
+    "headline": "Why Is BIO-key International Stock Surging Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T09:45:08.876580-04:00",
+    "symbols": [
+      "BKYI"
+    ],
+    "headline": "Why UnitedHealth Group Shares Are Trading Higher; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T09:45:08.880116-04:00",
+    "symbols": [
+      "BKYI"
+    ],
+    "headline": "BIO-key Expands Middle East Footprint With New Government Security Agency Customer, Deployment Nearing Completion With IT Harmony Support",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

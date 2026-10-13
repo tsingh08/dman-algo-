@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T09:26:23.728429-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Marvell Technology, Microsoft, Oracle Collaborate For Open Compute Project To Standardize NIST FIPS 140-3 Integrated HSM For Cloud, Hyperscale Data Center Infrastructure",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-13T09:26:23.732157-04:00",
     "symbols": [
       "ORCL"
@@ -5046,5 +5036,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T15:33:01.290968-04:00",
+    "symbols": [
+      "GOSS"
+    ],
+    "headline": "Chardan Capital Initiates Coverage On Gossamer Bio with Buy Rating, Announces Price Target of $160",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

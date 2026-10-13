@@ -1,58 +1,5 @@
 [
   {
-    "ts": "2026-10-12T11:41:29.136053-04:00",
-    "symbols": [
-      "NVDA",
-      "SMCI"
-    ],
-    "headline": "Why Is Super Micro Computer Stock Falling on Monday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T11:41:41.681639-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Amazon.com, Lowers Price Target to $329",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T11:44:12.810064-04:00",
-    "symbols": [
-      "MU",
-      "SKHY",
-      "SNDK"
-    ],
-    "headline": "QUICK SPARK: Micron, SK Hynix, SanDisk Wipe Out $100 Billion as Memory Rout Worsens",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-12T11:44:46.582487-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is Super Micro Computer Stock Falling on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-12T11:44:49.581556-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Why Is Super Micro Computer Stock Falling on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-12T11:44:50.117342-04:00",
     "symbols": [
       "MU"
@@ -5069,5 +5016,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T10:21:34.576378-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Why Is Nebius Group Stock Falling Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T10:21:34.916806-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Why Is Nebius Group Stock Falling Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-13T10:21:36.022806-04:00",
+    "symbols": [
+      "FLYE"
+    ],
+    "headline": "Fly-E Group Shares Halted On Circuit Breaker To The Upside, Stock Now Up 204.39%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T10:21:36.510783-04:00",
+    "symbols": [
+      "SUNS"
+    ],
+    "headline": "Sunrise Realty Trust Board Authorizes Repurchase Program Of Up To $20M Of Common Stock Through December 31, 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-13T10:22:14.851948-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "EXCLUSIVE: SpaceX\u2019s Mobile Push to Pay Off, 73% of Benzinga Viewers Would Consider Switching",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

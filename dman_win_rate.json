@@ -1575,11 +1575,11 @@
     "ticker": "PLTR",
     "date": "2026-10-09",
     "bias": "LONG",
-    "setup": "Options Call PLTR261016C00200000",
-    "entry": 4.8,
-    "exit": 9.29,
+    "setup": "Momentum Call Spread \u2014 PLTR 200/205",
+    "entry": 2.0,
+    "exit": 4.04,
     "outcome": "WIN",
-    "pnl_pct": 93.54,
+    "pnl_pct": 102.0,
     "score": 0,
     "is_live": true
   }

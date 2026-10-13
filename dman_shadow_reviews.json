@@ -596,5 +596,27 @@
    "regime": "BULL",
    "regime_score": 14
   }
+ },
+ {
+  "ts": "2026-10-13T13:46:27.964261-04:00",
+  "kind": "signal",
+  "ticker": "BMGL",
+  "verdict": "skip",
+  "confidence": 85,
+  "reason": "Entry at 3.9479 is already 2x above recent support. Stop at 3.1583 is 20% away - risk is disproportionate to setup quality despite catalyst strength.",
+  "facts": {
+   "setup": "Low Float Catalyst",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 3.9479,
+   "stop": 3.1583,
+   "target1": 5.92,
+   "rr": 2.5,
+   "rvol": 14.0,
+   "rsi": 46.9,
+   "reason": "Float 0.5M | RVOL 14.0x | \u26a1 ULTRA-LOW FLOAT | Float 1.9x rotated | Insiders 54% | \ud83d\udcb0 Below cash value (1.4x) | MACD curling bullish, RVOL spike",
+   "regime": "BULL",
+   "regime_score": 14
+  }
  }
 ]

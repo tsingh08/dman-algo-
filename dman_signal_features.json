@@ -40054,8 +40054,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 24,
-"last_ts": "2026-10-13T10:11:29.446529-04:00",
+"seen": 26,
+"last_ts": "2026-10-13T10:16:56.816514-04:00",
 "entry_min": 17.28,
 "entry_max": 17.28
 },
@@ -40066,7 +40066,7 @@
 "setup": "Gap & Hold",
 "bias": "LONG",
 "taken": false,
-"reject": "setup disabled: 8W/31L over 39 live trades (21% WR, -78.6% c",
+"reject": "mtf: weekly disagrees",
 "score": 100,
 "final_score": 100.0,
 "ai_scored": false,
@@ -40082,14 +40082,14 @@
 "news_boost": false,
 "regime": "BULL",
 "regime_score": 14,
-"mtf_ok": true,
+"mtf_ok": false,
 "regime_ok": true,
 "earnings_ok": true,
 "macro_ok": true,
 "divergence_free": true,
 "breakdown": {
 "Regime": 14,
-"MTF": 14,
+"MTF": 8,
 "Rel Strength": 10,
 "Sector": 6,
 "Sector ETF": 0,
@@ -40116,8 +40116,8 @@
 "Gap Size": 0,
 "News Catalyst": 0
 },
-"seen": 4,
-"last_ts": "2026-10-13T10:11:30.434054-04:00",
+"seen": 6,
+"last_ts": "2026-10-13T10:16:57.609497-04:00",
 "entry_min": 106.38,
 "entry_max": 106.38
 }

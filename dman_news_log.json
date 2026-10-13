@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-12T11:21:12.680467-04:00",
-    "symbols": [
-      "YMAT"
-    ],
-    "headline": "Why J-Star Holding Shares Are Trading Higher By Around 128%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-12T11:21:12.848337-04:00",
     "symbols": [
       "CTNM"
@@ -5064,6 +5054,16 @@
       "AAPL"
     ],
     "headline": "Apple Stock Rises to New 52-Week High: What&#39;s Happening?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-13T10:10:55.819326-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs CEO Says We&#39;re Certainly Operating In A Very Good Environment For Capital Markets And Investment Banking Activity At The Moment",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"

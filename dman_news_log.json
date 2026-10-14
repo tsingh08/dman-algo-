@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-13T11:17:58.298939-04:00",
-    "symbols": [
-      "BWAY"
-    ],
-    "headline": "BrainsWay Says Over 70M U.S. Covered Lives Now Have Access To Policies Covering SWIFT Accelerated Depression Treatment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T11:21:43.494562-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on CrowdStrike Holdings, Raises Price Target to $300",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T11:21:43.767954-04:00",
     "symbols": [
       "PANW"
@@ -5025,5 +5005,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T09:58:13.967600-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Mexico President Says She Will Sign Decree On Wednesday To Order Digital Platforms To Protect Minors From Violent And Sexual Content",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T09:59:02.781457-04:00",
+    "symbols": [
+      "GLND"
+    ],
+    "headline": "Dow Gains Over 100 Points; US Inflation Rate Rises In September",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

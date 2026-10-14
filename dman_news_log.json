@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T14:37:29.373846-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "China&#39;s Memory Chip Push Sends SK hynix, Samsung Reeling: Is the AI Trade Losing Steam?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-13T14:37:29.378410-04:00",
     "symbols": [
       "SNDK"
@@ -5091,5 +5081,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T13:47:31.560939-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is Dell Technologies Stock Sinking Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

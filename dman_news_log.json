@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T11:59:51.569456-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Cerebras Stock Braces for 19.4 Million-Share Unlock After Record Low",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-13T11:59:51.751861-04:00",
     "symbols": [
       "NVDA"
@@ -5023,5 +5013,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T10:17:46.028198-04:00",
+    "symbols": [
+      "ENPH"
+    ],
+    "headline": "Enphase Energy shares are trading lower after Susquehanna lowered its price target on the stock  from $37 to $35.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

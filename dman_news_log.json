@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-13T12:28:47.625528-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "What&#39;s Going on With Arm Stock on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T12:28:48.829027-04:00",
-    "symbols": [
-      "CELH"
-    ],
-    "headline": "TD Cowen Maintains Buy on Celsius Holdings, Lowers Price Target to $35",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-13T12:28:49.138225-04:00",
     "symbols": [
       "ARM"
@@ -5022,5 +5002,27 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:11:50.330490-04:00",
+    "symbols": [
+      "NVDA",
+      "SNDK",
+      "TSLA"
+    ],
+    "headline": "Bitcoin, Nvidia And Tesla ETFs Lead Wall Street\u2019s Most Traded Funds",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:12:34.249259-04:00",
+    "symbols": [
+      "ONMD"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

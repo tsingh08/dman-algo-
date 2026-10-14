@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-13T13:35:30.569084-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "U.K. Medicines And Healthcare Products Regulatory Agency Authorizes Eli Lilly&#39;s Onswik For Adults With Type 2 Diabetes",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T13:35:30.576823-04:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "Qualcomm Wins Jury Verdict Against Arm For Violation Of Architectural License Agreement",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T13:35:30.600498-04:00",
-    "symbols": [
-      "BBAI"
-    ],
-    "headline": "BigBear.ai Secures Over $225M In Federal Contract Awards Since July",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-13T13:35:30.624173-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "UnitedHealth Group Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T13:35:30.634746-04:00",
     "symbols": [
       "ADBE"
@@ -5059,5 +5019,46 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T12:08:07.350087-04:00",
+    "symbols": [
+      "GS",
+      "JPM"
+    ],
+    "headline": "Big Bank Succession Talk Heats Up as CEOs Stay Firmly in Charge",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T12:09:04.774138-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is Super Micro Computer Stock Falling on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T12:09:16.688794-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Big Bank Succession Talk Heats Up as CEOs Stay Firmly in Charge",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T12:09:16.697484-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Big Bank Succession Talk Heats Up as CEOs Stay Firmly in Charge",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

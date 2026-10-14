@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T13:45:12.856795-04:00",
-    "symbols": [
-      "EIX"
-    ],
-    "headline": "&#39;Californians face power blackouts as utility warns 22 counties under threat&#39; - NY Post",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T13:45:13.039261-04:00",
     "symbols": [
       "C"
@@ -5061,6 +5051,21 @@
       "RIOT"
     ],
     "headline": "Shares of crypto-linked companies are trading lower as Bitcoin prices decline following the latest inflation data. Stronger-than-expected inflation has fueled expectations for tighter Federal Reserve policy, while rising Treasury yields and a stronger dollar are dampening risk appetite and weighing on speculative assets.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T12:29:40.917604-04:00",
+    "symbols": [
+      "CRWD",
+      "DDOG",
+      "FTNT",
+      "ORCL",
+      "PANW",
+      "SOUN"
+    ],
+    "headline": "Shares of software companies are trading lower as elevated oil prices and stronger-than-expected inflation data fuel expectations of more Fed tightening at a quicker pace. Costlier borrowing may weaken sentiment for the sector&#39;s strong H2 2026 rally.",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

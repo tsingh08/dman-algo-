@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T14:58:11.808471-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "RTX\u2019s Raytheon Bags $729M To Deliver Critical Components Of LIDS Counter-Drone System To US Army, Qatar And Jordan",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T14:58:11.986568-04:00",
     "symbols": [
       "GE"
@@ -5109,5 +5099,16 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T14:39:49.541935-04:00",
+    "symbols": [
+      "AMD",
+      "AVGO"
+    ],
+    "headline": "Why Is AMD Stock Falling on Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

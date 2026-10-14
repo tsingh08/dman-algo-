@@ -11250,7 +11250,42 @@ def _progress_equity_stop_to_trailing(pos: "OpenPosition", cur_price: float,
             return None
 
 
-EARLY_PROFIT_LOCK_GAIN_PCT = 15.0   # see _check_equity_position_target's early-lock branch
+# Gain at which a share position's stop is moved to breakeven and then to a
+# native trailing stop. Was 15.0, which measured as effectively OFF.
+#
+# Across the 627 labelled signals (Gap & Hold 420, Morning Runner 205) MFE --
+# the best the position ever got -- has mean +5.39% and median +4.00%. Only
+# 3.2% of signals EVER reach +15%, and the only other arming path is T1, which
+# label_exit_reason says fires on 2.9%. So the protection built to stop a
+# winner becoming a full loss engaged on about one trade in 31, while 56.1%
+# exited at a full stop and 41.0% at the time horizon.
+#
+# Simulating "lock breakeven once gain reaches X" over those signals, with two
+# models bracketing the unknowable MFE/MAE ordering (optimistic: zero out
+# losers only; realistic: zero out anything that dipped back through entry
+# after arming), against an actual -3.81%/trade:
+#
+#     X=+15%  optimistic +0.10   realistic -0.62   <- WORST in the range
+#     X=+7.5% optimistic +2.37   realistic +1.63
+#     X=+5%   optimistic +2.55   realistic +1.54
+#     X=+3%   optimistic +3.55   realistic +2.50
+#
+# The table says 15 is wrong but CANNOT pick the replacement: both columns
+# keep improving all the way down to +0.5% (armed 93.5%), because lowering X
+# mechanically converts more losers to zero. The model never turns over, so
+# reading an optimum off it would repeat the error reverted in 8bf2a4d6
+# (a trail threshold raised on four hand-picked paths, inverted once widened
+# to sixteen).
+#
+# 5.0 is therefore chosen NOT from that table but because it is the one value
+# in the good band already validated on real MINUTE paths elsewhere in this
+# system: BZONE_TRAIL_ACTIVATE_PCT, where a 4x4 grid favoured 5%/25% in all
+# 16 cells. Settling it properly needs the same minute replay for shares.
+#
+# Currently INERT: Gap & Hold and Morning Runner are both disabled by the kill
+# switch, so this governs nothing until a share setup is re-enabled -- which is
+# exactly why it was safe to change now.
+EARLY_PROFIT_LOCK_GAIN_PCT = 5.0   # see _check_equity_position_target's early-lock branch
 # Order-flow-aware early lock (added 2026-08-23, equity counterpart to the
 # options trail-tightening feature) -- half of EARLY_PROFIT_LOCK_GAIN_PCT,
 # since the whole point is triggering the SAME already-tested stop-to-

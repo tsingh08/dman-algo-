@@ -3983,19 +3983,45 @@ class TestCheckEquityPositionTarget(unittest.TestCase):
             a._check_equity_position_target(self._pos(entry=0), cur_price=100.0)
         mock_price.assert_not_called()
 
+    # --- gains expressed RELATIVE to the live thresholds ------------------
+    # Hardcoding $11.00 ("+12.24%, between the gates") silently became
+    # "+12.24%, well past the gate" when EARLY_PROFIT_LOCK_GAIN_PCT went
+    # 15 -> 5. Deriving the price keeps each test's INTENT stable.
+    @staticmethod
+    def _px(entry, gain_pct):
+        return round(entry * (1 + gain_pct / 100.0), 4)
+
+    @classmethod
+    def _gain_between_gates(cls):
+        """Inside (order-flow floor, normal early-lock gate) -- the band where
+        only order flow may act."""
+        return (a.ORDER_FLOW_EQUITY_LOCK_MIN_GAIN_PCT
+                + a.EARLY_PROFIT_LOCK_GAIN_PCT) / 2.0
+
+    @classmethod
+    def _gain_below_floor(cls):
+        return a.ORDER_FLOW_EQUITY_LOCK_MIN_GAIN_PCT / 2.0
+
+    @classmethod
+    def _gain_past_gate(cls):
+        return a.EARLY_PROFIT_LOCK_GAIN_PCT * 1.2
+
     def test_early_lock_engages_before_t1(self):
         # Real CLRO incident, 2026-08-10: entry $9.80, T1 $14.73, peaked at
         # $14.08 (+43.7%) and reversed hard -- T1 was never reached, so the
         # T1 branch never engaged and this position got zero protection.
-        # +18% here is well past the 15% trigger but nowhere near T1.
+        # A gain past the early-lock trigger but nowhere near T1.
         pos = self._pos(ticker="CLRO", entry=9.80, target1=14.73, target2=17.70, stop=7.83)
+        _cur = self._px(9.80, self._gain_past_gate())
+        self.assertLess(_cur, 14.73, "test price must stay below T1")
         with patch.object(a, "_progress_equity_stop_to_trailing", return_value="stop raised to breakeven, now trailing") as mock_prog:
             with patch.object(a, "send_telegram", return_value=True) as mock_tg:
-                a._check_equity_position_target(pos, cur_price=11.56)   # +18%
+                a._check_equity_position_target(pos, cur_price=_cur)
         mock_tg.assert_called_once()
         self.assertIn("Early profit lock", mock_tg.call_args[0][0])
         # must pass a trigger_price BELOW T1, not fall through to the T1 gate
-        self.assertEqual(mock_prog.call_args.kwargs.get("trigger_price"), round(9.80 * 1.15, 4))
+        self.assertEqual(mock_prog.call_args.kwargs.get("trigger_price"),
+                         self._px(9.80, a.EARLY_PROFIT_LOCK_GAIN_PCT))
 
     def test_below_early_lock_threshold_does_nothing(self):
         pos = self._pos(ticker="CLRO", entry=9.80, target1=14.73, target2=17.70, stop=7.83)
@@ -4020,67 +4046,77 @@ class TestCheckEquityPositionTarget(unittest.TestCase):
         mock_tg.assert_not_called()
 
     def test_bearish_order_flow_locks_in_between_the_two_gain_gates(self):
-        # Added 2026-08-23: entry $9.80, cur $11.00 = +12.24% -- inside
-        # (ORDER_FLOW_EQUITY_LOCK_MIN_GAIN_PCT=7.5%, EARLY_PROFIT_LOCK_GAIN_PCT=15%),
-        # below the normal early-lock gate but order flow independently
+        # Added 2026-08-23. A gain strictly inside the band
+        # (ORDER_FLOW_EQUITY_LOCK_MIN_GAIN_PCT, EARLY_PROFIT_LOCK_GAIN_PCT):
+        # below the normal early-lock gate, but order flow independently
         # confirms sellers stacking (lean well past
-        # ORDER_FLOW_TIGHTEN_LEAN_THRESHOLD=-0.4). Must lock in now instead
-        # of waiting for the full 15% gate.
+        # ORDER_FLOW_TIGHTEN_LEAN_THRESHOLD=-0.4). Must lock in now rather
+        # than wait for the full gate.
         pos = self._pos(ticker="CLRO", entry=9.80, target1=14.73, target2=17.70, stop=7.83)
-        bearish_quote = {"mid": 11.00, "bid": 10.98, "ask": 11.02, "bid_size": 20, "ask_size": 180}
+        _cur = self._px(9.80, self._gain_between_gates())
+        bearish_quote = {"mid": _cur, "bid": _cur - 0.02, "ask": _cur + 0.02,
+                         "bid_size": 20, "ask_size": 180}
         with patch.object(a, "get_live_quote", return_value=bearish_quote), \
              patch.object(a, "_progress_equity_stop_to_trailing",
                            return_value="stop raised to breakeven, now trailing") as mock_prog, \
              patch.object(a, "send_telegram", return_value=True) as mock_tg:
-            a._check_equity_position_target(pos, cur_price=11.00)
+            a._check_equity_position_target(pos, cur_price=_cur)
         mock_tg.assert_called_once()
         self.assertIn("Order-flow early lock", mock_tg.call_args[0][0])
-        self.assertEqual(mock_prog.call_args.kwargs.get("trigger_price"), 11.00)
+        self.assertEqual(mock_prog.call_args.kwargs.get("trigger_price"), _cur)
 
     def test_bullish_order_flow_does_not_lock_in_early(self):
         pos = self._pos(ticker="CLRO", entry=9.80, target1=14.73, target2=17.70, stop=7.83)
-        bullish_quote = {"mid": 11.00, "bid": 10.98, "ask": 11.02, "bid_size": 180, "ask_size": 20}
+        _cur = self._px(9.80, self._gain_between_gates())
+        bullish_quote = {"mid": _cur, "bid": _cur - 0.02, "ask": _cur + 0.02,
+                         "bid_size": 180, "ask_size": 20}
         with patch.object(a, "get_live_quote", return_value=bullish_quote), \
              patch.object(a, "_progress_equity_stop_to_trailing") as mock_prog, \
              patch.object(a, "send_telegram", return_value=True) as mock_tg:
-            a._check_equity_position_target(pos, cur_price=11.00)
+            a._check_equity_position_target(pos, cur_price=_cur)
         mock_tg.assert_not_called()
         mock_prog.assert_not_called()
 
     def test_already_trailing_is_not_re_triggered_by_order_flow(self):
         pos = self._pos(ticker="CLRO", entry=9.80, target1=14.73, target2=17.70,
                         stop=7.83, stop_stage="trailing")
-        bearish_quote = {"mid": 11.00, "bid": 10.98, "ask": 11.02, "bid_size": 20, "ask_size": 180}
+        _cur = self._px(9.80, self._gain_between_gates())
+        bearish_quote = {"mid": _cur, "bid": _cur - 0.02, "ask": _cur + 0.02,
+                         "bid_size": 20, "ask_size": 180}
         with patch.object(a, "get_live_quote", return_value=bearish_quote), \
              patch.object(a, "_progress_equity_stop_to_trailing") as mock_prog, \
              patch.object(a, "send_telegram", return_value=True) as mock_tg:
-            a._check_equity_position_target(pos, cur_price=11.00)
+            a._check_equity_position_target(pos, cur_price=_cur)
         mock_tg.assert_not_called()
         mock_prog.assert_not_called()
 
     def test_below_the_order_flow_floor_does_nothing_even_with_bearish_flow(self):
-        # +5%, below ORDER_FLOW_EQUITY_LOCK_MIN_GAIN_PCT (7.5%) -- must not
-        # act on order flow no matter how bearish; the gain floor is a
-        # hard requirement, not something order flow can override.
+        # A gain below ORDER_FLOW_EQUITY_LOCK_MIN_GAIN_PCT -- must not act on
+        # order flow no matter how bearish; the gain floor is a hard
+        # requirement, not something order flow can override.
         pos = self._pos(ticker="CLRO", entry=9.80, target1=14.73, target2=17.70, stop=7.83)
-        bearish_quote = {"mid": 10.29, "bid": 10.27, "ask": 10.31, "bid_size": 5, "ask_size": 195}
+        _cur = self._px(9.80, self._gain_below_floor())
+        bearish_quote = {"mid": _cur, "bid": _cur - 0.02, "ask": _cur + 0.02,
+                         "bid_size": 5, "ask_size": 195}
         with patch.object(a, "get_live_quote", return_value=bearish_quote), \
              patch.object(a, "_progress_equity_stop_to_trailing") as mock_prog, \
              patch.object(a, "send_telegram", return_value=True) as mock_tg:
-            a._check_equity_position_target(pos, cur_price=10.29)   # +5.0%
+            a._check_equity_position_target(pos, cur_price=_cur)
         mock_tg.assert_not_called()
         mock_prog.assert_not_called()
 
     def test_at_or_above_the_normal_gate_uses_the_original_branch_not_order_flow(self):
-        # +18%, past EARLY_PROFIT_LOCK_GAIN_PCT -- the original branch must
-        # take precedence regardless of order flow (bearish here too), so
-        # the alert must say "Early profit lock", not "Order-flow early lock".
+        # Past EARLY_PROFIT_LOCK_GAIN_PCT -- the original branch must take
+        # precedence regardless of order flow (bearish here too), so the
+        # alert must say "Early profit lock", not "Order-flow early lock".
         pos = self._pos(ticker="CLRO", entry=9.80, target1=14.73, target2=17.70, stop=7.83)
-        bearish_quote = {"mid": 11.56, "bid": 11.54, "ask": 11.58, "bid_size": 5, "ask_size": 195}
+        _cur = self._px(9.80, self._gain_past_gate())
+        bearish_quote = {"mid": _cur, "bid": _cur - 0.02, "ask": _cur + 0.02,
+                         "bid_size": 5, "ask_size": 195}
         with patch.object(a, "get_live_quote", return_value=bearish_quote), \
              patch.object(a, "_progress_equity_stop_to_trailing", return_value="stop raised"), \
              patch.object(a, "send_telegram", return_value=True) as mock_tg:
-            a._check_equity_position_target(pos, cur_price=11.56)   # +18%
+            a._check_equity_position_target(pos, cur_price=_cur)
         mock_tg.assert_called_once()
         self.assertIn("Early profit lock", mock_tg.call_args[0][0])
         self.assertNotIn("Order-flow", mock_tg.call_args[0][0])
@@ -4096,11 +4132,14 @@ class TestCheckEquityPositionTarget(unittest.TestCase):
         self.assertEqual(mock_tg.call_count, 1)
 
     def test_missing_quote_is_neutral_not_a_crash(self):
+        # Inside the order-flow-only band, so with no quote to read there is
+        # nothing either branch may act on.
         pos = self._pos(ticker="CLRO", entry=9.80, target1=14.73, target2=17.70, stop=7.83)
+        _cur = self._px(9.80, self._gain_between_gates())
         with patch.object(a, "get_live_quote", return_value=None), \
              patch.object(a, "_progress_equity_stop_to_trailing") as mock_prog, \
              patch.object(a, "send_telegram", return_value=True) as mock_tg:
-            a._check_equity_position_target(pos, cur_price=11.00)
+            a._check_equity_position_target(pos, cur_price=_cur)
         mock_tg.assert_not_called()
         mock_prog.assert_not_called()
 
@@ -25111,3 +25150,46 @@ class TestADrawdownIsAFactNotAnInference(unittest.TestCase):
         the whole bug this class exists for."""
         self.assertLess(a.SETUP_KILL_HARD_MIN_TRADES, a.SETUP_KILL_MIN_TRADES)
         self.assertGreaterEqual(a.SETUP_KILL_HARD_MIN_TRADES, 3)
+
+
+class TestTheShareLockSitsInsideTheMoveItProtects(unittest.TestCase):
+    """EARLY_PROFIT_LOCK_GAIN_PCT was 15.0 and measured as effectively OFF.
+
+    Over the 627 labelled signals, MFE -- the best a position ever got -- has
+    mean +5.39% and median +4.00%. Only 3.2% ever reach +15%, and the only
+    other arming path is T1, which label_exit_reason says fires on 2.9%. So
+    the protection built to stop a winner becoming a full loss engaged on
+    roughly one trade in 31, while 56.1% exited at a full stop.
+
+    A protective threshold has to sit INSIDE the distribution it acts on.
+    This is the same failure as the silently-dead zone trail: the trigger was
+    outside the range of the thing it was meant to catch.
+
+    5.0 was not read off the simulation -- that table keeps improving down to
+    +0.5% because lowering the threshold mechanically converts more losers to
+    zero, so it can only establish direction. It matches
+    BZONE_TRAIL_ACTIVATE_PCT, the one value in the good band validated on real
+    minute paths."""
+
+    def test_the_lock_is_reachable_by_a_typical_winner(self):
+        """Median MFE across the labelled set is +4.00% and the mean +5.39%.
+        A trigger above that is one almost no position can reach."""
+        self.assertLessEqual(a.EARLY_PROFIT_LOCK_GAIN_PCT, 6.0)
+
+    def test_it_matches_the_path_validated_zone_activation(self):
+        """The two share one justification, so they must not drift apart
+        silently -- if one moves on new evidence, the other should be
+        reconsidered in the same breath."""
+        self.assertAlmostEqual(a.EARLY_PROFIT_LOCK_GAIN_PCT,
+                               a.BZONE_TRAIL_ACTIVATE_PCT, places=3)
+
+    def test_the_order_flow_floor_stays_below_the_normal_gate(self):
+        """Order flow may only move the transition EARLIER, never later, so
+        its floor has to sit under the gain-only gate."""
+        self.assertLess(a.ORDER_FLOW_EQUITY_LOCK_MIN_GAIN_PCT,
+                        a.EARLY_PROFIT_LOCK_GAIN_PCT)
+
+    def test_it_still_requires_real_profit_not_noise(self):
+        """Locking at breakeven on a fraction of a percent would scalp noise
+        and stop out positions before the move develops."""
+        self.assertGreater(a.ORDER_FLOW_EQUITY_LOCK_MIN_GAIN_PCT, 1.0)

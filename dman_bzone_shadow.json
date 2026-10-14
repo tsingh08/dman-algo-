@@ -1088,5 +1088,45 @@
 "extension_pct": 10.3,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "MPC",
+"date": "2026-10-14",
+"close": 484.92,
+"base_days": 0,
+"above_low_pct": 201.6,
+"extension_pct": 15.4,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "VLO",
+"date": "2026-10-14",
+"close": 459.78,
+"base_days": 0,
+"above_low_pct": 200.2,
+"extension_pct": 12.7,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "PBR",
+"date": "2026-10-14",
+"close": 25.94,
+"base_days": 2,
+"above_low_pct": 141.3,
+"extension_pct": 16.8,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "PSX",
+"date": "2026-10-14",
+"close": 297.29,
+"base_days": 0,
+"above_low_pct": 138.5,
+"extension_pct": 11.5,
+"fresh_base": false,
+"weak_band": false
 }
 ]

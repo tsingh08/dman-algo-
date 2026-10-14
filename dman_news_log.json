@@ -1,185 +1,5 @@
 [
   {
-    "ts": "2026-10-13T14:39:41.059949-04:00",
-    "symbols": [
-      "FBK"
-    ],
-    "headline": "FB Financial Q3 Adj. EPS $1.21 Beats $1.20 Estimate, Sales $174.486M Miss $181.632M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T14:52:53.657978-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Sheinbaum Vows to Buy More Goods From the US to Sign Trade Deal&#39; - Bloomberg",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T14:58:04.041732-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "This Exelon Analyst Is No Longer Bearish; Here Are Top 5 Upgrades For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T14:58:05.567204-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "SK Hynix Stock Falls Below 200-Day Average: A Chinese Rival\u2019s IPO Filing May Explain Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T14:58:05.877142-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Marvell Technology, Microsoft, Oracle Collaborate For Open Compute Project To Standardize NIST FIPS 140-3 Integrated HSM For Cloud, Hyperscale Data Center Infrastructure",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T14:58:06.087006-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Truist Securities Maintains Buy on Robinhood Markets, Raises Price Target to $134",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T14:58:06.321539-04:00",
-    "symbols": [
-      "AFRM"
-    ],
-    "headline": "Goldman Sachs Maintains Buy on Affirm Holdings, Lowers Price Target to $103",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T14:58:06.920880-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Netflix, DocuSign And A Health Care Stock On CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T14:58:07.162136-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Prelude Therapeutics Enters Clinical Trial Collaboration And Supply Agreement With Eli Lilly For Supply Of Its CDK4/6 Kinase Inhibitor, Abemaciclib And Its Oral Estrogen Receptor Antagonist Imlunestrant",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T14:58:09.053288-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin, Ethereum, XRP, Dogecoin Decline as Oil Prices Push Higher: Analyst Says &#39;Pullback Isn&#39;t the End of Anything,&#39; Rather the &#39;Next Opportunity&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T14:58:09.391581-04:00",
-    "symbols": [
-      "CLSK"
-    ],
-    "headline": "Top 10 Powder Keg Stocks Where Short Sellers Are Sitting on a Fuse",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T14:58:09.581115-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "&#39;Uber Executive Overseeing Robotaxi Expansion to Depart&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T14:58:09.780586-04:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "Transcript: Vistra Q2 2026 Earnings Conference Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T14:58:10.119687-04:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "Needham Reiterates Buy on MongoDB, Maintains $430 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T14:58:10.289697-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Analyzing Airbnb In Comparison To Competitors In Hotels, Restaurants &amp; Leisure Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T14:58:10.294709-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Full Transcript: Airbnb Q2 2026 Earnings Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T14:58:10.474254-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Nvidia Loses Ground in China as Huawei&#39;s AI Chip Shipments Nearly Double, Capturing 28% Market Share: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T14:58:10.603686-04:00",
-    "symbols": [
-      "JD"
-    ],
-    "headline": "B of A Securities Maintains Buy on JD.com, Lowers Price Target to $37",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-13T14:58:10.781826-04:00",
     "symbols": [
       "SOUN"
@@ -5093,6 +4913,186 @@
     ],
     "headline": "CleanSpark Stock Sinks: What&#39;s Going On?",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T14:18:48.371167-04:00",
+    "symbols": [
+      "CLSK"
+    ],
+    "headline": "CleanSpark Stock Sinks: What's Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T14:18:55.477385-04:00",
+    "symbols": [
+      "CRWV"
+    ],
+    "headline": "IREN Stock Tanks: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T14:18:55.691024-04:00",
+    "symbols": [
+      "CNXU"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday's Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T14:18:55.915061-04:00",
+    "symbols": [
+      "DFH"
+    ],
+    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T14:18:56.893874-04:00",
+    "symbols": [
+      "BAC"
+    ],
+    "headline": "Live On CNBC, Stephanie Link Announces Trimmed Bank of America Position",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T14:18:56.896693-04:00",
+    "symbols": [
+      "BAC"
+    ],
+    "headline": "Big Bank Succession Talk Heats Up as CEOs Stay Firmly in Charge",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T14:18:57.618984-04:00",
+    "symbols": [
+      "IBRX"
+    ],
+    "headline": "FDA Approves ImmunityBio&#39;s Anktiva To Treat Adults With Bacillus Calmette-Guerin Unresponsive Non-Muscle Invasive Bladder Cancer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T14:18:57.840450-04:00",
+    "symbols": [
+      "ASST"
+    ],
+    "headline": "Strive Exercises $369.2M Warrants From Oct. 12 Through Oct. 13",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T14:18:58.052491-04:00",
+    "symbols": [
+      "DELL"
+    ],
+    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T14:18:58.055155-04:00",
+    "symbols": [
+      "DELL"
+    ],
+    "headline": "Barclays Downgrades Dell Technologies to Equal-Weight, Lowers Price Target to $574",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T14:18:58.057734-04:00",
+    "symbols": [
+      "DELL"
+    ],
+    "headline": "Honeywell Technologies Rolls Out AI And Simulation Platform Forge Cognition Developed With Nvidia, Dell",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T14:18:58.060331-04:00",
+    "symbols": [
+      "DELL"
+    ],
+    "headline": "State Street, Fastenal And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T14:18:58.281124-04:00",
+    "symbols": [
+      "BLK"
+    ],
+    "headline": "BlackRock Cuts US Stock Exposure, Says Rate Hike Expectations Are &#39;Overdone&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T14:18:58.283811-04:00",
+    "symbols": [
+      "BLK"
+    ],
+    "headline": "Transcript: BlackRock Q3 2026 Earnings Conference Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T14:18:58.286395-04:00",
+    "symbols": [
+      "BLK"
+    ],
+    "headline": "BlackRock&#39;s Assets Swell to $15.5 Trillion, CEO Signals &#39;Accelerating Momentum&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T14:18:58.288963-04:00",
+    "symbols": [
+      "BLK"
+    ],
+    "headline": "BlackRock CEO Larry Fink Says Competition For Capital Is Growing; At This Moment, We&#39;re Going To Have Structurally Higher Interest Rates For Longer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T14:18:58.291533-04:00",
+    "symbols": [
+      "BLK"
+    ],
+    "headline": "Earnings Scheduled For October 14, 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T14:18:58.518475-04:00",
+    "symbols": [
+      "GENB"
+    ],
+    "headline": "Generate Biomedicines Lands Major AI Drug Partnership to Target Booming Obesity Market",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

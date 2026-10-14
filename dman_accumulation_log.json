@@ -1834,5 +1834,14 @@
   "drift_pct": 0.62,
   "range_ratio": 0.36,
   "near_high": 0.962
+ },
+ {
+  "ts": "2026-10-14T14:19:59.286022-04:00",
+  "ticker": "IBTH",
+  "price": 22.2813,
+  "rvol": 2.31,
+  "drift_pct": 0.01,
+  "range_ratio": 0.38,
+  "near_high": 0.996
  }
 ]

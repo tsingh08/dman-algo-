@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-13T11:12:42.068028-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Cyclicals Lead Sectors In Tuesday Trading As Health Care Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T11:12:42.294963-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Cyclicals Lead Sectors In Tuesday Trading As Health Care Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T11:17:12.449522-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Palo Alto Networks, Raises Price Target to $525",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T11:17:58.294914-04:00",
-    "symbols": [
-      "BWAY"
-    ],
-    "headline": "Bumble, Fermi, Xtend AI Robotics And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-13T11:17:58.298939-04:00",
     "symbols": [
       "BWAY"
@@ -5025,5 +4985,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T09:50:43.072704-04:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "RBC Capital Maintains Outperform on Eaton Corp, Raises Price Target to $526",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T09:52:52.864152-04:00",
+    "symbols": [
+      "CDT"
+    ],
+    "headline": "Dow Gains Over 100 Points; US Inflation Rate Rises In September",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T09:52:57.841233-04:00",
+    "symbols": [
+      "JD"
+    ],
+    "headline": "Barclays Maintains Overweight on JD.com, Lowers Price Target to $38",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T09:54:30.879889-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Barclays Maintains Overweight on JPMorgan Chase, Raises Price Target to $425",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

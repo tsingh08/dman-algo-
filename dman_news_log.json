@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T14:15:31.068426-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Maye Musk Praises Elon Musk\u2019s \u2018Safety First\u2019 Focus After Tesla Owner Says EV Saved Him and Son in Crash",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-13T14:18:34.312379-04:00",
     "symbols": [
       "NFLX"
@@ -5073,6 +5063,16 @@
       "GS"
     ],
     "headline": "These Analysts Lower Their Forecasts On Goldman Sachs After Q3 Results",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T13:17:02.135065-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Applied Digital Stock Sinks: What&#39;s Fueling the Move?",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

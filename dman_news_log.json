@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-13T11:01:36.465146-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Cyclicals Lead Sectors In Tuesday Trading As Health Care Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T11:01:42.055314-04:00",
-    "symbols": [
-      "TCRT"
-    ],
-    "headline": "Alaunos Therapeutics Shares Halted On Circuit Breaker To The Upside, Stock Now Up 170.48%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T11:01:43.343003-04:00",
-    "symbols": [
-      "ICCC"
-    ],
-    "headline": "ImmuCell Sees Q3 Sales $8.000M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T11:01:43.347083-04:00",
-    "symbols": [
-      "ICCC"
-    ],
-    "headline": "ImmuCell Reports Q3 Preliminary Sales Of $8M, Up 46% YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-13T11:01:45.508419-04:00",
     "symbols": [
       "ONCY"
@@ -5023,6 +4983,46 @@
     ],
     "headline": "Rivian Expands Collaboration With Redwood Materials For End-To-End Energy Solutions",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T09:30:36.589624-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Social Security Administration Announces 3.6% Cost-Of-Living Adjustment For 2027&#39; - CNBC",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T09:34:08.271134-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "RBC Capital Reiterates Outperform on JPMorgan Chase, Maintains $370 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T09:34:30.530930-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "What's Going On With Caterpillar Stock Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T09:34:30.993325-04:00",
+    "symbols": [
+      "EFXT"
+    ],
+    "headline": "RBC Capital Maintains Outperform on Enerflex, Raises Price Target to $35",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

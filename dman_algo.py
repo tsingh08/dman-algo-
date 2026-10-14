@@ -87,10 +87,21 @@ def _hard_gate_failed_open(gate: str, exc: BaseException) -> None:
     check_earnings_safe() is NO LONGER one of them and does not call this. It
     fails CLOSED, via _earnings_unverifiable(). What it guards is binary and
     scheduled rather than continuous, and the "a stop still caps the damage"
-    argument that justified waiving it is false for gap risk. check_macro_safe()
-    still fails open and is the remaining one worth revisiting -- an FOMC window
-    is equally binary -- but it is account-wide rather than per-ticker, so an
-    outage there cannot be narrowed to the names it affects.
+    argument that justified waiving it is false for gap risk.
+
+    check_macro_safe() is no longer one of them either, and this note used to
+    say it "still fails open and is the remaining one worth revisiting". That
+    stopped being true and the text was not updated. It now fails CLOSED in
+    both directions that matter: `return False, 0` when the hardcoded calendar
+    has expired, and `return False, 0` from its own except handler with a
+    Telegram alert. An FOMC or CPI window is exactly as binary as an earnings
+    print, and the gate reads hardcoded lists and makes no network call, so an
+    exception there is a code fault rather than an outage worth waiting out.
+
+    Verified 2026-10-14 against the CPI release that morning: blocked before
+    10:00 ET, open after, and the zone trail carries no macro reference at all
+    so EXITS stay live while entries are frozen -- a blackout must not strand a
+    position it cannot close.
     """
     # Everything below is inside a try. This runs from INSIDE a gate's own
     # exception handler, so if the notifier raised it would break the gate it

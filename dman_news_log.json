@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T13:45:13.057804-04:00",
-    "symbols": [
-      "C"
-    ],
-    "headline": "Citigroup CFO Luchetti Says In The First Half We Saw Record Volume Of Deals Across The Industry, There Is A Moderate Decline From That In Terms Of The Growth Rate In Q3",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-13T13:46:25.742977-04:00",
     "symbols": [
       "JPM"
@@ -5067,6 +5057,16 @@
       "GOOGL"
     ],
     "headline": "AEP Unveils $4 Billion Fuel Cell Investment Backed By Long-Term Google Deal",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T12:40:56.208755-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Piper Sandler Maintains Overweight on UnitedHealth Group, Raises Price Target to $504",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

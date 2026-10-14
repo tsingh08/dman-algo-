@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T13:14:21.385618-04:00",
-    "symbols": [
-      "CPOP"
-    ],
-    "headline": "11 Communication Services Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-13T13:14:22.749536-04:00",
     "symbols": [
       "SCNI"
@@ -5037,6 +5027,17 @@
       "META"
     ],
     "headline": "UBS Maintains Buy on Meta Platforms, Raises Price Target to $884",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:35:05.940879-04:00",
+    "symbols": [
+      "AAPL",
+      "MSFT"
+    ],
+    "headline": "Apple Has Found No Evidence To Support OpenAI&#39;s Allegations; Says Apple Has Searched For The One File That OpenAI Has Identified, But Has Not Found It On Any Apple System; Co Has Strict Policies &amp; Procedures In Place To Help Ensure That New Employees Don&#39;t Use Any Confidential Information From Prior Employer; Says OpenAI Has Failed To Respond To Apple\u2019s Request For More Information That Would Aid In Its Investigation",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"

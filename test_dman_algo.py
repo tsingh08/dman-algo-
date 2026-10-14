@@ -25269,3 +25269,135 @@ class TestTheReportSaysWhichComponentsCanEarnTheirPoints(unittest.TestCase):
         dead component goes unnoticed for as long as Insider did."""
         src = inspect.getsource(a.report_signal_features)
         self.assertIn("_component_health_lines(", src)
+
+
+class TestAFailedCloseMustNotLeaveThePositionNaked(unittest.TestCase):
+    """_close_position_at_market() cancels the resting stop, then sells.
+
+    That order is not negotiable -- the stop reserves the shares and Alpaca
+    rejects a second sell against them -- but it opens a window where the
+    position holds no stop at all. If the market order then fails, the window
+    never closes: the position sat naked until a human read a Telegram
+    message saying "Close manually in Alpaca NOW".
+
+    Not hypothetical. The zone trail reaches this path automatically, it
+    fires BECAUSE the position is falling, it runs on smallcaps that halt,
+    and the operator does not watch charts. The trail had also never once
+    executed in production -- it was silently dead until 2026-10-12 -- and
+    RSKD was armed 0.29 points from its trigger on 2026-10-14, so the first
+    real execution would have been with live money.
+
+    _progress_equity_stop_to_trailing() already solved this exact shape for
+    itself: "if the trailing submission fails for any reason, this
+    immediately falls back to a plain stop at breakeven rather than ever
+    leaving the position unprotected." The reasoning was never carried here.
+
+    Restores what WAS there rather than a fresh level: a zone's floor is
+    ATR-scaled off entry, so recomputing could rest a tighter stop than the
+    position was designed to carry and turn a rescue into an exit."""
+
+    def _pos(self):
+        return SimpleNamespace(ticker="RSKD", setup="Breakout Zone +165% off low")
+
+    def _client(self, sell_raises, stop_price=6.95, qty=31):
+        cl = MagicMock()
+        cl.get_open_position.return_value = SimpleNamespace(qty=str(qty))
+        cl.get_orders.return_value = [SimpleNamespace(
+            id="stop-1", stop_price=str(stop_price), qty=str(qty),
+            side=a.OrderSide.SELL, time_in_force=a.TimeInForce.GTC)]
+        if sell_raises:
+            # Reject only the MARKET order and accept the stop. A blanket
+            # side_effect would fail the restore too, which models "Alpaca is
+            # entirely down" rather than the case that matters: a halted or
+            # rejected sell on a position whose floor can still be re-placed.
+            def _submit(req, *_a, **_k):
+                if getattr(req, "stop_price", None):
+                    return SimpleNamespace(id="stop-restored")
+                raise RuntimeError("halted")
+            cl.submit_order.side_effect = _submit
+        else:
+            cl.submit_order.return_value = SimpleNamespace(id="ord-9")
+        return cl
+
+    def _run(self, cl):
+        with patch.object(a, "get_alpaca_client", return_value=cl),              patch.object(a, "send_telegram", return_value=True) as tg,              patch.object(a, "_log_swallowed"):
+            st, oid = a._close_position_at_market(self._pos(), "zone trail")
+        return st, oid, tg
+
+    # --- the regression ---------------------------------------------------
+    def test_a_failed_sell_puts_the_stop_back(self):
+        cl = self._client(sell_raises=True)
+        st, _oid, _tg = self._run(cl)
+        self.assertEqual(st, "failed")
+        _stops = [c for c in cl.submit_order.call_args_list
+                  if getattr(c[0][0], "stop_price", None)]
+        self.assertTrue(_stops, "no stop was re-placed after the failed close")
+        self.assertAlmostEqual(float(_stops[-1][0][0].stop_price), 6.95, places=2)
+
+    def test_the_restored_stop_keeps_the_original_level_and_size(self):
+        """A recomputed level could be tighter than the design and exit the
+        position it was meant to rescue."""
+        cl = self._client(sell_raises=True, stop_price=6.95, qty=31)
+        self._run(cl)
+        req = [c[0][0] for c in cl.submit_order.call_args_list
+               if getattr(c[0][0], "stop_price", None)][-1]
+        self.assertEqual(int(req.qty), 31)
+        self.assertAlmostEqual(float(req.stop_price), 6.95, places=2)
+
+    def test_the_alert_says_whether_a_floor_is_still_there(self):
+        """"Get out when you can" and "you are naked right now" are very
+        different things to wake up to."""
+        cl = self._client(sell_raises=True)
+        _st, _oid, tg = self._run(cl)
+        self.assertIn("restored", tg.call_args[0][0])
+
+    def test_the_alert_shouts_when_protection_could_not_be_replaced(self):
+        cl = self._client(sell_raises=True)
+        cl.submit_order.side_effect = RuntimeError("everything is down")
+        _st, _oid, tg = self._run(cl)
+        self.assertIn("STOP IS GONE", tg.call_args[0][0])
+
+    # --- the happy path is unchanged --------------------------------------
+    def test_a_successful_close_does_not_re_place_anything(self):
+        """The whole point is to be out. Restoring a stop here would rest a
+        sell against shares that are already gone."""
+        cl = self._client(sell_raises=False)
+        st, oid, _tg = self._run(cl)
+        self.assertEqual(st, "submitted")
+        self.assertEqual(oid, "ord-9")
+        _stops = [c for c in cl.submit_order.call_args_list
+                  if getattr(c[0][0], "stop_price", None)]
+        self.assertEqual(_stops, [])
+
+    def test_the_stop_is_still_cancelled_before_the_sell(self):
+        """If this inverts, every close is rejected for reserved shares."""
+        cl = self._client(sell_raises=False)
+        self._run(cl)
+        cl.cancel_order_by_id.assert_called_once_with("stop-1")
+
+    # --- degradation ------------------------------------------------------
+    def test_nothing_to_restore_is_not_an_error(self):
+        cl = self._client(sell_raises=True)
+        cl.get_orders.return_value = []
+        st, _oid, tg = self._run(cl)
+        self.assertEqual(st, "failed")
+        self.assertIn("no resting stop", tg.call_args[0][0])
+
+    def test_a_restore_failure_does_not_mask_the_close_failure(self):
+        cl = self._client(sell_raises=True)
+        st, oid, _tg = self._run(cl)
+        self.assertEqual((st, oid), ("failed", None))
+
+    def test_the_helper_never_raises(self):
+        cl = MagicMock()
+        cl.submit_order.side_effect = RuntimeError("boom")
+        with patch.object(a, "_log_swallowed"):
+            self.assertEqual(a._restore_protective_stops(
+                cl, "RSKD", [{"qty": 31, "stop_price": 6.95}]), [])
+
+    def test_a_malformed_saved_order_is_skipped(self):
+        cl = MagicMock()
+        with patch.object(a, "_log_swallowed"):
+            self.assertEqual(a._restore_protective_stops(
+                cl, "RSKD", [{"qty": 0, "stop_price": 6.95},
+                             {"qty": 31, "stop_price": None}]), [])

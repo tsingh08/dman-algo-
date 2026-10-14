@@ -10833,6 +10833,44 @@ def _close_earnings_spread(pos: dict, reason: str) -> tuple[str, Optional[str]]:
         return "failed", None
 
 
+def _restore_protective_stops(client, symbol: str, saved: list) -> list:
+    """Re-place stops that were cancelled for a close that then failed.
+
+    Returns the stop prices actually restored, so the caller can tell the
+    operator whether the position still has a floor under it. Never raises:
+    this runs inside an exception handler and a failure here must not mask
+    the close failure that triggered it.
+
+    Restores what was THERE rather than computing a fresh level. A zone's
+    floor is ATR-scaled off its entry and a share setup's is its own stop
+    distance -- recomputing would risk resting a tighter stop than the
+    position was designed to carry, turning a rescue into an exit.
+    """
+    _done: list = []
+    if not saved:
+        return _done
+    try:
+        from alpaca.trading.requests import StopOrderRequest
+    except Exception as exc:
+        _log_swallowed("restore protective stop import", exc)
+        return _done
+    for _s in saved:
+        try:
+            if not _s.get("qty") or not _s.get("stop_price"):
+                continue
+            client.submit_order(StopOrderRequest(
+                symbol=symbol,
+                qty=_s["qty"],
+                side=_s.get("side") or OrderSide.SELL,
+                time_in_force=_s.get("tif") or TimeInForce.GTC,
+                stop_price=round(float(_s["stop_price"]), 2),
+            ))
+            _done.append(float(_s["stop_price"]))
+        except Exception as exc:
+            _log_swallowed("restore protective stop", exc)
+    return _done
+
+
 def _close_position_at_market(pos: "OpenPosition", reason: str) -> tuple[str, Optional[str]]:
     """
     Flattens ANY tracked position (equity or single-leg option) with a
@@ -10876,11 +10914,35 @@ def _close_position_at_market(pos: "OpenPosition", reason: str) -> tuple[str, Op
     except Exception:
         return "already_closed", None   # Alpaca shows nothing held -- already gone
 
+    # Anything cancelled here that was PROTECTING the position is recorded so
+    # a failed close can put it back. The order matters and it is not
+    # negotiable: the stop has to go before the market order, because the
+    # resting stop reserves the shares and Alpaca rejects a second sell
+    # against them. That leaves a window where the position holds no stop
+    # at all, and if the close then fails the window never closes -- the
+    # position sits naked until a human reads a Telegram message.
+    #
+    # That is not hypothetical for the zone trail. It fires BECAUSE the
+    # position is falling, on smallcaps that halt, and the operator does not
+    # watch charts. _progress_equity_stop_to_trailing() already solved this
+    # shape for itself -- "if the trailing submission fails for any reason,
+    # this immediately falls back to a plain stop at breakeven rather than
+    # ever leaving the position unprotected" -- and the reasoning was never
+    # carried over here.
+    _protective: list = []
     try:
         _open_orders = client.get_orders(filter=GetOrdersRequest(
             symbols=[symbol], status=QueryOrderStatus.OPEN, limit=20))
         for _o in _open_orders:
             try:
+                _sp = getattr(_o, "stop_price", None)
+                if _sp:
+                    _protective.append({
+                        "qty": abs(int(float(getattr(_o, "qty", 0) or 0))),
+                        "stop_price": float(_sp),
+                        "side": getattr(_o, "side", None),
+                        "tif": getattr(_o, "time_in_force", None),
+                    })
                 client.cancel_order_by_id(_o.id)
             except Exception as _swallowed:
                 _log_swallowed("_close_position_at_market", _swallowed)
@@ -10900,8 +10962,20 @@ def _close_position_at_market(pos: "OpenPosition", reason: str) -> tuple[str, Op
         return "submitted", str(order.id)
     except Exception as exc:
         print(f"  ❌ Market close failed for {pos.ticker}: {exc}")
+        # Put the protection back before telling anyone. The alert then says
+        # whether this is "get out when you can" or "you are naked right now",
+        # which are very different instructions to wake up to.
+        _back = _restore_protective_stops(client, symbol, _protective)
+        if _protective:
+            _guard = ("floor restored at "
+                      + ", ".join(f"${_x:.2f}" for _x in _back)
+                      if _back else
+                      "\u26a0\ufe0f THE STOP IS GONE AND COULD NOT BE REPLACED")
+        else:
+            _guard = "no resting stop was cancelled"
+        print(f"     {_guard}")
         send_telegram(f"🚨 <b>MARKET CLOSE FAILED</b> — {pos.ticker} ({reason})\n"
-                     f"{exc}\nClose manually in Alpaca NOW.")
+                     f"{exc}\n{_guard}\nClose manually in Alpaca NOW.")
         return "failed", None
 
 

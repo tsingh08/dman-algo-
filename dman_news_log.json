@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T14:37:29.369025-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "SK Hynix Stock Falls Below 200-Day Average: A Chinese Rival\u2019s IPO Filing May Explain Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-13T14:37:29.373846-04:00",
     "symbols": [
       "SNDK"
@@ -5090,6 +5080,16 @@
     "headline": "Shares of power and electrical-related companies are trading lower as elevated oil prices and stronger-than-expected inflation data fuel expectations that U.S. interest rates will remain higher for longer. Rising financing costs could pressure capital spending on power infrastructure and data center projects, weighing on demand for electrical equipment and related solutions.",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T13:46:24.713999-04:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "10 Communication Services Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

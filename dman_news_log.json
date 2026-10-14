@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-13T14:18:34.312379-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Keybanc Maintains Overweight on Netflix, Lowers Price Target to $85",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T14:18:34.318066-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce Buys AI Startup That Tells Businesses What&#39;s Going Wrong",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T14:18:34.328001-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "What&#39;s Going On With Applied Materials Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T14:20:54.145312-04:00",
     "symbols": [
       "SPY"
@@ -5074,6 +5044,39 @@
     ],
     "headline": "Applied Digital Stock Sinks: What&#39;s Fueling the Move?",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T13:18:49.233132-04:00",
+    "symbols": [
+      "DIA",
+      "IWM",
+      "QQQ",
+      "SPY"
+    ],
+    "headline": "Major indices are trading lower as Treasury yields rise and AI-related stocks extend losses following hotter-than-expected September consumer inflation data. The stronger inflation reading has fueled concerns that interest rates will remain elevated for longer, putting additional pressure on growth stocks and other rate-sensitive sectors.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T13:21:07.569481-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Why Is Goldman Sachs Stock Falling Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T13:21:24.956068-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Applied Digital Stock Sinks: What's Fueling the Move?",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-14T09:26:42.174267-04:00",
-    "symbols": [
-      "VSTM"
-    ],
-    "headline": "Verastem Oncology Appoints Michael P. Bailey As President And CEO, Effective January 1, 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T09:26:42.178822-04:00",
     "symbols": [
       "VSTM"
@@ -5114,5 +5104,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T16:01:45.569363-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan\u2019s Chase Holds AI Scam Awareness Event Streamed To ~700 Branches",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

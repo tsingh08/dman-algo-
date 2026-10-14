@@ -1,125 +1,5 @@
 [
   {
-    "ts": "2026-10-13T11:01:45.508419-04:00",
-    "symbols": [
-      "ONCY"
-    ],
-    "headline": "Oncolytics Biotech Expands Pelareorep Patent Protection Strategy Through 2044",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T11:04:23.425370-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Docusign Expands Salesforce Partnership, Making IAM Platform Natively Available To All AI Agents Across Salesforce And Slack",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T11:04:50.216269-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Google, Amazon and Apple Are in AI&#39;s Inner Circle. These 15 Domains Made the Cut",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T11:04:50.222770-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Google, Amazon and Apple Are in AI&#39;s Inner Circle. These 15 Domains Made the Cut",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T11:04:50.236892-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google, Amazon and Apple Are in AI&#39;s Inner Circle. These 15 Domains Made the Cut",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T11:04:50.242257-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Google, Amazon and Apple Are in AI&#39;s Inner Circle. These 15 Domains Made the Cut",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T11:04:50.250744-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Google, Amazon and Apple Are in AI&#39;s Inner Circle. These 15 Domains Made the Cut",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-13T11:04:50.275678-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "Google, Amazon and Apple Are in AI&#39;s Inner Circle. These 15 Domains Made the Cut",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T11:11:56.991413-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on CrowdStrike Holdings, Raises Price Target to $300",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T11:12:39.498983-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Cyclicals Lead Sectors In Tuesday Trading As Health Care Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T11:12:39.968973-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Cyclicals Lead Sectors In Tuesday Trading As Health Care Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T11:12:41.478230-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Cyclicals Lead Sectors In Tuesday Trading As Health Care Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-13T11:12:42.068028-04:00",
     "symbols": [
       "SPY"
@@ -5025,5 +4905,125 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T09:43:23.476786-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "RBC Capital Maintains Sector Perform on Goldman Sachs Group, Lowers Price Target to $1010",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T09:44:31.871467-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "What&#39;s Going On With Caterpillar Stock Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T09:44:39.926907-04:00",
+    "symbols": [
+      "GLND"
+    ],
+    "headline": "Greenland Stocks Rally as Trump Teases &#39;Massive&#39; Oil Hunt",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T09:44:40.217278-04:00",
+    "symbols": [
+      "GENK"
+    ],
+    "headline": "GEN Restaurant Group Shares Halted To The Circuit Breaker To The Downside, Stock Now Up 32.41%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T09:44:40.222797-04:00",
+    "symbols": [
+      "GENK"
+    ],
+    "headline": "GEN Restaurant Group Inks $100M Letter Of Intent With Chubby Group To Sell Operations At 47 U.S. Restaurants",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T09:44:40.959378-04:00",
+    "symbols": [
+      "GRML"
+    ],
+    "headline": "Greenland Stocks Rally as Trump Teases &#39;Massive&#39; Oil Hunt",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T09:44:40.964404-04:00",
+    "symbols": [
+      "GRML"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T09:44:40.969459-04:00",
+    "symbols": [
+      "GRML"
+    ],
+    "headline": "Trump Says &#39;Massive&#39; Oil, Gas, Mineral Exploration Set to Begin in Greenland, Touts Island as Shield Against Future Attacks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T09:44:41.205049-04:00",
+    "symbols": [
+      "NIVF"
+    ],
+    "headline": "Why Enovix Shares Are Trading Higher By Around 7%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T09:44:41.955192-04:00",
+    "symbols": [
+      "NCPL"
+    ],
+    "headline": "Why Enovix Shares Are Trading Higher By Around 7%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T09:44:42.769878-04:00",
+    "symbols": [
+      "VEEE"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T09:44:43.284737-04:00",
+    "symbols": [
+      "CRML"
+    ],
+    "headline": "Greenland Stocks Rally as Trump Teases &#39;Massive&#39; Oil Hunt",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

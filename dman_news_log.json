@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T13:14:21.258384-04:00",
-    "symbols": [
-      "CDT"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-13T13:14:21.385618-04:00",
     "symbols": [
       "CPOP"
@@ -5040,5 +5030,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T11:34:12.434340-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "UBS Maintains Buy on Meta Platforms, Raises Price Target to $884",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

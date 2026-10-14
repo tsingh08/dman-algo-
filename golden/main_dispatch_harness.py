@@ -97,8 +97,24 @@ def run(argv, patch_names):
         if sleeps["n"] >= 3:
             raise _StopLoop()
 
+    # Two readers pull LIVE state off disk and made this harness permanently
+    # red. dman_win_rate.json drives the "Avg Win: +21.04R" line in both
+    # performance and sync, and the daemon rewrites it after every close; the
+    # PLTR row correction alone moved it to +26.42R. dman_positions.json
+    # drives the positions listing, so whichever names happened to be open
+    # that day were baked into the golden -- RSKD even leaked a MagicMock repr
+    # into the recorded output. A characterisation harness has to be hermetic
+    # in state as well as in clock and network, so both are frozen empty here:
+    # what this golden exists to pin is main()'s DISPATCH, not the P&L.
+    _frozen_wr = MagicMock(name="WinRateTracker")
+    _frozen_wr.return_value.records = []
+    _frozen_pt = MagicMock(name="PositionTracker")
+    _frozen_pt.return_value.positions = []
+
     ps = [patch.object(a, n, side_effect=recorder(n)) for n in patch_names if hasattr(a, n)]
-    ps += [patch.object(a.time, "sleep", side_effect=_sleep),
+    ps += [patch.object(a, "WinRateTracker", _frozen_wr),
+           patch.object(a, "PositionTracker", _frozen_pt),
+           patch.object(a.time, "sleep", side_effect=_sleep),
            patch.object(a, "requests", MagicMock(name="requests")),
            patch.object(a, "yf", MagicMock(name="yf")),
            patch.object(sys, "argv", argv),
@@ -144,7 +160,16 @@ if mode == "record":
 else:
     gold = json.load(open(OUT, encoding="utf-8"))
     res = {k: run(v, gold["patch_names"]) for k, v in scenarios().items()}
-    bad = [f"{k}.{f}" for k, r in res.items() for f in r if gold["results"].get(k, {}).get(f) != r[f]]
+    # A scenario absent from the golden is a NEW mode, not a behaviour change.
+    # main() grew --mode keydrill after this golden was recorded and the diff
+    # printer below indexed gold["results"][k] directly, so the harness died
+    # with KeyError: 'mode=keydrill' instead of saying which scenario was new
+    # -- a stale golden read as a crashing harness for days.
+    new = sorted(k for k in res if k not in gold["results"])
+    for k in new:
+        print(f"NEW SCENARIO (absent from golden, re-record): {k}")
+    bad = [f"{k}.{f}" for k, r in res.items() for f in r
+           if k in gold["results"] and gold["results"][k].get(f) != r[f]]
     import difflib
     for b in bad[:20]:
         print("DIFF", b)
@@ -153,4 +178,9 @@ else:
         r = [json.dumps(x, ensure_ascii=False) for x in res[k][f]] if isinstance(res[k][f], list) else [str(res[k][f])]
         for d in list(difflib.unified_diff(g, r, lineterm="", n=0))[2:6]:
             print("    ", d[:180])
-    print("GOLDEN:", "IDENTICAL" if not bad else f"{len(bad)} differences")
+    if new and not bad:
+        print("GOLDEN:", f"IDENTICAL on {len(gold['results'])} recorded scenario(s); "
+                         f"{len(new)} new need recording")
+    else:
+        print("GOLDEN:", "IDENTICAL" if not bad else f"{len(bad)} differences")
+    sys.exit(1 if bad else 0)

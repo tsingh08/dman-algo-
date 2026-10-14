@@ -24,10 +24,12 @@
   "print_scan_log",
   "report_signal_features",
   "resolve_live_outcomes",
+  "run_api_health_check",
   "run_breakout_zone_log",
   "run_breakout_zone_manage",
   "run_earnings_spread_scan",
   "run_fallback_guard",
+  "run_massive_key_drill",
   "run_momentum_watch",
   "run_news_source_check",
   "run_options_guard",
@@ -135,21 +137,6 @@
      "augment_universe_with_movers",
      "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
      "[]"
-    ],
-    [
-     "_et_today",
-     "()",
-     "[]"
-    ],
-    [
-     "_et_today",
-     "()",
-     "[]"
-    ],
-    [
-     "_et_today",
-     "()",
-     "[]"
     ]
    ],
    "stdout": [
@@ -160,45 +147,7 @@
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
     "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
     "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
-    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1",
-    "════════════════════════════════════════════════════════",
-    "  D🔥man Win Rate Tracker  —  Last 50 trades",
-    "────────────────────────────────────────────────────────",
-    "  Win Rate     : 36.0%  (18W / 27L)",
-    "  Avg Win      : +21.04R",
-    "  Avg Loss     : -24.70R",
-    "  Consec Losses: 2",
-    "  Adaptive Min Score: 85/100",
-    "────────────────────────────────────────────────────────",
-    "  📈 REAL TRADES ONLY (48 live fill(s)):",
-    "     Win Rate: 35.4%  (17W / 27L)",
-    "────────────────────────────────────────────────────────",
-    "  BY SETUP:",
-    "  Gap & Hold              52 trades |  59.6% WR",
-    "  SWING — Momentum Watch Breakout (Day)   9 trades |  33.3% WR",
-    "  Low Float Catalyst       8 trades |  12.5% WR",
-    "  Momentum Watch Breakout (Day)   7 trades |  71.4% WR",
-    "  Vol Breakdown            2 trades |  50.0% WR",
-    "  Options Call SMCI260814C00034000 ($34C exp DATE)   2 trades | 100.0% WR",
-    "  Earnings Double Spread   2 trades |  50.0% WR",
-    "  Options Call PURR260904C00009000 ($9.0C exp DATE)   2 trades | 100.0% WR",
-    "  Morning Runner           1 trades | 100.0% WR",
-    "  Day 2 Continuation       1 trades |   0.0% WR",
-    "  Untracked Legacy Position   1 trades |   0.0% WR",
-    "  Options Put SMCI260814P00029500 ($29.5P exp DATE)   1 trades |   0.0% WR",
-    "  Options Call UMAC260828C00025000 ($25.0C exp DATE)   1 trades |   0.0% WR",
-    "  Earnings Put Spread      1 trades |   0.0% WR",
-    "  Earnings Strangle (untracked)   1 trades |   0.0% WR",
-    "  Adopted (orphan reconciliation)   1 trades |   0.0% WR",
-    "  Options Call TE260925C00004000 ($4.0C exp DATE)   1 trades |   0.0% WR",
-    "  Options Call APLD260925C00025000 ($25.0C exp DATE)   1 trades |   0.0% WR",
-    "  Options Call QQQ260922C00728000   1 trades | 100.0% WR",
-    "  Options Put QQQ260922P00676000   1 trades |   0.0% WR",
-    "  Options Call QQQ260923C00735000   1 trades | 100.0% WR",
-    "  Options Put QQQ260923P00682000   1 trades | 100.0% WR",
-    "  Options Call RXRX261002C00001000 ($1.0C exp DATE)   1 trades |   0.0% WR",
-    "  Breakout Zone +166% off low   1 trades |   0.0% WR",
-    "════════════════════════════════════════════════════════"
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
    ]
   },
   "mode=regime": {
@@ -401,11 +350,6 @@
      "augment_universe_with_movers",
      "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
      "[]"
-    ],
-    [
-     "_et_today",
-     "()",
-     "[]"
     ]
    ],
    "stdout": [
@@ -416,16 +360,7 @@
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
     "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
     "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
-    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1",
-    "════════════════════════════════════════════════════════════════════════",
-    "  D🔥man Open Positions  —  Monday Sep 14, 2026",
-    "════════════════════════════════════════════════════════════════════════",
-    "  ▲ RSKD  LONG  ─  Adopted (orphan reconciliation)   [⏳ Active]",
-    "    Entry $8.0367  →  Now $7.83  (-2.6%)  $-7  |  <MagicMock name='_et_today.__sub__().days' id=ID>d held  |  31 shares",
-    "    Stop  $7.3938      T1 $9.3225      T2 $10.2868",
-    "────────────────────────────────────────────────────────────────────────",
-    "  Total unrealized P&L : $-7",
-    "════════════════════════════════════════════════════════════════════════"
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
    ]
   },
   "mode=alpaca": {
@@ -483,22 +418,7 @@
     ],
     [
      "sync_alpaca_fills",
-     "(<dman_algo.WinRateTracker object at 0xADDR>,)",
-     "[]"
-    ],
-    [
-     "_et_today",
-     "()",
-     "[]"
-    ],
-    [
-     "_et_today",
-     "()",
-     "[]"
-    ],
-    [
-     "_et_today",
-     "()",
+     "(<MagicMock name='WinRateTracker()' id=ID>,)",
      "[]"
     ]
    ],
@@ -511,45 +431,7 @@
     "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
     "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
     "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1",
-    "  📋 Alpaca sync complete — <MagicMock name='sync_alpaca_fills' id=ID> new trade(s) recorded.",
-    "════════════════════════════════════════════════════════",
-    "  D🔥man Win Rate Tracker  —  Last 50 trades",
-    "────────────────────────────────────────────────────────",
-    "  Win Rate     : 36.0%  (18W / 27L)",
-    "  Avg Win      : +21.04R",
-    "  Avg Loss     : -24.70R",
-    "  Consec Losses: 2",
-    "  Adaptive Min Score: 85/100",
-    "────────────────────────────────────────────────────────",
-    "  📈 REAL TRADES ONLY (48 live fill(s)):",
-    "     Win Rate: 35.4%  (17W / 27L)",
-    "────────────────────────────────────────────────────────",
-    "  BY SETUP:",
-    "  Gap & Hold              52 trades |  59.6% WR",
-    "  SWING — Momentum Watch Breakout (Day)   9 trades |  33.3% WR",
-    "  Low Float Catalyst       8 trades |  12.5% WR",
-    "  Momentum Watch Breakout (Day)   7 trades |  71.4% WR",
-    "  Vol Breakdown            2 trades |  50.0% WR",
-    "  Options Call SMCI260814C00034000 ($34C exp DATE)   2 trades | 100.0% WR",
-    "  Earnings Double Spread   2 trades |  50.0% WR",
-    "  Options Call PURR260904C00009000 ($9.0C exp DATE)   2 trades | 100.0% WR",
-    "  Morning Runner           1 trades | 100.0% WR",
-    "  Day 2 Continuation       1 trades |   0.0% WR",
-    "  Untracked Legacy Position   1 trades |   0.0% WR",
-    "  Options Put SMCI260814P00029500 ($29.5P exp DATE)   1 trades |   0.0% WR",
-    "  Options Call UMAC260828C00025000 ($25.0C exp DATE)   1 trades |   0.0% WR",
-    "  Earnings Put Spread      1 trades |   0.0% WR",
-    "  Earnings Strangle (untracked)   1 trades |   0.0% WR",
-    "  Adopted (orphan reconciliation)   1 trades |   0.0% WR",
-    "  Options Call TE260925C00004000 ($4.0C exp DATE)   1 trades |   0.0% WR",
-    "  Options Call APLD260925C00025000 ($25.0C exp DATE)   1 trades |   0.0% WR",
-    "  Options Call QQQ260922C00728000   1 trades | 100.0% WR",
-    "  Options Put QQQ260922P00676000   1 trades |   0.0% WR",
-    "  Options Call QQQ260923C00735000   1 trades | 100.0% WR",
-    "  Options Put QQQ260923P00682000   1 trades | 100.0% WR",
-    "  Options Call RXRX261002C00001000 ($1.0C exp DATE)   1 trades |   0.0% WR",
-    "  Breakout Zone +166% off low   1 trades |   0.0% WR",
-    "════════════════════════════════════════════════════════"
+    "  📋 Alpaca sync complete — <MagicMock name='sync_alpaca_fills' id=ID> new trade(s) recorded."
    ]
   },
   "mode=live-outcomes": {
@@ -1211,6 +1093,76 @@
     ],
     [
      "run_news_source_check",
+     "()",
+     "[('notify', True)]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=keydrill": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "run_massive_key_drill",
+     "()",
+     "[('notify', True)]"
+    ]
+   ],
+   "stdout": [
+    "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
+    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
+    "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
+    "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
+    "  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR",
+    "  ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║",
+    "  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1"
+   ]
+  },
+  "mode=apicheck": {
+   "how": "returned",
+   "calls": [
+    [
+     "_process_telegram_commands",
+     "()",
+     "[]"
+    ],
+    [
+     "_et_today",
+     "()",
+     "[]"
+    ],
+    [
+     "augment_universe_with_movers",
+     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "[]"
+    ],
+    [
+     "run_api_health_check",
      "()",
      "[('notify', True)]"
     ]

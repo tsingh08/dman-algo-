@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T13:45:11.651366-04:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "10 Health Care Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T13:45:11.744134-04:00",
     "symbols": [
       "ORCL"
@@ -5060,5 +5050,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T12:12:59.486451-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA Expands CUDA-X AI Tools For Semiconductor Manufacturing, Delivering 2\u20133x Faster Atom-Level Simulations And 30x Faster Chipmaking Simulations",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

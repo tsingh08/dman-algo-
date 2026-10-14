@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T12:14:56.075040-04:00",
-    "symbols": [
-      "BMBL"
-    ],
-    "headline": "Crude Oil Edges Higher; Citigroup Earnings Top Views",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-13T12:14:57.203461-04:00",
     "symbols": [
       "FRMI"
@@ -5023,5 +5013,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-14T10:32:08.392771-04:00",
+    "symbols": [
+      "FSLR"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on First Solar, Raises Price Target to $326",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

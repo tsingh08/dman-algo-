@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T12:14:59.621156-04:00",
-    "symbols": [
-      "BKYI"
-    ],
-    "headline": "Crude Oil Edges Higher; Citigroup Earnings Top Views",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-13T12:15:22.223304-04:00",
     "symbols": [
       "IOVA"
@@ -5023,5 +5013,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T10:42:20.033670-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Stock Hits 52-Week High \u2014 What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

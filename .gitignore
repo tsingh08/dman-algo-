@@ -33,3 +33,48 @@ Thumbs.db
 # 2026-10-12 a bad analysis.exclude in it cost an hour of false errors.
 .vscode/*
 !.vscode/settings.json
+
+# ── The repo root is the HOME directory ──────────────────────────────────
+# Measured 2026-10-14: `git add -A` here would stage ~44 GB -- AppData alone
+# is 38.6 GB, Downloads 3.9 GB, OneDrive 1.5 GB, .claude 535 MB. `git status`
+# looks harmless (88 ms) only because git reports an untracked DIRECTORY
+# without recursing into it; `git add` does recurse. The .vscode/* rule above
+# was added for exactly this reason and the reasoning was never extended to
+# the rest of the profile.
+#
+# Every pattern is ANCHORED with a leading slash so it matches only at the
+# repo root. In the cloud checkout the root is the repo itself and none of
+# these exist, so they are no-ops there -- an unanchored "Music/" could
+# otherwise shadow a real subdirectory someday.
+#
+# Verified: none of the 76 tracked files is matched by any rule below.
+/AppData/
+/OneDrive/
+/Downloads/
+/Contacts/
+/Favorites/
+/Links/
+/Music/
+/Videos/
+/Searches/
+/Saved Games/
+/BrawlhallaReplays/
+
+# Windows registry hives, rewritten constantly while logged in
+/NTUSER.DAT
+/NTUSER.DAT{*
+/ntuser.dat.LOG*
+/ntuser.ini
+
+# Per-tool local state that happens to live in the home directory
+/.claude/
+/.claude.json
+/.claude.json.tmp.*
+/.config/
+/.copilot/
+/.vscode-shared/
+/.gitconfig
+
+# Frozen harness inputs are local-only by design -- see backtest_harness.py:
+# "The frozen data (golden/fixtures/backtest_bars.pkl) is local only"
+/golden/fixtures/

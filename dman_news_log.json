@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-10-13T12:28:56.314180-04:00",
-    "symbols": [
-      "FUN"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T12:28:56.318789-04:00",
-    "symbols": [
-      "FUN"
-    ],
-    "headline": "Syndax Pharmaceuticals, BioNTech, Seagate And Other Big Stocks Moving Lower In Tuesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T12:28:56.473499-04:00",
-    "symbols": [
-      "CIFR"
-    ],
-    "headline": "Crude Oil Edges Higher; Citigroup Earnings Top Views",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-13T12:28:56.478517-04:00",
-    "symbols": [
-      "CIFR"
-    ],
-    "headline": "Cipher Digital Stock Falls After Proposing $850 Million in Notes. Here\u2019s Where the Money Would Go",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-13T12:28:56.483365-04:00",
-    "symbols": [
-      "CIFR"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-13T12:28:56.488079-04:00",
-    "symbols": [
-      "CIFR"
-    ],
-    "headline": "Cipher Digital Plans To Commence Offering Of $850M Senior Notes Due 2032",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-13T12:39:19.295754-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Fermi Secures AMD Backing For Texas AI Project",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T12:39:43.683671-04:00",
     "symbols": [
       "MRVL"
@@ -5039,5 +4969,76 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T11:20:58.666561-04:00",
+    "symbols": [
+      "AAPL",
+      "MSFT"
+    ],
+    "headline": "OpenAI Brief In Apple Vs OpenAI Lawsuit Say Files Leaked Include Detailed Unreleased Device Images, Engineering Data, Supplier Info; Says Apple Has Not Assured It Is Not In Possession Of &amp; Has Not Used OpenAI Confidential Data; Files Leaked By Employee Also Include Manufacturing Data About Devices",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:21:13.163419-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Bernstein Maintains Market Perform on Lockheed Martin, Lowers Price Target to $564",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T11:21:17.984778-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "8 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T11:21:18.263489-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "8 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T11:21:18.516895-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "8 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T11:21:18.782369-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "8 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T11:21:19.038203-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "8 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

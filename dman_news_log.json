@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-10-13T11:21:43.767954-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Palo Alto Networks, Raises Price Target to $525",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T11:21:47.662658-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Cyclicals Lead Sectors In Tuesday Trading As Health Care Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T11:21:48.153127-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Cyclicals Lead Sectors In Tuesday Trading As Health Care Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T11:21:50.280192-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Cyclicals Lead Sectors In Tuesday Trading As Health Care Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T11:21:50.746630-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Cyclicals Lead Sectors In Tuesday Trading As Health Care Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T11:21:51.055051-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Cyclicals Lead Sectors In Tuesday Trading As Health Care Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T11:21:51.494547-04:00",
-    "symbols": [
-      "WORX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T11:21:51.498284-04:00",
-    "symbols": [
-      "WORX"
-    ],
-    "headline": "Why UnitedHealth Group Shares Are Trading Higher; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T11:21:51.501854-04:00",
-    "symbols": [
-      "WORX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T11:33:04.493427-04:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "TD Cowen Maintains Buy on Cloudflare, Raises Price Target to $375",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-13T11:33:43.518293-04:00",
     "symbols": [
       "BBAI"
@@ -5025,5 +4925,105 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T10:00:49.643181-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix to Cut About 1,000 Jobs, Its Biggest Layoffs Since 2022, Ahead of Earnings",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T10:01:38.908106-04:00",
+    "symbols": [
+      "CAMT"
+    ],
+    "headline": "Camtek Expects Q3 2026 Revenue Of $160M-$161M; Sees Q4 Revenue Of ~$180M; Sees FY2026 Revenue Of $595M; 2027 Revenue Above $800M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T10:01:39.221979-04:00",
+    "symbols": [
+      "GENB"
+    ],
+    "headline": "Generate Biomedicines To Receive $30M Upfront, Up To $1.2B In Milestones And Tiered Royalties Under Zealand Pharma Collaboration",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T10:01:39.226756-04:00",
+    "symbols": [
+      "GENB"
+    ],
+    "headline": "&#39;Zealand Pharma Makes Deal With Generate Worth Up to $1.2 Billion&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T10:01:39.766365-04:00",
+    "symbols": [
+      "ENVX"
+    ],
+    "headline": "Enovix Stock Rises on 100,000-Battery Drone Order, Eyes Follow-On Demand in 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T10:01:39.771633-04:00",
+    "symbols": [
+      "ENVX"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T10:01:39.777260-04:00",
+    "symbols": [
+      "ENVX"
+    ],
+    "headline": "Why Enovix Shares Are Trading Higher By Around 7%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T10:01:39.782341-04:00",
+    "symbols": [
+      "ENVX"
+    ],
+    "headline": "Enovix Corporation (ENVX) Stock Is Trending After Hours: Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T10:01:39.789149-04:00",
+    "symbols": [
+      "ENVX"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T10:01:47.733002-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Barclays Maintains Overweight on UnitedHealth Group, Lowers Price Target to $440",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

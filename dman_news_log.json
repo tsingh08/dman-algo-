@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T14:58:13.955441-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Israeli Prime Minister Benjamin Netanyahu And President Trump Last Week Discussed The Possibility Of Launching A Major New Operation Against Iran Before The Israeli And U.S. Elections, According To Two U.S. Officials&#39; - Axios",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-13T14:58:18.704754-04:00",
     "symbols": [
       "OPTU"
@@ -5110,5 +5100,16 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T14:50:03.447529-04:00",
+    "symbols": [
+      "MSFT",
+      "SPY"
+    ],
+    "headline": "&#39;Eight U.S. States Sue OpenAI, Claiming ChatGPT Harms Children&#39; - Reuters News",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

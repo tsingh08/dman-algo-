@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-10-13T13:14:19.020406-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: JP Morgan Chase &amp; Co., Meta Platforms, West Pharmaceutical Services, iShares U.S. Energy ETF",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T13:14:19.025078-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T13:14:19.030188-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Bank of America Q3 Preview: Stock Down in 2026, Could 5th Straight Double Beat Change Momentum?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T13:14:19.226262-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T13:14:19.969037-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "UnitedHealth Raises Guidance: What It Means for XLV and Other Healthcare ETFs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T13:14:20.493408-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Netanyahu Discusses New Military Operation In Iran With Trump - Even Before The Election",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T13:14:20.498023-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Paul Tudor Jones Says Oil Can Rally Another $25, Warns 2027 Will Be &#39;Really Challenging&#39; for Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T13:14:20.676625-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T13:14:20.857499-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-13T13:14:21.258384-04:00",
     "symbols": [
       "CDT"
@@ -5039,6 +4949,96 @@
     "headline": "Banks Are Putting Deposits On Blockchain As Stablecoins Face A New Rival",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T11:31:24.877900-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "UBS Maintains Neutral on Alphabet, Raises Price Target to $380",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T11:32:04.365796-04:00",
+    "symbols": [
+      "DFNS"
+    ],
+    "headline": "T3 Defense Shares Halted On Circuit Breaker To The Upside, Stock Now Up 13.91%",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T11:32:19.984530-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "OpenAI Brief In Apple Vs OpenAI Lawsuit Say Files Leaked Include Detailed Unreleased Device Images, Engineering Data, Supplier Info; Says Apple Has Not Assured It Is Not In Possession Of &amp; Has Not Used OpenAI Confidential Data; Files Leaked By Employee Also Include Manufacturing Data About Devices",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:32:20.315805-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI Brief In Apple Vs OpenAI Lawsuit Say Files Leaked Include Detailed Unreleased Device Images, Engineering Data, Supplier Info; Says Apple Has Not Assured It Is Not In Possession Of &amp; Has Not Used OpenAI Confidential Data; Files Leaked By Employee Also Include Manufacturing Data About Devices",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:32:27.698930-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Banks Are Putting Deposits On Blockchain As Stablecoins Face A New Rival",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-14T11:32:31.033789-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Banks Are Putting Deposits On Blockchain As Stablecoins Face A New Rival",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:32:41.392370-04:00",
+    "symbols": [
+      "FFAI"
+    ],
+    "headline": "Faraday Future Is Selling Its Robotics Unit. It\u2019ll Still Own Nearly Two-Thirds of the Buyer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T11:32:42.116240-04:00",
+    "symbols": [
+      "SOXS"
+    ],
+    "headline": "Bitcoin, Nvidia And Tesla ETFs Lead Wall Street\u2019s Most Traded Funds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T11:32:42.366004-04:00",
+    "symbols": [
+      "MNSO"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

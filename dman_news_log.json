@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T14:27:23.173428-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Guyana May Scale Back LNG Plans As Exxon Needs More Gas For Its Wells, Sources Say",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T14:27:24.040424-04:00",
     "symbols": [
       "SPY"
@@ -5079,5 +5069,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T13:33:14.527809-04:00",
+    "symbols": [
+      "CBAT"
+    ],
+    "headline": "CBAK Energy Technology Reports Cumulative Sales To A European RV Energy Storage Customer Of ~$4.76M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

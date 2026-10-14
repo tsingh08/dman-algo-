@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-13T12:15:22.223304-04:00",
-    "symbols": [
-      "IOVA"
-    ],
-    "headline": "Barclays Maintains Overweight on Iovance Biotherapeutics, Raises Price Target to $18",
-    "source": "benzinga",
-    "tag": "held",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T12:15:24.648803-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Platforms Launching New AI-Powered Tools To Shape Feeds, Reels; Updates Three-Dot Menu",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T12:15:56.423414-04:00",
     "symbols": [
       "GOOGL"
@@ -5023,5 +5003,27 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T10:46:29.266082-04:00",
+    "symbols": [
+      "AFRM",
+      "COIN",
+      "HOOD"
+    ],
+    "headline": "Shares of banks and financial services companies are trading lower after U.S. core inflation data bolstered the case for more Fed monetary tightening, which may slow lending and limit interest margins. Also, weak Q3 segment results from Bank of America and Morgan Stanley may dent confidence in the broader sector.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T10:48:42.819121-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Hot Inflation Flips Fed\u2019s October Rate Odds: Economists Warn About \u2018Debasement\u2019 Risk",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

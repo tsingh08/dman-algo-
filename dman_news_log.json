@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-13T09:26:24.177397-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market Today: Dow Jones Futures Gain, Nasdaq, S&amp;P 500 Falls as Scott Bessent Says Iran&#39;s Economy Is &#39;Collapsing&#39;\u2014 SXTC, AMAT, CMG in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T09:26:24.180993-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Reported October 12, Anthropic Says AI Models May Be Capable Of Self-Replicating Without Access To A Data Center",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T09:26:24.184948-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Top Economist Warns &#39;High Concentration&#39; of Semiconductor Stocks Isn&#39;t a Real Bull Market: &#39;Beware&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T09:26:24.188555-04:00",
     "symbols": [
       "QQQ"
@@ -5043,6 +5013,39 @@
       "SPY"
     ],
     "headline": "&#39;Federal Reserve Bank Of Boston President Susan Collins Said Interest Rates Will Likely Need To Rise More Before The End Of The Year To Help Rein In Inflation&#39; - Bloomberg News",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T09:10:40.906833-04:00",
+    "symbols": [
+      "GOOGL",
+      "MSFT"
+    ],
+    "headline": "&#39;How Microsoft\u2019s New Office Chief Fixed Copilot and Won Over Nadella&#39; - The Information",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T09:20:12.508218-04:00",
+    "symbols": [
+      "GEV",
+      "JPM",
+      "META"
+    ],
+    "headline": "Meta To Rally More Than 11%? Here Are 10 Top Analyst Forecasts For Wednesday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T09:21:44.564827-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman CEO David Solomon Warns \u2018Abrupt Moves\u2019 in Interest Rates Create Headwinds, But \u2018Underlying Economy\u2019 Remains Strong",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

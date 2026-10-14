@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-13T11:59:55.282998-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Samsung, SK Hynix Fall In Seoul On China Memory Threat\u2014Broadcom CEO Compares AI Investors To Casino Gamblers\u2014JPM Whipsaws",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T11:59:55.513280-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Oracle Stock Moves Higher: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T12:00:04.840888-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Stock Moves Higher: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T12:00:05.395873-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Samsung, SK Hynix Fall In Seoul On China Memory Threat\u2014Broadcom CEO Compares AI Investors To Casino Gamblers\u2014JPM Whipsaws",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T12:00:05.870954-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Samsung, SK Hynix Fall In Seoul On China Memory Threat\u2014Broadcom CEO Compares AI Investors To Casino Gamblers\u2014JPM Whipsaws",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T12:03:28.229609-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Lockheed Martin, Avio Announce Strategic Cooperation Agreement For Solid Rocket Motor Production",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T12:04:48.962169-04:00",
     "symbols": [
       "DDOG"
@@ -5025,5 +4965,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T10:24:08.228267-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "UnitedHealth Analysts Slash Their Forecasts Following Q3 Results",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T10:24:54.799357-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "U.S. Diplomat In Riyadh, Microsoft Arabia President Ayman Al-Ghamdi Discussion Expansion Of U.S.-Saudi Partnership In Super Intelligence, Cloud Computing",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T10:25:05.263196-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "Why Is IonQ Stock Falling on Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T10:25:30.199098-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Google DeepMind\u2019s Demis Hassabis Calls AI Hacking Incidents \u2018Early Warning Shots,\u2019 Warns of More Major Threats Ahead Without Stronger Safeguards",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T10:25:31.057207-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google DeepMind\u2019s Demis Hassabis Calls AI Hacking Incidents \u2018Early Warning Shots,\u2019 Warns of More Major Threats Ahead Without Stronger Safeguards",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T10:25:37.182897-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Google DeepMind\u2019s Demis Hassabis Calls AI Hacking Incidents \u2018Early Warning Shots,\u2019 Warns of More Major Threats Ahead Without Stronger Safeguards",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

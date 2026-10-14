@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T13:45:11.744134-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-13T13:45:12.856795-04:00",
     "symbols": [
       "EIX"
@@ -5060,5 +5050,19 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T12:25:26.980327-04:00",
+    "symbols": [
+      "APLD",
+      "CLSK",
+      "MARA",
+      "MSTR",
+      "RIOT"
+    ],
+    "headline": "Shares of crypto-linked companies are trading lower as Bitcoin prices decline following the latest inflation data. Stronger-than-expected inflation has fueled expectations for tighter Federal Reserve policy, while rising Treasury yields and a stronger dollar are dampening risk appetite and weighing on speculative assets.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

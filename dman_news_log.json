@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-13T13:45:13.048673-04:00",
-    "symbols": [
-      "C"
-    ],
-    "headline": "Crude Oil Edges Higher; Citigroup Earnings Top Views",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T13:45:13.053268-04:00",
-    "symbols": [
-      "C"
-    ],
-    "headline": "Citigroup CFO Says Wall Street&#39;s Deal Frenzy Is Cooling After Record First Half",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-13T13:45:13.057804-04:00",
     "symbols": [
       "C"
@@ -5070,5 +5050,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T12:39:17.792957-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump, On Social Media, Announces U.S. Secures Offtake Commitment From Taiwan For $70B - $80B For Alaska LNG; Taiwan To Also Invest $4.4B In Alaska LNG Project As Equity",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T12:39:36.547487-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "AEP Unveils $4 Billion Fuel Cell Investment Backed By Long-Term Google Deal",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

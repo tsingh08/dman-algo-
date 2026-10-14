@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-13T14:01:03.430080-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "nVent And AMD Collaborate To Bring Rack-Level Cooling To AMD Helios Rackscale Solution",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T14:01:03.435320-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Fermi Inks Credit Support Agreement With AMD To Support Lease For Phase 1 Of Its Project Matador Energy And AI Buiildout In Texas",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T14:01:15.040862-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "QUICK SPARK: Adobe Is Showing Up in AI Search \u2014 Investors Need to Know What that Actually Means",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T14:03:45.761411-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "FAA To Pause Use Of AI Tool In Washington, D.C., Area To Assist Air Traffic Controllers Pending Further Evaluation",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T14:04:14.853095-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "SpaceX&#39;s Wireless Push Sparks Wall Street Skepticism: Is the Stock Getting Ahead of Itself?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T14:05:48.174082-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Elon Musk Says Robot Hands Are &#39;Shockingly Difficult&#39;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T14:10:45.015293-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Fed\u2019s Williams Currently Sees No Need For Rate Hike In 2027&#39; - Bloomberg News",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T14:11:46.381494-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle shares are trading higher after the company announced a proposed Energy Service Agreement with El Paso Electric for Project Jupiter. Also, the company announced a collaborative effort with Marvell Technology and Microsoft aligned with the Open Compute Project aimed at standardizing a NIST FIPS 140-3 Level 3 integrated HSM for cloud and hyperscale data center infrastructure.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-13T14:11:58.107602-04:00",
     "symbols": [
       "TSLA"
@@ -5077,5 +4997,85 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T12:52:57.051885-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "ASML Earnings Signal Strong AI Demand Yet Stock Falls, Emphasizing Market Character Shift\u2014CPI Squashes Hopium",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T12:52:57.496937-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "ASML Earnings Signal Strong AI Demand Yet Stock Falls, Emphasizing Market Character Shift\u2014CPI Squashes Hopium",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T12:52:57.770222-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "ASML Earnings Signal Strong AI Demand Yet Stock Falls, Emphasizing Market Character Shift\u2014CPI Squashes Hopium",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T12:52:58.356101-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "ASML Earnings Signal Strong AI Demand Yet Stock Falls, Emphasizing Market Character Shift\u2014CPI Squashes Hopium",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T12:52:58.981358-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "ASML Earnings Signal Strong AI Demand Yet Stock Falls, Emphasizing Market Character Shift\u2014CPI Squashes Hopium",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T12:52:59.277315-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "ASML Earnings Signal Strong AI Demand Yet Stock Falls, Emphasizing Market Character Shift\u2014CPI Squashes Hopium",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-14T12:53:12.144979-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "ASML Earnings Signal Strong AI Demand Yet Stock Falls, Emphasizing Market Character Shift\u2014CPI Squashes Hopium",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T12:53:12.389421-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "ASML Earnings Signal Strong AI Demand Yet Stock Falls, Emphasizing Market Character Shift\u2014CPI Squashes Hopium",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

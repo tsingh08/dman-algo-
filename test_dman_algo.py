@@ -25193,3 +25193,79 @@ class TestTheShareLockSitsInsideTheMoveItProtects(unittest.TestCase):
         """Locking at breakeven on a fraction of a percent would scalp noise
         and stop out positions before the move develops."""
         self.assertGreater(a.ORDER_FLOW_EQUITY_LOCK_MIN_GAIN_PCT, 1.0)
+
+
+class TestTheReportSaysWhichComponentsCanEarnTheirPoints(unittest.TestCase):
+    """A hand audit on 2026-10-14 found three things no report would surface.
+
+    `Insider` fired 0/632 -- not tuning, the Form 4 URL was hardcoded to
+    form4.xml which 404s for every filer (fixed b095c207). A component pinned
+    at 0% is the signature of a broken path. `Fibonacci` fires on 3.8% and is
+    not broken at all: its levels sit below the 60-bar high while a gap-up
+    entry is at or above it, so it is mismatched to the setup. And seven
+    components fire on ~100% of signals, which makes them constants that
+    cannot rank anything.
+
+    Plus the headline: confluence_score is min(100, total) and nearly every
+    signal sits at the ceiling, so a score bar admits almost everything and
+    the three sort-by-score sites fall back to scan order on ties."""
+
+    def _rows(self, n=40, overrides=None):
+        base = {"Regime": 5, "Insider": 0, "Fibonacci": 0, "Gap Size": 3}
+        out = []
+        for i in range(n):
+            b = dict(base)
+            for k, seq in (overrides or {}).items():
+                b[k] = seq[i % len(seq)]
+            out.append({"label_outcome": "WIN", "score": 100, "breakdown": b})
+        return out
+
+    def test_a_component_stuck_at_zero_is_named(self):
+        lines = " ".join(a._component_health_lines(self._rows()))
+        self.assertIn("Insider", lines)
+
+    def test_a_component_that_always_pays_is_named_as_unable_to_rank(self):
+        lines = " ".join(a._component_health_lines(self._rows()))
+        self.assertIn("Regime", lines)
+        self.assertIn("cannot rank", lines)
+
+    def test_a_normally_discriminating_component_is_not_flagged(self):
+        """Gap Size fires on every row here only because the fixture is flat;
+        a component firing on half must appear in neither list."""
+        rows = self._rows(overrides={"Gap Size": [3, 0]})
+        lines = " ".join(a._component_health_lines(rows))
+        self.assertNotIn("Gap Size", lines)
+
+    def test_the_score_ceiling_share_is_reported(self):
+        """The number that makes a 95 bar meaningless."""
+        lines = " ".join(a._component_health_lines(self._rows()))
+        self.assertIn("ceiling", lines)
+        self.assertIn("40/40", lines)
+
+    def test_spread_in_the_score_is_reported_honestly(self):
+        rows = self._rows()
+        for r in rows[:20]:
+            r["score"] = 80
+        lines = " ".join(a._component_health_lines(rows))
+        self.assertIn("20/40", lines)
+
+    def test_a_small_sample_reports_nothing(self):
+        """Same bar as the capture report -- a handful of signals cannot say
+        whether a component is dead."""
+        self.assertEqual(a._component_health_lines(self._rows(n=3)), [])
+
+    def test_rows_without_a_breakdown_are_ignored(self):
+        self.assertEqual(a._component_health_lines(
+            [{"label_outcome": "WIN", "score": 100} for _ in range(40)]), [])
+
+    def test_a_non_numeric_component_value_does_not_raise(self):
+        rows = self._rows()
+        rows[0]["breakdown"]["Gap Size"] = None
+        rows[1]["breakdown"]["Gap Size"] = "n/a"
+        self.assertTrue(a._component_health_lines(rows))
+
+    def test_the_report_calls_it(self):
+        """If this is dropped the audit stops being repeatable and the next
+        dead component goes unnoticed for as long as Insider did."""
+        src = inspect.getsource(a.report_signal_features)
+        self.assertIn("_component_health_lines(", src)

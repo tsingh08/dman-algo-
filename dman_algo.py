@@ -8463,6 +8463,85 @@ def _filled_signal_keys() -> set:
         return set()
 
 
+# A component firing on this fraction or less of signals is reported as
+# near-dead: it contributes points almost nobody can earn.
+COMPONENT_DEAD_RATE = 0.05
+# ...and one firing on this fraction or more is a CONSTANT: it adds the same
+# points to every signal, so it cannot discriminate between them.
+COMPONENT_CONSTANT_RATE = 0.99
+
+
+def _component_health_lines(rows: list) -> list:
+    """Which scoring components can actually earn their points, and whether
+    the score still has any spread left.
+
+    Added 2026-10-14 after a hand audit found three separate things that no
+    report would ever have surfaced:
+
+      * `Insider` fired 0/632. It was not a tuning problem -- the Form 4
+        document URL was hardcoded to form4.xml, which 404s for every filer
+        (fixed b095c207). A component stuck at 0% is the signature.
+      * `Fibonacci` fires on 3.8%, and is not broken at all. Its levels sit
+        23.6%-78.6% BELOW the 60-bar high while a gap-up entry is at or above
+        that high, so no level is ever inside the 1.5% tolerance. It is
+        mismatched to the setup, which is worth knowing and not worth
+        "fixing" by widening a tolerance.
+      * SEVEN components fire on ~100% of signals (Regime, Rel Strength and
+        RegimeSetup on exactly all of them). Those are constants. They lift
+        every score equally and cannot rank anything.
+
+    And the headline the breakdown makes unavoidable: confluence_score is
+    `min(100, total)` and 88.7% of signals sit at exactly 100, so a bar like
+    MOMENTUM_SPREAD_MIN_SCORE = 95 reads as "only the very best" while
+    admitting ~9 in 10. Three call sites sort by this value, and Python's sort
+    is stable, so when most candidates tie the pick falls to scan order.
+
+    Deliberately descriptive, like _mfe_capture_lines(). It does NOT suggest
+    uncapping the score: measured within each setup, the uncapped total is
+    mildly ANTI-predictive of mean P/L (Gap & Hold low half -1.70% vs high
+    half -5.38%; Morning Runner -3.00% vs -5.79%). Higher score means a higher
+    WIN RATE and a worse mean -- the two point in opposite directions, so any
+    rebuild has to be fit against mean P/L, not hit rate.
+    """
+    _breaks = [r.get("breakdown") for r in rows if isinstance(r.get("breakdown"), dict)]
+    if len(_breaks) < SIGNAL_CAPTURE_MIN_N:
+        return []
+    _n = len(_breaks)
+    _fires: dict = {}
+    for _b in _breaks:
+        for _c, _v in _b.items():
+            _hit = _fires.setdefault(_c, 0)
+            try:
+                if float(_v) > 0:
+                    _fires[_c] = _hit + 1
+            except (TypeError, ValueError):
+                pass
+    _dead = sorted(c for c, f in _fires.items() if f / _n <= COMPONENT_DEAD_RATE)
+    _const = sorted(c for c, f in _fires.items() if f / _n >= COMPONENT_CONSTANT_RATE)
+
+    _scores = []
+    for _r in rows:
+        try:
+            _scores.append(float(_r["score"]))
+        except (KeyError, TypeError, ValueError):
+            pass
+
+    _out = [f"  <b>Scoring health</b> ({_n} signals with a breakdown)"]
+    if _scores:
+        _top = max(_scores)
+        _at_top = sum(1 for _x in _scores if _x >= _top)
+        _out.append(
+            f"  score at its {_top:.0f} ceiling on {_at_top}/{len(_scores)} "
+            f"({_at_top / len(_scores) * 100:.0f}%) — a score bar admits "
+            f"about that share, and ties fall to scan order")
+    if _dead:
+        _out.append("  earns almost nothing: "
+                    + ", ".join(f"{c} {_fires[c] / _n * 100:.1f}%" for c in _dead))
+    if _const:
+        _out.append(f"  always pays (cannot rank): {', '.join(_const)}")
+    return _out
+
+
 def _mfe_capture_lines(rows: list) -> list:
     """How much of the upside each signal FOUND the exit actually KEPT.
 
@@ -8555,6 +8634,7 @@ def report_signal_features(min_n: int = 5) -> list[str]:
             f"({_raw_n / max(len(rows), 1):.1f}x re-scored) \u2014 all figures below "
             f"count SIGNALS, not rows")
     _lines_hdr.extend(_capture)
+    _lines_hdr.extend(_component_health_lines(rows))
     # Which signals became real positions. "taken" only means the scanner handed
     # it on -- see _filled_signal_keys().
     _filled = _filled_signal_keys()

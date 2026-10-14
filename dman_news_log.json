@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-14T09:26:25.961223-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Wall Street\u2019s \u2018Last Men Standing\u2019: The Mag 7 Are Propping Up the S&amp;P 500, Then Why Are Your ETFs at Risk?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-14T09:26:25.966046-04:00",
     "symbols": [
       "TSLA"
@@ -5108,5 +5098,17 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-14T14:58:50.714559-04:00",
+    "symbols": [
+      "LUNR",
+      "RKLB",
+      "SPCX"
+    ],
+    "headline": "Shares of space-related companies are trading lower as U.S. inflation data fuel a spike in bond and Treasury yields, with expectations for interest rates to remain elevated. Monetary tightening and elevated borrowing costs pose a material threat to the sector from curtailed corporate and government financing of cosmic communications, AI compute, and exploration.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

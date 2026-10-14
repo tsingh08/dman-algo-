@@ -1843,5 +1843,41 @@
   "drift_pct": 0.01,
   "range_ratio": 0.38,
   "near_high": 0.996
+ },
+ {
+  "ts": "2026-10-14T14:59:42.389451-04:00",
+  "ticker": "IBTH",
+  "price": 22.28,
+  "rvol": 2.4,
+  "drift_pct": 0.0,
+  "range_ratio": 0.38,
+  "near_high": 0.996
+ },
+ {
+  "ts": "2026-10-14T14:59:42.389473-04:00",
+  "ticker": "IBTG",
+  "price": 22.85,
+  "rvol": 1.66,
+  "drift_pct": 0.07,
+  "range_ratio": 0.38,
+  "near_high": 0.998
+ },
+ {
+  "ts": "2026-10-14T14:59:42.389478-04:00",
+  "ticker": "JUCY",
+  "price": 21.7377,
+  "rvol": 5.88,
+  "drift_pct": 0.19,
+  "range_ratio": 0.22,
+  "near_high": 0.983
+ },
+ {
+  "ts": "2026-10-14T14:59:42.389482-04:00",
+  "ticker": "CAM",
+  "price": 24.16,
+  "rvol": 1.51,
+  "drift_pct": 0.54,
+  "range_ratio": 0.4,
+  "near_high": 0.97
  }
 ]

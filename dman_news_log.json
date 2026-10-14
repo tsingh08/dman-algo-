@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-10-13T13:35:30.634746-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "This Adobe Analyst Is No Longer Bullish; Here Are Top 5 Downgrades For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T13:35:30.639303-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "HSBC Downgrades Adobe to Hold, Lowers Price Target to $267",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T13:35:30.659087-04:00",
-    "symbols": [
-      "FMFC"
-    ],
-    "headline": "Trading Halt: Halted at 7:50:00 p.m. ET - Trading Halt: Halt News Pending",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T13:41:03.561357-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "AI Boom Faces a Trillion-Dollar Financing Test, Goldman Sachs CEO Warns",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T13:41:25.765212-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Home Collection Available Starting December, Select Accessories Early 2027; LG Video Doorbell Wired Starts At $249.95, Floodlight Cam At $399.95, Outdoor Cam At $299.95; LG Indoor Cam Plug-In Starts At $199.95 In U.S., Canada, And UK; Retail Offers Third-Party Installation From ADT In U.S. Starting This Fall; LG Smart Thermostat Starts At $199.95, Temperature Sensor At $39.95 In U.S. And Canada; LG Smart Deadbolt Lock Starts At $349.95 In U.S. And Canada",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T13:41:27.854582-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Super Micro Computer Announces Expansion Of Portfolio Of Open Compute Project Accepted Systems, Racks, Rear Door Heat Exchangers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T13:41:36.467080-04:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "10 Health Care Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T13:41:36.655405-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T13:45:03.875651-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Home Collection Available Starting December, Select Accessories Early 2027; LG Video Doorbell Wired Starts At $249.95, Floodlight Cam At $399.95, Outdoor Cam At $299.95; LG Indoor Cam Plug-In Starts At $199.95 In U.S., Canada, And UK; Retail Offers Third-Party Installation From ADT In U.S. Starting This Fall; LG Smart Thermostat Starts At $199.95, Temperature Sensor At $39.95 In U.S. And Canada; LG Smart Deadbolt Lock Starts At $349.95 In U.S. And Canada",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-13T13:45:05.941573-04:00",
     "symbols": [
       "SMCI"
@@ -5019,6 +4929,96 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T12:06:11.990115-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Has a $299 Smart-Home Bet: The Real Money May Be in Subscriptions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T12:06:12.416309-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is Super Micro Computer Stock Falling on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T12:06:14.165775-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir, Mayor Of London Reach Settlement Over Alleged Allegations Regarding Palantir&#39;s Unified Operational Analytics Contract With Metropolitan Police Service",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T12:06:19.009146-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "DriveWealth to Integrate Ripple as Evernorth Deploys XRP Treasury",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-14T12:06:24.996845-04:00",
+    "symbols": [
+      "BAC"
+    ],
+    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T12:06:25.001738-04:00",
+    "symbols": [
+      "BAC"
+    ],
+    "headline": "8 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T12:06:25.006511-04:00",
+    "symbols": [
+      "BAC"
+    ],
+    "headline": "QUICK SPARK: Bank of America Stock Eyes Worst Day Since Trump\u2019s Tariffs Shock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T12:06:25.011178-04:00",
+    "symbols": [
+      "BAC"
+    ],
+    "headline": "Bank of America&#39;s $1.2B Fine Just Cost Shareholders 25 Times That",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T12:06:25.015774-04:00",
+    "symbols": [
+      "BAC"
+    ],
+    "headline": "Bank of America Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   },
   {
     "ts": "2026-10-14T12:08:07.350087-04:00",

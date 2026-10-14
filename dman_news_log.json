@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T14:58:10.781826-04:00",
-    "symbols": [
-      "SOUN"
-    ],
-    "headline": "Top 10 Powder Keg Stocks Where Short Sellers Are Sitting on a Fuse",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-13T14:58:10.786473-04:00",
     "symbols": [
       "SOUN"
@@ -5094,6 +5084,16 @@
     "headline": "Generate Biomedicines Lands Major AI Drug Partnership to Target Booming Obesity Market",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T14:26:44.100836-04:00",
+    "symbols": [
+      "IMSR"
+    ],
+    "headline": "Shares of uranium and nuclear-related companies are trading lower as hotter-than-expected inflation data fuels a rise in Treasury yields and expectations for interest rates to remain elevated. Elevated borrowing costs could increase financing expenses for capital-intensive nuclear projects, potentially delaying development timelines and weighing on investor sentiment toward the sector.",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

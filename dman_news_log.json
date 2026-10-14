@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-13T12:25:52.957455-04:00",
-    "symbols": [
-      "MARA"
-    ],
-    "headline": "Saylor Cheers Strive\u2019s $280 Million Bitcoin Buy While Strategy Bought 85% Less",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T12:26:04.077620-04:00",
-    "symbols": [
-      "TCRT"
-    ],
-    "headline": "Alaunos Therapeutics Shares Resume Trade",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-13T12:26:04.081576-04:00",
     "symbols": [
       "TCRT"
@@ -5022,5 +5002,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T10:57:28.952839-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX&#39;s Rocket Launch Lit Up the East Coast. Did SPCX Stock Even Notice?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T10:59:24.749396-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Arianespace To Launch 36 Amazon Leo Satellites On Nov. 23",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

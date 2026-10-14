@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T13:14:18.862085-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T13:14:19.020406-04:00",
     "symbols": [
       "JPM"
@@ -5039,5 +5029,16 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T11:28:12.919245-04:00",
+    "symbols": [
+      "COIN",
+      "JPM"
+    ],
+    "headline": "Banks Are Putting Deposits On Blockchain As Stablecoins Face A New Rival",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

@@ -1,37 +1,5 @@
 [
   {
-    "ts": "2026-10-13T12:04:48.962169-04:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Barclays Maintains Overweight on Datadog, Raises Price Target to $300",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T12:05:35.242107-04:00",
-    "symbols": [
-      "MU",
-      "SKHY",
-      "SNDK"
-    ],
-    "headline": "Shares of memory- and storage-related chip companies are trading lower amid concerns over Chinese competition, following reports this week that ChangXin Memory Technologies advanced development of a new DRAM cell structure to increase storage density and efficiency. The sector is also under pressure after South Korea\u2019s Kospi fell 5.5% to its lowest level since July 31, with SK Hynix plunging more than 10% in Seoul trading.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T12:12:34.574573-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Analyst Sees SpaceX Squeezing AST SpaceMobile on Launch Access and Pricing",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T12:13:40.307659-04:00",
     "symbols": [
       "SPY"
@@ -5023,6 +4991,36 @@
     ],
     "headline": "Google DeepMind\u2019s Demis Hassabis Calls AI Hacking Incidents \u2018Early Warning Shots,\u2019 Warns of More Major Threats Ahead Without Stronger Safeguards",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T10:26:37.344283-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "RTX Gears Up For Q3 Print; Here Are The Recent Forecast Changes From Wall Street&#39;s Most Accurate Analysts",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T10:26:45.292967-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Platforms Announces Now You Can Invite Anyone To A WhatsApp Call, Even If They Don\u2019t Have A WhatsApp Account",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T10:28:25.519167-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Watching Zoom Communications; Shares See Volume To The Downside After Meta Announces Now You Can Invite Anyone To A WhatsApp Call, Even If They Don\u2019t Have A WhatsApp Account",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

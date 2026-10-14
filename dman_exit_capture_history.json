@@ -1,0 +1,25 @@
+[
+  {
+    "date": "2026-10-14",
+    "n": 97,
+    "mean_mfe_pct": 4.01,
+    "mean_pnl_pct": -3.24,
+    "capture_pct": -80.8,
+    "mean_mae_pct": -7.13,
+    "roundtrips": {
+      "+3%": {
+        "reached": 40,
+        "gave_back": 26
+      },
+      "+8%": {
+        "reached": 13,
+        "gave_back": 10
+      }
+    },
+    "exits": {
+      "target": 2,
+      "stop": 37,
+      "horizon": 58
+    }
+  }
+]

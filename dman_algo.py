@@ -7910,6 +7910,12 @@ SIGNAL_POWER_MIN_LABELS   = 150
 # comparison, so it is readable far earlier than SIGNAL_POWER_MIN_LABELS -- but
 # not at n=3. It describes; it never authorises a change.
 SIGNAL_CAPTURE_MIN_N = 20
+# One snapshot per calendar day of the exit-capture numbers, appended whenever
+# the features report computes them. The metric only ever surfaced as stdout in
+# whatever run happened to print it; comparing two nights meant finding two old
+# logs. Between 2026-10-06 and 2026-10-14 capture moved -69% -> -81% and the
+# only record of the earlier number was a sentence pasted into a review prompt.
+EXIT_CAPTURE_HISTORY_FILE = "dman_exit_capture_history.json"
 
 
 def _mark_signal_not_taken(ticker: str, reason: str,
@@ -8542,7 +8548,7 @@ def _component_health_lines(rows: list) -> list:
     return _out
 
 
-def _mfe_capture_lines(rows: list) -> list:
+def _mfe_capture_lines(rows: list, snapshot: bool = False) -> list:
     """How much of the upside each signal FOUND the exit actually KEPT.
 
     Added 2026-10-06, after an off-watchlist analysis went looking for one
@@ -8584,11 +8590,13 @@ def _mfe_capture_lines(rows: list) -> list:
     _out.append(f"   exit capture  n={_n}  mean MFE {_avg_mfe:+.2f}%  "
                 f"kept {_avg_pnl:+.2f}%  = {_cap:.0f}% of the upside found "
                 f"(mean MAE {sum(_mae)/_n:+.2f}%)")
+    _roundtrips: dict = {}
     for _thr in (3, 8):
         _reached = [i for i in range(_n) if _mfe[i] >= _thr]
         if not _reached:
             continue
         _gave = [i for i in _reached if _pnl[i] <= 0]
+        _roundtrips[f"+{_thr}%"] = {"reached": len(_reached), "gave_back": len(_gave)}
         _out.append(f"   reached +{_thr}% then ended <=0: {len(_gave)}/{len(_reached)}"
                     f"  ({100 * len(_gave) / len(_reached):.0f}% round-tripped)")
     _exits: dict = {}
@@ -8598,10 +8606,48 @@ def _mfe_capture_lines(rows: list) -> list:
     if _exits:
         _out.append("   exits: " + ", ".join(
             f"{_k} {_v}" for _k, _v in sorted(_exits.items(), key=lambda kv: -kv[1])))
+    if snapshot:
+        _snapshot_exit_capture({
+            "date": datetime.now(ET).date().isoformat(),
+            "n": _n,
+            "mean_mfe_pct": round(_avg_mfe, 2),
+            "mean_pnl_pct": round(_avg_pnl, 2),
+            "capture_pct": round(_cap, 1),
+            "mean_mae_pct": round(sum(_mae) / _n, 2),
+            "roundtrips": _roundtrips,
+            "exits": _exits,
+        })
     return _out
 
 
-def report_signal_features(min_n: int = 5) -> list[str]:
+def _snapshot_exit_capture(snap: dict) -> None:
+    """Append today's exit-capture numbers to EXIT_CAPTURE_HISTORY_FILE.
+
+    One entry per calendar day, last write wins, so re-running the report
+    intraday updates rather than duplicates. Best-effort by design: the report
+    is read-only in spirit and must never fail because a bookkeeping write
+    did -- a swallowed error here costs one day of trend, not the report.
+
+    Opt-in (snapshot=True) rather than default: the test suite calls
+    report_signal_features()/_mfe_capture_lines() on synthetic rows, and with
+    a default-on write the first full pytest run stamped today's history entry
+    with the mock sample's zeros (observed 2026-10-14). Only the --mode
+    features CLI path, which reads the real labelled file, asks for it."""
+    try:
+        hist = []
+        if os.path.exists(EXIT_CAPTURE_HISTORY_FILE):
+            with open(EXIT_CAPTURE_HISTORY_FILE) as f:
+                hist = json.load(f)
+        if not isinstance(hist, list):
+            hist = []
+        hist = [h for h in hist if h.get("date") != snap.get("date")]
+        hist.append(snap)
+        _write_json_atomic(EXIT_CAPTURE_HISTORY_FILE, hist[-365:], indent=2)
+    except Exception as exc:
+        _log_swallowed("exit capture snapshot", exc)
+
+
+def report_signal_features(min_n: int = 5, snapshot: bool = False) -> list[str]:
     """What the labelled data says so far, as plain comparisons.
 
     Deliberately descriptive: win rate and average result per bucket, with the
@@ -8626,7 +8672,7 @@ def report_signal_features(min_n: int = 5) -> list[str]:
         rows, _raw_n = [], 0
     if not rows:
         return ["No labelled signals yet."]
-    _capture = _mfe_capture_lines(rows)
+    _capture = _mfe_capture_lines(rows, snapshot=snapshot)
     _lines_hdr: list = []
     if _raw_n > len(rows):
         _lines_hdr.append(
@@ -30740,7 +30786,7 @@ def main():
         label_signal_features()
 
     elif args.mode == "features":
-        print("\n".join(report_signal_features()))
+        print("\n".join(report_signal_features(snapshot=True)))
 
     elif args.mode == "reconcile":
         run_position_reconciliation()

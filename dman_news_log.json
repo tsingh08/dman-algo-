@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-13T14:58:10.786473-04:00",
-    "symbols": [
-      "SOUN"
-    ],
-    "headline": "Micron, Cerebras Systems, SanDisk, Meta and SoundHound AI: Why These 5 Stocks Are on Investors&#39; Radars Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T14:58:11.134356-04:00",
-    "symbols": [
-      "OKLO"
-    ],
-    "headline": "Oklo To Advance Groves Isotope Production Facility As Part Of US DOE\u2019s National Reactor Innovation Center Nuclear Energy Launch Pad Initiative",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-13T14:58:11.319151-04:00",
     "symbols": [
       "SMR"
@@ -5095,5 +5075,36 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T14:28:35.222259-04:00",
+    "symbols": [
+      "AMAT",
+      "AMD",
+      "ARM",
+      "AVGO",
+      "KLAC",
+      "MRVL",
+      "MU",
+      "NVDA",
+      "ON",
+      "QCOM",
+      "SKHY",
+      "WOLF"
+    ],
+    "headline": "Shares of semiconductor and chip companies are trading lower amid elevated expectations for Fed rate hikes due to broader inflation and energy challenges. Higher borrowing costs may affect the sector&#39;s ambitious capex plans while also creating risks for customers, which may be reflected in lower demand.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T14:29:01.904499-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "BlackRock Expects Strong Fourth Quarter as AI Investment, Fundraising Grow",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-10-14T09:26:40.048425-04:00",
-    "symbols": [
-      "YJ"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T09:26:40.274887-04:00",
-    "symbols": [
-      "YRD"
-    ],
-    "headline": "Yiren Digital Issues Update On Developments Concerning Affiliates Of Its Controlling Shareholder; Investigation Relates To Business Activities Outside The Company And Is Not Directly Related To Its Business Operations; Reaffirms Intention To Continue Its Previously Announced Share Repurchase Program",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T09:26:40.509130-04:00",
-    "symbols": [
-      "LQDA"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Dow, Nasdaq Futures Gain Even as September Inflation Report Comes In Hotter Than Expected\u2014 ASML, AZZ, GME in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T09:26:40.514133-04:00",
-    "symbols": [
-      "LQDA"
-    ],
-    "headline": "This Albemarle Analyst Turns Bullish; Here Are Top 4 Upgrades For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T09:26:40.518821-04:00",
-    "symbols": [
-      "LQDA"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T09:26:40.523662-04:00",
-    "symbols": [
-      "LQDA"
-    ],
-    "headline": "Liquidia Settles Bitter Fight With United Therapeutics",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T09:26:40.528022-04:00",
-    "symbols": [
-      "LQDA"
-    ],
-    "headline": "Needham Maintains Buy on Liquidia, Lowers Price Target to $58",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T09:26:40.754254-04:00",
     "symbols": [
       "BDRX"
@@ -5112,6 +5042,76 @@
     "headline": "Anthropic Says Later This Month, Claude To Integrate Official Voting Information From Democracy Works For U.S. Users; Claude Will Begin Showing Up-to-date Results On Election Night In The Us And In The Days That Follow; Claude Will Begin Showing Live Election Results &amp; Vote Counts In U.S. Conversations",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T15:45:11.150873-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Anthropic Says Later This Month, Claude To Integrate Official Voting Information From Democracy Works For U.S. Users; Claude Will Begin Showing Up-To-Date Results On Election Night In The U.S. And In The Days That Follow; Claude Will Begin Showing Live Election Results &amp; Vote Counts In U.S. Conversations",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T15:45:11.430945-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Anthropic Says Later This Month, Claude To Integrate Official Voting Information From Democracy Works For U.S. Users; Claude Will Begin Showing Up-To-Date Results On Election Night In The U.S. And In The Days That Follow; Claude Will Begin Showing Live Election Results &amp; Vote Counts In U.S. Conversations",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T15:45:22.824732-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Anthropic Says Later This Month, Claude To Integrate Official Voting Information From Democracy Works For U.S. Users; Claude Will Begin Showing Up-To-Date Results On Election Night In The U.S. And In The Days That Follow; Claude Will Begin Showing Live Election Results &amp; Vote Counts In U.S. Conversations",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T15:45:27.286268-04:00",
+    "symbols": [
+      "WLDS"
+    ],
+    "headline": "&#39;Alibaba&#39;s Qwen Deepens Personal Agent Push With New AI Glasses, Earbuds&#39; - YiCai Global",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T15:45:27.915077-04:00",
+    "symbols": [
+      "YRD"
+    ],
+    "headline": "Yiren Digital Issues Update On Developments Concerning Affiliates Of Its Controlling Shareholder; Investigation Relates To Business Activities Outside The Company And Is Not Directly Related To Its Business Operations; Reaffirms Intention To Continue Its Previously Announced Share Repurchase Program",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T15:45:29.910158-04:00",
+    "symbols": [
+      "LQDA"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500, Dow, Nasdaq Futures Gain Even as September Inflation Report Comes In Hotter Than Expected\u2014 ASML, AZZ, GME in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T15:45:33.100734-04:00",
+    "symbols": [
+      "PIPR"
+    ],
+    "headline": "&#39;Perella Weinberg and Piper Sandler abandon merger talks&#39; - Financial Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

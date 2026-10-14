@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-14T09:26:39.822229-04:00",
-    "symbols": [
-      "WLDS"
-    ],
-    "headline": "&#39;Alibaba&#39;s Qwen Deepens Personal Agent Push With New AI Glasses, Earbuds&#39; - YiCai Global",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T09:26:40.048425-04:00",
     "symbols": [
       "YJ"
@@ -5110,6 +5100,18 @@
     "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T15:35:57.568075-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "SPY"
+    ],
+    "headline": "Anthropic Says Later This Month, Claude To Integrate Official Voting Information From Democracy Works For U.S. Users; Claude Will Begin Showing Up-to-date Results On Election Night In The Us And In The Days That Follow; Claude Will Begin Showing Live Election Results &amp; Vote Counts In U.S. Conversations",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

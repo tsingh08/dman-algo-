@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T14:37:29.214097-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "EXCLUSIVE: Micron Is Not Close to Peak Earnings, Jordi Visser Says. But He Prefers Optics and Crypto",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T14:37:29.369025-04:00",
     "symbols": [
       "SNDK"
@@ -5087,5 +5077,19 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-14T13:39:22.632580-04:00",
+    "symbols": [
+      "CEG",
+      "OKLO",
+      "SMR",
+      "TLN",
+      "VST"
+    ],
+    "headline": "Shares of power and electrical-related companies are trading lower as elevated oil prices and stronger-than-expected inflation data fuel expectations that U.S. interest rates will remain higher for longer. Rising financing costs could pressure capital spending on power infrastructure and data center projects, weighing on demand for electrical equipment and related solutions.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

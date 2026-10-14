@@ -1,66 +1,5 @@
 [
   {
-    "ts": "2026-10-13T12:26:04.081576-04:00",
-    "symbols": [
-      "TCRT"
-    ],
-    "headline": "Alaunos Therapeutics Shares Halted On Circuit Breaker To The Upside, Stock Now Up 269.52%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T12:26:37.774688-04:00",
-    "symbols": [
-      "MA",
-      "V"
-    ],
-    "headline": "QUICK SPARK: Visa, Mastercard May Have Less to Fear from Stablecoins Than You Think",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T12:26:44.538316-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "UnitedHealth Stock Wobbles Despite 61% Profit Jump, Boosted Outlook",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T12:28:42.600738-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Barclays Maintains Overweight on Microsoft, Raises Price Target to $600",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T12:28:43.136155-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "What&#39;s Going on With Arm Stock on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T12:28:46.667434-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "What&#39;s Going on With Arm Stock on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T12:28:47.625528-04:00",
     "symbols": [
       "QCOM"
@@ -5022,5 +4961,66 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T11:02:37.598361-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Alaska Communications Becomes Authorized Reseller With Starlink",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T11:02:48.298680-04:00",
+    "symbols": [
+      "BABA",
+      "META"
+    ],
+    "headline": "Alibaba Takes AI Beyond Chatbots With Smart Glasses, Bose-Powered Earbuds",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:03:23.321249-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Alibaba Takes AI Beyond Chatbots With Smart Glasses, Bose-Powered Earbuds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:03:30.829710-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "Alibaba Takes AI Beyond Chatbots With Smart Glasses, Bose-Powered Earbuds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:03:41.150861-04:00",
+    "symbols": [
+      "LQDA"
+    ],
+    "headline": "Wells Fargo Maintains Equal-Weight on Liquidia, Raises Price Target to $33",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T11:04:01.808197-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Stock Tumbles: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

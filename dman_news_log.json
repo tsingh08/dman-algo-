@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-13T13:14:23.107738-04:00",
-    "symbols": [
-      "SXTC"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T13:14:23.456520-04:00",
-    "symbols": [
-      "WFF"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-13T13:14:23.612016-04:00",
     "symbols": [
       "YHC"
@@ -5041,5 +5021,41 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T11:39:54.945700-04:00",
+    "symbols": [
+      "AAPL",
+      "ABBV",
+      "AFRM",
+      "AMD",
+      "AVGO",
+      "CAT",
+      "DIA",
+      "HOOD",
+      "IWM",
+      "LLY",
+      "META",
+      "MU",
+      "NVDA",
+      "ORCL",
+      "QQQ",
+      "TSLA",
+      "UNH"
+    ],
+    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T11:40:22.901855-04:00",
+    "symbols": [
+      "RBLX"
+    ],
+    "headline": "UBS Maintains Neutral on Roblox, Raises Price Target to $53",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

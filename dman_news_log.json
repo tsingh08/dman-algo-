@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-13T13:55:53.359319-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Applied Digital Stock Is Falling Tuesday: What&#39;s Going On?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-13T14:00:32.423859-04:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "MDB stock has given up its prior gain. MongoDB shares were trading higher after Needham reiterated its Buy rating and maintained a $430 price target.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T14:01:03.424317-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Credo Technology Group To Unveil Its OmniConnect Weaver Memory Fanout Gearbox On AMD Versal AI Edge Series Gen 2 Adaptive SoC Evaluation Board",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T14:01:03.430080-04:00",
     "symbols": [
       "AMD"
@@ -5070,5 +5040,42 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T12:42:05.964741-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon High-Bids for Live Sports Rights to Drive Prime Engagement",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T12:43:59.576275-04:00",
+    "symbols": [
+      "AAPL",
+      "AMZN",
+      "META",
+      "MSFT",
+      "NVDA",
+      "QQQ",
+      "SPY",
+      "TSLA"
+    ],
+    "headline": "ASML Earnings Signal Strong AI Demand Yet Stock Falls, Emphasizing Market Character Shift\u2014CPI Squashes Hopium",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T12:44:18.311833-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceXAI Rolling Out Grok Voice 3.0",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

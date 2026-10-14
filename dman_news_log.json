@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-13T11:59:51.751861-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Samsung, SK Hynix Fall In Seoul On China Memory Threat\u2014Broadcom CEO Compares AI Investors To Casino Gamblers\u2014JPM Whipsaws",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T11:59:51.755667-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Cerebras Stock Braces for 19.4 Million-Share Unlock After Record Low",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T11:59:51.759250-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "NVIDIA Says Will Announce $2B Of AI Investments In Europe This Week",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T11:59:52.312259-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Samsung, SK Hynix Fall In Seoul On China Memory Threat\u2014Broadcom CEO Compares AI Investors To Casino Gamblers\u2014JPM Whipsaws",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T11:59:52.838910-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Samsung, SK Hynix Fall In Seoul On China Memory Threat\u2014Broadcom CEO Compares AI Investors To Casino Gamblers\u2014JPM Whipsaws",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T11:59:53.074936-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Samsung, SK Hynix Fall In Seoul On China Memory Threat\u2014Broadcom CEO Compares AI Investors To Casino Gamblers\u2014JPM Whipsaws",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T11:59:54.310259-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Samsung, SK Hynix Fall In Seoul On China Memory Threat\u2014Broadcom CEO Compares AI Investors To Casino Gamblers\u2014JPM Whipsaws",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T11:59:54.794524-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Samsung, SK Hynix Fall In Seoul On China Memory Threat\u2014Broadcom CEO Compares AI Investors To Casino Gamblers\u2014JPM Whipsaws",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T11:59:55.282998-04:00",
     "symbols": [
       "SKHY"
@@ -5023,5 +4943,87 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-14T10:22:12.625856-04:00",
+    "symbols": [
+      "GOOGL",
+      "MSFT",
+      "PANW"
+    ],
+    "headline": "Google DeepMind\u2019s Demis Hassabis Calls AI Hacking Incidents \u2018Early Warning Shots,\u2019 Warns of More Major Threats Ahead Without Stronger Safeguards",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T10:22:50.264064-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Watching Eli Lilly; Hearing Investor Business Daily SwingTrader Buys Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T10:22:58.425010-04:00",
+    "symbols": [
+      "TC"
+    ],
+    "headline": "Token Cat Shares Resume Trade",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T10:22:58.429888-04:00",
+    "symbols": [
+      "TC"
+    ],
+    "headline": "Token Cat Shares Halted On Circuit Breaker To The Upside, Stock Now Up 171.43%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T10:22:58.438387-04:00",
+    "symbols": [
+      "VSTM"
+    ],
+    "headline": "Verastem Oncology&#39;s Investigational Drug Delivers Encouraging Responses Across Multiple Cancers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T10:22:58.695113-04:00",
+    "symbols": [
+      "GFS"
+    ],
+    "headline": "GlobalFoundries Tapped As Technology Provider, Operator For Two New Semiconductor Production Sites at Its New York Facility Under Japan-U.S. Initiative For Up To $21B In Funding",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T10:22:58.952340-04:00",
+    "symbols": [
+      "IMTX"
+    ],
+    "headline": "This Entegris Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T10:22:58.956996-04:00",
+    "symbols": [
+      "IMTX"
+    ],
+    "headline": "Stifel Initiates Coverage On Immatics with Buy Rating, Announces Price Target of $15",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

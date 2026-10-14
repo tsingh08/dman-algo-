@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-13T13:35:30.105132-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T13:35:30.112580-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-13T13:35:30.123466-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Qualcomm Wins Jury Verdict Against Arm For Violation Of Architectural License Agreement",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-13T13:35:30.330701-04:00",
     "symbols": [
       "RIVN"
@@ -5049,5 +5019,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:58:35.743937-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Has a $299 Smart-Home Bet: The Real Money May Be in Subscriptions",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T12:00:07.846255-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir, Mayor Of London Reach Settlement Over Alleged Allegations Regarding Palantir&#39;s Unified Operational Analytics Contract With Metropolitan Police Service",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T12:00:26.113575-04:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "Bitcoin Mining's Next Evolution May Be Owning The Rewards, Not The Hardware",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

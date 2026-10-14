@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-13T13:45:13.039261-04:00",
-    "symbols": [
-      "C"
-    ],
-    "headline": "Citigroup Q3 2026 Earnings Call: Complete Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T13:45:13.044071-04:00",
-    "symbols": [
-      "C"
-    ],
-    "headline": "Citigroup CEO Jane Fraser Says Transformation Costs Are Going Down; Higher Rates May Impact Tenure Of Corporate Debt; Higher Rates Are Not Slowing Down AI Investment; Sees Syndicated Debt Moderated In Favor Of Revolver Lines Due To Flexibility; Investment Banking Pipeline For Fourth Quarter Is Still Strong; Expects Equity Capital Markets To Be More Focused In Follow On Transactions; Expects High Debt Refinancing Activity By Investment Grade Companies",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-13T13:45:13.048673-04:00",
     "symbols": [
       "C"
@@ -5066,6 +5046,27 @@
       "SOUN"
     ],
     "headline": "Shares of software companies are trading lower as elevated oil prices and stronger-than-expected inflation data fuel expectations of more Fed tightening at a quicker pace. Costlier borrowing may weaken sentiment for the sector&#39;s strong H2 2026 rally.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T12:32:48.716290-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Reported Earlier: &#39;Container ship sinks near Hormuz after being hit by projectile&#39; - Reuters",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T12:33:08.492675-04:00",
+    "symbols": [
+      "CAT",
+      "WFF"
+    ],
+    "headline": "Shares of machinery-related companies are trading lower as rising oil prices and stronger-than-expected inflation data have reinforced expectations that U.S. interest rates will remain elevated. Elevated borrowing costs could pressure capital spending and reduce demand for heavy equipment and other large industrial purchases.",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

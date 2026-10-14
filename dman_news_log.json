@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-13T13:45:05.941573-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Super Micro Computer Announces Expansion Of Portfolio Of Open Compute Project Accepted Systems, Racks, Rear Door Heat Exchangers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T13:45:11.127891-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "AI Boom Faces a Trillion-Dollar Financing Test, Goldman Sachs CEO Warns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-13T13:45:11.651366-04:00",
     "symbols": [
       "ISRG"
@@ -5058,6 +5038,26 @@
     ],
     "headline": "Big Bank Succession Talk Heats Up as CEOs Stay Firmly in Charge",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T12:11:43.751546-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "Fanatics CEO Warns $7 Billion Betting Ad War Looms as Kalshi, Polymarket Join Fight",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T12:11:45.944682-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Keefe, Bruyette &amp; Woods Maintains Market Perform on Goldman Sachs Group, Lowers Price Target to $1100",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

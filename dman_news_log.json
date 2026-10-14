@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-13T12:14:57.203461-04:00",
-    "symbols": [
-      "FRMI"
-    ],
-    "headline": "Crude Oil Edges Higher; Citigroup Earnings Top Views",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T12:14:59.151641-04:00",
-    "symbols": [
-      "OLLI"
-    ],
-    "headline": "Ollie\u2019s Bargain Outlet Holdings Board Unanimously Approves New Share Repurchase Authorization For Repurchase Of Additional $500M Of Outstanding Common Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-13T12:14:59.621156-04:00",
     "symbols": [
       "BKYI"
@@ -5023,5 +5003,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T10:37:58.720669-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Wells Fargo Maintains Equal-Weight on Robinhood Markets, Lowers Price Target to $120",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T10:39:18.528043-04:00",
+    "symbols": [
+      "TC"
+    ],
+    "headline": "Token Cat Shares Halted On Circuit Breaker To The Upside, Stock Now Up 205.41%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

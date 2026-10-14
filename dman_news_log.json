@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T12:13:40.307659-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;AI is an inflation problem, Fed\u2019s Goolsbee says; Inflation tied to the AI boom is &#39;jumping out of its lane&#39;&#39; - Semafor Interview",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-13T12:14:56.075040-04:00",
     "symbols": [
       "BMBL"
@@ -5023,5 +5013,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T10:29:32.763906-04:00",
+    "symbols": [
+      "ENPH"
+    ],
+    "headline": "Morgan Stanley Maintains Underweight on Enphase Energy, Lowers Price Target to $24",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

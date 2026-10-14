@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-13T14:39:40.923897-04:00",
-    "symbols": [
-      "FBK"
-    ],
-    "headline": "FB Financial Reports Q3 2026 Results: Full Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T14:39:40.927815-04:00",
-    "symbols": [
-      "FBK"
-    ],
-    "headline": "Earnings Scheduled For October 13, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-13T14:39:41.059949-04:00",
     "symbols": [
       "FBK"
@@ -5094,6 +5074,26 @@
     "headline": "Shares of copper-related companies are trading lower amid a decline in copper prices and a stronger U.S. dollar following hotter-than-expected inflation data.",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T14:15:00.550187-04:00",
+    "symbols": [
+      "AMPL"
+    ],
+    "headline": "B of A Securities Maintains Neutral on Amplitude, Raises Price Target to $16.5",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T14:15:08.485810-04:00",
+    "symbols": [
+      "CLSK"
+    ],
+    "headline": "CleanSpark Stock Sinks: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

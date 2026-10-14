@@ -1,89 +1,5 @@
 [
   {
-    "ts": "2026-10-13T12:15:56.423414-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google Rolling Out Gemini 4 Argon To Google AI Subscribers In Google Antigravity, Gemini App &amp; AI Mode In Search",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T12:16:14.180711-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Alphabet Could Unlock $100 Billion From AI Chips by 2028, Analyst Says",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T12:18:11.122470-04:00",
-    "symbols": [
-      "ARM",
-      "AVGO",
-      "META",
-      "QCOM"
-    ],
-    "headline": "What&#39;s Going on With Arm Stock on Tuesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T12:21:03.174892-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Barclays Maintains Overweight on Microsoft, Raises Price Target to $600",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T12:21:22.370056-04:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "What's Going on With Arm Stock on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T12:22:35.185863-04:00",
-    "symbols": [
-      "CELH"
-    ],
-    "headline": "TD Cowen Maintains Buy on Celsius Holdings, Lowers Price Target to $35",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-13T12:25:13.240032-04:00",
-    "symbols": [
-      "MARA",
-      "MSTR"
-    ],
-    "headline": "Saylor Cheers Strive\u2019s $280 Million Bitcoin Buy While Strategy Bought 85% Less",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T12:25:46.962737-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "What&#39;s Going on With Arm Stock on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T12:25:48.911172-04:00",
     "symbols": [
       "AVGO"
@@ -5014,6 +4930,86 @@
     "headline": "Shares of banks and financial services companies are trading lower after U.S. core inflation data bolstered the case for more Fed monetary tightening, which may slow lending and limit interest margins. Also, weak Q3 segment results from Bank of America and Morgan Stanley may dent confidence in the broader sector.",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T10:47:35.422959-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Stock Hits 52-Week High \u2014 What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T10:47:40.753741-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Wells Fargo Maintains Equal-Weight on Robinhood Markets, Lowers Price Target to $120",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T10:47:49.366394-04:00",
+    "symbols": [
+      "AEHL"
+    ],
+    "headline": "Dow Gains Over 100 Points; US Inflation Rate Rises In September",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T10:47:49.371094-04:00",
+    "symbols": [
+      "AEHL"
+    ],
+    "headline": "Antelope Enterprise Shares Halted On Circuit Breaker To The Downside, Stock Now Up 136.84%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T10:47:49.375528-04:00",
+    "symbols": [
+      "AEHL"
+    ],
+    "headline": "Why Enovix Shares Are Trading Higher By Around 7%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T10:47:49.379912-04:00",
+    "symbols": [
+      "AEHL"
+    ],
+    "headline": "Antelope Enterprise Holdings Stock Is Trending: AEHL Soars 150% After Hours",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T10:47:50.730995-04:00",
+    "symbols": [
+      "DLXY"
+    ],
+    "headline": "Delixy Holdings Says It Received Nasdaq Notice Of Regained Compliance With Minimum Bid Price Rule",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T10:47:51.540083-04:00",
+    "symbols": [
+      "JAGX"
+    ],
+    "headline": "Jaguar Health Demonstrates Recap Of Preliminary Data At American College Of Gastroenterology Annual Scientific Meeting For Its Current Trial Of Crofelemer Powder For Oral Solution In Adult Patients With Type 1 Short Bowel Syndrome With Intestinal Failure",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   },
   {

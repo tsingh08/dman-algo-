@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T14:39:40.692114-04:00",
-    "symbols": [
-      "DPZ"
-    ],
-    "headline": "Domino&#39;s Pizza CFO Says Expect International Same-Store Sales Growth To Be About Flat For The Year",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-13T14:39:40.695697-04:00",
     "symbols": [
       "DPZ"
@@ -5095,5 +5085,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T14:07:39.195088-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Addresses &#39;Rogue Agents&#39; as AI Gives Banks New Security Problems",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

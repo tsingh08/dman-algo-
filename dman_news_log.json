@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-13T14:39:25.601768-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "EXCLUSIVE: Micron Is Not Close to Peak Earnings, Jordi Visser Says. But He Prefers Optics and Crypto",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T14:39:26.063935-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "EXCLUSIVE: Micron Is Not Close to Peak Earnings, Jordi Visser Says. But He Prefers Optics and Crypto",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-13T14:39:40.688312-04:00",
     "symbols": [
       "DPZ"
@@ -5095,5 +5075,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T14:01:46.828568-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Beige Book: Most Districts Described Little Or No Net Change In Overall Employment Levels; Since The Prior Beige Book, Two Of The Twelve Federal Reserve Districts Reported Moderate Growth In Economic Activity; However, Expectations Tend To Be For Slight Growth, Weighted Toward Manufacturing And Burdened By Persistent Uncertainties.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T14:02:04.293518-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Beige Book: Three Districts Characterized Overall Price Growth As Robust, While Eight Noted That Growth Was Moderate\u2014and Three Of The Eight Noted That Input Price Pressures Were Intensifying, If Not Already Growing Robustly.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

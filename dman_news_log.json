@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-14T09:26:39.098819-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk\u2019s SpaceX Caps Military Starlink Speeds in Ukraine, Adviser Suspects Political Motive: \u2018Cannot Be a Coincidence\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T09:26:39.103748-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "AAPL Stock Pulls Back From All-Time Highs: Gene Munster Says Apple Is Moving Faster on Hardware But Still Missing Tech&#39;s Biggest Opportunity",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-14T09:26:39.108406-04:00",
     "symbols": [
       "SPCX"
@@ -5110,6 +5090,26 @@
     "headline": "Live On Yahoo Finance, Fed&#39;s Goolsbee Says Is Not A Fan Of Telegraphing Fed Moves Ahead Of Meetings; There Is No Ambiguity For Fed If Economy Is Solid And Inflation Is High; Fed Must Prevent The Build Up Of Overheating; Is More Optimistic About Outlook Relative To Other Fed Officials; Evidence Building Inflation Hasn&#39;t Been Transitory Amid Continued Shocks; Need To Keep A Close Eye On Service Sector Inflation; More Bad Months Of Inflation Would Unacceptable; Fed Will Get Inflation Back To 2%",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T15:17:55.000935-04:00",
+    "symbols": [
+      "WFF"
+    ],
+    "headline": "WF Holding Commences ~$18M Offering Of 12M Ordinary Shares At $1.50 Per Share",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T15:18:01.777206-04:00",
+    "symbols": [
+      "WFF"
+    ],
+    "headline": "WF Holding Shares Halted On Circuit Breaker To The Downside, Stock Now Down -30.66%",
+    "source": "benzinga",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

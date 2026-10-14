@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-14T09:26:42.178822-04:00",
-    "symbols": [
-      "VSTM"
-    ],
-    "headline": "Verastem Oncology Announces Initial Data In First Multi-Tumor Update From Ongoing TARGET-D 101 Phase 1/2 Clinical Trial Evaluating VS-7375; Data Demonstrate Robust Clinical Activity With Favorable Safety And Tolerability Profile Across Multiple Dose Levels And Tumor Types",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T09:26:42.406174-04:00",
     "symbols": [
       "AVR"
@@ -5114,5 +5104,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T16:06:01.887504-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Hadrian Inks Seven-Year Agreement With Lockheed Martin For Production Of Critical Missile Systems",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

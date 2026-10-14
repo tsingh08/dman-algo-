@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-13T14:39:40.699247-04:00",
-    "symbols": [
-      "DPZ"
-    ],
-    "headline": "TD Cowen Reiterates Hold on Domino&#39;s Pizza, Maintains $320 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T14:39:40.702847-04:00",
-    "symbols": [
-      "DPZ"
-    ],
-    "headline": "Domino&#39;s Pizza Stock Is Falling Tuesday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-13T14:39:40.923897-04:00",
     "symbols": [
       "FBK"
@@ -5095,5 +5075,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T14:10:58.816096-04:00",
+    "symbols": [
+      "ENPH"
+    ],
+    "headline": "Why Is Enphase Energy Stock Falling Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-14T14:11:31.501820-04:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "Shares of copper-related companies are trading lower amid a decline in copper prices and a stronger U.S. dollar following hotter-than-expected inflation data.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-13T13:14:22.749536-04:00",
-    "symbols": [
-      "SCNI"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T13:14:22.936680-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Paul Tudor Jones Says Oil Can Rally Another $25, Warns 2027 Will Be &#39;Really Challenging&#39; for Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T13:14:23.107738-04:00",
     "symbols": [
       "SXTC"
@@ -5041,5 +5021,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:36:52.382378-04:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "UBS Maintains Neutral on Occidental Petroleum, Raises Price Target to $73",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:37:17.850919-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Democratic Lawmakers Urge Federal Aviation Administration To Conduct New Environmental Review Before Allowing Amazon.com Drone Delivery Hub Near Boston",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

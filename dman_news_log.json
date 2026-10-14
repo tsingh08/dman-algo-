@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-13T13:15:26.214050-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Bank of America Q3 Preview: Stock Down in 2026, Could 5th Straight Double Beat Change Momentum?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T13:15:26.334594-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T13:15:26.680274-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "UnitedHealth Raises Guidance: What It Means for XLV and Other Healthcare ETFs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T13:15:26.914553-04:00",
     "symbols": [
       "SPY"
@@ -5055,6 +5025,37 @@
     ],
     "headline": "XCHG Issues Statement Regarding Recent ADS Volatility; Not Aware Of Any Specific Reason For Market Movements",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T11:52:56.955912-04:00",
+    "symbols": [
+      "NVDA",
+      "SMCI"
+    ],
+    "headline": "Why Is Super Micro Computer Stock Falling on Wednesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:53:07.402925-04:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "Bitcoin Mining&#39;s Next Evolution May Be Owning The Rewards, Not The Hardware",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-14T11:53:23.519113-04:00",
+    "symbols": [
+      "DFNS"
+    ],
+    "headline": "T3 Defense Shares Halted On Circuit Breaker To The Upside, Stock Now Up 23.48%",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-13T13:35:30.330701-04:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T13:35:30.561097-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "10 Health Care Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T13:35:30.569084-04:00",
     "symbols": [
       "LLY"
@@ -5049,5 +5029,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-14T12:02:35.543024-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "DriveWealth to Integrate Ripple as Evernorth Deploys XRP Treasury",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-14T12:04:22.123553-04:00",
+    "symbols": [
+      "CLSK",
+      "CRWD",
+      "DDOG",
+      "FTNT",
+      "MARA",
+      "MSTR",
+      "NBIS",
+      "ORCL",
+      "PANW",
+      "RIOT",
+      "SOUN"
+    ],
+    "headline": "Shares of software companies are trading lower as elevated oil prices and stronger-than-expected inflation data fuel expectations of more Fed tightening at a quicker pace. Costlier borrowing may weaken sentiment for the sector&#39;s strong H2 2026 rally.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

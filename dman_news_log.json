@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-10-14T09:26:37.691001-04:00",
-    "symbols": [
-      "FGL"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T09:26:37.925992-04:00",
-    "symbols": [
-      "HTZ"
-    ],
-    "headline": "Hertz Global Holdings Reports Q2 2026 Results: Full Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T09:26:38.154879-04:00",
-    "symbols": [
-      "HUBC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T09:26:38.160304-04:00",
-    "symbols": [
-      "HUBC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T09:26:38.388321-04:00",
-    "symbols": [
-      "MB"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T09:26:38.616971-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "What&#39;s Going On With Nebius Group Stock Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T09:26:38.845982-04:00",
-    "symbols": [
-      "SCNI"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T09:26:38.852078-04:00",
-    "symbols": [
-      "SCNI"
-    ],
-    "headline": "Scinai Immunotherapeutics Announces ~$4M Financing Via $1.20/ADS Private Placement And Warrant Inducement Repricing April 2026 Warrants To $1.20/ADS",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T09:26:39.089448-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk Is Pushing Aggressively To Bring SpaceX\u2019s Starlink to India \u2014 Indian Rival Says He\u2019s \u2018Significantly Ahead\u2019 of SPCX in Approval Queue",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-14T09:26:39.094405-04:00",
     "symbols": [
       "SPCX"
@@ -5111,5 +5021,95 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T15:12:16.401073-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Live On Yahoo Finance, Fed&#39;s Goolsbee Says CPI Data Was &#39;Discouraging&#39;; Service Inflation In CPI Was A Concern; Key To Focus On Trend Of Inflation, Not One Report; Hearing About Cost And Prices From Contacts, Not Hearing About Worries About Recession; Hopes Energy Will Fade Soon From Inflation Data; The Economy Has Work To Do The Inflation Side",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T15:12:27.408845-04:00",
+    "symbols": [
+      "DFNS"
+    ],
+    "headline": "T3 Defense&#39;s Positech Subsidiary Completed First Shipment Of Heavy-Duty Single-Axis Rotators Under $3.9M Order From Israeli Client",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T15:12:27.411708-04:00",
+    "symbols": [
+      "FGL"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T15:12:27.414830-04:00",
+    "symbols": [
+      "HTZ"
+    ],
+    "headline": "Hertz Global Holdings Reports Q2 2026 Results: Full Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T15:12:27.417947-04:00",
+    "symbols": [
+      "HUBC"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T15:12:27.421015-04:00",
+    "symbols": [
+      "MB"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T15:12:27.424132-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "What&#39;s Going On With Nebius Group Stock Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-14T15:12:27.427208-04:00",
+    "symbols": [
+      "SCNI"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T15:12:27.429879-04:00",
+    "symbols": [
+      "SCNI"
+    ],
+    "headline": "Scinai Immunotherapeutics Announces ~$4M Financing Via $1.20/ADS Private Placement And Warrant Inducement Repricing April 2026 Warrants To $1.20/ADS",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

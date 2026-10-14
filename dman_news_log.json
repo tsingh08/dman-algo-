@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-13T14:15:31.063491-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Goldman Says Tesla\u2019s Robotaxi, Optimus Outlook Will Matter More Than Q3 Earnings. Here\u2019s the Bar for Oct. 21",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-13T14:15:31.068426-04:00",
     "symbols": [
       "TSLA"
@@ -5076,5 +5066,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T13:16:08.841188-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "These Analysts Lower Their Forecasts On Goldman Sachs After Q3 Results",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

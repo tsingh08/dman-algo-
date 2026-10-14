@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-13T12:28:49.138225-04:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "What&#39;s Going on With Arm Stock on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T12:28:50.428487-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Saylor Cheers Strive\u2019s $280 Million Bitcoin Buy While Strategy Bought 85% Less",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T12:28:50.584430-04:00",
-    "symbols": [
-      "MARA"
-    ],
-    "headline": "Saylor Cheers Strive\u2019s $280 Million Bitcoin Buy While Strategy Bought 85% Less",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T12:28:54.259878-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "QUICK SPARK: Visa, Mastercard May Have Less to Fear from Stablecoins Than You Think",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T12:28:54.414105-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "QUICK SPARK: Visa, Mastercard May Have Less to Fear from Stablecoins Than You Think",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T12:28:54.749558-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "UnitedHealth Stock Wobbles Despite 61% Profit Jump, Boosted Outlook",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T12:28:56.304201-04:00",
-    "symbols": [
-      "FUN"
-    ],
-    "headline": "Six Flags Stock Hits 7-Year Low After Roller Coaster Death: What It Means for Jana Partners, Travis Kelce",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T12:28:56.309381-04:00",
-    "symbols": [
-      "FUN"
-    ],
-    "headline": "Reported October 12, &#39;Man dies in fall from Six Flags Over Georgia roller coaster, several injured, police and witnesses say&#39; - CBS News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-13T12:28:56.314180-04:00",
     "symbols": [
       "FUN"
@@ -5024,5 +4944,100 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T11:13:43.245060-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;Nvidia and ChipAgents Launch Evaluation For AI-Powered Chip Design&#39; - The Information Exclusive",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:14:33.970232-04:00",
+    "symbols": [
+      "AAPL",
+      "MSFT"
+    ],
+    "headline": "OpenAI Brief In Apple Vs OpenAI Lawsuit Say OpenAI Employee Who Left For Apple Sent Over 100 Files About Unrelased OpenAI Product To Personal Accounts; Employee Who Left For Apple Gave Senior Apple Leaders Presentation About Unreleased OpenAI Product",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:14:53.764017-04:00",
+    "symbols": [
+      "ABBV",
+      "AVGO",
+      "COST",
+      "CVX",
+      "DIA",
+      "IWM",
+      "LLY",
+      "MA",
+      "NVDA",
+      "ORCL",
+      "QQQ",
+      "SPY",
+      "UNH",
+      "V",
+      "XOM"
+    ],
+    "headline": "8 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T11:15:07.845995-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "OpenAI Brief In Apple Vs OpenAI Lawsuit Say OpenAI Employee Who Left For Apple Sent Over 100 Files About Unrelased OpenAI Product To Personal Accounts; Employee Who Left For Apple Gave Senior Apple Leaders Presentation About Unreleased OpenAI Product",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:15:08.140446-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI Brief In Apple Vs OpenAI Lawsuit Say OpenAI Employee Who Left For Apple Sent Over 100 Files About Unrelased OpenAI Product To Personal Accounts; Employee Who Left For Apple Gave Senior Apple Leaders Presentation About Unreleased OpenAI Product",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:15:08.149992-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Bitcoin, Nvidia And Tesla ETFs Lead Wall Street\u2019s Most Traded Funds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:15:09.878809-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Bitcoin, Nvidia And Tesla ETFs Lead Wall Street\u2019s Most Traded Funds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:15:11.803828-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Bitcoin, Nvidia And Tesla ETFs Lead Wall Street\u2019s Most Traded Funds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

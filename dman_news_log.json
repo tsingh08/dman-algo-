@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-13T12:25:48.911172-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "What&#39;s Going on With Arm Stock on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T12:25:50.039531-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "What&#39;s Going on With Arm Stock on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T12:25:51.593972-04:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "What&#39;s Going on With Arm Stock on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-13T12:25:52.952378-04:00",
     "symbols": [
       "MSTR"
@@ -5021,5 +4991,36 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T10:51:49.486112-04:00",
+    "symbols": [
+      "META",
+      "SPY"
+    ],
+    "headline": "&#39;Senators Question Meta\u2019s Data Center Tax Strategy; Democrats On The Senate Finance Committee Sent A Letter To Mark Zuckerberg, Meta\u2019s Chief Executive, Questioning The Company\u2019s $6.6 Billion In Tax Breaks&#39; - NY Times",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T10:52:26.258268-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;Senators Question Meta\u2019s Data Center Tax Strategy; Democrats On The Senate Finance Committee Sent A Letter To Mark Zuckerberg, Meta\u2019s Chief Executive, Questioning The Company\u2019s $6.6 Billion In Tax Breaks&#39; - NY Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T10:52:37.513390-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Senators Question Meta\u2019s Data Center Tax Strategy; Democrats On The Senate Finance Committee Sent A Letter To Mark Zuckerberg, Meta\u2019s Chief Executive, Questioning The Company\u2019s $6.6 Billion In Tax Breaks&#39; - NY Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

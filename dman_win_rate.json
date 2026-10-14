@@ -1582,5 +1582,17 @@
     "pnl_pct": 102.0,
     "score": 0,
     "is_live": true
+  },
+  {
+    "ticker": "RSKD",
+    "date": "2026-10-14",
+    "bias": "LONG",
+    "setup": "Breakout Zone (adopted)",
+    "entry": 8.04,
+    "exit": 8.24,
+    "outcome": "WIN",
+    "pnl_pct": 2.55,
+    "score": 0,
+    "is_live": true
   }
 ]

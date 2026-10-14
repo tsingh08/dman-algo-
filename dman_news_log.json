@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-13T14:26:29.358778-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#39;Zuckerberg Admits Meta Lacked AI Certainty on $200 Billion Bet&#39; - Bloomberg News",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T14:27:17.688672-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Guyana May Scale Back LNG Plans As Exxon Needs More Gas For Its Wells, Sources Say",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T14:27:23.173428-04:00",
     "symbols": [
       "CVX"
@@ -5079,5 +5059,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T13:30:37.855848-04:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "Shares of data center infrastructure-related companies are trading lower as elevated oil prices and stronger-than-expected inflation data fuel expectations that U.S. interest rates will remain elevated. Higher financing costs could pressure capital spending on data centers, power infrastructure, and commercial building projects, potentially weighing on demand for electrical equipment and HVAC systems.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T13:32:38.994865-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Gains on Anthropic in AI Race: Guggenheim",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

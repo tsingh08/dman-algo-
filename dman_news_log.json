@@ -1,76 +1,5 @@
 [
   {
-    "ts": "2026-10-13T14:11:58.107602-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Elon Musk Says Robot Hands Are &#39;Shockingly Difficult&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-13T14:12:08.936753-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "FAA To Pause Use Of AI Tool In Washington, D.C., Area To Assist Air Traffic Controllers Pending Further Evaluation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T14:12:12.025720-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Fed\u2019s Williams Currently Sees No Need For Rate Hike In 2027&#39; - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T14:12:13.898786-04:00",
-    "symbols": [
-      "EIX"
-    ],
-    "headline": "Watching Edison International; Shares Spiking Lower, Muddy Waters Research Issues Report On The Company",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T14:12:14.614056-04:00",
-    "symbols": [
-      "DPC"
-    ],
-    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T14:13:37.590659-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Fed&#39;s Williams Said There Are Still Signs Inflation Will Slow &#34;Quite A Bit\u201d And Approach The Fed\u2019s 2% Target Next Year&#39; - Bloomberg News",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T14:15:13.125024-04:00",
-    "symbols": [
-      "CVX",
-      "XOM"
-    ],
-    "headline": "Guyana May Scale Back LNG Plans As Exxon Needs More Gas For Its Wells, Sources Say",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T14:15:31.063491-04:00",
     "symbols": [
       "TSLA"
@@ -5077,5 +5006,75 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T13:13:46.877691-04:00",
+    "symbols": [
+      "GAUZ"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday's Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T13:13:47.504290-04:00",
+    "symbols": [
+      "IPW"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday's Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T13:13:48.757335-04:00",
+    "symbols": [
+      "WFF"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday's Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T13:13:52.660806-04:00",
+    "symbols": [
+      "MF"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday's Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T13:13:53.292723-04:00",
+    "symbols": [
+      "CANG"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday's Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-14T13:13:53.505144-04:00",
+    "symbols": [
+      "GFS"
+    ],
+    "headline": "Why Is GlobalFoundries Stock Surging Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T13:13:53.510104-04:00",
+    "symbols": [
+      "GFS"
+    ],
+    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

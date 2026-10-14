@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-13T12:39:43.683671-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Watching Marvell Technology; Hearing Investor Business Daily SwingTrader Buys Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T12:39:43.763967-04:00",
-    "symbols": [
-      "XTND"
-    ],
-    "headline": "Bumble, Fermi, Xtend AI Robotics And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T12:39:43.772094-04:00",
-    "symbols": [
-      "AGBK"
-    ],
-    "headline": "Bumble, Fermi, Xtend AI Robotics And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-13T12:40:46.598889-04:00",
     "symbols": [
       "MU",
@@ -5040,5 +5010,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:21:44.157745-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Chase Q2 Results Were \u2018Best-In-Class,\u2019 Analyst Highlights CIB As Standout Segment",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:23:07.958086-04:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "Shares of precious metals-related companies are trading lower after stronger-than-expected inflation data boosted expectations for a Federal Reserve rate hike in October. Gold and silver prices are declining amid a stronger U.S. dollar and rising Treasury yields, which make non-yielding precious metals less attractive to investors.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T11:24:26.156153-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "UnitedHealth Stock Moves Higher: What&#39;s Happening?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

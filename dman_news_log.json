@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-13T13:35:29.887281-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T13:35:30.093461-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T13:35:30.105132-04:00",
     "symbols": [
       "MU"
@@ -5046,6 +5026,26 @@
       "FAST"
     ],
     "headline": "Fastenal Q3 EPS $0.35 Beats $0.34 Estimate, Sales $2.463B Beat $2.440B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:57:28.963310-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;OpenAI Names Uday Ruddarraju to Lead Data Center, Computing Unit&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:57:49.206524-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Why Is Super Micro Computer Stock Falling on Wednesday?",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"

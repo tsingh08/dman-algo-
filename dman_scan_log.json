@@ -1,23 +1,5 @@
 [
   {
-    "ts": "2026-10-13T09:59:38.382006-04:00",
-    "regime": "BULL",
-    "regime_score": 14,
-    "vix": 15.2,
-    "min_score": 85,
-    "universe": "daemon-curated+smallcap+movers",
-    "tickers_total": 258,
-    "signals": 0,
-    "signal_tickers": [],
-    "signal_scores": [],
-    "rejected_no_signal": 257,
-    "rejected_hard_gate": 1,
-    "rejected_low_score": 0,
-    "budget_hit": false,
-    "news_breadth_pct": 73.5,
-    "news_breadth_total": 405
-  },
-  {
     "ts": "2026-10-13T10:04:54.167488-04:00",
     "regime": "BULL",
     "regime_score": 14,
@@ -2474,5 +2456,27 @@
     "budget_hit": false,
     "news_breadth_pct": 76.1,
     "news_breadth_total": 399
+  },
+  {
+    "ts": "2026-10-14T14:10:10.329475-04:00",
+    "regime": "CHOP",
+    "regime_score": 9,
+    "vix": 17.1,
+    "min_score": 85,
+    "universe": "daemon-curated+smallcap+movers",
+    "tickers_total": 298,
+    "signals": 1,
+    "signal_tickers": [
+      "BMGL"
+    ],
+    "signal_scores": [
+      100
+    ],
+    "rejected_no_signal": 297,
+    "rejected_hard_gate": 1,
+    "rejected_low_score": 0,
+    "budget_hit": false,
+    "news_breadth_pct": 76.1,
+    "news_breadth_total": 400
   }
 ]

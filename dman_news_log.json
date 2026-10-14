@@ -1,256 +1,5 @@
 [
   {
-    "ts": "2026-10-13T12:40:46.598889-04:00",
-    "symbols": [
-      "MU",
-      "SNDK"
-    ],
-    "headline": "Western Digital Stock Under Pressure as Rising Asian Production Raises Supply Concerns",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T12:50:41.594029-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Oracle Stock Moves Higher: What's Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T12:50:41.864511-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "'Nvidia Acquires A Stake In Doctolib; No Terms Disclosed; Doctolib Was Valued At \u20ac3.6 Billion Last April. NVIDIA Will Not Sit On Doctolib's Board Of Directors' - Le Figaro",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T12:50:41.870396-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "NVIDIA Founder And CEO Jensen Huang Says Open Models A 'Great Advantage' For Europe",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T12:50:42.378567-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "What's Going on With Arm Stock on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T12:50:42.644623-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google Rolling Out Gemini 4 Argon To Google AI Subscribers In Google Antigravity, Gemini App & AI Mode In Search",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T12:50:44.278095-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "What's Going on With Arm Stock on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T12:50:44.731779-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Western Digital Stock Under Pressure as Rising Asian Production Raises Supply Concerns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T12:50:44.963904-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Western Digital Stock Under Pressure as Rising Asian Production Raises Supply Concerns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-13T12:50:45.411560-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "What's Going on With Arm Stock on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T12:50:45.415719-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "What's Going On With Qualcomm Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T12:50:45.646734-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Oracle Stock Moves Higher: What's Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T12:50:55.133944-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "UnitedHealth Stock Wobbles Despite 61% Profit Jump, Boosted Outlook (CORRECTED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T12:51:00.831999-04:00",
-    "symbols": [
-      "BMBL"
-    ],
-    "headline": "Why Are Bumble Shares Surging On Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T12:51:01.753614-04:00",
-    "symbols": [
-      "FRMI"
-    ],
-    "headline": "Fermi Secures AMD Backing For Texas AI Project",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-13T12:53:47.262402-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta&#39;s New AI Models Strengthen Its Case in AI Arms Race: Analyst",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T13:14:08.814497-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T13:14:09.005224-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: JP Morgan Chase &amp; Co., Meta Platforms, West Pharmaceutical Services, iShares U.S. Energy ETF",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T13:14:09.167683-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Amazon, Walmart Face New AI Shopping Test: Will Chatbots Recommend Them?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T13:14:09.413510-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon, Walmart Face New AI Shopping Test: Will Chatbots Recommend Them?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T13:14:09.781586-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Ben Affleck Says Holding AI Companies Accountable Is Simple. &#39;If You Have A Company That Hurts People, You&#39;re Liable For That&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T13:14:10.820434-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T13:14:10.825722-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Applied Materials To Distribute 80% - 100% Of Free Cash Flow To Shareholders Over Time; Anticipates Over $12B In Revenue By 2030; Ebeam Equipment Portfolio Expected To Generate $2B In Revenue In Calendar Year 2026; Expects Wafer Fab Equipment Market Share Gain Of 2% From 2025 Through 2030",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T13:14:11.050962-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T13:14:11.569494-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Chip Stocks Slide as South Korea&#39;s KOSPI Plunges, J&amp;J Sinks 6%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-13T13:14:18.862085-04:00",
     "symbols": [
       "CAT"
@@ -4936,6 +4685,256 @@
       "SNDK"
     ],
     "headline": "Bitcoin, Nvidia And Tesla ETFs Lead Wall Street\u2019s Most Traded Funds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T11:20:06.762513-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "OpenAI Brief In Apple Vs OpenAI Lawsuit Say OpenAI Employee Who Left For Apple Sent Over 100 Files About Unrelased OpenAI Product To Personal Accounts; Employee Who Left For Apple Gave Senior Apple Leaders Presentation About Unreleased OpenAI Product",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:20:07.022173-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI Brief In Apple Vs OpenAI Lawsuit Say OpenAI Employee Who Left For Apple Sent Over 100 Files About Unrelased OpenAI Product To Personal Accounts; Employee Who Left For Apple Gave Senior Apple Leaders Presentation About Unreleased OpenAI Product",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:20:07.273757-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "8 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:20:07.278198-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;Nvidia and ChipAgents Launch Evaluation For AI-Powered Chip Design&#39; - The Information Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:20:07.282440-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Bitcoin, Nvidia And Tesla ETFs Lead Wall Street\u2019s Most Traded Funds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:20:08.425801-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Bitcoin, Nvidia And Tesla ETFs Lead Wall Street\u2019s Most Traded Funds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:20:09.952919-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "8 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:20:10.647051-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Bitcoin, Nvidia And Tesla ETFs Lead Wall Street\u2019s Most Traded Funds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T11:20:12.657395-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "8 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-14T11:20:12.857043-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "8 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T11:20:13.707815-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "8 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T11:20:20.216711-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "8 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T11:20:20.432036-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "8 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T11:20:20.674826-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "8 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T11:20:20.878017-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "8 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T11:20:21.092383-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "8 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T11:20:21.298499-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "8 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:20:21.779251-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "8 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:20:21.978079-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "8 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T11:20:22.215132-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "8 Of 11 Sectors Fall Wednesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T11:20:23.594896-04:00",
+    "symbols": [
+      "CRWV"
+    ],
+    "headline": "CoreWeave Stock Could Go to Zero if AI Boom Falters, D.A. Davidson\u2019s Gil Luria Warns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T11:20:23.599740-04:00",
+    "symbols": [
+      "CRWV"
+    ],
+    "headline": "Hot Inflation Hits Rate-Sensitive Stocks: These 10 Names Are Falling",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T11:20:23.603906-04:00",
+    "symbols": [
+      "CRWV"
+    ],
+    "headline": "CoreWeave Eyes &#39;Unlimited&#39; Insurance Capital to Fuel AI Expansion as Debt Needs Grow, Co-Founder Says \u2018You Have to Be Huge\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T11:20:23.608118-04:00",
+    "symbols": [
+      "CRWV"
+    ],
+    "headline": "What Does OpenAI\u2019s $50 Billion Run Rate Mean for CoreWeave Stock? Here\u2019s What Investors Should Know",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T11:20:23.612249-04:00",
+    "symbols": [
+      "CRWV"
+    ],
+    "headline": "Jim Cramer Skips IREN: \u2018The Only One That I Trust\u2019 Is a Different Neocloud",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

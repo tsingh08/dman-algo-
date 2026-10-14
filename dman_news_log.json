@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-13T14:37:29.378410-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Why Is Sandisk Stock Falling Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-13T14:37:29.553437-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "EXCLUSIVE: Micron Is Not Close to Peak Earnings, Jordi Visser Says. But He Prefers Optics and Crypto",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T14:39:21.917163-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "EXCLUSIVE: Micron Is Not Close to Peak Earnings, Jordi Visser Says. But He Prefers Optics and Crypto",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-13T14:39:25.356422-04:00",
     "symbols": [
       "AMAT"
@@ -5091,5 +5061,39 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T13:49:09.373444-04:00",
+    "symbols": [
+      "MU",
+      "SKHY",
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "Elon Musk Backs Micron As MU Stock Falls 25%: Is This Memory ETF an AI Stock Bargain?",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T13:49:13.817034-04:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "AppLovin shares are trading lower after Wedbush lowered its price target on the stock from $610 to $560.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-14T13:50:36.212154-04:00",
+    "symbols": [
+      "AMD",
+      "NVDA"
+    ],
+    "headline": "ASML Says AI Boom Is Boosting Pricing Power as Chipmakers Agree to Pay More",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

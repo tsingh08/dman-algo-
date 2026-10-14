@@ -1,57 +1,5 @@
 [
   {
-    "ts": "2026-10-13T14:27:24.040424-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Treasury Yields Briefly Move Lower After Comments From Fed&#39;s Williams; Yield On 10-Year Treasury Note Last Down 2.51 Basis Points At 5.219%; Yield On 30-Year U.S. Treasury Bonds Down 3.42 Basis Points At 5.565%; 2-Year U.S. Treasury Yields Last Flat At 4.795%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T14:36:56.039035-04:00",
-    "symbols": [
-      "MU",
-      "NVDA",
-      "SKHY"
-    ],
-    "headline": "EXCLUSIVE: Micron Is Not Close to Peak Earnings, Jordi Visser Says. But He Prefers Optics and Crypto",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T14:37:26.642626-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "EXCLUSIVE: Micron Is Not Close to Peak Earnings, Jordi Visser Says. But He Prefers Optics and Crypto",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-13T14:37:29.045832-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Stock Market Today: Dow Jones Futures Gain, Nasdaq, S&amp;P 500 Falls as Scott Bessent Says Iran&#39;s Economy Is &#39;Collapsing&#39;\u2014 SXTC, AMAT, CMG in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-13T14:37:29.051046-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "What&#39;s Going On With Applied Materials Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-13T14:37:29.214097-04:00",
     "symbols": [
       "MU"
@@ -5079,5 +5027,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T13:33:53.445626-04:00",
+    "symbols": [
+      "RBLX"
+    ],
+    "headline": "JP Morgan Maintains Neutral on Roblox, Raises Price Target to $53",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T13:34:57.843012-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Truist Securities Maintains Hold on JPMorgan Chase, Raises Price Target to $361",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-14T13:35:11.248147-04:00",
+    "symbols": [
+      "IONQ",
+      "NBIS",
+      "NVDA",
+      "SMCI",
+      "SNDK"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-14T13:35:11.524936-04:00",
+    "symbols": [
+      "GME",
+      "TSLA"
+    ],
+    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-14T13:35:11.839017-04:00",
+    "symbols": [
+      "APP",
+      "GOOGL",
+      "META",
+      "NFLX",
+      "SPCX",
+      "SPOT"
+    ],
+    "headline": "10 Communication Services Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

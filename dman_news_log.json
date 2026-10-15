@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:58:14.699552-04:00",
-    "symbols": [
-      "BSP"
-    ],
-    "headline": "Nasdaq Dips Over 400 Points; Bank of America Shares Tumble After Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T14:58:14.913237-04:00",
-    "symbols": [
-      "GRML"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T14:58:15.387277-04:00",
     "symbols": [
       "CRWV"
@@ -5035,6 +5015,27 @@
       "SPY"
     ],
     "headline": "EIA Weekly Distillates Stocks 2.527M Barrel Draw Vs 1.600M Barrel Draw Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T12:02:20.154462-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nebius Group Stock Is Falling Thursday: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T12:03:09.201577-04:00",
+    "symbols": [
+      "ADBE",
+      "CRM"
+    ],
+    "headline": "Shares of enterprise software companies are trading higher amid an investor rotation from highly leveraged AI-exposed names into the legacy tech services sector. Fears of persistently high inflation and interest rates may increase the appeal of the industry&#39;s proven business models.",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

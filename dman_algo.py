@@ -10833,6 +10833,47 @@ def _close_earnings_spread(pos: dict, reason: str) -> tuple[str, Optional[str]]:
         return "failed", None
 
 
+# How long to wait for a cancelled order to stop reserving its shares.
+# Measured 2026-10-15: cancel_order_by_id() returns immediately, the order
+# goes to PENDING_CANCEL, and the shares stay held. During market hours that
+# settles in well under a second -- the RSKD trail exit worked on 2026-10-14
+# with no wait at all. With the market CLOSED it does not settle: a cancel
+# issued at 01:25 ET was still PENDING_CANCEL 30 seconds later, and every
+# submit against those shares came back
+# "insufficient qty available for order (requested: 29, available: 0)".
+ORDER_CANCEL_SETTLE_TIMEOUT_S = 8.0
+ORDER_CANCEL_SETTLE_POLL_S    = 0.5
+
+
+def _wait_for_orders_clear(client, symbol: str,
+                           timeout_s: Optional[float] = None) -> bool:
+    """True once `symbol` has no open orders holding its shares.
+
+    False means the cancel never settled, and that is NOT the same as the
+    position being unprotected: a PENDING_CANCEL stop can still fill. The
+    caller must not claim the stop is gone on a False, and must not bother
+    submitting -- the broker will only reject it.
+    """
+    # Resolved at CALL time, not bound as a default: a default argument is
+    # evaluated once at import, so patching the module constant in a test
+    # would not reach it and every case would wait the full live timeout.
+    if timeout_s is None:
+        timeout_s = ORDER_CANCEL_SETTLE_TIMEOUT_S
+    _deadline = time.time() + max(0.0, float(timeout_s))
+    while True:
+        try:
+            _open = client.get_orders(filter=GetOrdersRequest(
+                symbols=[symbol], status=QueryOrderStatus.OPEN, limit=20))
+        except Exception as exc:
+            _log_swallowed("wait for orders clear", exc)
+            return False
+        if not _open:
+            return True
+        if time.time() >= _deadline:
+            return False
+        time.sleep(ORDER_CANCEL_SETTLE_POLL_S)
+
+
 def _restore_protective_stops(client, symbol: str, saved: list) -> list:
     """Re-place stops that were cancelled for a close that then failed.
 
@@ -10949,6 +10990,26 @@ def _close_position_at_market(pos: "OpenPosition", reason: str) -> tuple[str, Op
     except Exception as _swallowed:
         _log_swallowed("_close_position_at_market", _swallowed)
 
+    # The cancel above is asynchronous. Submitting before the shares are
+    # released is rejected outright, so wait for the reservation to lift.
+    if not _wait_for_orders_clear(client, symbol):
+        # The stop is still PENDING_CANCEL, which means it can still fill --
+        # the position is NOT naked. Do not submit (it would only be
+        # rejected) and do not restore (that would be rejected too, and
+        # there is nothing to restore while the original is alive).
+        print(f"  \u23f3 {pos.ticker}: cancel has not settled, stop still live "
+              f"- not submitting a close that would be rejected")
+        _k = "__CANCEL_UNSETTLED__:" + str(symbol)
+        if not _is_duplicate_alert(_k, 60):
+            send_telegram(
+                "\u23f3 <b>" + str(pos.ticker) + " close deferred</b>" + chr(10)
+                + "The resting stop is still PENDING_CANCEL, so the broker is "
+                + "holding the shares and a close would be rejected. The stop "
+                + "can still fill, so the position is protected." + chr(10)
+                + "Most likely cause: the market is closed. This retries on "
+                + "the next pass.")
+            _save_last_alert(_k)
+        return "failed", None
     try:
         from alpaca.trading.enums import PositionIntent
         order = client.submit_order(MarketOrderRequest(

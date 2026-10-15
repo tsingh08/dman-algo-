@@ -25302,9 +25302,14 @@ class TestAFailedCloseMustNotLeaveThePositionNaked(unittest.TestCase):
     def _client(self, sell_raises, stop_price=6.95, qty=31):
         cl = MagicMock()
         cl.get_open_position.return_value = SimpleNamespace(qty=str(qty))
-        cl.get_orders.return_value = [SimpleNamespace(
+        # First call is the pre-cancel read; afterwards the cancel has
+        # SETTLED and the shares are released. Modelling it as "the stop is
+        # there forever" would hang every close on the new settle-wait, and
+        # modelling it as "gone instantly" would hide the race entirely.
+        _stop = SimpleNamespace(
             id="stop-1", stop_price=str(stop_price), qty=str(qty),
-            side=a.OrderSide.SELL, time_in_force=a.TimeInForce.GTC)]
+            side=a.OrderSide.SELL, time_in_force=a.TimeInForce.GTC)
+        cl.get_orders.side_effect = [[_stop]] + [[] for _ in range(20)]
         if sell_raises:
             # Reject only the MARKET order and accept the stop. A blanket
             # side_effect would fail the restore too, which models "Alpaca is
@@ -25378,6 +25383,8 @@ class TestAFailedCloseMustNotLeaveThePositionNaked(unittest.TestCase):
     # --- degradation ------------------------------------------------------
     def test_nothing_to_restore_is_not_an_error(self):
         cl = self._client(sell_raises=True)
+        # side_effect wins over return_value, so it has to be cleared.
+        cl.get_orders.side_effect = None
         cl.get_orders.return_value = []
         st, _oid, tg = self._run(cl)
         self.assertEqual(st, "failed")
@@ -25516,3 +25523,84 @@ class TestTheTrailRestsAtTheBrokerNotInAPollLoop(unittest.TestCase):
         measurement was done to remove."""
         src = inspect.getsource(a._zone_trail_exit_check)
         self.assertIn("_zone_trail_ratchet_stop(", src)
+
+
+class TestACancelIsNotInstant(unittest.TestCase):
+    """cancel_order_by_id() returns before the shares are released.
+
+    Hit live on 2026-10-15 trying to close PGEN with the market shut. The
+    cancel was accepted, the order went to PENDING_CANCEL, and every submit
+    against those shares came back:
+
+        insufficient qty available for order (requested: 29, available: 0)
+        held_for_orders: 29
+
+    It stayed PENDING_CANCEL for over two minutes. During market hours it
+    settles in well under a second -- the RSKD trail exit worked on
+    2026-10-14 with no wait at all -- which is exactly why this went
+    unnoticed until a close was attempted outside hours.
+
+    The dangerous part is what the old code concluded. It had already
+    recorded the stop as cancelled, so the failure handler announced "THE
+    STOP IS GONE AND COULD NOT BE REPLACED". That was wrong and in the
+    frightening direction: a PENDING_CANCEL stop can still fill, so the
+    position was protected the whole time."""
+
+    def _pos(self):
+        return SimpleNamespace(ticker="PGEN", setup="Breakout Zone +176% off low")
+
+    def _client(self, settles):
+        cl = MagicMock()
+        cl.get_open_position.return_value = SimpleNamespace(qty="29")
+        stop = SimpleNamespace(id="s1", stop_price="6.79", qty="29",
+                               side=a.OrderSide.SELL, time_in_force=a.TimeInForce.GTC)
+        if settles:
+            cl.get_orders.side_effect = [[stop]] + [[] for _ in range(20)]
+        else:
+            cl.get_orders.return_value = [stop]      # never clears
+        cl.submit_order.return_value = SimpleNamespace(id="ord-1")
+        return cl
+
+    def _run(self, cl):
+        with patch.object(a, "get_alpaca_client", return_value=cl),              patch.object(a, "send_telegram", return_value=True) as tg,              patch.object(a, "_is_duplicate_alert", return_value=False),              patch.object(a, "_save_last_alert"),              patch.object(a, "_log_swallowed"),              patch.object(a, "ORDER_CANCEL_SETTLE_TIMEOUT_S", 0.05),              patch.object(a, "ORDER_CANCEL_SETTLE_POLL_S", 0.01):
+            return a._close_position_at_market(self._pos(), "test") + (tg,)
+
+    def test_an_unsettled_cancel_does_not_submit_a_doomed_order(self):
+        cl = self._client(settles=False)
+        st, _oid, _tg = self._run(cl)
+        self.assertEqual(st, "failed")
+        cl.submit_order.assert_not_called()
+
+    def test_it_does_not_claim_the_stop_is_gone_when_it_is_only_pending(self):
+        """The regression that matters. A PENDING_CANCEL stop can still fill,
+        so telling the operator they are naked is both wrong and alarming."""
+        _st, _oid, tg = self._run(self._client(settles=False))
+        msg = tg.call_args[0][0]
+        self.assertNotIn("STOP IS GONE", msg)
+        self.assertIn("protected", msg)
+
+    def test_a_settled_cancel_closes_normally(self):
+        cl = self._client(settles=True)
+        st, oid, _tg = self._run(cl)
+        self.assertEqual(st, "submitted")
+        self.assertEqual(oid, "ord-1")
+        cl.submit_order.assert_called_once()
+
+    def test_the_wait_reports_cleared_only_when_nothing_is_open(self):
+        cl = MagicMock()
+        cl.get_orders.return_value = []
+        self.assertTrue(a._wait_for_orders_clear(cl, "PGEN", timeout_s=0.05))
+
+    def test_the_wait_times_out_rather_than_hanging(self):
+        cl = MagicMock()
+        cl.get_orders.return_value = [SimpleNamespace(id="s1", stop_price="6.79")]
+        with patch.object(a, "ORDER_CANCEL_SETTLE_POLL_S", 0.01):
+            self.assertFalse(a._wait_for_orders_clear(cl, "PGEN", timeout_s=0.05))
+
+    def test_a_broker_error_while_waiting_is_treated_as_not_cleared(self):
+        """Unknown is not the same as clear -- submitting on an unverified
+        reservation is how the doomed order got sent in the first place."""
+        cl = MagicMock()
+        cl.get_orders.side_effect = RuntimeError("down")
+        with patch.object(a, "_log_swallowed"):
+            self.assertFalse(a._wait_for_orders_clear(cl, "PGEN", timeout_s=0.05))

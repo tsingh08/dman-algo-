@@ -640,5 +640,27 @@
    "regime": "CHOP",
    "regime_score": 9
   }
+ },
+ {
+  "ts": "2026-10-15T10:33:08.311396-04:00",
+  "kind": "signal",
+  "ticker": "PAG",
+  "verdict": "skip",
+  "confidence": 85,
+  "reason": "CHOP regime (score 9) incompatible with morning runner. High confluence score doesn't offset choppy conditions for trend continuation.",
+  "facts": {
+   "setup": "Morning Runner",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 211.23,
+   "stop": 203.86,
+   "target1": 232.9,
+   "rr": 2.94,
+   "rvol": 12.02,
+   "rsi": 51.7,
+   "reason": "News gap +8.3% on 12.0x vol, holding open | Float 18M, Short 14%",
+   "regime": "CHOP",
+   "regime_score": 9
+  }
  }
 ]

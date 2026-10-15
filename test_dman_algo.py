@@ -25764,3 +25764,69 @@ class TestTheTrailingUpgradeDoesNotStrandTheOriginalStop(unittest.TestCase):
         self.assertIsNotNone(out)
         self.assertIn("trailing", out)
         cl.submit_order.assert_called_once()
+
+
+class TestTheSyncStampIsTimezoneAware(unittest.TestCase):
+    """state["last_sync"] was written with datetime.utcnow().
+
+    Two problems. It is deprecated from Python 3.12 and this runs on 3.14, so
+    it eventually stops existing. And it returns a NAIVE stamp, which is the
+    bug class this module keeps paying for: _get_day_start_equity()
+    (2026-08-23), the seasonal month reads, and the watchdog itself, which
+    compared this naive UTC value against a naive LOCAL now() and therefore
+    agreed only on a UTC machine. On a GitHub runner it worked; from a UTC-6
+    desktop the delta came out about -360 minutes, never crossed the 30/45
+    minute thresholds, and the watchdog silently stopped reporting a stale
+    daemon at all. For a watchdog, never warning is the worst failure
+    direction there is.
+
+    Found 2026-10-15 underneath 6,004 false "is not defined" warnings from a
+    wedged language server -- the real diagnostics were buried in the noise."""
+
+    def test_the_written_stamp_carries_a_timezone(self):
+        """Checks EXECUTABLE code, not the file text. The first version of
+        this grepped the raw source and failed on the comment that explains
+        the fix -- the same hollow-needle trap tools/hollow_assert_check.py
+        exists to catch. ast.unparse() drops comments."""
+        import ast as _ast, textwrap as _tw
+        src = _ast.unparse(_ast.parse(
+            _tw.dedent(inspect.getsource(a.sync_alpaca_fills))))
+        self.assertNotIn("utcnow", src)
+        self.assertIn("_tz_sync.utc", src)
+
+    def test_an_aware_stamp_round_trips_as_utc(self):
+        from datetime import timezone, datetime as _dt
+        stamp = _dt.now(timezone.utc).isoformat()
+        back = _dt.fromisoformat(stamp)
+        self.assertIsNotNone(back.tzinfo)
+        self.assertEqual(back.utcoffset().total_seconds(), 0)
+
+    def test_the_watchdog_still_accepts_a_legacy_naive_stamp(self):
+        """Values written before 2026-10-15 are naive and must keep working."""
+        src = inspect.getsource(a.run_watchdog) if hasattr(a, "run_watchdog") else ""
+        if not src:
+            self.skipTest("watchdog entry point renamed")
+        self.assertIn("tzinfo is None", src)
+
+    def test_string_max_still_orders_aware_against_legacy_naive(self):
+        """_merge_sync_state() picks the later stamp with a STRING max(), so
+        changing the format could have silently inverted a merge. The date
+        and time prefix dominates, which this pins rather than assumes."""
+        from datetime import timezone, datetime as _dt
+        older_naive = _dt(2026, 10, 15, 7, 0, 0, 123456).isoformat()
+        newer_aware = _dt(2026, 10, 15, 8, 0, 0, 123456,
+                          tzinfo=timezone.utc).isoformat()
+        self.assertEqual(max(older_naive, newer_aware), newer_aware)
+        older_aware = _dt(2026, 10, 15, 7, 0, 0, 123456,
+                          tzinfo=timezone.utc).isoformat()
+        newer_naive = _dt(2026, 10, 15, 8, 0, 0, 123456).isoformat()
+        self.assertEqual(max(older_aware, newer_naive), newer_naive)
+
+    def test_the_same_instant_either_way_is_not_treated_as_older(self):
+        """Equal prefixes differ only by the trailing offset, so the aware
+        form sorts later. Harmless -- same instant -- but pinned so a future
+        reader does not mistake it for a bug."""
+        from datetime import timezone, datetime as _dt
+        naive = _dt(2026, 10, 15, 7, 0, 0, 1).isoformat()
+        aware = _dt(2026, 10, 15, 7, 0, 0, 1, tzinfo=timezone.utc).isoformat()
+        self.assertEqual(max(naive, aware), aware)

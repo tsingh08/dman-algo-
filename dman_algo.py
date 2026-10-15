@@ -5642,7 +5642,8 @@ def run_watchdog() -> None:
             from datetime import timezone as _tz
             with open(ALPACA_SYNC_FILE) as f:
                 _last_sync = datetime.fromisoformat(json.load(f).get("last_sync", ""))
-            # last_sync is written with datetime.utcnow() (naive UTC), and this
+            # last_sync is written timezone-aware since 2026-10-15; the naive
+            # branch below stays for values stored before that. It used to be
             # used to compare it against datetime.now() -- naive LOCAL. Those
             # agree only on a UTC machine, which a GitHub runner happens to be,
             # so it worked in production and nowhere else. Run via
@@ -27191,7 +27192,20 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
 
     new_count += sync_earnings_spread_fills(tracker, recorded_ids)
 
-    state["last_sync"]    = datetime.utcnow().isoformat()
+    # datetime.utcnow() is deprecated from 3.12 (this runs on 3.14) and,
+    # worse for this file, returns a NAIVE stamp. That is the bug class this
+    # module keeps paying for -- _get_day_start_equity() 2026-08-23, the
+    # seasonal month reads, and the watchdog below, which compared this naive
+    # UTC value against a naive LOCAL now() and so silently stopped reporting
+    # a stale daemon anywhere except a UTC machine.
+    #
+    # Safe to change the stored format. The watchdog reader already upgrades a
+    # naive stamp to UTC, so old values keep working, and the state merge at
+    # _merge_sync_state() compares these as STRINGS with max() -- the date and
+    # time prefix dominates, so an aware "...T07:00:00+00:00" still orders
+    # correctly against a legacy naive "...T08:00:00".
+    from datetime import timezone as _tz_sync
+    state["last_sync"]    = datetime.now(_tz_sync.utc).isoformat()
     state["recorded_ids"] = list(recorded_ids)[-500:]
     _save_sync_state(state)
     return new_count

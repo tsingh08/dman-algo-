@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-15T09:25:46.776245-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#34;U.S. Treasury Dismisses IMF Debt Warning And \u2018Messy\u2019 Forecasting&#34; - CNBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-15T09:25:46.783916-04:00",
     "symbols": [
       "SPY"
@@ -5068,5 +5058,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:38:44.802153-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "SanDisk Stock Is Falling on AI Fears. Its $93.9 Billion Contract Book Tells Another Story",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

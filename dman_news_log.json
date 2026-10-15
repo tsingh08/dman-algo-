@@ -1,516 +1,5 @@
 [
   {
-    "ts": "2026-10-14T11:41:45.900929-04:00",
-    "symbols": [
-      "DFNS"
-    ],
-    "headline": "T3 Defense Shares Resume Trade",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T11:52:08.444777-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:52:08.449511-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Has Found No Evidence To Support OpenAI&#39;s Allegations; Says Apple Has Searched For The One File That OpenAI Has Identified, But Has Not Found It On Any Apple System; Co Has Strict Policies &amp; Procedures In Place To Help Ensure That New Employees Don&#39;t Use Any Confidential Information From Prior Employer; Says OpenAI Has Failed To Respond To Apple\u2019s Request For More Information That Would Aid In Its Investigation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:52:08.710082-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Apple Has Found No Evidence To Support OpenAI&#39;s Allegations; Says Apple Has Searched For The One File That OpenAI Has Identified, But Has Not Found It On Any Apple System; Co Has Strict Policies &amp; Procedures In Place To Help Ensure That New Employees Don&#39;t Use Any Confidential Information From Prior Employer; Says OpenAI Has Failed To Respond To Apple\u2019s Request For More Information That Would Aid In Its Investigation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:52:08.964382-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:52:09.248081-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T11:52:09.570864-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:52:10.457294-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:52:11.451617-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:52:11.983308-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T11:52:13.490007-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T11:52:13.751041-04:00",
-    "symbols": [
-      "AFRM"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T11:52:14.714081-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-14T11:52:14.960294-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:52:19.766581-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:52:21.798111-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T11:52:22.323837-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:52:23.089227-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T11:52:23.330918-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:52:28.432322-04:00",
-    "symbols": [
-      "YRD"
-    ],
-    "headline": "Why is Yiren Digital Stock Surging Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T11:52:31.818874-04:00",
-    "symbols": [
-      "XCH"
-    ],
-    "headline": "XCHG Issues Statement Regarding Recent ADS Volatility; Not Aware Of Any Specific Reason For Market Movements",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T11:52:56.955912-04:00",
-    "symbols": [
-      "NVDA",
-      "SMCI"
-    ],
-    "headline": "Why Is Super Micro Computer Stock Falling on Wednesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:53:07.402925-04:00",
-    "symbols": [
-      "RIOT"
-    ],
-    "headline": "Bitcoin Mining&#39;s Next Evolution May Be Owning The Rewards, Not The Hardware",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-14T11:53:10.123955-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:53:10.128575-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Has Found No Evidence To Support OpenAI&#39;s Allegations; Says Apple Has Searched For The One File That OpenAI Has Identified, But Has Not Found It On Any Apple System; Co Has Strict Policies &amp; Procedures In Place To Help Ensure That New Employees Don&#39;t Use Any Confidential Information From Prior Employer; Says OpenAI Has Failed To Respond To Apple\u2019s Request For More Information That Would Aid In Its Investigation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:53:10.412984-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Apple Has Found No Evidence To Support OpenAI&#39;s Allegations; Says Apple Has Searched For The One File That OpenAI Has Identified, But Has Not Found It On Any Apple System; Co Has Strict Policies &amp; Procedures In Place To Help Ensure That New Employees Don&#39;t Use Any Confidential Information From Prior Employer; Says OpenAI Has Failed To Respond To Apple\u2019s Request For More Information That Would Aid In Its Investigation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:53:10.657299-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:53:10.935556-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T11:53:11.249435-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:53:12.099708-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:53:13.132802-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:53:13.608698-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T11:53:15.168346-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T11:53:15.408036-04:00",
-    "symbols": [
-      "AFRM"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T11:53:16.313595-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-14T11:53:16.536590-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:53:21.493639-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:53:23.352538-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T11:53:23.519113-04:00",
-    "symbols": [
-      "DFNS"
-    ],
-    "headline": "T3 Defense Shares Halted On Circuit Breaker To The Upside, Stock Now Up 23.48%",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T11:53:23.795913-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:53:24.469548-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T11:53:24.694304-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:53:26.232360-04:00",
-    "symbols": [
-      "CRWV"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T11:53:26.700231-04:00",
-    "symbols": [
-      "FAST"
-    ],
-    "headline": "Fastenal Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:53:26.704959-04:00",
-    "symbols": [
-      "FAST"
-    ],
-    "headline": "Why Is Fastenal Company Stock Falling Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:53:26.709476-04:00",
-    "symbols": [
-      "FAST"
-    ],
-    "headline": "State Street, Fastenal And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:53:26.714066-04:00",
-    "symbols": [
-      "FAST"
-    ],
-    "headline": "Earnings Scheduled For October 14, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:53:26.718539-04:00",
-    "symbols": [
-      "FAST"
-    ],
-    "headline": "Fastenal Q3 EPS $0.35 Beats $0.34 Estimate, Sales $2.463B Beat $2.440B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:57:28.963310-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;OpenAI Names Uday Ruddarraju to Lead Data Center, Computing Unit&#39; - Bloomberg",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:57:49.206524-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Why Is Super Micro Computer Stock Falling on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T11:58:35.743937-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Has a $299 Smart-Home Bet: The Real Money May Be in Subscriptions",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-14T12:00:07.846255-04:00",
     "symbols": [
       "PLTR"
@@ -5068,6 +4557,520 @@
       "SPY"
     ],
     "headline": "Reported Earlier: &#39;U.S. Tells IEA Nations It\u2019s Unhappy With Emergency Oil Release; U.S. Has Been Informally Lobbying For An Extra Commitment Of At Least 100 Million Barrels&#39; - Bloomberg News",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:35:25.925509-04:00",
+    "symbols": [
+      "IPW"
+    ],
+    "headline": "iPower Inks Five-Year Non-Binding Letter Of Intent With Undisclosed Client For AI Computing Equipment; Client Identifies Initial Fleet Of 48 Units At Proposed Rate Of $4,608 Per Month Or Up To $21.9M On Annually For Five Years",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:38:01.279749-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Micron Stock Slides Again Thursday: What's Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:38:01.290232-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Assessing Apple's Performance Against Competitors In Technology Hardware, Storage &amp; Peripherals Industry",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:38:01.572814-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Iran Media Outlet Says Google, Meta, Microsoft, Amazon Should Pay Fees for Hormuz Undersea Cables (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:38:01.580244-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "'Eight U.S. States Sue OpenAI, Claiming ChatGPT Harms Children' - Reuters News",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:38:01.835913-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia CEO Jensen Huang Rejects Sam Altman's Advice to 'Accept' AI Cybersecurity Risks: \u2018We Should Do Everything...to Avoid Them\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:38:01.847230-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "SK Hynix Stock Extends Rout As South Korea's Chip Giants Face Brutal Selloff",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:38:01.858221-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Micron Stock Slides Again Thursday: What's Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:38:02.173181-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Iran Media Outlet Says Google, Meta, Microsoft, Amazon Should Pay Fees for Hormuz Undersea Cables (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:38:02.389005-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Nvidia CEO Jensen Huang Rejects Sam Altman's Advice to 'Accept' AI Cybersecurity Risks: \u2018We Should Do Everything...to Avoid Them\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:38:02.397909-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Wall Street's Most Accurate Analysts Give Their Take On 3 Utilities Stocks Delivering High-Dividend Yields",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:38:02.406532-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Anthropic's Q3 Revenue Surged 45% to $16.8 Billion, Profitable on Adjusted Basis as Dario Amodei Courts Investors: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:38:02.541700-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Anthropic's Q3 Revenue Surged 45% to $16.8 Billion, Profitable on Adjusted Basis as Dario Amodei Courts Investors: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:38:02.549706-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Iran Media Outlet Says Google, Meta, Microsoft, Amazon Should Pay Fees for Hormuz Undersea Cables (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:38:02.557003-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "'Anthropic Q3 Revenue Hit $16.8B, According To People Familiar With The Matter' - Bloomberg News",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:38:03.730590-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "'Tesla Readies Flying Car Demo To Pump Up Sluggish Auto Business; Planning To Unveil Its Long-Promised New Roadster Sports Car Thursday In Texas, Reviving And Refreshing A Model That Tesla Stopped Producing More Than A Decade Ago' - Bloomberg News",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:38:03.746715-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "When Can You Buy a Tesla Cybercab? Investors Press Elon Musk on Robotaxis, HW3 FSD and More Ahead of TSLA's Q3 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:38:03.937249-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Hasn't Cut This Many Jobs Since Its Subscriber Scare. So Why Now?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T09:38:04.263020-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Lumen Technologies And Snowflake Partner To Combine LUMN's Programmable Networking Capabilities With SNOW's AI Data Cloud",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:38:04.462204-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Surf Air Mobility Signs Definitive Agreement With Flying Zebra For OperatorOS, Surf Air Mobility's SurfOS Flight Operations Software For Part 135 Operators Powered By Palantir",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T09:38:04.855032-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Micron Stock Slides Again Thursday: What's Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T09:38:04.982716-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Elon Musk Praises Micron's Pricing Strategy. Its $150 Billion Contract Book Explains Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T09:38:04.991034-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Stock Slides Again Thursday: What's Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T09:38:05.119826-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Sandisk Stock Is Falling Thursday: What's Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T09:38:05.128435-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Micron Stock Slides Again Thursday: What's Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T09:38:05.259198-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Stock Market Today: Dow Futures Gain, S&P 500, Nasdaq Fall As Chip Stock Sell-Off Intensifies \u2014 SKHY, TSM, RKLB in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T09:38:05.268997-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "SK Hynix Stock Extends Rout As South Korea's Chip Giants Face Brutal Selloff",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T09:38:05.669200-04:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "Riot Platforms Inks BitGo Custodial Services Agreement With BitGo Bank & Trust, NA; BitG To Serve As Custodian Of Riot's Digital Assets",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-15T09:38:07.101540-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Stock Market Today: Dow Futures Gain, S&P 500, Nasdaq Fall As Chip Stock Sell-Off Intensifies \u2014 SKHY, TSM, RKLB in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:38:07.382561-04:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "AppLovin Stock Sinks To 52-Week Low - Here's Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T09:38:12.811184-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "CRWV, NBIS, IREN in Focus: Gartner Warns 80% of Neoclouds Will 'Cease Independent Operations' by 2030",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T09:38:12.917425-04:00",
+    "symbols": [
+      "SCNI"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:38:12.923908-04:00",
+    "symbols": [
+      "SCNI"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday's After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:38:13.018264-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "'Cursor Staff Investigated Whether Confidential Data Reached SpaceX for AI Training' - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:38:13.025458-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Verizon And Ericsson Successfully Complete World's First Pre-Standard 6G Field Call In 7 GHz From A Verizon Commercial Network Site In California",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:38:13.305384-04:00",
+    "symbols": [
+      "WETO"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:38:13.412830-04:00",
+    "symbols": [
+      "WFF"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday's After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:38:13.540587-04:00",
+    "symbols": [
+      "YYAI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday's After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:38:13.808627-04:00",
+    "symbols": [
+      "OPK"
+    ],
+    "headline": "UPDATE: Labcorp Agrees To Acquire Select Assets Of OPKO Health's BioReference Health Subsidiary For $722M In Cash, Up To Additional $150M In Earnout On Revenue",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T09:38:13.816746-04:00",
+    "symbols": [
+      "OPK"
+    ],
+    "headline": "Labcorp Agrees To Acquire Select Assets Of OPKO Health's BioReference Health Subsidiary For $722M In Cash, Up To Additional $150M In Earnout On Revenue",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T09:38:13.825626-04:00",
+    "symbols": [
+      "OPK"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T09:38:13.932055-04:00",
+    "symbols": [
+      "ERIC"
+    ],
+    "headline": "Stock Market Today: Dow Futures Gain, S&P 500, Nasdaq Fall As Chip Stock Sell-Off Intensifies \u2014 SKHY, TSM, RKLB in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:38:13.942206-04:00",
+    "symbols": [
+      "ERIC"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Thursday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:38:13.951455-04:00",
+    "symbols": [
+      "ERIC"
+    ],
+    "headline": "Verizon And Ericsson Successfully Complete World's First Pre-Standard 6G Field Call In 7 GHz From A Verizon Commercial Network Site In California",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:38:14.059016-04:00",
+    "symbols": [
+      "TC"
+    ],
+    "headline": "12 Communication Services Stocks Moving In Thursday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:38:14.271046-04:00",
+    "symbols": [
+      "PAG"
+    ],
+    "headline": "Penske Automotive To Go Private In $16.3 Billion Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:38:14.280589-04:00",
+    "symbols": [
+      "PAG"
+    ],
+    "headline": "Penske Automotive Group To Be Taken Private By Penske Corporation, Mitsui & Co. And Others For $212/Share In Cash At An EV Of ~$16.3B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:38:14.485544-04:00",
+    "symbols": [
+      "QVCG"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday's After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:38:15.227994-04:00",
+    "symbols": [
+      "BSP"
+    ],
+    "headline": "CoreWeave, Rocket Lab, Dell, Greenland Energy Company and Bending Spoons: Why These 5 Stocks Are on Investors' Radars Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:38:15.542565-04:00",
+    "symbols": [
+      "LQDA"
+    ],
+    "headline": "HC Wainwright & Co. Maintains Buy on Liquidia, Raises Price Target to $65",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-15T09:40:12.585507-04:00",
+    "symbols": [
+      "GOOGL",
+      "META",
+      "MSFT",
+      "NVDA",
+      "SPY"
+    ],
+    "headline": "FTC Spokesman Says President Trump Task Force On AI To Meet Thursday",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-15T10:04:24.356718-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Addresses 'Rogue Agents' as AI Gives Banks New Security Problems",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T10:04:25.672293-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Why Is Applied Digital Stock Falling on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-15T10:04:26.023256-04:00",
     "symbols": [
       "SPY"
@@ -5063,5 +5043,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T15:03:02.704950-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Citigroup Maintains Neutral on JPMorgan Chase, Lowers Price Target to $350",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T15:03:21.703761-04:00",
+    "symbols": [
+      "CRWV"
+    ],
+    "headline": "CoreWeave Stock Snaps Back as Nvidia CEO Signals Support",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

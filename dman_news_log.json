@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-15T10:04:29.095287-04:00",
-    "symbols": [
-      "SPRC"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T10:04:29.955803-04:00",
-    "symbols": [
-      "BEEM"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T10:04:30.441958-04:00",
-    "symbols": [
-      "GPUS"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T10:06:03.513690-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Four Booms Heard In Vicinity Of Presidential Palace In Yemen&#39;s Aden",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-15T10:07:30.232230-04:00",
     "symbols": [
       "NVDA"
@@ -5063,6 +5023,46 @@
     "headline": "Trump\u2019s Power Grid Emergency Puts This AI Infrastructure ETFs in the Spotlight",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T16:05:39.219320-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "CoreWeave\u2019s Bonds Hit 15% Yield: This Analyst Still Sees 105% Upside For The Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T16:06:40.899492-04:00",
+    "symbols": [
+      "CRWV"
+    ],
+    "headline": "CoreWeave\u2019s Bonds Hit 15% Yield: This Analyst Still Sees 105% Upside For The Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-15T16:06:42.886021-04:00",
+    "symbols": [
+      "RSKD"
+    ],
+    "headline": "Rocket Lab, Taiwan Semiconductor And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T16:06:43.102122-04:00",
+    "symbols": [
+      "KRMN"
+    ],
+    "headline": "Dow Jones Climbs to 52,000 While Chips Bleed on Rate-Hike Fears: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

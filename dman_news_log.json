@@ -1,186 +1,5 @@
 [
   {
-    "ts": "2026-10-14T12:00:26.113575-04:00",
-    "symbols": [
-      "RIOT"
-    ],
-    "headline": "Bitcoin Mining's Next Evolution May Be Owning The Rewards, Not The Hardware",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-14T12:02:35.543024-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "DriveWealth to Integrate Ripple as Evernorth Deploys XRP Treasury",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-14T12:04:22.123553-04:00",
-    "symbols": [
-      "CLSK",
-      "CRWD",
-      "DDOG",
-      "FTNT",
-      "MARA",
-      "MSTR",
-      "NBIS",
-      "ORCL",
-      "PANW",
-      "RIOT",
-      "SOUN"
-    ],
-    "headline": "Shares of software companies are trading lower as elevated oil prices and stronger-than-expected inflation data fuel expectations of more Fed tightening at a quicker pace. Costlier borrowing may weaken sentiment for the sector&#39;s strong H2 2026 rally.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T12:06:11.990115-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Has a $299 Smart-Home Bet: The Real Money May Be in Subscriptions",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T12:06:12.416309-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is Super Micro Computer Stock Falling on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T12:06:14.165775-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Palantir, Mayor Of London Reach Settlement Over Alleged Allegations Regarding Palantir&#39;s Unified Operational Analytics Contract With Metropolitan Police Service",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T12:06:19.009146-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "DriveWealth to Integrate Ripple as Evernorth Deploys XRP Treasury",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-14T12:06:24.996845-04:00",
-    "symbols": [
-      "BAC"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T12:06:25.001738-04:00",
-    "symbols": [
-      "BAC"
-    ],
-    "headline": "8 Of 11 Sectors Fall Wednesday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T12:06:25.006511-04:00",
-    "symbols": [
-      "BAC"
-    ],
-    "headline": "QUICK SPARK: Bank of America Stock Eyes Worst Day Since Trump\u2019s Tariffs Shock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T12:06:25.011178-04:00",
-    "symbols": [
-      "BAC"
-    ],
-    "headline": "Bank of America&#39;s $1.2B Fine Just Cost Shareholders 25 Times That",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T12:06:25.015774-04:00",
-    "symbols": [
-      "BAC"
-    ],
-    "headline": "Bank of America Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T12:08:07.350087-04:00",
-    "symbols": [
-      "GS",
-      "JPM"
-    ],
-    "headline": "Big Bank Succession Talk Heats Up as CEOs Stay Firmly in Charge",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T12:09:04.774138-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is Super Micro Computer Stock Falling on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T12:09:16.688794-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Big Bank Succession Talk Heats Up as CEOs Stay Firmly in Charge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T12:09:16.697484-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Big Bank Succession Talk Heats Up as CEOs Stay Firmly in Charge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T12:11:43.751546-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "Fanatics CEO Warns $7 Billion Betting Ad War Looms as Kalshi, Polymarket Join Fight",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-14T12:11:45.944682-04:00",
     "symbols": [
       "GS"
@@ -5073,6 +4892,176 @@
     "headline": "Nasdaq Down Over 1%; US Producer Inflation Surges In September",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:49:19.857421-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "TD Cowen Reiterates Buy on Rocket Lab, Maintains $90 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:49:47.207450-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "FTC Spokesman Says President Trump Task Force On AI To Meet Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T09:49:49.633804-04:00",
+    "symbols": [
+      "GP"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:49:49.640829-04:00",
+    "symbols": [
+      "GP"
+    ],
+    "headline": "Why Ericsson Shares Are Trading Higher By Around 11%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:49:49.776106-04:00",
+    "symbols": [
+      "BBCI"
+    ],
+    "headline": "Nasdaq Down Over 1%; US Producer Inflation Surges In September",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:49:49.967992-04:00",
+    "symbols": [
+      "DRMA"
+    ],
+    "headline": "Dermata Therapeutics Announces Over 71% Of Patients Had Overall Skin Improvements At Day 29 In Its Cosmetic Clinical Trial Of Tome Foundational Treatment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:49:50.095214-04:00",
+    "symbols": [
+      "SPRC"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:49:50.103059-04:00",
+    "symbols": [
+      "SPRC"
+    ],
+    "headline": "SciSparc To Shift Its Strategic Focus Toward Agentic AI-Powered Technologies, Including In Cybersecurity And Finance",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:49:50.455374-04:00",
+    "symbols": [
+      "SNES"
+    ],
+    "headline": "SenesTech Reports Q34 Preliminary Revenue Of ~$1.1M, Up 55% YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:49:50.637445-04:00",
+    "symbols": [
+      "JBDI"
+    ],
+    "headline": "Why Ericsson Shares Are Trading Higher By Around 11%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:49:50.845809-04:00",
+    "symbols": [
+      "BEEM"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:49:50.853013-04:00",
+    "symbols": [
+      "BEEM"
+    ],
+    "headline": "Beam Global Merger Partner ScoutDI Receives Order For Its Scout 137 Drone Inspection Systems From A Nuclear Industry Customer; Terms Not Disclosed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:49:50.951790-04:00",
+    "symbols": [
+      "YOUL"
+    ],
+    "headline": "Youlife Group H1 EPS $0.06, Sales $288.053M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:49:50.958288-04:00",
+    "symbols": [
+      "YOUL"
+    ],
+    "headline": "UPDATE: Youlife H1 2026 Revenue $288.1M, Up 114.8% YoY; EPS $0.06",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:49:50.964446-04:00",
+    "symbols": [
+      "YOUL"
+    ],
+    "headline": "Youlife Reports H1 Revenue Of $288.1M, Up 114.8%, EPS Of $0.06/Share",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:49:51.056231-04:00",
+    "symbols": [
+      "GPUS"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:49:51.063221-04:00",
+    "symbols": [
+      "GPUS"
+    ],
+    "headline": "Hyperscale Data Reports Preliminary Q3 Sales Of ~$40M, Up 64% YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

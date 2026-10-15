@@ -1,28 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:58:50.714559-04:00",
-    "symbols": [
-      "LUNR",
-      "RKLB",
-      "SPCX"
-    ],
-    "headline": "Shares of space-related companies are trading lower as U.S. inflation data fuel a spike in bond and Treasury yields, with expectations for interest rates to remain elevated. Monetary tightening and elevated borrowing costs pose a material threat to the sector from curtailed corporate and government financing of cosmic communications, AI compute, and exploration.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T15:04:36.331660-04:00",
-    "symbols": [
-      "SPCX",
-      "SPY"
-    ],
-    "headline": "Elon Musk Posts On X &#34;Starshield systems are owned and controlled by the US government. Any limits on speed or usage are decided by the US military and ultimately POTUS.\n\nStarlink is a commercial service owned and controlled by SpaceX. Usage of Starlink is limited to civilian or defensive activities and cannot be used for offensive military action, as doing so would be inappropriate for a commercial company.&#34;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T15:05:31.553656-04:00",
     "symbols": [
       "AMZN"
@@ -5045,5 +5022,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T12:51:03.621521-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "Morgan Stanley Maintains Equal-Weight on IonQ, Lowers Price Target to $43",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T12:51:08.936998-04:00",
+    "symbols": [
+      "CMC"
+    ],
+    "headline": "Commercial Metals Sees Strong Demand From Data Centers, Chip Factories",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

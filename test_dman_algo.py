@@ -20180,9 +20180,19 @@ class TestAdoptedOrphansGetNoGuessedStop(unittest.TestCase):
         client.submit_order.assert_not_called()
 
     def test_the_exact_rskd_number_is_never_sent(self):
-        """8.0367 * 0.92 = 7.3938 — the stop that actually went on."""
-        self.assertAlmostEqual(
-            round(8.0367 * (1 - a.ADOPTED_FALLBACK_STOP_PCT), 4), 7.3938, places=4)
+        """8.0367 * 0.92 = 7.3938 — the stop that actually went on RSKD.
+
+        Rewritten 2026-10-15. It asserted that the CURRENT fallback
+        reproduces 7.3938, which tied a historical fact to a live constant.
+        ADOPTED_FALLBACK_STOP_PCT moved 0.08 -> 0.04 (it had to sit below the
+        operator's new 5-10% band to stay distinguishable from a real floor),
+        so the product changed and this failed on a number that is history and
+        cannot change. The history is pinned as a literal; the live constant is
+        asserted NOT to reproduce it, which is the stronger claim the name
+        always implied."""
+        self.assertAlmostEqual(round(8.0367 * 0.92, 4), 7.3938, places=4)
+        self.assertNotAlmostEqual(
+            round(8.0367 * (1 - a.ADOPTED_FALLBACK_STOP_PCT), 4), 7.3938, places=2)
 
     def test_a_real_broken_bracket_is_still_repaired(self):
         """The function's actual purpose (LITX/W) must keep working."""
@@ -20647,11 +20657,13 @@ class TestReconciliationCatchesThisWeeksDefects(unittest.TestCase):
         """A $7.39 stop resting on a breakout zone, which exits on time."""
         tracked = [SimpleNamespace(ticker="RSKD", setup="Breakout Zone +120% off low",
                                    entry=8.0367, shares=31, stop=0.01)]
-        orders = [self._order("RSKD", "sell", "stop", 7.39)]
+        # $7.80 on an $8.0367 entry is ~3%, inside the band minimum.
+        # Was $7.39 (8%), which WAS the complaint while every legitimate floor
+        # was at least 10% wide. Since 2026-10-15 the operator's band is 5-10%,
+        # so 8% is a sanctioned floor and only a stop inside the minimum is
+        # still the repair-guess shape this audit exists to catch.
+        orders = [self._order("RSKD", "sell", "stop", 7.80)]
         out, _ = self._run(tracked, [self._pos("RSKD", 31, 8.0367)], orders)
-        # A zone carries a catastrophe floor by design now, so presence alone is
-        # no longer the complaint -- distance is. $7.39 on an $8.0367 entry is 8%,
-        # which is the SECZ width, and must still be flagged.
         self.assertTrue(any("too tight for a zone" in i for i in out["issues"]),
                         out["issues"])
 
@@ -22636,7 +22648,13 @@ class TestZonesGetAFloorAndExposureNotHeadcount(unittest.TestCase):
             # 8% -- the adoption fallback, still the bug
             self.assertFalse(a._is_catastrophe_stop(14.17, 13.04, "IOVA"))
             # half the intended width is a different animal, not drift
-            self.assertFalse(a._is_catastrophe_stop(14.17, 14.17 * 0.90, "IOVA"))
+            # 14.17 * 0.90 is a 10% stop. That was the SECZ shape while
+            # every legitimate floor was at least 10% WIDE; since 2026-10-15
+            # the band ENDS at 10%, so this is now exactly the floor. What is
+            # still the bug is a stop inside the band minimum.
+            self.assertTrue(a._is_catastrophe_stop(14.17, 14.17 * 0.90, "IOVA"))
+            self.assertFalse(a._is_catastrophe_stop(
+                14.17, 14.17 * (1 - a.BZONE_CATASTROPHE_STOP_MIN_PCT * 0.5), "IOVA"))
         # No ticker means no ATR, which fails WIDE -- so only a 35%-ish stop
         # satisfies it. Documented here because it is the conservative branch.
         self.assertTrue(a._is_catastrophe_stop(14.17, 9.21))
@@ -22666,7 +22684,13 @@ class TestZonesGetAFloorAndExposureNotHeadcount(unittest.TestCase):
         return cl, ok, why
 
     def _expected_stop(self, entry=14.17):
-        return round(entry * (1 - a.BZONE_CATASTROPHE_STOP_ATR * self.IOVA_ATR_PCT), 2)
+        # Clamped, not raw. The ceiling is the operator's max loss (0.10 since
+        # 2026-10-15) and IOVA's ATR computes past it, so the unclamped
+        # product stopped being the placed width.
+        _w = min(a.BZONE_CATASTROPHE_STOP_PCT,
+                 max(a.BZONE_CATASTROPHE_STOP_MIN_PCT,
+                     a.BZONE_CATASTROPHE_STOP_ATR * self.IOVA_ATR_PCT))
+        return round(entry * (1 - _w), 2)
 
     def test_it_rests_a_gtc_sell_stop_at_the_broker(self):
         """GTC and broker-side is the requirement: a floor enforced by the
@@ -23550,9 +23574,9 @@ class TestTheFloorIsPricedInTheNameSOwnVolatility(unittest.TestCase):
     # --- scaling --------------------------------------------------------
     def test_a_calm_name_gets_a_tighter_floor_than_a_wild_one(self):
         """The whole point. Same rule, different distance, same risk."""
-        with self._atr(0.0453):
+        with self._atr(0.0275):
             calm = a._bzone_floor_pct("RSKD")
-        with self._atr(0.0684):
+        with self._atr(0.0453):
             wild = a._bzone_floor_pct("IOVA")
         self.assertLess(calm, wild)
 
@@ -23562,8 +23586,13 @@ class TestTheFloorIsPricedInTheNameSOwnVolatility(unittest.TestCase):
                                    5 * a.BZONE_CATASTROPHE_STOP_ATR / 100, places=6)
 
     def test_every_name_ends_up_equally_protected_in_atr_terms(self):
-        """5.1 / 4.1 / 7.3 ATR before; one number after."""
-        for _p in (0.0453, 0.0684, 0.0697):
+        """One number after, for every name whose floor the clamps do not bind.
+
+        ATR values updated 2026-10-15 with the band. At 2.0 ATR inside
+        [5%, 10%] the scaling only shows between 2.5% and 5.0% ATR; the old
+        fixtures (4.53 / 6.84 / 6.97) now compute 9.1 / 13.7 / 13.9 and the
+        last two are capped, so the ratio could not hold for them."""
+        for _p in (0.0275, 0.0340, 0.0453):
             with self._atr(_p):
                 self.assertAlmostEqual(a._bzone_floor_pct("X") / _p,
                                        a.BZONE_CATASTROPHE_STOP_ATR, places=6)
@@ -23574,8 +23603,9 @@ class TestTheFloorIsPricedInTheNameSOwnVolatility(unittest.TestCase):
             self.assertEqual(a._bzone_floor_pct("X"),
                              a.BZONE_CATASTROPHE_STOP_MIN_PCT)
 
-    def test_a_violent_name_is_capped_at_the_old_ceiling(self):
-        """0.35 survives as the ceiling, not the rule."""
+    def test_a_violent_name_is_capped_at_the_ceiling(self):
+        """The ceiling IS the operator's max loss: 0.35 became 0.10 on
+        2026-10-15. A name wild enough to want more does not get it."""
         with self._atr(0.40):
             self.assertEqual(a._bzone_floor_pct("X"),
                              a.BZONE_CATASTROPHE_STOP_PCT)
@@ -23598,13 +23628,32 @@ class TestTheFloorIsPricedInTheNameSOwnVolatility(unittest.TestCase):
             stop = round(8.0367 * (1 - want), 2)
             self.assertTrue(a._is_catastrophe_stop(8.0367, stop, "RSKD"))
 
-    def test_the_eight_percent_adoption_fallback_is_still_the_bug(self):
-        """What this check was built for. It must survive the rescaling."""
-        for _p in (0.0453, 0.0684, 0.0697):
+    def test_a_stop_below_the_sanctioned_band_is_still_the_bug(self):
+        """Rewritten 2026-10-15, and the reason matters.
+
+        This used to assert that an 8% stop on a zone is always the SECZ
+        shape. That was true while every legitimate floor was at least 10%.
+        The operator then set max loss to 5-10% ("the max loss i want set is
+        5-10%"), and 8% is INSIDE that band -- so an 8% stop on a zone is now
+        a sanctioned floor, not a bug, and no width test can separate it from
+        ADOPTED_FALLBACK_STOP_PCT any more. Asserting otherwise would pin a
+        belief the system is no longer allowed to hold.
+
+        What remains detectable, and what this now pins, is a stop tighter
+        than the band's own minimum -- a repair guess or a 2% panic stop,
+        which is the shape that turned SECZ's +$8.67 hold into -$21.76."""
+        for _p in (0.0275, 0.0340, 0.0453):
             with self._atr(_p):
+                _below = a.BZONE_CATASTROPHE_STOP_MIN_PCT * 0.5
                 self.assertFalse(
-                    a._is_catastrophe_stop(8.0367, 8.0367 * 0.92, "X"),
-                    "an 8% stop on a zone is the SECZ shape, whatever the ATR")
+                    a._is_catastrophe_stop(8.0367, 8.0367 * (1 - _below), "X"),
+                    "a stop inside the band minimum is a repair guess, not a floor")
+
+    def test_an_eight_percent_stop_is_now_within_policy(self):
+        """The other half of the same change, stated explicitly so the next
+        reader does not think the check regressed."""
+        with self._atr(0.0453):
+            self.assertTrue(a._is_catastrophe_stop(8.0367, 8.0367 * 0.92, "X"))
 
     def test_a_stop_a_hair_inside_the_target_still_counts(self):
         """Entry drift and rounding move the measured distance a little."""
@@ -23635,7 +23684,10 @@ class TestTheFloorIsPricedInTheNameSOwnVolatility(unittest.TestCase):
              self._atr(0.0453):
             ok, detail = a._place_bzone_catastrophe_stop("RSKD", 31, 8.0367)
         self.assertTrue(ok)
-        want = round(8.0367 * (1 - 3 * 0.0453), 2)
+        want = round(8.0367 * (1 - min(
+            a.BZONE_CATASTROPHE_STOP_PCT,
+            max(a.BZONE_CATASTROPHE_STOP_MIN_PCT,
+                a.BZONE_CATASTROPHE_STOP_ATR * 0.0453))), 2)
         self.assertEqual(float(cl.submit_order.call_args[0][0].stop_price), want)
 
     def test_the_detail_line_says_what_the_width_was_based_on(self):
@@ -23655,7 +23707,11 @@ class TestTheFloorIsPricedInTheNameSOwnVolatility(unittest.TestCase):
              self._atr(None):
             ok, _d = a._place_bzone_catastrophe_stop("X", 10, 100.0)
         self.assertTrue(ok)
-        self.assertEqual(float(cl.submit_order.call_args[0][0].stop_price), 65.0)
+        # Derived, not 65.0. Unknown volatility still fails WIDE, but
+        # "wide" is now the operator's 10% ceiling rather than 35%.
+        self.assertAlmostEqual(
+            float(cl.submit_order.call_args[0][0].stop_price),
+            round(100.0 * (1 - a.BZONE_CATASTROPHE_STOP_PCT), 2), places=2)
 
     def test_a_floor_is_still_never_ratcheted(self):
         """Pinned together. The width is measured from ENTRY, not spot, for

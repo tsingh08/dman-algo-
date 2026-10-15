@@ -797,7 +797,19 @@ _TELEGRAM_SUPPRESSED = [0]       # counted so the EOD note can mention them
 # day-trade counting and NO exit management, so it is brought back under
 # management as a swing rather than left invisible.
 ADOPTED_SETUP = "Adopted (orphan reconciliation)"
-ADOPTED_FALLBACK_STOP_PCT = 0.08   # only used when the broker has no stop at all
+# Only used when the broker has no stop at all, on a position being adopted.
+# Was 0.08. Moved below BZONE_CATASTROPHE_STOP_MIN_PCT on 2026-10-15 when the
+# operator set max loss to 5-10%: an 8% placeholder would then sit INSIDE the
+# sanctioned zone band, and _is_catastrophe_stop() tells an intended floor from
+# a repair guess by WIDTH alone. The invariant it depends on -- this fallback
+# is narrower than any legitimate floor -- is exactly what
+# test_the_floor_stays_distinguishable_from_the_adoption_fallback pins, and
+# that test caught the collision.
+#
+# Deliberately tighter than the operator's own band, which is the right
+# direction for what it is: an emergency placeholder on a position discovered
+# with no protection at all, held only until the real floor is computed.
+ADOPTED_FALLBACK_STOP_PCT = 0.04
 
 # Sessions an UNFILLED buy entry may rest before it is cancelled outright.
 # The stale-entry check alerts from day 1 but deliberately does not cancel,
@@ -12883,18 +12895,45 @@ BZONE_TRAIL_GIVEBACK_PCT  = 0.25   # exit once this fraction of the peak is back
 # give back more than the 46% cost.
 ENABLE_BZONE_BROKER_TRAIL = True
 
-BZONE_CATASTROPHE_STOP_ATR = 3.0
+# Was 3.0. Lowered with the hard cap below so volatility scaling still does
+# real work INSIDE the instructed 5-10% band instead of being pinned flat by
+# the ceiling -- at 3.0 every smallcap computes past 10% and the cap always
+# binds, which would have quietly reverted the 2026-10-06 ATR-scaled floor to
+# a flat one. At 2.0 the floors spread across the whole band (measured mean
+# 8.8%), so a calm name is still protected tighter than a wild one.
+BZONE_CATASTROPHE_STOP_ATR = 2.0
 # Never tighter than this, whatever the ATR says. A very quiet stretch would
 # otherwise compute a floor inside the spread, and this also keeps the 8%
 # orphan-adoption fallback detectable as the mistake it is -- which is the
 # whole job of _is_catastrophe_stop().
-BZONE_CATASTROPHE_STOP_MIN_PCT = 0.10
+BZONE_CATASTROPHE_STOP_MIN_PCT = 0.05
 # How far inside the intended width a resting stop may sit and still count as
 # the floor rather than the SECZ bug. Entry drift and rounding move the
 # measured distance a little; 0.8 absorbs that without admitting a stop that
 # is a different animal.
 BZONE_FLOOR_TOLERANCE = 0.80
-BZONE_CATASTROPHE_STOP_PCT = 0.35
+# Hard max loss per zone. Operator instruction 2026-10-15: "the max loss i
+# want set is 5-10%". Was 0.35, with a 0.10 minimum and a 3.0 ATR multiple.
+#
+# Measured over 75 zone paths with the exit stack as it ships -- broker-side
+# trail armed at +5%, 20-session time exit, this floor -- taking whichever
+# fires first off the daily low:
+#
+#     current 3xATR (10-35%)    mean -1.52%  median +3.75%  worst -25.95%
+#     2.0xATR clamp 5-10%       mean -0.15%  median -2.49%  worst -10.00%
+#     1.5xATR clamp 5-10%       mean +0.22%  median -5.00%  worst -10.00%
+#     flat 10%                  mean -0.43%  median -2.49%  worst -10.00%
+#     flat 5%                   mean +0.26%  median -5.00%  worst  -5.00%
+#
+# A genuine trade-off, not a free win. The earlier note that "every stop
+# tested made it worse" measured the MEDIAN and still holds: capping costs
+# about 6 points of median because it exits positions that would have
+# recovered. It buys back +1.37 of MEAN and cuts the tail from -26% to -10%.
+#
+# 2.0xATR over the slightly better-mean 1.5x because 1.5x puts the median
+# exactly AT the floor -- more than half of all trades stopping out there --
+# and this simulation models no slippage or fees on that extra churn.
+BZONE_CATASTROPHE_STOP_PCT = 0.10
 # Below this distance a resting stop on a zone is the SECZ bug reappearing
 # rather than the intended floor. Used to tell the two apart.
 # BZONE_TIGHT_STOP_PCT (0.25) was removed 2026-10-06. It was the flat bar

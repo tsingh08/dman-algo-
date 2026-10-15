@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-15T09:25:46.783916-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Stock Market Today: Dow Futures Gain, S&amp;P 500, Nasdaq Fall As Chip Stock Sell-Off Intensifies \u2014 SKHY, TSM, RKLB in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-15T09:25:46.789777-04:00",
     "symbols": [
       "SPY"
@@ -5065,6 +5055,16 @@
       "SNDK"
     ],
     "headline": "SanDisk Stock Is Falling on AI Fears. Its $93.9 Billion Contract Book Tells Another Story",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:41:33.448128-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Citigroup Maintains Buy on CrowdStrike Holdings, Raises Price Target to $295",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

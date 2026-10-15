@@ -1,79 +1,5 @@
 [
   {
-    "ts": "2026-10-14T13:49:09.373444-04:00",
-    "symbols": [
-      "MU",
-      "SKHY",
-      "SPCX",
-      "TSLA"
-    ],
-    "headline": "Elon Musk Backs Micron As MU Stock Falls 25%: Is This Memory ETF an AI Stock Bargain?",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T13:49:13.817034-04:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "AppLovin shares are trading lower after Wedbush lowered its price target on the stock from $610 to $560.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-14T13:50:36.212154-04:00",
-    "symbols": [
-      "AMD",
-      "NVDA"
-    ],
-    "headline": "ASML Says AI Boom Is Boosting Pricing Power as Chipmakers Agree to Pay More",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T13:55:21.227197-04:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "Goldman Sachs Maintains Neutral on AppLovin, Lowers Price Target to $400",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-14T13:58:06.680665-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Goldman Sachs Maintains Buy on Meta Platforms, Lowers Price Target to $762",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T14:01:46.828568-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed Beige Book: Most Districts Described Little Or No Net Change In Overall Employment Levels; Since The Prior Beige Book, Two Of The Twelve Federal Reserve Districts Reported Moderate Growth In Economic Activity; However, Expectations Tend To Be For Slight Growth, Weighted Toward Manufacturing And Burdened By Persistent Uncertainties.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T14:02:04.293518-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed Beige Book: Three Districts Characterized Overall Price Growth As Robust, While Eight Noted That Growth Was Moderate\u2014and Three Of The Eight Noted That Input Price Pressures Were Intensifying, If Not Already Growing Robustly.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T14:05:46.361576-04:00",
     "symbols": [
       "SPY"
@@ -5033,5 +4959,75 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:20:56.774709-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Four Booms Heard In Vicinity Of Presidential Palace In Yemen's Aden",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T10:20:56.784642-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Will Tesla's Roadster Fly Tonight? Prediction Markets Say It's Likely",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T10:20:56.918779-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Will Tesla's Roadster Fly Tonight? Prediction Markets Say It's Likely",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T10:20:56.946192-04:00",
+    "symbols": [
+      "OPK"
+    ],
+    "headline": "Penske Automotive, OPKO Health, Ericsson And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T10:20:56.959065-04:00",
+    "symbols": [
+      "ERIC"
+    ],
+    "headline": "Penske Automotive, OPKO Health, Ericsson And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:20:56.971423-04:00",
+    "symbols": [
+      "PAG"
+    ],
+    "headline": "Penske Automotive, OPKO Health, Ericsson And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:20:57.088278-04:00",
+    "symbols": [
+      "ANL"
+    ],
+    "headline": "Penske Automotive, OPKO Health, Ericsson And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -728,5 +728,27 @@
    "regime": "CHOP",
    "regime_score": 9
   }
+ },
+ {
+  "ts": "2026-10-15T14:56:52.699178-04:00",
+  "kind": "signal",
+  "ticker": "PAG",
+  "verdict": "skip",
+  "confidence": 92,
+  "reason": "CHOP regime (score 9) contradicts morning runner setup. Choppy conditions invalidate directional gap hold thesis.",
+  "facts": {
+   "setup": "Morning Runner",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 211.71,
+   "stop": 204.3,
+   "target1": 234.59,
+   "rr": 3.09,
+   "rvol": 5.89,
+   "rsi": 52.1,
+   "reason": "News gap +8.3% on 5.9x vol, holding open | Float 18M, Short 14%",
+   "regime": "CHOP",
+   "regime_score": 9
+  }
  }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:58:18.004346-04:00",
-    "symbols": [
-      "CORZ"
-    ],
-    "headline": "Bitcoin Mining&#39;s Next Evolution May Be Owning The Rewards, Not The Hardware",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T14:58:18.009245-04:00",
     "symbols": [
       "CORZ"
@@ -5043,5 +5033,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T12:36:09.645459-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on ExxonMobil Holdings, Raises Price Target to $185",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,37 +1,5 @@
 [
   {
-    "ts": "2026-10-14T15:23:00.710900-04:00",
-    "symbols": [
-      "ESLT"
-    ],
-    "headline": "Bending Spoons, Liquidia, Verastem And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T15:34:01.852009-04:00",
-    "symbols": [
-      "SXTC"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T15:35:57.568075-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "SPY"
-    ],
-    "headline": "Anthropic Says Later This Month, Claude To Integrate Official Voting Information From Democracy Works For U.S. Users; Claude Will Begin Showing Up-to-date Results On Election Night In The Us And In The Days That Follow; Claude Will Begin Showing Live Election Results &amp; Vote Counts In U.S. Conversations",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T15:45:11.150873-04:00",
     "symbols": [
       "GOOGL"
@@ -5047,6 +5015,40 @@
       "GOOGL"
     ],
     "headline": "&#39;CNN And Google Strike Multiyear Partnership To Embrace Generative AI&#39; - Variety",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T13:35:10.608814-04:00",
+    "symbols": [
+      "MU",
+      "NBIS",
+      "NVDA",
+      "SKHY"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-15T13:35:10.909611-04:00",
+    "symbols": [
+      "AMZN",
+      "TSLA"
+    ],
+    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T13:35:11.150497-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "9 Industrials Stocks With Whale Alerts In Today\u2019s Session",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

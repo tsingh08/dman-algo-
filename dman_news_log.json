@@ -1,18 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:34:28.158261-04:00",
-    "symbols": [
-      "AFRM",
-      "COIN",
-      "GS",
-      "HOOD"
-    ],
-    "headline": "Shares of banks and financial services companies are trading lower after U.S. core inflation data bolstered the case for more Fed monetary tightening, which may slow lending and limit interest margins. Also, weak Q3 segment results from Bank of America and Morgan Stanley may dent confidence in the broader sector.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T14:39:49.541935-04:00",
     "symbols": [
       "AMD",
@@ -5019,6 +5006,21 @@
     "headline": "Dermata Therapeutics Shares Halted On Circuit Breaker To The Upside, Stock Now Up 67.84%",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:39:49.064061-04:00",
+    "symbols": [
+      "AMAT",
+      "AMD",
+      "KLAC",
+      "MRVL",
+      "SKHY",
+      "TE"
+    ],
+    "headline": "Shares of semiconductor and chip companies are trading lower as rising inflation concerns and elevated energy prices fuel expectations for further Fed rate hikes. Rising borrowing costs could pressure fab and AI infrastructure while straining customers budgets. Semiconductor stocks also faced pressure after South Korea\u2019s Kospi index fell more than 7% overnight.",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

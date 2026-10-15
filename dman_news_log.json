@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:58:18.009245-04:00",
-    "symbols": [
-      "CORZ"
-    ],
-    "headline": "Cantor Fitzgerald Reiterates Overweight on Core Scientific, Maintains $39 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T14:58:18.432075-04:00",
     "symbols": [
       "DELL"
@@ -5043,5 +5033,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T12:38:22.415370-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Jefferies Maintains Buy on Microsoft, Raises Price Target to $650",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

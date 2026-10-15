@@ -25401,3 +25401,118 @@ class TestAFailedCloseMustNotLeaveThePositionNaked(unittest.TestCase):
             self.assertEqual(a._restore_protective_stops(
                 cl, "RSKD", [{"qty": 0, "stop_price": 6.95},
                              {"qty": 31, "stop_price": None}]), [])
+
+
+class TestTheTrailRestsAtTheBrokerNotInAPollLoop(unittest.TestCase):
+    """Polling cost 2.43 points the first time the trail ever fired.
+
+    RSKD, 2026-10-14: the trail triggered at +4.98% and the market order
+    filled at +2.55%, because bzmanage runs on the scanner's hourly cadence.
+    Replaying that session's minute bars, a stop resting at the trigger would
+    have filled at 09:39 ET -- 71 minutes earlier -- at the full +4.98%, and
+    the name kept falling (closed +0.66%).
+
+    Simulated over 75 zone paths on daily bars, where the daily LOW is the
+    wick a close-only poll sleeps through:
+
+        poll at the close    mean -5.93%   median -3.88%
+        poll hourly (midpt)  mean -4.27%   median -2.00%
+        RESTING broker stop  mean -2.85%   median +3.75%
+
+    Better on both bounds (+1.42 realistic, +3.08 pessimistic), and the
+    median flips positive. The cost is real and already counted: 17 of the 37
+    paths that armed and stopped (46%) wicked through and then CLOSED back
+    above the stop later.
+
+    This is NOT what _progress_equity_stop_to_trailing() refuses to do to a
+    zone. That would move the floor to ENTRY, a fraction of a sigma from
+    price on a 7%/day name. This moves it to peak*(1-giveback) -- the exact
+    price the trail had already decided to sell at. Same decision, less
+    latency."""
+
+    def _pos(self, entry=8.0367):
+        return SimpleNamespace(ticker="RSKD", entry=entry,
+                               setup=a.BZONE_SETUP + " +165% off low")
+
+    def _run(self, peak, cur_stop="6.95", flag_on=True, orders=None, raises=False):
+        cl = MagicMock()
+        if orders is None:
+            orders = [SimpleNamespace(id="s1", stop_price=cur_stop)]
+        cl.get_orders.return_value = orders
+        if raises:
+            cl.replace_order_by_id.side_effect = RuntimeError("broker down")
+        with patch.object(a, "get_alpaca_client", return_value=cl),              patch.object(a, "flag", return_value=flag_on),              patch.object(a, "_log_swallowed"):
+            out = a._zone_trail_ratchet_stop(self._pos(), peak)
+        return out, cl
+
+    # --- it actually reaches the broker -----------------------------------
+    def test_an_armed_trail_moves_the_resting_stop_up(self):
+        out, cl = self._run(peak=6.64)
+        self.assertAlmostEqual(out, 8.44, places=2)
+        cl.replace_order_by_id.assert_called_once()
+
+    def test_the_level_is_the_price_the_trail_would_have_sold_at(self):
+        """peak*(1-giveback) off entry -- RSKD's +4.98%, not breakeven."""
+        out, _cl = self._run(peak=6.64)
+        self.assertAlmostEqual(
+            out, round(8.0367 * (1 + 6.64 * (1 - a.BZONE_TRAIL_GIVEBACK_PCT) / 100), 2),
+            places=2)
+
+    def test_it_does_not_silently_fail_on_a_missing_import(self):
+        """ReplaceOrderRequest is not module-level in this file. Without a
+        local import the body raises NameError, the except swallows it and
+        the ratchet is dead -- the same shape as the zone trail, the Form 4
+        URL and the 8-K window. Nothing may be swallowed on the happy path."""
+        cl = MagicMock()
+        cl.get_orders.return_value = [SimpleNamespace(id="s1", stop_price="6.95")]
+        with patch.object(a, "get_alpaca_client", return_value=cl),              patch.object(a, "flag", return_value=True),              patch.object(a, "_log_swallowed") as sw:
+            a._zone_trail_ratchet_stop(self._pos(), 6.64)
+        sw.assert_not_called()
+
+    # --- it can only ever tighten -----------------------------------------
+    def test_it_never_moves_a_stop_down(self):
+        """A trail that can loosen is not a trail, and a bar-derived peak can
+        read lower after a data hiccup."""
+        out, cl = self._run(peak=6.64, cur_stop="8.44")
+        self.assertIsNone(out)
+        cl.replace_order_by_id.assert_not_called()
+
+    def test_an_unarmed_position_is_left_alone(self):
+        out, cl = self._run(peak=a.BZONE_TRAIL_ACTIVATE_PCT - 0.1)
+        self.assertIsNone(out)
+        cl.replace_order_by_id.assert_not_called()
+
+    def test_the_level_always_sits_above_entry(self):
+        """So it can only ever widen the gap to the catastrophe floor, never
+        shrink it -- the objection that excludes zones elsewhere."""
+        out, _cl = self._run(peak=a.BZONE_TRAIL_ACTIVATE_PCT)
+        self.assertGreater(out, 8.0367)
+
+    # --- degradation -------------------------------------------------------
+    def test_the_flag_switches_it_off(self):
+        out, cl = self._run(peak=6.64, flag_on=False)
+        self.assertIsNone(out)
+        cl.replace_order_by_id.assert_not_called()
+
+    def test_a_broker_error_fails_open(self):
+        """The poll-based exit is still the backstop, so a hiccup costs
+        latency rather than protection."""
+        out, _cl = self._run(peak=6.64, raises=True)
+        self.assertIsNone(out)
+
+    def test_no_resting_stop_is_not_an_error(self):
+        out, cl = self._run(peak=6.64, orders=[])
+        self.assertIsNone(out)
+        cl.replace_order_by_id.assert_not_called()
+
+    def test_a_bad_entry_price_does_not_raise(self):
+        cl = MagicMock()
+        with patch.object(a, "get_alpaca_client", return_value=cl),              patch.object(a, "flag", return_value=True),              patch.object(a, "_log_swallowed"):
+            self.assertIsNone(a._zone_trail_ratchet_stop(self._pos(entry=0), 6.64))
+
+    # --- wiring -------------------------------------------------------------
+    def test_the_trail_check_ratchets_before_it_polls(self):
+        """If this is dropped the trail goes back to paying the latency the
+        measurement was done to remove."""
+        src = inspect.getsource(a._zone_trail_exit_check)
+        self.assertIn("_zone_trail_ratchet_stop(", src)

@@ -12783,6 +12783,32 @@ BZONE_MAX_EXPOSURE_PCT = 0.40
 ENABLE_BZONE_TRAIL        = True
 BZONE_TRAIL_ACTIVATE_PCT  = 5.0    # peak gain that arms the trail
 BZONE_TRAIL_GIVEBACK_PCT  = 0.25   # exit once this fraction of the peak is back
+# Rest the armed trail AT THE BROKER instead of waiting for the next poll.
+#
+# The trail fired live for the first time on 2026-10-14 and the cost of
+# polling was measurable on that single trade: RSKD triggered at +4.98% and
+# the market order filled at +2.55%, 2.43 points later, because bzmanage runs
+# on the scanner's hourly cadence. Replaying that session's minute bars, a
+# stop resting at the trigger would have filled at 09:39 ET -- 71 minutes
+# earlier -- at the full +4.98%, and the name kept falling (closed +0.66%).
+#
+# Simulated across 75 zone paths from dman_bzone_shadow.json on daily bars,
+# where the daily LOW is the wick a close-only poll sleeps through:
+#
+#     poll at the close    mean -5.93%   median -3.88%   (pessimistic bound)
+#     poll hourly (midpt)  mean -4.27%   median -2.00%   (realistic)
+#     RESTING broker stop  mean -2.85%   median +3.75%
+#
+# Better on both bounds: +1.42 points/trade against realistic polling, +3.08
+# against close-only. The median is the striking part -- it flips negative to
+# positive.
+#
+# The cost is real and is already inside those numbers: of the 37 paths that
+# armed and stopped, 17 (46%) wicked through the stop and then CLOSED back
+# above it on a later day. Nearly half the time this exits a position that
+# would have recovered. It still wins, because the 54% that do not recover
+# give back more than the 46% cost.
+ENABLE_BZONE_BROKER_TRAIL = True
 
 BZONE_CATASTROPHE_STOP_ATR = 3.0
 # Never tighter than this, whatever the ATR says. A very quiet stretch would
@@ -13027,6 +13053,68 @@ def _zone_peak_gain_pct(ticker: str, entry: float, entry_date,
         return float(stored or 0.0)
 
 
+def _zone_trail_ratchet_stop(pos, peak_pct: float) -> Optional[float]:
+    """Move the zone's resting stop UP to the armed trail level. New price, or None.
+
+    This is deliberately NOT the thing _progress_equity_stop_to_trailing()
+    refuses to do to a zone, and the distinction matters enough to spell out.
+    That function would replace the floor with pos.ENTRY once a percentage
+    gain is hit -- on a 7.4%/day name a breakeven stop sits a fraction of a
+    sigma from price and is taken on any pullback, which is why zones are
+    excluded there. This moves the stop to peak*(1-giveback), which is not a
+    new and tighter idea: it is the exact price _zone_trail_exit_check()
+    had already decided to market-sell at. The decision is unchanged; only
+    the latency is. Nothing here ever moves a stop DOWN, and an armed trail
+    level always sits above entry, so the catastrophe floor can only widen
+    the gap, never shrink it.
+
+    Replaced in place via PATCH rather than cancel-and-resubmit, for the same
+    reason step 1 of _progress_equity_stop_to_trailing() does: a cancel leaves
+    a window where the shares are unreserved, and a resubmit that fails in
+    that window leaves the position naked (see _restore_protective_stops()).
+    """
+    if not flag("ENABLE_BZONE_BROKER_TRAIL", ENABLE_BZONE_BROKER_TRAIL):
+        return None
+    if peak_pct < BZONE_TRAIL_ACTIVATE_PCT:
+        return None
+    try:
+        # ReplaceOrderRequest is NOT module-level in this file -- it is
+        # imported inside _progress_equity_stop_to_trailing(). Without this
+        # line the body raises NameError, the except below swallows it, and
+        # the ratchet is silently dead: the exact failure shape as the zone
+        # trail itself, the Form 4 URL and the 8-K window.
+        from alpaca.trading.requests import ReplaceOrderRequest
+        _entry = float(getattr(pos, "entry", 0) or 0)
+        if _entry <= 0:
+            return None
+        _lvl = peak_pct * (1.0 - BZONE_TRAIL_GIVEBACK_PCT)
+        _want = round(_entry * (1.0 + _lvl / 100.0), 2)
+        _client = get_alpaca_client()
+        if _client is None:
+            return None
+        _sym = str(getattr(pos, "ticker", "") or "")
+        _orders = _client.get_orders(filter=GetOrdersRequest(
+            symbols=[_sym], status=QueryOrderStatus.OPEN, limit=20))
+        for _o in _orders:
+            _cur = getattr(_o, "stop_price", None)
+            if not _cur:
+                continue
+            # Ratchet ONLY upward. A trail that can loosen is not a trail, and
+            # a peak derived from bars can read lower after a data hiccup.
+            if _want <= float(_cur) + 0.004:
+                return None
+            _client.replace_order_by_id(
+                _o.id, ReplaceOrderRequest(stop_price=_want))
+            print(f"  \U0001f513 {_sym}: trail stop {float(_cur):.2f} -> {_want:.2f} "
+                  f"(peak {peak_pct:+.2f}%)")
+            return _want
+    except Exception as exc:
+        # Fail open: the poll-based exit below is still the backstop, so a
+        # broker hiccup costs latency rather than protection.
+        _log_swallowed("zone trail ratchet", exc)
+    return None
+
+
 def _zone_trail_exit_check(notify: bool = True) -> list:
     """Sell any zone that has handed back BZONE_TRAIL_GIVEBACK_PCT of its peak.
 
@@ -13081,6 +13169,10 @@ def _zone_trail_exit_check(notify: bool = True) -> list:
                 _changed = True
             if _peak < BZONE_TRAIL_ACTIVATE_PCT:
                 continue
+            # Put the trail at the broker first. If price is already below the
+            # level this pass, the market exit below still runs -- the resting
+            # stop is a latency fix, not a replacement for the decision.
+            _zone_trail_ratchet_stop(_pos, _peak)
             if _gain > _peak * (1.0 - BZONE_TRAIL_GIVEBACK_PCT):
                 continue
             _st, _oid = _close_position_at_market(

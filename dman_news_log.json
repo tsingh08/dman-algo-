@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-14T15:18:01.777206-04:00",
-    "symbols": [
-      "WFF"
-    ],
-    "headline": "WF Holding Shares Halted On Circuit Breaker To The Downside, Stock Now Down -30.66%",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T15:22:34.524926-04:00",
     "symbols": [
       "SPY"
@@ -5050,5 +5040,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T13:28:17.445410-04:00",
+    "symbols": [
+      "ELF"
+    ],
+    "headline": "e.l.f. Beauty shares are trading higher after Morgan Stanley maintained its Equal-Weight rating on the stock and raised its price target from $90 to $103.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

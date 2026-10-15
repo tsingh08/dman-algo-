@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:58:15.401281-04:00",
-    "symbols": [
-      "CRWV"
-    ],
-    "headline": "ASML Says AI Boom Is Boosting Pricing Power as Chipmakers Agree to Pay More",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T14:58:15.405748-04:00",
-    "symbols": [
-      "CRWV"
-    ],
-    "headline": "CoreWeave CEO Defends Company&#39;s Financial Strength Amid AI Sector Concerns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T14:58:15.618616-04:00",
-    "symbols": [
-      "CNXU"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T14:58:16.715511-04:00",
-    "symbols": [
-      "BAC"
-    ],
-    "headline": "JPMorgan Addresses &#39;Rogue Agents&#39; as AI Gives Banks New Security Problems",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T14:58:16.720340-04:00",
-    "symbols": [
-      "BAC"
-    ],
-    "headline": "Nasdaq Dips Over 400 Points; Bank of America Shares Tumble After Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T14:58:16.928884-04:00",
-    "symbols": [
-      "CANG"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-14T14:58:17.140060-04:00",
-    "symbols": [
-      "IBRX"
-    ],
-    "headline": "Why Is ImmunityBio Stock Gaining Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T14:58:17.764752-04:00",
     "symbols": [
       "AMPG"
@@ -5039,5 +4969,79 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T12:22:12.660540-04:00",
+    "symbols": [
+      "AMD",
+      "MU",
+      "NVDA",
+      "SKHY",
+      "SNDK"
+    ],
+    "headline": "AI Financing Fears Hammer Chip Stocks: These 2 ETFs Are Cashing In on the Sell-Off",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T12:22:38.695327-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "AI Financing Fears Hammer Chip Stocks: These 2 ETFs Are Cashing In on the Sell-Off",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T12:22:38.712269-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AI Financing Fears Hammer Chip Stocks: These 2 ETFs Are Cashing In on the Sell-Off",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T12:22:40.232981-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "AI Financing Fears Hammer Chip Stocks: These 2 ETFs Are Cashing In on the Sell-Off",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-15T12:22:40.433861-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "AI Financing Fears Hammer Chip Stocks: These 2 ETFs Are Cashing In on the Sell-Off",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T12:22:40.546363-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "AI Financing Fears Hammer Chip Stocks: These 2 ETFs Are Cashing In on the Sell-Off",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T12:22:48.037801-04:00",
+    "symbols": [
+      "SOXS"
+    ],
+    "headline": "AI Financing Fears Hammer Chip Stocks: These 2 ETFs Are Cashing In on the Sell-Off",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

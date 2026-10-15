@@ -1128,5 +1128,85 @@
 "extension_pct": 11.5,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "VEEV",
+"date": "2026-10-15",
+"close": 313.03,
+"base_days": 256,
+"above_low_pct": 106.7,
+"extension_pct": 11.9,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "ETSY",
+"date": "2026-10-15",
+"close": 89.18,
+"base_days": 64,
+"above_low_pct": 102.5,
+"extension_pct": 21.8,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "MRNA",
+"date": "2026-10-15",
+"close": 236.5,
+"base_days": 3,
+"above_low_pct": 957.7,
+"extension_pct": 21.9,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "TEAM",
+"date": "2026-10-15",
+"close": 217.12,
+"base_days": 2,
+"above_low_pct": 279.9,
+"extension_pct": 12.1,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "PD",
+"date": "2026-10-15",
+"close": 17.25,
+"base_days": 1,
+"above_low_pct": 201.0,
+"extension_pct": 13.1,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "SSL",
+"date": "2026-10-15",
+"close": 15.92,
+"base_days": 1,
+"above_low_pct": 198.7,
+"extension_pct": 11.1,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "FIGS",
+"date": "2026-10-15",
+"close": 19.54,
+"base_days": 1,
+"above_low_pct": 170.6,
+"extension_pct": 36.6,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "CBLL",
+"date": "2026-10-15",
+"close": 27.64,
+"base_days": 1,
+"above_low_pct": 153.1,
+"extension_pct": 13.4,
+"fresh_base": false,
+"weak_band": false
 }
 ]

@@ -1888,5 +1888,32 @@
   "drift_pct": 0.0,
   "range_ratio": 0.5,
   "near_high": 0.995
+ },
+ {
+  "ts": "2026-10-15T11:14:17.952860-04:00",
+  "ticker": "RLY",
+  "price": 37.055,
+  "rvol": 2.55,
+  "drift_pct": 0.5,
+  "range_ratio": 0.28,
+  "near_high": 0.971
+ },
+ {
+  "ts": "2026-10-15T11:14:17.952879-04:00",
+  "ticker": "MLAA",
+  "price": 10.01,
+  "rvol": 7.99,
+  "drift_pct": 0.0,
+  "range_ratio": 0.5,
+  "near_high": 0.995
+ },
+ {
+  "ts": "2026-10-15T11:14:17.952884-04:00",
+  "ticker": "CEPF",
+  "price": 10.27,
+  "rvol": 3.6,
+  "drift_pct": 0.0,
+  "range_ratio": 0.23,
+  "near_high": 0.978
  }
 ]

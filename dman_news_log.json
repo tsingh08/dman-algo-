@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-15T09:25:42.309400-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "CORRECTION: On October 14, 2026, Goldman Sachs Maintained Buy on Meta Platforms, Maintains Price Target at $860",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:42.315073-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Cathie Wood Buys $12.4 Million Of CoreWeave Stock As Analyst Warns Of Equity Wipeout, Ark Sells Palantir Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:42.393106-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Nvidia CEO Jensen Huang Rejects Sam Altman&#39;s Advice to &#39;Accept&#39; AI Cybersecurity Risks: \u2018We Should Do Everything...to Avoid Them\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:42.398639-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "NYC Comptroller Mark Levine Says Urges Anthropic To Pause Its IPO Until Co Addresses AI Safety, Governance And Pace Concerns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:42.403967-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Wall Street&#39;s Most Accurate Analysts Give Their Take On 3 Utilities Stocks Delivering High-Dividend Yields",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:42.409002-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google Search\u2019s $250 Billion Business Faces a New AI Threat: Why Gene Munster Thinks Meta\u2019s Muse May Be More Dangerous Than ChatGPT",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:42.413769-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Anthropic&#39;s Q3 Revenue Surged 45% to $16.8 Billion, Profitable on Adjusted Basis as Dario Amodei Courts Investors: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:42.485347-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Rolls Out Bee Frontier, Bee Eclipse",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-15T09:25:42.490430-04:00",
     "symbols": [
       "AMZN"
@@ -5050,5 +4970,85 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T14:06:47.741694-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Shares of travel and hotel companies are trading higher as bond yields retreat, with investors rotating out of AI-exposed stocks to sectors with more proven cash flows ahead of continued Fed monetary tightening.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T14:08:15.188969-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google&#39;s $4 Billion Fuel-Cell Project Puts Bloom Energy&#39;s AI Power Backlog to the Test",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:08:51.515130-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Intelligence Reportedly Nears China Debut After Delays. What to Expect",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:08:51.530202-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Google Search\u2019s $250 Billion Business Faces a New AI Threat: Why Gene Munster Thinks Meta\u2019s Muse May Be More Dangerous Than ChatGPT",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:08:51.553463-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Evercore ISI Group Maintains Outperform on Applied Materials, Lowers Price Target to $590",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:08:51.631199-04:00",
+    "symbols": [
+      "DBGI"
+    ],
+    "headline": "Digital Brands Group Creates VP Of Strategic Partnerships For Sports &amp; Entertainment Role For Year-Round Licensing And Brand Partnership Opportunities",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T14:08:51.645451-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "United Airlines Announces ~50% Of Its Flights Are Now Equipped With Starlink Wi-Fi, Rolls Out Starlink Tracker Tool",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:08:51.996461-04:00",
+    "symbols": [
+      "WULF"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

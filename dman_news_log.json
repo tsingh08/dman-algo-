@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-15T09:25:42.490430-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "NYC Comptroller Mark Levine Says Urges Anthropic To Pause Its IPO Until Co Addresses AI Safety, Governance And Pace Concerns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-15T09:25:42.495588-04:00",
     "symbols": [
       "AMZN"
@@ -5050,5 +5040,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:12:35.532118-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google Quantum AI Achieves 40-Fold Error Reduction In Magic State Cultivation, Advancing Practical Quantum Computing",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

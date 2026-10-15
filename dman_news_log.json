@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-15T09:38:07.382561-04:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "AppLovin Stock Sinks To 52-Week Low - Here's Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:38:12.811184-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "CRWV, NBIS, IREN in Focus: Gartner Warns 80% of Neoclouds Will 'Cease Independent Operations' by 2030",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-15T09:38:12.917425-04:00",
     "symbols": [
       "SCNI"
@@ -5069,5 +5049,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:56:22.844443-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Citigroup Maintains Buy on Palo Alto Networks, Raises Price Target to $440",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:56:27.755263-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "CoreWeave Stock Snaps Back as Nvidia CEO Signals Support",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

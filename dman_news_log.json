@@ -1,265 +1,5 @@
 [
   {
-    "ts": "2026-10-15T09:38:01.572814-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Iran Media Outlet Says Google, Meta, Microsoft, Amazon Should Pay Fees for Hormuz Undersea Cables (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:38:01.580244-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "'Eight U.S. States Sue OpenAI, Claiming ChatGPT Harms Children' - Reuters News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:38:01.835913-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia CEO Jensen Huang Rejects Sam Altman's Advice to 'Accept' AI Cybersecurity Risks: \u2018We Should Do Everything...to Avoid Them\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:38:01.847230-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "SK Hynix Stock Extends Rout As South Korea's Chip Giants Face Brutal Selloff",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:38:01.858221-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Micron Stock Slides Again Thursday: What's Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:38:02.173181-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Iran Media Outlet Says Google, Meta, Microsoft, Amazon Should Pay Fees for Hormuz Undersea Cables (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:38:02.389005-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Nvidia CEO Jensen Huang Rejects Sam Altman's Advice to 'Accept' AI Cybersecurity Risks: \u2018We Should Do Everything...to Avoid Them\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:38:02.397909-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Wall Street's Most Accurate Analysts Give Their Take On 3 Utilities Stocks Delivering High-Dividend Yields",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:38:02.406532-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Anthropic's Q3 Revenue Surged 45% to $16.8 Billion, Profitable on Adjusted Basis as Dario Amodei Courts Investors: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:38:02.541700-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Anthropic's Q3 Revenue Surged 45% to $16.8 Billion, Profitable on Adjusted Basis as Dario Amodei Courts Investors: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:38:02.549706-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Iran Media Outlet Says Google, Meta, Microsoft, Amazon Should Pay Fees for Hormuz Undersea Cables (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:38:02.557003-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "'Anthropic Q3 Revenue Hit $16.8B, According To People Familiar With The Matter' - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:38:03.730590-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "'Tesla Readies Flying Car Demo To Pump Up Sluggish Auto Business; Planning To Unveil Its Long-Promised New Roadster Sports Car Thursday In Texas, Reviving And Refreshing A Model That Tesla Stopped Producing More Than A Decade Ago' - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:38:03.746715-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "When Can You Buy a Tesla Cybercab? Investors Press Elon Musk on Robotaxis, HW3 FSD and More Ahead of TSLA's Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:38:03.937249-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Hasn't Cut This Many Jobs Since Its Subscriber Scare. So Why Now?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:38:04.263020-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Lumen Technologies And Snowflake Partner To Combine LUMN's Programmable Networking Capabilities With SNOW's AI Data Cloud",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:38:04.462204-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Surf Air Mobility Signs Definitive Agreement With Flying Zebra For OperatorOS, Surf Air Mobility's SurfOS Flight Operations Software For Part 135 Operators Powered By Palantir",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:38:04.855032-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Micron Stock Slides Again Thursday: What's Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:38:04.982716-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Elon Musk Praises Micron's Pricing Strategy. Its $150 Billion Contract Book Explains Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:38:04.991034-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Stock Slides Again Thursday: What's Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:38:05.119826-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Sandisk Stock Is Falling Thursday: What's Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:38:05.128435-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Micron Stock Slides Again Thursday: What's Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:38:05.259198-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Stock Market Today: Dow Futures Gain, S&P 500, Nasdaq Fall As Chip Stock Sell-Off Intensifies \u2014 SKHY, TSM, RKLB in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:38:05.268997-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "SK Hynix Stock Extends Rout As South Korea's Chip Giants Face Brutal Selloff",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:38:05.669200-04:00",
-    "symbols": [
-      "RIOT"
-    ],
-    "headline": "Riot Platforms Inks BitGo Custodial Services Agreement With BitGo Bank & Trust, NA; BitG To Serve As Custodian Of Riot's Digital Assets",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-15T09:38:07.101540-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Stock Market Today: Dow Futures Gain, S&P 500, Nasdaq Fall As Chip Stock Sell-Off Intensifies \u2014 SKHY, TSM, RKLB in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-15T09:38:07.382561-04:00",
     "symbols": [
       "APP"
@@ -5069,5 +4809,265 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-15T14:51:26.195629-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly shares are trading higher after the company reported new data showing Omvoh helped patients with ulcerative colitis and Crohn&#39;s disease achieve multiple treatment goals at one year.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:52:04.105176-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "&#39;Tesla Readies Flying Car Demo To Pump Up Sluggish Auto Business; Planning To Unveil Its Long-Promised New Roadster Sports Car Thursday In Texas, Reviving And Refreshing A Model That Tesla Stopped Producing More Than A Decade Ago&#39; - Bloomberg News",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:52:04.132595-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Supreme Court Has &#39;Very Good Chance&#39; of Taking Kalshi Legal Fight, Former CFTC Counsel Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:52:04.137193-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Watch $77,000 for Bitcoin Bull Market Confirmation, Crypto Expert Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:52:04.167427-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "Supreme Court Has &#39;Very Good Chance&#39; of Taking Kalshi Legal Fight, Former CFTC Counsel Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-15T14:52:04.213611-04:00",
+    "symbols": [
+      "BCTX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T14:52:04.218145-04:00",
+    "symbols": [
+      "CAST"
+    ],
+    "headline": "FreeCast Partnered With Cajun Broadband To Bring Media Monetization Platform To Louisiana Broadband Customers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T14:52:04.223200-04:00",
+    "symbols": [
+      "CDT"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T14:52:04.228532-04:00",
+    "symbols": [
+      "CISS"
+    ],
+    "headline": "C3is (CISS) Stock Soars Over 17% After Hours: What\u2019s Driving the Surge?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T14:52:04.234682-04:00",
+    "symbols": [
+      "FMFC"
+    ],
+    "headline": "Kandal M Venture H1 Sales $9.556M Up From $7.904M YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T14:52:04.239741-04:00",
+    "symbols": [
+      "IPW"
+    ],
+    "headline": "iPower Inks Five-Year Non-Binding Letter Of Intent With Undisclosed Client For AI Computing Equipment; Client Identifies Initial Fleet Of 48 Units At Proposed Rate Of $4,608 Per Month Or Up To $21.9M On Annually For Five Years",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T14:52:04.248406-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "CRWV, NBIS, IREN in Focus: Gartner Warns 80% of Neoclouds Will &#39;Cease Independent Operations&#39; by 2030",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:52:04.254050-04:00",
+    "symbols": [
+      "SCNI"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T14:52:04.262831-04:00",
+    "symbols": [
+      "SURG"
+    ],
+    "headline": "SurgePays Announces Availability Of Growthline By Surgepays To Its Partner Brands",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T14:52:04.269586-04:00",
+    "symbols": [
+      "WETO"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T14:52:04.273889-04:00",
+    "symbols": [
+      "WETO"
+    ],
+    "headline": "Wetour Robotics Announces Temporary Pause Of Its ATM Equity Offering Program",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T14:52:04.279373-04:00",
+    "symbols": [
+      "NCPL"
+    ],
+    "headline": "Why Ericsson Shares Are Trading Higher By Around 11%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-15T14:52:04.283730-04:00",
+    "symbols": [
+      "NCPL"
+    ],
+    "headline": "Netcapital (NCPL) Stock Climbs Nearly 19% After Hours: What\u2019s Behind the Move?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-15T14:52:04.292411-04:00",
+    "symbols": [
+      "OPK"
+    ],
+    "headline": "UPDATE: Labcorp Agrees To Acquire Select Assets Of OPKO Health&#39;s BioReference Health Subsidiary For $722M In Cash, Up To Additional $150M In Earnout On Revenue",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:52:04.296840-04:00",
+    "symbols": [
+      "OPK"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:52:04.308578-04:00",
+    "symbols": [
+      "ERIC"
+    ],
+    "headline": "Stock Market Today: Dow Futures Gain, S&amp;P 500, Nasdaq Fall As Chip Stock Sell-Off Intensifies \u2014 SKHY, TSM, RKLB in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:52:04.312968-04:00",
+    "symbols": [
+      "ERIC"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:52:04.323024-04:00",
+    "symbols": [
+      "PAG"
+    ],
+    "headline": "Penske Automotive to Go Private in $16.3 Billion Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T14:52:04.327464-04:00",
+    "symbols": [
+      "PAG"
+    ],
+    "headline": "Penske Automotive Group To Be Taken Private By Penske Corporation, Mitsui &amp; Co. And Others For $212/Share In Cash At An EV Of ~$16.3B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T14:52:04.332979-04:00",
+    "symbols": [
+      "CMC"
+    ],
+    "headline": "Earnings Scheduled For October 15, 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:52:04.337360-04:00",
+    "symbols": [
+      "CMC"
+    ],
+    "headline": "Commercial Metals Q4 Adj. EPS $2.09 Beats $1.97 Estimate, Sales $2.658B Beat $2.572B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

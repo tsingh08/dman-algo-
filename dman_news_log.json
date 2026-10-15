@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-14T15:05:42.824546-04:00",
-    "symbols": [
-      "CDT"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T15:05:42.996011-04:00",
     "symbols": [
       "CYCU"
@@ -5048,5 +5038,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T13:22:32.116488-04:00",
+    "symbols": [
+      "WETO"
+    ],
+    "headline": "Crude Oil Moves Higher; Charles Schwab Shares Fall After Q3 Results",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

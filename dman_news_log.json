@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-14T15:45:11.150873-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Anthropic Says Later This Month, Claude To Integrate Official Voting Information From Democracy Works For U.S. Users; Claude Will Begin Showing Up-To-Date Results On Election Night In The U.S. And In The Days That Follow; Claude Will Begin Showing Live Election Results &amp; Vote Counts In U.S. Conversations",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-14T15:45:11.430945-04:00",
     "symbols": [
       "AMZN"
@@ -5052,5 +5042,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T13:38:09.932465-04:00",
+    "symbols": [
+      "DDOG"
+    ],
+    "headline": "Mizuho Maintains Outperform on Datadog, Raises Price Target to $330",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

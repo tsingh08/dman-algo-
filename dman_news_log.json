@@ -1,59 +1,5 @@
 [
   {
-    "ts": "2026-10-14T13:32:38.994865-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Gains on Anthropic in AI Race: Guggenheim",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T13:33:14.527809-04:00",
-    "symbols": [
-      "CBAT"
-    ],
-    "headline": "CBAK Energy Technology Reports Cumulative Sales To A European RV Energy Storage Customer Of ~$4.76M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T13:33:53.445626-04:00",
-    "symbols": [
-      "RBLX"
-    ],
-    "headline": "JP Morgan Maintains Neutral on Roblox, Raises Price Target to $53",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T13:34:57.843012-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Truist Securities Maintains Hold on JPMorgan Chase, Raises Price Target to $361",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T13:35:11.248147-04:00",
-    "symbols": [
-      "IONQ",
-      "NBIS",
-      "NVDA",
-      "SMCI",
-      "SNDK"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-14T13:35:11.524936-04:00",
     "symbols": [
       "GME",
@@ -5045,5 +4991,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:06:03.513690-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Four Booms Heard In Vicinity Of Presidential Palace In Yemen&#39;s Aden",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:07:30.232230-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Ericsson Plans Price Hikes As AI Boom Drives Up Equipment Costs",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T10:08:16.238204-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.K.&#39;s Medicines And Healthcare Products Regulatory Agency Announces It Seized More Than 12K Fake Retatrutide And Tirzepatide Pens Along With Packaging For ~30K More Products In Birmingham On Oct. 14",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T10:08:16.446697-04:00",
+    "symbols": [
+      "ERIC"
+    ],
+    "headline": "Ericsson Plans Price Hikes As AI Boom Drives Up Equipment Costs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:08:16.671626-04:00",
+    "symbols": [
+      "ANL"
+    ],
+    "headline": "Adlai Nortye Group enters Clinical Trial Collaboration And Supply Agreements With Eli Lilly And Merck KGaA For The ERBITUX Anti-EGFR Antibody",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

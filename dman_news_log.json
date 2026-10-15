@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:58:15.396705-04:00",
-    "symbols": [
-      "CRWV"
-    ],
-    "headline": "&#34;CoreWeave\u2019s CEO Blames Rout on Market Acting \u2018Irrationally\u2019&#34; - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-14T14:58:15.401281-04:00",
     "symbols": [
       "CRWV"
@@ -5039,5 +5029,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T12:12:48.187833-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on Chevron, Raises Price Target to $226",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

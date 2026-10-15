@@ -1,46 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:28:35.222259-04:00",
-    "symbols": [
-      "AMAT",
-      "AMD",
-      "ARM",
-      "AVGO",
-      "KLAC",
-      "MRVL",
-      "MU",
-      "NVDA",
-      "ON",
-      "QCOM",
-      "SKHY",
-      "WOLF"
-    ],
-    "headline": "Shares of semiconductor and chip companies are trading lower amid elevated expectations for Fed rate hikes due to broader inflation and energy challenges. Higher borrowing costs may affect the sector&#39;s ambitious capex plans while also creating risks for customers, which may be reflected in lower demand.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T14:29:01.904499-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "BlackRock Expects Strong Fourth Quarter as AI Investment, Fundraising Grow",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T14:33:21.766171-04:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "Citigroup Maintains Buy on e.l.f. Beauty, Raises Price Target to $130",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-14T14:34:28.158261-04:00",
     "symbols": [
       "AFRM",
@@ -5029,6 +4988,36 @@
     ],
     "headline": "Barclays Maintains Overweight on SLB, Lowers Price Target to $66",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:37:36.824822-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is Dell Technologies Stock Sinking Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T10:37:58.466748-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "AI Build-Out Has \u2018Broken the Old Demand Cycle,\u2019 Chip Veteran Says as TSMC Posts Record Profit",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T10:38:05.817893-04:00",
+    "symbols": [
+      "DRMA"
+    ],
+    "headline": "Dermata Therapeutics Shares Halted On Circuit Breaker To The Upside, Stock Now Up 67.84%",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

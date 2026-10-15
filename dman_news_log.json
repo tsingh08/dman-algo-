@@ -1,20 +1,5 @@
 [
   {
-    "ts": "2026-10-14T13:35:11.839017-04:00",
-    "symbols": [
-      "APP",
-      "GOOGL",
-      "META",
-      "NFLX",
-      "SPCX",
-      "SPOT"
-    ],
-    "headline": "10 Communication Services Stocks Whale Activity In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-14T13:39:22.632580-04:00",
     "symbols": [
       "CEG",
@@ -5041,6 +5026,16 @@
     "headline": "Will Tesla&#39;s Roadster Fly Tonight? Prediction Markets Say It&#39;s Likely",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:12:24.226560-04:00",
+    "symbols": [
+      "KPLT"
+    ],
+    "headline": "Penske Automotive, OPKO Health, Ericsson And Other Big Stocks Moving Higher On Thursday",
+    "source": "benzinga",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

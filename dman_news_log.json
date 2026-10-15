@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:58:14.685797-04:00",
-    "symbols": [
-      "BSP"
-    ],
-    "headline": "QUICK SPARK: Berkshire Stock Is Doing Something It Hasn\u2019t Done Since January 2018",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T14:58:14.690541-04:00",
-    "symbols": [
-      "BSP"
-    ],
-    "headline": "Berkshire Hathaway Doubles Down on Bending Spoons with $330 Million Investment, Sending Shares Soaring 45%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T14:58:14.695092-04:00",
-    "symbols": [
-      "BSP"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T14:58:14.699552-04:00",
     "symbols": [
       "BSP"
@@ -5038,5 +5008,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T12:01:24.239755-04:00",
+    "symbols": [
+      "HUMA"
+    ],
+    "headline": "Humacyte Reports Accelerating Commercial Adoption, Reports 44% Increase In Hospitals Ordering Symvess To 49 In Q3 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-15T12:01:29.616143-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Lockheed Martin Skunk Works, The Royal Netherlands Aerospace Deepen Collaboration For Coordination On Military Operational Analysis, Alignment On Technology Roadmaps, Partnership On Unmanned Aerial Systems",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T12:01:46.515737-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "EIA Weekly Distillates Stocks 2.527M Barrel Draw Vs 1.600M Barrel Draw Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

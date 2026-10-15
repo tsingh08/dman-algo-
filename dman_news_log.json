@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-15T09:25:43.648298-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "StoneX Initiates Coverage On ON Semiconductor with Buy Rating, Announces Price Target of $110",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:43.653304-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "$100 Invested In ON Semiconductor 15 Years Ago Would Be Worth This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-15T09:25:43.719602-04:00",
     "symbols": [
       "RIOT"
@@ -5054,5 +5034,27 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T14:17:30.035825-04:00",
+    "symbols": [
+      "CAT",
+      "ETN",
+      "GEV"
+    ],
+    "headline": "Shares of data center infrastructure-related companies are trading lower as concerns mount about highly leveraged customers&#39; credit health, which may weigh on expectations for demand, backlogs and margins across the sector.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:17:44.866056-04:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "StoneX Initiates Coverage On ON Semiconductor with Buy Rating, Announces Price Target of $110",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

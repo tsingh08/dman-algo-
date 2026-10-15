@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:18:55.915061-04:00",
-    "symbols": [
-      "DFH"
-    ],
-    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T14:18:56.893874-04:00",
-    "symbols": [
-      "BAC"
-    ],
-    "headline": "Live On CNBC, Stephanie Link Announces Trimmed Bank of America Position",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-14T14:18:56.896693-04:00",
     "symbols": [
       "BAC"
@@ -5031,5 +5011,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:27:37.687117-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Surf Air Mobility Expands Palantir-Powered AI Push With Fifth Aviation Software Deal",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T10:30:39.017659-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab shares are trading lower after the company announced that the Neutron\u2019s inaugural launch is now expected to occur in 2027.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

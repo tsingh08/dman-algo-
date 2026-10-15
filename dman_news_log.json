@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-14T12:00:07.846255-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Palantir, Mayor Of London Reach Settlement Over Alleged Allegations Regarding Palantir&#39;s Unified Operational Analytics Contract With Metropolitan Police Service",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-14T12:00:26.113575-04:00",
     "symbols": [
       "RIOT"
@@ -5071,6 +5061,16 @@
       "SPY"
     ],
     "headline": "FTC Spokesman Says President Trump Task Force On AI To Meet Thursday",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:43:55.262581-04:00",
+    "symbols": [
+      "WETO"
+    ],
+    "headline": "Nasdaq Down Over 1%; US Producer Inflation Surges In September",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

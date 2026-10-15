@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-10-15T09:25:46.216084-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "SK Hynix Stock Plunges 11% in Seoul, Slips After Hours in New York as Hot CPI, Fed Hike Bets and AI Funding Worries Weigh",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:25:46.257760-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Potential $100 Billion Anthropic IPO Could Boost Wall Street Banks: Which ETFs Stand to Benefit?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:25:46.338476-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Top 3 Financial Stocks You May Want To Dump In Q4",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:46.408457-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Top 3 Financial Stocks You May Want To Dump In Q4",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:25:46.413829-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Mastercard And BVNK Launch The Mastercard Global Money Platform To Incorporate Stablecoin Infrastructure Through Single API",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:25:46.549994-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Why Is Costco (COST) Stock Trending After Hours?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:25:46.626478-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "SK Hynix\u2019s Worst 7-Day Loss Since 2008: AI Bubble Bursting Or Historical Opportunity?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-15T09:25:46.698975-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Market Analysis: Adobe And Competitors In Software Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:46.770765-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Project Vault, The U.S. Government-Backed Critical-Minerals Stockpile, Plans To Choose An Initial Group Of More Than A Dozen American Manufacturers That Could Receive Up To $1B In Loans To Help Procure Key Materials&#39; - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-15T09:25:46.776245-04:00",
     "symbols": [
       "SPY"
@@ -5058,6 +4968,103 @@
       "JPM"
     ],
     "headline": "JPMorgan, Bank of America, Wells Fargo Among 9 Banks Accused of Political, Religious Debanking by OCC",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:36:26.737317-04:00",
+    "symbols": [
+      "AAPL",
+      "AMZN",
+      "META",
+      "MSFT",
+      "NVDA",
+      "QQQ",
+      "SPY",
+      "TSLA"
+    ],
+    "headline": "Anthropic Needs Nearly $2.7B in Additional Monthly Revenue to Reach $100B Run Rate by Year-End",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T14:37:17.803352-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "AI Stocks Plunge, but Jensen Huang Says Nvidia Gets New Chip Orders Almost Daily",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T14:37:33.343791-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "SK Hynix Stock Plunges 11% in Seoul, Slips After Hours in New York as Hot CPI, Fed Hike Bets and AI Funding Worries Weigh",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:37:33.351326-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Top 3 Financial Stocks You May Want To Dump In Q4",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:37:33.357152-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Top 3 Financial Stocks You May Want To Dump In Q4",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:37:33.361871-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Mastercard And BVNK Launch The Mastercard Global Money Platform To Incorporate Stablecoin Infrastructure Through Single API",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:37:33.373369-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Why Is Costco (COST) Stock Trending After Hours?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:37:33.379481-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "SK Hynix\u2019s Worst 7-Day Loss Since 2008: AI Bubble Bursting Or Historical Opportunity?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:37:33.385422-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Market Analysis: Adobe And Competitors In Software Industry",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"

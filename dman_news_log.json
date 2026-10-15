@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-14T09:26:42.406174-04:00",
-    "symbols": [
-      "AVR"
-    ],
-    "headline": "Cantor Fitzgerald Reiterates Overweight on Anteris Technologies Glb, Maintains $15 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T09:26:42.410767-04:00",
-    "symbols": [
-      "AVR"
-    ],
-    "headline": "Why Enovix Shares Are Trading Higher By Around 7%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T09:26:42.643228-04:00",
-    "symbols": [
-      "ESLT"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T09:26:42.868514-04:00",
-    "symbols": [
-      "IYE"
-    ],
-    "headline": "Meta, JPMorgan, West Pharmaceutical And More: CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T09:26:43.107041-04:00",
-    "symbols": [
-      "SMJF"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T09:26:43.335232-04:00",
-    "symbols": [
-      "BKYI"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T09:26:43.340070-04:00",
     "symbols": [
       "BKYI"
@@ -5114,5 +5054,66 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T09:13:30.630098-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Elon Musk Praises Micron&#39;s Pricing Strategy. Its $150 Billion Contract Book Explains Why",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:15:11.485497-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Genius Sports Partners With X To Deliver Real-Time Official NFL Scores, Statistics And Insights Through NFL Gametime Feed",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:15:18.088975-04:00",
+    "symbols": [
+      "MU",
+      "SNDK"
+    ],
+    "headline": "Producer Inflation Jumps to 6.3%, Exceeding Estimates, as Fed Hike Pressure Builds (UPDATED)",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:15:37.779731-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "United Airlines Announces ~50% Of Its Flights Are Now Equipped With Starlink Wi-Fi, Rolls Out Starlink Tracker Tool",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:18:37.942473-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Evercore ISI Group Maintains Outperform on Applied Materials, Lowers Price Target to $590",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T09:20:40.518947-04:00",
+    "symbols": [
+      "DBGI"
+    ],
+    "headline": "Digital Brands Group Creates VP Of Strategic Partnerships For Sports &amp; Entertainment Role For Year-Round Licensing And Brand Partnership Opportunities",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

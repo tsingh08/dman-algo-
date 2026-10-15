@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-15T10:04:26.349302-04:00",
-    "symbols": [
-      "BCTX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T10:04:26.613640-04:00",
-    "symbols": [
-      "CDT"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-15T10:04:26.713149-04:00",
     "symbols": [
       "CISS"
@@ -5063,5 +5043,26 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T15:43:46.749860-04:00",
+    "symbols": [
+      "AMAT",
+      "KLAC"
+    ],
+    "headline": "Lam Research Stock Hits Longest Losing Streak Ever: Are There Buyers Around?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T15:44:00.952593-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Why Is Applied Digital Stock Falling on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

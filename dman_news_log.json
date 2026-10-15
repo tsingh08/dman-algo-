@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-14T15:55:50.248551-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "QUICK SPARK: This New ETF Goes Beyond Eli Lilly, Novo Nordisk and Targets the Peptide Boom",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-14T15:55:56.942747-04:00",
     "symbols": [
       "MXCT"
@@ -5051,5 +5041,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T13:45:15.475071-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "Watching RTX; Hearing Zacks Surprise Trader Buys Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

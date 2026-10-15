@@ -1,275 +1,5 @@
 [
   {
-    "ts": "2026-10-15T09:25:42.495588-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Anthropic&#39;s Q3 Revenue Surged 45% to $16.8 Billion, Profitable on Adjusted Basis as Dario Amodei Courts Investors: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:42.500477-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#39;Anthropic Q3 Revenue Hit $16.8B, According To People Familiar With The Matter&#39; - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:42.575030-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "GLJ Research Reiterates Sell on Tesla, Maintains $24.86 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:42.580041-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "When Can You Buy a Tesla Cybercab? Investors Press Elon Musk on Robotaxis, HW3 FSD and More Ahead of TSLA&#39;s Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:42.585422-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Elon Musk Says Tesla Roadster Could Be \u2018Greatest Product Demo of All Time\u2019 \u2014 Is This the Hovering Car Featuring SpaceX Tech?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:42.590032-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Elon Musk Says SpaceX Could Top $100 Trillion Within a Decade, Dwarfing Ron Baron\u2019s $50 Trillion Forecast \u2014 But There\u2019s a Catch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:42.594631-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Analyst Sees TSLA-SPCX Merger Coming By December, but Prediction Markets Aren\u2019t Buying It",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:42.834256-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Lumen Technologies And Snowflake Partner To Combine LUMN&#39;s Programmable Networking Capabilities With SNOW&#39;s AI Data Cloud",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:43.071680-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Customers Bancorp Announces Collaboration With Palantir To Deploy AI Software For Deposit Account Opening; Terms Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:25:43.078022-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Surf Air Mobility Signs Definitive Agreement With Flying Zebra For OperatorOS, Surf Air Mobility&#39;s SurfOS Flight Operations Software For Part 135 Operators Powered By Palantir",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:25:43.084008-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Cathie Wood Buys $12.4 Million Of CoreWeave Stock As Analyst Warns Of Equity Wipeout, Ark Sells Palantir Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:25:43.158074-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Super Micro Computer Appoints Mark Long CFO, Effective Immediately, Succeeding David Weigand",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:43.237075-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Capital Over Chips: Broadcom CEO Warns Financing Costs Could Slow AI Expansion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:25:43.242521-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Micron Stock Slides Again Thursday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:25:43.247392-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "TSMC Q3 Earnings: Nicholas Mugalli Says Capex Hint Matters Most As Chipmaker Eyes Sixth Record Profit",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:25:43.252247-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "SK Hynix Stock Plunges 11% in Seoul, Slips After Hours in New York as Hot CPI, Fed Hike Bets and AI Funding Worries Weigh",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:25:43.385082-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Producer Inflation Jumps to 6.3%, Exceeding Estimates, as Fed Hike Pressure Builds (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:25:43.391157-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "SK Hynix\u2019s Worst 7-Day Loss Since 2008: AI Bubble Bursting Or Historical Opportunity?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:25:43.396566-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Stock Slides Again Thursday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:25:43.478013-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Producer Inflation Jumps to 6.3%, Exceeding Estimates, as Fed Hike Pressure Builds (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:25:43.484495-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Sandisk Stock Is Falling Thursday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:25:43.489665-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Micron Stock Slides Again Thursday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:25:43.558718-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "SK Hynix\u2019s Worst 7-Day Loss Since 2008: AI Bubble Bursting Or Historical Opportunity?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:25:43.563973-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Stock Market Today: Dow Futures Gain, S&amp;P 500, Nasdaq Fall As Chip Stock Sell-Off Intensifies \u2014 SKHY, TSM, RKLB in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:25:43.568606-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Rocket Lab, Taiwan Semiconductor And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:25:43.573675-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Elon Musk\u2019s China RAM Warning Raises Questions for Samsung, SK Hynix as South Korea Faces Potential Memory Chip Oversupply and Less Time To Diversify",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:25:43.578259-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "SK Hynix Stock Extends Rout As South Korea&#39;s Chip Giants Face Brutal Selloff",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-15T09:25:43.648298-04:00",
     "symbols": [
       "ON"
@@ -5049,6 +4779,280 @@
     "headline": "Google Quantum AI Achieves 40-Fold Error Reduction In Magic State Cultivation, Advancing Practical Quantum Computing",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T14:15:25.013580-04:00",
+    "symbols": [
+      "AVGO",
+      "MRNA",
+      "MU",
+      "NBIS",
+      "NVDA"
+    ],
+    "headline": "Nike, Moderna, Walmart Get a Lift as Traders Flee AI Stocks",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:15:56.175605-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Michael Burry&#39;s &#39;Red October&#39; Warning: Why QQQ and SMH Could Face More Pain",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:15:56.446177-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Michael Burry&#39;s &#39;Red October&#39; Warning: Why QQQ and SMH Could Face More Pain",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:15:56.684186-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nike, Moderna, Walmart Get a Lift as Traders Flee AI Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:15:56.689191-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Michael Burry&#39;s &#39;Red October&#39; Warning: Why QQQ and SMH Could Face More Pain",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:15:57.221885-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Michael Burry&#39;s &#39;Red October&#39; Warning: Why QQQ and SMH Could Face More Pain",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:15:57.518381-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Michael Burry&#39;s &#39;Red October&#39; Warning: Why QQQ and SMH Could Face More Pain",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:15:57.787163-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Michael Burry&#39;s &#39;Red October&#39; Warning: Why QQQ and SMH Could Face More Pain",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:15:57.792410-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Rolls Out Bee Frontier, Bee Eclipse",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:15:57.796849-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "NYC Comptroller Mark Levine Says Urges Anthropic To Pause Its IPO Until Co Addresses AI Safety, Governance And Pace Concerns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:15:58.011979-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Michael Burry&#39;s &#39;Red October&#39; Warning: Why QQQ and SMH Could Face More Pain",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:15:58.018869-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "GLJ Research Reiterates Sell on Tesla, Maintains $24.86 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:15:59.504860-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Lumen Technologies And Snowflake Partner To Combine LUMN&#39;s Programmable Networking Capabilities With SNOW&#39;s AI Data Cloud",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:15:59.723609-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Customers Bancorp Announces Collaboration With Palantir To Deploy AI Software For Deposit Account Opening; Terms Not Disclosed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:15:59.728275-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Surf Air Mobility Signs Definitive Agreement With Flying Zebra For OperatorOS, Surf Air Mobility&#39;s SurfOS Flight Operations Software For Part 135 Operators Powered By Palantir",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:16:00.022516-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Super Micro Computer Appoints Mark Long CFO, Effective Immediately, Succeeding David Weigand",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:16:00.027545-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Nike, Moderna, Walmart Get a Lift as Traders Flee AI Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:16:00.033071-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Capital Over Chips: Broadcom CEO Warns Financing Costs Could Slow AI Expansion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:16:00.037637-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Micron Stock Slides Again Thursday: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:16:00.607030-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Nike, Moderna, Walmart Get a Lift as Traders Flee AI Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:16:00.841302-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Producer Inflation Jumps to 6.3%, Exceeding Estimates, as Fed Hike Pressure Builds (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:16:00.845915-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Sandisk Stock Is Falling Thursday: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:16:02.550265-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Nike, Moderna, Walmart Get a Lift as Traders Flee AI Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T14:16:11.261056-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Michael Burry&#39;s &#39;Red October&#39; Warning: Why QQQ and SMH Could Face More Pain",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:16:11.487357-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Michael Burry&#39;s &#39;Red October&#39; Warning: Why QQQ and SMH Could Face More Pain",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:16:14.919349-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nike, Moderna, Walmart Get a Lift as Traders Flee AI Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:16:17.534119-04:00",
+    "symbols": [
+      "SPRC"
+    ],
+    "headline": "SciSparc Shares Halted On Circuit Breaker To The Downside, Stock Now Down -45.45%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

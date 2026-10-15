@@ -40478,8 +40478,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 14,
-"last_ts": "2026-10-15T14:09:10.636023-04:00",
+"seen": 15,
+"last_ts": "2026-10-15T14:16:48.662142-04:00",
 "entry_min": 211.21,
 "entry_max": 211.5
 },
@@ -40499,9 +40499,9 @@
 "target1": 11.08,
 "rr": 2.45,
 "rsi": 67.7,
-"rvol": 4.3,
+"rvol": 4.27,
 "atr": 0.2563214285714284,
-"beta": 1.0,
+"beta": 0.511,
 "catalyst_tier": "C",
 "news_boost": true,
 "regime": "CHOP",
@@ -40514,7 +40514,7 @@
 "breakdown": {
 "Regime": 8,
 "MTF": 8,
-"Rel Strength": 10,
+"Rel Strength": 15,
 "Sector": 6,
 "Sector ETF": 0,
 "AI Theme": 0,
@@ -40540,8 +40540,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 22,
-"last_ts": "2026-10-15T14:01:45.896111-04:00",
+"seen": 24,
+"last_ts": "2026-10-15T14:16:47.892659-04:00",
 "entry_min": 10.37,
 "entry_max": 10.45
 }

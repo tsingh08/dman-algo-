@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:57:59.756955-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "ASML Says AI Boom Is Boosting Pricing Power as Chipmakers Agree to Pay More",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T14:57:59.762487-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-14T14:57:59.767036-04:00",
     "symbols": [
       "NVDA"
@@ -5033,5 +5013,30 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T11:34:36.092202-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;Nvidia CEO Huang Says CoreWeave Improving, No Backstop Needed&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T11:34:54.001467-04:00",
+    "symbols": [
+      "AMAT",
+      "ARM",
+      "MU",
+      "NBIS",
+      "SKHY",
+      "SNDK"
+    ],
+    "headline": "QUICK SPARK: Meet the 15 Worst-Performing Chip Stocks in the Last 7 Sessions",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-14T13:47:31.560939-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is Dell Technologies Stock Sinking Wednesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-14T13:49:09.373444-04:00",
     "symbols": [
       "MU",
@@ -5033,5 +5023,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T10:20:22.579404-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Trump Is Reportedly Looking To Replace Susie Wiles; President\u2019s Most Trusted Top Aide Has Been Left Out Of The Loop On Several Major Decisions In Recent Weeks&#39; - The Independent",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

@@ -40478,8 +40478,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 24,
-"last_ts": "2026-10-15T15:15:31.315290-04:00",
+"seen": 25,
+"last_ts": "2026-10-15T15:27:12.286033-04:00",
 "entry_min": 211.21,
 "entry_max": 211.71
 },
@@ -40490,7 +40490,7 @@
 "setup": "Morning Runner",
 "bias": "LONG",
 "taken": false,
-"reject": "mtf: weekly disagrees",
+"reject": "earnings blackout",
 "score": 100,
 "final_score": 100.0,
 "ai_scored": false,
@@ -40505,15 +40505,15 @@
 "catalyst_tier": "C",
 "news_boost": true,
 "regime": "CHOP",
-"regime_score": 9,
-"mtf_ok": false,
+"regime_score": 13,
+"mtf_ok": true,
 "regime_ok": true,
 "earnings_ok": false,
 "macro_ok": true,
 "divergence_free": true,
 "breakdown": {
 "Regime": 8,
-"MTF": 8,
+"MTF": 14,
 "Rel Strength": 15,
 "Sector": 6,
 "Sector ETF": 0,
@@ -40540,8 +40540,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 38,
-"last_ts": "2026-10-15T15:03:42.174295-04:00",
+"seen": 40,
+"last_ts": "2026-10-15T15:27:11.445637-04:00",
 "entry_min": 10.37,
 "entry_max": 10.57
 }

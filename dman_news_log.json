@@ -1,46 +1,5 @@
 [
   {
-    "ts": "2026-10-14T15:52:41.034974-04:00",
-    "symbols": [
-      "LLY",
-      "NVO"
-    ],
-    "headline": "QUICK SPARK: This New ETF Goes Beyond Eli Lilly, Novo Nordisk and Targets the Peptide Boom",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T15:52:51.408693-04:00",
-    "symbols": [
-      "BDRX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T15:52:51.411674-04:00",
-    "symbols": [
-      "BDRX"
-    ],
-    "headline": "Why Enovix Shares Are Trading Higher By Around 7%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T15:54:56.093510-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "&#39;Apple Prepares To Debut First AI Features In China In December&#39; - Bloomberg News",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-14T15:55:43.840236-04:00",
     "symbols": [
       "LLY"
@@ -5052,5 +5011,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T13:39:37.218622-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "EU Said To Be Ready To Fast-Track Satellite Rival To SpaceX",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T13:39:41.931425-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Mizuho Maintains Underperform on Fortinet, Raises Price Target to $160",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T13:40:44.456408-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "UnitedHealth Stock Moves Higher: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T13:40:49.918626-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Mizuho Maintains Outperform on Microsoft, Raises Price Target to $600",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

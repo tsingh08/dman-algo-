@@ -1606,5 +1606,17 @@
     "pnl_pct": -12.76,
     "score": 17,
     "is_live": true
+  },
+  {
+    "ticker": "AMPL",
+    "date": "2026-10-15",
+    "bias": "LONG",
+    "setup": "Breakout Zone +165% off low",
+    "entry": 14.96,
+    "exit": 15.63,
+    "outcome": "WIN",
+    "pnl_pct": 4.49,
+    "score": 16,
+    "is_live": true
   }
 ]

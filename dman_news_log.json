@@ -1,125 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:54:59.473470-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-14T14:54:59.678954-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "10 Communication Services Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T14:55:00.293686-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T14:55:00.535222-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Why Is AMD Stock Falling on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T14:55:01.012234-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Elon Musk Backs Micron As MU Stock Falls 25%: Is This Memory ETF an AI Stock Bargain?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T14:55:01.245534-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T14:55:01.425607-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Elon Musk Backs Micron As MU Stock Falls 25%: Is This Memory ETF an AI Stock Bargain?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T14:55:03.536019-04:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "Vir Biotechnology, Gilead Strike Deal for Novel Tumor Treatments",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T14:55:04.174863-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T14:55:04.554965-04:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "10 Communication Services Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-14T14:55:06.797990-04:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T14:55:07.563227-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Oppenheimer Maintains Outperform on Caterpillar, Lowers Price Target to $1009",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-14T14:55:09.788766-04:00",
     "symbols": [
       "SPY"
@@ -5030,6 +4910,126 @@
     "headline": "Defensives Lead Sectors In Thursday Trading As Technology Trails",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T11:11:19.673115-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Hyperliquid Looks Beyond Bitcoin to Nvidia and Oil: Can PURR Benefit?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T11:11:28.332297-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Defensives Lead Sectors In Thursday Trading As Technology Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T11:11:28.579764-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Defensives Lead Sectors In Thursday Trading As Technology Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T11:11:30.514097-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Defensives Lead Sectors In Thursday Trading As Technology Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T11:11:32.192154-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Defensives Lead Sectors In Thursday Trading As Technology Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T11:11:32.593095-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Defensives Lead Sectors In Thursday Trading As Technology Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T11:11:35.044437-04:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "Defensives Lead Sectors In Thursday Trading As Technology Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T11:11:35.190866-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Defensives Lead Sectors In Thursday Trading As Technology Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T11:11:35.439489-04:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "Defensives Lead Sectors In Thursday Trading As Technology Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T11:11:35.916139-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Defensives Lead Sectors In Thursday Trading As Technology Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T11:11:36.015036-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Defensives Lead Sectors In Thursday Trading As Technology Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T11:11:36.118406-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Defensives Lead Sectors In Thursday Trading As Technology Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

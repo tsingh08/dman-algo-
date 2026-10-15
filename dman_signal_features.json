@@ -40494,12 +40494,12 @@
 "score": 100,
 "final_score": 100.0,
 "ai_scored": false,
-"entry": 10.43,
+"entry": 10.45,
 "stop": 10.08,
-"target1": 11.31,
-"rr": 2.51,
-"rsi": 68.5,
-"rvol": 6.63,
+"target1": 11.37,
+"rr": 2.49,
+"rsi": 68.8,
+"rvol": 6.3,
 "atr": 0.2563214285714284,
 "beta": 0.511,
 "catalyst_tier": "C",
@@ -40522,7 +40522,7 @@
 "Earnings": 0,
 "Macro": 5,
 "Earn React": 5,
-"Fibonacci": 7,
+"Fibonacci": 0,
 "VWAP": 8,
 "POC": 7,
 "No Divergence": 5,
@@ -40540,9 +40540,9 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 2,
-"last_ts": "2026-10-15T11:39:55.926873-04:00",
+"seen": 4,
+"last_ts": "2026-10-15T11:53:54.661562-04:00",
 "entry_min": 10.43,
-"entry_max": 10.43
+"entry_max": 10.45
 }
 ]

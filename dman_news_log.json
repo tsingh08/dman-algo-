@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:58:13.516576-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "FDA Launches The Rare Disease Framework Initiative To Develop A Holistic, Fit-For-Purpose Framework For Rare Disease Drug Development",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T14:58:14.469609-04:00",
-    "symbols": [
-      "AEHL"
-    ],
-    "headline": "10 Communication Services Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T14:58:14.685797-04:00",
     "symbols": [
       "BSP"
@@ -5035,6 +5015,26 @@
       "OPK"
     ],
     "headline": "OPKO Health Sheds Diagnostics Businesses in Major Labcorp Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T11:53:33.740853-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "OpenAI, Anthropic\u2019s AI Lead Is \u2018Very Perishable,\u2019 IMD Professor Says: \u2018You Don\u2019t Need to Drive a Ferrari to Go to Walmart\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T11:53:36.981819-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Says New Drug Drives Comprehensive Disease Control in Ulcerative Colitis Patients",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

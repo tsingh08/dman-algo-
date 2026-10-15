@@ -1915,5 +1915,23 @@
   "drift_pct": 0.0,
   "range_ratio": 0.23,
   "near_high": 0.978
+ },
+ {
+  "ts": "2026-10-15T11:54:59.377580-04:00",
+  "ticker": "MLAA",
+  "price": 10.01,
+  "rvol": 7.99,
+  "drift_pct": 0.0,
+  "range_ratio": 0.5,
+  "near_high": 0.995
+ },
+ {
+  "ts": "2026-10-15T11:54:59.377599-04:00",
+  "ticker": "CEPF",
+  "price": 10.27,
+  "rvol": 3.6,
+  "drift_pct": 0.0,
+  "range_ratio": 0.23,
+  "near_high": 0.978
  }
 ]

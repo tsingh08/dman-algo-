@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-15T10:04:27.073591-04:00",
-    "symbols": [
-      "DFNS"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday's After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T10:04:27.191440-04:00",
-    "symbols": [
-      "ELPW"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday's After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T10:04:27.325301-04:00",
-    "symbols": [
-      "ENSC"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday's After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-15T10:04:28.617670-04:00",
     "symbols": [
       "GP"
@@ -5064,5 +5034,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T15:53:55.567452-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Citigroup Maintains Buy on Microsoft, Raises Price Target to $636",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T15:54:33.019449-04:00",
+    "symbols": [
+      "ARQT"
+    ],
+    "headline": "Why Is Arcutis Biotherapeutics Stock Surging Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T15:54:33.025450-04:00",
+    "symbols": [
+      "ARQT"
+    ],
+    "headline": "Cantor Fitzgerald Initiates Coverage On Arcutis Biotherapeutics with Overweight Rating, Announces Price Target of $48",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

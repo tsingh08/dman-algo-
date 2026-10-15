@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-14T12:11:45.944682-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Keefe, Bruyette &amp; Woods Maintains Market Perform on Goldman Sachs Group, Lowers Price Target to $1100",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T12:12:59.486451-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "NVIDIA Expands CUDA-X AI Tools For Semiconductor Manufacturing, Delivering 2\u20133x Faster Atom-Level Simulations And 30x Faster Chipmaking Simulations",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T12:25:26.980327-04:00",
-    "symbols": [
-      "APLD",
-      "CLSK",
-      "MARA",
-      "MSTR",
-      "RIOT"
-    ],
-    "headline": "Shares of crypto-linked companies are trading lower as Bitcoin prices decline following the latest inflation data. Stronger-than-expected inflation has fueled expectations for tighter Federal Reserve policy, while rising Treasury yields and a stronger dollar are dampening risk appetite and weighing on speculative assets.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T12:29:40.917604-04:00",
-    "symbols": [
-      "CRWD",
-      "DDOG",
-      "FTNT",
-      "ORCL",
-      "PANW",
-      "SOUN"
-    ],
-    "headline": "Shares of software companies are trading lower as elevated oil prices and stronger-than-expected inflation data fuel expectations of more Fed tightening at a quicker pace. Costlier borrowing may weaken sentiment for the sector&#39;s strong H2 2026 rally.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T12:32:48.716290-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Reported Earlier: &#39;Container ship sinks near Hormuz after being hit by projectile&#39; - Reuters",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T12:33:08.492675-04:00",
-    "symbols": [
-      "CAT",
-      "WFF"
-    ],
-    "headline": "Shares of machinery-related companies are trading lower as rising oil prices and stronger-than-expected inflation data have reinforced expectations that U.S. interest rates will remain elevated. Elevated borrowing costs could pressure capital spending and reduce demand for heavy equipment and other large industrial purchases.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T12:39:17.792957-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump, On Social Media, Announces U.S. Secures Offtake Commitment From Taiwan For $70B - $80B For Alaska LNG; Taiwan To Also Invest $4.4B In Alaska LNG Project As Equity",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T12:39:36.547487-04:00",
     "symbols": [
       "GOOGL"
@@ -5063,5 +4983,75 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:50:47.181891-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "TD Cowen Reiterates Hold on UnitedHealth Group, Maintains $402 Price Target",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T09:52:28.643531-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.K.&#39;s Medicines And Healthcare Products Regulatory Agency Announces It Seized More Than 12K Fake Retatrutide And Tirzepatide Pens Along With Packaging For ~30K More Products In Birmingham",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T09:55:02.632004-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Wells Fargo Maintains Underweight on Fortinet, Raises Price Target to $160",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T09:55:27.662069-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "FTC Spokesman Says President Trump Task Force On AI To Meet Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:55:27.673204-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "FTC Spokesman Says President Trump Task Force On AI To Meet Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:55:27.682779-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "FTC Spokesman Says President Trump Task Force On AI To Meet Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:55:27.692150-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "FTC Spokesman Says President Trump Task Force On AI To Meet Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

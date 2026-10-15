@@ -11430,6 +11430,18 @@ def _progress_equity_stop_to_trailing(pos: "OpenPosition", cur_price: float,
 
     try:
         client.cancel_order_by_id(stop_order.id)
+        # The cancel is asynchronous and the shares stay reserved until it
+        # settles. Without this wait BOTH submissions below fail for the same
+        # reason -- insufficient qty -- so the carefully built plain-stop
+        # fallback is no fallback at all, and the handler then reports
+        # "POSITION MAY BE UNPROTECTED" while the original stop is still
+        # live and still able to fill. Measured 2026-10-15 on PGEN: a cancel
+        # issued with the market closed was still PENDING_CANCEL eight
+        # minutes later.
+        if not _wait_for_orders_clear(client, pos.ticker):
+            print(f"  \u23f3 {pos.ticker}: cancel has not settled, original stop "
+                  f"still live - leaving it in place rather than resubmitting")
+            return None
         trail_order = client.submit_order(TrailingStopOrderRequest(
             symbol=pos.ticker, qty=pos.shares, side=OrderSide.SELL,
             time_in_force=TimeInForce.GTC, trail_percent=trail_pct,
@@ -21721,7 +21733,13 @@ def _auto_restore_missing_stop(client, ticker: str, qty: float) -> tuple[bool, s
             ))
 
         if _cancel_all(_stop_orders):
-            time.sleep(2)   # let the cancel(s) actually process before resubmitting for the same shares
+            # Was time.sleep(2). Polling is strictly better: it returns as
+            # soon as the reservation lifts (well under a second during
+            # market hours) instead of always paying 2s, and it reports
+            # honestly when the cancel will NOT settle -- outside hours it
+            # can stay PENDING_CANCEL indefinitely, where a fixed sleep just
+            # guarantees the resubmit below is rejected.
+            _wait_for_orders_clear(client, ticker)
         try:
             order = _submit_restore()
         except Exception:
@@ -21729,7 +21747,9 @@ def _auto_restore_missing_stop(client, ticker: str, qty: float) -> tuple[bool, s
             # holds the shares) — cancel it too and retry exactly once.
             if _cancel_all(_tp_orders):
                 _tp_cancelled = True
-                time.sleep(2)
+                # Same reason as the stop cancel above: poll for the
+                # reservation to lift rather than guessing at 2 seconds.
+                _wait_for_orders_clear(client, ticker)
             order = _submit_restore()
         _save_last_alert(_cd_key)
 

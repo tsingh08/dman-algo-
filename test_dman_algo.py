@@ -3795,7 +3795,13 @@ class TestProgressEquityStopToTrailing(unittest.TestCase):
         # this fire even though cur_price never reached the real T1.
         mock_client = MagicMock()
         mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
-        mock_client.get_orders.return_value = [self._stop_order()]
+        # [0] the stop lookup, [1] the pre-cancel read, then CLEARED --
+        # _progress_equity_stop_to_trailing() now waits for the cancel to
+        # release the shares before resubmitting, so a mock that returns the
+        # stop forever models a cancel that never settles and the function
+        # correctly declines to submit anything.
+        mock_client.get_orders.side_effect = (
+            [[self._stop_order()], [self._stop_order()]] + [[] for _ in range(20)])
         mock_client.submit_order.return_value = MagicMock(id="early-trail-1")
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
             result = a._progress_equity_stop_to_trailing(
@@ -3808,7 +3814,13 @@ class TestProgressEquityStopToTrailing(unittest.TestCase):
     def test_successful_transition_updates_stage_and_uses_capped_trail(self):
         mock_client = MagicMock()
         mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
-        mock_client.get_orders.return_value = [self._stop_order()]
+        # [0] the stop lookup, [1] the pre-cancel read, then CLEARED --
+        # _progress_equity_stop_to_trailing() now waits for the cancel to
+        # release the shares before resubmitting, so a mock that returns the
+        # stop forever models a cancel that never settles and the function
+        # correctly declines to submit anything.
+        mock_client.get_orders.side_effect = (
+            [[self._stop_order()], [self._stop_order()]] + [[] for _ in range(20)])
         mock_client.submit_order.return_value = MagicMock(id="trail-order-1")
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
             result = a._progress_equity_stop_to_trailing(self._pos(), cur_price=1.70)
@@ -3843,7 +3855,13 @@ class TestProgressEquityStopToTrailing(unittest.TestCase):
         # stop%, or the initial trailing level could land below breakeven.
         mock_client = MagicMock()
         mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
-        mock_client.get_orders.return_value = [self._stop_order()]
+        # [0] the stop lookup, [1] the pre-cancel read, then CLEARED --
+        # _progress_equity_stop_to_trailing() now waits for the cancel to
+        # release the shares before resubmitting, so a mock that returns the
+        # stop forever models a cancel that never settles and the function
+        # correctly declines to submit anything.
+        mock_client.get_orders.side_effect = (
+            [[self._stop_order()], [self._stop_order()]] + [[] for _ in range(20)])
         mock_client.submit_order.return_value = MagicMock(id="trail-order-2")
         wide_stop_pos = self._pos(entry=10.0, stop=8.2, target1=10.5)  # 18% original stop
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
@@ -3856,7 +3874,13 @@ class TestProgressEquityStopToTrailing(unittest.TestCase):
     def test_trailing_submission_failure_falls_back_to_plain_breakeven_stop(self):
         mock_client = MagicMock()
         mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
-        mock_client.get_orders.return_value = [self._stop_order()]
+        # [0] the stop lookup, [1] the pre-cancel read, then CLEARED --
+        # _progress_equity_stop_to_trailing() now waits for the cancel to
+        # release the shares before resubmitting, so a mock that returns the
+        # stop forever models a cancel that never settles and the function
+        # correctly declines to submit anything.
+        mock_client.get_orders.side_effect = (
+            [[self._stop_order()], [self._stop_order()]] + [[] for _ in range(20)])
         mock_client.submit_order.side_effect = [
             Exception("trailing stop rejected"),   # first call: trailing stop fails
             MagicMock(id="fallback-stop-1"),        # second call: plain stop succeeds
@@ -3873,7 +3897,13 @@ class TestProgressEquityStopToTrailing(unittest.TestCase):
     def test_both_trailing_and_fallback_fail_sends_emergency_alert(self):
         mock_client = MagicMock()
         mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
-        mock_client.get_orders.return_value = [self._stop_order()]
+        # [0] the stop lookup, [1] the pre-cancel read, then CLEARED --
+        # _progress_equity_stop_to_trailing() now waits for the cancel to
+        # release the shares before resubmitting, so a mock that returns the
+        # stop forever models a cancel that never settles and the function
+        # correctly declines to submit anything.
+        mock_client.get_orders.side_effect = (
+            [[self._stop_order()], [self._stop_order()]] + [[] for _ in range(20)])
         mock_client.submit_order.side_effect = Exception("Alpaca is down")
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
             with patch.object(a, "send_telegram", return_value=True) as mock_tg:
@@ -3894,7 +3924,13 @@ class TestProgressEquityStopToTrailing(unittest.TestCase):
     def test_breakeven_replace_failure_stops_before_any_cancel(self):
         mock_client = MagicMock()
         mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash
-        mock_client.get_orders.return_value = [self._stop_order()]
+        # [0] the stop lookup, [1] the pre-cancel read, then CLEARED --
+        # _progress_equity_stop_to_trailing() now waits for the cancel to
+        # release the shares before resubmitting, so a mock that returns the
+        # stop forever models a cancel that never settles and the function
+        # correctly declines to submit anything.
+        mock_client.get_orders.side_effect = (
+            [[self._stop_order()], [self._stop_order()]] + [[] for _ in range(20)])
         mock_client.replace_order_by_id.side_effect = Exception("replace rejected")
         with patch.object(a, "get_alpaca_client", return_value=mock_client):
             result = a._progress_equity_stop_to_trailing(self._pos(), cur_price=1.70)
@@ -22935,8 +22971,12 @@ class TestACatastropheFloorIsNeverRatcheted(unittest.TestCase):
     def _run(self, setup, ticker="IOVA", stage="initial"):
         from alpaca.trading.enums import OrderType as _OT
         cl = MagicMock()
-        cl.get_orders.return_value = [SimpleNamespace(
-            id="s1", order_type=_OT.STOP, stop_price=9.21)]
+        # [0] the stop lookup, [1] the pre-cancel read, then CLEARED. The
+        # trailing upgrade now waits for the cancel to release the shares, so
+        # a mock that returns the stop forever models a cancel that never
+        # settles -- and the function then correctly submits nothing.
+        _s = SimpleNamespace(id="s1", order_type=_OT.STOP, stop_price=9.21)
+        cl.get_orders.side_effect = [[_s], [_s]] + [[] for _ in range(20)]
         pos = SimpleNamespace(setup=setup, ticker=ticker, entry=14.17,
                               target1=1e9, stop_stage=stage, shares=17,
                               stop=0.01, trail_pct=0)
@@ -25604,3 +25644,67 @@ class TestACancelIsNotInstant(unittest.TestCase):
         cl.get_orders.side_effect = RuntimeError("down")
         with patch.object(a, "_log_swallowed"):
             self.assertFalse(a._wait_for_orders_clear(cl, "PGEN", timeout_s=0.05))
+
+
+class TestTheTrailingUpgradeDoesNotStrandTheOriginalStop(unittest.TestCase):
+    """Step 2 of the stop progression cancels, then submits. It never waited.
+
+    Found by sweeping for the shape that broke the PGEN close on 2026-10-15.
+    The cancel is asynchronous and the shares stay reserved until it settles,
+    so the trailing submission is rejected for insufficient qty -- and then
+    the plain-stop FALLBACK is rejected for exactly the same reason. The
+    fallback this function was built around cannot work against the one
+    cause it most needs to survive, and the handler then announces
+    "POSITION MAY BE UNPROTECTED" while the original stop is still live and
+    still able to fill.
+
+    With the wait, an unsettled cancel means the original stop is left alone
+    and nothing is submitted. That is the correct outcome: the position keeps
+    the protection it already has."""
+
+    def _pos(self):
+        return SimpleNamespace(ticker="CLRO", entry=9.80, stop=7.83, shares=10,
+                               target1=14.73, stop_stage="initial",
+                               setup="Gap & Hold")
+
+    def _client(self, settles):
+        cl = MagicMock()
+        from alpaca.trading.enums import OrderType
+        stop = SimpleNamespace(id="s1", stop_price="7.83", qty="10",
+                               order_type=OrderType.STOP)
+        if settles:
+            # [0] the stop lookup, [1] the pre-cancel read, then cleared.
+            cl.get_orders.side_effect = [[stop], [stop]] + [[] for _ in range(20)]
+        else:
+            cl.get_orders.return_value = [stop]
+        cl.replace_order_by_id.return_value = SimpleNamespace(id="s1")
+        cl.submit_order.return_value = SimpleNamespace(id="trail-1")
+        return cl
+
+    def _run(self, cl):
+        with patch.object(a, "get_alpaca_client", return_value=cl),              patch.object(a, "_is_no_stop_by_design", return_value=False),              patch.object(a, "_update_position_field"),              patch.object(a, "send_telegram", return_value=True),              patch.object(a, "_log_swallowed"),              patch.object(a, "ORDER_CANCEL_SETTLE_TIMEOUT_S", 0.05),              patch.object(a, "ORDER_CANCEL_SETTLE_POLL_S", 0.01):
+            return a._progress_equity_stop_to_trailing(
+                self._pos(), cur_price=11.60, trigger_price=10.00)
+
+    def test_an_unsettled_cancel_submits_nothing(self):
+        """Neither the trailing order nor the fallback -- both would be
+        rejected for the same reserved shares."""
+        cl = self._client(settles=False)
+        out = self._run(cl)
+        self.assertIsNone(out)
+        cl.submit_order.assert_not_called()
+
+    def test_it_does_not_announce_an_unprotected_position(self):
+        """The original stop is still PENDING_CANCEL and can still fill."""
+        cl = self._client(settles=False)
+        with patch.object(a, "send_telegram") as tg:
+            self._run(cl)
+        for c in tg.call_args_list:
+            self.assertNotIn("UNPROTECTED", str(c))
+
+    def test_a_settled_cancel_still_upgrades_to_trailing(self):
+        cl = self._client(settles=True)
+        out = self._run(cl)
+        self.assertIsNotNone(out)
+        self.assertIn("trailing", out)
+        cl.submit_order.assert_called_once()

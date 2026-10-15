@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:58:18.436749-04:00",
-    "symbols": [
-      "DELL"
-    ],
-    "headline": "Michael Dell Warns Memory Shortage Could Be a &#39;Four-Year Problem&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T14:58:18.676104-04:00",
-    "symbols": [
-      "BLK"
-    ],
-    "headline": "BlackRock Expects Strong Fourth Quarter as AI Investment, Fundraising Grow",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T14:58:19.136327-04:00",
-    "symbols": [
-      "BLZE"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T14:58:19.388669-04:00",
-    "symbols": [
-      "DOCN"
-    ],
-    "headline": "Oppenheimer Maintains Outperform on DigitalOcean Holdings, Raises Price Target to $220",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T14:58:19.393405-04:00",
-    "symbols": [
-      "DOCN"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T14:58:50.714559-04:00",
     "symbols": [
       "LUNR",
@@ -5043,5 +4993,57 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T12:47:46.451214-04:00",
+    "symbols": [
+      "AAPL",
+      "NVDA",
+      "ORCL"
+    ],
+    "headline": "Apple Hits $5 Trillion Market Cap as Nvidia&#39;s Lead Shrinks",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T12:48:02.516183-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Hits $5 Trillion Market Cap as Nvidia&#39;s Lead Shrinks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T12:48:02.973441-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Apple Hits $5 Trillion Market Cap as Nvidia&#39;s Lead Shrinks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T12:48:09.583861-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Apple Hits $5 Trillion Market Cap as Nvidia&#39;s Lead Shrinks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-15T12:48:24.512161-04:00",
+    "symbols": [
+      "HTZ"
+    ],
+    "headline": "Morgan Stanley Maintains Equal-Weight on Hertz Global Holdings, Lowers Price Target to $2.5",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

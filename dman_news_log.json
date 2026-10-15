@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:10:58.816096-04:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "Why Is Enphase Energy Stock Falling Wednesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-14T14:11:31.501820-04:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "Shares of copper-related companies are trading lower amid a decline in copper prices and a stronger U.S. dollar following hotter-than-expected inflation data.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T14:15:00.550187-04:00",
-    "symbols": [
-      "AMPL"
-    ],
-    "headline": "B of A Securities Maintains Neutral on Amplitude, Raises Price Target to $16.5",
-    "source": "benzinga",
-    "tag": "held",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T14:15:08.485810-04:00",
-    "symbols": [
-      "CLSK"
-    ],
-    "headline": "CleanSpark Stock Sinks: What&#39;s Going On?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T14:18:48.371167-04:00",
-    "symbols": [
-      "CLSK"
-    ],
-    "headline": "CleanSpark Stock Sinks: What's Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T14:18:55.477385-04:00",
-    "symbols": [
-      "CRWV"
-    ],
-    "headline": "IREN Stock Tanks: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T14:18:55.691024-04:00",
-    "symbols": [
-      "CNXU"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday's Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T14:18:55.915061-04:00",
     "symbols": [
       "DFH"
@@ -5030,6 +4960,76 @@
     "headline": "Reported Late Hours October 14, 2026: &#34;U.S. Considering Using &#39;Mother Of All Bombs\u2019 Against Iran, Sources Say&#34; - CNN",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:26:05.753333-04:00",
+    "symbols": [
+      "FSLR"
+    ],
+    "headline": "Barclays Maintains Overweight on First Solar, Lowers Price Target to $259",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T10:26:35.958422-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Will Tesla&#39;s Roadster Fly Tonight? Prediction Markets Say It&#39;s Likely",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T10:26:42.327157-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Will Tesla&#39;s Roadster Fly Tonight? Prediction Markets Say It&#39;s Likely",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T10:26:44.021501-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Will Tesla&#39;s Roadster Fly Tonight? Prediction Markets Say It&#39;s Likely",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T10:26:45.695137-04:00",
+    "symbols": [
+      "ASPI"
+    ],
+    "headline": "ASP Isotopes\u2019 Quantum Leap Energy Announces Binding Framework Agreement With South Africa\u2019s Necsa To Form ~80%-Owned HALEU Fuel Joint Venture",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:26:45.792990-04:00",
+    "symbols": [
+      "QNT"
+    ],
+    "headline": "This Walmart Analyst Turns Bullish; Here Are Top 5 Upgrades For Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:26:45.798623-04:00",
+    "symbols": [
+      "QNT"
+    ],
+    "headline": "Morgan Stanley Upgrades Quantinuum to Overweight, Lowers Price Target to $62",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

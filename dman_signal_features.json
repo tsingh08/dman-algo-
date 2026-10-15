@@ -40478,10 +40478,10 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 19,
-"last_ts": "2026-10-15T14:56:54.731125-04:00",
+"seen": 21,
+"last_ts": "2026-10-15T14:55:49.094996-04:00",
 "entry_min": 211.21,
-"entry_max": 211.5
+"entry_max": 211.71
 },
 {
 "ts": "2026-10-15T11:39:55.889115-04:00",
@@ -40494,12 +40494,12 @@
 "score": 100,
 "final_score": 100.0,
 "ai_scored": false,
-"entry": 10.37,
-"stop": 10.08,
-"target1": 11.08,
-"rr": 2.45,
-"rsi": 67.7,
-"rvol": 4.27,
+"entry": 10.57,
+"stop": 10.19,
+"target1": 11.8,
+"rr": 3.24,
+"rsi": 70.2,
+"rvol": 4.01,
 "atr": 0.2563214285714284,
 "beta": 0.511,
 "catalyst_tier": "C",
@@ -40522,16 +40522,16 @@
 "Earnings": 0,
 "Macro": 5,
 "Earn React": 5,
-"Fibonacci": 7,
+"Fibonacci": 0,
 "VWAP": 8,
 "POC": 7,
 "No Divergence": 5,
-"RSI Zone": 0,
+"RSI Zone": 5,
 "52wk Prox": 0,
 "Candle": 0,
 "Supertrend": 8,
 "ADX Trend": 5,
-"Ichimoku": 2,
+"Ichimoku": 10,
 "Anchored VWAP": 8,
 "ATR Pctile": 3,
 "RegimeSetup": 3,
@@ -40540,9 +40540,9 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 32,
-"last_ts": "2026-10-15T14:56:54.488297-04:00",
+"seen": 34,
+"last_ts": "2026-10-15T14:55:52.000731-04:00",
 "entry_min": 10.37,
-"entry_max": 10.54
+"entry_max": 10.57
 }
 ]

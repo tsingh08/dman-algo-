@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:05:46.361576-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Denmark Foreign Ministry Says If The U.S. Wishes To Explore The Greenlandic Subsoil For Oil, Gas And Minerals, This Must Take Place Within The Framework Of The Relevant Greenlandic Legislation; This Does Not Alter The Agreement Of 22 September 2026 Between Greenland, Denmark And The U.S.; The Agreement Does Not Grant Investors From The U.S. Any Preferential Treatment Compared With Investors From Other NATO Countries, EU Countries And NATO Partners When It Comes To Access To Natural Resources In Greenland",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T14:07:39.195088-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Addresses &#39;Rogue Agents&#39; as AI Gives Banks New Security Problems",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T14:09:40.543850-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Why Is Broadcom Stock Falling on Wednesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-14T14:10:58.816096-04:00",
     "symbols": [
       "ENPH"
@@ -5029,5 +4999,37 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T10:24:00.007217-04:00",
+    "symbols": [
+      "APLD",
+      "MARA",
+      "NBIS"
+    ],
+    "headline": "Shares of AI cloud services companies are trading lower amid persistent concerns over the debt levels needed to sustain the AI cloud compute buildout. Also, U.S. inflation and producer price data this week support expectations for more Fed rate hikes, further straining high-yield credit markets.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:24:12.827983-04:00",
+    "symbols": [
+      "AIFA"
+    ],
+    "headline": "All In FutureTech Alliance Announces It Continues Restructuring And Proposed Acquisition Activities In Line With NASDAQ, SEC Requirements; Pursues Business Development, Partnerships, And Acquisitions In AI Education, Content, Gaming, Healthcare; Continues Strengthening And Restructuring Board, Evaluating Addition Of Experienced Professionals",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:25:17.724839-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Reported Late Hours October 14, 2026: &#34;U.S. Considering Using &#39;Mother Of All Bombs\u2019 Against Iran, Sources Say&#34; - CNN",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

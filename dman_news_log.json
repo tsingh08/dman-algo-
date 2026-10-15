@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-15T10:04:26.023256-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.K.'s Medicines And Healthcare Products Regulatory Agency Announces It Seized More Than 12K Fake Retatrutide And Tirzepatide Pens Along With Packaging For ~30K More Products In Birmingham On Oct. 14",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T10:04:26.032533-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Reported Earlier: 'U.S. Tells IEA Nations It\u2019s Unhappy With Emergency Oil Release; U.S. Has Been Informally Lobbying For An Extra Commitment Of At Least 100 Million Barrels' - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T10:04:26.145872-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market Today: Dow Futures Gain, S&P 500, Nasdaq Fall As Chip Stock Sell-Off Intensifies \u2014 SKHY, TSM, RKLB in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T10:04:26.156678-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market: Will S&P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-15T10:04:26.163924-04:00",
     "symbols": [
       "APLD"
@@ -5063,5 +5023,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-15T15:14:55.446073-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Why Is Applied Digital Stock Falling on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T15:15:06.016447-04:00",
+    "symbols": [
+      "LUMN"
+    ],
+    "headline": "Lumen Technologies And Snowflake Partner To Combine LUMN&#39;s Programmable Networking Capabilities With SNOW&#39;s AI Data Cloud",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T15:15:06.293529-04:00",
+    "symbols": [
+      "ETSY"
+    ],
+    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T15:15:06.298893-04:00",
+    "symbols": [
+      "ETSY"
+    ],
+    "headline": "Dow Jones Climbs to 52,000 While Chips Bleed on Rate-Hike Fears: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

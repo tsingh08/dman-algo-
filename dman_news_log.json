@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:55:15.267869-04:00",
-    "symbols": [
-      "MXCT"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T14:55:15.416074-04:00",
-    "symbols": [
-      "TC"
-    ],
-    "headline": "10 Communication Services Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T14:55:16.453449-04:00",
-    "symbols": [
-      "MF"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T14:55:16.633713-04:00",
-    "symbols": [
-      "XCH"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T14:55:16.987645-04:00",
-    "symbols": [
-      "CANG"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-14T14:57:59.510011-04:00",
     "symbols": [
       "MSFT"
@@ -5031,5 +4981,57 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T11:26:33.269417-04:00",
+    "symbols": [
+      "MU",
+      "SKHY",
+      "SNDK"
+    ],
+    "headline": "Chip Meltdown Hits Micron, SanDisk and SK Hynix: $1 Trillion Vanishes From Memory Makers",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T11:26:58.913521-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Chip Meltdown Hits Micron, SanDisk and SK Hynix: $1 Trillion Vanishes From Memory Makers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T11:26:59.035000-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Chip Meltdown Hits Micron, SanDisk and SK Hynix: $1 Trillion Vanishes From Memory Makers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T11:26:59.134811-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Chip Meltdown Hits Micron, SanDisk and SK Hynix: $1 Trillion Vanishes From Memory Makers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T11:27:00.633910-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab Still Has a $2.4B Backlog While Neutron Waits",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

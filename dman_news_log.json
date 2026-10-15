@@ -1,275 +1,5 @@
 [
   {
-    "ts": "2026-10-14T12:41:30.751538-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "EXCLUSIVE: Tom Sosnoff Missed Investing In Uber \u2014 Now He Thinks He Found The Next One",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T12:42:05.964741-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon High-Bids for Live Sports Rights to Drive Prime Engagement",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T12:43:59.576275-04:00",
-    "symbols": [
-      "AAPL",
-      "AMZN",
-      "META",
-      "MSFT",
-      "NVDA",
-      "QQQ",
-      "SPY",
-      "TSLA"
-    ],
-    "headline": "ASML Earnings Signal Strong AI Demand Yet Stock Falls, Emphasizing Market Character Shift\u2014CPI Squashes Hopium",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T12:44:18.311833-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceXAI Rolling Out Grok Voice 3.0",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T12:52:57.051885-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "ASML Earnings Signal Strong AI Demand Yet Stock Falls, Emphasizing Market Character Shift\u2014CPI Squashes Hopium",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T12:52:57.496937-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "ASML Earnings Signal Strong AI Demand Yet Stock Falls, Emphasizing Market Character Shift\u2014CPI Squashes Hopium",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T12:52:57.770222-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "ASML Earnings Signal Strong AI Demand Yet Stock Falls, Emphasizing Market Character Shift\u2014CPI Squashes Hopium",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T12:52:58.356101-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "ASML Earnings Signal Strong AI Demand Yet Stock Falls, Emphasizing Market Character Shift\u2014CPI Squashes Hopium",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T12:52:58.981358-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "ASML Earnings Signal Strong AI Demand Yet Stock Falls, Emphasizing Market Character Shift\u2014CPI Squashes Hopium",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T12:52:59.277315-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "ASML Earnings Signal Strong AI Demand Yet Stock Falls, Emphasizing Market Character Shift\u2014CPI Squashes Hopium",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-14T12:53:12.144979-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "ASML Earnings Signal Strong AI Demand Yet Stock Falls, Emphasizing Market Character Shift\u2014CPI Squashes Hopium",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T12:53:12.389421-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "ASML Earnings Signal Strong AI Demand Yet Stock Falls, Emphasizing Market Character Shift\u2014CPI Squashes Hopium",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T13:13:46.877691-04:00",
-    "symbols": [
-      "GAUZ"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday's Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T13:13:47.504290-04:00",
-    "symbols": [
-      "IPW"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday's Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T13:13:48.757335-04:00",
-    "symbols": [
-      "WFF"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday's Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T13:13:52.660806-04:00",
-    "symbols": [
-      "MF"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday's Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T13:13:53.292723-04:00",
-    "symbols": [
-      "CANG"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday's Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-14T13:13:53.505144-04:00",
-    "symbols": [
-      "GFS"
-    ],
-    "headline": "Why Is GlobalFoundries Stock Surging Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T13:13:53.510104-04:00",
-    "symbols": [
-      "GFS"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T13:16:08.841188-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "These Analysts Lower Their Forecasts On Goldman Sachs After Q3 Results",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T13:17:02.135065-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Applied Digital Stock Sinks: What&#39;s Fueling the Move?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T13:18:49.233132-04:00",
-    "symbols": [
-      "DIA",
-      "IWM",
-      "QQQ",
-      "SPY"
-    ],
-    "headline": "Major indices are trading lower as Treasury yields rise and AI-related stocks extend losses following hotter-than-expected September consumer inflation data. The stronger inflation reading has fueled concerns that interest rates will remain elevated for longer, putting additional pressure on growth stocks and other rate-sensitive sectors.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T13:21:07.569481-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Why Is Goldman Sachs Stock Falling Wednesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T13:21:24.956068-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Applied Digital Stock Sinks: What's Fueling the Move?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T13:26:10.339106-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "GE Vernova shares are trading lower after Susquehanna lowered its price target on the stock from $1300 to $1270.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T13:30:37.855848-04:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "Shares of data center infrastructure-related companies are trading lower as elevated oil prices and stronger-than-expected inflation data fuel expectations that U.S. interest rates will remain elevated. Higher financing costs could pressure capital spending on data centers, power infrastructure, and commercial building projects, potentially weighing on demand for electrical equipment and HVAC systems.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T13:32:38.994865-04:00",
     "symbols": [
       "META"
@@ -5054,6 +4784,266 @@
     "headline": "USA Retail Inventories Ex Auto For August 0.0% Vs. 0.1% Est.",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:04:17.238720-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Why Is Applied Digital Stock Falling on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T10:04:22.231708-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "'Taiwan Blocks Coinbase, Kalshi Over Suspected Election Bets' - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T10:04:22.466033-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Bitcoin Is Due North, Says James Thorne\u2014Investment Strategist Says 'We're Early....We're Going to Embrace It'",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:04:22.474512-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Bitcoin, Ethereum, XRP and Dogecoin Slide After Hotter-Than-Expected CPI: Analyst Says 'Decisive' BTC Breakout Soon",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:04:22.686657-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "When Can You Buy a Tesla Cybercab? Investors Press Elon Musk on Robotaxis, HW3 FSD and More Ahead of TSLA's Q3 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T10:04:23.066808-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "When Can You Buy a Tesla Cybercab? Investors Press Elon Musk on Robotaxis, HW3 FSD and More Ahead of TSLA's Q3 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:04:23.076938-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Understanding Airbnb's Position In Hotels, Restaurants &amp; Leisure Industry Compared To Competitors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:04:24.356718-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Addresses 'Rogue Agents' as AI Gives Banks New Security Problems",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T10:04:25.672293-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Why Is Applied Digital Stock Falling on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-15T10:04:26.023256-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.K.'s Medicines And Healthcare Products Regulatory Agency Announces It Seized More Than 12K Fake Retatrutide And Tirzepatide Pens Along With Packaging For ~30K More Products In Birmingham On Oct. 14",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T10:04:26.032533-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Reported Earlier: 'U.S. Tells IEA Nations It\u2019s Unhappy With Emergency Oil Release; U.S. Has Been Informally Lobbying For An Extra Commitment Of At Least 100 Million Barrels' - Bloomberg News",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T10:04:26.145872-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Stock Market Today: Dow Futures Gain, S&P 500, Nasdaq Fall As Chip Stock Sell-Off Intensifies \u2014 SKHY, TSM, RKLB in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T10:04:26.156678-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Stock Market: Will S&P 500 Open Up or Down Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T10:04:26.163924-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Why Is Applied Digital Stock Falling on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:04:26.349302-04:00",
+    "symbols": [
+      "BCTX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:04:26.613640-04:00",
+    "symbols": [
+      "CDT"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:04:26.713149-04:00",
+    "symbols": [
+      "CISS"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday's After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:04:26.809223-04:00",
+    "symbols": [
+      "CLRO"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday's After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:04:26.904764-04:00",
+    "symbols": [
+      "DBGI"
+    ],
+    "headline": "Digital Brands Group Creates VP Of Strategic Partnerships For Sports & Entertainment Role For Year-Round Licensing And Brand Partnership Opportunities",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:04:27.073591-04:00",
+    "symbols": [
+      "DFNS"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday's After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:04:27.191440-04:00",
+    "symbols": [
+      "ELPW"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday's After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:04:27.325301-04:00",
+    "symbols": [
+      "ENSC"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday's After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:04:28.617670-04:00",
+    "symbols": [
+      "GP"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:04:29.095287-04:00",
+    "symbols": [
+      "SPRC"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:04:29.955803-04:00",
+    "symbols": [
+      "BEEM"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:04:30.441958-04:00",
+    "symbols": [
+      "GPUS"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

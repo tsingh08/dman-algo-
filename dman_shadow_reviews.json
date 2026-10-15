@@ -662,5 +662,49 @@
    "regime": "CHOP",
    "regime_score": 9
   }
+ },
+ {
+  "ts": "2026-10-15T11:14:16.376730-04:00",
+  "kind": "signal",
+  "ticker": "PAG",
+  "verdict": "skip",
+  "confidence": 85,
+  "reason": "CHOP regime (score 10) contradicts morning runner viability. Gap holding but regime hostile to sustained directional moves.",
+  "facts": {
+   "setup": "Morning Runner",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 211.21,
+   "stop": 203.84,
+   "target1": 232.84,
+   "rr": 2.93,
+   "rvol": 10.04,
+   "rsi": 51.6,
+   "reason": "News gap +8.3% on 10.0x vol, holding open | Float 18M, Short 14%",
+   "regime": "CHOP",
+   "regime_score": 10
+  }
+ },
+ {
+  "ts": "2026-10-15T11:14:17.426843-04:00",
+  "kind": "signal",
+  "ticker": "BMGL",
+  "verdict": "skip",
+  "confidence": 85,
+  "reason": "Regime is CHOP with score 10\u2014lowest quality. Entering catalyst-driven trade in choppy market increases whipsaw risk despite strong confluence.",
+  "facts": {
+   "setup": "Low Float Catalyst",
+   "bias": "LONG",
+   "confluence_score": 96,
+   "entry": 3.8777,
+   "stop": 3.1022,
+   "target1": 5.82,
+   "rr": 2.5,
+   "rvol": 9.66,
+   "rsi": 54.3,
+   "reason": "Float 0.5M | RVOL 9.7x | \u26a1 ULTRA-LOW FLOAT | Float 1.4x | Insiders 54% | \ud83d\udcb0 Below cash value (1.4x) | MACD curling bullish, RVOL spike",
+   "regime": "CHOP",
+   "regime_score": 10
+  }
  }
 ]

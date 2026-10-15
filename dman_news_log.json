@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-14T12:39:36.547487-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "AEP Unveils $4 Billion Fuel Cell Investment Backed By Long-Term Google Deal",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T12:40:56.208755-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "Piper Sandler Maintains Overweight on UnitedHealth Group, Raises Price Target to $504",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T12:41:25.775237-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Live On CNBC, Steve Weiss Announces Sold Netflix",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-14T12:41:30.751538-04:00",
     "symbols": [
       "UBER"
@@ -5053,5 +5023,37 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:56:50.091722-04:00",
+    "symbols": [
+      "APLD",
+      "GOOGL",
+      "ORCL"
+    ],
+    "headline": "Why Is Applied Digital Stock Falling on Thursday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:00:06.540071-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Business Inventories (MoM) For August 0.4% Vs 0.4% Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:00:15.199349-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Retail Inventories Ex Auto For August 0.0% Vs. 0.1% Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

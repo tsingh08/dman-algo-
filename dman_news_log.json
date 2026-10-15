@@ -1,51 +1,5 @@
 [
   {
-    "ts": "2026-10-14T11:37:17.850919-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Democratic Lawmakers Urge Federal Aviation Administration To Conduct New Environmental Review Before Allowing Amazon.com Drone Delivery Hub Near Boston",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T11:39:54.945700-04:00",
-    "symbols": [
-      "AAPL",
-      "ABBV",
-      "AFRM",
-      "AMD",
-      "AVGO",
-      "CAT",
-      "DIA",
-      "HOOD",
-      "IWM",
-      "LLY",
-      "META",
-      "MU",
-      "NVDA",
-      "ORCL",
-      "QQQ",
-      "TSLA",
-      "UNH"
-    ],
-    "headline": "Nasdaq 100 Drops 1% on Hot CPI, SOXX Falls 7th Day: Stock Market Today",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T11:40:22.901855-04:00",
-    "symbols": [
-      "RBLX"
-    ],
-    "headline": "UBS Maintains Neutral on Roblox, Raises Price Target to $53",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T11:41:45.900929-04:00",
     "symbols": [
       "DFNS"
@@ -5087,5 +5041,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T09:32:25.253546-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "TD Cowen Maintains Buy on Microsoft, Raises Price Target to $625",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:32:49.359225-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "&#39;Tesla Readies Flying Car Demo To Pump Up Sluggish Auto Business; Planning To Unveil Its Long-Promised New Roadster Sports Car Thursday In Texas, Reviving And Refreshing A Model That Tesla Stopped Producing More Than A Decade Ago&#39; - Bloomberg News",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T09:35:04.757270-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Reported Earlier: &#39;U.S. Tells IEA Nations It\u2019s Unhappy With Emergency Oil Release; U.S. Has Been Informally Lobbying For An Extra Commitment Of At Least 100 Million Barrels&#39; - Bloomberg News",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

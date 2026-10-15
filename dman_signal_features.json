@@ -40381,14 +40381,14 @@
 "catalyst_tier": "C",
 "news_boost": true,
 "regime": "CHOP",
-"regime_score": 9,
+"regime_score": 5,
 "mtf_ok": true,
 "regime_ok": true,
 "earnings_ok": true,
 "macro_ok": false,
 "divergence_free": true,
 "breakdown": {
-"Regime": 8,
+"Regime": 5,
 "MTF": 10,
 "Rel Strength": 15,
 "Sector": 6,
@@ -40416,8 +40416,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 4,
-"last_ts": "2026-10-15T09:28:27.579990-04:00",
+"seen": 8,
+"last_ts": "2026-10-15T09:32:51.203208-04:00",
 "entry_min": 53.46,
 "entry_max": 53.46
 }

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:58:18.432075-04:00",
-    "symbols": [
-      "DELL"
-    ],
-    "headline": "Why Is Dell Technologies Stock Sinking Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-14T14:58:18.436749-04:00",
     "symbols": [
       "DELL"
@@ -5043,5 +5033,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T12:43:41.731905-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Jefferies Assumes Netflix at Buy, Announces Price Target of $85",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

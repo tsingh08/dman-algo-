@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-14T15:22:34.524926-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Live On Yahoo Finance, Fed&#39;s Goolsbee Says Doesn&#39;t Want To Tie Hands On Monetary Policy Outlook; If Current Inflation Levels Hold Policy Would Need To Address That; Consumers, GDP And Investment Levels Have Been Strong; AI Hype Could Cause Even More Tech Sector Investment, Would Risk Overheating, Slowdown In AI Investment Doesn&#39;t Have To Mean Recession; Want To Keep Eye On Financial Stability Implications Of AI Investment",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T15:23:00.710900-04:00",
     "symbols": [
       "ESLT"
@@ -5050,5 +5040,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T13:30:58.310409-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;CNN And Google Strike Multiyear Partnership To Embrace Generative AI&#39; - Variety",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

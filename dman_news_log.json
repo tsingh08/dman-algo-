@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:54:59.470015-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Elon Musk Backs Micron As MU Stock Falls 25%: Is This Memory ETF an AI Stock Bargain?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-14T14:54:59.473470-04:00",
     "symbols": [
       "TSLA"
@@ -5020,5 +5010,26 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T11:09:32.716774-04:00",
+    "symbols": [
+      "AAPL",
+      "AVGO",
+      "DIA",
+      "IWM",
+      "LLY",
+      "NEM",
+      "NVDA",
+      "QQQ",
+      "SLB",
+      "SPY",
+      "UNH",
+      "XOM"
+    ],
+    "headline": "Defensives Lead Sectors In Thursday Trading As Technology Trails",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

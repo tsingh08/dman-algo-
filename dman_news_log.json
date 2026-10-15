@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:58:17.764752-04:00",
-    "symbols": [
-      "AMPG"
-    ],
-    "headline": "AmpliTech Group Awarded Over $17M Orders During Q3",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T14:58:18.004346-04:00",
     "symbols": [
       "CORZ"
@@ -5043,5 +5033,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T12:31:57.986997-04:00",
+    "symbols": [
+      "ELF"
+    ],
+    "headline": "Morgan Stanley Maintains Equal-Weight on e.l.f. Beauty, Raises Price Target to $103",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,156 +1,5 @@
 [
   {
-    "ts": "2026-10-15T09:15:11.485497-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Genius Sports Partners With X To Deliver Real-Time Official NFL Scores, Statistics And Insights Through NFL Gametime Feed",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:15:18.088975-04:00",
-    "symbols": [
-      "MU",
-      "SNDK"
-    ],
-    "headline": "Producer Inflation Jumps to 6.3%, Exceeding Estimates, as Fed Hike Pressure Builds (UPDATED)",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T09:15:37.779731-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "United Airlines Announces ~50% Of Its Flights Are Now Equipped With Starlink Wi-Fi, Rolls Out Starlink Tracker Tool",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:18:37.942473-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Evercore ISI Group Maintains Outperform on Applied Materials, Lowers Price Target to $590",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:20:40.518947-04:00",
-    "symbols": [
-      "DBGI"
-    ],
-    "headline": "Digital Brands Group Creates VP Of Strategic Partnerships For Sports &amp; Entertainment Role For Year-Round Licensing And Brand Partnership Opportunities",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T09:25:41.813135-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Intelligence Reportedly Nears China Debut After Delays. What to Expect",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:41.818661-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Assessing Apple&#39;s Performance Against Competitors In Technology Hardware, Storage &amp; Peripherals Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:41.824051-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Micron Stock Slides Again Thursday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:41.830082-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Intelligence Finally Coming to China After 2-Year Wait \u2014 But AI Siri and Genmoji Are Missing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:41.835088-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "OpenAI Accuses Apple Hire Of Taking 100+ Confidential Files Tied to Unreleased Product",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:41.914625-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Politico Reported Microsoft President Warned White House Against Crackdown On Skilled Immigration",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:42.076745-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia CEO Jensen Huang Rejects Sam Altman&#39;s Advice to &#39;Accept&#39; AI Cybersecurity Risks: \u2018We Should Do Everything...to Avoid Them\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:42.085087-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "SK Hynix Stock Extends Rout As South Korea&#39;s Chip Giants Face Brutal Selloff",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:42.092115-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Micron Stock Slides Again Thursday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T09:25:42.303861-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Google Search\u2019s $250 Billion Business Faces a New AI Threat: Why Gene Munster Thinks Meta\u2019s Muse May Be More Dangerous Than ChatGPT",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-15T09:25:42.309400-04:00",
     "symbols": [
       "META"
@@ -5028,6 +4877,156 @@
       "CORZ"
     ],
     "headline": "BTIG Reiterates Buy on Core Scientific, Maintains $38 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T14:01:24.136172-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Apple Hits $5 Trillion Market Cap as Nvidia's Lead Shrinks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:01:24.264313-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Adobe Stock Gains Ground Thursday: What's Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T14:01:24.445429-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "'U.S. Sues California In Fight Over Checking Citizenship Of Mail Voters' - CNBC",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:01:24.450378-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "The Hormuz Letter Posts On X \"BREAKING: Trump considering firing Defense Secretary Hegseth after the midterms in an effort to take the blame of the unpopular Iran war off of himself and onto Hegseth in order to \"protect his legacy\" and \"reputation as an anti-war president,\" per multiple initial reports. Trump is also on the verge of firing several key members of his administration in an effort to \"clean house\" amid mounting corruption allegations and expected midterm losses, as per the reports.\"",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:01:24.905670-04:00",
+    "symbols": [
+      "FMC"
+    ],
+    "headline": "Crude Oil Moves Higher; Charles Schwab Shares Fall After Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-15T14:01:25.043882-04:00",
+    "symbols": [
+      "AQST"
+    ],
+    "headline": "FDA Accepts Aquestive Therapeutics\u2019 Anaphylm NDA Resubmission; PDUFA Goal Action Date Set For March 16, 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:01:25.345509-04:00",
+    "symbols": [
+      "CRWV"
+    ],
+    "headline": "Apple Hits $5 Trillion Market Cap as Nvidia's Lead Shrinks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-15T14:01:25.500986-04:00",
+    "symbols": [
+      "CX"
+    ],
+    "headline": "Citigroup Upgrades Cemex to Buy, Lowers Price Target to $12",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T14:01:25.879814-04:00",
+    "symbols": [
+      "HOMB"
+    ],
+    "headline": "Stock Market Today: Dow Futures Gain, S&amp;P 500, Nasdaq Fall As Chip Stock Sell-Off Intensifies \u2014 SKHY, TSM, RKLB in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:01:25.884459-04:00",
+    "symbols": [
+      "HOMB"
+    ],
+    "headline": "Charles Schwab, US Bancorp And 3 Stocks To Watch Heading Into Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:01:26.010767-04:00",
+    "symbols": [
+      "DELL"
+    ],
+    "headline": "Dow Jones Climbs to 52,000 While Chips Bleed on Rate-Hike Fears: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:01:26.015482-04:00",
+    "symbols": [
+      "DELL"
+    ],
+    "headline": "Why Is Dell Technologies Stock Sinking Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:01:26.020136-04:00",
+    "symbols": [
+      "DELL"
+    ],
+    "headline": "CoreWeave, Rocket Lab, Dell, Greenland Energy Company and Bending Spoons: Why These 5 Stocks Are on Investors&#39; Radars Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T14:01:26.146766-04:00",
+    "symbols": [
+      "DRAM"
+    ],
+    "headline": "QUICK SPARK: Meet the 15 Worst-Performing Chip Stocks in the Last 7 Sessions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T14:01:26.259144-04:00",
+    "symbols": [
+      "AESI"
+    ],
+    "headline": "Barclays Maintains Equal-Weight on Atlas Energy Solutions, Lowers Price Target to $13",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

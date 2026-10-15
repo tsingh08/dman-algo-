@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:54:58.015250-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "10 Communication Services Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-14T14:54:59.470015-04:00",
     "symbols": [
       "TSLA"
@@ -5020,5 +5010,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T11:01:52.916746-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Caterpillar Investing $10M In Its North Carolina Operations",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

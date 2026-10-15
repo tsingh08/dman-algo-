@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-15T10:04:28.617670-04:00",
-    "symbols": [
-      "GP"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-15T10:04:29.095287-04:00",
     "symbols": [
       "SPRC"
@@ -5063,6 +5053,16 @@
     "headline": "Cantor Fitzgerald Initiates Coverage On Arcutis Biotherapeutics with Overweight Rating, Announces Price Target of $48",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T15:58:24.075737-04:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "Trump\u2019s Power Grid Emergency Puts This AI Infrastructure ETFs in the Spotlight",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

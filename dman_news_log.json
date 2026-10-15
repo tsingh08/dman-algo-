@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-14T15:05:31.553656-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Wall Street\u2019s \u2018Last Men Standing\u2019: The Mag 7 Are Propping Up the S&amp;P 500, Then Why Are Your ETFs at Risk?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-14T15:05:32.003331-04:00",
     "symbols": [
       "NFLX"
@@ -5042,5 +5032,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T12:54:56.668443-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Live On CNBC, Josh Brown Hosts Segment Titled &#34;Josh&#39;s Best Stocks In The Market: Palantir Technologies&#34;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

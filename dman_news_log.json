@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:57:59.510011-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;Eight U.S. States Sue OpenAI, Claiming ChatGPT Harms Children&#39; - Reuters News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-14T14:57:59.756955-04:00",
     "symbols": [
       "NVDA"
@@ -5031,6 +5021,16 @@
     ],
     "headline": "Rocket Lab Still Has a $2.4B Backlog While Neutron Waits",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T11:27:41.433948-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "&#39;JPMorgan Mulls Revival of Software Debt Deal Lenders Had Shunned&#39; - Bloomberg Exclusive",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

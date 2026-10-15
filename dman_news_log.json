@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:54:57.215555-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;Eight U.S. States Sue OpenAI, Claiming ChatGPT Harms Children&#39; - Reuters News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T14:54:57.429493-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "ASML Says AI Boom Is Boosting Pricing Power as Chipmakers Agree to Pay More",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-14T14:54:57.432691-04:00",
     "symbols": [
       "NVDA"
@@ -5020,5 +5000,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:48:11.203416-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "RBC Capital Maintains Outperform on RTX, Lowers Price Target to $235",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T10:48:35.950332-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;German Government Planning Extensive Cooperation With Nvidia Over AI&#39; - Handelsblatt",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

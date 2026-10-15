@@ -1,37 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:39:49.541935-04:00",
-    "symbols": [
-      "AMD",
-      "AVGO"
-    ],
-    "headline": "Why Is AMD Stock Falling on Wednesday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T14:43:42.273258-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Hasn&#39;t Cut This Many Jobs Since Its Subscriber Scare. So Why Now?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T14:50:03.447529-04:00",
-    "symbols": [
-      "MSFT",
-      "SPY"
-    ],
-    "headline": "&#39;Eight U.S. States Sue OpenAI, Claiming ChatGPT Harms Children&#39; - Reuters News",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T14:54:57.215555-04:00",
     "symbols": [
       "MSFT"
@@ -5021,6 +4989,36 @@
     "headline": "Shares of semiconductor and chip companies are trading lower as rising inflation concerns and elevated energy prices fuel expectations for further Fed rate hikes. Rising borrowing costs could pressure fab and AI infrastructure while straining customers budgets. Semiconductor stocks also faced pressure after South Korea\u2019s Kospi index fell more than 7% overnight.",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:47:13.889399-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "RBC Capital Maintains Sector Perform on Lockheed Martin, Lowers Price Target to $550",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T10:47:29.554834-04:00",
+    "symbols": [
+      "SPRC"
+    ],
+    "headline": "Why Is SciSparc Stock Gaining Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:47:29.672073-04:00",
+    "symbols": [
+      "IP"
+    ],
+    "headline": "&#39;Lone Star And Atlas Holdings Are Both Working On Possible Deals For For International Paper\u2019s European Packaging Business&#39; - Financial Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

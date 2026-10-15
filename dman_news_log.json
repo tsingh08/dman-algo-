@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:54:57.435448-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Michael Dell Warns Memory Shortage Could Be a &#39;Four-Year Problem&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-14T14:54:57.614036-04:00",
     "symbols": [
       "AMD"
@@ -5020,5 +5010,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:56:21.178736-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Mastercard Unveils Global Money Platform, Targets 40 Currencies by 2027",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

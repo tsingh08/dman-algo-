@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-14T16:06:01.887504-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Hadrian Inks Seven-Year Agreement With Lockheed Martin For Production Of Critical Missile Systems",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T09:13:30.630098-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Elon Musk Praises Micron&#39;s Pricing Strategy. Its $150 Billion Contract Book Explains Why",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-15T09:15:11.485497-04:00",
     "symbols": [
       "SPCX"
@@ -5048,6 +5028,26 @@
       "CORZ"
     ],
     "headline": "BTIG Reiterates Buy on Core Scientific, Maintains $38 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T14:02:51.652391-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa Shares Near 52-Week High as Stablecoin Payments Expand",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T14:03:26.088552-04:00",
+    "symbols": [
+      "SPRC"
+    ],
+    "headline": "SciSparc Shares Halted On Circuit Breaker To The Downside, Stock Now Down -23.69%",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

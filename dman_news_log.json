@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:18:56.896693-04:00",
-    "symbols": [
-      "BAC"
-    ],
-    "headline": "Big Bank Succession Talk Heats Up as CEOs Stay Firmly in Charge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T14:18:57.618984-04:00",
-    "symbols": [
-      "IBRX"
-    ],
-    "headline": "FDA Approves ImmunityBio&#39;s Anktiva To Treat Adults With Bacillus Calmette-Guerin Unresponsive Non-Muscle Invasive Bladder Cancer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T14:18:57.840450-04:00",
     "symbols": [
       "ASST"
@@ -5031,5 +5011,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T10:32:07.293349-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Natural Gas Storage  67B Vs 76B Est.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T10:32:47.705676-04:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "Barclays Maintains Overweight on SLB, Lowers Price Target to $66",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

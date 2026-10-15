@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-14T15:05:41.825335-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Elon Musk Posts On X &#34;Starshield systems are owned and controlled by the US government. Any limits on speed or usage are decided by the US military and ultimately POTUS.\n\nStarlink is a commercial service owned and controlled by SpaceX. Usage of Starlink is limited to civilian or defensive activities and cannot be used for offensive military action, as doing so would be inappropriate for a commercial company.&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-14T15:05:42.017172-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Wall Street\u2019s \u2018Last Men Standing\u2019: The Mag 7 Are Propping Up the S&amp;P 500, Then Why Are Your ETFs at Risk?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T15:05:42.020229-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Dow, Nasdaq Futures Gain Even as September Inflation Report Comes In Hotter Than Expected\u2014 ASML, AZZ, GME in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-14T15:05:42.507618-04:00",
-    "symbols": [
-      "BIVI"
-    ],
-    "headline": "BioVie To Present Phase 2 Bezisterim Data In Long COVID, Parkinson\u2019s At Neurology Conference October 18-19",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-14T15:05:42.683884-04:00",
-    "symbols": [
-      "BOXL"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-14T15:05:42.821559-04:00",
     "symbols": [
       "CDT"
@@ -5039,6 +4989,62 @@
       "SPY"
     ],
     "headline": "The Hormuz Letter Posts On X &#34;BREAKING: Trump considering firing Defense Secretary Hegseth after the midterms in an effort to take the blame of the unpopular Iran war off of himself and onto Hegseth in order to &#34;protect his legacy&#34; and &#34;reputation as an anti-war president,&#34; per multiple initial reports. Trump is also on the verge of firing several key members of his administration in an effort to &#34;clean house&#34; amid mounting corruption allegations and expected midterm losses, as per the reports.&#34;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T13:17:06.247644-04:00",
+    "symbols": [
+      "DIA",
+      "IWM",
+      "QQQ",
+      "RKLB",
+      "SKHY",
+      "V"
+    ],
+    "headline": "Dow Jones Climbs to 52,000 While Chips Bleed on Rate-Hike Fears: Stock Market Today",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T13:17:06.283224-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Adobe Stock Gains Ground Thursday: What&#39;s Happening?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T13:17:24.311964-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Elon Musk&#39;s $100 Trillion SpaceX Bet Has a Starlink Mobile Wild Card",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T13:17:35.629401-04:00",
+    "symbols": [
+      "GOOGL",
+      "MSFT"
+    ],
+    "headline": "Google Undercuts Some AI Rivals on Price as Gemini 4 Argon Reaches Enterprises",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-15T13:17:37.145818-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;U.S. Sues California In Fight Over Checking Citizenship Of Mail Voters&#39; - CNBC",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-14T14:54:57.432691-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-14T14:54:57.435448-04:00",
     "symbols": [
       "NVDA"
@@ -5020,5 +5010,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-15T10:51:15.316491-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Consumer Product Safety Commission Eliminates Unnecessary Fuel Additive Regulations, Saving American Businesses Up To $10.7B",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

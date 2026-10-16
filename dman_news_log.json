@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:42:23.508557-04:00",
-    "symbols": [
-      "IREN"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T14:42:23.512179-04:00",
-    "symbols": [
-      "IREN"
-    ],
-    "headline": "CRWV, NBIS, IREN in Focus: Gartner Warns 80% of Neoclouds Will &#39;Cease Independent Operations&#39; by 2030",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-15T14:42:23.515890-04:00",
     "symbols": [
       "IREN"
@@ -5081,5 +5061,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T12:54:55.118280-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "PayPal Teams Up with Glance to Turn AI Shopping Discovery into Instant Purchases",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T12:55:19.945782-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla&#39;s Roadster Just Made SpaceX More Valuable. Does Tesla Get Any Credit?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

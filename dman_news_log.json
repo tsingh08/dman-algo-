@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-16T09:25:48.583442-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Trump\u2019s $330 Million White House Ballroom Donor List Reveals Nvidia, Apple and Google Among Top Tech Contributors: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T09:25:48.588768-04:00",
     "symbols": [
       "MSFT"
@@ -5094,5 +5084,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T15:52:16.140947-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;State Department Warns Travelers To China They Risk &#34;Wrongful Detention\u201d&#39; - Semafor",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

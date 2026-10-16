@@ -1,38 +1,5 @@
 [
   {
-    "ts": "2026-10-15T13:28:17.445410-04:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "e.l.f. Beauty shares are trading higher after Morgan Stanley maintained its Equal-Weight rating on the stock and raised its price target from $90 to $103.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T13:30:58.310409-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;CNN And Google Strike Multiyear Partnership To Embrace Generative AI&#39; - Variety",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T13:35:10.608814-04:00",
-    "symbols": [
-      "MU",
-      "NBIS",
-      "NVDA",
-      "SKHY"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-15T13:35:10.909611-04:00",
     "symbols": [
       "AMZN",
@@ -5042,5 +5009,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T09:49:58.242166-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Space Stock Watch: SpaceX Spectrum Deal, Rocket Lab Delays, Tesla Merger Chatter",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T09:50:01.835264-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Space Stock Watch: SpaceX Spectrum Deal, Rocket Lab Delays, Tesla Merger Chatter",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-16T09:50:04.218063-04:00",
+    "symbols": [
+      "LUNR"
+    ],
+    "headline": "Space Stock Watch: SpaceX Spectrum Deal, Rocket Lab Delays, Tesla Merger Chatter",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

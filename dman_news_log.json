@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:37:33.361871-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Mastercard And BVNK Launch The Mastercard Global Money Platform To Incorporate Stablecoin Infrastructure Through Single API",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T14:37:33.373369-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Why Is Costco (COST) Stock Trending After Hours?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-15T14:37:33.379481-04:00",
     "symbols": [
       "ORCL"
@@ -5041,5 +5021,28 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T11:21:11.782256-04:00",
+    "symbols": [
+      "APLD",
+      "GOOGL",
+      "ORCL",
+      "TSLA"
+    ],
+    "headline": "Why Is Applied Digital Stock Falling Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T11:23:51.110316-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "NBA tells sportsbooks to stop certain bets, restrict parlays&#39; - ESPN",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:37:33.343791-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "SK Hynix Stock Plunges 11% in Seoul, Slips After Hours in New York as Hot CPI, Fed Hike Bets and AI Funding Worries Weigh",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-15T14:37:33.351326-04:00",
     "symbols": [
       "V"
@@ -5041,5 +5031,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T11:15:18.371074-04:00",
+    "symbols": [
+      "ISRG"
+    ],
+    "headline": "If You Invested $1000 In Intuitive Surgical Stock 10 Years Ago, You Would Have This Much Today",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

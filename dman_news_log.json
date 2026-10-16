@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:42:12.501448-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Citigroup Maintains Buy on CrowdStrike Holdings, Raises Price Target to $295",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:42:12.726857-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Daniel Newman Says \u2018Grown-Up Move\u2019 For Neocloud CEOs of CoreWeave, IREN Is to Buy Their Own Stock, Like Palo Alto Chief: \u2018A Real Signal of Belief\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:42:13.285313-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "&#39;Taiwan Blocks Coinbase, Kalshi Over Suspected Election Bets&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-15T14:42:13.289136-04:00",
     "symbols": [
       "COIN"
@@ -5057,5 +5027,37 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T12:27:03.742932-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "ExxonMobil Sees $4.5 Billion Boost from Higher Refining Margins",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T12:27:17.317655-04:00",
+    "symbols": [
+      "COIN",
+      "HOOD",
+      "MSTR"
+    ],
+    "headline": "Looking Beyond Bitcoin? Analysts See Bigger Opportunities in These 5 Altcoins",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T12:27:22.630248-04:00",
+    "symbols": [
+      "HODO"
+    ],
+    "headline": "Why Alcoa Shares Are Trading Higher; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:55:26.277458-04:00",
-    "symbols": [
-      "SCHW"
-    ],
-    "headline": "Charles Schwab Q3 Adj. EPS $1.69 Beats $1.66 Estimate, Sales $7.171B Miss $7.192B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-15T14:55:26.282000-04:00",
     "symbols": [
       "SCHW"
@@ -5086,5 +5076,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T14:17:12.884945-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir Technologies Stock Is Falling Friday: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,182 +1,5 @@
 [
   {
-    "ts": "2026-10-15T16:06:42.886021-04:00",
-    "symbols": [
-      "RSKD"
-    ],
-    "headline": "Rocket Lab, Taiwan Semiconductor And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T16:06:43.102122-04:00",
-    "symbols": [
-      "KRMN"
-    ],
-    "headline": "Dow Jones Climbs to 52,000 While Chips Bleed on Rate-Hike Fears: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T19:25:31.846116-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Chicago Fed&#39;s Goolsbee On CNN Said It&#39;s Been A Discouraging Month For Inflation , But He Remains Optimistic If Inflation Drivers Fade Quickly",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T09:11:24.840018-04:00",
-    "symbols": [
-      "AAPL",
-      "SPY"
-    ],
-    "headline": "October Rate-Hike Odds Collapse as Warsh Keeps His Cards Close but AI Transition Looms",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T09:12:36.903965-04:00",
-    "symbols": [
-      "GOOGL",
-      "META",
-      "NFLX"
-    ],
-    "headline": "Netflix Needs Another &#39;Squid Game&#39; Moment As Growth Pressure Mounts",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T09:14:35.463930-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Stock Hits Record High as iPhone Duo Pre-Orders Sell Out in Minutes",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T09:14:48.678812-04:00",
-    "symbols": [
-      "AVGO",
-      "MU",
-      "SKHY",
-      "SNDK"
-    ],
-    "headline": "EXCLUSIVE: Is AI Growth Slowing Down? Memory Industry Expert Says It&#39;s &#39;Too Early&#39; To Tell",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T09:16:00.807440-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA Industrial Production (MoM) For September 0.7% Vs 0.4% Est.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T09:16:50.904285-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA Industrial Production (YoY) For September 2.2% Vs 1.4% Prior",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T09:19:08.798525-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Keybanc Maintains Overweight on CrowdStrike Holdings, Raises Price Target to $265",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T09:19:13.684578-04:00",
-    "symbols": [
-      "AAPL",
-      "GOOGL",
-      "JPM",
-      "MSFT",
-      "NVDA",
-      "PLTR"
-    ],
-    "headline": "Trump\u2019s $330 Million White House Ballroom Donor List Reveals Nvidia, Apple and Google Among Top Tech Contributors: Report",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T09:22:05.824530-04:00",
-    "symbols": [
-      "GME",
-      "MU",
-      "NVDA",
-      "RKLB",
-      "SKHY",
-      "SNDK",
-      "TSLA"
-    ],
-    "headline": "TSLA, MU, CRWV and More: 5 Stocks Investors Couldn&#39;t Stop Buzzing About This Week (CORRECTED)",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T09:25:48.456996-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Trump\u2019s $330 Million White House Ballroom Donor List Reveals Nvidia, Apple and Google Among Top Tech Contributors: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T09:25:48.462348-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "October Rate-Hike Odds Collapse as Warsh Keeps His Cards Close but AI Transition Looms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T09:25:48.466941-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple\u2019s $1,999 iPhone Duo Preorders Begin Today: Trade-Ins, Monthly Payments and Deals to Cut the Hefty Price",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T09:25:48.471676-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "&#39;iPhone Duo sells out moments after pre-orders begin&#39; - Apple Insider",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-16T09:25:48.583442-04:00",
     "symbols": [
       "MSFT"
@@ -5111,5 +4934,165 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T15:44:45.600919-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "'Apple Set For UK Legal Fight Over iPhone Tap-To-Pay Rules' - Financial Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T15:44:45.605498-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "'PayPal And Epic Games Have Discussed Concerns With The Justice Department That A Settlement With Apple Could Fail To Meaningfully Curb Its Restrictions On Rival Apps And Devices' - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T15:44:45.747345-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Rep. David Taylor Has Bought Up to $45K Worth Of AT&T Stock: Here\u2019s What You Should Know",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T15:44:45.875227-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "SemiAnalysis Pots On X \"SHOCKING: We have confirmed that multiple Neoclouds have been refused access to GTC Berlin due to them adding AMD GPUs, TPUs, and other chips to their cloud offerings. Note that this doesn't apply to hyperscalers, as they have more buying power. But for neoclouds, executives feel NVIDIA has been using high-pressure tactics to keep them NVIDIA-only....\"",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T15:44:46.066222-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "SemiAnalysis Pots On X \"SHOCKING: We have confirmed that multiple Neoclouds have been refused access to GTC Berlin due to them adding AMD GPUs, TPUs, and other chips to their cloud offerings. Note that this doesn't apply to hyperscalers, as they have more buying power. But for neoclouds, executives feel NVIDIA has been using high-pressure tactics to keep them NVIDIA-only....\"",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T15:44:46.071587-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "What's Going On With Fermi Stock Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T15:44:46.298602-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta's AI Bet Could Deliver Another Earnings Surprise, Analyst Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T15:44:46.303377-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "'In internal messages, Meta admits that Lula's accounts were compromised; engineers mention technical failures' - Folha",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T15:44:46.453594-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "'Anthropic in Discussions With NYC Comptroller After IPO Letter' - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T15:44:46.585989-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "'Anthropic in Discussions With NYC Comptroller After IPO Letter' - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T15:44:46.710572-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla's Flying Roadster Sends Delivery Odds Tumbling Despite Spectacular Demo",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T15:44:46.715546-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla's Roadster Just Made SpaceX More Valuable. Does Tesla Get Any Credit?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T15:44:47.090373-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir Technologies Stock Is Falling Friday: What's Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T15:44:48.318669-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "EXCLUSIVE: Prediction Market Volumes Are Soaring, but Most Exchanges Won't Survive, Smarkets CEO Warns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T15:44:48.812275-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly's GLP-1 Pill Wins Key European Backing for Obesity and Diabetes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T15:44:49.883572-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Keybanc Maintains Overweight on CrowdStrike Holdings, Raises Price Target to $265",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

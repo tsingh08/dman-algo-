@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-15T15:53:55.567452-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Citigroup Maintains Buy on Microsoft, Raises Price Target to $636",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-15T15:54:33.019449-04:00",
     "symbols": [
       "ARQT"
@@ -5109,5 +5099,17 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T15:30:09.705589-04:00",
+    "symbols": [
+      "ISRG",
+      "NFLX",
+      "SPOT"
+    ],
+    "headline": "Lam Research Could Swing $28.6 Billion After Earnings",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

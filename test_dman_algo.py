@@ -25880,11 +25880,34 @@ class TestTheZoneVerdictShowsWhichExitProducedIt(unittest.TestCase):
             lines = " ".join(a._bzone_record_lines())
         self.assertIn("all-time", lines)
 
+    def test_it_states_what_the_remaining_trades_must_average(self):
+        """The record alone hides how far away the verdict is. At n=4 and
+        -3.44% the next eight must average better than +1.72% each, while the
+        measured expectation of the current configuration is -0.15% -- a ~1.9
+        point per trade gap. Showing the record without the bar invites the
+        reading that it is close."""
+        with self._rec(self.ROWS):
+            lines = " ".join(a._bzone_record_lines())
+        self.assertIn("must average", lines)
+        self.assertIn("+1.72%", lines)
+
+    def test_the_bar_is_not_shown_once_the_sample_is_complete(self):
+        """At n>=12 there is nothing left to average."""
+        rows = [("2026-10-%02d" % (d + 1), -1.0) for d in range(12)]
+        with self._rec(rows):
+            lines = " ".join(a._bzone_record_lines())
+        self.assertNotIn("must average", lines)
+
     def test_the_split_is_hidden_once_every_trade_is_post_change(self):
-        """A second line that repeats the first is noise."""
+        """A line that repeats the all-time figure is noise.
+
+        Asserts on the SPLIT line specifically. The first version counted
+        total lines as a proxy and broke the moment the verdict countdown was
+        added -- a proxy that fails on an unrelated change was testing the
+        wrong thing."""
         with self._rec([("2026-10-15", 4.49)]):
-            lines = a._bzone_record_lines()
-        self.assertEqual(len(lines), 1)
+            lines = " ".join(a._bzone_record_lines())
+        self.assertNotIn("since the exit changed", lines)
 
     def test_no_closed_trades_reports_nothing(self):
         with self._rec([]):

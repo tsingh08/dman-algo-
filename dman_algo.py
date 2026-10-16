@@ -13776,6 +13776,18 @@ def _bzone_record_lines() -> list:
         return []
     _out = [f"  zone record: {_n}/{BZONE_TRADE_REVIEW_N} closed, mean {_avg:+.2f}%"
             f" \u2014 verdict at {BZONE_TRADE_REVIEW_N}"]
+    # What the remaining trades have to average for the verdict to survive.
+    # Stating the record alone hides how far away it is: at n=4 and -3.44% the
+    # next eight have to average better than +1.72% EACH, while the measured
+    # expectation of the current configuration is -0.15%. That is a ~1.9 point
+    # per trade gap, so the honest reading is that this verdict disables the
+    # setup, and on the evidence it would be RIGHT to.
+    _left = BZONE_TRADE_REVIEW_N - _n
+    if _left > 0:
+        _sum = _avg * _n
+        _out.append(
+            f"  to survive the verdict the next {_left} must average "
+            f"> {-_sum / _left:+.2f}% each")
     _sn, _savg = _bzone_record(since=BZONE_EXIT_CONFIG_DATE)
     if _sn and _sn < _n:
         _out.append(

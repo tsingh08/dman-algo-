@@ -65,7 +65,13 @@ on:
   workflow_dispatch:   # manual trigger from GitHub UI
     inputs:
       mode:
-        description: 'Type ONE word only — the mode name. Options: alpaca | pnl | regime | positions | performance | premarket | premarket-early | momentum-watch | readiness | scan-log | watchlist'
+        # keydrill and apicheck were always dispatchable -- the mode passes
+        # straight through to --mode with no validation -- but they were
+        # missing from this list, so the two checks that can ONLY be run
+        # where the secrets live looked impossible to run. The spare
+        # Massive key exists only as a GitHub secret, so a rotation drill
+        # on a laptop reports "nothing to rotate to" and proves nothing.
+        description: 'Type ONE word only — the mode name. Options: alpaca | pnl | regime | positions | performance | premarket | premarket-early | momentum-watch | readiness | scan-log | watchlist | apicheck | keydrill'
         required: false
         default: ''
 

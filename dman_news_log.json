@@ -1,82 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:33:52.769559-04:00",
-    "symbols": [
-      "ERIC"
-    ],
-    "headline": "Why Are Ericsson Shares Surging on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T14:34:43.779481-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Bernstein Maintains Market Perform on RTX, Lowers Price Target to $214",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:34:43.784035-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "RTX\u2019s Raytheon Selected For Space Force Contract To Modernize Missile Early-Warning Radar Sites; Terms Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:34:43.788562-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Zelenskyy Ends Ukraine\u2019s Pause on Russian Oil Refinery Strikes After Trump-Backed Truce, Demands Patriot Missiles for Another Ceasefire: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:34:43.795858-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan, Bank of America, Wells Fargo Among 9 Banks Accused of Political, Religious Debanking by OCC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T14:36:26.737317-04:00",
-    "symbols": [
-      "AAPL",
-      "AMZN",
-      "META",
-      "MSFT",
-      "NVDA",
-      "QQQ",
-      "SPY",
-      "TSLA"
-    ],
-    "headline": "Anthropic Needs Nearly $2.7B in Additional Monthly Revenue to Reach $100B Run Rate by Year-End",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T14:37:17.803352-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "AI Stocks Plunge, but Jensen Huang Says Nvidia Gets New Chip Orders Almost Daily",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-15T14:37:33.343791-04:00",
     "symbols": [
       "GS"
@@ -5048,5 +4971,75 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-16T11:11:44.458113-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "QUICK SPARK: South Korea\u2019s KOSPI Logs Worst Week Since 2008\u2019s Lehman Brothers Collapse",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T11:12:16.815013-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia, Micron and Broadcom Already Trade Like Cisco Post Dot-Com Burst: Bank of America",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T11:12:17.247578-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;In internal messages, Meta admits that Lula&#39;s accounts were compromised; engineers mention technical failures&#39; - Folha",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T11:12:18.215670-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Nvidia, Micron and Broadcom Already Trade Like Cisco Post Dot-Com Burst: Bank of America",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T11:12:18.527916-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Nvidia, Micron and Broadcom Already Trade Like Cisco Post Dot-Com Burst: Bank of America",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T11:12:25.560249-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nvidia, Micron and Broadcom Already Trade Like Cisco Post Dot-Com Burst: Bank of America",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-16T11:12:30.301717-04:00",
+    "symbols": [
+      "RF"
+    ],
+    "headline": "Regions Finl Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

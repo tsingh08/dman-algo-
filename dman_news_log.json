@@ -1,16 +1,5 @@
 [
   {
-    "ts": "2026-10-15T13:35:10.909611-04:00",
-    "symbols": [
-      "AMZN",
-      "TSLA"
-    ],
-    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-15T13:35:11.150497-04:00",
     "symbols": [
       "GEV"
@@ -5039,5 +5028,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T09:50:34.379412-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia GPUs Become Wall Street Collateral As AI Financing Expands",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

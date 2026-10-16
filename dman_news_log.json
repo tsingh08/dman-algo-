@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-15T13:38:42.635698-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T13:38:44.661182-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-15T13:38:45.129783-04:00",
     "symbols": [
       "SKHY"
@@ -5039,5 +5019,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T10:00:27.556686-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "NVDA-Led AI Boom Looks a Lot Like the Railroad Bubble of 1873, Pulitzer-Winning Historian Warns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T10:00:27.681996-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVDA-Led AI Boom Looks a Lot Like the Railroad Bubble of 1873, Pulitzer-Winning Historian Warns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

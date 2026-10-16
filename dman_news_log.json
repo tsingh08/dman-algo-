@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-15T13:39:01.157330-04:00",
-    "symbols": [
-      "DRMA"
-    ],
-    "headline": "Why Is Dermata Therapeutics Stock Gaining Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T13:39:37.218622-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "EU Said To Be Ready To Fast-Track Satellite Rival To SpaceX",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T13:39:41.931425-04:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "Mizuho Maintains Underperform on Fortinet, Raises Price Target to $160",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T13:40:44.456408-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "UnitedHealth Stock Moves Higher: What&#39;s Going On?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-15T13:40:49.918626-04:00",
     "symbols": [
       "MSFT"
@@ -5039,5 +4999,46 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T10:08:06.066848-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Strategy shares are trading lower after MSCI announced a review that may bar non-operating companies from inclusion in its indices from November 30.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T10:08:37.294700-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Putin&#39;s Envoy Dmitriev Says U.S., Russia Discuss Projects In Arctic, LNG; U.S. Finance Ministry Asked Our RDIF Fund To Facilitate Diesel Deal",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T10:09:03.772309-04:00",
+    "symbols": [
+      "KPLT"
+    ],
+    "headline": "Ladder Capital Posts Upbeat Q3 Earnings, Joins Alcoa, Hyster-Yale And Other Big Stocks Moving Higher On Friday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T10:10:00.557849-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL"
+    ],
+    "headline": "&#39;Anthropic in Discussions With NYC Comptroller After IPO Letter&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-15T13:38:45.129783-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-15T13:38:58.574646-04:00",
     "symbols": [
       "NBIS"
@@ -5039,5 +5029,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T10:00:40.488288-04:00",
+    "symbols": [
+      "EARN"
+    ],
+    "headline": "Ellington Credit Announces $20M Buyback Plan",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

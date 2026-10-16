@@ -1,26 +1,5 @@
 [
   {
-    "ts": "2026-10-15T15:43:46.749860-04:00",
-    "symbols": [
-      "AMAT",
-      "KLAC"
-    ],
-    "headline": "Lam Research Stock Hits Longest Losing Streak Ever: Are There Buyers Around?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T15:44:00.952593-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Why Is Applied Digital Stock Falling on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-15T15:49:33.358972-04:00",
     "symbols": [
       "META"
@@ -5109,5 +5088,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T14:59:58.881690-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Super Micro Finally Names a CFO, Nearly Two Years After an Accounting Review Prompted the Search",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T15:00:02.488075-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Super Micro Finally Names a CFO, Nearly Two Years After an Accounting Review Prompted the Search",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

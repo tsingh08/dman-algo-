@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-15T13:14:35.548249-04:00",
-    "symbols": [
-      "NMRA"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T13:14:35.785960-04:00",
-    "symbols": [
-      "HUMA"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-15T13:14:36.022505-04:00",
     "symbols": [
       "DFH"
@@ -5047,5 +5027,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T09:36:50.315962-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Reported Earlier, Fed Chair Warsh Doesn&#39;t Comment On Monetary Policy Or Rates Outlook During IMF Fireside Chat In Thailand",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T09:37:00.347943-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "StoneX Maintains Buy on Microsoft, Raises Price Target to $600",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:42:11.100174-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "StoneX Downgrades Spotify Technology to Hold",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-15T14:42:11.350892-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "GameStop CEO Ryan Cohen Says His Investment Was a \u2018Mistake\u2019 \u2014 But He Was Ready to \u2018Go Down With the Ship\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T14:42:11.811692-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Keybanc Maintains Overweight on Rocket Lab, Lowers Price Target to $100",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-15T14:42:11.815504-04:00",
     "symbols": [
       "RKLB"
@@ -5056,6 +5026,36 @@
     "headline": "Shares of semiconductor and chip companies are trading lower as rising inflation concerns and elevated energy prices fuel expectations for further Fed rate hikes. Elevated borrowing costs could pressure semiconductor manufacturing and AI infrastructure investments while straining customer budgets. The Philadelphia Semiconductor Index (SOX) has declined for seven consecutive trading sessions, matching its longest losing streak since the 2008 financial crisis.",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T12:10:11.896129-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron, SK Hynix Have an AI Boom Problem \u2014 China Could Make It Worse",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T12:10:12.169534-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Micron, SK Hynix Have an AI Boom Problem \u2014 China Could Make It Worse",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T12:10:26.609621-04:00",
+    "symbols": [
+      "ADUR"
+    ],
+    "headline": "Aduro Clean Technologies Q1 EPS $0.02 Beats $(0.09) Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

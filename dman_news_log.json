@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:42:04.631818-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Anthropic Needs Nearly $2.7B in Additional Monthly Revenue to Reach $100B Run Rate by Year-End",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T14:42:04.635500-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;OpenAI\u2019s Accelerates Ad Sprint With Meta Hires, Slashed Prices&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-15T14:42:04.892480-04:00",
     "symbols": [
       "NVDA"
@@ -5042,6 +5022,29 @@
     ],
     "headline": "Why Is Applied Digital Stock Falling Friday?",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T11:30:45.546079-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "JP Morgan Maintains Overweight on UnitedHealth Group, Raises Price Target to $524",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T11:30:51.955738-04:00",
+    "symbols": [
+      "APLD",
+      "MARA",
+      "NBIS",
+      "RIOT"
+    ],
+    "headline": "Shares of AI cloud services companies are trading lower amid persistent concerns over the debt required to sustain the AI infrastructure buildout. Sentiment is also under pressure following a Gartner warning about the outlook for neocloud providers, fueling concerns over the sustainability of spending on AI computing capacity.",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

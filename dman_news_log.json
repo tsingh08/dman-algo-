@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:55:23.623464-04:00",
-    "symbols": [
-      "MAN"
-    ],
-    "headline": "ManpowerGroup Picks New CEO to Lead Its AI Transformation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T14:55:23.627920-04:00",
-    "symbols": [
-      "MAN"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-15T14:55:23.855299-04:00",
     "symbols": [
       "NASA"
@@ -5083,5 +5063,28 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T13:39:33.803713-04:00",
+    "symbols": [
+      "DIA",
+      "IWM",
+      "QQQ",
+      "SPY"
+    ],
+    "headline": "Major indices are trading lower as rising Treasury yields and hotter-than-expected inflation data this week fuel a rotation out of tech and AI-related stocks. Credit risks tied to the AI infrastructure buildout are adding to the pressure, with the VanEck Semiconductor ETF (SMH) down 8% this week, on track for its biggest weekly decline since July.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T13:41:40.613263-04:00",
+    "symbols": [
+      "LRHC"
+    ],
+    "headline": "La Rosa Holdings shares are trading lower. The company announced a corporate name change to Stratum Holdings and a ticker change to SRTM, effective October 19.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

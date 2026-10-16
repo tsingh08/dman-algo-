@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-15T15:54:33.019449-04:00",
-    "symbols": [
-      "ARQT"
-    ],
-    "headline": "Why Is Arcutis Biotherapeutics Stock Surging Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T15:54:33.025450-04:00",
-    "symbols": [
-      "ARQT"
-    ],
-    "headline": "Cantor Fitzgerald Initiates Coverage On Arcutis Biotherapeutics with Overweight Rating, Announces Price Target of $48",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T15:58:24.075737-04:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "Trump\u2019s Power Grid Emergency Puts This AI Infrastructure ETFs in the Spotlight",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T16:05:39.219320-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "CoreWeave\u2019s Bonds Hit 15% Yield: This Analyst Still Sees 105% Upside For The Stock",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T16:06:40.899492-04:00",
-    "symbols": [
-      "CRWV"
-    ],
-    "headline": "CoreWeave\u2019s Bonds Hit 15% Yield: This Analyst Still Sees 105% Upside For The Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-15T16:06:42.886021-04:00",
     "symbols": [
       "RSKD"
@@ -5111,5 +5061,55 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T15:41:02.515601-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla shares reversed earlier gains from the company\u2019s Roadster unveiling and are trading lower, with the vehicle not expected to ship until 2028, amid a broader tech selloff driven by rising Treasury yields and AI-related jitters.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T15:42:15.787623-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Lam Research Could Swing $28.6 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-16T15:42:20.796616-04:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "Lam Research Could Swing $28.6 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-16T15:42:29.489938-04:00",
+    "symbols": [
+      "ISRG"
+    ],
+    "headline": "Lam Research Could Swing $28.6 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T15:42:42.097011-04:00",
+    "symbols": [
+      "PAYP"
+    ],
+    "headline": "Ladder Capital Posts Upbeat Q3 Earnings, Joins Alcoa, Hyster-Yale And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

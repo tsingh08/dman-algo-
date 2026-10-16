@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-16T09:25:48.598095-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "CMA Proposes Designating Microsoft With Strategic Market Status In Business Software, Publishes Intervention Roadmap; Microsoft, Amazon Taking Material Steps To Promote Cloud Choice",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T09:25:48.602699-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Anthropic IPO Could Come in \u2018Weeks, Not Months\u2019 \u2014 Top Hedge Fund Manager Sees $500 Billion Demand, Draws Parallels With SpaceX",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T09:25:48.714914-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "TSLA, MU, CRWV and More: 5 Stocks Investors Couldn&#39;t Stop Buzzing About This Week (CORRECTED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T09:25:48.720832-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Trump\u2019s $330 Million White House Ballroom Donor List Reveals Nvidia, Apple and Google Among Top Tech Contributors: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T09:25:48.725386-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Zeta Global Stock Hits 52-Week High - Here&#39;s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T09:25:48.730629-04:00",
     "symbols": [
       "NVDA"
@@ -5092,6 +5042,65 @@
     ],
     "headline": "October Rate-Hike Odds Collapse as Warsh Keeps His Cards Close but AI Transition Looms",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T16:00:24.453837-04:00",
+    "symbols": [
+      "NI"
+    ],
+    "headline": "NiSource Lands Major Microsoft Power Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T16:00:24.458595-04:00",
+    "symbols": [
+      "NI"
+    ],
+    "headline": "NiSource Enters 20-Year PPA With Microsoft For Its Northwest Indiana Campus; Total Savings For Existing Customers Expands To ~$1.75B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T16:00:24.463044-04:00",
+    "symbols": [
+      "NI"
+    ],
+    "headline": "NiSource Subsidiary Entered Battery Storage Tolling Agreement With AGP Group Subsidiary To Develop 600 MWAC/2,400 MWh Battery Storage System Interconnected To Midcontinent Independent System Operator (MISO) Transmission Grid",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T16:02:35.470339-04:00",
+    "symbols": [
+      "GAUZ"
+    ],
+    "headline": "Gauzy Announces $7M PIPE Financing For 2.38M Shares Priced At $2.94 Per Share, Led By CEO Eyal Peso",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T16:02:55.011334-04:00",
+    "symbols": [
+      "AMAT",
+      "AVGO",
+      "CRWD",
+      "MU",
+      "NBIS",
+      "NVDA",
+      "PANW",
+      "RKLB",
+      "SKHY",
+      "SNDK"
+    ],
+    "headline": "Chip Stocks Endure Longest Losing Streak Since 2006 as CoreWeave Credit Concerns Mount: This Week on Wall Street",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

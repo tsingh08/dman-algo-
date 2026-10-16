@@ -26167,3 +26167,198 @@ class TestTheMacroCalendarMatchesTheAgencies(unittest.TestCase):
                 return a.check_macro_safe()[0]
         self.assertFalse(_gate(2026, 12, 9, 11), "real FOMC must block")
         self.assertTrue(_gate(2026, 12, 16, 11), "phantom FOMC must not block")
+
+
+class TestTheDipShadowOnlyWatches(unittest.TestCase):
+    """Every setup in this file is a breakout, and on the EXECUTABLE universe
+    momentum is the WORST condition tested, not merely weak.
+
+    Measured 2026-10-16 on WATCHLIST (all liquid), split-adjusted bars,
+    next-open entry, 5-day hold, 1-99% trimmed mean:
+
+        baseline: every day                n=9156   -0.03%   48.4% win
+        momentum: 20-day high              n=1066   -0.68%   45.3%   <- worst
+        trend: above MA50 & MA200          n=3476   -0.33%   48.0%
+        revert: RSI(2) < 10                n=2733   +0.28%   49.8%
+        DIP IN UPTREND: >MA200 & RSI2<10   n=1295   +0.45%   52.5%   <- best
+        dip: >MA200 & 1 ATR under MA20     n=1020   -0.45%   47.5%
+
+    Split in half it held, which is what ORB failed to do: +0.23% then
+    +0.61%, identical +0.22% medians, 52.6% then 52.5% win, across 84 names
+    with 58% of them positive.
+
+    It is SHADOW ONLY regardless. Four months is in-sample on a roughly flat
+    universe, and +0.45% at a 52.5% hit rate is small enough for a few lucky
+    months to manufacture. ORB looked +0.09R in 2026-09 and was shadowed
+    rather than traded -- correctly, since it then decayed. Promote only if
+    the out-of-sample record holds at DIP_SHADOW_REVIEW_N."""
+
+    def _series(self, closes, start="2026-01-01"):
+        import pandas as pd
+        idx = pd.date_range(start, periods=len(closes), freq="D")
+        # Open is deliberately NOT Close: with them equal, a test cannot
+        # tell "entry = next OPEN" from "entry = signal CLOSE", and the first
+        # version of the next-open test passed either way.
+        return pd.DataFrame({"Close": closes,
+                             "Open": [c * 1.004 for c in closes],
+                             "High": [c * 1.01 for c in closes],
+                             "Low": [c * 0.99 for c in closes],
+                             "Volume": [1e6] * len(closes)}, index=idx)
+
+    def _uptrend_dip(self, n=215):
+        """Long rise (so close > MA200) ending in two hard down days."""
+        c = [50.0 + i * 0.5 for i in range(n - 2)]
+        c += [c[-1] * 0.93, c[-1] * 0.88]
+        c += [c[-1]] * 8                      # room to resolve
+        return c
+
+    def _downtrend_dip(self, n=215):
+        c = [200.0 - i * 0.5 for i in range(n - 2)]
+        c += [c[-1] * 0.93, c[-1] * 0.88]
+        c += [c[-1]] * 8
+        return c
+
+    def _run(self, closes, tickers=("AAA",), start=None, notify=False):
+        import tempfile, os, datetime as _dt
+        fd, path = tempfile.mkstemp(suffix=".json")
+        os.close(fd)
+        os.unlink(path)
+        with patch.object(a, "DIP_SHADOW_FILE", path), \
+             patch.object(a, "WATCHLIST", list(tickers)), \
+             patch.object(a, "DIP_SHADOW_START", start or _dt.date(2026, 1, 1)), \
+             patch.object(a, "fetch_df", return_value=self._series(closes)), \
+             patch.object(a, "send_telegram") as tg, \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"), \
+             patch.object(a, "_log_swallowed"):
+            out = a.run_dip_shadow(notify=notify)
+            try:
+                rows = json.load(io.open(path, encoding="utf-8"))
+            except Exception:
+                rows = []
+        try:
+            os.unlink(path)
+        except OSError:
+            pass
+        return out, rows, tg
+
+    # --- what it logs -----------------------------------------------------
+    def test_an_oversold_dip_in_an_uptrend_is_logged(self):
+        _out, rows, _tg = self._run(self._uptrend_dip())
+        self.assertTrue(rows, "the signal condition never fired")
+        self.assertTrue(all(r["rsi2"] < a.DIP_SHADOW_RSI_MAX for r in rows))
+
+    def test_an_oversold_dip_in_a_DOWNtrend_is_not_logged(self):
+        """The MA200 filter is the whole difference between the best
+        condition tested (+0.45%) and a merely positive one (+0.28%)."""
+        _out, rows, _tg = self._run(self._downtrend_dip())
+        self.assertEqual(rows, [])
+
+    def test_a_strong_uptrend_with_no_dip_is_not_logged(self):
+        c = [50.0 + i * 0.5 for i in range(215)]
+        _out, rows, _tg = self._run(c)
+        self.assertEqual(rows, [])
+
+    def test_signals_before_the_out_of_sample_date_are_ignored(self):
+        """Everything before DIP_SHADOW_START is the data that produced the
+        numbers and cannot test them."""
+        import datetime as _dt
+        _out, rows, _tg = self._run(self._uptrend_dip(),
+                                    start=_dt.date(2030, 1, 1))
+        self.assertEqual(rows, [])
+
+    # --- resolution --------------------------------------------------------
+    def test_a_logged_signal_resolves_once_the_hold_has_passed(self):
+        _out, rows, _tg = self._run(self._uptrend_dip())
+        done = [r for r in rows if r.get("pnl_pct") is not None]
+        self.assertTrue(done, "nothing resolved despite enough forward bars")
+
+    def test_the_outcome_is_measured_from_the_next_open(self):
+        """Entry is the open AFTER the signal, never the signal close -- the
+        signal is only knowable once that bar has closed.
+
+        The first version of this compared the entry to itself and passed
+        whichever bar was used. Open is now Close * 1.004 in the fixture, so
+        the two are distinguishable and this can actually fail."""
+        closes = self._uptrend_dip()
+        _out, rows, _tg = self._run(closes)
+        r = rows[0]
+        # 1e-4, not 1e-6: the stored entry is round(open, 4).
+        _i = [k for k, c in enumerate(closes)
+              if abs(c * 1.004 - float(r["entry"])) < 1e-4]
+        self.assertTrue(_i, "entry is not any bar's OPEN")
+        _signal_close = closes[_i[0] - 1]
+        self.assertNotAlmostEqual(float(r["entry"]), _signal_close, places=4)
+
+    def test_it_is_idempotent(self):
+        """A late or repeated cloud run must not double-count."""
+        import tempfile, os, datetime as _dt
+        fd, path = tempfile.mkstemp(suffix=".json")
+        os.close(fd); os.unlink(path)
+        closes = self._uptrend_dip()
+        with patch.object(a, "DIP_SHADOW_FILE", path), \
+             patch.object(a, "WATCHLIST", ["AAA"]), \
+             patch.object(a, "DIP_SHADOW_START", _dt.date(2026, 1, 1)), \
+             patch.object(a, "fetch_df", return_value=self._series(closes)), \
+             patch.object(a, "send_telegram"), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"), \
+             patch.object(a, "_log_swallowed"):
+            first = a.run_dip_shadow(notify=False)
+            second = a.run_dip_shadow(notify=False)
+        try:
+            os.unlink(path)
+        except OSError:
+            pass
+        self.assertTrue(first["logged"])
+        self.assertEqual(second["logged"], [])
+
+    # --- it must never trade ----------------------------------------------
+    def test_it_places_nothing(self):
+        """The entire point. A shadow that can submit is not a shadow."""
+        import ast as _ast, textwrap as _tw
+        src = _ast.unparse(_ast.parse(_tw.dedent(
+            inspect.getsource(a.run_dip_shadow))))
+        for forbidden in ("submit_order", "_submit_", "close_position",
+                          "replace_order_by_id", "cancel_order"):
+            self.assertNotIn(forbidden, src)
+
+    def test_the_scanner_runs_it(self):
+        src = inspect.getsource(a)
+        self.assertIn("run_dip_shadow()", src)
+
+    # --- reporting ---------------------------------------------------------
+    def test_it_only_messages_at_the_milestones(self):
+        """The operator asked for fewer alerts; a shadow that messages every
+        run is noise."""
+        src = inspect.getsource(a.run_dip_shadow)
+        self.assertIn("(10, 20, DIP_SHADOW_REVIEW_N)", src)
+
+    # --- degradation ------------------------------------------------------
+    def test_a_short_series_is_skipped_not_fatal(self):
+        _out, rows, _tg = self._run([10.0] * 50)
+        self.assertEqual(rows, [])
+
+    def test_a_fetch_failure_does_not_raise(self):
+        import tempfile, os, datetime as _dt
+        fd, path = tempfile.mkstemp(suffix=".json")
+        os.close(fd); os.unlink(path)
+        with patch.object(a, "DIP_SHADOW_FILE", path), \
+             patch.object(a, "WATCHLIST", ["AAA"]), \
+             patch.object(a, "DIP_SHADOW_START", _dt.date(2026, 1, 1)), \
+             patch.object(a, "fetch_df", side_effect=RuntimeError("boom")), \
+             patch.object(a, "_log_swallowed"):
+            out = a.run_dip_shadow(notify=False)
+        try:
+            os.unlink(path)
+        except OSError:
+            pass
+        self.assertEqual(out["logged"], [])
+
+    # --- the indicator ----------------------------------------------------
+    def test_rsi2_is_zero_on_two_down_days_and_hundred_on_two_up(self):
+        self.assertAlmostEqual(a._rsi2([13, 12, 11, 10]), 0.0, places=3)
+        self.assertAlmostEqual(a._rsi2([10, 11, 12, 13]), 100.0, places=3)
+
+    def test_rsi2_needs_enough_bars(self):
+        self.assertIsNone(a._rsi2([10.0]))

@@ -27,6 +27,7 @@
   "run_api_health_check",
   "run_breakout_zone_log",
   "run_breakout_zone_manage",
+  "run_dip_shadow",
   "run_earnings_spread_scan",
   "run_fallback_guard",
   "run_massive_key_drill",
@@ -1198,6 +1199,11 @@
     ],
     [
      "run_orb_shadow",
+     "()",
+     "[]"
+    ],
+    [
+     "run_dip_shadow",
      "()",
      "[]"
     ]

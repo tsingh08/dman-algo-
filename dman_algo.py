@@ -22939,6 +22939,167 @@ def _orb_record(log: list) -> tuple[int, float, float]:
             sum(1 for r in q if float(r["R"]) > 0) / len(q) * 100)
 
 
+# ═══════════════════════════════════════════════════════════════════════════
+#  DIP-IN-UPTREND — SHADOW TRACKED ONLY, never places anything
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# Every setup in this file is a breakout, and measured on the EXECUTABLE
+# universe (WATCHLIST, all liquid, 2026-10-16, split-adjusted bars, next-open
+# entry, 5-day hold, 1-99% trimmed mean):
+#
+#     baseline: every day                n=9156   -0.03%   48.4% win
+#     momentum: 20-day high              n=1066   -0.68%   45.3%    <- worst
+#     trend: above MA50 & MA200          n=3476   -0.33%   48.0%
+#     revert: RSI(2) < 10                n=2733   +0.28%   49.8%
+#     DIP IN UPTREND: >MA200 & RSI2<10   n=1295   +0.45%   52.5%    <- best
+#     dip: >MA200 & 1 ATR under MA20     n=1020   -0.45%   47.5%
+#
+# Momentum -- what the system actually trades -- is the WORST condition on
+# the good universe, not merely weak. The only condition that beat doing
+# nothing is an oversold pullback inside an uptrend, by +0.47 points per five
+# days.
+#
+# Split in half it held, which is what ORB failed to do:
+#
+#     first  half  n=647  2026-06-09..08-12  mean +0.23%  median +0.22%  52.6%
+#     second half  n=648  2026-08-12..10-07  mean +0.61%  median +0.22%  52.5%
+#
+# 84 distinct names fired, 58% of them with a positive mean, so it is not one
+# or two tickers carrying it.
+#
+# WHY THIS IS SHADOW-TRACKED AND NOT TRADED. The window is about four months.
+# That is in-sample, on a universe whose own baseline is roughly flat, and a
+# +0.45% mean at a 52.5% hit rate is modest enough that a few months of luck
+# could produce it. The precedent here is ORB (2026-09-22), which looked
+# +0.09R and was shadowed rather than traded -- correctly, since it decayed
+# across its halves. Promote this only if the out-of-sample record stays
+# positive at DIP_SHADOW_REVIEW_N.
+DIP_SHADOW_FILE     = "dman_dip_shadow.json"
+# Out-of-sample from the day the rule was found. Everything before this date
+# is what produced the numbers above and cannot test them.
+DIP_SHADOW_START    = date(2026, 10, 16)
+DIP_SHADOW_RSI_MAX  = 10.0    # 2-period RSI; washed out, not merely soft
+DIP_SHADOW_HOLD     = 5       # sessions, matching SIGNAL_LABEL_HORIZON_DAYS
+DIP_SHADOW_REVIEW_N = 30      # resolved trades before the verdict
+
+
+def _rsi2(closes: list) -> Optional[float]:
+    """2-period RSI of the last bar, or None when there is not enough data."""
+    if len(closes) < 3:
+        return None
+    _g = _l = 0.0
+    for _i in (len(closes) - 2, len(closes) - 1):
+        _d = closes[_i] - closes[_i - 1]
+        if _d >= 0:
+            _g += _d
+        else:
+            _l -= _d
+    if _l == 0:
+        return 100.0
+    return 100.0 - 100.0 / (1.0 + (_g / 2.0) / (_l / 2.0))
+
+
+def run_dip_shadow(notify: bool = True) -> dict:
+    """Log and resolve dip-in-uptrend signals. Places nothing, ever.
+
+    Idempotent and delay-proof in the same way run_orb_shadow() is: it never
+    assumes "today", it logs any qualifying session at or after
+    DIP_SHADOW_START that is absent from the log, and resolves any logged
+    signal once DIP_SHADOW_HOLD further sessions exist. A late GitHub run
+    catches up instead of skipping.
+    """
+    out = {"logged": [], "resolved": [], "n": 0, "mean": 0.0}
+    try:
+        with open(DIP_SHADOW_FILE) as _f:
+            _log = json.load(_f)
+        if not isinstance(_log, list):
+            _log = []
+    except (FileNotFoundError, json.JSONDecodeError):
+        _log = []
+    _seen = {(r.get("date"), r.get("ticker")) for r in _log}
+    try:
+        for _tk in list(WATCHLIST):
+            _df = fetch_df(_tk)
+            if _df is None or len(_df) < 210:
+                continue
+            _c = [float(x) for x in _df["Close"]]
+            _o = [float(x) for x in _df["Open"]]
+            _idx = [str(x)[:10] for x in _df.index]
+            # Leave DIP_SHADOW_HOLD + 1 bars of room so a logged signal can
+            # still be resolved from the same series on a later pass.
+            for _i in range(200, len(_c) - 1):
+                _d = _idx[_i]
+                if _d < DIP_SHADOW_START.isoformat():
+                    continue
+                if (_d, _tk) in _seen:
+                    continue
+                _ma200 = sum(_c[_i - 199:_i + 1]) / 200.0
+                if _ma200 <= 0 or _c[_i] <= _ma200 or _c[_i] < 1.0:
+                    continue
+                _r = _rsi2(_c[max(0, _i - 3):_i + 1])
+                if _r is None or _r >= DIP_SHADOW_RSI_MAX:
+                    continue
+                _entry = _o[_i + 1]
+                if _entry < 1.0:
+                    continue
+                _row = {"date": _d, "ticker": _tk, "entry": round(_entry, 4),
+                        "rsi2": round(_r, 1), "pnl_pct": None}
+                _log.append(_row)
+                _seen.add((_d, _tk))
+                out["logged"].append(_tk)
+            # resolve anything of this ticker's that has aged enough
+            for _row in _log:
+                if _row.get("ticker") != _tk or _row.get("pnl_pct") is not None:
+                    continue
+                try:
+                    _si = _idx.index(_row["date"])
+                except ValueError:
+                    continue
+                _exit_i = _si + 1 + DIP_SHADOW_HOLD
+                if _exit_i >= len(_c):
+                    continue
+                _e = float(_row["entry"]) or 0.0
+                if _e <= 0:
+                    continue
+                _row["pnl_pct"] = round((_c[_exit_i] - _e) / _e * 100.0, 2)
+                out["resolved"].append(_tk)
+    except Exception as exc:
+        _log_swallowed("dip shadow", exc)
+
+    try:
+        _write_json_atomic(DIP_SHADOW_FILE, _log[-5000:], indent=0)
+    except Exception as exc:
+        _log_swallowed("dip shadow write", exc)
+
+    _done = [float(r["pnl_pct"]) for r in _log if r.get("pnl_pct") is not None]
+    out["n"] = len(_done)
+    out["mean"] = (sum(_done) / len(_done)) if _done else 0.0
+    if _done:
+        _wr = 100.0 * sum(1 for x in _done if x > 0) / len(_done)
+        print(f"  \U0001f4d0 dip shadow: {len(_done)}/{DIP_SHADOW_REVIEW_N} resolved, "
+              f"mean {out['mean']:+.2f}%, {_wr:.0f}% win "
+              f"({len(_log) - len(_done)} open)")
+        # Only at the milestones, and only once each -- a shadow that messages
+        # every run is noise, and the operator asked for fewer alerts.
+        if notify and len(_done) in (10, 20, DIP_SHADOW_REVIEW_N):
+            _key = f"__DIP_SHADOW__:{len(_done)}"
+            if not _is_duplicate_alert(_key, 7 * 24 * 60):
+                _verdict = ("VERDICT: " + ("positive, worth a live test"
+                                           if out["mean"] > 0 else
+                                           "negative, do not promote")
+                            if len(_done) >= DIP_SHADOW_REVIEW_N else
+                            "still gathering")
+                send_telegram(
+                    "\U0001f4d0 <b>Dip-in-uptrend shadow: "
+                    + str(len(_done)) + " resolved</b>" + chr(10)
+                    + f"mean {out['mean']:+.2f}%, {_wr:.0f}% win" + chr(10)
+                    + f"in-sample it measured +0.45% at 52.5% win" + chr(10)
+                    + chr(10) + _verdict + chr(10)
+                    + "Shadow only — nothing was placed.")
+                _save_last_alert(_key)
+    return out
+
+
 def run_orb_shadow(notify: bool = True) -> list[dict]:
     """Score the ORB rule against the latest complete session not yet logged.
 
@@ -31140,6 +31301,7 @@ def main():
 
     elif args.mode == "orb":
         run_orb_shadow()
+        run_dip_shadow()
 
     elif args.mode == "bzone":
         run_breakout_zone_log()

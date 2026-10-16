@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:15:56.446177-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Michael Burry&#39;s &#39;Red October&#39; Warning: Why QQQ and SMH Could Face More Pain",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T14:15:56.684186-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nike, Moderna, Walmart Get a Lift as Traders Flee AI Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:15:56.689191-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Michael Burry&#39;s &#39;Red October&#39; Warning: Why QQQ and SMH Could Face More Pain",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-15T14:15:57.221885-04:00",
     "symbols": [
       "META"
@@ -5036,5 +5006,36 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T10:20:35.856923-04:00",
+    "symbols": [
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "Gary Black Warns Tesla Bulls Against Hyping SpaceX Merger, Says Roadster\u2019s Brand Impact Could Outweigh Earnings",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T10:21:14.554364-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Gary Black Warns Tesla Bulls Against Hyping SpaceX Merger, Says Roadster\u2019s Brand Impact Could Outweigh Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T10:21:17.428889-04:00",
+    "symbols": [
+      "VRNS"
+    ],
+    "headline": "TD Cowen Downgrades Varonis Systems to Hold, Lowers Price Target to $49.75",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

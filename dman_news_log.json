@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:42:10.364670-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Goldman Sachs Maintains Neutral on Moderna, Raises Price Target to $137",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T14:42:10.639337-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Lilly Reports Omvoh Achieved Multiple Treatment Goals Simultaneously At One Year In IBD Studies",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:42:10.643141-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Adlai Nortye Group enters Clinical Trial Collaboration And Supply Agreements With Eli Lilly And Merck KGaA For The ERBITUX Anti-EGFR Antibody",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-15T14:42:10.866139-04:00",
     "symbols": [
       "RXRX"
@@ -5054,6 +5024,27 @@
       "SPCX"
     ],
     "headline": "SpaceX Q3 Earnings Countdown: 5 Debates to Watch",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T11:59:07.648229-04:00",
+    "symbols": [
+      "MU",
+      "SKHY"
+    ],
+    "headline": "Micron, SK Hynix Have an AI Boom Problem \u2014 China Could Make It Worse",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T11:59:29.653064-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta&#39;s AI Bet Could Deliver Another Earnings Surprise, Analyst Says",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"

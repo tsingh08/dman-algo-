@@ -1,37 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:16:14.919349-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nike, Moderna, Walmart Get a Lift as Traders Flee AI Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:16:17.534119-04:00",
-    "symbols": [
-      "SPRC"
-    ],
-    "headline": "SciSparc Shares Halted On Circuit Breaker To The Downside, Stock Now Down -45.45%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T14:17:30.035825-04:00",
-    "symbols": [
-      "CAT",
-      "ETN",
-      "GEV"
-    ],
-    "headline": "Shares of data center infrastructure-related companies are trading lower as concerns mount about highly leveraged customers&#39; credit health, which may weigh on expectations for demand, backlogs and margins across the sector.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-15T14:17:44.866056-04:00",
     "symbols": [
       "ON"
@@ -5037,5 +5005,36 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T10:44:02.564601-04:00",
+    "symbols": [
+      "NBIS",
+      "NVDA"
+    ],
+    "headline": "CoreWeave Has \u2018Darwin Moment\u2019 As Credit Markets Price In 60% Default Odds",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-16T10:44:59.934571-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Circle Eyes 40 New Markets as Stablecoin Demand Booms, AI Payments Gain Traction",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T10:45:30.768665-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning ExxonMobil Holdings Stock In The Last 5 Years",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

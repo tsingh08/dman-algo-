@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-10-15T15:01:22.968866-04:00",
-    "symbols": [
-      "SNES"
-    ],
-    "headline": "SenesTech Reports Q34 Preliminary Revenue Of ~$1.1M, Up 55% YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T15:03:02.704950-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Citigroup Maintains Neutral on JPMorgan Chase, Lowers Price Target to $350",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T15:03:21.703761-04:00",
-    "symbols": [
-      "CRWV"
-    ],
-    "headline": "CoreWeave Stock Snaps Back as Nvidia CEO Signals Support",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-15T15:14:55.446073-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Why Is Applied Digital Stock Falling on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T15:15:06.016447-04:00",
-    "symbols": [
-      "LUMN"
-    ],
-    "headline": "Lumen Technologies And Snowflake Partner To Combine LUMN&#39;s Programmable Networking Capabilities With SNOW&#39;s AI Data Cloud",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T15:15:06.293529-04:00",
-    "symbols": [
-      "ETSY"
-    ],
-    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T15:15:06.298893-04:00",
-    "symbols": [
-      "ETSY"
-    ],
-    "headline": "Dow Jones Climbs to 52,000 While Chips Bleed on Rate-Hike Fears: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-15T15:38:37.250604-04:00",
     "symbols": [
       "TSXD"
@@ -5105,6 +5035,76 @@
       "GME"
     ],
     "headline": "GameStop\u2019s Collectibles Push, Trading Card Buybacks, eBay Stake Offer Strategic Upside, Analyst Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T14:37:20.818727-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "SemiAnalysis Pots On X &#34;SHOCKING: We have confirmed that multiple Neoclouds have been refused access to GTC Berlin due to them adding AMD GPUs, TPUs, and other chips to their cloud offerings. Note that this doesn&#39;t apply to hyperscalers, as they have more buying power. But for neoclouds, executives feel NVIDIA has been using high-pressure tactics to keep them NVIDIA-only....&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T14:37:21.095823-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "SemiAnalysis Pots On X &#34;SHOCKING: We have confirmed that multiple Neoclouds have been refused access to GTC Berlin due to them adding AMD GPUs, TPUs, and other chips to their cloud offerings. Note that this doesn&#39;t apply to hyperscalers, as they have more buying power. But for neoclouds, executives feel NVIDIA has been using high-pressure tactics to keep them NVIDIA-only....&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T14:37:21.696810-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Shopify Price Hikes Signal Pricing Power as JPMorgan Keeps $200 Bullish Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T14:37:22.912151-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla&#39;s Flying Roadster Sends Delivery Odds Tumbling Despite Spectacular Demo",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T14:37:28.091177-04:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "GameStop\u2019s Collectibles Push, Trading Card Buybacks, eBay Stake Offer Strategic Upside, Analyst Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T14:37:39.901914-04:00",
+    "symbols": [
+      "FFIN"
+    ],
+    "headline": "Keefe, Bruyette &amp; Woods Maintains Market Perform on First Finl Bankshares, Lowers Price Target to $34",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T14:37:40.146248-04:00",
+    "symbols": [
+      "BNO"
+    ],
+    "headline": "JD Vance Says Trump Administration Tapping Wartime Powers to Expand a Texas Refinery \u2014 'We Want Millions of Gallons' (UPDATED)",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

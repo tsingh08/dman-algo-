@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-15T10:07:30.232230-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Ericsson Plans Price Hikes As AI Boom Drives Up Equipment Costs",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-15T10:08:16.238204-04:00",
     "symbols": [
       "SPY"
@@ -5063,6 +5053,16 @@
     "headline": "Dow Jones Climbs to 52,000 While Chips Bleed on Rate-Hike Fears: Stock Market Today",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-15T19:25:31.846116-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Chicago Fed&#39;s Goolsbee On CNN Said It&#39;s Been A Discouraging Month For Inflation , But He Remains Optimistic If Inflation Drivers Fade Quickly",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

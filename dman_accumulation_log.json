@@ -2014,5 +2014,59 @@
   "drift_pct": 0.2,
   "range_ratio": 0.4,
   "near_high": 0.975
+ },
+ {
+  "ts": "2026-10-16T13:21:54.209366-04:00",
+  "ticker": "GLED",
+  "price": 10.07,
+  "rvol": 19.38,
+  "drift_pct": 0.1,
+  "range_ratio": 0.29,
+  "near_high": 1.0
+ },
+ {
+  "ts": "2026-10-16T13:21:54.209378-04:00",
+  "ticker": "MMIN",
+  "price": 22.685,
+  "rvol": 1.67,
+  "drift_pct": 1.32,
+  "range_ratio": 0.58,
+  "near_high": 0.952
+ },
+ {
+  "ts": "2026-10-16T13:21:54.209382-04:00",
+  "ticker": "AOR",
+  "price": 68.215,
+  "rvol": 1.57,
+  "drift_pct": 0.78,
+  "range_ratio": 0.4,
+  "near_high": 0.969
+ },
+ {
+  "ts": "2026-10-16T13:21:54.209385-04:00",
+  "ticker": "DMII",
+  "price": 10.18,
+  "rvol": 4.57,
+  "drift_pct": 0.1,
+  "range_ratio": 0.1,
+  "near_high": 0.999
+ },
+ {
+  "ts": "2026-10-16T13:21:54.209388-04:00",
+  "ticker": "BSCQ",
+  "price": 19.55,
+  "rvol": 1.61,
+  "drift_pct": 0.03,
+  "range_ratio": 0.43,
+  "near_high": 0.999
+ },
+ {
+  "ts": "2026-10-16T13:21:54.209391-04:00",
+  "ticker": "JCAL",
+  "price": 47.841,
+  "rvol": 2.01,
+  "drift_pct": 1.06,
+  "range_ratio": 0.54,
+  "near_high": 0.966
  }
 ]

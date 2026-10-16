@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:52:04.323024-04:00",
-    "symbols": [
-      "PAG"
-    ],
-    "headline": "Penske Automotive to Go Private in $16.3 Billion Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T14:52:04.327464-04:00",
-    "symbols": [
-      "PAG"
-    ],
-    "headline": "Penske Automotive Group To Be Taken Private By Penske Corporation, Mitsui &amp; Co. And Others For $212/Share In Cash At An EV Of ~$16.3B",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T14:52:04.332979-04:00",
-    "symbols": [
-      "CMC"
-    ],
-    "headline": "Earnings Scheduled For October 15, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T14:52:04.337360-04:00",
-    "symbols": [
-      "CMC"
-    ],
-    "headline": "Commercial Metals Q4 Adj. EPS $2.09 Beats $1.97 Estimate, Sales $2.658B Beat $2.572B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T14:55:14.711619-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Anthropic Needs Nearly $2.7B in Additional Monthly Revenue to Reach $100B Run Rate by Year-End",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T14:55:14.836548-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Anthropic Needs Nearly $2.7B in Additional Monthly Revenue to Reach $100B Run Rate by Year-End",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T14:55:14.967743-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Anthropic Needs Nearly $2.7B in Additional Monthly Revenue to Reach $100B Run Rate by Year-End",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:55:15.239282-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Anthropic Needs Nearly $2.7B in Additional Monthly Revenue to Reach $100B Run Rate by Year-End",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T14:55:15.243990-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Why Is Lightspeed Commerce Stock Gaining Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T14:55:15.516944-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Anthropic Needs Nearly $2.7B in Additional Monthly Revenue to Reach $100B Run Rate by Year-End",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-15T14:55:15.646688-04:00",
     "symbols": [
       "TSLA"
@@ -5080,5 +4980,105 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T13:20:48.279231-04:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: ServiceNow, Eaton, SentinelOne, JP Morgan Chase",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T13:20:49.416682-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: ServiceNow, Eaton, SentinelOne, JP Morgan Chase",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T13:20:49.762739-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "&#39;U.S. Presses China On MasterCard, Citigroup Market Access In Bilateral Bangkok Talks, Official Says&#39; - CNBC",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T13:20:50.118596-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Bernstein Maintains Outperform on UnitedHealth Group, Lowers Price Target to $500",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T13:20:50.724115-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Stated In A Newsmax Interview That Washington Is Actively Talking To Both Moscow And Beijing About Potential Routes To Denuclearize",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T13:20:50.728060-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says Maybe White House Spokeswoman Role Is Not For Zacharia; Will Talk To Her; Told Her She Should Reconsider Role",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T13:20:50.731882-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "France&#39;s Macron Says President Trump Diesel Deal Not Useful, Creates Doubts And Defiance",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T13:20:50.735651-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Baker Hughes Oil Rig Count -3 To 459; U.S. Baker Hughes NatGas Rig Count +1 To 133; U.S. Baker Hughes Total Rig Count 601 Vs 603 Prior",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T13:20:51.102567-04:00",
+    "symbols": [
+      "FOXF"
+    ],
+    "headline": "Crude Oil Jumps 3%; Citizens Financial Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T13:20:51.355947-04:00",
+    "symbols": [
+      "FFIN"
+    ],
+    "headline": "StoneX Maintains Buy on First Finl Bankshares, Lowers Price Target to $38",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

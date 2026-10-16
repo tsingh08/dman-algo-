@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:42:08.912117-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "SanDisk Stock Is Falling on AI Fears. Its $93.9 Billion Contract Book Tells Another Story",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-15T14:42:09.644721-04:00",
     "symbols": [
       "HOOD"
@@ -5047,5 +5037,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T11:39:42.423269-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Barclays Expects U.S. Fed To Deliver A 25 BP Rate Hike Each In December And January Vs Prior Forecast Of A Hike In December This Year",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

@@ -25922,3 +25922,40 @@ class TestTheZoneVerdictShowsWhichExitProducedIt(unittest.TestCase):
         src = _ast.unparse(_ast.parse(
             _tw.dedent(inspect.getsource(a.run_breakout_zone_manage))))
         self.assertIn("_bzone_record_lines()", src)
+
+
+class TestBarsAreSplitAdjusted(unittest.TestCase):
+    """Alpaca defaults to Adjustment.RAW and nothing ever set it.
+
+    Measured 2026-10-16: 79 of the 128 watchlist names -- 62% of the tradable
+    universe -- had a RAW series diverging from the split-adjusted one by more
+    than 2%. ADTX on 2026-02-20 was $0.5071 RAW against $109.53 adjusted, a
+    216x gap; WOK, HUBC and DCX diverged by six and seven orders of magnitude.
+    A reverse split appears in RAW as one bar jumping thousands of percent --
+    a +24,761% five-day return is what exposed it.
+
+    Everything derived from daily bars on those names was wrong: ATR (so the
+    2.0xATR catastrophe floor), MA20, RSI, 52-week high/low, and the MFE/MAE
+    labels the evidence base rests on. Worst of all it reached SETUP
+    SELECTION, because the breakout zone screens for ">100% above the 52-week
+    low" -- exactly the signature an unadjusted reverse split manufactures."""
+
+    def test_split_adjustment_is_requested_in_executable_code(self):
+        """Checked on EXECUTABLE source so the explanatory comment cannot
+        satisfy it. A request-capture version was tried first and skipped
+        permanently because the data client is built inside the function --
+        a test that always skips is worse than no test, it looks like
+        coverage."""
+        import ast as _ast, textwrap as _tw
+        for fn in (a._fetch_alpaca_daily, a._fetch_intraday_bars):
+            src = _ast.unparse(_ast.parse(_tw.dedent(inspect.getsource(fn))))
+            self.assertIn("adjustment=", src, fn.__name__)
+            self.assertIn("SPLIT", src, fn.__name__)
+
+    def test_dividend_adjustment_is_not_used(self):
+        """ALL would shift historical prices away from levels that actually
+        traded, which is wrong for logic that places stops."""
+        import ast as _ast, textwrap as _tw
+        src = _ast.unparse(_ast.parse(_tw.dedent(
+            inspect.getsource(a._fetch_alpaca_daily))))
+        self.assertNotIn("Adjustment.ALL", src)

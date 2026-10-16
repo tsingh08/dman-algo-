@@ -2224,9 +2224,35 @@ def _fetch_alpaca_daily(ticker: str, period_days: int) -> Optional[pd.DataFrame]
         if dc is None:
             return None
         from datetime import timezone as _tz
+        from alpaca.data.enums import Adjustment as _Adjustment
         _alp_req = StockBarsRequest(
             symbol_or_symbols=ticker,
             timeframe=TimeFrame.Day,
+            # Alpaca defaults to Adjustment.RAW and nothing here ever set it,
+            # so every daily bar in this file was UNADJUSTED across splits.
+            #
+            # Measured 2026-10-16: 79 of the 128 watchlist names -- 62% of the
+            # tradable universe -- have a RAW series diverging from the
+            # split-adjusted one by more than 2%, and the worst are not close.
+            # ADTX on 2026-02-20 was $0.5071 RAW against $109.53 adjusted, a
+            # 216x gap; WOK, HUBC and DCX diverge by six and seven orders of
+            # magnitude. In RAW a reverse split appears as one bar jumping
+            # hundreds or thousands of percent -- the +24,761% five-day return
+            # that first exposed this.
+            #
+            # It poisoned everything derived from daily bars on those names:
+            # ATR (so the 2.0xATR catastrophe floor), MA20, RSI, 52-week
+            # high/low, and the MFE/MAE labels the evidence base rests on.
+            # Worst of all it reaches SETUP SELECTION -- the breakout zone
+            # screens for ">100% above the 52-week low", which is precisely
+            # the signature an unadjusted reverse split manufactures.
+            #
+            # SPLIT rather than ALL on purpose. Splits are mechanical and must
+            # be adjusted. Dividend adjustment moves historical prices away
+            # from levels that actually traded, which is wrong for logic that
+            # places stops and compares entries, and this universe barely pays
+            # dividends anyway.
+            adjustment=_Adjustment.SPLIT,
             start=(datetime.today() - timedelta(days=period_days + 5)).replace(tzinfo=_tz.utc),
             feed=_resolve_stock_feed(),
         )
@@ -9342,9 +9368,15 @@ def _fetch_intraday_bars(ticker: str, interval: str = "5m", period: str = "1d"):
                 _ET = _zi.ZoneInfo("America/New_York")
                 _now_et = datetime.now(_ET)
                 _sess_start = _now_et.replace(hour=9, minute=30, second=0, microsecond=0)
+                from alpaca.data.enums import Adjustment as _AdjM
                 _alp_req = StockBarsRequest(
                     symbol_or_symbols=ticker,
                     timeframe=TimeFrame.Minute,
+                    # Same reason as the daily path. A same-session pull spans
+                    # no split, but the minute replay reaches back weeks and a
+                    # window crossing a split would otherwise read as a
+                    # thousand-percent move.
+                    adjustment=_AdjM.SPLIT,
                     start=_sess_start.astimezone(_tz.utc),
                     feed=_resolve_stock_feed(),
                 )

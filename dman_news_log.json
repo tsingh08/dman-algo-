@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-15T15:50:17.215218-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Lam Research Stock Hits Longest Losing Streak Ever: Are There Buyers Around?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T15:50:18.336066-04:00",
-    "symbols": [
-      "KLAC"
-    ],
-    "headline": "Lam Research Stock Hits Longest Losing Streak Ever: Are There Buyers Around?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-15T15:53:55.567452-04:00",
     "symbols": [
       "MSFT"
@@ -5105,6 +5085,27 @@
       "SPY"
     ],
     "headline": "The Hormuz Letter Posts On X &#34;BREAKING: UKMTO says the majority of vessels struck by Iran are refusing to report to it, meaning the true number of attacks on vessels is at least double what has been recorded...&#34; &#34;That puts the floor at nearly 60 vessels struck by Iran since October 1, against the roughly 30 UKMTO has confirmed. The strength of the language points to a real figure in the 70 to 100 range. October was already the highest month of the war on the reported number alone.&#34;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T15:21:34.085685-04:00",
+    "symbols": [
+      "LUNR",
+      "SPCX"
+    ],
+    "headline": "Shares of space-related companies are trading lower, possibly as Rocket Lab extended losses, falling over 8% after an analyst cut its price target following a delay to its Neutron rocket\u2019s first launch, weighing on peers.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T15:22:45.901475-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "QQQ vs. Cheaper Nasdaq-100 ETFs: Why BlackRock And State Street Aren&#39;t Winning Investors Yet",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

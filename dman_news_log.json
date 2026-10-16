@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:55:15.646688-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Anthropic Needs Nearly $2.7B in Additional Monthly Revenue to Reach $100B Run Rate by Year-End",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T14:55:17.238501-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Supreme Court Has &#39;Very Good Chance&#39; of Taking Kalshi Legal Fight, Former CFTC Counsel Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:55:18.883431-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Citigroup Maintains Buy on CrowdStrike Holdings, Raises Price Target to $295",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:55:20.076089-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "Supreme Court Has &#39;Very Good Chance&#39; of Taking Kalshi Legal Fight, Former CFTC Counsel Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-15T14:55:22.568528-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Anthropic Needs Nearly $2.7B in Additional Monthly Revenue to Reach $100B Run Rate by Year-End",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:55:22.721059-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Anthropic Needs Nearly $2.7B in Additional Monthly Revenue to Reach $100B Run Rate by Year-End",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:55:23.396184-04:00",
-    "symbols": [
-      "SOXQ"
-    ],
-    "headline": "QUICK SPARK: Meet the 15 Worst-Performing Chip Stocks in the Last 7 Sessions",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T14:55:23.618795-04:00",
-    "symbols": [
-      "MAN"
-    ],
-    "headline": "Crude Oil Moves Higher; Charles Schwab Shares Fall After Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-15T14:55:23.623464-04:00",
     "symbols": [
       "MAN"
@@ -5080,5 +5000,88 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T13:33:43.081529-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fox News, Citing White House Official Says Katie Zacharia &#39;Transitioning Out&#39; Of Job As Trump&#39;s Press Secretary",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T13:33:43.089655-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "UPDATED: U.S. Baker Hughes Oil Rig Count -3 To 459; U.S. Baker Hughes NatGas Rig Count +1 To 133; U.S. Baker Hughes Total Rig Count 603 Vs 603 Prior",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T13:33:54.461886-04:00",
+    "symbols": [
+      "VRNS"
+    ],
+    "headline": "Baird Maintains Neutral on Varonis Systems, Raises Price Target to $50",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-16T13:35:07.993641-04:00",
+    "symbols": [
+      "MSFT",
+      "ORCL",
+      "SMCI",
+      "SNOW"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T13:35:08.879352-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "3 Communication Services Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T13:36:02.741282-04:00",
+    "symbols": [
+      "SCNI"
+    ],
+    "headline": "Scinai Immunotherapeutics shares are trading lower after the company announced the closing of a $4 million financing through a private placement and warrant exercise transactions.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T13:36:57.480436-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "BMO Capital Maintains Outperform on Netflix, Lowers Price Target to $125",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-16T13:37:11.953711-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Will Target Rural America Before Big Cities, Telecom Analyst Predicts",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

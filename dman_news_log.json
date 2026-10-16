@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-15T15:49:33.358972-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Citigroup Maintains Buy on Meta Platforms, Raises Price Target to $895",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-15T15:50:17.215218-04:00",
     "symbols": [
       "AMAT"
@@ -5108,5 +5098,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-16T15:16:33.201621-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "The Hormuz Letter Posts On X &#34;BREAKING: UKMTO says the majority of vessels struck by Iran are refusing to report to it, meaning the true number of attacks on vessels is at least double what has been recorded...&#34; &#34;That puts the floor at nearly 60 vessels struck by Iran since October 1, against the roughly 30 UKMTO has confirmed. The strength of the language points to a real figure in the 70 to 100 range. October was already the highest month of the war on the reported number alone.&#34;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

@@ -1996,5 +1996,23 @@
   "drift_pct": 0.1,
   "range_ratio": 0.1,
   "near_high": 0.999
+ },
+ {
+  "ts": "2026-10-16T11:43:51.488740-04:00",
+  "ticker": "GLED",
+  "price": 10.07,
+  "rvol": 19.38,
+  "drift_pct": 0.1,
+  "range_ratio": 0.29,
+  "near_high": 1.0
+ },
+ {
+  "ts": "2026-10-16T11:43:51.488756-04:00",
+  "ticker": "AOR",
+  "price": 68.61,
+  "rvol": 1.53,
+  "drift_pct": 0.2,
+  "range_ratio": 0.4,
+  "near_high": 0.975
  }
 ]

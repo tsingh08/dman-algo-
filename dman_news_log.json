@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:42:22.594509-04:00",
-    "symbols": [
-      "DELL"
-    ],
-    "headline": "Nike, Moderna, Walmart Get a Lift as Traders Flee AI Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-15T14:42:23.044585-04:00",
     "symbols": [
       "FIX"
@@ -5080,5 +5070,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T12:47:04.896539-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase Strikes Marqeta Deal but COIN Loses 3%",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

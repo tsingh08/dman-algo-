@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:15:57.792410-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Rolls Out Bee Frontier, Bee Eclipse",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T14:15:57.796849-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "NYC Comptroller Mark Levine Says Urges Anthropic To Pause Its IPO Until Co Addresses AI Safety, Governance And Pace Concerns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T14:15:58.011979-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Michael Burry&#39;s &#39;Red October&#39; Warning: Why QQQ and SMH Could Face More Pain",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T14:15:58.018869-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "GLJ Research Reiterates Sell on Tesla, Maintains $24.86 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T14:15:59.504860-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Lumen Technologies And Snowflake Partner To Combine LUMN&#39;s Programmable Networking Capabilities With SNOW&#39;s AI Data Cloud",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T14:15:59.723609-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Customers Bancorp Announces Collaboration With Palantir To Deploy AI Software For Deposit Account Opening; Terms Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:15:59.728275-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Surf Air Mobility Signs Definitive Agreement With Flying Zebra For OperatorOS, Surf Air Mobility&#39;s SurfOS Flight Operations Software For Part 135 Operators Powered By Palantir",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:16:00.022516-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Super Micro Computer Appoints Mark Long CFO, Effective Immediately, Succeeding David Weigand",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T14:16:00.027545-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Nike, Moderna, Walmart Get a Lift as Traders Flee AI Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:16:00.033071-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Capital Over Chips: Broadcom CEO Warns Financing Costs Could Slow AI Expansion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-15T14:16:00.037637-04:00",
     "symbols": [
       "AVGO"
@@ -5037,5 +4937,105 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T10:30:43.456520-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Why Is Nebius Group Stock Falling Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-16T10:34:51.970846-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Trump\u2019s $330 Million White House Ballroom Donor List Reveals Nvidia, Apple and Google Among Top Tech Contributors: Report (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T10:34:52.160936-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Trump\u2019s $330 Million White House Ballroom Donor List Reveals Nvidia, Apple and Google Among Top Tech Contributors: Report (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T10:34:52.336012-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Trump\u2019s $330 Million White House Ballroom Donor List Reveals Nvidia, Apple and Google Among Top Tech Contributors: Report (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T10:34:52.837592-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Trump\u2019s $330 Million White House Ballroom Donor List Reveals Nvidia, Apple and Google Among Top Tech Contributors: Report (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T10:34:53.470670-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Trump\u2019s $330 Million White House Ballroom Donor List Reveals Nvidia, Apple and Google Among Top Tech Contributors: Report (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T10:34:58.452218-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Trump\u2019s $330 Million White House Ballroom Donor List Reveals Nvidia, Apple and Google Among Top Tech Contributors: Report (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T10:34:59.676813-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Putin&#39;s Envoy Dmitriev Says U.S., Russia Discuss Joint Data Centres Projects, Including With Usage Of Russian Nuclear Power Stations; We Will Implement Other Projects Before The End Of Russia&#39;s Special Military Operation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T10:34:59.682032-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Solicits Exchange Of Up To 17 Million Barrels Of Oil From Strategic Reserve",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T10:35:03.985335-04:00",
+    "symbols": [
+      "VRNS"
+    ],
+    "headline": "This Workday Analyst Is No Longer Bullish; Here Are Top 5 Downgrades For Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

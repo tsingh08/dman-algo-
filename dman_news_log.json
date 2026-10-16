@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:42:23.044585-04:00",
-    "symbols": [
-      "FIX"
-    ],
-    "headline": "Keybanc Maintains Overweight on Comfort Systems USA, Raises Price Target to $2125",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-15T14:42:23.504712-04:00",
-    "symbols": [
-      "IREN"
-    ],
-    "headline": "Nike, Moderna, Walmart Get a Lift as Traders Flee AI Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-15T14:42:23.508557-04:00",
     "symbols": [
       "IREN"
@@ -5080,5 +5060,26 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T12:50:19.191435-04:00",
+    "symbols": [
+      "MA",
+      "SPY"
+    ],
+    "headline": "&#39;U.S. Presses China On MasterCard, Citigroup Market Access In Bilateral Bangkok Talks, Official Says&#39; - CNBC",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T12:50:59.736380-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "The Hormuz Letter Posts On X &#34;BREAKING: Multiple mobile bomb shelters are now being rapidly deployed in Tel Aviv, Israel. There are also movements of Iron Dome, US THAAD and David&#39;s Sling air defense batteries today, and in the past few days. Similar preparations occurred in the days before February 28, when the war began.&#34;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

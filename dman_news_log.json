@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:42:20.539374-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Anthropic Needs Nearly $2.7B in Additional Monthly Revenue to Reach $100B Run Rate by Year-End",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:42:21.884263-04:00",
-    "symbols": [
-      "ERIC"
-    ],
-    "headline": "Why Are Ericsson Shares Surging on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-15T14:42:22.149417-04:00",
     "symbols": [
       "CRWV"
@@ -5068,6 +5048,27 @@
     ],
     "headline": "Nasdaq 100 Slides As Micron, SanDisk, CoreWeave Sink: Stock Market Today",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T12:44:50.593302-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Why Is U.S. Bancorp Stock Gaining Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T12:45:16.400073-04:00",
+    "symbols": [
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "Tesla&#39;s Roadster Just Made SpaceX More Valuable. Does Tesla Get Any Credit?",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
   }

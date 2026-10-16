@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:42:06.188848-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Anthropic Needs Nearly $2.7B in Additional Monthly Revenue to Reach $100B Run Rate by Year-End",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-15T14:42:08.912117-04:00",
     "symbols": [
       "SNDK"
@@ -5044,6 +5034,16 @@
       "RIOT"
     ],
     "headline": "Shares of AI cloud services companies are trading lower amid persistent concerns over the debt required to sustain the AI infrastructure buildout. Sentiment is also under pressure following a Gartner warning about the outlook for neocloud providers, fueling concerns over the sustainability of spending on AI computing capacity.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T11:33:56.518916-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "&#39;Apple Set For UK Legal Fight Over iPhone Tap-To-Pay Rules&#39; - Financial Times",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

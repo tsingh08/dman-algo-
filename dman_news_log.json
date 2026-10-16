@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:55:24.928308-04:00",
-    "symbols": [
-      "LBRX"
-    ],
-    "headline": "Penske Automotive, OPKO Health, Ericsson And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T14:55:25.058737-04:00",
-    "symbols": [
-      "DELL"
-    ],
-    "headline": "Nike, Moderna, Walmart Get a Lift as Traders Flee AI Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:55:25.179074-04:00",
-    "symbols": [
-      "REMX"
-    ],
-    "headline": "&#39;Project Vault, The U.S. Government-Backed Critical-Minerals Stockpile, Plans To Choose An Initial Group Of More Than A Dozen American Manufacturers That Could Receive Up To $1B In Loans To Help Procure Key Materials&#39; - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T14:55:25.398270-04:00",
-    "symbols": [
-      "LSCC"
-    ],
-    "headline": "Rocket Lab, Taiwan Semiconductor And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T14:55:25.514325-04:00",
-    "symbols": [
-      "FIX"
-    ],
-    "headline": "Keybanc Maintains Overweight on Comfort Systems USA, Raises Price Target to $2125",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-15T14:55:26.010533-04:00",
-    "symbols": [
-      "REAL"
-    ],
-    "headline": "11 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-15T14:55:26.135772-04:00",
     "symbols": [
       "IREN"
@@ -5086,5 +5026,65 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T13:49:52.480572-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T13:49:54.432262-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-16T13:49:54.970309-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-16T13:50:00.793354-04:00",
+    "symbols": [
+      "DECK"
+    ],
+    "headline": "Raymond James Maintains Outperform on Deckers Outdoor, Lowers Price Target to $105",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T13:50:01.330868-04:00",
+    "symbols": [
+      "ONON"
+    ],
+    "headline": "Raymond James Maintains Outperform on On Holding, Raises Price Target to $42",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T13:50:07.951727-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

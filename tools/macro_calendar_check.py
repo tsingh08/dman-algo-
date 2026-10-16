@@ -88,6 +88,41 @@ def fomc_decision_days() -> set:
     return out
 
 
+def bea_pce_schedule() -> set:
+    """Release dates BEA currently publishes for Personal Income and Outlays.
+
+    PCE is the one macro calendar the first version of this checker could not
+    verify, and it is also the one closest to running out (2026-12-23, already
+    nagging), so "unverifiable" was the wrong place to leave it.
+
+    The schedule page lists a release line per row as, flattened:
+
+        October 29 8:30 AM News Personal Income and Outlays, September 2026
+
+    The RELEASE year is not on the row -- only the reference month carries one.
+    PCE is published about a month after its reference month, so the release
+    year equals the reference year except when the release month wraps round
+    to January, which is the December-reference release.
+    """
+    body = _text("https://www.bea.gov/news/schedule")
+    txt = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", body))
+    out = set()
+    pat = (r"([A-Z][a-z]+)\s+(\d{1,2})\s+\d{1,2}:\d{2}\s*[AP]M\s+N\s*ews\s+"
+           r"Personal Income and Outlays,\s+([A-Z][a-z]+)\s+(20\d\d)")
+    for m in re.finditer(pat, txt):
+        rel_mon, day, ref_mon, ref_year = m.groups()
+        if rel_mon not in FULL or ref_mon not in FULL:
+            continue
+        year = int(ref_year)
+        if FULL[rel_mon] < FULL[ref_mon]:
+            year += 1          # January release of a December reference month
+        try:
+            out.add(dt.date(year, FULL[rel_mon], int(day)))
+        except ValueError:
+            continue
+    return out
+
+
 def main() -> int:
     sys.path.insert(0, ".")
     import dman_algo as a
@@ -97,9 +132,11 @@ def main() -> int:
         ("CPI", a._CPI_DATES, lambda: bls_schedule("cpi")),
         ("PPI", a._PPI_DATES, lambda: bls_schedule("ppi")),
         ("FOMC", a._FOMC_DATES, fomc_decision_days),
+        ("PCE", a._PCE_DATES, bea_pce_schedule),
     )
     bad = 0
     corrected = {}
+    _drift_lines: list = []
     for name, hard, fetch in checks:
         try:
             live = fetch()
@@ -119,8 +156,10 @@ def main() -> int:
               % (name, "ok" if ok else "DRIFT", len(theirs), horizon))
         for d in missing:
             print("        MISSING  %s  <- agency publishes this, gate will NOT fire" % d)
+            _drift_lines.append("%s MISSING %s (gate will NOT fire)" % (name, d))
         for d in extra:
             print("        EXTRA    %s  <- not on the agency schedule" % d)
+            _drift_lines.append("%s EXTRA %s (not on the agency schedule)" % (name, d))
         if not ok:
             bad += 1
         corrected[name] = sorted({d for d in hard if d < today} | theirs)
@@ -140,6 +179,19 @@ def main() -> int:
         print("  %d calendar(s) drifted. A wrong date fails OPEN on the real" % bad)
         print("  release and blocks a clean session on the fictional one.")
         print("  Re-run with --sets for corrected date sets.")
+        # --alert lets the weekend cloud routine run this unattended. Without
+        # it the check is only as current as the last time someone typed it,
+        # which is how the dates drifted for months in the first place.
+        if "--alert" in sys.argv:
+            try:
+                a.send_telegram(
+                    "⚠️ <b>Macro calendar has drifted</b>" + chr(10)
+                    + chr(10).join(_drift_lines[:12]) + chr(10) + chr(10)
+                    + "A wrong date means NO blackout on the real release and a "
+                    + "blackout on a clean session. Fix with "
+                    + "<code>tools/macro_calendar_check.py --sets</code>.")
+            except Exception as exc:
+                print("  (could not send the alert: %s)" % exc)
         return 1
     print()
     print("  All verifiable calendars match their agency schedule.")

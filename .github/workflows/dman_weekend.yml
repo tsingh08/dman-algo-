@@ -35,6 +35,20 @@ jobs:
           MASSIVE_BACKUP_API_KEY:   ${{ secrets.MASSIVE_BACKUP_API_KEY }}
         run: python dman_algo.py --mode newscheck
 
+      # The hardcoded macro dates had drifted for months and nothing noticed:
+      # the real CPI was listed two days late, the December FOMC a full week.
+      # A wrong date means NO blackout on the release it exists to sit out, and
+      # a blackout on a session that was clear. Verifying it on demand only
+      # helps when someone remembers, so it runs here every weekend.
+      # continue-on-error: drift is a warning to act on, not a reason to fail
+      # the catalyst watch that follows.
+      - name: Macro calendar drift check
+        continue-on-error: true
+        env:
+          TELEGRAM_TOKEN:   ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python tools/macro_calendar_check.py --alert
+
       - name: Weekend catalyst watch
         env:
           TELEGRAM_TOKEN:      ${{ secrets.TELEGRAM_TOKEN }}

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:15:57.221885-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Michael Burry&#39;s &#39;Red October&#39; Warning: Why QQQ and SMH Could Face More Pain",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T14:15:57.518381-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Michael Burry&#39;s &#39;Red October&#39; Warning: Why QQQ and SMH Could Face More Pain",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-15T14:15:57.787163-04:00",
     "symbols": [
       "AMZN"
@@ -5037,5 +5017,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T10:23:52.016260-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Slovakia Approves Tesla Full Self-Driving System",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T10:24:06.229698-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Gary Black Warns Tesla Bulls Against Hyping SpaceX Merger, Says Roadster\u2019s Brand Impact Could Outweigh Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

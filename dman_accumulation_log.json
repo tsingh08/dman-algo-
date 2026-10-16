@@ -2068,5 +2068,68 @@
   "drift_pct": 1.06,
   "range_ratio": 0.54,
   "near_high": 0.966
+ },
+ {
+  "ts": "2026-10-16T14:26:42.519205-04:00",
+  "ticker": "MMIN",
+  "price": 22.7,
+  "rvol": 1.9,
+  "drift_pct": 1.38,
+  "range_ratio": 0.58,
+  "near_high": 0.953
+ },
+ {
+  "ts": "2026-10-16T14:26:42.519215-04:00",
+  "ticker": "GLED",
+  "price": 10.07,
+  "rvol": 19.38,
+  "drift_pct": 0.1,
+  "range_ratio": 0.29,
+  "near_high": 1.0
+ },
+ {
+  "ts": "2026-10-16T14:26:42.519218-04:00",
+  "ticker": "AOR",
+  "price": 68.22,
+  "rvol": 1.59,
+  "drift_pct": 0.77,
+  "range_ratio": 0.4,
+  "near_high": 0.969
+ },
+ {
+  "ts": "2026-10-16T14:26:42.519221-04:00",
+  "ticker": "DMII",
+  "price": 10.18,
+  "rvol": 4.58,
+  "drift_pct": 0.1,
+  "range_ratio": 0.1,
+  "near_high": 0.999
+ },
+ {
+  "ts": "2026-10-16T14:26:42.519223-04:00",
+  "ticker": "BSCQ",
+  "price": 19.555,
+  "rvol": 1.65,
+  "drift_pct": 0.05,
+  "range_ratio": 0.43,
+  "near_high": 0.999
+ },
+ {
+  "ts": "2026-10-16T14:26:42.519226-04:00",
+  "ticker": "JFLX",
+  "price": 48.945,
+  "rvol": 1.75,
+  "drift_pct": 0.09,
+  "range_ratio": 0.23,
+  "near_high": 0.979
+ },
+ {
+  "ts": "2026-10-16T14:26:42.519228-04:00",
+  "ticker": "JCAL",
+  "price": 47.82,
+  "rvol": 2.12,
+  "drift_pct": 1.01,
+  "range_ratio": 0.54,
+  "near_high": 0.965
  }
 ]

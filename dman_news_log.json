@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:55:23.855299-04:00",
-    "symbols": [
-      "NASA"
-    ],
-    "headline": "Rocket Lab Stock Plunges Nearly 10% After Another Neutron Launch Setback",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T14:55:24.106169-04:00",
-    "symbols": [
-      "CRWV"
-    ],
-    "headline": "AI Stocks Plunge, but Jensen Huang Says Nvidia Gets New Chip Orders Almost Daily",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-15T14:55:24.215069-04:00",
-    "symbols": [
-      "QNT"
-    ],
-    "headline": "Dow Jones Climbs to 52,000 While Chips Bleed on Rate-Hike Fears: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T14:55:24.565999-04:00",
-    "symbols": [
-      "SMTC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T14:55:24.671454-04:00",
-    "symbols": [
-      "NRXP"
-    ],
-    "headline": "NRx Pharmaceuticals Announces FDA Receipt Of DISCIPLINE REVIEW LETTER For Changes To Submitted Label For Preservative-Free Ketamine Product Ahead Of Nov. 10",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T14:55:24.804482-04:00",
-    "symbols": [
-      "STRL"
-    ],
-    "headline": "Keybanc Maintains Overweight on Sterling Infrastructure, Raises Price Target to $755",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-15T14:55:24.928308-04:00",
     "symbols": [
       "LBRX"
@@ -5086,5 +5026,65 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T13:43:31.008605-04:00",
+    "symbols": [
+      "DECK"
+    ],
+    "headline": "Raymond James Maintains Outperform on Deckers Outdoor, Lowers Price Target to $105",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T13:44:06.269507-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T13:44:08.666474-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-16T13:44:09.237416-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-16T13:44:22.183094-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T13:45:47.632716-04:00",
+    "symbols": [
+      "ONON"
+    ],
+    "headline": "Raymond James Maintains Outperform on On Holding, Raises Price Target to $42",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,273 +1,5 @@
 [
   {
-    "ts": "2026-10-15T13:14:36.022505-04:00",
-    "symbols": [
-      "DFH"
-    ],
-    "headline": "11 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T13:14:36.027137-04:00",
-    "symbols": [
-      "DFH"
-    ],
-    "headline": "Dream Finders Homes Stock in Focus as Bear Cave Flags CEO&#39;s Pledged Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T13:14:36.031500-04:00",
-    "symbols": [
-      "DFH"
-    ],
-    "headline": "Watching Dream Finders Homes; The Bear Cave By Hunterbrook Media Issues Report On Co Titled &#34;Problems at Dream Finders Homes (DFH)&#34;; Reports Hunterbrook Capital Is Short $MRP, $LEN And Long A Basket Of Comparable Securities",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T13:14:36.035921-04:00",
-    "symbols": [
-      "DFH"
-    ],
-    "headline": "Penske Automotive, OPKO Health, Ericsson And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T13:14:46.592485-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "The Hormuz Letter Posts On X &#34;BREAKING: Trump considering firing Defense Secretary Hegseth after the midterms in an effort to take the blame of the unpopular Iran war off of himself and onto Hegseth in order to &#34;protect his legacy&#34; and &#34;reputation as an anti-war president,&#34; per multiple initial reports. Trump is also on the verge of firing several key members of his administration in an effort to &#34;clean house&#34; amid mounting corruption allegations and expected midterm losses, as per the reports.&#34;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T13:17:06.247644-04:00",
-    "symbols": [
-      "DIA",
-      "IWM",
-      "QQQ",
-      "RKLB",
-      "SKHY",
-      "V"
-    ],
-    "headline": "Dow Jones Climbs to 52,000 While Chips Bleed on Rate-Hike Fears: Stock Market Today",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T13:17:06.283224-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Adobe Stock Gains Ground Thursday: What&#39;s Happening?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T13:17:24.311964-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk&#39;s $100 Trillion SpaceX Bet Has a Starlink Mobile Wild Card",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T13:17:35.629401-04:00",
-    "symbols": [
-      "GOOGL",
-      "MSFT"
-    ],
-    "headline": "Google Undercuts Some AI Rivals on Price as Gemini 4 Argon Reaches Enterprises",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T13:17:37.145818-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;U.S. Sues California In Fight Over Checking Citizenship Of Mail Voters&#39; - CNBC",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T13:18:53.661286-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Southwest Airlines To Complete Fleetwide Starlink Rollout For High-Speed Connectivity In Fall 2027",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T13:22:32.116488-04:00",
-    "symbols": [
-      "WETO"
-    ],
-    "headline": "Crude Oil Moves Higher; Charles Schwab Shares Fall After Q3 Results",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T13:26:44.806251-04:00",
-    "symbols": [
-      "AAPL",
-      "META",
-      "MSFT"
-    ],
-    "headline": "Meta Announces Release Of Muse Spark Open, The Open Weights Version Of Muse Spark",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T13:27:16.462927-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Meta Announces Release Of Muse Spark Open, The Open Weights Version Of Muse Spark",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T13:27:16.746843-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Meta Announces Release Of Muse Spark Open, The Open Weights Version Of Muse Spark",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T13:27:16.751963-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Google Undercuts Some AI Rivals on Price as Gemini 4 Argon Reaches Enterprises",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T13:27:17.519263-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Announces Release Of Muse Spark Open, The Open Weights Version Of Muse Spark",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T13:27:17.766403-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google Undercuts Some AI Rivals on Price as Gemini 4 Argon Reaches Enterprises",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T13:27:20.646999-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Dow Jones Climbs to 52,000 While Chips Bleed on Rate-Hike Fears: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T13:27:23.459112-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Dow Jones Climbs to 52,000 While Chips Bleed on Rate-Hike Fears: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T13:27:28.171938-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Dow Jones Climbs to 52,000 While Chips Bleed on Rate-Hike Fears: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T13:27:30.750267-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Dow Jones Climbs to 52,000 While Chips Bleed on Rate-Hike Fears: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T13:27:30.985433-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Dow Jones Climbs to 52,000 While Chips Bleed on Rate-Hike Fears: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T13:27:36.432597-04:00",
-    "symbols": [
-      "OPK"
-    ],
-    "headline": "Crude Oil Moves Higher; Charles Schwab Shares Fall After Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T13:27:37.788272-04:00",
-    "symbols": [
-      "PAG"
-    ],
-    "headline": "Crude Oil Moves Higher; Charles Schwab Shares Fall After Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T13:27:37.792845-04:00",
-    "symbols": [
-      "PAG"
-    ],
-    "headline": "Dow Jones Climbs to 52,000 While Chips Bleed on Rate-Hike Fears: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-15T13:28:17.445410-04:00",
     "symbols": [
       "ELF"
@@ -5044,6 +4776,269 @@
       "MSFT"
     ],
     "headline": "StoneX Maintains Buy on Microsoft, Raises Price Target to $600",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T09:42:00.014647-04:00",
+    "symbols": [
+      "LUNR",
+      "RKLB",
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "Space Stock Watch: SpaceX Spectrum Deal, Rocket Lab Delays, Tesla Merger Chatter",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T09:42:19.454882-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Space Stock Watch: SpaceX Spectrum Deal, Rocket Lab Delays, Tesla Merger Chatter",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T09:42:19.622050-04:00",
+    "symbols": [
+      "ZTG"
+    ],
+    "headline": "12 Industrials Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T09:42:19.627063-04:00",
+    "symbols": [
+      "ZTG"
+    ],
+    "headline": "Zenta Group Unit ZentoAI To Acquire Controlling Stake In An Unnamed Privately Held Digital Technology Service Provider In Mainland China; Financial Terms Not Disclosed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T09:42:19.748642-04:00",
+    "symbols": [
+      "SGRX"
+    ],
+    "headline": "SANGRIX Announces 16 B300 Servers Schedules To Be Delivered During Week Of Nov. 3",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T09:42:19.863544-04:00",
+    "symbols": [
+      "TCRT"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T09:42:19.868605-04:00",
+    "symbols": [
+      "TCRT"
+    ],
+    "headline": "Why Alcoa Shares Are Trading Higher; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T09:42:19.873835-04:00",
+    "symbols": [
+      "TCRT"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T09:42:19.998876-04:00",
+    "symbols": [
+      "RUBI"
+    ],
+    "headline": "Why Alcoa Shares Are Trading Higher; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T09:42:20.004252-04:00",
+    "symbols": [
+      "RUBI"
+    ],
+    "headline": "Rubico Extends $3.7M Payment Owed To TOP Ships To October 31, May Settle In Series G Convertible Preferred Shares",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T09:42:20.206344-04:00",
+    "symbols": [
+      "NIVF"
+    ],
+    "headline": "Why Alcoa Shares Are Trading Higher; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T09:42:20.341955-04:00",
+    "symbols": [
+      "QXL"
+    ],
+    "headline": "10 Communication Services Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T09:42:20.347986-04:00",
+    "symbols": [
+      "QXL"
+    ],
+    "headline": "Quantum X Labs&#39; QuantumQ Security Achieves Technological Milestone On Three Operational IBM Quantum Processors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T09:42:20.473230-04:00",
+    "symbols": [
+      "VRNS"
+    ],
+    "headline": "Varonis to Go Private in $6.3 Billion Takeover",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T09:42:20.478012-04:00",
+    "symbols": [
+      "VRNS"
+    ],
+    "headline": "Jefferies Downgrades Varonis Systems to Hold, Lowers Price Target to $49.75",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T09:42:20.482592-04:00",
+    "symbols": [
+      "VRNS"
+    ],
+    "headline": "Wells Fargo Downgrades Varonis Systems to Equal-Weight, Lowers Price Target to $49.75",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T09:42:20.489043-04:00",
+    "symbols": [
+      "VRNS"
+    ],
+    "headline": "Wedbush Maintains Neutral on Varonis Systems, Raises Price Target to $49.75",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T09:42:20.494139-04:00",
+    "symbols": [
+      "VRNS"
+    ],
+    "headline": "Rosenblatt Downgrades Varonis Systems to Neutral, Lowers Price Target to $49.75",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T09:42:20.603511-04:00",
+    "symbols": [
+      "PPCB"
+    ],
+    "headline": "Propanc Biopharma Announces It Has Identified Pancreatic Proenzyme Formulation As Potential Strategy For Addressing Chemotherapy Resistance In Pancreatic Cancer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T09:42:20.749146-04:00",
+    "symbols": [
+      "WSHP"
+    ],
+    "headline": "WeShop Enters $25M Committed Equity Facility With Roth Principal Investments",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T09:42:20.878398-04:00",
+    "symbols": [
+      "AA"
+    ],
+    "headline": "Stock Market Today: Dow Jones, S&amp;P 500 Futures Rise, Nasdaq Falls as Bessent Intensifies Economic Pressure on Iran\u2014 TSLA, AA, IBKR in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T09:42:20.883741-04:00",
+    "symbols": [
+      "AA"
+    ],
+    "headline": "Aluminum Supply Warning: Alcoa Says Global Inventories Leave Little Room for Another Shock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T09:42:20.890233-04:00",
+    "symbols": [
+      "AA"
+    ],
+    "headline": "Reported October 15, &#39;Lutnick Throws the Future of U.S.-Mexico Trade Talks Into Further Doubt; The commerce secretary has objected to significant reductions in tariffs on Mexican steel, aluminum and automobiles&#39; - WSJ Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T09:42:20.896603-04:00",
+    "symbols": [
+      "AA"
+    ],
+    "headline": "Why Alcoa Shares Are Trading Higher; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T09:42:20.902156-04:00",
+    "symbols": [
+      "AA"
+    ],
+    "headline": "M&amp;T Bank, Travelers Companies and 3 Stocks to Watch Heading Into Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T09:42:50.289288-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Why Is AST SpaceMobile Stock Falling Friday?",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"

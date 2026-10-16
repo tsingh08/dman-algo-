@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:22:09.893142-04:00",
-    "symbols": [
-      "CRWV"
-    ],
-    "headline": "Nike, Moderna, Walmart Get a Lift as Traders Flee AI Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-15T14:22:10.171983-04:00",
     "symbols": [
       "WULF"
@@ -5036,5 +5026,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-16T10:57:14.222961-04:00",
+    "symbols": [
+      "VRNS"
+    ],
+    "headline": "RBC Capital Downgrades Varonis Systems to Sector Perform, Lowers Price Target to $49.75",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

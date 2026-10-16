@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:33:42.572973-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "Venture Global Enters Power And Grid Frame Agreements With GE Vernova And Baker Hughes Energy Services For Up To Sixteen 720 MW Power Island Units And Associated Power Transformer Equipment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:33:42.795750-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Lockheed Martin Supercharges US Missile Production With $300 Million Texas Investment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-15T14:33:52.769559-04:00",
     "symbols": [
       "ERIC"
@@ -5045,5 +5025,28 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T11:07:27.075198-04:00",
+    "symbols": [
+      "AVGO",
+      "MU",
+      "NBIS",
+      "NVDA"
+    ],
+    "headline": "Nvidia, Micron and Broadcom Already Trade Like Cisco Post Dot-Com Burst: Bank of America",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T11:07:37.359218-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab shares are trading lower after Citizens lowered its price target on the stock from $130 to $90.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

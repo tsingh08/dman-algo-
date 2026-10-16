@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:17:44.866056-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "StoneX Initiates Coverage On ON Semiconductor with Buy Rating, Announces Price Target of $110",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:21:52.299499-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Why Is Salesforce Stock Gaining Thursday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-15T14:22:09.893142-04:00",
     "symbols": [
       "CRWV"
@@ -5036,5 +5016,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T10:45:56.156988-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "CoreWeave Has \u2018Darwin Moment\u2019 As Credit Markets Price In 60% Default Odds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T10:46:04.273807-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "CoreWeave Has \u2018Darwin Moment\u2019 As Credit Markets Price In 60% Default Odds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

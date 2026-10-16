@@ -25830,3 +25830,95 @@ class TestTheSyncStampIsTimezoneAware(unittest.TestCase):
         naive = _dt(2026, 10, 15, 7, 0, 0, 1).isoformat()
         aware = _dt(2026, 10, 15, 7, 0, 0, 1, tzinfo=timezone.utc).isoformat()
         self.assertEqual(max(naive, aware), aware)
+
+
+class TestTheZoneVerdictShowsWhichExitProducedIt(unittest.TestCase):
+    """Zones are the only strategy still enabled, and they are 8 trades from
+    an auto-off verdict on a record that mostly predates their exit.
+
+    At n=4 the mean was -3.44%, and three of those four ran a different exit:
+    RSKD triggered at +4.98% and filled at +2.55% under hourly polling (2.43
+    points of latency, fixed in 975ff420), and PGEN closed at -12.76% under
+    the old 18.5% floor that 23450639 would have capped at -10%. AMPL, the
+    first trade with the broker-side trail, filled 2 cents off its trigger.
+
+    The gate deliberately still judges the ALL-TIME number. Letting a config
+    change reset a guardrail is how a losing setup survives forever -- the
+    same move that resurrected Gap & Hold on one win. The split is so a human
+    reading the verdict can see which exit produced it, not so the machine can
+    discount the inconvenient half."""
+
+    def _rec(self, rows):
+        tr = MagicMock()
+        tr.records = [SimpleNamespace(is_live=True, setup=a.BZONE_SETUP + " x",
+                                      pnl_pct=p, date=d) for d, p in rows]
+        return patch.object(a, "WinRateTracker", return_value=tr)
+
+    ROWS = [("2026-09-24", -8.04), ("2026-10-14", 2.55),
+            ("2026-10-15", -12.76), ("2026-10-15", 4.49)]
+
+    def test_the_all_time_record_is_unfiltered(self):
+        with self._rec(self.ROWS):
+            n, avg = a._bzone_record()
+        self.assertEqual(n, 4)
+        self.assertAlmostEqual(avg, -3.44, places=2)
+
+    def test_since_returns_only_trades_after_the_config_change(self):
+        with self._rec(self.ROWS):
+            n, _avg = a._bzone_record(since="2026-10-15")
+        self.assertEqual(n, 2)
+
+    def test_the_report_shows_both(self):
+        with self._rec(self.ROWS):
+            lines = " ".join(a._bzone_record_lines())
+        self.assertIn("4/%d" % a.BZONE_TRADE_REVIEW_N, lines)
+        self.assertIn(a.BZONE_EXIT_CONFIG_DATE, lines)
+
+    def test_it_says_the_gate_still_uses_all_time(self):
+        """So nobody reads the split as permission to reset the guardrail."""
+        with self._rec(self.ROWS):
+            lines = " ".join(a._bzone_record_lines())
+        self.assertIn("all-time", lines)
+
+    def test_the_split_is_hidden_once_every_trade_is_post_change(self):
+        """A second line that repeats the first is noise."""
+        with self._rec([("2026-10-15", 4.49)]):
+            lines = a._bzone_record_lines()
+        self.assertEqual(len(lines), 1)
+
+    def test_no_closed_trades_reports_nothing(self):
+        with self._rec([]):
+            self.assertEqual(a._bzone_record_lines(), [])
+
+    def test_a_tracker_failure_does_not_raise(self):
+        with patch.object(a, "WinRateTracker", side_effect=RuntimeError("boom")):
+            self.assertEqual(a._bzone_record(), (0, 0.0))
+
+    def test_the_gate_still_reads_the_unfiltered_record(self):
+        """BEHAVIOURAL, not a source grep. The first version asserted the
+        comparison text was present, which a mutation that merely REASSIGNED
+        _n/_avg to the filtered record left untouched -- it survived.
+
+        Shape: all-time is negative over the full sample, the post-change
+        slice is positive. The gate must still disable. If it ever reads the
+        filtered record, a bad strategy gets a clean slate every time a
+        constant moves."""
+        rows = ([("2026-01-%02d" % (d + 1), -5.0) for d in range(11)]
+                + [("2026-10-15", 9.0)])
+        with self._rec(rows):
+            self.assertLessEqual(a._bzone_record()[1], 0, "all-time must be negative")
+            self.assertGreater(a._bzone_record(since="2026-10-15")[1], 0,
+                               "post-change slice must be positive")
+            with patch.object(a, "flag", return_value=True),                  patch.object(a, "_bzone_open_positions", return_value=[]),                  patch.object(a, "is_market_open", return_value=True),                  patch.object(a, "_is_duplicate_alert", return_value=False),                  patch.object(a, "_save_last_alert"),                  patch.object(a, "send_telegram", return_value=True):
+                out = a.run_breakout_zone_manage(notify=False)
+        _skip = str(out.get("skipped", "")).lower()
+        self.assertIn("entries off", _skip, _skip)
+        self.assertIn("12", _skip, "the all-time count, not the 1-trade slice")
+
+    def test_the_manager_actually_prints_the_record(self):
+        """Wiring, checked on EXECUTABLE code -- unwiring the call used to
+        leave every test green because they called the helper directly."""
+        import ast as _ast, textwrap as _tw
+        src = _ast.unparse(_ast.parse(
+            _tw.dedent(inspect.getsource(a.run_breakout_zone_manage))))
+        self.assertIn("_bzone_record_lines()", src)

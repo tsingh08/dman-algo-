@@ -13605,14 +13605,63 @@ def _bzone_open_positions() -> list:
         return []
 
 
-def _bzone_record() -> tuple[int, float]:
-    """(closed live breakout-zone trades, mean pnl_pct)."""
+# The date the zone EXIT stopped being the one the early record was made
+# with. Two changes landed together:
+#   975ff420  the trail rests at the broker instead of polling hourly. RSKD
+#             triggered at +4.98% and filled at +2.55% under polling, 2.43
+#             points of pure latency; AMPL on 2026-10-15 was the first trade
+#             with the broker stop and filled 2 CENTS off its trigger.
+#   23450639  max loss per zone 3xATR[10-35%] -> 2.0xATR[5-10%]. PGEN closed
+#             at -12.76% under the old 18.5% floor; the new cap would have cut
+#             it at -10%.
+# A trade closed before this ran a materially different exit.
+#
+# A date cut is approximate and one boundary case is worth naming: PGEN closed
+# ON 2026-10-15 but never actually received the new floor -- its stop was stuck
+# in PENDING_CANCEL from a close attempt the night before, so nothing could be
+# placed against those shares. AMPL is the only trade so far that ran the new
+# exit end to end. Do not read the "since" figure as clean until it has a few
+# more trades in it.
+BZONE_EXIT_CONFIG_DATE = "2026-10-15"
+
+
+def _bzone_record(since: Optional[str] = None) -> tuple[int, float]:
+    """(closed live breakout-zone trades, mean pnl_pct).
+
+    `since` filters to trades closed on or after an ISO date, which is how the
+    report shows the record under the CURRENT exit configuration alongside the
+    all-time one.
+
+    The review gate deliberately keeps using the ALL-TIME number. Letting a
+    config change reset a guardrail is how a losing setup survives forever --
+    it is the same move that resurrected Gap & Hold on a single win and cost
+    another -13% before the hard cumulative bar was added. The split exists so
+    a human reading the verdict can see WHICH exit produced it, not so the
+    machine can discount the inconvenient half.
+    """
     try:
         rs = [r for r in WinRateTracker().records
               if r.is_live and str(r.setup).startswith(BZONE_SETUP)]
+        if since:
+            rs = [r for r in rs if str(getattr(r, "date", "") or "") >= since]
         return len(rs), (sum(float(r.pnl_pct) for r in rs) / len(rs) if rs else 0.0)
     except Exception:
         return 0, 0.0
+
+
+def _bzone_record_lines() -> list:
+    """The zone record, all-time and since the exit changed. Reporting only."""
+    _n, _avg = _bzone_record()
+    if not _n:
+        return []
+    _out = [f"  zone record: {_n}/{BZONE_TRADE_REVIEW_N} closed, mean {_avg:+.2f}%"
+            f" \u2014 verdict at {BZONE_TRADE_REVIEW_N}"]
+    _sn, _savg = _bzone_record(since=BZONE_EXIT_CONFIG_DATE)
+    if _sn and _sn < _n:
+        _out.append(
+            f"  since the exit changed ({BZONE_EXIT_CONFIG_DATE}): {_sn} closed, "
+            f"mean {_savg:+.2f}% \u2014 the gate still judges the all-time number")
+    return _out
 
 
 def run_breakout_zone_manage(notify: bool = True) -> dict:
@@ -13648,6 +13697,8 @@ def run_breakout_zone_manage(notify: bool = True) -> dict:
 
     # ---- entries ----
     _n, _avg = _bzone_record()
+    for _ln in _bzone_record_lines():
+        print(_ln)
     if _n >= BZONE_TRADE_REVIEW_N and _avg <= 0:
         out["skipped"] = f"record {_n} trades, mean {_avg:+.1f}% — entries off"
         if not _is_duplicate_alert("__BZONE_OFF__", cooldown_min=7 * 24 * 60):

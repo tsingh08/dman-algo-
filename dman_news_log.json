@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:42:11.815504-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Stock Market Today: Dow Futures Gain, S&amp;P 500, Nasdaq Fall As Chip Stock Sell-Off Intensifies \u2014 SKHY, TSM, RKLB in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-15T14:42:12.272547-04:00",
     "symbols": [
       "APP"
@@ -5057,5 +5047,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T12:11:59.241864-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "What&#39;s Going On With Fermi Stock Friday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:33:37.006404-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Why Is Robinhood Stock Under Pressure Ahead of Oct. 27 Earnings?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-15T14:33:37.225544-04:00",
     "symbols": [
       "RIVN"
@@ -5043,6 +5033,16 @@
     ],
     "headline": "Reported October 15, &#39;Lutnick Throws the Future of U.S.-Mexico Trade Talks Into Further Doubt; The commerce secretary has objected to significant reductions in tariffs on Mexican steel, aluminum and automobiles&#39; - WSJ Exclusive",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T11:03:33.398224-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Jack Henry To Provide Tokenized Deposits Under Expanded Partnership With Google Cloud Through Universal Ledger",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

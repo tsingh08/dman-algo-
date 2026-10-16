@@ -26071,3 +26071,76 @@ class TestTheKillEvidenceIsAttributedToItsUniverse(unittest.TestCase):
         src = _ast.unparse(_ast.parse(
             _tw.dedent(inspect.getsource(a._disabled_setups_alert))))
         self.assertIn("_disabled_setup_split_lines()", src)
+
+
+class TestTheMacroCalendarMatchesTheAgencies(unittest.TestCase):
+    """The hardcoded macro dates were WRONG and nothing ever checked.
+
+    check_macro_safe() already refuses to trade when the calendar RUNS OUT --
+    _macro_calendar_state() nags for a refill. Nothing verified the dates it
+    still had. Found 2026-10-16 while checking whether PPI landed Thursday or
+    Friday:
+
+        CPI   BLS 2026-11-10   hardcoded 2026-11-12   2 days out
+        PPI   BLS 2026-12-15   hardcoded 2026-12-11   4 days out
+        FOMC  Fed 2026-12-09   hardcoded 2026-12-16   7 days out
+
+    October was right throughout and every error was forward-dated -- the
+    signature of estimates entered past the confirmed window. The CPI block
+    even cited eskisignal.com, a third-party mirror, as "verified from BLS".
+
+    A wrong date fails in the worst available direction. On the real release
+    there is no blackout, which is the one thing the gate exists for; on the
+    fictional one a clean session is blocked. An expired calendar is loud, a
+    wrong one is silent.
+
+    These pin the next real dates so a silent re-drift fails a test rather
+    than a trade. tools/macro_calendar_check.py re-verifies against the
+    agencies on demand."""
+
+    def test_the_next_cpi_is_the_bls_date(self):
+        self.assertIn(date(2026, 11, 10), a._CPI_DATES)
+        self.assertNotIn(date(2026, 11, 12), a._CPI_DATES)
+
+    def test_the_next_ppi_dates_are_the_bls_dates(self):
+        self.assertIn(date(2026, 11, 13), a._PPI_DATES)
+        self.assertIn(date(2026, 12, 15), a._PPI_DATES)
+        self.assertNotIn(date(2026, 12, 11), a._PPI_DATES)
+
+    def test_the_december_fomc_is_the_fed_date(self):
+        """The worst of the three -- a full week out, so the +/-1 blackout
+        missed the meeting and blacked out a clean week instead."""
+        self.assertIn(date(2026, 12, 9), a._FOMC_DATES)
+        self.assertNotIn(date(2026, 12, 16), a._FOMC_DATES)
+
+    def test_the_october_fomc_is_unchanged(self):
+        """It was already correct; the fix must not have disturbed it."""
+        self.assertIn(date(2026, 10, 28), a._FOMC_DATES)
+
+    def test_the_gate_blocks_before_ten_on_the_real_cpi_day(self):
+        """BEHAVIOURAL. The dates only matter through this."""
+        class _FD(datetime):
+            _n = None
+            @classmethod
+            def now(cls, tz=None):
+                return cls._n
+        def _gate(y, m, d, h):
+            _FD._n = datetime(y, m, d, h, 0, tzinfo=a.ET)
+            with patch.object(a, "datetime", _FD),                  patch.object(a, "send_telegram"),                  patch.object(a, "_macro_calendar_alert"):
+                return a.check_macro_safe()[0]
+        self.assertFalse(_gate(2026, 11, 10, 9), "real CPI day must block")
+        self.assertTrue(_gate(2026, 11, 10, 10), "open again after 10:00 ET")
+        self.assertTrue(_gate(2026, 11, 12, 9), "phantom date must not block")
+
+    def test_the_gate_blocks_the_real_december_fomc_all_day(self):
+        class _FD(datetime):
+            _n = None
+            @classmethod
+            def now(cls, tz=None):
+                return cls._n
+        def _gate(y, m, d, h):
+            _FD._n = datetime(y, m, d, h, 0, tzinfo=a.ET)
+            with patch.object(a, "datetime", _FD),                  patch.object(a, "send_telegram"),                  patch.object(a, "_macro_calendar_alert"):
+                return a.check_macro_safe()[0]
+        self.assertFalse(_gate(2026, 12, 9, 11), "real FOMC must block")
+        self.assertTrue(_gate(2026, 12, 16, 11), "phantom FOMC must not block")

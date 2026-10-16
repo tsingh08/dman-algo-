@@ -84,6 +84,7 @@ CRITICAL = {
     "tools/py311_check.py": "catches 3.12-only syntax before the 3.11 jobs hit it",
     "tools/hollow_assert_check.py": "catches tests that cannot fail",
     "tools/pylance_env_check.py": "tells you in one second whether thousands of editor problems are the code or a stale language server",
+    "tools/macro_calendar_check.py": "diffs the hardcoded macro dates against BLS and the Fed -- they had drifted and nothing checked",
 
     # Added 2026-10-10. Not part of the trading path at all -- it is what gives
     # an analysis session the Massive MCP server, and therefore minute-bar and

@@ -16777,20 +16777,22 @@ def expire_momentum_offers() -> None:
 # FOMC decision dates — update annually from federalreserve.gov/monetarypolicy/fomccalendars.htm
 # 2027/2028 are estimated; verify and replace each December.
 _FOMC_DATES: set[date] = {
-    date(2025, 1, 29), date(2025, 3, 19), date(2025, 5,  7),
-    date(2025, 6, 18), date(2025, 7, 30), date(2025, 9, 17),
-    date(2025,10, 29), date(2025,12, 17),
-    date(2026, 1, 28), date(2026, 3, 18), date(2026, 4, 29),
-    date(2026, 6, 17), date(2026, 7, 29), date(2026, 9, 16),
-    date(2026,10, 28), date(2026,12, 16),
-    # 2027 estimated
-    date(2027, 1, 27), date(2027, 3, 17), date(2027, 4, 28),
-    date(2027, 6, 16), date(2027, 7, 28), date(2027, 9, 15),
-    date(2027,10, 27), date(2027,12, 15),
-    # 2028 estimated
-    date(2028, 1, 26), date(2028, 3, 15), date(2028, 4, 26),
-    date(2028, 6, 14), date(2028, 7, 26), date(2028, 9, 20),
-    date(2028,10, 25), date(2028,12, 13),
+    # Agency-verified 2026-10-16 against federalreserve.gov/monetarypolicy/fomccalendars.htm
+    # by tools/macro_calendar_check.py, which exists because these
+    # were WRONG and nothing checked. Second day of each scheduled meeting, which is the decision day. December 2026 was listed as 12-16 against the Fed's 12-09 -- a full week, so the +/-1 day blackout would have missed the meeting entirely and blacked out a clean week instead.
+    #
+    # A wrong date fails in the worst direction: no blackout on the
+    # real release, and a blackout on a session that was clear.
+    # Only forward dates are published, so past entries are kept as
+    # they were -- they can no longer gate anything.
+    date(2025,  1, 29), date(2025,  3, 19), date(2025,  5,  7),
+    date(2025,  6, 18), date(2025,  7, 30), date(2025,  9, 17),
+    date(2025, 10, 29), date(2025, 12, 17), date(2026,  1, 28),
+    date(2026,  3, 18), date(2026,  4, 29), date(2026,  6, 17),
+    date(2026,  7, 29), date(2026,  9, 16), date(2026, 10, 28),
+    date(2026, 12,  9), date(2027,  1, 27), date(2027,  3, 17),
+    date(2027,  4, 28), date(2027,  6,  9), date(2027,  7, 28),
+    date(2027,  9, 15), date(2027, 10, 27), date(2027, 12,  8)
 }
 _FOMC_LAST_CONFIRMED_YEAR = 2026  # raise this after verifying new dates
 
@@ -16836,16 +16838,22 @@ _MARKET_HOLIDAYS: set[date] = {
 # Drops pre-open so the gap reaction IS the signal, but intraday whipsaws make stops
 # unreliable. Blackout day-of and ±1 day. Update each December from bls.gov/schedule.
 _CPI_DATES: set[date] = {
-    # 2026 — verified from BLS schedule (eskisignal.com/cpi-release-dates-2026)
+    # Agency-verified 2026-10-16 against bls.gov/schedule/news_release/cpi.htm
+    # by tools/macro_calendar_check.py, which exists because these
+    # were WRONG and nothing checked. The old block cited eskisignal.com, a third-party mirror, as "verified from BLS schedule". It had drifted: 2026-11-10 was listed as 11-12.
+    #
+    # A wrong date fails in the worst direction: no blackout on the
+    # real release, and a blackout on a session that was clear.
+    # Only forward dates are published, so past entries are kept as
+    # they were -- they can no longer gate anything.
     date(2026,  1, 14), date(2026,  2, 11), date(2026,  3, 11),
     date(2026,  4, 10), date(2026,  5, 13), date(2026,  6, 10),
     date(2026,  7, 14), date(2026,  8, 12), date(2026,  9,  9),
-    date(2026, 10, 14), date(2026, 11, 12), date(2026, 12, 10),
-    # 2027 — estimated mid-month; verify from bls.gov each December
-    date(2027,  1, 13), date(2027,  2, 10), date(2027,  3, 10),
-    date(2027,  4,  9), date(2027,  5, 12), date(2027,  6,  9),
-    date(2027,  7, 14), date(2027,  8, 11), date(2027,  9,  8),
-    date(2027, 10, 13), date(2027, 11, 10), date(2027, 12,  9),
+    date(2026, 10, 14), date(2026, 11, 10), date(2026, 12, 10),
+    date(2027,  1, 13), date(2027,  2, 11), date(2027,  3, 10),
+    date(2027,  4, 13), date(2027,  5, 12), date(2027,  6, 10),
+    date(2027,  7, 14), date(2027,  8, 11), date(2027,  9, 14),
+    date(2027, 10, 14), date(2027, 11, 10), date(2027, 12, 10)
 }
 
 # PPI release dates (8:30 AM ET) — released ~1 business day after CPI; similar gap/whipsaw risk.
@@ -16860,16 +16868,22 @@ _CPI_DATES: set[date] = {
 # next business day; every other month's CPI falls on a weekday that
 # doesn't hit this collision.
 _PPI_DATES: set[date] = {
-    # 2026 — estimated as CPI+1 business day (verify from bls.gov/schedule)
+    # Agency-verified 2026-10-16 against bls.gov/schedule/news_release/ppi.htm
+    # by tools/macro_calendar_check.py, which exists because these
+    # were WRONG and nothing checked. Drifted the same way -- 2026-12-15 was listed as 12-11, four days out.
+    #
+    # A wrong date fails in the worst direction: no blackout on the
+    # real release, and a blackout on a session that was clear.
+    # Only forward dates are published, so past entries are kept as
+    # they were -- they can no longer gate anything.
     date(2026,  1, 15), date(2026,  2, 12), date(2026,  3, 12),
     date(2026,  4, 13), date(2026,  5, 14), date(2026,  6, 11),
     date(2026,  7, 15), date(2026,  8, 13), date(2026,  9, 10),
-    date(2026, 10, 15), date(2026, 11, 13), date(2026, 12, 11),
-    # 2027 — estimated; verify from bls.gov each December
-    date(2027,  1, 14), date(2027,  2, 11), date(2027,  3, 11),
-    date(2027,  4, 12), date(2027,  5, 13), date(2027,  6, 10),
-    date(2027,  7, 15), date(2027,  8, 12), date(2027,  9,  9),
-    date(2027, 10, 14), date(2027, 11, 11), date(2027, 12, 10),
+    date(2026, 10, 15), date(2026, 11, 13), date(2026, 12, 15),
+    date(2027,  1, 14), date(2027,  2, 12), date(2027,  3, 12),
+    date(2027,  4, 14), date(2027,  5, 13), date(2027,  6, 11),
+    date(2027,  7, 15), date(2027,  8, 10), date(2027,  9, 10),
+    date(2027, 10, 15), date(2027, 11, 12), date(2027, 12, 15)
 }
 
 # PCE (Personal Income and Outlays) release dates (8:30 AM ET) — the Fed's own

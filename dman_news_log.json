@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:42:22.149417-04:00",
-    "symbols": [
-      "CRWV"
-    ],
-    "headline": "AI Stocks Plunge, but Jensen Huang Says Nvidia Gets New Chip Orders Almost Daily",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-15T14:42:22.594509-04:00",
     "symbols": [
       "DELL"
@@ -5071,5 +5061,24 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T12:45:39.164958-04:00",
+    "symbols": [
+      "CLSK",
+      "CRWD",
+      "DDOG",
+      "DFNS",
+      "FTNT",
+      "ORCL",
+      "PANW",
+      "PLTR",
+      "VEEA",
+      "ZS"
+    ],
+    "headline": "Shares of software companies are trading lower amid a rotation out of technology and AI-related stocks. Rising inflation concerns and elevated oil prices are fueling expectations for further Fed tightening, while elevated borrowing costs could weigh on demand, valuations and debt metrics.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

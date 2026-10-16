@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:42:09.644721-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Why Is Robinhood Stock Under Pressure Ahead of Oct. 27 Earnings?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-15T14:42:09.901319-04:00",
     "symbols": [
       "RIVN"
@@ -5046,6 +5036,16 @@
     "headline": "Barclays Expects U.S. Fed To Deliver A 25 BP Rate Hike Each In December And January Vs Prior Forecast Of A Hike In December This Year",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T11:44:35.776360-04:00",
+    "symbols": [
+      "PDD"
+    ],
+    "headline": "&#39;Temu Will Pay Texas $3 Million To Resolve Chinese Data Lawsuit; Temu Agrees To Data Privacy Restrictions To Settle Texas Case&#39; - Bloomberg Law",
+    "source": "benzinga",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

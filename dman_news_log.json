@@ -1,60 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:22:10.171983-04:00",
-    "symbols": [
-      "WULF"
-    ],
-    "headline": "Nike, Moderna, Walmart Get a Lift as Traders Flee AI Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:30:43.816550-04:00",
-    "symbols": [
-      "AFRM",
-      "COIN",
-      "EZRA",
-      "KPLT",
-      "V"
-    ],
-    "headline": "Shares of banks and financial services companies are trading higher as Treasury yields retreat and investors rotate out of AI-exposed stocks into sectors with more established cash flows and dividend prospects.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T14:32:47.075502-04:00",
-    "symbols": [
-      "META",
-      "MSFT"
-    ],
-    "headline": "&#39;OpenAI\u2019s Accelerates Ad Sprint With Meta Hires, Slashed Prices&#39; - The Information",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T14:33:32.672565-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;OpenAI\u2019s Accelerates Ad Sprint With Meta Hires, Slashed Prices&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-15T14:33:33.360688-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#39;OpenAI\u2019s Accelerates Ad Sprint With Meta Hires, Slashed Prices&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-15T14:33:37.006404-04:00",
     "symbols": [
       "HOOD"
@@ -5036,5 +4981,69 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T11:00:10.279145-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Rep. David Taylor Has Bought Up to $45K Worth Of AT&amp;T Stock: Here\u2019s What You Should Know",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T11:00:19.805151-04:00",
+    "symbols": [
+      "DKNG",
+      "HOOD"
+    ],
+    "headline": "EXCLUSIVE: Prediction Market Volumes Are Soaring, but Most Exchanges Won&#39;t Survive, Smarkets CEO Warns",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-16T11:00:20.572015-04:00",
+    "symbols": [
+      "AVGO",
+      "DIA",
+      "GOOGL",
+      "IWM",
+      "JPM",
+      "LLY",
+      "META",
+      "MSFT",
+      "NEM",
+      "NFLX",
+      "ORCL",
+      "QQQ",
+      "SLB",
+      "SPY"
+    ],
+    "headline": "9 Of 11 Sectors Rise In Friday Trading As Cyclicals Lead",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T11:00:34.147290-04:00",
+    "symbols": [
+      "IQMX"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T11:00:34.650598-04:00",
+    "symbols": [
+      "STLA"
+    ],
+    "headline": "Reported October 15, &#39;Lutnick Throws the Future of U.S.-Mexico Trade Talks Into Further Doubt; The commerce secretary has objected to significant reductions in tariffs on Mexican steel, aluminum and automobiles&#39; - WSJ Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

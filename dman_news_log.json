@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:42:13.289136-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase Investigates Possible NEAR Network Send And Receive Delays For Some Users, Says Funds Safe; Buys, Sells, Fiat Withdrawals And Deposits Unaffected",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:42:13.558952-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin Is Due North, Says James Thorne\u2014Investment Strategist Says &#39;We&#39;re Early....We&#39;re Going to Embrace It&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-15T14:42:13.562769-04:00",
     "symbols": [
       "MSTR"
@@ -5056,6 +5036,26 @@
       "HODO"
     ],
     "headline": "Why Alcoa Shares Are Trading Higher; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T12:31:31.245077-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Live On CNBC, Kevin Simpson Announces Bought AbbVie",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T12:31:38.909204-04:00",
+    "symbols": [
+      "FOX"
+    ],
+    "headline": "Fox's Roku Deal 'Fundamentally Changes' the Game, Analyst Upgrades Stock to Buy",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

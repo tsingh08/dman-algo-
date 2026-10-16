@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:42:13.562769-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin, Ethereum, XRP and Dogecoin Slide After Hotter-Than-Expected CPI: Analyst Says &#39;Decisive&#39; BTC Breakout Soon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-15T14:42:13.788421-04:00",
     "symbols": [
       "UBER"
@@ -5058,6 +5048,27 @@
     "headline": "Fox's Roku Deal 'Fundamentally Changes' the Game, Analyst Upgrades Stock to Buy",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T12:33:06.505038-04:00",
+    "symbols": [
+      "APLD",
+      "CRWD",
+      "DIA",
+      "IWM",
+      "MRNA",
+      "MSTR",
+      "MU",
+      "PANW",
+      "QQQ",
+      "SMCI",
+      "SNDK",
+      "SNOW"
+    ],
+    "headline": "Nasdaq 100 Slides As Micron, SanDisk, CoreWeave Sink: Stock Market Today",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

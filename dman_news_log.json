@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:16:00.037637-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Micron Stock Slides Again Thursday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:16:00.607030-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Nike, Moderna, Walmart Get a Lift as Traders Flee AI Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:16:00.841302-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Producer Inflation Jumps to 6.3%, Exceeding Estimates, as Fed Hike Pressure Builds (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:16:00.845915-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Sandisk Stock Is Falling Thursday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:16:02.550265-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Nike, Moderna, Walmart Get a Lift as Traders Flee AI Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T14:16:11.261056-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Michael Burry&#39;s &#39;Red October&#39; Warning: Why QQQ and SMH Could Face More Pain",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:16:11.487357-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Michael Burry&#39;s &#39;Red October&#39; Warning: Why QQQ and SMH Could Face More Pain",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-15T14:16:14.919349-04:00",
     "symbols": [
       "NBIS"
@@ -5037,5 +4967,75 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T10:42:21.615741-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "NiSource Lands Major Microsoft Power Deal",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T10:42:41.540342-04:00",
+    "symbols": [
+      "UAMY"
+    ],
+    "headline": "Ladder Capital Posts Upbeat Q3 Earnings, Joins Alcoa, Hyster-Yale And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T10:42:41.657186-04:00",
+    "symbols": [
+      "ZETA"
+    ],
+    "headline": "This Semtech Analyst Turns Bullish; Here Are Top 5 Upgrades For Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T10:42:41.879950-04:00",
+    "symbols": [
+      "RF"
+    ],
+    "headline": "Truist Financial, Regions Financial And Other Big Stocks Moving Lower In Friday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T10:42:41.884581-04:00",
+    "symbols": [
+      "RF"
+    ],
+    "headline": "Earnings Scheduled For October 16, 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T10:42:41.889277-04:00",
+    "symbols": [
+      "RF"
+    ],
+    "headline": "Regions Finl Q3 Adj. EPS $0.73 Beats $0.66 Estimate, Sales $1.988B Beat $1.986B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T10:42:41.893819-04:00",
+    "symbols": [
+      "RF"
+    ],
+    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

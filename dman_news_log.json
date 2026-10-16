@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-16T09:25:48.588768-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Reported October 15, &#39;DeepSeek offers user refunds after suffering another major outage&#39; - SCMP",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T09:25:48.593562-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Nvidia Announces RTX Spark AI Laptops Available Today From ASUS, Dell, HP, Lenovo, Microsoft, And MSI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T09:25:48.598095-04:00",
     "symbols": [
       "MSFT"
@@ -5094,5 +5074,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T15:56:30.553727-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Stock Hits Record High as iPhone Duo Pre-Orders Sell Out in Minutes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T15:56:30.559857-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "October Rate-Hike Odds Collapse as Warsh Keeps His Cards Close but AI Transition Looms",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

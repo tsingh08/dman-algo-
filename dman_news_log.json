@@ -1,39 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:12:35.532118-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google Quantum AI Achieves 40-Fold Error Reduction In Magic State Cultivation, Advancing Practical Quantum Computing",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T14:15:25.013580-04:00",
-    "symbols": [
-      "AVGO",
-      "MRNA",
-      "MU",
-      "NBIS",
-      "NVDA"
-    ],
-    "headline": "Nike, Moderna, Walmart Get a Lift as Traders Flee AI Stocks",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-15T14:15:56.175605-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Michael Burry&#39;s &#39;Red October&#39; Warning: Why QQQ and SMH Could Face More Pain",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-15T14:15:56.446177-04:00",
     "symbols": [
       "MSFT"
@@ -5037,6 +5003,36 @@
       "AA"
     ],
     "headline": "Ladder Capital Posts Upbeat Q3 Earnings, Joins Alcoa, Hyster-Yale And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T10:12:50.690197-04:00",
+    "symbols": [
+      "LUNR"
+    ],
+    "headline": "Macquarie Initiates Coverage On Intuitive Machines with Outperform Rating, Announces Price Target of $25",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T10:13:02.515954-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Anthropic in Discussions With NYC Comptroller After IPO Letter&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T10:13:02.524254-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;Anthropic in Discussions With NYC Comptroller After IPO Letter&#39; - Bloomberg",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"

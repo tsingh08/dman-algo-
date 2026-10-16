@@ -1208,5 +1208,45 @@
 "extension_pct": 13.4,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "SSL",
+"date": "2026-10-16",
+"close": 16.34,
+"base_days": 0,
+"above_low_pct": 206.6,
+"extension_pct": 13.3,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "PBR",
+"date": "2026-10-16",
+"close": 26.0,
+"base_days": 1,
+"above_low_pct": 141.9,
+"extension_pct": 14.7,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "PR",
+"date": "2026-10-16",
+"close": 24.59,
+"base_days": 39,
+"above_low_pct": 110.5,
+"extension_pct": 10.1,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "SU",
+"date": "2026-10-16",
+"close": 78.05,
+"base_days": 1,
+"above_low_pct": 109.8,
+"extension_pct": 11.5,
+"fresh_base": false,
+"weak_band": false
 }
 ]

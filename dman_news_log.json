@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-15T15:01:21.345877-04:00",
-    "symbols": [
-      "GP"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T15:01:21.351669-04:00",
-    "symbols": [
-      "GP"
-    ],
-    "headline": "Why Ericsson Shares Are Trading Higher By Around 11%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T15:01:21.586525-04:00",
-    "symbols": [
-      "BBCI"
-    ],
-    "headline": "Nasdaq Down Over 1%; US Producer Inflation Surges In September",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T15:01:22.063046-04:00",
-    "symbols": [
-      "DRMA"
-    ],
-    "headline": "Dermata Therapeutics Announces Over 71% Of Patients Had Overall Skin Improvements At Day 29 In Its Cosmetic Clinical Trial Of Tome Foundational Treatment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T15:01:22.287027-04:00",
-    "symbols": [
-      "SPRC"
-    ],
-    "headline": "SciSparc Agrees to Convert $2.02M Convertible Note Into Ordinary Shares At $1.50/Share",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-15T15:01:22.968866-04:00",
     "symbols": [
       "SNES"
@@ -5106,5 +5056,57 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T14:34:01.963145-04:00",
+    "symbols": [
+      "AMD",
+      "NVDA"
+    ],
+    "headline": "SemiAnalysis Pots On X &#34;SHOCKING: We have confirmed that multiple Neoclouds have been refused access to GTC Berlin due to them adding AMD GPUs, TPUs, and other chips to their cloud offerings. Note that this doesn&#39;t apply to hyperscalers, as they have more buying power. But for neoclouds, executives feel NVIDIA has been using high-pressure tactics to keep them NVIDIA-only....&#34;",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T14:34:16.874232-04:00",
+    "symbols": [
+      "OKLO",
+      "SMR"
+    ],
+    "headline": "Shares of power and electrical-related companies are trading lower as elevated oil prices and stronger-than-expected inflation data this week fuel expectations that U.S. interest rates will remain higher for longer. Rising financing costs could pressure capital spending on power infrastructure and data center projects, weighing on demand for electrical equipment and related solutions.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T14:34:57.879409-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "SemiAnalysis Pots On X &#34;SHOCKING: We have confirmed that multiple Neoclouds have been refused access to GTC Berlin due to them adding AMD GPUs, TPUs, and other chips to their cloud offerings. Note that this doesn&#39;t apply to hyperscalers, as they have more buying power. But for neoclouds, executives feel NVIDIA has been using high-pressure tactics to keep them NVIDIA-only....&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T14:34:57.889114-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "SemiAnalysis Pots On X &#34;SHOCKING: We have confirmed that multiple Neoclouds have been refused access to GTC Berlin due to them adding AMD GPUs, TPUs, and other chips to their cloud offerings. Note that this doesn&#39;t apply to hyperscalers, as they have more buying power. But for neoclouds, executives feel NVIDIA has been using high-pressure tactics to keep them NVIDIA-only....&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T14:35:04.690942-04:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "GameStop\u2019s Collectibles Push, Trading Card Buybacks, eBay Stake Offer Strategic Upside, Analyst Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

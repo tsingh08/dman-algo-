@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-15T13:38:58.574646-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-15T13:39:01.157330-04:00",
     "symbols": [
       "DRMA"
@@ -5037,6 +5027,16 @@
     ],
     "headline": "Ellington Credit Announces $20M Buyback Plan",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T10:06:33.910378-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Reported October 15, MSCI Announces Results Of Consultation On Eligibility Of Non-Operating Companies In The MSCI Global Investable Market Indexes",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

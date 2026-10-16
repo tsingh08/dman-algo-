@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-15T15:38:37.250604-04:00",
-    "symbols": [
-      "TSXD"
-    ],
-    "headline": "AI Financing Fears Hammer Chip Stocks: These 2 ETFs Are Cashing In on the Sell-Off",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-15T15:43:46.749860-04:00",
     "symbols": [
       "AMAT",
@@ -5108,5 +5098,16 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T14:48:09.690559-04:00",
+    "symbols": [
+      "NVDA",
+      "SMCI"
+    ],
+    "headline": "Super Micro Finally Names a CFO, Nearly Two Years After an Accounting Review Prompted the Search",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

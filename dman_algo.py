@@ -3803,11 +3803,99 @@ def _disabled_setups_alert() -> list:
                             for _n, _w in _off)
                 + "\n\nNo automatic entries on these. This is the live record, "
                   "not a market call. <b>/flags setupkill off</b> overrides it."
+                # Where the condemning evidence came from. Two of these were
+                # killed entirely by signals on names the order path has never
+                # been allowed to trade, and that belongs in the same message
+                # as the verdict rather than three files away.
+                + ((chr(10) * 2 + chr(10).join(_disabled_setup_split_lines()))
+                   if _disabled_setup_split_lines() else "")
             )
             _save_last_alert(_key)
     except Exception as exc:
         _log_swallowed("disabled setups alert", exc)
     return [_n for _n, _ in _off]
+
+
+def _setup_executable_split(setup: str) -> tuple:
+    """((n, mean) on executable names, (n, mean) alert-only) for one setup.
+
+    _setup_live_record() reads LIVE_OUTCOMES_FILE, which holds every ALERTED
+    signal regardless of whether the order path could ever have acted on it.
+    Its own docstring has always warned that this "can also kill a setup on
+    signals that were never taken". Measured 2026-10-16, that warning turns
+    out to describe most of the kills:
+
+        Low Float Catalyst   19 signals, ALL off-list, -8.37%,  0% win
+        Morning Runner       13 signals, ALL off-list, -3.91%, 38% win
+        Bear Gap Hold         6 off-list -5.38% vs 2 ON-list +0.23%
+        Gap & Hold           30 off-list -2.13% vs 13 ON-list -1.31%
+
+    Two of the four disabled setups were condemned entirely by signals on the
+    smallcap watchlist, which _auto_trade_allowed() has never permitted an
+    automatic entry on. That universe measures -4.97% per five days against
+    +0.17% for the executable one, so it is a different population, not a
+    larger sample of the same one.
+
+    This is REPORTING ONLY and the kill switch is deliberately untouched.
+    Switching it to the executable subset would re-enable Gap & Hold (its
+    on-list cumulative is about -17%, inside the -20% bar) and would re-enable
+    Low Float Catalyst and Morning Runner on n=0 -- "no evidence" read as
+    "no problem", which is precisely how one win resurrected Gap & Hold before
+    the hard cumulative bar existed. Staying disabled on bad evidence is the
+    safe error; re-enabling on absent evidence is not.
+
+    The asymmetry worth holding: a setup stays off while ANY evidence is bad,
+    and comes back only on positive EXECUTABLE evidence, which none of these
+    currently has.
+    """
+    try:
+        _w = {str(t).upper() for t in WATCHLIST}
+        _on: list = []
+        _off: list = []
+        with open(LIVE_OUTCOMES_FILE, newline="", encoding="utf-8") as _f:
+            import csv as _csv
+            for _r in _csv.DictReader(_f):
+                if (_r.get("setup") or "").strip() != (setup or "").strip():
+                    continue
+                try:
+                    _p = float(_r.get("pnl_pct") or _r.get("pct") or "")
+                except (TypeError, ValueError):
+                    continue
+                ((_on if (_r.get("ticker") or "").upper() in _w else _off)).append(_p)
+        _m = lambda v: (len(v), (sum(v) / len(v)) if v else 0.0)
+        return _m(_on), _m(_off)
+    except Exception as exc:
+        _log_swallowed("setup executable split", exc)
+        return (0, 0.0), (0, 0.0)
+
+
+def _disabled_setup_split_lines() -> list:
+    """For each disabled setup, where its condemning evidence came from."""
+    _out: list = []
+    try:
+        for _name in sorted(_setup_live_record()):
+            _off_flag, _why = _setup_is_disabled(_name)
+            if not _off_flag:
+                continue
+            (_n_on, _m_on), (_n_off, _m_off) = _setup_executable_split(_name)
+            if not (_n_on or _n_off):
+                continue
+            _bits = []
+            if _n_on:
+                _bits.append(f"{_n_on} executable {_m_on:+.2f}%")
+            else:
+                _bits.append("NO executable signals")
+            if _n_off:
+                _bits.append(f"{_n_off} alert-only {_m_off:+.2f}%")
+            _out.append(f"  {_name}: " + ", ".join(_bits))
+    except Exception as exc:
+        _log_swallowed("disabled setup split", exc)
+    if _out:
+        _out.insert(0, "  <b>Where the kill evidence came from</b>")
+        _out.append("  alert-only names are off the auto-exec list and measure "
+                    "-4.97%/5d against +0.17% for executable ones — a different "
+                    "population. The gate still uses the combined record.")
+    return _out
 
 
 def _setup_is_disabled(setup: str) -> tuple[bool, str]:

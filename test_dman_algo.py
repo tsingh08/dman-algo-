@@ -25959,3 +25959,115 @@ class TestBarsAreSplitAdjusted(unittest.TestCase):
         src = _ast.unparse(_ast.parse(_tw.dedent(
             inspect.getsource(a._fetch_alpaca_daily))))
         self.assertNotIn("Adjustment.ALL", src)
+
+
+class TestTheKillEvidenceIsAttributedToItsUniverse(unittest.TestCase):
+    """Two of the four disabled setups were condemned on signals the order
+    path has never been allowed to act on.
+
+    _setup_live_record() reads LIVE_OUTCOMES_FILE, which holds every ALERTED
+    signal regardless of executability -- its docstring always warned this
+    "can also kill a setup on signals that were never taken". Measured
+    2026-10-16:
+
+        Low Float Catalyst   19 signals, ALL off-list, -8.37%,  0% win
+        Morning Runner       13 signals, ALL off-list, -3.91%, 38% win
+        Bear Gap Hold         6 off-list -5.38% vs 2 ON-list +0.23%
+        Gap & Hold           30 off-list -2.13% vs 13 ON-list -1.31%
+
+    Off-list means the smallcap watchlist, which measures -4.97% per five days
+    against +0.17% for the executable list -- a different population, not a
+    bigger sample of the same one.
+
+    The gate is deliberately UNCHANGED. Judging on the executable subset would
+    re-enable Gap & Hold (on-list cumulative about -17%, inside the -20% bar)
+    and re-enable Low Float Catalyst and Morning Runner on n=0, reading "no
+    evidence" as "no problem" -- the exact move that resurrected Gap & Hold on
+    one win. Staying off on bad evidence is the safe error."""
+
+    ROWS = [
+        "ticker,setup,bias,entry_date,exit_date,entry,stop,target1,target2,pnl_pct",
+        "AAPL,Gap & Hold,LONG,,,,,,,2.00",
+        "ADTX,Gap & Hold,LONG,,,,,,,-6.00",
+        "BFRI,Low Float Catalyst,LONG,,,,,,,-8.00",
+    ]
+
+    def setUp(self):
+        import tempfile, os
+        fd, self.path = tempfile.mkstemp(suffix=".csv")
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            f.write("\n".join(self.ROWS) + "\n")
+        self._patch = patch.object(a, "LIVE_OUTCOMES_FILE", self.path)
+        self._patch.start()
+
+    def tearDown(self):
+        import os
+        self._patch.stop()
+        try:
+            os.unlink(self.path)
+        except OSError:
+            pass
+
+    def test_it_separates_executable_from_alert_only(self):
+        with patch.object(a, "WATCHLIST", ["AAPL"]):
+            (n_on, m_on), (n_off, m_off) = a._setup_executable_split("Gap & Hold")
+        self.assertEqual((n_on, n_off), (1, 1))
+        self.assertAlmostEqual(m_on, 2.00, places=2)
+        self.assertAlmostEqual(m_off, -6.00, places=2)
+
+    def test_a_setup_with_no_executable_signal_reports_zero(self):
+        """Low Float Catalyst's real shape: every condemning signal off-list."""
+        with patch.object(a, "WATCHLIST", ["AAPL"]):
+            (n_on, _m), (n_off, m_off) = a._setup_executable_split("Low Float Catalyst")
+        self.assertEqual(n_on, 0)
+        self.assertEqual(n_off, 1)
+        self.assertAlmostEqual(m_off, -8.00, places=2)
+
+    def test_the_lines_name_a_setup_with_no_executable_evidence(self):
+        with patch.object(a, "WATCHLIST", ["AAPL"]), \
+             patch.object(a, "_setup_live_record",
+                          return_value={"Low Float Catalyst":
+                                        {"n": 19, "wins": 0, "cum_pct": -159.0}}), \
+             patch.object(a, "flag", return_value=True):
+            lines = " ".join(a._disabled_setup_split_lines())
+        self.assertIn("NO executable signals", lines)
+
+    def test_the_lines_say_the_gate_still_uses_the_combined_record(self):
+        """So the split is never read as permission to re-enable."""
+        with patch.object(a, "WATCHLIST", ["AAPL"]), \
+             patch.object(a, "_setup_live_record",
+                          return_value={"Gap & Hold":
+                                        {"n": 43, "wins": 8, "cum_pct": -81.0}}), \
+             patch.object(a, "flag", return_value=True):
+            lines = " ".join(a._disabled_setup_split_lines())
+        self.assertIn("combined record", lines)
+
+    def test_an_enabled_setup_is_not_listed(self):
+        with patch.object(a, "WATCHLIST", ["AAPL"]), \
+             patch.object(a, "_setup_live_record",
+                          return_value={"Gap & Hold":
+                                        {"n": 2, "wins": 1, "cum_pct": 5.0}}), \
+             patch.object(a, "flag", return_value=True):
+            self.assertEqual(a._disabled_setup_split_lines(), [])
+
+    def test_the_gate_itself_is_unchanged(self):
+        """BEHAVIOURAL: a record that is bad overall but fine on the executable
+        subset must still disable."""
+        with patch.object(a, "_setup_live_record",
+                          return_value={"X": {"n": 43, "wins": 8,
+                                              "cum_pct": -81.0}}), \
+             patch.object(a, "flag", return_value=True):
+            self.assertTrue(a._setup_is_disabled("X")[0])
+
+    def test_a_missing_outcomes_file_does_not_raise(self):
+        with patch.object(a, "LIVE_OUTCOMES_FILE", "no_such_file_xyz.csv"), \
+             patch.object(a, "_log_swallowed"):
+            self.assertEqual(a._setup_executable_split("Gap & Hold"),
+                             ((0, 0.0), (0, 0.0)))
+
+    def test_the_alert_carries_the_split(self):
+        """Wiring, on EXECUTABLE source so the comment cannot satisfy it."""
+        import ast as _ast, textwrap as _tw
+        src = _ast.unparse(_ast.parse(
+            _tw.dedent(inspect.getsource(a._disabled_setups_alert))))
+        self.assertIn("_disabled_setup_split_lines()", src)

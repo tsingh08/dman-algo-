@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-15T14:42:10.866139-04:00",
-    "symbols": [
-      "RXRX"
-    ],
-    "headline": "Recursion Announces Sanofi Option Of First Immunology Drug Candidate, Triggering $10M Milestone Payment And Potential Phase 1 Trials In 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-15T14:42:10.869948-04:00",
-    "symbols": [
-      "RXRX"
-    ],
-    "headline": "Recursion Commences $200M Common Stock Offering Of 61,540,000 Shares Of Its Class A Common Stock At A Price Of $3.25/Share",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-15T14:42:11.100174-04:00",
     "symbols": [
       "SPOT"
@@ -5048,5 +5028,34 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-16T12:01:28.093909-04:00",
+    "symbols": [
+      "MU",
+      "SKHY",
+      "SNDK"
+    ],
+    "headline": "Shares of memory- and storage-related chip companies are trading lower amid continued weakness as investors weigh intensifying Chinese competition and concerns over possible market oversupply. Rising inflation concerns and elevated energy prices are fueling expectations for further Fed rate hikes, which could increase borrowing costs and weigh on demand across the sector.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-16T12:02:33.631578-04:00",
+    "symbols": [
+      "AMAT",
+      "AMD",
+      "ARM",
+      "AVGO",
+      "IONQ",
+      "KLAC",
+      "MRVL",
+      "TE"
+    ],
+    "headline": "Shares of semiconductor and chip companies are trading lower as rising inflation concerns and elevated energy prices fuel expectations for further Fed rate hikes. Elevated borrowing costs could pressure semiconductor manufacturing and AI infrastructure investments while straining customer budgets. The Philadelphia Semiconductor Index (SOX) has declined for seven consecutive trading sessions, matching its longest losing streak since the 2008 financial crisis.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

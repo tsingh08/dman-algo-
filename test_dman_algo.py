@@ -26356,6 +26356,42 @@ class TestTheDipShadowOnlyWatches(unittest.TestCase):
         self.assertEqual(out["logged"], [])
 
     # --- the indicator ----------------------------------------------------
+    # --- a zero pass must be legible -------------------------------------
+    def test_a_signal_on_the_last_bar_is_reported_as_pending(self):
+        """Friday 2026-10-16: 15 of 108 names qualified on the close and the
+        log stayed EMPTY. That was correct -- the entry is the next session's
+        open and that bar did not exist yet -- but the function printed
+        nothing, so "ran and found none" looked identical to "crashed and was
+        swallowed". Proving which took re-deriving the condition by hand.
+
+        A series ENDING on the dip has nothing to log and must still say what
+        it saw."""
+        # Exactly ONE down day at the very end. Two would make the first of
+        # them loggable -- it has a next bar -- which is what the first
+        # version of this test got wrong.
+        c = [50.0 + i * 0.5 for i in range(214)]
+        c += [c[-1] * 0.90]
+        out, rows, _tg = self._run(c)
+        self.assertEqual(rows, [], "nothing can be logged without a next open")
+        self.assertEqual(out["pending"], ["AAA"])
+
+    def test_a_dip_with_a_next_bar_is_logged_not_pending(self):
+        out, rows, _tg = self._run(self._uptrend_dip())
+        self.assertTrue(rows)
+        self.assertEqual(out["pending"], [])
+
+    def test_it_reports_even_when_it_logged_and_resolved_nothing(self):
+        """The actual defect. Silence is not an acceptable status."""
+        import io as _io, contextlib as _cl
+        c = [50.0 + i * 0.5 for i in range(214)]
+        c += [c[-1] * 0.90]
+        buf = _io.StringIO()
+        with _cl.redirect_stdout(buf):
+            self._run(c)
+        said = buf.getvalue()
+        self.assertIn("dip shadow", said)
+        self.assertIn("qualifying on the last bar", said)
+
     def test_rsi2_is_zero_on_two_down_days_and_hundred_on_two_up(self):
         self.assertAlmostEqual(a._rsi2([13, 12, 11, 10]), 0.0, places=3)
         self.assertAlmostEqual(a._rsi2([10, 11, 12, 13]), 100.0, places=3)

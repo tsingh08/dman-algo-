@@ -23008,7 +23008,7 @@ def run_dip_shadow(notify: bool = True) -> dict:
     signal once DIP_SHADOW_HOLD further sessions exist. A late GitHub run
     catches up instead of skipping.
     """
-    out = {"logged": [], "resolved": [], "n": 0, "mean": 0.0}
+    out = {"logged": [], "resolved": [], "pending": [], "n": 0, "mean": 0.0}
     try:
         with open(DIP_SHADOW_FILE) as _f:
             _log = json.load(_f)
@@ -23047,6 +23047,21 @@ def run_dip_shadow(notify: bool = True) -> dict:
                 _log.append(_row)
                 _seen.add((_d, _tk))
                 out["logged"].append(_tk)
+            # A signal on the LAST available bar cannot be logged yet: the
+            # entry is the next session's open and that bar does not exist.
+            # Counting it as pending is what makes a zero-logged pass
+            # legible. On Friday 2026-10-16, 15 of 108 names qualified on the
+            # close and the log stayed empty -- correct, but only provable by
+            # re-deriving the condition by hand, which is the silent-failure
+            # shape this file keeps producing.
+            _last = len(_c) - 1
+            if _last >= 200 and _idx[_last] >= DIP_SHADOW_START.isoformat():
+                _ma_l = sum(_c[_last - 199:_last + 1]) / 200.0
+                _r_l = _rsi2(_c[max(0, _last - 3):_last + 1])
+                if (_ma_l > 0 and _c[_last] > _ma_l and _c[_last] >= 1.0
+                        and _r_l is not None and _r_l < DIP_SHADOW_RSI_MAX):
+                    out["pending"].append(_tk)
+
             # resolve anything of this ticker's that has aged enough
             for _row in _log:
                 if _row.get("ticker") != _tk or _row.get("pnl_pct") is not None:
@@ -23074,11 +23089,16 @@ def run_dip_shadow(notify: bool = True) -> dict:
     _done = [float(r["pnl_pct"]) for r in _log if r.get("pnl_pct") is not None]
     out["n"] = len(_done)
     out["mean"] = (sum(_done) / len(_done)) if _done else 0.0
+    # ALWAYS print, even on a pass that logged and resolved nothing. The first
+    # production run printed nothing at all, so "ran and found none" looked
+    # exactly like "crashed and was swallowed" -- and proving which took
+    # re-deriving the signal condition by hand against Friday's bars.
+    _wr = (100.0 * sum(1 for x in _done if x > 0) / len(_done)) if _done else 0.0
+    print(f"  \U0001f4d0 dip shadow: {len(_done)}/{DIP_SHADOW_REVIEW_N} resolved"
+          + (f", mean {out['mean']:+.2f}%, {_wr:.0f}% win" if _done else "")
+          + f" | +{len(out['logged'])} logged, {len(_log) - len(_done)} awaiting exit"
+          + f", {len(out['pending'])} qualifying on the last bar (entry opens next session)")
     if _done:
-        _wr = 100.0 * sum(1 for x in _done if x > 0) / len(_done)
-        print(f"  \U0001f4d0 dip shadow: {len(_done)}/{DIP_SHADOW_REVIEW_N} resolved, "
-              f"mean {out['mean']:+.2f}%, {_wr:.0f}% win "
-              f"({len(_log) - len(_done)} open)")
         # Only at the milestones, and only once each -- a shadow that messages
         # every run is noise, and the operator asked for fewer alerts.
         if notify and len(_done) in (10, 20, DIP_SHADOW_REVIEW_N):

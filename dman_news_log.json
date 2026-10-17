@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-16T09:25:48.730629-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Announces RTX Spark AI Laptops Available Today From ASUS, Dell, HP, Lenovo, Microsoft, And MSI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T09:25:48.735014-04:00",
     "symbols": [
       "NVDA"
@@ -5100,6 +5090,16 @@
       "SNDK"
     ],
     "headline": "Chip Stocks Endure Longest Losing Streak Since 2006 as CoreWeave Credit Concerns Mount: This Week on Wall Street",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-16T19:15:34.001008-04:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "If You Invested $1000 In Eaton Corp Stock 10 Years Ago, You Would Have This Much Today",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

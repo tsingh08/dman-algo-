@@ -26540,3 +26540,90 @@ class TestASessionHandsOverItself(unittest.TestCase):
         # KeyboardInterrupt handler further down, which is not this path.
         self.assertGreater(_disp, body.index("_close_active_stream()"))
 
+class TestWhyNamesTheBarTheScannerApplied(unittest.TestCase):
+    """_effective_min_score() exempts SEASONAL_EXEMPT_SETUPS from the weak-month
+    floor. /why's own Session line did not: it printed "seasonal weak month
+    (floor 92)" from the month alone, so in January, July, August, September or
+    December a /why on Gap & Hold or Morning Runner named a bar the scanner had
+    never applied.
+
+    The cause was sitting right next to it -- a dead local
+    `_SEASONAL_EXEMPT = {"Gap & Hold", "Morning Runner"}`, a leftover copy from
+    before the floor logic was consolidated, assigned and never read. Pylance
+    had been flagging it as unused the whole time. Found 2026-10-17 while
+    clearing the file's remaining diagnostics."""
+
+    def _signal(self, setup):
+        sig = a.ProSignal(ticker="TESTX", bias="LONG", setup=setup,
+                          entry=10.0, stop=9.0, target1=12.0, target2=14.0,
+                          rr=2.0, rsi=50.0, rvol=2.0, reason="test")
+        sig.confluence_score = 90
+        for g in ("regime_ok", "mtf_ok", "rs_ok", "sector_ok", "earnings_ok",
+                  "macro_ok", "divergence_free"):
+            setattr(sig, g, True)
+        sig.score_breakdown = {"MTF": 20}
+        return sig
+
+    def _why(self, setup, month):
+        """A /why in `month` for `setup`, with nothing else raising the bar."""
+        import datetime as _dt
+        df = _fake_df()
+        sig = self._signal(setup)
+        reg = _fake_regime()
+        reg["defensive_rotation"] = False
+        reg["vix_shock"] = False
+        reg.setdefault("details", {})["VIX"] = 15.0
+        with patch.object(a, "fetch_df", return_value=df), \
+             patch.object(a, "compute_indicators", return_value=df), \
+             patch.object(a, "_raw_signals", return_value=sig), \
+             patch.object(a, "get_market_regime", return_value=reg), \
+             patch.object(a, "_fetch_alpaca_news", return_value={}), \
+             patch.object(a, "score_signal", return_value=sig), \
+             patch.object(a, "_et_today", return_value=_dt.date(2026, month, 15)):
+            return a.explain_ticker("TESTX", min_score=75)
+
+    def test_an_exempt_setup_in_a_weak_month_is_not_told_the_floor_applies(self):
+        self.assertIn(9, a.SEASONAL_WEAK_MONTHS)
+        self.assertIn("Gap & Hold", a.SEASONAL_EXEMPT_SETUPS)
+        msg = self._why("Gap & Hold", 9)
+        self.assertNotIn(f"seasonal weak month (floor {a.SEASONAL_MIN_SCORE})", msg)
+        self.assertIn("exempt, floor unchanged", msg)
+
+    def test_a_non_exempt_setup_in_a_weak_month_is(self):
+        msg = self._why("Day 2 Continuation", 9)
+        self.assertNotIn("Day 2 Continuation", a.SEASONAL_EXEMPT_SETUPS)
+        self.assertIn(f"seasonal weak month (floor {a.SEASONAL_MIN_SCORE})", msg)
+        self.assertNotIn("exempt, floor unchanged", msg)
+
+    def test_no_seasonal_claim_at_all_outside_a_weak_month(self):
+        self.assertNotIn(10, a.SEASONAL_WEAK_MONTHS)
+        for setup in ("Gap & Hold", "Day 2 Continuation"):
+            msg = self._why(setup, 10)
+            self.assertNotIn("seasonal weak month", msg, setup)
+
+    def test_what_why_says_matches_what_the_gate_computed(self):
+        """The property the line exists to have, asserted against the gate
+        itself rather than against a copy of its rule."""
+        import datetime as _dt
+        for setup in ("Gap & Hold", "Morning Runner", "Day 2 Continuation"):
+            for month in (9, 10):
+                with patch.object(a, "_et_today",
+                                  return_value=_dt.date(2026, month, 15)):
+                    eff, _unc = a._effective_min_score(setup, "TESTX", 75)
+                raised = eff >= a.SEASONAL_MIN_SCORE
+                msg = self._why(setup, month)
+                claims = f"seasonal weak month (floor {a.SEASONAL_MIN_SCORE})" in msg
+                self.assertEqual(raised, claims,
+                                 f"{setup} in month {month}: gate raised={raised} "
+                                 f"but /why claims={claims}")
+
+    def test_the_duplicated_exempt_set_is_gone(self):
+        """Two dead copies named _SEASONAL_EXEMPT were the reason the two
+        disagreed. One definition only."""
+        import ast as _ast
+        src = io.open("dman_algo.py", encoding="utf-8").read()
+        assigned = [t.id for n in _ast.walk(_ast.parse(src))
+                    if isinstance(n, _ast.Assign) for t in n.targets
+                    if isinstance(t, _ast.Name)]
+        self.assertEqual(assigned.count("_SEASONAL_EXEMPT"), 0)
+        self.assertEqual(assigned.count("SEASONAL_EXEMPT_SETUPS"), 1)

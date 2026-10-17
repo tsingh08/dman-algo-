@@ -3613,6 +3613,18 @@ def _enter_setup_probation(setup: str, note: str) -> bool:
     return True
 
 
+# Gap & Hold and Morning Runner are EXEMPT from the seasonal floor: the 38%
+# July win rate that motivated it was driven by reversal/mean-reversion setups
+# that are now all disabled. These two have their own technical gates (gap%,
+# MACD, prior green, RVOL, regime score) serving the same purpose, so raising
+# them to SEASONAL_MIN_SCORE would suppress most of their signals for no
+# protection specific to them. Every other setup still gets the full filter.
+#
+# This set is the ONLY copy. Two more existed as dead locals named
+# _SEASONAL_EXEMPT, left behind when the duplicated floor logic was
+# consolidated into _effective_min_score(); Pylance flagged both as never
+# read. One of them sat next to /why's own seasonal line, which was in fact
+# claiming the floor for exempt setups -- see explain_ticker().
 SEASONAL_EXEMPT_SETUPS = {"Gap & Hold", "Morning Runner"}
 
 
@@ -22644,7 +22656,17 @@ def explain_ticker(ticker: str, min_score: int = None) -> str:
         # would explain a different one.
         _curr_month = _et_today().month
         _seasonal_active = _curr_month in SEASONAL_WEAK_MONTHS
-        _SEASONAL_EXEMPT = {"Gap & Hold", "Morning Runner"}
+        # _effective_min_score() exempts these setups from the seasonal floor,
+        # and this line has to agree with it. It did not: it printed
+        # "seasonal weak month (floor 92)" from _seasonal_active alone, so in
+        # January, July, August, September or December a /why on Gap & Hold or
+        # Morning Runner named a bar the scanner never applied -- exactly what
+        # the comment on _curr_month above says must not happen. The dead
+        # _SEASONAL_EXEMPT local that used to sit on this line was the other
+        # half of the same mistake: the set was copied here and then never
+        # consulted.
+        _seasonal_applies = (_seasonal_active
+                             and sig.setup not in SEASONAL_EXEMPT_SETUPS)
 
         effective_min, _uncapped_min = _effective_min_score(sig.setup, sig.ticker, min_score)
 
@@ -22658,7 +22680,9 @@ def explain_ticker(ticker: str, min_score: int = None) -> str:
                 f"VIX {_vix_now:.1f} (>25, floor raised)" if _vix_now > 25 else "",
                 "VIX shock (+5 floor)" if regime.get("vix_shock") else "",
                 "defensive rotation (-5 tech LONG penalty)" if _def_rotation else "",
-                f"seasonal weak month (floor {SEASONAL_MIN_SCORE})" if _seasonal_active else "",
+                f"seasonal weak month (floor {SEASONAL_MIN_SCORE})" if _seasonal_applies else "",
+                f"seasonal weak month — {sig.setup} exempt, floor unchanged"
+                if (_seasonal_active and not _seasonal_applies) else "",
             ])))
 
         # Hard gates — must match run_pro_scanner()'s own list exactly.
@@ -24802,13 +24826,8 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
         print(f"     Tech long signals will carry a -5 score penalty this session.")
 
     # Seasonal regime filter — weak months per backtest (25-38% WR combined).
-    # Gap & Hold and Morning Runner are EXEMPT: the 38% Jul WR was driven by reversal/
-    # mean-reversion setups that are now all disabled. These two setups have their own
-    # technical gates (gap%, MACD, prior green, RVOL, regime score) that serve the same
-    # purpose as the seasonal bar raise. Raising them to 92 would suppress most signals
-    # while producing no protective benefit specific to those setups.
-    # All other setups (if re-enabled) still get the full seasonal filter.
-    _SEASONAL_EXEMPT  = {"Gap & Hold", "Morning Runner"}
+    # Which setups are exempt, and why, lives with SEASONAL_EXEMPT_SETUPS.
+    # A second copy of the set used to sit here and was never read.
     # ET throughout. This is the fourth place the seasonal month was computed
     # and the third that read naive LOCAL (= UTC on a runner); get_market_regime()
     # at the now_et.month line was the only one already correct. From 20:00 ET

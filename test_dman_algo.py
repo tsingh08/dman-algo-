@@ -11001,15 +11001,25 @@ class TestCheckAndHealWatchdog(unittest.TestCase):
             a._check_and_heal_watchdog(now_et=self._weekday_market_hours())
         mock_restart.assert_not_called()
 
-    def test_stale_watchdog_dispatches_a_fresh_run_and_alerts(self):
-        with patch.object(a, "requests") as mock_requests, \
-             patch.object(a, "_trigger_workflow_restart", return_value=(True, "dispatched")) as mock_restart, \
-             patch.object(a, "send_telegram", return_value=True) as mock_tg:
+    def test_stale_watchdog_dispatches_a_fresh_run_and_says_nothing(self):
+        """It used to Telegram on every successful heal, saying the watchdog's
+        schedule "may have been dropped by GitHub". That was a hypothesis when
+        it was written in 2026-08. It is now simply how the platform behaves
+        here: dman_watchdog.yml's cron asks for 18 fires a weekday
+        (7,37 13-21 * * 1-5) and over 2026-10-14/15/16 GitHub DELIVERED 3 a
+        day, in bursts 2.5-3.5 hours apart. A 40-minute staleness bar against
+        a 2.5-hour delivery interval fires most days, so the message had
+        become a daily notification that the world is the way it already is --
+        against a standing ask for fewer of them.
+
+        The dispatch does the work and is unchanged. A dispatch that FAILED is
+        the only part a human can act on, and that one still messages (see
+        test_restart_failure_still_alerts_with_manual_instructions)."""
+        with patch.object(a, "requests") as mock_requests,              patch.object(a, "_trigger_workflow_restart", return_value=(True, "dispatched")) as mock_restart,              patch.object(a, "send_telegram", return_value=True) as mock_tg,              contextlib.redirect_stdout(io.StringIO()):
             mock_requests.get.return_value = self._runs_response(minutes_ago=90)
             a._check_and_heal_watchdog(now_et=self._weekday_market_hours())
         mock_restart.assert_called_once_with("dman_watchdog.yml")
-        mock_tg.assert_called_once()
-        self.assertIn("Meta-watchdog", mock_tg.call_args[0][0])
+        mock_tg.assert_not_called()
 
     def test_repeated_calls_within_cooldown_do_not_re_dispatch(self):
         with patch.object(a, "requests") as mock_requests, \
@@ -26398,3 +26408,135 @@ class TestTheDipShadowOnlyWatches(unittest.TestCase):
 
     def test_rsi2_needs_enough_bars(self):
         self.assertIsNone(a._rsi2([10.0]))
+
+
+class TestASessionHandsOverItself(unittest.TestCase):
+    """The clean exit used to say "next scheduled session takes over
+    seamlessly". Measured, it does not.
+
+    dman_daemon.yml asks for the afternoon session at 12:53 ET. GitHub
+    delivered that cron at 14:03 ET (2026-10-14), 13:48 (10-15) and 13:30
+    (10-16) -- 37 to 70 minutes late -- while the morning session exits at
+    12:55 on the dot. What actually closed the gap was the hourly "DMan
+    GitHub Actions Cloud Backstop" routine, whose dispatch lands at 17:12
+    UTC every weekday to within seconds: the time an agent needs to boot and
+    authenticate. So the hole is 12:55-13:12 ET, daily, mid-session.
+
+    On 2026-10-16 dman_scanner.yml's cron was absent across it too (last
+    in-session delivery 11:34 ET, next 13:41), so for 98 minutes the only
+    protection on an open position was its resting broker-side stop.
+
+    A session knows when it will end, so it hands over itself."""
+
+    def _daemon(self):
+        import dman_daemon
+        return dman_daemon
+
+    def test_the_morning_session_dispatches_the_afternoon_one(self):
+        d = self._daemon()
+        with patch.object(a, "_trigger_workflow_restart",
+                          return_value=(True, "ok")) as trig, \
+             patch.object(a, "_MARKET_HOLIDAYS", set()), \
+             patch.object(d, "datetime") as _dtm:
+            _dtm.now.return_value = datetime(2026, 10, 19, 12, 55)   # Monday
+            self.assertTrue(d._dispatch_successor_session("1255"))
+        trig.assert_called_once_with("dman_daemon.yml")
+
+    def test_the_afternoon_session_dispatches_the_evening_one(self):
+        d = self._daemon()
+        with patch.object(a, "_trigger_workflow_restart",
+                          return_value=(True, "ok")) as trig, \
+             patch.object(a, "_MARKET_HOLIDAYS", set()), \
+             patch.object(d, "datetime") as _dtm:
+            _dtm.now.return_value = datetime(2026, 10, 19, 17, 0)
+            self.assertTrue(d._dispatch_successor_session("1700"))
+        self.assertEqual(trig.call_count, 1)
+
+    def test_the_last_session_of_the_day_dispatches_nothing(self):
+        """Without this the chain never terminates: the 20:05 session would
+        dispatch a successor that computes until=2005 and does it again."""
+        d = self._daemon()
+        with patch.object(a, "_trigger_workflow_restart") as trig, \
+             patch.object(a, "_MARKET_HOLIDAYS", set()), \
+             patch.object(d, "datetime") as _dtm:
+            _dtm.now.return_value = datetime(2026, 10, 19, 20, 5)
+            self.assertFalse(d._dispatch_successor_session("2005"))
+        trig.assert_not_called()
+
+    def test_an_unrecognised_run_until_dispatches_nothing(self):
+        d = self._daemon()
+        with patch.object(a, "_trigger_workflow_restart") as trig, \
+             patch.object(a, "_MARKET_HOLIDAYS", set()):
+            self.assertFalse(d._dispatch_successor_session(""))
+            self.assertFalse(d._dispatch_successor_session("1830"))
+        trig.assert_not_called()
+
+    def test_it_does_not_hand_over_into_a_weekend(self):
+        d = self._daemon()
+        with patch.object(a, "_trigger_workflow_restart") as trig, \
+             patch.object(a, "_MARKET_HOLIDAYS", set()), \
+             patch.object(d, "datetime") as _dtm:
+            _dtm.now.return_value = datetime(2026, 10, 17, 12, 55)   # Saturday
+            self.assertFalse(d._dispatch_successor_session("1255"))
+        trig.assert_not_called()
+
+    def test_it_does_not_hand_over_on_a_market_holiday(self):
+        d = self._daemon()
+        import datetime as _dt
+        with patch.object(a, "_trigger_workflow_restart") as trig, \
+             patch.object(a, "_MARKET_HOLIDAYS", {_dt.date.today()}), \
+             patch.object(d, "datetime") as _dtm:
+            _dtm.now.return_value = datetime(2026, 10, 19, 12, 55)
+            self.assertFalse(d._dispatch_successor_session("1255"))
+        trig.assert_not_called()
+
+    def test_a_failed_dispatch_is_reported_not_raised(self):
+        """The handover runs on the way out. An exception here would turn a
+        clean session end into a workflow failure and a 'daemon FAILED'
+        Telegram on a day nothing was wrong."""
+        d = self._daemon()
+        with patch.object(a, "_trigger_workflow_restart",
+                          side_effect=RuntimeError("github 503")), \
+             patch.object(a, "_MARKET_HOLIDAYS", set()), \
+             patch.object(d, "datetime") as _dtm:
+            _dtm.now.return_value = datetime(2026, 10, 19, 12, 55)
+            self.assertFalse(d._dispatch_successor_session("1255"))
+
+    def test_a_refused_dispatch_returns_false(self):
+        d = self._daemon()
+        with patch.object(a, "_trigger_workflow_restart",
+                          return_value=(False, "no token")), \
+             patch.object(a, "_MARKET_HOLIDAYS", set()), \
+             patch.object(d, "datetime") as _dtm:
+            _dtm.now.return_value = datetime(2026, 10, 19, 12, 55)
+            self.assertFalse(d._dispatch_successor_session("1255"))
+
+    def test_the_clean_exit_calls_it(self):
+        """A helper nothing calls is the same as no helper."""
+        src = io.open("dman_daemon.py", encoding="utf-8").read()
+        self.assertIn("_dispatch_successor_session(run_until)", src)
+
+    def test_it_dispatches_after_the_state_push_not_before(self):
+        """The successor shares the concurrency group with
+        cancel-in-progress, so the dispatch can SIGTERM this process within
+        seconds. Anything still owed -- closing the streams, pushing state --
+        has to be finished first or a handover silently eats a day of
+        positions, P&L and the telegram offset."""
+        import ast as _ast
+        src = io.open("dman_daemon.py", encoding="utf-8").read()
+        fn = next(n for n in _ast.walk(_ast.parse(src))
+                  if isinstance(n, _ast.FunctionDef) and n.name == "main")
+        body = _ast.unparse(fn)
+        # Exactly once. The first version of this test only located the
+        # EARLIEST call, so moving the dispatch earlier while leaving the
+        # original in place passed it -- a hollow assertion that a mutation
+        # caught and the reasoning in this docstring did not.
+        self.assertEqual(body.count("_dispatch_successor_session("), 1)
+        _disp = body.index("_dispatch_successor_session(run_until)")
+        # git_sync() is called at startup too; rindex is the one on the way
+        # out, which is the one the dispatch has to follow.
+        self.assertGreater(_disp, body.rindex("git_sync()"))
+        # index, not rindex: _close_active_stream() appears again in the
+        # KeyboardInterrupt handler further down, which is not this path.
+        self.assertGreater(_disp, body.index("_close_active_stream()"))
+

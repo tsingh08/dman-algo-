@@ -1929,6 +1929,64 @@ def earnings_loop() -> None:
         time.sleep(60)
 
 
+# Which cloud session follows which. The evening session is the day's last
+# and hands over to nothing.
+_SESSION_SUCCESSOR = {"1255": "1700", "1700": "2005"}
+
+
+def _dispatch_successor_session(run_until: str) -> bool:
+    """Dispatch the next daemon session as this one ends. True if sent.
+
+    The clean exit below has always said "next scheduled session takes over
+    seamlessly". It does not take over seamlessly, and measurement says it
+    never has. dman_daemon.yml asks for the afternoon session at 12:53 ET;
+    over 2026-10-14/15/16 GitHub DELIVERED that cron at 14:03, 13:48 and
+    13:30 ET -- 37 to 70 minutes late -- while the morning session exits at
+    12:55 ET on the dot. Nothing in this repo closed that gap. What closed it
+    was the "DMan GitHub Actions Cloud Backstop" cloud routine, which fires
+    hourly on the hour, finds the daemon dark at 13:00 ET and dispatches: its
+    dispatch lands at 17:12 UTC every single weekday, to within seconds,
+    because that is how long an agent takes to boot and authenticate.
+
+    So the real daily hole is 12:55-13:12 ET. Seventeen minutes, every day,
+    mid-session, with no stream guard, no T1/stop guard and no scan. On
+    2026-10-16 dman_scanner.yml's own cron was also absent across it (last
+    in-session delivery 11:34 ET, next 13:41 ET), so from 11:34 to 13:12 the
+    only thing standing between an open position and a reversal was its
+    resting broker-side stop. That held for IOVA because the zone trail now
+    lives at the broker -- a change made last week for latency, load-bearing
+    here for a reason I had not anticipated.
+
+    A session knows when it is going to end. It should hand over itself
+    rather than hope. This is strictly additive: the cron and the cloud
+    routine stay exactly as they are, and dman_daemon.yml's concurrency
+    group (dman-daemon, cancel-in-progress) makes a duplicate harmless --
+    whoever arrives second supersedes the first.
+    """
+    _next = _SESSION_SUCCESSOR.get(str(run_until).strip())
+    if not _next:
+        log(f"Session {run_until} ET is the day's last — no successor to dispatch")
+        return False
+    # Same two gates main() applies before starting a cloud session at all.
+    # Handing over into a weekend or a holiday would dispatch a run whose
+    # only job is to log "skipped" -- harmless, but it would also cancel
+    # nothing and tell us nothing, so don't.
+    from datetime import date as _d
+    if datetime.now(algo.ET).weekday() >= 5 or _d.today() in algo._MARKET_HOLIDAYS:
+        return False
+    try:
+        _ok, _msg = algo._trigger_workflow_restart("dman_daemon.yml")
+    except Exception as _exc:          # a failed handover must not crash the exit
+        log(f"successor dispatch raised (non-fatal): {_exc}")
+        return False
+    if _ok:
+        log(f"Dispatched the {_next} ET session — handover does not wait for cron")
+    else:
+        log(f"Successor dispatch FAILED ({_msg}) — falling back to the cron "
+            "and the hourly cloud backstop")
+    return bool(_ok)
+
+
 def main() -> None:
     signal.signal(signal.SIGTERM, _handle_sigterm)
     if not algo.ALPACA_API_KEY or not algo.ALPACA_SECRET_KEY:
@@ -2009,12 +2067,17 @@ def main() -> None:
             if cloud:
                 now = datetime.now(algo.ET)
                 if now.hour * 100 + now.minute >= int(run_until):
-                    log(f"Reached {run_until} ET — clean session end "
-                        "(next scheduled session takes over)")
+                    log(f"Reached {run_until} ET — clean session end")
                     _shutdown_event.set()
                     _close_active_stream()
                     time.sleep(2)   # let the websocket close handshake actually go out
                     git_sync()
+                    # LAST, and after git_sync: the successor shares this
+                    # workflow's concurrency group with cancel-in-progress,
+                    # so dispatching it can SIGTERM this process within
+                    # seconds. By here there is nothing left to lose -- the
+                    # streams are closed and the state is pushed.
+                    _dispatch_successor_session(run_until)
                     return
             hb += 1
             if hb % 60 == 0:

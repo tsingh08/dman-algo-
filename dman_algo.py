@@ -3387,8 +3387,17 @@ def _check_and_heal_watchdog(now_et: Optional[datetime] = None) -> None:
     print(f"  🐕‍🦺 Meta-watchdog: DMan Watchdog hasn't run in {_stale_min:.0f} min — dispatching a fresh run")
     _ok, _msg = _trigger_workflow_restart("dman_watchdog.yml")
     if _ok:
-        send_telegram(f"🐕‍🦺 <b>Meta-watchdog</b>: DMan Watchdog hadn't run in {_stale_min:.0f} min "
-                      "(its own schedule may have been dropped by GitHub) — dispatched a fresh run.")
+        # Print, don't message. This alert used to say GitHub's schedule "may
+        # have been dropped", which was a hypothesis when it was written and
+        # is now simply how the platform behaves here: dman_watchdog.yml's
+        # cron asks for 18 fires a weekday and over 2026-10-14/15/16 it was
+        # DELIVERED 3 times a day, in bursts 2.5-3.5 hours apart. A 40-minute
+        # staleness bar against a 2.5-hour delivery interval means this fires
+        # most days, so the message was a daily notification that the world
+        # is the way it already is. The dispatch is the point and it still
+        # happens; a FAILED dispatch is the only part that needs a human.
+        print(f"  🐕‍🦺 Meta-watchdog: dispatched a fresh "
+              f"watchdog run (previous was {_stale_min:.0f} min old)")
     else:
         send_telegram(f"🐕‍🦺 <b>Meta-watchdog</b>: DMan Watchdog appears stale ({_stale_min:.0f} min) "
                       f"but auto-restart failed ({_msg}). Reply <b>/restart</b> manually, or "

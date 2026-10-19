@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-19T09:25:51.888861-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft To Rally Around 25%? Here Are 10 Top Analyst Forecasts For Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T09:25:51.900503-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Bernstein Maintains Outperform on Microsoft, Raises Price Target to $662",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-19T09:25:51.905839-04:00",
     "symbols": [
       "MSFT"
@@ -5082,6 +5062,26 @@
     ],
     "headline": "Barclays Maintains Overweight on Newmont, Lowers Price Target to $123",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T15:27:34.542652-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Keybanc Maintains Overweight on Alphabet, Lowers Price Target to $410",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T15:27:34.617996-04:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "Piper Sandler Maintains Overweight on SLB, Lowers Price Target to $63",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

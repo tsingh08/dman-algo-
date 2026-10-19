@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-16T15:52:16.140947-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;State Department Warns Travelers To China They Risk &#34;Wrongful Detention\u201d&#39; - Semafor",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-16T15:56:30.553727-04:00",
     "symbols": [
       "AAPL"
@@ -5091,5 +5081,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T15:10:02.414444-04:00",
+    "symbols": [
+      "CELH"
+    ],
+    "headline": "Celsius Stock Pops: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

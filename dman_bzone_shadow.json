@@ -1248,5 +1248,45 @@
 "extension_pct": 11.5,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "BTE",
+"date": "2026-10-19",
+"close": 5.4,
+"base_days": 105,
+"above_low_pct": 147.7,
+"extension_pct": 14.2,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "SLN",
+"date": "2026-10-19",
+"close": 19.58,
+"base_days": 48,
+"above_low_pct": 355.3,
+"extension_pct": 88.8,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "ANF",
+"date": "2026-10-19",
+"close": 162.01,
+"base_days": 36,
+"above_low_pct": 146.9,
+"extension_pct": 15.4,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "PR",
+"date": "2026-10-19",
+"close": 24.8,
+"base_days": 0,
+"above_low_pct": 112.3,
+"extension_pct": 10.6,
+"fresh_base": false,
+"weak_band": false
 }
 ]

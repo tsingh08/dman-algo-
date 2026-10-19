@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-16T14:59:58.881690-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Super Micro Finally Names a CFO, Nearly Two Years After an Accounting Review Prompted the Search",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-16T15:00:02.488075-04:00",
     "symbols": [
       "SMCI"
@@ -5092,6 +5082,16 @@
     ],
     "headline": "DXC Technology Eyes $2.4 Billion Insurance Unit Sale to Eldridge",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T14:57:58.823211-04:00",
+    "symbols": [
+      "INLF"
+    ],
+    "headline": "Crude Oil Moves Higher; US Homebuilder Sentiment Falls In October",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

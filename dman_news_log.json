@@ -1,36 +1,5 @@
 [
   {
-    "ts": "2026-10-16T14:20:44.384980-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Shopify Price Hikes Signal Pricing Power as JPMorgan Keeps $200 Bullish Target",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T14:21:44.010687-04:00",
-    "symbols": [
-      "ADBE",
-      "CLSK",
-      "CRM",
-      "CRWD",
-      "DDOG",
-      "DFNS",
-      "FTNT",
-      "ORCL",
-      "PANW",
-      "PLTR",
-      "VEEA",
-      "ZS"
-    ],
-    "headline": "Shares of software companies are trading lower amid a rotation out of technology and AI-related stocks. Rising inflation concerns and elevated oil prices are fueling expectations for further Fed tightening, while elevated borrowing costs could weigh on demand, valuations and debt metrics.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-16T14:25:24.687117-04:00",
     "symbols": [
       "META"
@@ -5104,6 +5073,26 @@
       "SNDK"
     ],
     "headline": "Shares of memory- and storage-related chip companies are trading higher amid a broader chip rebound. Concerns over AI cloud services providers&#39; debt levels may be subsiding, which could place more attention on the high demand and supply bottleneck narratives.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T14:06:05.312665-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Stock Shakeup: Elon Musk\u2019s Stock Giveaway Meets Insider Sales",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T14:07:08.874824-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Gilead Bolsters Inflammatory Bowel Disease Pipeline With Promising Mid-Stage Trial Success",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

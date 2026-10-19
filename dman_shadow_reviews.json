@@ -750,49 +750,5 @@
    "regime": "CHOP",
    "regime_score": 9
   }
- },
- {
-  "ts": "2026-10-19T11:58:53.524580-04:00",
-  "kind": "signal",
-  "ticker": "IRON",
-  "verdict": "skip",
-  "confidence": 85,
-  "reason": "CHOP regime (score 10) contradicts Morning Runner setup. Gap runners need trending conditions, not choppy consolidation.",
-  "facts": {
-   "setup": "Morning Runner",
-   "bias": "LONG",
-   "confluence_score": 100,
-   "entry": 76.88,
-   "stop": 70.38,
-   "target1": 95.88,
-   "rr": 2.92,
-   "rvol": 15.72,
-   "rsi": 65.4,
-   "reason": "News gap +27.9% on 15.7x vol, holding open | Float 33M, Short 22%",
-   "regime": "CHOP",
-   "regime_score": 10
-  }
- },
- {
-  "ts": "2026-10-19T11:58:55.025456-04:00",
-  "kind": "signal",
-  "ticker": "CLF",
-  "verdict": "skip",
-  "confidence": 85,
-  "reason": "RSI 78.4 is deeply overbought; gap already 17.2% with entry near top. Stop is 1.22 points (8.6%) away\u2014reasonable, but regime CHOP (score 10) contradicts strong directional bias.",
-  "facts": {
-   "setup": "Gap & Hold",
-   "bias": "LONG",
-   "confluence_score": 100,
-   "entry": 14.17,
-   "stop": 12.95,
-   "target1": 17.57,
-   "rr": 2.79,
-   "rvol": 5.22,
-   "rsi": 78.4,
-   "reason": "Gap up +17.2% from prior close, holding, RVOL 5.2x",
-   "regime": "CHOP",
-   "regime_score": 10
-  }
  }
 ]

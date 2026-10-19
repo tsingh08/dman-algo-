@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-16T11:28:29.414371-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Why Is Applied Digital Stock Falling Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T11:28:29.907941-04:00",
     "symbols": [
       "APLD"
@@ -5121,5 +5111,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T12:06:09.748188-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Cognizant, Google Cloud Expand Collaboration Over Adoption Of Agentic AI",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

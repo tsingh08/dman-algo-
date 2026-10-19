@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-16T11:46:14.483038-04:00",
-    "symbols": [
-      "TLSA"
-    ],
-    "headline": "Tiziana Life Sciences Begins Dosing Last Patient In Its Phase 2 Clinical Trial Evaluating Intranasal Foralumab In Patients With Early/Mild Alzheimer\u2019s Disease; Topline Data Anticipated In Q1 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T11:48:43.175042-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Q3 Earnings Countdown: 5 Debates to Watch",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T11:59:07.648229-04:00",
     "symbols": [
       "MU",
@@ -5119,5 +5099,26 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T12:18:32.430044-04:00",
+    "symbols": [
+      "RXRX"
+    ],
+    "headline": "Recursion Pharmaceuticals shares are trading after Needham reiterated its Buy rating on the stock and maintained a $8 price target.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T12:21:11.232210-04:00",
+    "symbols": [
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "SpaceX Could Buy Tesla for $480 Per Share in $3.74 Trillion Merger, RBC Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

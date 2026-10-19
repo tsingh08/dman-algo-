@@ -1,38 +1,5 @@
 [
   {
-    "ts": "2026-10-16T11:59:07.648229-04:00",
-    "symbols": [
-      "MU",
-      "SKHY"
-    ],
-    "headline": "Micron, SK Hynix Have an AI Boom Problem \u2014 China Could Make It Worse",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T11:59:29.653064-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta&#39;s AI Bet Could Deliver Another Earnings Surprise, Analyst Says",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T12:01:28.093909-04:00",
-    "symbols": [
-      "MU",
-      "SKHY",
-      "SNDK"
-    ],
-    "headline": "Shares of memory- and storage-related chip companies are trading lower amid continued weakness as investors weigh intensifying Chinese competition and concerns over possible market oversupply. Rising inflation concerns and elevated energy prices are fueling expectations for further Fed rate hikes, which could increase borrowing costs and weigh on demand across the sector.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-16T12:02:33.631578-04:00",
     "symbols": [
       "AMAT",
@@ -5120,5 +5087,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T12:21:44.357563-04:00",
+    "symbols": [
+      "SOXL"
+    ],
+    "headline": "Putin\u2019s Proposed Trump-Xi Summit In China Could Hurt US Stocks Long Term; Meta And Tesla Earnings Ahead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T12:24:25.069385-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "X-Energy Expands Nuclear Pipeline With New Indiana Reactor Proposal",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T12:24:56.495855-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "SpaceX Could Buy Tesla for $480 Per Share in $3.74 Trillion Merger, RBC Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

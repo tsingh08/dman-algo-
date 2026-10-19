@@ -23058,6 +23058,19 @@ DIP_BASKET_HOLD_SESSIONS = 5          # the horizon the edge was measured over
 # here instead of by the broker. Without it an unfilled limit sits all week
 # and fills on day four into a tape the signal knew nothing about.
 DIP_BASKET_ENTRY_EXPIRY_SESSIONS = 1
+# The stop the operator chose, as a fraction of the FILL. The OTO stop legs
+# were priced off the LIMIT, which is only the same number if the fill is at
+# the limit. A dip limit resting into a weak tape is most likely to fill on a
+# GAP DOWN, and then the stop is nowhere near 8% -- NVDA's leg sits at 197.98,
+# so an open at 200 would leave it 1.0% away and the position would be stopped
+# out on the first wobble, booking a loss the sizing never intended and
+# calling it the measured trade. Checked and repriced on the pass that first
+# sees the fill.
+DIP_BASKET_STOP_PCT = 0.08
+# Only reprice when the resting stop is materially tighter than intended. A
+# fill at or above the limit leaves it slightly WIDER than 8%, which is the
+# operator's 5-10% band and not worth an order amendment.
+DIP_BASKET_STOP_MIN_PCT = 0.065
 
 
 def _sessions_between(d0: date, d1: date) -> int:
@@ -23077,6 +23090,46 @@ def _dip_basket_load() -> list:
         return _rows if isinstance(_rows, list) else []
     except (FileNotFoundError, json.JSONDecodeError):
         return []
+
+
+def _dip_basket_reprice_stop(row: dict, out: dict) -> None:
+    """Move a filled row's stop to DIP_BASKET_STOP_PCT below its real fill.
+
+    The OTO legs were priced off the limit. A gap-down fill therefore leaves
+    the stop far tighter than the 8% the position was sized for -- the whole
+    reason a dip limit exists is to be filled when price comes to it, so the
+    gap-down case is the LIKELY one, not the edge case.
+
+    Widening a stop is normally the wrong instinct and worth saying why it is
+    not here: the 8% was chosen against the fill, this only restores it, and
+    it never moves a stop tighter or touches a row it did not just fill.
+    """
+    _fill = float(row.get("fill_px") or 0)
+    if _fill <= 0:
+        return
+    _want = round(_fill * (1 - DIP_BASKET_STOP_PCT), 2)
+    try:
+        from alpaca.trading.requests import GetOrdersRequest, ReplaceOrderRequest
+        from alpaca.trading.enums import QueryOrderStatus
+        _client = get_alpaca_client()
+        for _o in _client.get_orders(filter=GetOrdersRequest(
+                symbols=[row["ticker"]], status=QueryOrderStatus.OPEN)):
+            if str(getattr(_o.side, "value", _o.side)).lower() != "sell":
+                continue
+            _cur = float(getattr(_o, "stop_price", 0) or 0)
+            if _cur <= 0:
+                continue
+            if _cur <= _fill * (1 - DIP_BASKET_STOP_MIN_PCT):
+                return          # already 6.5% or wider -- inside the band
+            _client.replace_order_by_id(_o.id, ReplaceOrderRequest(stop_price=_want))
+            row["stop_repriced"] = {"from": _cur, "to": _want, "fill": _fill}
+            out.setdefault("repriced", []).append(row["ticker"])
+            print(f"  \u21bb {row['ticker']} stop {_cur:.2f} -> {_want:.2f} "
+                  f"({DIP_BASKET_STOP_PCT:.0%} of the {_fill:.2f} fill, "
+                  f"was {(1 - _cur / _fill):.1%})")
+            return
+    except Exception as exc:
+        _log_swallowed("dip basket reprice", exc)
 
 
 def run_dip_basket_manage(notify: bool = True) -> dict:
@@ -23115,6 +23168,8 @@ def run_dip_basket_manage(notify: bool = True) -> dict:
                 if _filled:
                     _r["status"], _r["entry_date"] = "open", _filled
                     _st = "open"
+                    _r["fill_px"] = float(getattr(_o, "filled_avg_price", 0) or 0)
+                    _dip_basket_reprice_stop(_r, out)
                 else:
                     _sub = _r.get("submitted", "")
                     if (_sub and _sessions_between(date.fromisoformat(_sub), _today)

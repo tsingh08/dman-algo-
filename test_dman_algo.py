@@ -26941,3 +26941,90 @@ class TestTheDipBasketHasATimeExit(unittest.TestCase):
 
     def test_the_scanner_runs_it(self):
         self.assertIn("run_dip_basket_manage()", inspect.getsource(a))
+
+class TestAGapFillDoesNotInheritTheLimitsStop(unittest.TestCase):
+    """The three OTO stop legs submitted 2026-10-19 were priced off the LIMIT,
+    which equals 8% below the fill only if the fill is at the limit.
+
+    A dip limit exists to be filled when price comes down to it, so a GAP-DOWN
+    fill is the likely case, not the edge case. NVDA's leg sits at 197.98
+    against a 215.20 limit; an open at 200 would leave the stop 1.0% away and
+    the position would be stopped out on the first wobble -- booking a loss the
+    sizing never intended, and recording it as the measured trade. Found while
+    answering "are we ready for Monday", six hours before the open.
+
+    Widening a stop is usually the wrong instinct. It is right here because the
+    8% was chosen against the fill: this restores the intended distance, never
+    tightens, and only touches a row on the pass that first sees its fill."""
+
+    def _reprice(self, fill, cur_stop, side="sell"):
+        o = MagicMock()
+        o.id = "stop1"
+        o.side = "sell" if side == "sell" else "buy"
+        o.stop_price = cur_stop
+        cl = MagicMock()
+        cl.get_orders.return_value = [o]
+        row = {"ticker": "NVDA", "fill_px": fill}
+        out = {}
+        with patch.object(a, "get_alpaca_client", return_value=cl), \
+             patch.object(a, "_log_swallowed"), \
+             contextlib.redirect_stdout(io.StringIO()) as buf:
+            a._dip_basket_reprice_stop(row, out)
+        return row, out, cl, buf.getvalue()
+
+    def test_a_gap_down_fill_has_its_stop_widened_to_the_intended_distance(self):
+        """Limit 215.20, stop leg 197.98, fill 200.00 -> the stop is 1.0% away.
+        It must become 8% of 200, not stay 8% of the limit."""
+        row, out, cl, printed = self._reprice(fill=200.00, cur_stop=197.98)
+        cl.replace_order_by_id.assert_called_once()
+        self.assertEqual(out["repriced"], ["NVDA"])
+        self.assertAlmostEqual(row["stop_repriced"]["to"], 184.00, places=2)
+        self.assertIn("197.98 -> 184.00", printed)
+
+    def test_a_fill_at_the_limit_is_left_alone(self):
+        """8% of 215.20 is 197.98, so nothing is owed and an amendment would
+        be churn against a live order."""
+        row, out, cl, _p = self._reprice(fill=215.20, cur_stop=197.98)
+        cl.replace_order_by_id.assert_not_called()
+        self.assertNotIn("repriced", out)
+
+    def test_a_stop_already_inside_the_band_is_left_alone(self):
+        """A fill slightly under the limit leaves the stop ~7%, which is still
+        inside the operator's stated 5-10%. Not worth an amendment."""
+        row, out, cl, _p = self._reprice(fill=212.00, cur_stop=197.98)
+        cl.replace_order_by_id.assert_not_called()
+
+    def test_it_never_moves_a_stop_tighter(self):
+        """A fill ABOVE the limit (gap up through a resting buy) leaves the
+        stop wider than 8%. Tightening it would cut the room the sizing
+        assumed."""
+        row, out, cl, _p = self._reprice(fill=230.00, cur_stop=197.98)
+        cl.replace_order_by_id.assert_not_called()
+
+    def test_it_ignores_the_buy_side(self):
+        """get_orders is filtered by symbol, not by side -- a resting BUY for
+        the same ticker must never be mistaken for the protective stop."""
+        row, out, cl, _p = self._reprice(fill=200.00, cur_stop=197.98, side="buy")
+        cl.replace_order_by_id.assert_not_called()
+
+    def test_an_unknown_fill_price_does_nothing(self):
+        cl = MagicMock()
+        with patch.object(a, "get_alpaca_client", return_value=cl), \
+             patch.object(a, "_log_swallowed"):
+            a._dip_basket_reprice_stop({"ticker": "NVDA", "fill_px": 0}, {})
+        cl.get_orders.assert_not_called()
+
+    def test_a_broker_error_is_swallowed_not_raised(self):
+        """This runs inside the fill-detection path. An exception here would
+        abort the pass and leave the row unsettled."""
+        cl = MagicMock()
+        cl.get_orders.side_effect = RuntimeError("alpaca 500")
+        with patch.object(a, "get_alpaca_client", return_value=cl), \
+             patch.object(a, "_log_swallowed") as sw:
+            a._dip_basket_reprice_stop({"ticker": "NVDA", "fill_px": 200.0}, {})
+        sw.assert_called_once()
+
+    def test_the_fill_path_calls_it(self):
+        src = inspect.getsource(a.run_dip_basket_manage)
+        self.assertIn("_dip_basket_reprice_stop(_r, out)", src)
+        self.assertIn('_r["fill_px"]', src)

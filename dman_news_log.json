@@ -1,268 +1,5 @@
 [
   {
-    "ts": "2026-10-16T15:00:02.488075-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Super Micro Finally Names a CFO, Nearly Two Years After an Accounting Review Prompted the Search",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-16T15:16:33.201621-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "The Hormuz Letter Posts On X &#34;BREAKING: UKMTO says the majority of vessels struck by Iran are refusing to report to it, meaning the true number of attacks on vessels is at least double what has been recorded...&#34; &#34;That puts the floor at nearly 60 vessels struck by Iran since October 1, against the roughly 30 UKMTO has confirmed. The strength of the language points to a real figure in the 70 to 100 range. October was already the highest month of the war on the reported number alone.&#34;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T15:21:34.085685-04:00",
-    "symbols": [
-      "LUNR",
-      "SPCX"
-    ],
-    "headline": "Shares of space-related companies are trading lower, possibly as Rocket Lab extended losses, falling over 8% after an analyst cut its price target following a delay to its Neutron rocket\u2019s first launch, weighing on peers.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T15:22:45.901475-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "QQQ vs. Cheaper Nasdaq-100 ETFs: Why BlackRock And State Street Aren&#39;t Winning Investors Yet",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T15:30:09.705589-04:00",
-    "symbols": [
-      "ISRG",
-      "NFLX",
-      "SPOT"
-    ],
-    "headline": "Lam Research Could Swing $28.6 Billion After Earnings",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T15:41:02.515601-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla shares reversed earlier gains from the company\u2019s Roadster unveiling and are trading lower, with the vehicle not expected to ship until 2028, amid a broader tech selloff driven by rising Treasury yields and AI-related jitters.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T15:42:15.787623-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Lam Research Could Swing $28.6 Billion After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-16T15:42:20.796616-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "Lam Research Could Swing $28.6 Billion After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-16T15:42:29.489938-04:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "Lam Research Could Swing $28.6 Billion After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T15:42:42.097011-04:00",
-    "symbols": [
-      "PAYP"
-    ],
-    "headline": "Ladder Capital Posts Upbeat Q3 Earnings, Joins Alcoa, Hyster-Yale And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T15:44:45.600919-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "'Apple Set For UK Legal Fight Over iPhone Tap-To-Pay Rules' - Financial Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T15:44:45.605498-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "'PayPal And Epic Games Have Discussed Concerns With The Justice Department That A Settlement With Apple Could Fail To Meaningfully Curb Its Restrictions On Rival Apps And Devices' - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T15:44:45.747345-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Rep. David Taylor Has Bought Up to $45K Worth Of AT&T Stock: Here\u2019s What You Should Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T15:44:45.875227-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "SemiAnalysis Pots On X \"SHOCKING: We have confirmed that multiple Neoclouds have been refused access to GTC Berlin due to them adding AMD GPUs, TPUs, and other chips to their cloud offerings. Note that this doesn't apply to hyperscalers, as they have more buying power. But for neoclouds, executives feel NVIDIA has been using high-pressure tactics to keep them NVIDIA-only....\"",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T15:44:46.066222-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "SemiAnalysis Pots On X \"SHOCKING: We have confirmed that multiple Neoclouds have been refused access to GTC Berlin due to them adding AMD GPUs, TPUs, and other chips to their cloud offerings. Note that this doesn't apply to hyperscalers, as they have more buying power. But for neoclouds, executives feel NVIDIA has been using high-pressure tactics to keep them NVIDIA-only....\"",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T15:44:46.071587-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "What's Going On With Fermi Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T15:44:46.298602-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta's AI Bet Could Deliver Another Earnings Surprise, Analyst Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T15:44:46.303377-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "'In internal messages, Meta admits that Lula's accounts were compromised; engineers mention technical failures' - Folha",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T15:44:46.453594-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "'Anthropic in Discussions With NYC Comptroller After IPO Letter' - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T15:44:46.585989-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "'Anthropic in Discussions With NYC Comptroller After IPO Letter' - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T15:44:46.710572-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla's Flying Roadster Sends Delivery Odds Tumbling Despite Spectacular Demo",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T15:44:46.715546-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla's Roadster Just Made SpaceX More Valuable. Does Tesla Get Any Credit?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T15:44:47.090373-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Palantir Technologies Stock Is Falling Friday: What's Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T15:44:48.318669-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "EXCLUSIVE: Prediction Market Volumes Are Soaring, but Most Exchanges Won't Survive, Smarkets CEO Warns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T15:44:48.812275-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly's GLP-1 Pill Wins Key European Backing for Obesity and Diabetes",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T15:44:49.883572-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Keybanc Maintains Overweight on CrowdStrike Holdings, Raises Price Target to $265",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-16T15:52:16.140947-04:00",
     "symbols": [
       "SPY"
@@ -5092,6 +4829,266 @@
     ],
     "headline": "Crude Oil Moves Higher; US Homebuilder Sentiment Falls In October",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T15:02:28.673361-04:00",
+    "symbols": [
+      "INLF"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday's Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T15:02:28.982429-04:00",
+    "symbols": [
+      "MASK"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday's Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T15:02:28.987421-04:00",
+    "symbols": [
+      "MASK"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T15:02:28.991984-04:00",
+    "symbols": [
+      "MASK"
+    ],
+    "headline": "3 E Network Technology Group's Finland Subsidiary Inks 9 MVA Power Distribution Network Connection Deal For Mikkeli AI Compute Center in Finland",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T15:02:29.196440-04:00",
+    "symbols": [
+      "RBNE"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday's Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T15:02:29.201153-04:00",
+    "symbols": [
+      "RBNE"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T15:02:29.324660-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Tesla Stock Trends Higher: What's Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T15:02:29.331333-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "'Of Course' Bitcoin Could Grow to $50 Trillion, Jordi Visser Says: But How?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T15:02:29.446552-04:00",
+    "symbols": [
+      "WFF"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T15:02:29.555172-04:00",
+    "symbols": [
+      "XHG"
+    ],
+    "headline": "12 Financials Stocks Moving In Monday's Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T15:02:29.659884-04:00",
+    "symbols": [
+      "YHC"
+    ],
+    "headline": "LQR House's YHC AI Enters Into A 1-Year Agreement To Procure Up To $3M In OpenAI-Powered Computing Resources To Advance AI-Driven Financial Research And Portfolio Optimization",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T15:02:29.757091-04:00",
+    "symbols": [
+      "YMAT"
+    ],
+    "headline": "Crude Oil Moves Higher; US Homebuilder Sentiment Falls In October",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T15:02:30.023767-04:00",
+    "symbols": [
+      "AAME"
+    ],
+    "headline": "12 Financials Stocks Moving In Monday's Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T15:02:30.029638-04:00",
+    "symbols": [
+      "AAME"
+    ],
+    "headline": "11 Financials Stocks Moving In Monday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T15:02:30.159529-04:00",
+    "symbols": [
+      "IRON"
+    ],
+    "headline": "Crude Oil Moves Higher; US Homebuilder Sentiment Falls In October",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T15:02:30.165086-04:00",
+    "symbols": [
+      "IRON"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday's Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T15:02:30.285087-04:00",
+    "symbols": [
+      "RPGL"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday's Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T15:02:30.289821-04:00",
+    "symbols": [
+      "RPGL"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T15:02:30.419914-04:00",
+    "symbols": [
+      "CLF"
+    ],
+    "headline": "Nasdaq Tumbles Over 2%, Records Weekly Loss: Investor Sentiment Weakens, Fear & Greed Index Moves to \u2018Extreme Fear\u2019 Zone",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T15:02:30.523625-04:00",
+    "symbols": [
+      "FUFU"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday's Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T15:02:30.614262-04:00",
+    "symbols": [
+      "AIBZ"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday's Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T15:02:30.622133-04:00",
+    "symbols": [
+      "AIBZ"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T15:02:30.724754-04:00",
+    "symbols": [
+      "UPLD"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T15:02:30.853492-04:00",
+    "symbols": [
+      "MEDS"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T15:02:31.176093-04:00",
+    "symbols": [
+      "TCRT"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T15:02:31.564310-04:00",
+    "symbols": [
+      "AKTX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday's Pre-Market Session",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

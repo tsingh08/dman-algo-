@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-16T13:58:07.992985-04:00",
-    "symbols": [
-      "LADR"
-    ],
-    "headline": "Earnings Scheduled For October 16, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T14:08:17.287582-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla shares are trading higher after the EV maker unveiled its next-generation Roadster using SpaceX Technology.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T14:17:12.884945-04:00",
     "symbols": [
       "PLTR"
@@ -5110,5 +5090,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T13:53:09.010863-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Swiss Pharma Giant Roche Suspends German Capital Commitments Amid Dispute Over Drug Discounts",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T13:53:48.014613-04:00",
+    "symbols": [
+      "IRON"
+    ],
+    "headline": "BMO Capital Maintains Outperform on Disc Medicine, Raises Price Target to $120",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

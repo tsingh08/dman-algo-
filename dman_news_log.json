@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-16T10:10:34.215084-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Netflix Needs Another 'Squid Game' Moment As Growth Pressure Mounts",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T10:10:34.221342-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Reported October 15, 'DeepSeek offers user refunds after suffering another major outage' - SCMP",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T10:10:34.227294-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Dan Ives Says Apple-Meta AI Partnership Could Help Unlock $75 Per Share in AI Value for AAPL Stock \u2014 'Start of What Could Be Just a Massive Collaboration'",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T10:10:34.232216-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "CoreWeave Stock Gets Hammered by Debt Fears, Analyst Says There's More to the Story",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T10:10:34.446621-04:00",
     "symbols": [
       "GOOGL"
@@ -5103,6 +5063,51 @@
       "TSLA"
     ],
     "headline": "SpaceX Stock Moves Higher: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T10:36:11.699990-04:00",
+    "symbols": [
+      "AMAT",
+      "AMD",
+      "KLAC",
+      "MRVL",
+      "MU",
+      "SKHY"
+    ],
+    "headline": "Shares of semiconductor and chip companies are trading higher as the sector rebounds from last week&#39;s weakness, with CoreWeave, the bellwether, rising on a Goldman Sachs upgrade. The Philadelphia Semiconductor Index is expected to end its longest losing streak since the 2008 financial crisis.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T10:36:44.018175-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Stock Moves Higher: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T10:36:44.025991-04:00",
+    "symbols": [
+      "IRON"
+    ],
+    "headline": "Cantor Fitzgerald Maintains Overweight on Disc Medicine, Raises Price Target to $170",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T10:37:55.299722-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "What&#39;s Going On With Moderna Stock Monday?",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"

@@ -1,285 +1,5 @@
 [
   {
-    "ts": "2026-10-16T10:10:34.446621-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Netflix Needs Another 'Squid Game' Moment As Growth Pressure Mounts",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T10:10:34.453354-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "'Investors temper Anthropic IPO valuation expectations over revenue growth slowdown, sources say'- Reuters Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T10:10:34.629479-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Reported October 15, 'DeepSeek offers user refunds after suffering another major outage' - SCMP",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T10:10:34.636220-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Reported Earlier, 'Anthropic secured highest junk credit rating in June' - FT Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T10:10:34.788093-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "TSLA, MU, CRWV and More: 5 Stocks Investors Couldn't Stop Buzzing About This Week (CORRECTED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T10:10:34.793081-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&P 500 Futures Rise, Nasdaq Falls as Bessent Intensifies Economic Pressure on Iran\u2014 TSLA, AA, IBKR in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T10:10:34.922510-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Needs Another 'Squid Game' Moment As Growth Pressure Mounts",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-16T10:10:35.335858-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "EXCLUSIVE: Is AI Growth Slowing Down? Memory Industry Expert Says It's 'Too Early' To Tell",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T10:10:35.341166-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Sold-Out Chips, Falling Stocks: Why Wall Street Is Suddenly Nervous About AI's Memory Boom",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T10:10:35.648726-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "TSLA, MU, CRWV and More: 5 Stocks Investors Couldn't Stop Buzzing About This Week (CORRECTED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T10:10:35.654182-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "EXCLUSIVE: Is AI Growth Slowing Down? Memory Industry Expert Says It's 'Too Early' To Tell",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T10:10:35.658780-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Sold-Out Chips, Falling Stocks: Why Wall Street Is Suddenly Nervous About AI's Memory Boom",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T10:10:35.787688-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "TSLA, MU, CRWV and More: 5 Stocks Investors Couldn't Stop Buzzing About This Week (CORRECTED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T10:10:35.793093-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "EXCLUSIVE: Is AI Growth Slowing Down? Memory Industry Expert Says It's 'Too Early' To Tell",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T10:10:35.797882-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Sold-Out Chips, Falling Stocks: Why Wall Street Is Suddenly Nervous About AI's Memory Boom",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T10:10:35.914174-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "TSLA, MU, CRWV and More: 5 Stocks Investors Couldn't Stop Buzzing About This Week (CORRECTED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T10:10:35.919268-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "EXCLUSIVE: Is AI Growth Slowing Down? Memory Industry Expert Says It's 'Too Early' To Tell",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T10:10:35.924842-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Sold-Out Chips, Falling Stocks: Why Wall Street Is Suddenly Nervous About AI's Memory Boom",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T10:10:36.070485-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "What's Going On With Arm Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T10:10:36.427556-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Supreme Court Has 'Very Good Chance' of Taking Kalshi Legal Fight, Former CFTC Counsel Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T10:10:36.783544-04:00",
-    "symbols": [
-      "NIO"
-    ],
-    "headline": "China's 'Oil Dependency Dropping Fast,' Says Elon Musk Highlighting These Key Figures",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T10:10:37.374501-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "TSLA, MU, CRWV and More: 5 Stocks Investors Couldn't Stop Buzzing About This Week (CORRECTED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T10:10:37.532358-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Jim Cramer: Reddit Is 'Inexpensive' While SiTime Is \u2018Expensive\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T10:10:37.648594-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "TSLA, MU, CRWV and More: 5 Stocks Investors Couldn't Stop Buzzing About This Week (CORRECTED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-16T10:10:37.786097-04:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "What's Going On With Arm Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T10:10:43.582271-04:00",
-    "symbols": [
-      "SRTA"
-    ],
-    "headline": "Ladder Capital Posts Upbeat Q3 Earnings, Joins Alcoa, Hyster-Yale And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T10:10:43.594156-04:00",
-    "symbols": [
-      "AA"
-    ],
-    "headline": "Ladder Capital Posts Upbeat Q3 Earnings, Joins Alcoa, Hyster-Yale And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T10:12:50.690197-04:00",
-    "symbols": [
-      "LUNR"
-    ],
-    "headline": "Macquarie Initiates Coverage On Intuitive Machines with Outperform Rating, Announces Price Target of $25",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-16T10:13:02.515954-04:00",
     "symbols": [
       "GOOGL"
@@ -5111,5 +4831,286 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T10:40:55.888504-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on DraftKings, Raises Price Target to $30",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T10:41:39.912835-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "What's Going On With Intel Stock Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T10:41:40.152257-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Ex-OpenAI Employee Accused Of Planting Recording Device Appears To Have Received 'Considerable Support' From Saudi Government",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T10:41:40.155350-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "\"Anthropic Readies Model That Reads Users' Intentions Better\" - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T10:41:40.421953-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Dan Ives Says Meta, SpaceX and Tesla Face Big Questions This Week \u2014 His 3 'Big Focus Points' Ahead of Tech Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T10:41:40.745543-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Nasdaq Tumbles Over 2%, Records Weekly Loss: Investor Sentiment Weakens, Fear & Greed Index Moves to \u2018Extreme Fear\u2019 Zone",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T10:41:41.012139-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Dan Ives Says Meta, SpaceX and Tesla Face Big Questions This Week \u2014 His 3 'Big Focus Points' Ahead of Tech Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T10:41:41.028441-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Stock Market Today: Dow Futures Drop, S&P 500, Nasdaq 100 Rise as Scott Bessent Links September Inflation to 'Energy Shock'\u2014 RCAT, ESLT, STLD in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T10:41:41.031211-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta's Muse Racks up 10 Million Downloads, but Its Path to Profits Remains Unclear",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T10:41:41.239251-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "\"Anthropic Readies Model That Reads Users' Intentions Better\" - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T10:41:41.242614-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Meta's Muse Racks up 10 Million Downloads, but Its Path to Profits Remains Unclear",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T10:41:41.499424-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "\"Anthropic Readies Model That Reads Users' Intentions Better\" - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T10:41:41.502656-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Stock Edges Higher Monday: What's Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T10:41:41.700929-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "SpaceX Stock Moves Higher: What's Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T10:41:41.705831-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Dan Ives Says Meta, SpaceX and Tesla Face Big Questions This Week \u2014 His 3 'Big Focus Points' Ahead of Tech Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T10:41:41.898049-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Dan Ives Says Meta, SpaceX and Tesla Face Big Questions This Week \u2014 His 3 'Big Focus Points' Ahead of Tech Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T10:41:41.900951-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Stock Market Today: Dow Futures Drop, S&P 500, Nasdaq 100 Rise as Scott Bessent Links September Inflation to 'Energy Shock'\u2014 RCAT, ESLT, STLD in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T10:41:41.903946-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Gears Up For Q3 Print; Here Are The Recent Forecast Changes From Wall Street's Most Accurate Analysts",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T10:41:41.906601-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Stock Market: Will S&P 500 Open Up or Down Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T10:41:42.579438-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "What's Going On With Broadcom Stock Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T10:41:42.955999-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Nasdaq Tumbles Over 2%, Records Weekly Loss: Investor Sentiment Weakens, Fear & Greed Index Moves to \u2018Extreme Fear\u2019 Zone",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T10:41:43.158448-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Nasdaq Tumbles Over 2%, Records Weekly Loss: Investor Sentiment Weakens, Fear & Greed Index Moves to \u2018Extreme Fear\u2019 Zone",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T10:41:43.536282-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "What's Going On With Moderna Stock Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T10:41:44.778808-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Elon Musk Challenges Jeff Bezos' Blue Origin and Other SpaceX Rivals, Says They Still Can\u2019t Catch Starship \u2014 \u2018Even Their Future Plans Are Behind\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T10:43:52.389031-04:00",
+    "symbols": [
+      "DKNG",
+      "HOOD"
+    ],
+    "headline": "EXCLUSIVE: Sports Betting No More Addictive Than Stock Trading, Smarkets CEO Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T10:44:13.132907-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Why Is Applied Digital Stock Surging on Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T10:44:13.626894-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "SpaceX Stock Moves Higher: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T10:44:13.893495-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "EXCLUSIVE: Sports Betting No More Addictive Than Stock Trading, Smarkets CEO Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

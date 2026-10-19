@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-16T12:43:02.011575-04:00",
-    "symbols": [
-      "FOXA"
-    ],
-    "headline": "SpaceX To Rally Around 85%? Here Are 10 Top Analyst Forecasts For Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T12:43:02.016509-04:00",
-    "symbols": [
-      "FOXA"
-    ],
-    "headline": "B of A Securities Upgrades Fox to Buy, Raises Price Target to $85",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-16T12:43:02.169135-04:00",
     "symbols": [
       "AA"
@@ -5103,5 +5083,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T12:56:13.414691-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Waymo Is Bringing Robotaxis to Canada in 2028 \u2014 Toronto\u2019s Winter Weather Will Put Them to the Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T12:56:13.511719-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Waymo Is Bringing Robotaxis to Canada in 2028 \u2014 Toronto\u2019s Winter Weather Will Put Them to the Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

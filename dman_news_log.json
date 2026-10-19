@@ -1,125 +1,5 @@
 [
   {
-    "ts": "2026-10-16T09:42:20.489043-04:00",
-    "symbols": [
-      "VRNS"
-    ],
-    "headline": "Wedbush Maintains Neutral on Varonis Systems, Raises Price Target to $49.75",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T09:42:20.494139-04:00",
-    "symbols": [
-      "VRNS"
-    ],
-    "headline": "Rosenblatt Downgrades Varonis Systems to Neutral, Lowers Price Target to $49.75",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T09:42:20.603511-04:00",
-    "symbols": [
-      "PPCB"
-    ],
-    "headline": "Propanc Biopharma Announces It Has Identified Pancreatic Proenzyme Formulation As Potential Strategy For Addressing Chemotherapy Resistance In Pancreatic Cancer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T09:42:20.749146-04:00",
-    "symbols": [
-      "WSHP"
-    ],
-    "headline": "WeShop Enters $25M Committed Equity Facility With Roth Principal Investments",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T09:42:20.878398-04:00",
-    "symbols": [
-      "AA"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&amp;P 500 Futures Rise, Nasdaq Falls as Bessent Intensifies Economic Pressure on Iran\u2014 TSLA, AA, IBKR in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T09:42:20.883741-04:00",
-    "symbols": [
-      "AA"
-    ],
-    "headline": "Aluminum Supply Warning: Alcoa Says Global Inventories Leave Little Room for Another Shock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T09:42:20.890233-04:00",
-    "symbols": [
-      "AA"
-    ],
-    "headline": "Reported October 15, &#39;Lutnick Throws the Future of U.S.-Mexico Trade Talks Into Further Doubt; The commerce secretary has objected to significant reductions in tariffs on Mexican steel, aluminum and automobiles&#39; - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T09:42:20.896603-04:00",
-    "symbols": [
-      "AA"
-    ],
-    "headline": "Why Alcoa Shares Are Trading Higher; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T09:42:20.902156-04:00",
-    "symbols": [
-      "AA"
-    ],
-    "headline": "M&amp;T Bank, Travelers Companies and 3 Stocks to Watch Heading Into Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T09:42:50.289288-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Why Is AST SpaceMobile Stock Falling Friday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T09:49:58.242166-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Space Stock Watch: SpaceX Spectrum Deal, Rocket Lab Delays, Tesla Merger Chatter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T09:50:01.835264-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Space Stock Watch: SpaceX Spectrum Deal, Rocket Lab Delays, Tesla Merger Chatter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-16T09:50:04.218063-04:00",
     "symbols": [
       "LUNR"
@@ -5102,6 +4982,130 @@
     "headline": "NAHB Housing Market Index For October 29 Vs 31 Est.",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T10:00:50.720409-04:00",
+    "symbols": [
+      "YMAT"
+    ],
+    "headline": "Nasdaq Surges Over 1%; Fifth Third Bancorp Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T10:00:53.636209-04:00",
+    "symbols": [
+      "EXYN"
+    ],
+    "headline": "EXCLUSIVE: Exyn Joins Department Of Energy Backed Mining Project to Hunt for Critical Minerals",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T10:00:53.639389-04:00",
+    "symbols": [
+      "EXYN"
+    ],
+    "headline": "EXCLUSIVE: Exyn Joins DOE-Backed Mining Project to Hunt for Critical Minerals",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T10:00:54.081524-04:00",
+    "symbols": [
+      "MANE"
+    ],
+    "headline": "Microsoft To Rally Around 25%? Here Are 10 Top Analyst Forecasts For Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T10:00:54.084650-04:00",
+    "symbols": [
+      "MANE"
+    ],
+    "headline": "Cantor Fitzgerald Reiterates Overweight on Veradermicsto Overweight",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T10:00:54.087338-04:00",
+    "symbols": [
+      "MANE"
+    ],
+    "headline": "Needham Maintains Buy on Veradermics, Raises Price Target to $172",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T10:00:54.090000-04:00",
+    "symbols": [
+      "MANE"
+    ],
+    "headline": "Veradermics&#39; VDPHL01 Meets All Primary And Secondary Endpoints In Phase 3 Study, Demonstrates Significant Hair Count Gains And Favorable Safety Profile",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T10:00:54.701224-04:00",
+    "symbols": [
+      "BWAY"
+    ],
+    "headline": "BrainsWay, Inland Psychiatric Collaborate On Multi-System Deep TMS Deployment And Mental Health Research Initiatives",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T10:02:44.426177-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "MSFT"
+    ],
+    "headline": "&#34;Anthropic Readies Model That Reads Users&#39; Intentions Better&#34; - The Information",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T10:02:48.006290-04:00",
+    "symbols": [
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "Elon Musk Has a Pattern, Says Analyst Who Predicted SpaceX Spectrum Deal",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T10:04:22.256458-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Ex-OpenAI Employee Accused Of Planting Recording Device Appears To Have Received &#39;Considerable Support&#39; From Saudi Government",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T10:05:09.767474-04:00",
+    "symbols": [
+      "APLD",
+      "SNDK"
+    ],
+    "headline": "Silence Therapeutics, Disc Medicine, Veradermics And Other Big Stocks Moving Higher On Monday",
+    "source": "benzinga",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

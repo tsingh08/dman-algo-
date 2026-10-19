@@ -1,18 +1,5 @@
 [
   {
-    "ts": "2026-10-16T09:42:00.014647-04:00",
-    "symbols": [
-      "LUNR",
-      "RKLB",
-      "SPCX",
-      "TSLA"
-    ],
-    "headline": "Space Stock Watch: SpaceX Spectrum Deal, Rocket Lab Delays, Tesla Merger Chatter",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-16T09:42:19.454882-04:00",
     "symbols": [
       "SPCX"
@@ -5104,6 +5091,16 @@
     ],
     "headline": "Stephens &amp; Co. Maintains Overweight on Occidental Petroleum, Raises Price Target to $80",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T09:32:15.073099-04:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "Stephens & Co. Maintains Overweight on Occidental Petroleum, Raises Price Target to $80",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

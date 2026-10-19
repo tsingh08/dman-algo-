@@ -1,255 +1,5 @@
 [
   {
-    "ts": "2026-10-16T12:45:39.164958-04:00",
-    "symbols": [
-      "CLSK",
-      "CRWD",
-      "DDOG",
-      "DFNS",
-      "FTNT",
-      "ORCL",
-      "PANW",
-      "PLTR",
-      "VEEA",
-      "ZS"
-    ],
-    "headline": "Shares of software companies are trading lower amid a rotation out of technology and AI-related stocks. Rising inflation concerns and elevated oil prices are fueling expectations for further Fed tightening, while elevated borrowing costs could weigh on demand, valuations and debt metrics.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T12:47:04.896539-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase Strikes Marqeta Deal but COIN Loses 3%",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T12:50:19.191435-04:00",
-    "symbols": [
-      "MA",
-      "SPY"
-    ],
-    "headline": "&#39;U.S. Presses China On MasterCard, Citigroup Market Access In Bilateral Bangkok Talks, Official Says&#39; - CNBC",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T12:50:59.736380-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "The Hormuz Letter Posts On X &#34;BREAKING: Multiple mobile bomb shelters are now being rapidly deployed in Tel Aviv, Israel. There are also movements of Iron Dome, US THAAD and David&#39;s Sling air defense batteries today, and in the past few days. Similar preparations occurred in the days before February 28, when the war began.&#34;",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T12:54:55.118280-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "PayPal Teams Up with Glance to Turn AI Shopping Discovery into Instant Purchases",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T12:55:19.945782-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla&#39;s Roadster Just Made SpaceX More Valuable. Does Tesla Get Any Credit?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T13:13:56.668987-04:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: ServiceNow, Eaton, SentinelOne, JP Morgan Chase",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T13:13:56.767795-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: ServiceNow, Eaton, SentinelOne, JP Morgan Chase",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T13:13:57.023198-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "&#39;U.S. Presses China On MasterCard, Citigroup Market Access In Bilateral Bangkok Talks, Official Says&#39; - CNBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T13:13:57.439527-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "Bernstein Maintains Outperform on UnitedHealth Group, Lowers Price Target to $500",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T13:13:58.190408-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "France&#39;s Macron Says President Trump Diesel Deal Not Useful, Creates Doubts And Defiance",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T13:13:58.195734-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Baker Hughes Oil Rig Count -3 To 459; U.S. Baker Hughes NatGas Rig Count +1 To 133; U.S. Baker Hughes Total Rig Count 601 Vs 603 Prior",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T13:13:58.201811-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;U.S. Presses China On MasterCard, Citigroup Market Access In Bilateral Bangkok Talks, Official Says&#39; - CNBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T13:13:58.697516-04:00",
-    "symbols": [
-      "DCX"
-    ],
-    "headline": "10 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T13:13:58.785309-04:00",
-    "symbols": [
-      "DFNS"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T13:13:58.881734-04:00",
-    "symbols": [
-      "FGL"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T13:13:58.964112-04:00",
-    "symbols": [
-      "HYFM"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T13:13:59.537945-04:00",
-    "symbols": [
-      "RBNE"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T13:13:59.790077-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Tesla&#39;s Roadster Just Made SpaceX More Valuable. Does Tesla Get Any Credit?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T13:14:00.057434-04:00",
-    "symbols": [
-      "WFF"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T13:14:00.811914-04:00",
-    "symbols": [
-      "YXT"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T13:14:00.903608-04:00",
-    "symbols": [
-      "ZTG"
-    ],
-    "headline": "Crude Oil Jumps 3%; Citizens Financial Earnings Top Views",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T13:14:00.995471-04:00",
-    "symbols": [
-      "SGRX"
-    ],
-    "headline": "Crude Oil Jumps 3%; Citizens Financial Earnings Top Views",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T13:14:01.001291-04:00",
-    "symbols": [
-      "SGRX"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-16T13:14:01.085226-04:00",
     "symbols": [
       "XLAB"
@@ -5111,5 +4861,247 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T13:05:49.183320-04:00",
+    "symbols": [
+      "CHOW",
+      "MASK"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:05:49.441693-04:00",
+    "symbols": [
+      "INLF",
+      "RBNE"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:05:49.850239-04:00",
+    "symbols": [
+      "CDT"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:05:50.313704-04:00",
+    "symbols": [
+      "XHG"
+    ],
+    "headline": "12 Financials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:08:51.349648-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on Meta Platforms, Raises Price Target to $820",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T13:09:12.782319-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Stock Market Today: Nasdaq 100 Rises as AI Chip Rout Reverses, SanDisk Jumps 7%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T13:09:13.459290-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Stock Market Today: Nasdaq 100 Rises as AI Chip Rout Reverses, SanDisk Jumps 7%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T13:09:13.683160-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Stock Market Today: Nasdaq 100 Rises as AI Chip Rout Reverses, SanDisk Jumps 7%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T13:09:13.775659-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Stock Market Today: Nasdaq 100 Rises as AI Chip Rout Reverses, SanDisk Jumps 7%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T13:09:13.894957-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Stock Market Today: Nasdaq 100 Rises as AI Chip Rout Reverses, SanDisk Jumps 7%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T13:09:14.050021-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Stock Market Today: Nasdaq 100 Rises as AI Chip Rout Reverses, SanDisk Jumps 7%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:09:17.707820-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Stock Market Today: Nasdaq 100 Rises as AI Chip Rout Reverses, SanDisk Jumps 7%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T13:09:17.801116-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Stock Market Today: Nasdaq 100 Rises as AI Chip Rout Reverses, SanDisk Jumps 7%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:09:17.915642-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Stock Market Today: Nasdaq 100 Rises as AI Chip Rout Reverses, SanDisk Jumps 7%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-19T13:09:18.299517-04:00",
+    "symbols": [
+      "CHOW"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:09:18.598135-04:00",
+    "symbols": [
+      "INLF"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:09:18.794643-04:00",
+    "symbols": [
+      "MASK"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:09:18.973412-04:00",
+    "symbols": [
+      "RBNE"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:09:19.769274-04:00",
+    "symbols": [
+      "AAME"
+    ],
+    "headline": "12 Financials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:09:19.867373-04:00",
+    "symbols": [
+      "IRON"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T13:09:19.962149-04:00",
+    "symbols": [
+      "RPGL"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:09:20.066715-04:00",
+    "symbols": [
+      "CLF"
+    ],
+    "headline": "Stock Market Today: Nasdaq 100 Rises as AI Chip Rout Reverses, SanDisk Jumps 7%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T13:09:20.187063-04:00",
+    "symbols": [
+      "FUFU"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:09:20.276320-04:00",
+    "symbols": [
+      "AIBZ"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

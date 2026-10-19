@@ -1,118 +1,5 @@
 [
   {
-    "ts": "2026-10-16T11:12:16.815013-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia, Micron and Broadcom Already Trade Like Cisco Post Dot-Com Burst: Bank of America",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T11:12:17.247578-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#39;In internal messages, Meta admits that Lula&#39;s accounts were compromised; engineers mention technical failures&#39; - Folha",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T11:12:18.215670-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Nvidia, Micron and Broadcom Already Trade Like Cisco Post Dot-Com Burst: Bank of America",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T11:12:18.527916-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Nvidia, Micron and Broadcom Already Trade Like Cisco Post Dot-Com Burst: Bank of America",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T11:12:25.560249-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nvidia, Micron and Broadcom Already Trade Like Cisco Post Dot-Com Burst: Bank of America",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-16T11:12:30.301717-04:00",
-    "symbols": [
-      "RF"
-    ],
-    "headline": "Regions Finl Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T11:15:18.371074-04:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "If You Invested $1000 In Intuitive Surgical Stock 10 Years Ago, You Would Have This Much Today",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T11:16:24.578152-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Strategy Stock Is No Longer Moving Like Bitcoin \u2014 That&#39;s a Problem for Bulls",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T11:19:23.503175-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "&#39;PayPal And Epic Games Have Discussed Concerns With The Justice Department That A Settlement With Apple Could Fail To Meaningfully Curb Its Restrictions On Rival Apps And Devices&#39; - The Information",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T11:21:11.782256-04:00",
-    "symbols": [
-      "APLD",
-      "GOOGL",
-      "ORCL",
-      "TSLA"
-    ],
-    "headline": "Why Is Applied Digital Stock Falling Friday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T11:23:51.110316-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "NBA tells sportsbooks to stop certain bets, restrict parlays&#39; - ESPN",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-16T11:26:31.774114-04:00",
     "symbols": [
       "AAPL"
@@ -5123,5 +5010,116 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T11:37:53.317569-04:00",
+    "symbols": [
+      "MU",
+      "SNDK"
+    ],
+    "headline": "Why Micron and Sandisk Stocks Are Surging Monday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T11:38:24.203823-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Putin\u2019s Proposed Trump-Xi Summit In China Could Hurt US Stocks Long Term; Meta And Tesla Earnings Ahead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T11:38:24.449478-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Putin\u2019s Proposed Trump-Xi Summit In China Could Hurt US Stocks Long Term; Meta And Tesla Earnings Ahead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T11:38:24.674555-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Putin\u2019s Proposed Trump-Xi Summit In China Could Hurt US Stocks Long Term; Meta And Tesla Earnings Ahead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T11:38:25.084458-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Putin\u2019s Proposed Trump-Xi Summit In China Could Hurt US Stocks Long Term; Meta And Tesla Earnings Ahead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T11:38:25.516546-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Putin\u2019s Proposed Trump-Xi Summit In China Could Hurt US Stocks Long Term; Meta And Tesla Earnings Ahead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T11:38:25.723894-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Putin\u2019s Proposed Trump-Xi Summit In China Could Hurt US Stocks Long Term; Meta And Tesla Earnings Ahead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T11:38:26.907681-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Why Micron and Sandisk Stocks Are Surging Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T11:38:27.159556-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Why Micron and Sandisk Stocks Are Surging Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T11:38:33.681484-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Putin\u2019s Proposed Trump-Xi Summit In China Could Hurt US Stocks Long Term; Meta And Tesla Earnings Ahead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T11:38:33.941858-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Putin\u2019s Proposed Trump-Xi Summit In China Could Hurt US Stocks Long Term; Meta And Tesla Earnings Ahead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

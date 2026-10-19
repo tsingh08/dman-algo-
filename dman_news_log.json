@@ -1,28 +1,5 @@
 [
   {
-    "ts": "2026-10-16T11:04:31.983765-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly&#39;s GLP-1 Pill Wins Key European Backing for Obesity and Diabetes",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T11:07:27.075198-04:00",
-    "symbols": [
-      "AVGO",
-      "MU",
-      "NBIS",
-      "NVDA"
-    ],
-    "headline": "Nvidia, Micron and Broadcom Already Trade Like Cisco Post Dot-Com Burst: Bank of America",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T11:07:37.359218-04:00",
     "symbols": [
       "RKLB"
@@ -5119,5 +5096,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T11:28:19.271654-04:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "Benzinga&#39;s &#39;Stock Whisper&#39; Index: Five Stocks Investors Secretly Monitor But Don&#39;t Talk About Yet",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T11:29:29.527046-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Could Bitcoin&#39;s Next Big Catalyst Come From the $300 Trillion Bond Market?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

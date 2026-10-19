@@ -40183,7 +40183,13 @@
 "seen": 32,
 "last_ts": "2026-10-14T12:53:35.789567-04:00",
 "entry_min": 0.2628,
-"entry_max": 0.2628
+"entry_max": 0.2628,
+"label_fill": 0.2517,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 10.85,
+"label_outcome": "WIN",
+"label_mfe_pct": 11.16,
+"label_mae_pct": -10.65
 },
 {
 "ts": "2026-10-14T10:23:13.169103-04:00",
@@ -40245,7 +40251,13 @@
 "seen": 50,
 "last_ts": "2026-10-14T12:23:49.923931-04:00",
 "entry_min": 50.26,
-"entry_max": 50.26
+"entry_max": 50.26,
+"label_fill": 51.06,
+"label_exit_reason": "stop",
+"label_pnl_pct": -2.55,
+"label_outcome": "LOSS",
+"label_mfe_pct": 0.67,
+"label_mae_pct": -4.11
 },
 {
 "ts": "2026-10-14T10:23:14.538562-04:00",
@@ -40307,7 +40319,13 @@
 "seen": 35,
 "last_ts": "2026-10-14T11:41:03.630969-04:00",
 "entry_min": 25.79,
-"entry_max": 25.79
+"entry_max": 25.79,
+"label_fill": 25.01,
+"label_exit_reason": "stop",
+"label_pnl_pct": -1.63,
+"label_outcome": "LOSS",
+"label_mfe_pct": 0.58,
+"label_mae_pct": -2.07
 },
 {
 "ts": "2026-10-14T13:14:09.917684-04:00",
@@ -40369,7 +40387,13 @@
 "seen": 58,
 "last_ts": "2026-10-14T16:01:15.457928-04:00",
 "entry_min": 53.03,
-"entry_max": 55.99
+"entry_max": 55.99,
+"label_fill": 52.0,
+"label_exit_reason": "stop",
+"label_pnl_pct": -9.51,
+"label_outcome": "LOSS",
+"label_mfe_pct": 14.42,
+"label_mae_pct": -11.15
 },
 {
 "ts": "2026-10-15T09:26:01.451531-04:00",
@@ -40431,7 +40455,13 @@
 "seen": 12,
 "last_ts": "2026-10-15T09:40:42.024696-04:00",
 "entry_min": 53.46,
-"entry_max": 53.46
+"entry_max": 53.46,
+"label_fill": 54.86,
+"label_exit_reason": "stop",
+"label_pnl_pct": -8.87,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.81,
+"label_mae_pct": -15.78
 },
 {
 "ts": "2026-10-15T10:32:23.995066-04:00",
@@ -40493,7 +40523,13 @@
 "seen": 31,
 "last_ts": "2026-10-15T16:06:59.631336-04:00",
 "entry_min": 211.21,
-"entry_max": 212.0
+"entry_max": 212.0,
+"label_fill": 212.09,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 0.16,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.43,
+"label_mae_pct": -0.1
 },
 {
 "ts": "2026-10-15T11:39:55.889115-04:00",
@@ -40555,7 +40591,13 @@
 "seen": 46,
 "last_ts": "2026-10-15T15:58:53.266837-04:00",
 "entry_min": 10.37,
-"entry_max": 10.57
+"entry_max": 10.57,
+"label_fill": 10.57,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.19,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 1.8,
+"label_mae_pct": -0.57
 },
 {
 "ts": "2026-10-16T09:42:35.072820-04:00",

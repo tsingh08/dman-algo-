@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-16T14:37:21.696810-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Shopify Price Hikes Signal Pricing Power as JPMorgan Keeps $200 Bullish Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T14:37:22.912151-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla&#39;s Flying Roadster Sends Delivery Odds Tumbling Despite Spectacular Demo",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T14:37:28.091177-04:00",
     "symbols": [
       "GME"
@@ -5092,6 +5072,26 @@
     ],
     "headline": "LQR House shares are trading higher after the company announced a one-year agreement to secure up to $3 million in OpenAI-powered AI computing resources for AI research and portfolio optimization initiatives.",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T14:37:57.696112-04:00",
+    "symbols": [
+      "BIVI"
+    ],
+    "headline": "BioVie shares are trading higher after the company announced the presentation of Phase 2 Long COVID data showing statistically significant improvements in fatigue and cognitive measures in certain patient subgroups treated with bezisterim.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T14:39:57.391861-04:00",
+    "symbols": [
+      "ARQT"
+    ],
+    "headline": "Guggenheim Maintains Buy on Arcutis Biotherapeutics, Raises Price Target to $44",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

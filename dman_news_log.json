@@ -1,126 +1,5 @@
 [
   {
-    "ts": "2026-10-16T09:53:56.233318-04:00",
-    "symbols": [
-      "ZTG"
-    ],
-    "headline": "Dow Surges 250 Points; M&amp;T Bank Posts Upbeat Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T09:53:56.370227-04:00",
-    "symbols": [
-      "SGRX"
-    ],
-    "headline": "Dow Surges 250 Points; M&amp;T Bank Posts Upbeat Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T09:53:56.613815-04:00",
-    "symbols": [
-      "RUBI"
-    ],
-    "headline": "Dow Surges 250 Points; M&amp;T Bank Posts Upbeat Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T10:00:27.556686-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "NVDA-Led AI Boom Looks a Lot Like the Railroad Bubble of 1873, Pulitzer-Winning Historian Warns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T10:00:27.681996-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "NVDA-Led AI Boom Looks a Lot Like the Railroad Bubble of 1873, Pulitzer-Winning Historian Warns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T10:00:40.488288-04:00",
-    "symbols": [
-      "EARN"
-    ],
-    "headline": "Ellington Credit Announces $20M Buyback Plan",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T10:06:33.910378-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Reported October 15, MSCI Announces Results Of Consultation On Eligibility Of Non-Operating Companies In The MSCI Global Investable Market Indexes",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T10:08:06.066848-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Strategy shares are trading lower after MSCI announced a review that may bar non-operating companies from inclusion in its indices from November 30.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T10:08:37.294700-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Putin&#39;s Envoy Dmitriev Says U.S., Russia Discuss Projects In Arctic, LNG; U.S. Finance Ministry Asked Our RDIF Fund To Facilitate Diesel Deal",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T10:09:03.772309-04:00",
-    "symbols": [
-      "KPLT"
-    ],
-    "headline": "Ladder Capital Posts Upbeat Q3 Earnings, Joins Alcoa, Hyster-Yale And Other Big Stocks Moving Higher On Friday",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T10:10:00.557849-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL"
-    ],
-    "headline": "&#39;Anthropic in Discussions With NYC Comptroller After IPO Letter&#39; - Bloomberg",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T10:10:33.269765-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "'iPhone Duo sells out moments after pre-orders begin' - Apple Insider",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-16T10:10:33.407424-04:00",
     "symbols": [
       "MSFT"
@@ -5106,5 +4985,125 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T10:16:27.957011-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#34;Anthropic Readies Model That Reads Users&#39; Intentions Better&#34; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T10:16:28.875644-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#34;Anthropic Readies Model That Reads Users&#39; Intentions Better&#34; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T10:16:29.074927-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#34;Anthropic Readies Model That Reads Users&#39; Intentions Better&#34; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T10:16:29.280079-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Elon Musk Has a Pattern, Says Analyst Who Predicted SpaceX Spectrum Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T10:16:30.683365-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Silence Therapeutics, Disc Medicine, Veradermics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T10:16:39.441535-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Elon Musk Has a Pattern, Says Analyst Who Predicted SpaceX Spectrum Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T10:16:40.700159-04:00",
+    "symbols": [
+      "IRON"
+    ],
+    "headline": "Silence Therapeutics, Disc Medicine, Veradermics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T10:16:42.180276-04:00",
+    "symbols": [
+      "EVAX"
+    ],
+    "headline": "Evaxion\u2019s EVX-01 Phase 2 Trial Shows 92% Of Melanoma Patients Still Responding At Two Years With No Relapses, And All Responses Maintained At Three Years Without Progression",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T10:16:42.520847-04:00",
+    "symbols": [
+      "EQPT"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T10:16:42.523826-04:00",
+    "symbols": [
+      "EQPT"
+    ],
+    "headline": "EquipmentShare.com Raises FY2026 Sales Guidance from $5.254B-$5.682B to $5.808B-$6.045B vs $5.580B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T10:16:42.900684-04:00",
+    "symbols": [
+      "GPRO"
+    ],
+    "headline": "GoPro Files Preliminary Proxy Statement; Proposed Merger With Starman Optical On Track; Companies Reaffirm Commitment To Completing Proposed Merger On Previously Announced Terms",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T10:16:43.341360-04:00",
+    "symbols": [
+      "MANE"
+    ],
+    "headline": "Silence Therapeutics, Disc Medicine, Veradermics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

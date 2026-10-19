@@ -750,27 +750,5 @@
    "regime": "CHOP",
    "regime_score": 9
   }
- },
- {
-  "ts": "2026-10-19T12:22:28.825039-04:00",
-  "kind": "signal",
-  "ticker": "IRON",
-  "verdict": "skip",
-  "confidence": 85,
-  "reason": "CHOP regime (score 10) conflicts with morning runner setup. Gap holding but regime hostile to continuation. Risk/reward attractive but regime is concrete flaw.",
-  "facts": {
-   "setup": "Morning Runner",
-   "bias": "LONG",
-   "confluence_score": 100,
-   "entry": 77.94,
-   "stop": 71.44,
-   "target1": 99.59,
-   "rr": 3.33,
-   "rvol": 14.55,
-   "rsi": 66.4,
-   "reason": "News gap +27.9% on 14.5x vol, holding open | Float 33M, Short 22%",
-   "regime": "CHOP",
-   "regime_score": 10
-  }
  }
 ]

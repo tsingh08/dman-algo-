@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-16T12:11:59.241864-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "What&#39;s Going On With Fermi Stock Friday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T12:21:29.046185-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Prologis Analyst Touts \u2018Ample Defenses\u2019 Against Data Center Challenges",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T12:27:03.742932-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "ExxonMobil Sees $4.5 Billion Boost from Higher Refining Margins",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-16T12:27:17.317655-04:00",
     "symbols": [
       "COIN",
@@ -5110,5 +5080,39 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T12:30:17.168652-04:00",
+    "symbols": [
+      "CLSK",
+      "NBIS",
+      "PLTR"
+    ],
+    "headline": "Shares of AI cloud services companies are trading higher as the sector rebounds from recent weakness after Goldman Sachs upgraded CoreWeave, easing concerns about AI infrastructure.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T12:30:34.724919-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Could Buy Tesla for $480 Per Share in $3.74 Trillion Merger, RBC Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T12:31:03.301126-04:00",
+    "symbols": [
+      "AMD",
+      "GS",
+      "QQQ"
+    ],
+    "headline": "Why Is AMD Stock Surging on Monday?",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

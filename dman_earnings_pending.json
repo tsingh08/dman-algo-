@@ -1,4 +1,56 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "ticker": "NFLX",
+      "earn_date": "2026-10-20",
+      "created_at": "2026-10-19T11:27:22.459370-04:00",
+      "expires_at": "2026-10-19T15:27:22.459377-04:00",
+      "status": "awaiting_approval",
+      "plan": {
+        "ticker": "NFLX",
+        "earn_date": "2026-10-20",
+        "timing": "PENDING-TOMORROW",
+        "current_price": 69.5615005493164,
+        "sets": 1,
+        "net_debit": 1.09,
+        "total_cost": 109.0,
+        "directional": null,
+        "last_moves_pct": [
+          -5.4,
+          -11.9,
+          11.5,
+          -7.9
+        ],
+        "call": {
+          "long_occ": "NFLX261023C00074000",
+          "short_occ": "NFLX261023C00076000",
+          "long_strike": 74.0,
+          "short_strike": 76.0,
+          "long_oi": 2145,
+          "short_oi": 3554,
+          "net_debit": 0.55,
+          "expiry": "2026-10-23",
+          "dte": 4,
+          "max_gain": 145.0,
+          "breakeven": 74.55
+        },
+        "put": {
+          "long_occ": "NFLX261023P00065000",
+          "short_occ": "NFLX261023P00063000",
+          "long_strike": 65.0,
+          "short_strike": 63.0,
+          "long_oi": 4283,
+          "short_oi": 822,
+          "net_debit": 0.54,
+          "expiry": "2026-10-23",
+          "dte": 4,
+          "max_gain": 146.0,
+          "breakeven": 64.46
+        },
+        "max_loss": 109.0,
+        "ai_analysis": ""
+      }
+    }
+  ],
   "consumed": {}
 }

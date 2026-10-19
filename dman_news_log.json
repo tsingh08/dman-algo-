@@ -1,34 +1,5 @@
 [
   {
-    "ts": "2026-10-16T14:17:56.066832-04:00",
-    "symbols": [
-      "QMLS"
-    ],
-    "headline": "Compass Point Initiates Coverage On QumulusAI with Buy Rating, Announces Price Target of $9",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T14:19:21.170719-04:00",
-    "symbols": [
-      "AMAT",
-      "AMD",
-      "ARM",
-      "AVGO",
-      "IONQ",
-      "KLAC",
-      "MRVL",
-      "QCOM",
-      "TE",
-      "WOLF"
-    ],
-    "headline": "Shares of semiconductor and chip companies are trading lower as rising inflation concerns and elevated energy prices fuel expectations for further Fed rate hikes. Elevated borrowing costs could pressure semiconductor manufacturing and AI infrastructure investments while straining customer budgets. The Philadelphia Semiconductor Index (SOX) has declined for seven consecutive trading sessions, matching its longest losing streak since the 2008 financial crisis.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-16T14:19:43.556607-04:00",
     "symbols": [
       "TSLA"
@@ -5093,6 +5064,26 @@
   },
   {
     "ts": "2026-10-19T13:53:48.014613-04:00",
+    "symbols": [
+      "IRON"
+    ],
+    "headline": "BMO Capital Maintains Outperform on Disc Medicine, Raises Price Target to $120",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T13:55:02.583364-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Swiss Pharma Giant Roche Suspends German Capital Commitments Amid Dispute Over Drug Discounts",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T13:55:12.255194-04:00",
     "symbols": [
       "IRON"
     ],

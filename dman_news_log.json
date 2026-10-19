@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-16T14:37:21.095823-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "SemiAnalysis Pots On X &#34;SHOCKING: We have confirmed that multiple Neoclouds have been refused access to GTC Berlin due to them adding AMD GPUs, TPUs, and other chips to their cloud offerings. Note that this doesn&#39;t apply to hyperscalers, as they have more buying power. But for neoclouds, executives feel NVIDIA has been using high-pressure tactics to keep them NVIDIA-only....&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T14:37:21.696810-04:00",
     "symbols": [
       "META"
@@ -5094,5 +5084,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T14:33:44.276575-04:00",
+    "symbols": [
+      "YHC"
+    ],
+    "headline": "LQR House shares are trading higher after the company announced a one-year agreement to secure up to $3 million in OpenAI-powered AI computing resources for AI research and portfolio optimization initiatives.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

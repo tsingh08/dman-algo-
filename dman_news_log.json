@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-16T10:21:17.428889-04:00",
-    "symbols": [
-      "VRNS"
-    ],
-    "headline": "TD Cowen Downgrades Varonis Systems to Hold, Lowers Price Target to $49.75",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T10:22:18.504281-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Gary Black Warns Tesla Bulls Against Hyping SpaceX Merger, Says Roadster\u2019s Brand Impact Could Outweigh Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T10:23:52.016260-04:00",
     "symbols": [
       "TSLA"
@@ -5110,6 +5090,37 @@
     "headline": "EXCLUSIVE: Sports Betting No More Addictive Than Stock Trading, Smarkets CEO Says",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T10:59:34.481513-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "TeraWulf Rebounds 5% As CEO Distinguishes Model From Neoclouds",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T11:00:30.893525-04:00",
+    "symbols": [
+      "AMZN",
+      "AVGO",
+      "DIA",
+      "IWM",
+      "NEM",
+      "NVDA",
+      "ORCL",
+      "QQQ",
+      "SLB",
+      "SPY",
+      "TSLA",
+      "XOM"
+    ],
+    "headline": "9 Of 11 Sectors Fall As Growth Leads",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

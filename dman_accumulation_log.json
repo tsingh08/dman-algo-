@@ -2131,5 +2131,23 @@
   "drift_pct": 0.16,
   "range_ratio": 0.23,
   "near_high": 0.979
+ },
+ {
+  "ts": "2026-10-19T15:38:56.346439-04:00",
+  "ticker": "GOCT",
+  "price": 43.1,
+  "rvol": 21.27,
+  "drift_pct": 0.35,
+  "range_ratio": 0.52,
+  "near_high": 1.0
+ },
+ {
+  "ts": "2026-10-19T15:38:56.346451-04:00",
+  "ticker": "FCRS",
+  "price": 10.2,
+  "rvol": 6.8,
+  "drift_pct": 0.0,
+  "range_ratio": 0.29,
+  "near_high": 0.993
  }
 ]

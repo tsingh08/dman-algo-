@@ -37,6 +37,57 @@
         "max_loss": 151.0,
         "ai_analysis": "GE is in a mixed technical spot: above the 20-day EMA but below the 50-day, RSI near neutral at 43.5, MACD negative, and a death-cross setup flagged in headlines, so momentum is soft despite a +1.6% 5-day bump. Consensus estimates ($2.01 EPS, $12.83B revenue) are notably higher than last quarter's actuals ($1.66, $12.18B), implying the market expects continued growth, which raises the bar for a beat. The last four post-earnings moves (-2.6%, +4.8%, +7.4%, +2.0%) show GE often moves well beyond the $151 max loss/debit on this spread, which is favorable for a double-sided structure designed to profit from a big move in either direction, though the one negative print shows downside risk isn't trivial. Headlines are mixed-to-neutral: one piece flags valuation concerns and a death cross (b"
       }
+    },
+    {
+      "ticker": "NFLX",
+      "earn_date": "2026-10-20",
+      "created_at": "2026-10-19T15:42:00.482033-04:00",
+      "expires_at": "2026-10-19T19:42:00.482039-04:00",
+      "status": "awaiting_approval",
+      "plan": {
+        "ticker": "NFLX",
+        "earn_date": "2026-10-20",
+        "timing": "PENDING-TOMORROW",
+        "current_price": 69.74600219726562,
+        "sets": 1,
+        "net_debit": 1.2,
+        "total_cost": 120.0,
+        "directional": null,
+        "last_moves_pct": [
+          -5.4,
+          -11.9,
+          11.5,
+          -7.9
+        ],
+        "call": {
+          "long_occ": "NFLX261023C00075000",
+          "short_occ": "NFLX261023C00078000",
+          "long_strike": 75.0,
+          "short_strike": 78.0,
+          "long_oi": 9882,
+          "short_oi": 7203,
+          "net_debit": 0.67,
+          "expiry": "2026-10-23",
+          "dte": 4,
+          "max_gain": 233.0,
+          "breakeven": 75.67
+        },
+        "put": {
+          "long_occ": "NFLX261023P00065000",
+          "short_occ": "NFLX261023P00063000",
+          "long_strike": 65.0,
+          "short_strike": 63.0,
+          "long_oi": 4283,
+          "short_oi": 822,
+          "net_debit": 0.53,
+          "expiry": "2026-10-23",
+          "dte": 4,
+          "max_gain": 147.0,
+          "breakeven": 64.47
+        },
+        "max_loss": 120.0,
+        "ai_analysis": ""
+      }
     }
   ],
   "consumed": {

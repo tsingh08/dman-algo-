@@ -21,9 +21,10 @@
   "ticker": "NVDA",
   "order_id": "70dd0b26-d8fc-4007-af34-dab8794455ad",
   "submitted": "2026-10-19",
-  "entry_date": null,
-  "status": "pending",
+  "entry_date": "2026-10-19",
+  "status": "open",
   "limit": "215.2",
-  "note": "manual dip-in-uptrend 2026-10-19"
+  "note": "manual dip-in-uptrend 2026-10-19",
+  "fill_px": 215.2
  }
 ]

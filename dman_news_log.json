@@ -1,68 +1,5 @@
 [
   {
-    "ts": "2026-10-16T12:27:17.317655-04:00",
-    "symbols": [
-      "COIN",
-      "HOOD",
-      "MSTR"
-    ],
-    "headline": "Looking Beyond Bitcoin? Analysts See Bigger Opportunities in These 5 Altcoins",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T12:27:22.630248-04:00",
-    "symbols": [
-      "HODO"
-    ],
-    "headline": "Why Alcoa Shares Are Trading Higher; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T12:31:31.245077-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Live On CNBC, Kevin Simpson Announces Bought AbbVie",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T12:31:38.909204-04:00",
-    "symbols": [
-      "FOX"
-    ],
-    "headline": "Fox's Roku Deal 'Fundamentally Changes' the Game, Analyst Upgrades Stock to Buy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T12:33:06.505038-04:00",
-    "symbols": [
-      "APLD",
-      "CRWD",
-      "DIA",
-      "IWM",
-      "MRNA",
-      "MSTR",
-      "MU",
-      "PANW",
-      "QQQ",
-      "SMCI",
-      "SNDK",
-      "SNOW"
-    ],
-    "headline": "Nasdaq 100 Slides As Micron, SanDisk, CoreWeave Sink: Stock Market Today",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-16T12:42:48.388335-04:00",
     "symbols": [
       "SNOW"
@@ -5114,5 +5051,55 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T12:34:27.252188-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Transportation Secretary Sean P. Duffy Announces Over $2.3B Investment Into Rail Infrastructure, Safety Across America",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T12:34:55.109912-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla shares are trading higher after reports suggesting that the company&#39;s merger with SpaceX may be moving closer to becoming a reality, with prediction market lines for the possibility of that event moving well above 50%.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T12:35:26.661067-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Why Is AMD Stock Surging on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T12:35:35.565794-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Why Is AMD Stock Surging on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T12:35:37.222313-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Why Is AMD Stock Surging on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

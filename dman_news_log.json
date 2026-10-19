@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-16T11:07:37.359218-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Rocket Lab shares are trading lower after Citizens lowered its price target on the stock from $130 to $90.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-16T11:11:44.458113-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "QUICK SPARK: South Korea\u2019s KOSPI Logs Worst Week Since 2008\u2019s Lehman Brothers Collapse",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T11:12:16.815013-04:00",
     "symbols": [
       "NVDA"
@@ -5115,6 +5095,33 @@
     "headline": "Could Bitcoin&#39;s Next Big Catalyst Come From the $300 Trillion Bond Market?",
     "source": "benzinga",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T11:31:40.569704-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "&#39;Dan Lin Out as Netflix Film Chief&#39; - Variety",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T11:34:22.469277-04:00",
+    "symbols": [
+      "AAPL",
+      "AMZN",
+      "META",
+      "MSFT",
+      "NVDA",
+      "QQQ",
+      "SPY",
+      "TSLA"
+    ],
+    "headline": "Putin\u2019s Proposed Trump-Xi Summit In China Could Hurt US Stocks Long Term; Meta And Tesla Earnings Ahead",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-16T09:42:20.482592-04:00",
-    "symbols": [
-      "VRNS"
-    ],
-    "headline": "Wells Fargo Downgrades Varonis Systems to Equal-Weight, Lowers Price Target to $49.75",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-16T09:42:20.489043-04:00",
     "symbols": [
       "VRNS"
@@ -5102,6 +5092,16 @@
     "headline": "Bitmine Buys 12,535 Ethereum as Tom Lee Calls Tech, Crypto a \u2018Coiled Spring\u2019",
     "source": "benzinga",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T10:00:05.497331-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "NAHB Housing Market Index For October 29 Vs 31 Est.",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

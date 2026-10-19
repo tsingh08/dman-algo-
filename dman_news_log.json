@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-16T11:26:37.742262-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Strategy Stock Is No Longer Moving Like Bitcoin \u2014 That&#39;s a Problem for Bulls",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T11:26:38.650230-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "NBA tells sportsbooks to stop certain bets, restrict parlays&#39; - ESPN",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-16T11:26:42.291039-04:00",
     "symbols": [
       "ORCL"
@@ -5121,5 +5101,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T11:56:43.483112-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "18 Globo Titles Heading To Netflix In Unprecedented Licensing Agreement",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T11:56:45.885941-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Why Is Snowflake Stock Surging Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

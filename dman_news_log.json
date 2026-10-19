@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-16T10:10:33.793389-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "TSLA, MU, CRWV and More: 5 Stocks Investors Couldn't Stop Buzzing About This Week (CORRECTED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T10:10:33.799705-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Zeta Global Stock Hits 52-Week High - Here's Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T10:10:34.215084-04:00",
     "symbols": [
       "META"
@@ -5105,5 +5085,26 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T10:27:52.500173-04:00",
+    "symbols": [
+      "DDOG"
+    ],
+    "headline": "Why Is Datadog Stock Surging Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T10:30:22.931953-04:00",
+    "symbols": [
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "SpaceX Stock Moves Higher: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

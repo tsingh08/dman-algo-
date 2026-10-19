@@ -40718,8 +40718,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 25,
-"last_ts": "2026-10-19T15:43:43.019022-04:00",
+"seen": 26,
+"last_ts": "2026-10-19T15:51:41.165195-04:00",
 "entry_min": 78.56,
 "entry_max": 79.4
 },
@@ -40730,7 +40730,7 @@
 "setup": "Gap & Hold",
 "bias": "LONG",
 "taken": false,
-"reject": "setup disabled: 9W/34L over 43 live trades (21% WR, -81.0% c",
+"reject": "earnings blackout",
 "score": 100,
 "final_score": 100.0,
 "ai_scored": false,
@@ -40748,7 +40748,7 @@
 "regime_score": 10,
 "mtf_ok": true,
 "regime_ok": true,
-"earnings_ok": true,
+"earnings_ok": false,
 "macro_ok": true,
 "divergence_free": true,
 "breakdown": {
@@ -40759,7 +40759,7 @@
 "Sector ETF": 0,
 "AI Theme": 0,
 "Insider": 0,
-"Earnings": 5,
+"Earnings": 0,
 "Macro": 5,
 "Earn React": 2,
 "Fibonacci": 0,
@@ -40780,8 +40780,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 2,
-"last_ts": "2026-10-19T15:31:44.561903-04:00",
+"seen": 4,
+"last_ts": "2026-10-19T15:51:52.708109-04:00",
 "entry_min": 14.41,
 "entry_max": 14.41
 }

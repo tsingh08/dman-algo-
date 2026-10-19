@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-16T12:43:02.169135-04:00",
-    "symbols": [
-      "AA"
-    ],
-    "headline": "Nasdaq 100 Slides As Micron, SanDisk, CoreWeave Sink: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T12:44:50.593302-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Why Is U.S. Bancorp Stock Gaining Friday?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T12:45:16.400073-04:00",
     "symbols": [
       "SPCX",
@@ -5101,6 +5081,35 @@
     ],
     "headline": "Waymo Is Bringing Robotaxis to Canada in 2028 \u2014 Toronto\u2019s Winter Weather Will Put Them to the Test",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T12:58:22.303247-04:00",
+    "symbols": [
+      "AMZN",
+      "APLD",
+      "AVGO",
+      "DIA",
+      "IWM",
+      "MRVL",
+      "MU",
+      "QQQ",
+      "SKHY",
+      "SNDK"
+    ],
+    "headline": "Stock Market Today: Nasdaq 100 Rises as AI Chip Rout Reverses, SanDisk Jumps 7%",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T12:58:56.497627-04:00",
+    "symbols": [
+      "JOBY"
+    ],
+    "headline": "Morgan Stanley Maintains Equal-Weight on Joby Aviation, Lowers Price Target to $10",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-16T15:56:30.553727-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Stock Hits Record High as iPhone Duo Pre-Orders Sell Out in Minutes",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-16T15:56:30.559857-04:00",
     "symbols": [
       "AAPL"
@@ -5091,5 +5081,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-19T15:13:25.361439-04:00",
+    "symbols": [
+      "CLF"
+    ],
+    "headline": "Barclays Maintains Underweight on Cleveland-Cliffs, Raises Price Target to $11",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

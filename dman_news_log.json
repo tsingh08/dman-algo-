@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-16T11:01:56.858086-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "9 Of 11 Sectors Rise In Friday Trading As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T11:01:57.074412-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "9 Of 11 Sectors Rise In Friday Trading As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T11:01:57.877054-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "9 Of 11 Sectors Rise In Friday Trading As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-16T11:01:58.311005-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "9 Of 11 Sectors Rise In Friday Trading As Cyclicals Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T11:02:00.171332-04:00",
     "symbols": [
       "HOOD"
@@ -5119,5 +5079,45 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T11:24:34.673976-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;Of Course&#39; Bitcoin Could Grow to $50 Trillion, Jordi Visser Says: But How?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T11:24:35.521921-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;Of Course&#39; Bitcoin Could Grow to $50 Trillion, Jordi Visser Says: But How?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T11:24:44.819643-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Of Course&#39; Bitcoin Could Grow to $50 Trillion, Jordi Visser Says: But How?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T11:24:47.482232-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "&#39;Of Course&#39; Bitcoin Could Grow to $50 Trillion, Jordi Visser Says: But How?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

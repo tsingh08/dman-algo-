@@ -1,45 +1,7 @@
 {
-  "pending": [
-    {
-      "ticker": "GE",
-      "earn_date": "2026-10-20",
-      "created_at": "2026-10-19T12:01:56.962447-04:00",
-      "expires_at": "2026-10-19T16:01:56.962453-04:00",
-      "status": "awaiting_approval",
-      "plan": {
-        "ticker": "GE",
-        "earn_date": "2026-10-20",
-        "timing": "PENDING-TOMORROW",
-        "current_price": 313.3500061035156,
-        "sets": 1,
-        "net_debit": 1.51,
-        "total_cost": 151.0,
-        "directional": null,
-        "last_moves_pct": [
-          -2.6,
-          4.8,
-          7.4,
-          2.0
-        ],
-        "call": {
-          "long_occ": "GE261023C00335000",
-          "short_occ": "GE261023C00345000",
-          "long_strike": 335.0,
-          "short_strike": 345.0,
-          "long_oi": 167,
-          "short_oi": 73,
-          "net_debit": 1.51,
-          "expiry": "2026-10-23",
-          "dte": 4,
-          "max_gain": 849.0,
-          "breakeven": 336.51
-        },
-        "max_loss": 151.0,
-        "ai_analysis": "GE is in a mixed technical spot: above the 20-day EMA but below the 50-day, RSI near neutral at 43.5, MACD negative, and a death-cross setup flagged in headlines, so momentum is soft despite a +1.6% 5-day bump. Consensus estimates ($2.01 EPS, $12.83B revenue) are notably higher than last quarter's actuals ($1.66, $12.18B), implying the market expects continued growth, which raises the bar for a beat. The last four post-earnings moves (-2.6%, +4.8%, +7.4%, +2.0%) show GE often moves well beyond the $151 max loss/debit on this spread, which is favorable for a double-sided structure designed to profit from a big move in either direction, though the one negative print shows downside risk isn't trivial. Headlines are mixed-to-neutral: one piece flags valuation concerns and a death cross (b"
-      }
-    }
-  ],
+  "pending": [],
   "consumed": {
-    "NFLX_2026-10-20": 1792438059.9315846
+    "NFLX_2026-10-20": 1792438059.9315846,
+    "GE_2026-10-20": 1792440160.5233889
   }
 }

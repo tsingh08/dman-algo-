@@ -1,52 +1,5 @@
 [
   {
-    "ts": "2026-10-16T12:02:33.631578-04:00",
-    "symbols": [
-      "AMAT",
-      "AMD",
-      "ARM",
-      "AVGO",
-      "IONQ",
-      "KLAC",
-      "MRVL",
-      "TE"
-    ],
-    "headline": "Shares of semiconductor and chip companies are trading lower as rising inflation concerns and elevated energy prices fuel expectations for further Fed rate hikes. Elevated borrowing costs could pressure semiconductor manufacturing and AI infrastructure investments while straining customer budgets. The Philadelphia Semiconductor Index (SOX) has declined for seven consecutive trading sessions, matching its longest losing streak since the 2008 financial crisis.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T12:10:11.896129-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron, SK Hynix Have an AI Boom Problem \u2014 China Could Make It Worse",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T12:10:12.169534-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Micron, SK Hynix Have an AI Boom Problem \u2014 China Could Make It Worse",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T12:10:26.609621-04:00",
-    "symbols": [
-      "ADUR"
-    ],
-    "headline": "Aduro Clean Technologies Q1 EPS $0.02 Beats $(0.09) Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-16T12:11:59.241864-04:00",
     "symbols": [
       "AMD"
@@ -5074,6 +5027,46 @@
     ],
     "headline": "Recursion Pharmaceuticals shares are trading after Needham reiterated its Buy rating on the stock and maintained a $8 price target.",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T12:20:59.465487-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;DeepSeek Working With Huawei Technologies To Shape Design Of Future AI Chips&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T12:21:07.730599-04:00",
+    "symbols": [
+      "OKLO"
+    ],
+    "headline": "Piper Sandler Maintains Overweight on Oklo, Lowers Price Target to $49",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T12:21:10.327994-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "You Could Be Right About Valuations But Wrong About Prices",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T12:21:10.332831-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;DeepSeek Working With Huawei Technologies To Shape Design Of Future AI Chips&#39; - The Information",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   },

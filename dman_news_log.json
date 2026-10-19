@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-16T09:50:04.218063-04:00",
-    "symbols": [
-      "LUNR"
-    ],
-    "headline": "Space Stock Watch: SpaceX Spectrum Deal, Rocket Lab Delays, Tesla Merger Chatter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T09:50:34.379412-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia GPUs Become Wall Street Collateral As AI Financing Expands",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T09:53:44.371316-04:00",
     "symbols": [
       "MSFT",
@@ -5105,6 +5085,26 @@
     ],
     "headline": "Silence Therapeutics, Disc Medicine, Veradermics And Other Big Stocks Moving Higher On Monday",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T10:07:32.807262-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Why Is Palantir Technologies Stock Gaining Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T10:07:46.288305-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Silence Therapeutics, Disc Medicine, Veradermics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

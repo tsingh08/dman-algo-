@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-16T14:25:24.687117-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Shopify Price Hikes Signal Pricing Power as JPMorgan Keeps $200 Bullish Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T14:25:24.990663-04:00",
     "symbols": [
       "TSLA"
@@ -5095,6 +5085,16 @@
     "headline": "Gilead Bolsters Inflammatory Bowel Disease Pipeline With Promising Mid-Stage Trial Success",
     "source": "benzinga",
     "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T14:07:42.619865-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Researchers Using Supercomputer Jupiter For Fault-Tolerant Computing Simulation",
+    "source": "benzinga",
+    "tag": "held",
     "sentiment": "positive"
   }
 ]

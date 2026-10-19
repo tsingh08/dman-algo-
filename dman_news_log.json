@@ -1,48 +1,5 @@
 [
   {
-    "ts": "2026-10-16T13:37:11.953711-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Will Target Rural America Before Big Cities, Telecom Analyst Predicts",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T13:39:33.803713-04:00",
-    "symbols": [
-      "DIA",
-      "IWM",
-      "QQQ",
-      "SPY"
-    ],
-    "headline": "Major indices are trading lower as rising Treasury yields and hotter-than-expected inflation data this week fuel a rotation out of tech and AI-related stocks. Credit risks tied to the AI infrastructure buildout are adding to the pressure, with the VanEck Semiconductor ETF (SMH) down 8% this week, on track for its biggest weekly decline since July.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T13:41:40.613263-04:00",
-    "symbols": [
-      "LRHC"
-    ],
-    "headline": "La Rosa Holdings shares are trading lower. The company announced a corporate name change to Stratum Holdings and a ticker change to SRTM, effective October 19.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T13:43:31.008605-04:00",
-    "symbols": [
-      "DECK"
-    ],
-    "headline": "Raymond James Maintains Outperform on Deckers Outdoor, Lowers Price Target to $105",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T13:44:06.269507-04:00",
     "symbols": [
       "MSFT"
@@ -5101,5 +5058,57 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:34:18.451148-04:00",
+    "symbols": [
+      "DIA",
+      "QQQ",
+      "SPY"
+    ],
+    "headline": "Dow Jones Industrial Average in Spotlight: 5 Stocks Report This Week, Including 2 of the Worst Performing",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:35:12.396825-04:00",
+    "symbols": [
+      "AAPL",
+      "MRVL",
+      "NBIS",
+      "NVDA",
+      "ORCL",
+      "SNDK"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T13:35:12.978187-04:00",
+    "symbols": [
+      "ETN",
+      "HTZ",
+      "LMT",
+      "UBER"
+    ],
+    "headline": "10 Industrials Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:35:13.307086-04:00",
+    "symbols": [
+      "AMZN",
+      "BABA",
+      "TSLA"
+    ],
+    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-16T11:01:56.243712-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Rep. David Taylor Has Bought Up to $45K Worth Of AT&amp;T Stock: Here\u2019s What You Should Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T11:01:56.858086-04:00",
     "symbols": [
       "META"
@@ -5115,6 +5105,19 @@
     "headline": "Why XCF Global Shares Are Trading Higher By Around 65%; Here Are 20 Stocks Moving Premarket",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T11:18:35.317803-04:00",
+    "symbols": [
+      "META",
+      "MSFT",
+      "SPCX",
+      "SPY"
+    ],
+    "headline": "&#39;Of Course&#39; Bitcoin Could Grow to $50 Trillion, Jordi Visser Says: But How?",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

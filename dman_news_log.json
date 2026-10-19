@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-16T09:42:19.454882-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Space Stock Watch: SpaceX Spectrum Deal, Rocket Lab Delays, Tesla Merger Chatter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T09:42:19.622050-04:00",
     "symbols": [
       "ZTG"
@@ -5102,6 +5092,16 @@
     "headline": "Stephens & Co. Maintains Overweight on Occidental Petroleum, Raises Price Target to $80",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T09:38:50.956325-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;US Banning Chinese AI DeepSeek From Government Agency It Systems&#39; - Reuters News",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

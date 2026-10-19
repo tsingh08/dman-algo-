@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-16T10:13:02.515954-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;Anthropic in Discussions With NYC Comptroller After IPO Letter&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T10:13:02.524254-04:00",
     "symbols": [
       "AMZN"
@@ -5112,5 +5102,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T10:47:18.934841-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Alphabet Stock Rises: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

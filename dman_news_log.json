@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-16T12:42:52.338099-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Looking Beyond Bitcoin? Analysts See Bigger Opportunities in These 5 Altcoins",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T12:42:56.052803-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Nasdaq 100 Slides As Micron, SanDisk, CoreWeave Sink: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T12:42:56.168317-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Nasdaq 100 Slides As Micron, SanDisk, CoreWeave Sink: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T12:42:56.301024-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Nasdaq 100 Slides As Micron, SanDisk, CoreWeave Sink: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T12:43:01.868063-04:00",
-    "symbols": [
-      "FOX"
-    ],
-    "headline": "Fox&#39;s Roku Deal &#39;Fundamentally Changes&#39; the Game, Analyst Upgrades Stock to Buy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T12:43:02.001041-04:00",
-    "symbols": [
-      "FOXA"
-    ],
-    "headline": "Fox&#39;s Roku Deal &#39;Fundamentally Changes&#39; the Game, Analyst Upgrades Stock to Buy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-16T12:43:02.006313-04:00",
     "symbols": [
       "FOXA"
@@ -5102,5 +5042,66 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T12:46:52.175662-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Stock Trends Higher: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T12:47:08.619238-04:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "Live On CNBC, Bill Baruch Announces Sold Arm Holdings; Sold Entegris",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T12:48:00.325466-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon.com shares are trading higher after Morgan Stanley maintained an Overweight rating on the stock and raised its price target from $335 to $350. The company announced a partnership with X-Energy and American Electric Power to bring a SMR project to Indiana.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T12:49:59.554600-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "&#39;Apple Announces Oct. 28 Event for Touch-Screen MacBook Pro&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T12:50:46.909642-04:00",
+    "symbols": [
+      "AMZN",
+      "TSLA"
+    ],
+    "headline": "Waymo Is Bringing Robotaxis to Canada in 2028 \u2014 Toronto\u2019s Winter Weather Will Put Them to the Test",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T12:51:16.023701-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on DraftKings, Lowers Price Target to $31",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

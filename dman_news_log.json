@@ -1,38 +1,5 @@
 [
   {
-    "ts": "2026-10-16T11:28:29.907941-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Why Is Applied Digital Stock Falling Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T11:30:45.546079-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "JP Morgan Maintains Overweight on UnitedHealth Group, Raises Price Target to $524",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T11:30:51.955738-04:00",
-    "symbols": [
-      "APLD",
-      "MARA",
-      "NBIS",
-      "RIOT"
-    ],
-    "headline": "Shares of AI cloud services companies are trading lower amid persistent concerns over the debt required to sustain the AI infrastructure buildout. Sentiment is also under pressure following a Gartner warning about the outlook for neocloud providers, fueling concerns over the sustainability of spending on AI computing capacity.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-16T11:33:56.518916-04:00",
     "symbols": [
       "AAPL"
@@ -5121,5 +5088,36 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T12:07:41.615902-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple iPhone Duo Has 82-Day Lead Time: Analyst Names Tech Giant &#39;Eventual&#39; AI Winner",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T12:08:05.254563-04:00",
+    "symbols": [
+      "NVDA",
+      "SPY"
+    ],
+    "headline": "&#39;DeepSeek Working With Huawei Technologies To Shape Design Of Future AI Chips&#39; - The Information",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T12:09:18.333046-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "MasterCard Introduces Risk Intelligence To Enable More Secure Stablecoin Payments",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

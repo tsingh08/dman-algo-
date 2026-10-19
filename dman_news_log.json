@@ -1,46 +1,5 @@
 [
   {
-    "ts": "2026-10-16T14:37:28.091177-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "GameStop\u2019s Collectibles Push, Trading Card Buybacks, eBay Stake Offer Strategic Upside, Analyst Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T14:37:39.901914-04:00",
-    "symbols": [
-      "FFIN"
-    ],
-    "headline": "Keefe, Bruyette &amp; Woods Maintains Market Perform on First Finl Bankshares, Lowers Price Target to $34",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T14:37:40.146248-04:00",
-    "symbols": [
-      "BNO"
-    ],
-    "headline": "JD Vance Says Trump Administration Tapping Wartime Powers to Expand a Texas Refinery \u2014 'We Want Millions of Gallons' (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T14:48:09.690559-04:00",
-    "symbols": [
-      "NVDA",
-      "SMCI"
-    ],
-    "headline": "Super Micro Finally Names a CFO, Nearly Two Years After an Accounting Review Prompted the Search",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-16T14:59:58.881690-04:00",
     "symbols": [
       "NVDA"
@@ -5091,6 +5050,47 @@
       "ARQT"
     ],
     "headline": "Guggenheim Maintains Buy on Arcutis Biotherapeutics, Raises Price Target to $44",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T14:46:27.049444-04:00",
+    "symbols": [
+      "MSFT",
+      "NVDA"
+    ],
+    "headline": "Microsoft Walks Away From AI Data Center Deal, but SemiAnalysis Predicts 50-GW Boom in 2027",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T14:50:39.028423-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Walks Away From AI Data Center Deal, but SemiAnalysis Predicts 50-GW Boom in 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T14:50:39.188630-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Microsoft Walks Away From AI Data Center Deal, but SemiAnalysis Predicts 50-GW Boom in 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T14:50:52.178196-04:00",
+    "symbols": [
+      "DXC"
+    ],
+    "headline": "DXC Technology Eyes $2.4 Billion Insurance Unit Sale to Eldridge",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

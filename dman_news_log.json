@@ -1,137 +1,5 @@
 [
   {
-    "ts": "2026-10-16T14:25:25.296200-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Palantir Technologies Stock Is Falling Friday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T14:25:31.488817-04:00",
-    "symbols": [
-      "OMER"
-    ],
-    "headline": "Truist Financial, Regions Financial And Other Big Stocks Moving Lower In Friday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T14:25:31.492554-04:00",
-    "symbols": [
-      "OMER"
-    ],
-    "headline": "Omeros Stock Sinks on Negative EU Opinion for Narsoplimab, Compassionate-Use Program Ends",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T14:25:31.496043-04:00",
-    "symbols": [
-      "OMER"
-    ],
-    "headline": "Omeros Receives EMA CHMP Negative Opinion On Its Marketing Authorization Application For Narsoplimab For Treatment Of Hematopoietic Stem Cell Transplant-Associated Thrombotic Microangiopathy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T14:25:31.657880-04:00",
-    "symbols": [
-      "FFIN"
-    ],
-    "headline": "Keefe, Bruyette &amp; Woods Maintains Market Perform on First Finl Bankshares, Lowers Price Target to $34",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T14:25:31.730896-04:00",
-    "symbols": [
-      "BNO"
-    ],
-    "headline": "JD Vance Says Trump Administration Tapping Wartime Powers to Expand a Texas Refinery \u2014 'We Want Millions of Gallons' (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T14:25:31.849749-04:00",
-    "symbols": [
-      "OKTA"
-    ],
-    "headline": "Nasdaq 100 Slides As Micron, SanDisk, CoreWeave Sink: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T14:34:01.963145-04:00",
-    "symbols": [
-      "AMD",
-      "NVDA"
-    ],
-    "headline": "SemiAnalysis Pots On X &#34;SHOCKING: We have confirmed that multiple Neoclouds have been refused access to GTC Berlin due to them adding AMD GPUs, TPUs, and other chips to their cloud offerings. Note that this doesn&#39;t apply to hyperscalers, as they have more buying power. But for neoclouds, executives feel NVIDIA has been using high-pressure tactics to keep them NVIDIA-only....&#34;",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T14:34:16.874232-04:00",
-    "symbols": [
-      "OKLO",
-      "SMR"
-    ],
-    "headline": "Shares of power and electrical-related companies are trading lower as elevated oil prices and stronger-than-expected inflation data this week fuel expectations that U.S. interest rates will remain higher for longer. Rising financing costs could pressure capital spending on power infrastructure and data center projects, weighing on demand for electrical equipment and related solutions.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T14:34:57.879409-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "SemiAnalysis Pots On X &#34;SHOCKING: We have confirmed that multiple Neoclouds have been refused access to GTC Berlin due to them adding AMD GPUs, TPUs, and other chips to their cloud offerings. Note that this doesn&#39;t apply to hyperscalers, as they have more buying power. But for neoclouds, executives feel NVIDIA has been using high-pressure tactics to keep them NVIDIA-only....&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T14:34:57.889114-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "SemiAnalysis Pots On X &#34;SHOCKING: We have confirmed that multiple Neoclouds have been refused access to GTC Berlin due to them adding AMD GPUs, TPUs, and other chips to their cloud offerings. Note that this doesn&#39;t apply to hyperscalers, as they have more buying power. But for neoclouds, executives feel NVIDIA has been using high-pressure tactics to keep them NVIDIA-only....&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T14:35:04.690942-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "GameStop\u2019s Collectibles Push, Trading Card Buybacks, eBay Stake Offer Strategic Upside, Analyst Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T14:37:20.818727-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "SemiAnalysis Pots On X &#34;SHOCKING: We have confirmed that multiple Neoclouds have been refused access to GTC Berlin due to them adding AMD GPUs, TPUs, and other chips to their cloud offerings. Note that this doesn&#39;t apply to hyperscalers, as they have more buying power. But for neoclouds, executives feel NVIDIA has been using high-pressure tactics to keep them NVIDIA-only....&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-16T14:37:21.095823-04:00",
     "symbols": [
       "AMD"
@@ -5096,5 +4964,135 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T14:18:09.315282-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "'Apple Announces Oct. 28 Event for Touch-Screen MacBook Pro' - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T14:18:09.320746-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple iPhone Duo Has 82-Day Lead Time: Analyst Names Tech Giant 'Eventual' AI Winner",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T14:18:09.478334-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "'Of Course' Bitcoin Could Grow to $50 Trillion, Jordi Visser Says: But How?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T14:18:09.577475-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "'DeepSeek Working With Huawei Technologies To Shape Design Of Future AI Chips' - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T14:18:09.785605-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Analyst Sees Billions in Walmart's Next Big Advertising Opportunity",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T14:18:09.793625-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "'Of Course' Bitcoin Could Grow to $50 Trillion, Jordi Visser Says: But How?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T14:18:09.906782-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Alphabet Stock Rises: What's Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T14:18:10.089696-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Stock Trends Higher: What's Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T14:18:10.185819-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Stock Dips: What's Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T14:18:10.191313-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "'Dan Lin Out as Netflix Film Chief' - Variety",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T14:18:11.519037-04:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "Benzinga's 'Stock Whisper' Index: Five Stocks Investors Secretly Monitor But Don't Talk About Yet",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T14:18:12.817609-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "What's Going On With Exxon Stock On Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T14:18:12.941963-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab Stock Climbs: What's Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

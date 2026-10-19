@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-16T13:33:43.089655-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "UPDATED: U.S. Baker Hughes Oil Rig Count -3 To 459; U.S. Baker Hughes NatGas Rig Count +1 To 133; U.S. Baker Hughes Total Rig Count 603 Vs 603 Prior",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T13:33:54.461886-04:00",
-    "symbols": [
-      "VRNS"
-    ],
-    "headline": "Baird Maintains Neutral on Varonis Systems, Raises Price Target to $50",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-16T13:35:07.993641-04:00",
     "symbols": [
       "MSFT",
@@ -5103,5 +5083,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-19T13:17:13.900741-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Analyst Sees Billions in Walmart&#39;s Next Big Advertising Opportunity",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T13:17:26.621291-04:00",
+    "symbols": [
+      "DXC"
+    ],
+    "headline": "&#39;DXC in advanced talks to sell insurance software unit for $2.4 billion, sources say&#39; - Reuters",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

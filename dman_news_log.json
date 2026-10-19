@@ -1,18 +1,5 @@
 [
   {
-    "ts": "2026-10-16T13:35:07.993641-04:00",
-    "symbols": [
-      "MSFT",
-      "ORCL",
-      "SMCI",
-      "SNOW"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T13:35:08.879352-04:00",
     "symbols": [
       "META"
@@ -5103,5 +5090,16 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:27:54.763209-04:00",
+    "symbols": [
+      "JPM",
+      "XOM"
+    ],
+    "headline": "What&#39;s Going On With Exxon Stock On Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

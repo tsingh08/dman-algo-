@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-16T11:26:42.291039-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Why Is Applied Digital Stock Falling Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T11:27:57.036296-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "JP Morgan Maintains Neutral on Goldman Sachs Group, Raises Price Target to $970",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T11:28:24.317601-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Why Is Applied Digital Stock Falling Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T11:28:24.650593-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Why Is Applied Digital Stock Falling Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T11:28:29.414371-04:00",
     "symbols": [
       "ORCL"
@@ -5121,5 +5081,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T11:57:37.531599-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "18 Globo Titles Heading To Netflix In Unprecedented Licensing Agreement",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T11:57:37.972123-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Why Is Snowflake Stock Surging Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T11:57:49.765122-04:00",
+    "symbols": [
+      "NWCL"
+    ],
+    "headline": "This MannKind Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T11:57:49.769665-04:00",
+    "symbols": [
+      "NWCL"
+    ],
+    "headline": "BTIG Initiates Coverage On Newcleo with Neutral Rating",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

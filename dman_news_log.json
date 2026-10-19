@@ -1,185 +1,5 @@
 [
   {
-    "ts": "2026-10-16T13:14:01.085226-04:00",
-    "symbols": [
-      "XLAB"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T13:14:01.364568-04:00",
-    "symbols": [
-      "TCRT"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T13:14:01.921340-04:00",
-    "symbols": [
-      "MRKR"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T13:14:02.682480-04:00",
-    "symbols": [
-      "SRTA"
-    ],
-    "headline": "Crude Oil Jumps 3%; Citizens Financial Earnings Top Views",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T13:14:02.874381-04:00",
-    "symbols": [
-      "SMX"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T13:14:03.417278-04:00",
-    "symbols": [
-      "VRNS"
-    ],
-    "headline": "Piper Sandler Downgrades Varonis Systems to Neutral, Lowers Price Target to $49.75",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-16T13:16:05.665563-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Says Maybe White House Spokeswoman Role Is Not For Zacharia; Will Talk To Her; Told Her She Should Reconsider Role",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T13:17:04.733743-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Stated In A Newsmax Interview That Washington Is Actively Talking To Both Moscow And Beijing About Potential Routes To Denuclearize",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T13:20:48.279231-04:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: ServiceNow, Eaton, SentinelOne, JP Morgan Chase",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T13:20:49.416682-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: ServiceNow, Eaton, SentinelOne, JP Morgan Chase",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T13:20:49.762739-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "&#39;U.S. Presses China On MasterCard, Citigroup Market Access In Bilateral Bangkok Talks, Official Says&#39; - CNBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T13:20:50.118596-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "Bernstein Maintains Outperform on UnitedHealth Group, Lowers Price Target to $500",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T13:20:50.724115-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Stated In A Newsmax Interview That Washington Is Actively Talking To Both Moscow And Beijing About Potential Routes To Denuclearize",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T13:20:50.728060-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Says Maybe White House Spokeswoman Role Is Not For Zacharia; Will Talk To Her; Told Her She Should Reconsider Role",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T13:20:50.731882-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "France&#39;s Macron Says President Trump Diesel Deal Not Useful, Creates Doubts And Defiance",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T13:20:50.735651-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Baker Hughes Oil Rig Count -3 To 459; U.S. Baker Hughes NatGas Rig Count +1 To 133; U.S. Baker Hughes Total Rig Count 601 Vs 603 Prior",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T13:20:51.102567-04:00",
-    "symbols": [
-      "FOXF"
-    ],
-    "headline": "Crude Oil Jumps 3%; Citizens Financial Earnings Top Views",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T13:20:51.355947-04:00",
-    "symbols": [
-      "FFIN"
-    ],
-    "headline": "StoneX Maintains Buy on First Finl Bankshares, Lowers Price Target to $38",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T13:33:43.081529-04:00",
     "symbols": [
       "SPY"
@@ -4901,6 +4721,186 @@
     ],
     "headline": "12 Financials Stocks Moving In Monday&#39;s Intraday Session",
     "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:07:33.587463-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Stock Market Today: Nasdaq 100 Rises as AI Chip Rout Reverses, SanDisk Jumps 7%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T13:07:34.845529-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Stock Market Today: Nasdaq 100 Rises as AI Chip Rout Reverses, SanDisk Jumps 7%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T13:07:35.200154-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Stock Market Today: Nasdaq 100 Rises as AI Chip Rout Reverses, SanDisk Jumps 7%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T13:07:35.344281-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Stock Market Today: Nasdaq 100 Rises as AI Chip Rout Reverses, SanDisk Jumps 7%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T13:07:35.683609-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Stock Market Today: Nasdaq 100 Rises as AI Chip Rout Reverses, SanDisk Jumps 7%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T13:07:35.794306-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Stock Market Today: Nasdaq 100 Rises as AI Chip Rout Reverses, SanDisk Jumps 7%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:07:41.430968-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: UnitedHealth Group, Twilio, Transocean",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T13:07:42.486567-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Stock Market Today: Nasdaq 100 Rises as AI Chip Rout Reverses, SanDisk Jumps 7%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T13:07:42.615720-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Stock Market Today: Nasdaq 100 Rises as AI Chip Rout Reverses, SanDisk Jumps 7%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:07:42.882997-04:00",
+    "symbols": [
+      "SLN"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:07:42.887702-04:00",
+    "symbols": [
+      "SLN"
+    ],
+    "headline": "Why Is Silence Therapeutics Stock Skyrocketing Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:07:42.892267-04:00",
+    "symbols": [
+      "SLN"
+    ],
+    "headline": "Silence Therapeutics, Disc Medicine, Veradermics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:07:42.896814-04:00",
+    "symbols": [
+      "SLN"
+    ],
+    "headline": "Nasdaq Surges Over 1%; Fifth Third Bancorp Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:07:42.902364-04:00",
+    "symbols": [
+      "SLN"
+    ],
+    "headline": "Trading Halt: Halt status updated at 8:15:00 AM ET: Quotation Resumption: News and Resumption Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:07:43.058484-04:00",
+    "symbols": [
+      "IRON"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T13:07:43.405827-04:00",
+    "symbols": [
+      "NWCL"
+    ],
+    "headline": "12 Financials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:07:43.707409-04:00",
+    "symbols": [
+      "CLF"
+    ],
+    "headline": "Stock Market Today: Nasdaq 100 Rises as AI Chip Rout Reverses, SanDisk Jumps 7%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T13:07:43.887557-04:00",
+    "symbols": [
+      "RPGL"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   },

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-19T09:25:52.368272-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Where Trump\u2019s Portfolio Meets His Power: Nvidia, Palantir, Dell and More",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-19T09:25:52.371465-04:00",
     "symbols": [
       "AMD"
@@ -5092,5 +5082,17 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T15:33:58.620328-04:00",
+    "symbols": [
+      "AMZN",
+      "GOOGL",
+      "NVDA"
+    ],
+    "headline": "&#39;Nscale, Anthropic in Talks for $45 Billion Cloud Computing Deal&#39; - Bloomberg News",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": "neutral"
   }
 ]

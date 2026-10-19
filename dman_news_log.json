@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-10-16T09:25:48.735014-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Elon Musk Says Jensen Huang &#39;Rocks&#39; as SpaceX, Nvidia Team Up on AI Data Centers in Space: \u2018Far Better Than Almost Anyone Expects\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T09:25:48.850576-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Taiwan Semiconductor Holds the Cards As NVIDIA, Apple and AMD Battle for Limited AI Chip Capacity",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T09:25:49.145169-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Netflix Needs Another &#39;Squid Game&#39; Moment As Growth Pressure Mounts",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T09:25:49.149722-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Reported October 15, &#39;DeepSeek offers user refunds after suffering another major outage&#39; - SCMP",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T09:25:49.154111-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Dan Ives Says Apple-Meta AI Partnership Could Help Unlock $75 Per Share in AI Value for AAPL Stock \u2014 &#39;Start of What Could Be Just a Massive Collaboration&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T09:25:49.158466-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "CoreWeave Stock Gets Hammered by Debt Fears, Analyst Says There&#39;s More to the Story",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T09:25:49.163019-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Elon Musk Floats Amazon Rival After Grok AI Bots Hit Shopping Roadblocks: \u2018X Shop\u2019 or \u2018Grokazon\u2019?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T09:25:49.300115-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Trump\u2019s $330 Million White House Ballroom Donor List Reveals Nvidia, Apple and Google Among Top Tech Contributors: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T09:25:49.304708-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Netflix Needs Another &#39;Squid Game&#39; Moment As Growth Pressure Mounts",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T09:25:49.309371-04:00",
     "symbols": [
       "GOOGL"
@@ -5103,5 +5013,98 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T09:10:35.133281-04:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "Piper Sandler Maintains Overweight on SLB, Lowers Price Target to $63",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T09:14:31.310316-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Keybanc Maintains Overweight on Alphabet, Lowers Price Target to $410",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T09:16:13.273530-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Stock Edges Higher Monday: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T09:17:13.708889-04:00",
+    "symbols": [
+      "INLF"
+    ],
+    "headline": "INLIF Commences ~3.75M Offering Of 435K Class A Ordinary Shares",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T09:17:32.366707-04:00",
+    "symbols": [
+      "YHC"
+    ],
+    "headline": "LQR House&#39;s YHC AI Enters Into A 1-Year Agreement To Procure Up To $3M In OpenAI-Powered Computing Resources To Advance AI-Driven Financial Research And Portfolio Optimization",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T09:21:31.694006-04:00",
+    "symbols": [
+      "IMPP"
+    ],
+    "headline": "Imperial Petroleum Estimates $691.1M NAV As Fleet Expands To 24 Vessels",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T09:21:32.638575-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Goldman Sachs Upgrades CoreWeave Despite 15% Bond Yields as Stock Jumps 6%",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T09:23:37.917286-04:00",
+    "symbols": [
+      "GE",
+      "META",
+      "NFLX",
+      "TSLA"
+    ],
+    "headline": "We Asked ChatGPT, Grok and Claude for 1 Stock to Buy This Week. No One Picked Tesla.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T09:25:03.664910-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Expands Project Perception, CEO Satya Nadella Announces",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

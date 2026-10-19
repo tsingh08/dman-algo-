@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-16T11:33:56.518916-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "&#39;Apple Set For UK Legal Fight Over iPhone Tap-To-Pay Rules&#39; - Financial Times",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T11:39:42.423269-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Barclays Expects U.S. Fed To Deliver A 25 BP Rate Hike Each In December And January Vs Prior Forecast Of A Hike In December This Year",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-16T11:42:33.950614-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Barclays Expects U.S. Fed To Deliver A 25 BP Rate Hike Each In December And January Vs Prior Forecast Of A Hike In December This Year",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-16T11:44:35.776360-04:00",
-    "symbols": [
-      "PDD"
-    ],
-    "headline": "&#39;Temu Will Pay Texas $3 Million To Resolve Chinese Data Lawsuit; Temu Agrees To Data Privacy Restrictions To Settle Texas Case&#39; - Bloomberg Law",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-16T11:46:14.483038-04:00",
     "symbols": [
       "TLSA"
@@ -5118,6 +5078,46 @@
     "headline": "MasterCard Introduces Risk Intelligence To Enable More Secure Stablecoin Payments",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T12:13:34.190537-04:00",
+    "symbols": [
+      "OKLO"
+    ],
+    "headline": "Piper Sandler Maintains Overweight on Oklo, Lowers Price Target to $49",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T12:14:04.183377-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "You Could Be Right About Valuations But Wrong About Prices",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T12:14:04.365484-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;DeepSeek Working With Huawei Technologies To Shape Design Of Future AI Chips&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T12:14:15.274679-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;DeepSeek Working With Huawei Technologies To Shape Design Of Future AI Chips&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

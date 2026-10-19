@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-16T14:19:43.556607-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla&#39;s Flying Roadster Sends Delivery Odds Tumbling Despite Spectacular Demo",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T14:20:44.384980-04:00",
     "symbols": [
       "META"
@@ -5105,5 +5095,17 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T14:04:38.893772-04:00",
+    "symbols": [
+      "MU",
+      "SKHY",
+      "SNDK"
+    ],
+    "headline": "Shares of memory- and storage-related chip companies are trading higher amid a broader chip rebound. Concerns over AI cloud services providers&#39; debt levels may be subsiding, which could place more attention on the high demand and supply bottleneck narratives.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-19T09:25:58.079687-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "We Asked ChatGPT, Grok and Claude for 1 Stock to Buy This Week. No One Picked Tesla.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T09:25:58.082632-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "GE Aerospace Stock Nears Death Cross Amid Valuation Concerns and Strong Earnings Outlook",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-19T09:25:58.085464-04:00",
     "symbols": [
       "GE"
@@ -5094,5 +5074,29 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T15:52:40.419190-04:00",
+    "symbols": [
+      "GE",
+      "ISRG",
+      "NFLX",
+      "RTX",
+      "SPCX"
+    ],
+    "headline": "SpaceX, GE Aerospace On Deck Tuesday As Growth, Aerospace Demand Face Test",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T15:52:59.031806-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA CEO Jensen Huang Announces New Planned Investments In Germany&#39;s Agile Robots, Avelios Medical, Mirelo And Reflex Aerospace",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

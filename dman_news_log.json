@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-16T13:33:43.081529-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fox News, Citing White House Official Says Katie Zacharia &#39;Transitioning Out&#39; Of Job As Trump&#39;s Press Secretary",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-16T13:33:43.089655-04:00",
     "symbols": [
       "SPY"
@@ -5103,5 +5093,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T13:13:54.954430-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "Why Is DraftKings Stock Surging on Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

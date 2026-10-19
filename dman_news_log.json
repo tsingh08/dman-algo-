@@ -1,36 +1,5 @@
 [
   {
-    "ts": "2026-10-16T10:13:02.524254-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#39;Anthropic in Discussions With NYC Comptroller After IPO Letter&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T10:20:35.856923-04:00",
-    "symbols": [
-      "SPCX",
-      "TSLA"
-    ],
-    "headline": "Gary Black Warns Tesla Bulls Against Hyping SpaceX Merger, Says Roadster\u2019s Brand Impact Could Outweigh Earnings",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-16T10:21:14.554364-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Gary Black Warns Tesla Bulls Against Hyping SpaceX Merger, Says Roadster\u2019s Brand Impact Could Outweigh Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T10:21:17.428889-04:00",
     "symbols": [
       "VRNS"
@@ -5112,5 +5081,35 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T10:53:09.263971-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Why Is SMCI Stock Climbing on Monday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T10:53:09.268726-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Trump\u2019s Medicare AI Push Raises Patient Data Privacy Concerns&#39; - Bloomberg",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T10:53:56.510348-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "EXCLUSIVE: Sports Betting No More Addictive Than Stock Trading, Smarkets CEO Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

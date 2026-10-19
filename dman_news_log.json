@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-16T15:56:30.559857-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "October Rate-Hike Odds Collapse as Warsh Keeps His Cards Close but AI Transition Looms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-16T16:00:24.453837-04:00",
     "symbols": [
       "NI"
@@ -5091,5 +5081,20 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T15:15:01.545256-04:00",
+    "symbols": [
+      "APLD",
+      "HOOD",
+      "NBIS",
+      "NVDA",
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "\u2018CoreWeave Is the Canary in the Coal Mine\u2019: Expert Warns More AI Debt Will Slide into Distress",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": "negative"
   }
 ]

@@ -26741,3 +26741,176 @@ class TestTheEditorCheckAsksWhichFolderIsOpen(unittest.TestCase):
         src = self._src()
         self.assertIn("for workspace", src)
         self.assertIn("Found (", src)
+
+class TestTheDipBasketHasATimeExit(unittest.TestCase):
+    """Searched 2026-10-19: BACKTEST_MAX_HOLD_BARS was the ONLY max-hold in
+    this file and it is simulation-only. Live positions sat until a stop or a
+    target hit -- IOVA had been open 19 days.
+
+    That is fine for a breakout with a target. It is wrong for the dip trades
+    taken manually on 2026-10-19, because the +0.45% they were sized on was
+    measured over exactly five sessions. Held longer it is an unmeasured trade
+    wearing a measured trade's name, with an 8% stop as its only end.
+
+    Scoped to DIP_BASKET_FILE on purpose: it can act on the tickers listed
+    there and on nothing else."""
+
+    def _run(self, rows, orders=None, positions=None, today=None, notify=False):
+        import tempfile, os, datetime as _dt, json as _json
+        fd, path = tempfile.mkstemp(suffix=".json")
+        os.close(fd)
+        io.open(path, "w", encoding="utf-8").write(_json.dumps(rows))
+        cl = MagicMock()
+        cl.get_order_by_id.side_effect = lambda oid: (orders or {})[oid]
+        tracker = MagicMock()
+        tracker.positions = positions or []
+        with patch.object(a, "DIP_BASKET_FILE", path), \
+             patch.object(a, "get_alpaca_client", return_value=cl), \
+             patch.object(a, "PositionTracker", return_value=tracker), \
+             patch.object(a, "_et_today", return_value=today or _dt.date(2026, 10, 26)), \
+             patch.object(a, "_close_position_at_market",
+                          return_value=("submitted", "oid1")) as closer, \
+             patch.object(a, "send_telegram") as tg, \
+             patch.object(a, "_log_swallowed"), \
+             contextlib.redirect_stdout(io.StringIO()) as buf:
+            out = a.run_dip_basket_manage(notify=notify)
+        final = _json.load(io.open(path, encoding="utf-8"))
+        os.unlink(path)
+        return out, final, closer, cl, tg, buf.getvalue()
+
+    def _order(self, status, filled_at=""):
+        o = MagicMock()
+        o.status = status
+        o.filled_at = filled_at
+        return o
+
+    def _pos(self, tk):
+        p = MagicMock()
+        p.ticker = tk
+        return p
+
+    # --- the horizon ------------------------------------------------------
+    def test_a_position_at_the_horizon_is_flattened(self):
+        import datetime as _dt
+        rows = [{"ticker": "NVDA", "order_id": "x", "submitted": "2026-10-19",
+                 "entry_date": "2026-10-19", "status": "open"}]
+        out, final, closer, _c, _tg, _o = self._run(
+            rows, positions=[self._pos("NVDA")], today=_dt.date(2026, 10, 26))
+        closer.assert_called_once()
+        self.assertEqual(out["closed"], ["NVDA"])
+        self.assertEqual(final[0]["status"], "closed")
+
+    def test_a_position_short_of_the_horizon_is_left_alone(self):
+        import datetime as _dt
+        rows = [{"ticker": "NVDA", "order_id": "x", "submitted": "2026-10-19",
+                 "entry_date": "2026-10-19", "status": "open"}]
+        out, final, closer, _c, _tg, _o = self._run(
+            rows, positions=[self._pos("NVDA")], today=_dt.date(2026, 10, 23))
+        closer.assert_not_called()
+        self.assertEqual(final[0]["status"], "open")
+
+    def test_the_horizon_counts_sessions_not_calendar_days(self):
+        """Monday entry plus 5 CALENDAR days is Saturday, which is only FOUR
+        sessions -- a calendar-day horizon would exit a day early and call it
+        the measured trade. The fifth session is the following Monday."""
+        import datetime as _dt
+        self.assertEqual(
+            a._sessions_between(_dt.date(2026, 10, 19), _dt.date(2026, 10, 24)), 4)
+        self.assertEqual(
+            a._sessions_between(_dt.date(2026, 10, 19), _dt.date(2026, 10, 26)), 5)
+
+    def test_a_holiday_does_not_count_as_a_session(self):
+        import datetime as _dt
+        hol = _dt.date(2026, 10, 21)
+        with patch.object(a, "_MARKET_HOLIDAYS", {hol}):
+            self.assertEqual(
+                a._sessions_between(_dt.date(2026, 10, 19), _dt.date(2026, 10, 23)), 3)
+
+    # --- the resting entry -------------------------------------------------
+    def test_an_unfilled_entry_is_cancelled_after_its_session(self):
+        """A GTC dip limit that did not fill on day one must not sit all week
+        and fill on day four into a tape the signal knew nothing about."""
+        import datetime as _dt
+        rows = [{"ticker": "MRVL", "order_id": "ord9", "submitted": "2026-10-19",
+                 "entry_date": None, "status": "pending"}]
+        out, final, _cl, cl, _tg, _o = self._run(
+            rows, orders={"ord9": self._order("accepted")},
+            today=_dt.date(2026, 10, 20))
+        cl.cancel_order_by_id.assert_called_once_with("ord9")
+        self.assertEqual(final[0]["status"], "expired")
+
+    def test_an_unfilled_entry_inside_its_session_is_left_resting(self):
+        import datetime as _dt
+        rows = [{"ticker": "MRVL", "order_id": "ord9", "submitted": "2026-10-19",
+                 "entry_date": None, "status": "pending"}]
+        out, final, _cl, cl, _tg, _o = self._run(
+            rows, orders={"ord9": self._order("accepted")},
+            today=_dt.date(2026, 10, 19))
+        cl.cancel_order_by_id.assert_not_called()
+        self.assertEqual(out["pending"], ["MRVL"])
+
+    def test_a_fill_starts_the_clock_from_the_fill_date(self):
+        """Not from the submit date -- a resting limit can fill a session
+        late, and the horizon belongs to the trade, not to the order."""
+        import datetime as _dt
+        rows = [{"ticker": "ANET", "order_id": "o1", "submitted": "2026-10-19",
+                 "entry_date": None, "status": "pending"}]
+        out, final, closer, _c, _tg, _o = self._run(
+            rows, orders={"o1": self._order("filled", "2026-10-20T13:31:00Z")},
+            positions=[self._pos("ANET")], today=_dt.date(2026, 10, 26))
+        self.assertEqual(final[0]["entry_date"], "2026-10-20")
+        closer.assert_not_called()          # 4 sessions by 10-26, not 5
+
+    # --- it must not touch anything else -----------------------------------
+    def test_it_never_closes_a_position_outside_the_basket(self):
+        """IOVA is open, tracked, and far past any horizon. It is not in the
+        file, so nothing here may reach it."""
+        import datetime as _dt
+        rows = [{"ticker": "NVDA", "order_id": "x", "submitted": "2026-10-19",
+                 "entry_date": "2026-10-19", "status": "open"}]
+        out, _f, closer, _c, _tg, _o = self._run(
+            rows, positions=[self._pos("IOVA"), self._pos("NVDA")],
+            today=_dt.date(2026, 10, 26))
+        closed = [c.args[0].ticker for c in closer.call_args_list]
+        self.assertEqual(closed, ["NVDA"])
+        self.assertNotIn("IOVA", closed)
+
+    def test_an_empty_file_does_nothing_at_all(self):
+        out, _f, closer, cl, _tg, _o = self._run([])
+        closer.assert_not_called()
+        cl.cancel_order_by_id.assert_not_called()
+
+    # --- idempotence and degradation ---------------------------------------
+    def test_a_closed_row_is_never_acted_on_twice(self):
+        import datetime as _dt
+        rows = [{"ticker": "NVDA", "order_id": "x", "submitted": "2026-10-19",
+                 "entry_date": "2026-10-19", "status": "closed"}]
+        out, _f, closer, _c, _tg, _o = self._run(
+            rows, positions=[self._pos("NVDA")], today=_dt.date(2026, 11, 30))
+        closer.assert_not_called()
+
+    def test_an_already_flat_position_is_settled_not_retried(self):
+        """Stopped out at -8% before the horizon: the row still has to
+        settle, or every later pass re-reads it as open forever."""
+        import datetime as _dt
+        rows = [{"ticker": "NVDA", "order_id": "x", "submitted": "2026-10-19",
+                 "entry_date": "2026-10-19", "status": "open"}]
+        out, final, closer, _c, _tg, _o = self._run(
+            rows, positions=[], today=_dt.date(2026, 10, 26))
+        closer.assert_not_called()
+        self.assertEqual(final[0]["status"], "closed")
+        self.assertEqual(final[0]["exit_reason"], "already flat")
+
+    def test_it_reports_even_when_it_did_nothing(self):
+        """A silent zero pass is indistinguishable from a crash -- the dip
+        SHADOW shipped with exactly that hole one commit earlier."""
+        import datetime as _dt
+        rows = [{"ticker": "NVDA", "order_id": "x", "submitted": "2026-10-19",
+                 "entry_date": "2026-10-19", "status": "open"}]
+        _o1, _f, _c1, _c2, _tg, printed = self._run(
+            rows, positions=[self._pos("NVDA")], today=_dt.date(2026, 10, 20))
+        self.assertIn("dip basket:", printed)
+        self.assertIn("NVDA(1/5)", printed)
+
+    def test_the_scanner_runs_it(self):
+        self.assertIn("run_dip_basket_manage()", inspect.getsource(a))

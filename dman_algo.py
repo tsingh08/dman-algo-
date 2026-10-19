@@ -23032,6 +23032,146 @@ def _rsi2(closes: list) -> Optional[float]:
     return 100.0 - 100.0 / (1.0 + (_g / 2.0) / (_l / 2.0))
 
 
+# -------------------------------------------------------------------------
+#  DIP BASKET - the time exit this system has never had
+# -------------------------------------------------------------------------
+#
+# Searched for one on 2026-10-19 and there is none: BACKTEST_MAX_HOLD_BARS is
+# the only max-hold in the file and it is simulation-only. Live positions sit
+# until a stop or a target hits, which is why IOVA had been open 19 days.
+#
+# That was tolerable while every live setup was a breakout with a target. It
+# is not tolerable for the dip-in-uptrend trades taken manually on 2026-10-19
+# (NVDA/ANET/MRVL), because the +0.45% those were sized on was measured over
+# exactly five sessions with a next-open entry. A dip trade held indefinitely
+# is not the trade that was measured -- it is an unmeasured one wearing its
+# name, and the 8% stop is the only thing that would ever end it.
+#
+# Deliberately scoped to the basket file. It reads tickers from
+# DIP_BASKET_FILE and can act on nothing else, so it cannot reach IOVA or any
+# future zone position no matter what state the tracker is in.
+DIP_BASKET_FILE = "dman_dip_basket.json"
+DIP_BASKET_HOLD_SESSIONS = 5          # the horizon the edge was measured over
+# A dip entry is a Monday-or-nothing bet. These rest as GTC because a DAY
+# order's OTO stop leg dies at 16:00 and strands the fill overnight (see the
+# bracket comment in _submit_equity_entry), so the expiry has to be enforced
+# here instead of by the broker. Without it an unfilled limit sits all week
+# and fills on day four into a tape the signal knew nothing about.
+DIP_BASKET_ENTRY_EXPIRY_SESSIONS = 1
+
+
+def _sessions_between(d0: date, d1: date) -> int:
+    """Trading sessions after d0 through d1. Weekends and NYSE holidays skipped."""
+    n, cur = 0, d0
+    while cur < d1:
+        cur += timedelta(days=1)
+        if cur.weekday() < 5 and cur not in _MARKET_HOLIDAYS:
+            n += 1
+    return n
+
+
+def _dip_basket_load() -> list:
+    try:
+        with open(DIP_BASKET_FILE) as _f:
+            _rows = json.load(_f)
+        return _rows if isinstance(_rows, list) else []
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
+
+
+def run_dip_basket_manage(notify: bool = True) -> dict:
+    """Expire unfilled dip entries; flatten filled ones at the hold horizon.
+
+    Idempotent: every row carries a one-way status, persisted before the next
+    pass can see it, so a repeated or late cron run re-reads the same answer
+    instead of submitting twice.
+    """
+    out = {"expired": [], "closed": [], "open": [], "pending": []}
+    _rows = _dip_basket_load()
+    if not _rows:
+        return out
+    _today = _et_today()
+    _client = get_alpaca_client()
+    try:
+        for _r in _rows:
+            _tk, _st = _r.get("ticker", ""), _r.get("status", "")
+            if _st in ("closed", "expired") or not _tk:
+                continue
+
+            if _st == "pending":
+                _filled = None
+                try:
+                    _o = _client.get_order_by_id(_r["order_id"])
+                    _s = str(getattr(_o.status, "value", _o.status)).lower()
+                    if _s == "filled":
+                        _filled = str(getattr(_o, "filled_at", "") or "")[:10]
+                    elif _s in ("canceled", "cancelled", "expired", "rejected"):
+                        _r["status"] = "expired"
+                        out["expired"].append(_tk)
+                        continue
+                except Exception as _exc:
+                    _log_swallowed("dip basket order lookup", _exc)
+                    continue
+                if _filled:
+                    _r["status"], _r["entry_date"] = "open", _filled
+                    _st = "open"
+                else:
+                    _sub = _r.get("submitted", "")
+                    if (_sub and _sessions_between(date.fromisoformat(_sub), _today)
+                            >= DIP_BASKET_ENTRY_EXPIRY_SESSIONS):
+                        try:
+                            _client.cancel_order_by_id(_r["order_id"])
+                            _r["status"] = "expired"
+                            out["expired"].append(_tk)
+                        except Exception as _exc:
+                            _log_swallowed("dip basket cancel", _exc)
+                    else:
+                        out["pending"].append(_tk)
+                    continue
+
+            if _st == "open":
+                _ed = _r.get("entry_date", "")
+                _held = (_sessions_between(date.fromisoformat(_ed), _today)
+                         if _ed else 0)
+                if _held < DIP_BASKET_HOLD_SESSIONS:
+                    out["open"].append(f"{_tk}({_held}/{DIP_BASKET_HOLD_SESSIONS})")
+                    continue
+                _pos = next((p for p in PositionTracker().positions
+                             if p.ticker == _tk), None)
+                if _pos is None:
+                    # Stopped out, or closed by hand. Either way it is over.
+                    _r["status"] = "closed"
+                    _r["exit_reason"] = "already flat"
+                    out["closed"].append(_tk)
+                    continue
+                _status, _oid = _close_position_at_market(
+                    _pos, f"dip basket {DIP_BASKET_HOLD_SESSIONS}-session horizon")
+                if _status in ("submitted", "already_closed"):
+                    _r["status"] = "closed"
+                    _r["exit_reason"] = _status
+                    out["closed"].append(_tk)
+                    if notify:
+                        send_telegram(
+                            f"⏱ <b>Dip basket exit</b> {_tk}" + chr(10)
+                            + f"{_held} sessions held - the horizon the +0.45% "
+                              "was measured over." + chr(10)
+                            + f"Market close {_status}.")
+    except Exception as exc:
+        _log_swallowed("dip basket", exc)
+
+    try:
+        _write_json_atomic(DIP_BASKET_FILE, _rows, indent=1)
+    except Exception as exc:
+        _log_swallowed("dip basket write", exc)
+
+    # Always print. A silent zero pass is indistinguishable from a crash --
+    # the dip SHADOW shipped with exactly that hole one commit earlier.
+    print(f"  ⏱ dip basket: {len(out['closed'])} closed, "
+          f"{len(out['expired'])} expired, {len(out['pending'])} awaiting fill"
+          + (f", holding {', '.join(out['open'])}" if out["open"] else ""))
+    return out
+
+
 def run_dip_shadow(notify: bool = True) -> dict:
     """Log and resolve dip-in-uptrend signals. Places nothing, ever.
 
@@ -31350,6 +31490,7 @@ def main():
     elif args.mode == "orb":
         run_orb_shadow()
         run_dip_shadow()
+        run_dip_basket_manage()
 
     elif args.mode == "bzone":
         run_breakout_zone_log()

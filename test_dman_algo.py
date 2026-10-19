@@ -26755,7 +26755,8 @@ class TestTheDipBasketHasATimeExit(unittest.TestCase):
     Scoped to DIP_BASKET_FILE on purpose: it can act on the tickers listed
     there and on nothing else."""
 
-    def _run(self, rows, orders=None, positions=None, today=None, notify=False):
+    def _run(self, rows, orders=None, positions=None, today=None, notify=False,
+             market_open=True):
         import tempfile, os, datetime as _dt, json as _json
         fd, path = tempfile.mkstemp(suffix=".json")
         os.close(fd)
@@ -26768,6 +26769,7 @@ class TestTheDipBasketHasATimeExit(unittest.TestCase):
              patch.object(a, "get_alpaca_client", return_value=cl), \
              patch.object(a, "PositionTracker", return_value=tracker), \
              patch.object(a, "_et_today", return_value=today or _dt.date(2026, 10, 26)), \
+             patch.object(a, "is_market_open", return_value=market_open), \
              patch.object(a, "_close_position_at_market",
                           return_value=("submitted", "oid1")) as closer, \
              patch.object(a, "send_telegram") as tg, \
@@ -26911,6 +26913,31 @@ class TestTheDipBasketHasATimeExit(unittest.TestCase):
             rows, positions=[self._pos("NVDA")], today=_dt.date(2026, 10, 20))
         self.assertIn("dip basket:", printed)
         self.assertIn("NVDA(1/5)", printed)
+
+    def test_a_due_exit_waits_for_the_bell_instead_of_queueing(self):
+        """The exit is a MARKET order. Submitted after the close it is
+        rejected or queued to the next open, landing the exit on session SIX
+        -- a different trade from the one that was measured. It was wired
+        into --mode orb alone at first, which is the POST-CLOSE run, so every
+        exit would have been a session late."""
+        import datetime as _dt
+        rows = [{"ticker": "NVDA", "order_id": "x", "submitted": "2026-10-19",
+                 "entry_date": "2026-10-19", "status": "open"}]
+        out, final, closer, _c, _tg, printed = self._run(
+            rows, positions=[self._pos("NVDA")], today=_dt.date(2026, 10, 26),
+            market_open=False)
+        closer.assert_not_called()
+        self.assertEqual(out["due"], ["NVDA"])
+        self.assertEqual(final[0]["status"], "open")   # still owed, not settled
+        self.assertIn("DUE at the next open", printed)
+
+    def test_the_daemon_runs_it_in_session(self):
+        """--mode orb runs after the close, so it cannot be the only caller:
+        the market-hours gate above would defer every exit forever. The
+        daemon's scan loop is in-session and does not depend on GitHub cron,
+        which delivers 3 of 18 asked-for fires a day."""
+        dm = io.open("dman_daemon.py", encoding="utf-8").read()
+        self.assertIn("algo.run_dip_basket_manage()", dm)
 
     def test_the_scanner_runs_it(self):
         self.assertIn("run_dip_basket_manage()", inspect.getsource(a))

@@ -1001,6 +1001,15 @@ def scan_loop() -> None:
                         git_sync()   # push updated positions immediately, don't wait for the periodic sync
                     else:
                         log("no qualifying signals this pass")
+                    # Dip basket: the 5-session exit is a MARKET order and the
+                    # entry expiry has to beat the next open, so neither can
+                    # wait for --mode orb, which runs AFTER the close. This
+                    # loop is in-session and cron-independent. Idempotent by
+                    # one-way row status, so a pass every 10 minutes is safe.
+                    try:
+                        algo.run_dip_basket_manage()
+                    except Exception as _dbexc:
+                        log(f"dip basket error: {_dbexc}")
                     scan_ok = True
                 except Exception as exc:
                     log(f"scan error: {exc}")

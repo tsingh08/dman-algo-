@@ -23086,7 +23086,7 @@ def run_dip_basket_manage(notify: bool = True) -> dict:
     pass can see it, so a repeated or late cron run re-reads the same answer
     instead of submitting twice.
     """
-    out = {"expired": [], "closed": [], "open": [], "pending": []}
+    out = {"expired": [], "closed": [], "open": [], "pending": [], "due": []}
     _rows = _dip_basket_load()
     if not _rows:
         return out
@@ -23136,6 +23136,13 @@ def run_dip_basket_manage(notify: bool = True) -> dict:
                 if _held < DIP_BASKET_HOLD_SESSIONS:
                     out["open"].append(f"{_tk}({_held}/{DIP_BASKET_HOLD_SESSIONS})")
                     continue
+                # A market order outside regular hours is rejected or
+                # queued to the next open, which would land the exit on
+                # session SIX. The horizon is the trade, so wait for the bell
+                # rather than exit a session late and still call it measured.
+                if not is_market_open():
+                    out["due"].append(_tk)
+                    continue
                 _pos = next((p for p in PositionTracker().positions
                              if p.ticker == _tk), None)
                 if _pos is None:
@@ -23168,7 +23175,9 @@ def run_dip_basket_manage(notify: bool = True) -> dict:
     # the dip SHADOW shipped with exactly that hole one commit earlier.
     print(f"  ⏱ dip basket: {len(out['closed'])} closed, "
           f"{len(out['expired'])} expired, {len(out['pending'])} awaiting fill"
-          + (f", holding {', '.join(out['open'])}" if out["open"] else ""))
+          + (f", holding {', '.join(out['open'])}" if out["open"] else "")
+          + (f", {len(out['due'])} DUE at the next open ({', '.join(out['due'])})"
+             if out["due"] else ""))
     return out
 
 

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-16T10:10:33.407424-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Reported October 15, 'DeepSeek offers user refunds after suffering another major outage' - SCMP",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T10:10:33.793389-04:00",
     "symbols": [
       "NVDA"
@@ -5103,6 +5093,16 @@
     ],
     "headline": "Silence Therapeutics, Disc Medicine, Veradermics And Other Big Stocks Moving Higher On Monday",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T10:22:22.939662-04:00",
+    "symbols": [
+      "CHOW"
+    ],
+    "headline": "ChowChow Cloud International Shares Halted On Circuit Breaker To The Upside, Stock Now Up 109.72%",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

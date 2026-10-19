@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-16T14:25:24.990663-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla&#39;s Flying Roadster Sends Delivery Odds Tumbling Despite Spectacular Demo",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-16T14:25:25.296200-04:00",
     "symbols": [
       "PLTR"
@@ -5096,5 +5086,15 @@
     "source": "benzinga",
     "tag": "held",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T14:13:01.295580-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Homebuilder Sentiment Hits 2012 Lows As Stocks Trade Like They Did During COVID-19 Pandemic",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

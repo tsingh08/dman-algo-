@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-19T09:25:51.905839-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "AI Boom Hits a Power Wall: Microsoft Walks Away From Nscale&#39;s UK Data Center Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T09:25:52.110966-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Are Companies Reducing AI Spending? Chip Orders Say Otherwise",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-19T09:25:52.114133-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Dan Ives Says Meta, SpaceX and Tesla Face Big Questions This Week \u2014 His 3 &#39;Big Focus Points&#39; Ahead of Tech Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-19T09:25:52.116989-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Santander Builds AI Capabilities That Improve Performance And Lower Costs Using NVIDIA AI Infrastructure",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-19T09:25:52.119795-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Siemens Partners With NVIDIA To Advance AI-Driven, Autonomous Factories",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-19T09:25:52.122674-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is Nebius Group Stock Surging Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-19T09:25:52.368272-04:00",
     "symbols": [
       "AMD"
@@ -5084,5 +5024,73 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T15:30:55.334581-04:00",
+    "symbols": [
+      "GE",
+      "ISRG",
+      "LMT",
+      "META",
+      "NFLX",
+      "RTX",
+      "SPCX",
+      "SPOT",
+      "TSLA"
+    ],
+    "headline": "SpaceX Could Swing $128 Billion After Earnings",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T15:31:25.228610-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "SpaceX Could Swing $128 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T15:31:25.242672-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "SpaceX Could Swing $128 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T15:31:25.250290-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "SpaceX Could Swing $128 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T15:31:25.557590-04:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "SpaceX Could Swing $128 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T15:31:25.939513-04:00",
+    "symbols": [
+      "ISRG"
+    ],
+    "headline": "SpaceX Could Swing $128 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

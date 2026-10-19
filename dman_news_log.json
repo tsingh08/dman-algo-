@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-16T13:58:07.987740-04:00",
-    "symbols": [
-      "LADR"
-    ],
-    "headline": "Ladder Cap Q3 Adj. EPS $0.35 Beats $0.31 Estimate, Sales $118.904M Beat $79.433M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-16T13:58:07.992985-04:00",
     "symbols": [
       "LADR"
@@ -5110,5 +5100,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-19T13:45:19.749739-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "BMO Capital Maintains Market Perform on Goldman Sachs Group, Lowers Price Target to $950",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

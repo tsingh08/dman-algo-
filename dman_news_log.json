@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-16T12:43:02.006313-04:00",
-    "symbols": [
-      "FOXA"
-    ],
-    "headline": "This Semtech Analyst Turns Bullish; Here Are Top 5 Upgrades For Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-16T12:43:02.011575-04:00",
     "symbols": [
       "FOXA"
@@ -5103,5 +5093,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-19T12:52:13.272623-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Can Meta\u2019s Fiber Partner Corning Capitalize On Rising AI Fiber Prices?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

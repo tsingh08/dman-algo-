@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-19T09:26:02.404008-04:00",
-    "symbols": [
-      "CLF"
-    ],
-    "headline": "Nasdaq Tumbles Over 2%, Records Weekly Loss: Investor Sentiment Weakens, Fear &amp; Greed Index Moves to \u2018Extreme Fear\u2019 Zone",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T09:26:02.407482-04:00",
-    "symbols": [
-      "CLF"
-    ],
-    "headline": "Fifth Third Bancorp, Cleveland-Cliffs and 3 Stocks to Watch Heading Into Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T09:26:02.410422-04:00",
-    "symbols": [
-      "CLF"
-    ],
-    "headline": "Fifth Third, Steel Dynamics Earnings Test Bank Trends And Steel Demand",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T09:26:02.582125-04:00",
-    "symbols": [
-      "ZNTL"
-    ],
-    "headline": "HC Wainwright &amp; Co. Reiterates Buy on Zentalis Pharmaceuticals, Maintains $10 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-19T09:26:02.585413-04:00",
     "symbols": [
       "ZNTL"
@@ -5098,6 +5058,47 @@
     ],
     "headline": "HC Wainwright &amp; Co. Maintains Buy on Annexon, Raises Price Target to $25",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T16:05:15.216028-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Energy Secretary Wright Says Yet To Be Seen If Russia Will Release Diesel",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T16:05:44.449400-04:00",
+    "symbols": [
+      "AMZN",
+      "NVDA"
+    ],
+    "headline": "Amazon Just Found a Way Around Nvidia\u2019s Biggest Moat",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-19T16:07:21.960775-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Strategy (MSTR) Stock Just Flashed a Golden Cross. Bitcoin Bulls Still Have Two Problems",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-19T16:07:24.927178-04:00",
+    "symbols": [
+      "RMCF"
+    ],
+    "headline": "Rocky Mountain Chocolate Q2 EPS $(0.14) Down From $(0.09) YoY, Sales $6.652M Down From $6.823M YoY",
+    "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
   }

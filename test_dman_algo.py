@@ -5905,13 +5905,33 @@ class TestDayTradeLedger(unittest.TestCase):
         return client
 
     def test_same_day_round_trip_is_recorded(self):
-        with patch.object(a, "_load_day_trades", return_value=[]), \
-             patch.object(a, "_save_day_trades") as mock_save:
-            self.assertTrue(a._record_day_trade("AAA", "2026-09-03", "2026-09-03"))
+        """The date has to come from _a_weekday(), not a literal.
+
+        This test hardcoded "2026-09-03" and passed for exactly
+        _DAY_TRADE_LEDGER_KEEP_DAYS days. _record_day_trade() prunes anything
+        older than that cutoff BEFORE saving, so on 2026-10-18 -- the first
+        day the 45-day window closed behind that literal -- the row it had
+        just appended was pruned back out and `saved` came back empty. The
+        assertion was correct the whole time; the fixture rotted underneath
+        it. Nothing in the three sibling tests caught it because none of
+        them asserts a save."""
+        day = self._a_weekday()
+        with patch.object(a, "_load_day_trades", return_value=[]),              patch.object(a, "_save_day_trades") as mock_save:
+            self.assertTrue(a._record_day_trade("AAA", day, day))
         saved = mock_save.call_args[0][0]
         self.assertEqual(len(saved), 1)
         self.assertEqual(saved[0]["ticker"], "AAA")
-        self.assertEqual(saved[0]["date"], "2026-09-03")
+        self.assertEqual(saved[0]["date"], day)
+
+    def test_a_round_trip_older_than_the_retention_window_is_pruned(self):
+        """The behaviour that broke the test above, asserted on purpose so it
+        is a property rather than a trap."""
+        import datetime as _dt
+        old = (_dt.datetime.now(a.ET).date()
+               - _dt.timedelta(days=a._DAY_TRADE_LEDGER_KEEP_DAYS + 1)).isoformat()
+        with patch.object(a, "_load_day_trades", return_value=[]),              patch.object(a, "_save_day_trades") as mock_save:
+            a._record_day_trade("OLD", old, old)
+        self.assertEqual(mock_save.call_args[0][0], [])
 
     def test_overnight_hold_is_not_a_day_trade(self):
         # Entered yesterday, closed today -- the whole point of swing_mode.
@@ -26627,3 +26647,97 @@ class TestWhyNamesTheBarTheScannerApplied(unittest.TestCase):
                     if isinstance(t, _ast.Name)]
         self.assertEqual(assigned.count("_SEASONAL_EXEMPT"), 0)
         self.assertEqual(assigned.count("SEASONAL_EXEMPT_SETUPS"), 1)
+
+# The folder that was actually open on 2026-10-18, built rather than
+# written: a Windows path in a source literal is how the backslash in
+# "C:\Users" becomes a truncated \U escape.
+_WRONG_FOLDER = "c:" + chr(92) + "Users" + chr(92) + "singh" + chr(92) + "Downloads" + chr(92) + "files"
+
+
+class TestTheEditorCheckAsksWhichFolderIsOpen(unittest.TestCase):
+    """tools/pylance_env_check.py exists to answer "are these thousands of
+    editor problems real?" in one second. On 2026-10-18 it answered wrong.
+
+    6,082 Pylance warnings on dman_algo.py, every one of them a BUILTIN --
+    float, str, print, Exception, len -- and not one real name among the 50
+    distinct symbols. The script checked its four prerequisites, found them
+    clean, and said "reload the window". The warnings came back, because the
+    cause was the thing it never looked at: the open folder was
+    C:/Users/singh/Downloads/files while the repo is C:/Users/singh, so the
+    file sat outside every execution environment root, builtins never bound,
+    and the repo's own .vscode/settings.json was not loaded at all.
+
+    The script had the assumption baked into its header -- "workspace root =
+    HOME". Check 5 reads Pylance's own log instead of assuming."""
+
+    SRC = "tools/pylance_env_check.py"
+
+    def _src(self):
+        return io.open(self.SRC, encoding="utf-8").read()
+
+    def _run(self, log_text):
+        """Run the script with a fabricated Pylance log as the only one."""
+        import subprocess, sys, tempfile, os, shutil
+        tmp = tempfile.mkdtemp(prefix="pylancelog_")
+        d = os.path.join(tmp, "Code", "logs", "20260101T000000", "window1",
+                         "exthost", "ms-python.python")
+        os.makedirs(d)
+        io.open(os.path.join(d, "Python Language Server.log"), "w",
+                encoding="utf-8").write(log_text)
+        env = dict(os.environ, APPDATA=tmp, PYTHONIOENCODING="utf-8")
+        try:
+            r = subprocess.run([sys.executable, self.SRC], capture_output=True,
+                               text=True, env=env, encoding="utf-8",
+                               errors="replace")
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+        return r.returncode, (r.stdout or "") + (r.stderr or "")
+
+    def test_the_wrong_open_folder_is_reported_and_fails(self):
+        home = os.path.expanduser("~")
+        code, out = self._run(
+            'Starting service instance "files" for workspace '
+            '"' + _WRONG_FOLDER + '"' + chr(10) +
+            'FG(files): Found 2 source files' + chr(10))
+        self.assertIn("the repo is inside the open workspace", out)
+        self.assertIn("FAIL", out)
+        self.assertIn("OUTSIDE", out)
+        self.assertNotEqual(code, 0,
+                            "a wrong open folder must fail, not just print")
+
+    def test_the_right_open_folder_passes(self):
+        home = os.path.expanduser("~")
+        code, out = self._run(
+            'Starting service instance "home" for workspace "%s"\n'
+            'FG(home): Found 61 source files\n' % home)
+        self.assertIn("open folder is", out)
+        self.assertNotIn("OUTSIDE", out)
+
+    def test_a_subfolder_of_the_repo_also_passes(self):
+        """Opening the repo root is the normal case, but Pylance reporting a
+        PARENT of it is fine too -- the file is still inside."""
+        import pathlib
+        parent = str(pathlib.Path(os.path.expanduser("~")).parent)
+        code, out = self._run(
+            'Starting service instance "u" for workspace "%s"\n'
+            'FG(u): Found 900 source files\n' % parent)
+        self.assertNotIn("OUTSIDE", out)
+
+    def test_a_tiny_source_count_is_called_out(self):
+        code, out = self._run(
+            'Starting service instance "files" for workspace '
+            '"' + _WRONG_FOLDER + '"' + chr(10) +
+            'FG(files): Found 2 source files' + chr(10))
+        self.assertIn("only 2 source file", out)
+
+    def test_it_no_longer_claims_home_is_the_workspace_root(self):
+        """The header asserted the very thing that was false."""
+        self.assertNotIn('"Pylance prerequisites (workspace root', self._src())
+        self.assertIn("repo root = %s", self._src())
+
+    def test_reload_is_no_longer_the_unconditional_answer(self):
+        """A clean run may still advise a reload; what must be gone is
+        advising it without ever having checked the open folder."""
+        src = self._src()
+        self.assertIn("for workspace", src)
+        self.assertIn("Found (", src)

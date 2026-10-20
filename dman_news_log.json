@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-19T15:25:15.400284-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "\u2018CoreWeave Is the Canary in the Coal Mine\u2019: Expert Warns More AI Debt Will Slide into Distress",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-19T15:25:16.250133-04:00",
     "symbols": [
       "YHC"
@@ -5034,6 +5024,16 @@
       "SPY"
     ],
     "headline": "Watching S&amp;P Futures; Market Indices Move Lower, Traders Circulate Diplomat Involved In Negotiations Saying Iran- U.S. Talks Continue, Reports That &#39;Deal Is Close&#39; Are Wrong",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T11:21:51.761637-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Energy Secretary Says &#34;More To Do&#34; On Refining And Defense Production Act Funding",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

@@ -40910,10 +40910,10 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 8,
-"last_ts": "2026-10-20T11:00:55.903469-04:00",
+"seen": 9,
+"last_ts": "2026-10-20T14:15:24.882371-04:00",
 "entry_min": 354.94,
-"entry_max": 354.94
+"entry_max": 358.43
 },
 {
 "ts": "2026-10-20T10:25:10.171108-04:00",
@@ -40984,7 +40984,7 @@
 "setup": "Gap & Hold",
 "bias": "LONG",
 "taken": false,
-"reject": "bearish catalyst: Oppenheimer Downgrades Braze to Perform",
+"reject": "bearish catalyst: Stifel Downgrades Braze to Hold, Raises Pr",
 "score": 100,
 "final_score": 100.0,
 "ai_scored": false,
@@ -41034,8 +41034,8 @@
 "Gap Size": 5,
 "News Catalyst": -10
 },
-"seen": 19,
-"last_ts": "2026-10-20T14:16:18.805332-04:00",
+"seen": 17,
+"last_ts": "2026-10-20T14:03:44.866955-04:00",
 "entry_min": 45.51,
 "entry_max": 45.55
 },
@@ -41096,9 +41096,9 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 16,
-"last_ts": "2026-10-20T14:16:19.039551-04:00",
+"seen": 15,
+"last_ts": "2026-10-20T14:15:22.191464-04:00",
 "entry_min": 19.51,
-"entry_max": 19.69
+"entry_max": 19.79
 }
 ]

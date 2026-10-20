@@ -2131,5 +2131,59 @@
   "drift_pct": 0.16,
   "range_ratio": 0.23,
   "near_high": 0.979
+ },
+ {
+  "ts": "2026-10-20T14:16:40.812519-04:00",
+  "ticker": "FCOM",
+  "price": 71.29,
+  "rvol": 2.51,
+  "drift_pct": 1.12,
+  "range_ratio": 0.63,
+  "near_high": 0.958
+ },
+ {
+  "ts": "2026-10-20T14:16:40.812529-04:00",
+  "ticker": "ESGU",
+  "price": 168.22,
+  "rvol": 1.78,
+  "drift_pct": 0.1,
+  "range_ratio": 0.46,
+  "near_high": 0.986
+ },
+ {
+  "ts": "2026-10-20T14:16:40.812534-04:00",
+  "ticker": "EVOX",
+  "price": 10.12,
+  "rvol": 6.03,
+  "drift_pct": 0.1,
+  "range_ratio": 0.4,
+  "near_high": 0.999
+ },
+ {
+  "ts": "2026-10-20T14:16:40.812537-04:00",
+  "ticker": "FCRS",
+  "price": 10.19,
+  "rvol": 9.84,
+  "drift_pct": 0.1,
+  "range_ratio": 0.67,
+  "near_high": 0.992
+ },
+ {
+  "ts": "2026-10-20T14:16:40.812540-04:00",
+  "ticker": "IWY",
+  "price": 288.71,
+  "rvol": 2.24,
+  "drift_pct": 1.22,
+  "range_ratio": 0.53,
+  "near_high": 0.95
+ },
+ {
+  "ts": "2026-10-20T14:16:40.812543-04:00",
+  "ticker": "IWX",
+  "price": 113.605,
+  "rvol": 2.32,
+  "drift_pct": 1.11,
+  "range_ratio": 0.44,
+  "near_high": 0.998
  }
 ]

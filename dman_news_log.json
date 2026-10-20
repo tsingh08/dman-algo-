@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-19T14:18:09.793625-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "'Of Course' Bitcoin Could Grow to $50 Trillion, Jordi Visser Says: But How?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-19T14:18:09.906782-04:00",
     "symbols": [
       "GOOGL"
@@ -5025,5 +5015,15 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T10:32:59.934389-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Six Years Late, Boeing&#39;s Biggest 737 MAX May Finally Be Cleared for Takeoff",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

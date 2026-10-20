@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-19T15:25:16.250133-04:00",
-    "symbols": [
-      "YHC"
-    ],
-    "headline": "LQR House&#39;s YHC AI Enters Into A 1-Year Agreement To Procure Up To $3M In OpenAI-Powered Computing Resources To Advance AI-Driven Financial Research And Portfolio Optimization",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:26:50.358117-04:00",
-    "symbols": [
-      "NEM"
-    ],
-    "headline": "Barclays Maintains Overweight on Newmont, Lowers Price Target to $123",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-19T15:27:34.542652-04:00",
     "symbols": [
       "GOOGL"
@@ -5037,5 +5017,25 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T11:26:17.575169-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Is SK Hynix Stock a 270% Opportunity? Nomura Says Yes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T11:26:36.274696-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "EXCLUSIVE: Tesla SpaceX Merger? 70% of Benzinga Viewers Say Elon Musk Will Get There \u2014 But Not When You Think",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

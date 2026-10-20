@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-19T16:02:20.952318-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "TIPS Now Pay 2.8% Above Inflation. Here&#39;s The Hurdle That Sets For S&amp;P 500 Investors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T16:02:20.957118-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;Nscale, Anthropic in Talks for $45 Billion Cloud Computing Deal&#39; - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-19T16:02:20.965497-04:00",
     "symbols": [
       "AMD"
@@ -5046,6 +5026,30 @@
     "headline": "&#39;Legendary Revives Lionsgate Takeover Talks, Submits Offer&#39; - Bloomberg",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T12:58:54.211374-04:00",
+    "symbols": [
+      "CRM",
+      "DIA",
+      "IWM",
+      "NFLX",
+      "QQQ"
+    ],
+    "headline": "Health Care Stocks Hit Record Highs, GM Drops Nearly 8%: Stock Market Today",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T12:59:17.124455-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Elon Musk, On Social Media, Announces Rollout Of Grok Bot 0.71.2",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

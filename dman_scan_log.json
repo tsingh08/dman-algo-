@@ -1,49 +1,5 @@
 [
   {
-    "ts": "2026-10-16T11:28:52.061275-04:00",
-    "regime": "CHOP",
-    "regime_score": 10,
-    "vix": 16.1,
-    "min_score": 85,
-    "universe": "daemon-curated+smallcap+movers",
-    "tickers_total": 295,
-    "signals": 1,
-    "signal_tickers": [
-      "TCRT"
-    ],
-    "signal_scores": [
-      100
-    ],
-    "rejected_no_signal": 294,
-    "rejected_hard_gate": 0,
-    "rejected_low_score": 0,
-    "budget_hit": false,
-    "news_breadth_pct": 63.1,
-    "news_breadth_total": 349
-  },
-  {
-    "ts": "2026-10-16T11:31:43.544965-04:00",
-    "regime": "CHOP",
-    "regime_score": 10,
-    "vix": 16.1,
-    "min_score": 85,
-    "universe": "daemon-curated+smallcap+movers",
-    "tickers_total": 295,
-    "signals": 1,
-    "signal_tickers": [
-      "TCRT"
-    ],
-    "signal_scores": [
-      100
-    ],
-    "rejected_no_signal": 294,
-    "rejected_hard_gate": 0,
-    "rejected_low_score": 0,
-    "budget_hit": false,
-    "news_breadth_pct": 63.4,
-    "news_breadth_total": 349
-  },
-  {
     "ts": "2026-10-16T11:34:27.715346-04:00",
     "regime": "CHOP",
     "regime_score": 10,
@@ -2366,5 +2322,41 @@
     "budget_hit": false,
     "news_breadth_pct": 86.4,
     "news_breadth_total": 389
+  },
+  {
+    "ts": "2026-10-20T09:27:12.245645-04:00",
+    "regime": "CHOP",
+    "regime_score": 10,
+    "vix": 18.7,
+    "min_score": 85,
+    "universe": "daemon-curated+smallcap+movers",
+    "tickers_total": 306,
+    "signals": 0,
+    "signal_tickers": [],
+    "signal_scores": [],
+    "rejected_no_signal": 305,
+    "rejected_hard_gate": 1,
+    "rejected_low_score": 0,
+    "budget_hit": false,
+    "news_breadth_pct": 85.4,
+    "news_breadth_total": 406
+  },
+  {
+    "ts": "2026-10-20T09:27:39.552629-04:00",
+    "regime": "CHOP",
+    "regime_score": 10,
+    "vix": 18.7,
+    "min_score": 85,
+    "universe": "daemon-curated+smallcap+movers",
+    "tickers_total": 306,
+    "signals": 0,
+    "signal_tickers": [],
+    "signal_scores": [],
+    "rejected_no_signal": 305,
+    "rejected_hard_gate": 1,
+    "rejected_low_score": 0,
+    "budget_hit": false,
+    "news_breadth_pct": 79.7,
+    "news_breadth_total": 401
   }
 ]

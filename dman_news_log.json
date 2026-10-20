@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-19T15:51:22.671437-04:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "Biogen To Demonstrate Data, Additional Scientific Presentations From Its Nephrology Portfolio At American Society Of Nephrology Kidney Week",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-19T15:51:22.676791-04:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "Gilead Announces Emvistegrast 200 Mg Met Primary Endpoint In Phase 2 Swift Dose-Ranging Study; Demonstrated Significant Differences Across Multiple Secondary Measures Of Disease Activity Based On Nominal P-Values; Plans To Initiate Phase 3 Emvistegrast Monotherapy Study In 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-19T15:51:22.681523-04:00",
     "symbols": [
       "RXRX"
@@ -5040,5 +5020,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T12:10:29.522303-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD And Intel Collaborate To Combine x86 CPU Optimization Work For PyTorch In oneDNN, Open-Source Deep Learning Library Governed By Unified Acceleration Foundation",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T12:11:06.719806-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Truist Securities Maintains Buy on Fortinet, Raises Price Target to $200",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

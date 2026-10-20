@@ -750,5 +750,27 @@
    "regime": "CHOP",
    "regime_score": 9
   }
+ },
+ {
+  "ts": "2026-10-20T11:59:44.531628-04:00",
+  "kind": "signal",
+  "ticker": "ZCMD",
+  "verdict": "skip",
+  "confidence": 85,
+  "reason": "Regime is CHOP (score 10). Ultra-low float in choppy conditions creates whipsaw risk. Stop is 250% away\u2014entry likely premature.",
+  "facts": {
+   "setup": "Low Float Catalyst",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 1.4429,
+   "stop": 1.1543,
+   "target1": 2.16,
+   "rr": 2.48,
+   "rvol": 0.72,
+   "rsi": 37.2,
+   "reason": "Float 0.0M | RVOL 0.7x | \u26a1 ULTRA-LOW FLOAT | \ud83d\udd25 Float 5.2x rotated | \u2705 POST-RS | Bottom chart (15% off 52wk low) | \ud83d\udcb0 Below cash value (2.2x) | MACD bullish at 52wk low support",
+   "regime": "CHOP",
+   "regime_score": 10
+  }
  }
 ]

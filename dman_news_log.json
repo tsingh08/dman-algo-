@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-20T09:26:36.559406-04:00",
-    "symbols": [
-      "EFX"
-    ],
-    "headline": "Equifax Q3 Adj. EPS $2.26 Beats $2.20 Estimate, Sales $1.693B Beat $1.691B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-20T09:26:36.561826-04:00",
     "symbols": [
       "EFX"
@@ -5064,5 +5054,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T15:27:14.186062-04:00",
+    "symbols": [
+      "EFX"
+    ],
+    "headline": "Equifax Sees Q4 Adj EPS $2.07-$2.17 vs $2.20 Est; Sees Sales $1.605B-$1.635B vs $1.692B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

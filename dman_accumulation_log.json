@@ -2131,5 +2131,23 @@
   "drift_pct": 0.16,
   "range_ratio": 0.23,
   "near_high": 0.979
+ },
+ {
+  "ts": "2026-10-20T11:43:56.540323-04:00",
+  "ticker": "FCOM",
+  "price": 71.39,
+  "rvol": 2.46,
+  "drift_pct": 0.98,
+  "range_ratio": 0.63,
+  "near_high": 0.959
+ },
+ {
+  "ts": "2026-10-20T11:43:56.540339-04:00",
+  "ticker": "ESGU",
+  "price": 168.27,
+  "rvol": 1.76,
+  "drift_pct": 0.12,
+  "range_ratio": 0.46,
+  "near_high": 0.986
  }
 ]

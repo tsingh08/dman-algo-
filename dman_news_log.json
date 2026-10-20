@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-10-19T15:37:35.329003-04:00",
-    "symbols": [
-      "DXC"
-    ],
-    "headline": "'DXC in advanced talks to sell insurance software unit for $2.4 billion, sources say' - Reuters",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:37:35.670151-04:00",
-    "symbols": [
-      "NWCL"
-    ],
-    "headline": "12 Financials Stocks Moving In Monday's Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:37:35.804447-04:00",
-    "symbols": [
-      "HAL"
-    ],
-    "headline": "SpaceX Could Swing $128 Billion After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:37:35.808161-04:00",
-    "symbols": [
-      "HAL"
-    ],
-    "headline": "Piper Sandler Maintains Overweight on Halliburton, Lowers Price Target to $42",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:37:35.956360-04:00",
-    "symbols": [
-      "MANE"
-    ],
-    "headline": "Could This Pill Be a Game Changer for Hair Loss? Veradermics Reports Major Breakthrough",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:37:36.183492-04:00",
-    "symbols": [
-      "MPT"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rises as AI Chip Rout Reverses, SanDisk Jumps 7%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:43:06.323874-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "'Nscale, Anthropic in Talks for $45 Billion Cloud Computing Deal' - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T15:43:06.567670-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Where Trump\u2019s Portfolio Meets His Power: Nvidia, Palantir, Dell and More",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T15:43:06.573271-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Why Is Credo Technology Stock Gaining Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T15:43:07.085548-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "'Nscale, Anthropic in Talks for $45 Billion Cloud Computing Deal' - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-19T15:43:07.361812-04:00",
     "symbols": [
       "AMZN"
@@ -4923,6 +4823,106 @@
     "source": "benzinga",
     "tag": "held",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T11:42:55.656970-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "&#39;A Surprisingly Large Amount Of Your Investment Is Divided Across Just 7 Companies&#39; \u2014 Former Investment Banker Says She&#39;s Changing How She Invests",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T11:42:55.900609-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;A Surprisingly Large Amount Of Your Investment Is Divided Across Just 7 Companies&#39; \u2014 Former Investment Banker Says She&#39;s Changing How She Invests",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T11:42:56.199672-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;A Surprisingly Large Amount Of Your Investment Is Divided Across Just 7 Companies&#39; \u2014 Former Investment Banker Says She&#39;s Changing How She Invests",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T11:42:56.681256-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;A Surprisingly Large Amount Of Your Investment Is Divided Across Just 7 Companies&#39; \u2014 Former Investment Banker Says She&#39;s Changing How She Invests",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T11:42:57.189949-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;A Surprisingly Large Amount Of Your Investment Is Divided Across Just 7 Companies&#39; \u2014 Former Investment Banker Says She&#39;s Changing How She Invests",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T11:42:57.427755-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "&#39;A Surprisingly Large Amount Of Your Investment Is Divided Across Just 7 Companies&#39; \u2014 Former Investment Banker Says She&#39;s Changing How She Invests",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T11:42:57.432951-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "SpaceX Stock for Every Child Could Kick Off $100B Giving Race, Brad Gerstner Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T11:43:04.955550-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "Truist Securities Maintains Buy on DraftKings, Lowers Price Target to $26",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-20T11:43:10.610560-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Energy Secretary Chris Wright Says U.S. Is Also Pushing Shuttered Domestic Refineries To Reopen",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T11:43:10.615551-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Live On CNN News18, U.S. Secretary Of State Rubio On Trade Deal With India, Says Down To Some Technical Details That Have To Be Worked Out; Anticipate Seeing In A Matter Of Weeks Not Months",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   },
   {
     "ts": "2026-10-20T11:43:18.452221-04:00",

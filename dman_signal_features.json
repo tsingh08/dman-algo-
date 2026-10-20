@@ -40860,17 +40860,17 @@
 "setup": "Gap & Hold",
 "bias": "LONG",
 "taken": false,
-"reject": "setup disabled: 9W/36L over 45 live trades (20% WR, -89.6% c",
+"reject": "ai 4/10",
 "score": 100,
-"final_score": 100.0,
-"ai_scored": false,
-"entry": 354.94,
-"stop": 345.47,
-"target1": 378.61,
-"rr": 2.5,
-"rsi": 82.9,
-"rvol": 4.29,
-"atr": 6.6342857142857055,
+"final_score": 82.0,
+"ai_scored": true,
+"entry": 358.14,
+"stop": 347.93,
+"target1": 389.81,
+"rr": 3.1,
+"rsi": 83.8,
+"rvol": 2.55,
+"atr": 6.807857142857131,
 "beta": 1.105,
 "catalyst_tier": "C",
 "news_boost": true,
@@ -40906,14 +40906,14 @@
 "ATR Pctile": 6,
 "RegimeSetup": 3,
 "Float/Short": 0,
-"RVOL Tier": 6,
+"RVOL Tier": 3,
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 8,
-"last_ts": "2026-10-20T11:00:55.903469-04:00",
+"seen": 10,
+"last_ts": "2026-10-20T15:01:06.790498-04:00",
 "entry_min": 354.94,
-"entry_max": 354.94
+"entry_max": 358.14
 },
 {
 "ts": "2026-10-20T10:25:10.171108-04:00",
@@ -41034,8 +41034,8 @@
 "Gap Size": 5,
 "News Catalyst": -10
 },
-"seen": 25,
-"last_ts": "2026-10-20T15:03:51.114174-04:00",
+"seen": 22,
+"last_ts": "2026-10-20T14:40:40.589665-04:00",
 "entry_min": 45.51,
 "entry_max": 45.55
 },
@@ -41096,9 +41096,9 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 22,
-"last_ts": "2026-10-20T15:03:51.339956-04:00",
+"seen": 20,
+"last_ts": "2026-10-20T15:01:03.565654-04:00",
 "entry_min": 19.51,
-"entry_max": 19.69
+"entry_max": 19.82
 }
 ]

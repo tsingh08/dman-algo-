@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-19T15:54:32.095097-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Accenture Reportedly Weighs $1.5 Billion Sale of Greater China Business After Attracting Unsolicited Interest Over Past Year",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-19T15:54:32.340258-04:00",
     "symbols": [
       "GS"
@@ -5048,5 +5038,16 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T12:54:33.105297-04:00",
+    "symbols": [
+      "NVDA",
+      "SMCI"
+    ],
+    "headline": "Why Is SMCI Stock Seesawing on Tuesday?",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": "neutral"
   }
 ]

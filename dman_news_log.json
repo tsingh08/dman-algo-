@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-20T09:36:45.370099-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "China&#39;s Commerce Ministry, On U.S. Order On DeepSeek, Says China Firmly Opposes This; U.S. Move Discriminatory, Politicizes Tech And Trade Issues Under Guise Of National Security; U.S. Action Disregards Consensus Reached Between Chinese, U.S. Heads Of State; Urges U.S. To Immediately Correct Wrong Practices, Revoke Discriminatory Restrictions On Chinese Firms",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-20T09:38:41.104490-04:00",
     "symbols": [
       "RAPP"
@@ -5068,5 +5058,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T16:02:53.354019-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Q3 EPS $0.35 Beats $0.12 Estimate, Sales $14.575B Beat $12.738B Estimate",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

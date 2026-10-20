@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-20T09:26:24.125909-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "GE Aerospace CFO Says Number Of Genx Engines In Boeing Inventory Has Grown Over Last Few Months As Engine Deliveries Have Outpaced Aircraft Deliveries; Confident We&#39;ll Continue To Grow Genx Deliveries &amp; Help Boeing Get To Rate 10 On 787 Deliveries Along With Rest Of Supply Chain; On Both Narrow Body And Wide Body Overall, We Expect Work Scopes To Increase Next Year",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-20T09:26:24.128360-04:00",
     "symbols": [
       "GE"
@@ -5063,5 +5053,16 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T14:47:01.729436-04:00",
+    "symbols": [
+      "AMZN",
+      "NVDA"
+    ],
+    "headline": "&#39;Amazon Is Buying Billions In NVIDIA AI Systems It Can&#39;t Yet Turn On&#39; - Business Insider",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": "neutral"
   }
 ]

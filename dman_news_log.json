@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-19T15:51:22.650531-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Reported Saturday, AbbVie Says Rinvoq Sustains Crohn\u2019s Endoscopic Remission Of 47.1%-64.2% At Week 144 Through About Four Years, Skyrizi Sustains Ulcerative Colitis Endoscopic Remission Of 38.8%-53.5% At Week 96 At UEGW",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T15:51:22.655940-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Reported Sunday, AbbVie Plans ESMO 2026 Update Showing ABBV-706 Achieved 56% ORR And 12.4-Month Median OS In 2L+ Small Cell Lung Cancer, With 82% ORR In 2L-Only Patients",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T15:51:22.660736-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly\u2019s Omvoh Shows 1-Year Phase 3 Results for Kids with Ulcerative Colitis",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T15:51:22.666920-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Reported Sunday, Lilly Brings Updated Phase 3 Selpercatinib Data Versus Cabozantinib Or Vandetanib In RET-Mutant Medullary Thyroid Cancer To ESMO 2026, Alongside Sofetabart Mipitecan, Olomorasib And Abemaciclib Presentations",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-19T15:51:22.671437-04:00",
     "symbols": [
       "BIIB"
@@ -5039,6 +4999,46 @@
     "headline": "&#39;HHS releases new kidney care plan&#39; - Axios Exclusive",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T12:07:10.359739-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;Joel Kaplan leaving Meta after 15 years as policy chief&#39; - Axios Exclusive",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T12:07:40.902025-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "Defense Giant RTX Order Backlog Hits Record $340 Billion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T12:07:52.770377-04:00",
+    "symbols": [
+      "BRZE"
+    ],
+    "headline": "Nasdaq Rises Over 100 Points; 3M Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T12:07:53.470245-04:00",
+    "symbols": [
+      "MYGN"
+    ],
+    "headline": "Nasdaq Rises Over 100 Points; 3M Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

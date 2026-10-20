@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-19T15:37:33.318429-04:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "SpaceX Could Swing $128 Billion After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T15:37:34.980178-04:00",
-    "symbols": [
-      "GLAS"
-    ],
-    "headline": "Crude Oil Moves Higher; US Homebuilder Sentiment Falls In October",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-19T15:37:35.329003-04:00",
     "symbols": [
       "DXC"
@@ -5033,5 +5013,32 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T11:45:27.143036-04:00",
+    "symbols": [
+      "AAPL",
+      "AMZN",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "NVDA",
+      "PLTR",
+      "SPY"
+    ],
+    "headline": "Michael Burry Sees a 2000-Style Rotation Out of the Market&#39;s Winners",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T11:45:49.921292-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Live On CNN News18, U.S. Secretary Of State Rubio Says Oil Going Through Hormuz Nearly Equal To Before War",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

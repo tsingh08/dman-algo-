@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-20T09:26:23.895655-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "RTX Q3 Adj. EPS $2.26 Beats $1.78 Estimate, Sales $24.965B Beat $24.080B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:23.898140-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Stock Market Today:  Dow Jones, S&amp;P 500, Nasdaq 100 Futures Fall as Iran Threatens to Target Undersea Cables \u2014 SPCX, NFLX, STLD in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-20T09:26:24.123243-04:00",
     "symbols": [
       "GE"
@@ -5063,5 +5043,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T14:40:10.534749-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump And Vice President JD Vance Make An Announcement; President Trump Says We&#39;ll Have More Growth This Year; Will Be Very Strong On Budget This Year",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T14:40:16.070085-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Ethereum, Solana, HYPE Growth Isn\u2019t Lifting Staking Yields: Bitwise",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

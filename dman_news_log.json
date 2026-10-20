@@ -1,24 +1,5 @@
 [
   {
-    "ts": "2026-10-19T12:58:22.303247-04:00",
-    "symbols": [
-      "AMZN",
-      "APLD",
-      "AVGO",
-      "DIA",
-      "IWM",
-      "MRVL",
-      "MU",
-      "QQQ",
-      "SKHY",
-      "SNDK"
-    ],
-    "headline": "Stock Market Today: Nasdaq 100 Rises as AI Chip Rout Reverses, SanDisk Jumps 7%",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-19T12:58:56.497627-04:00",
     "symbols": [
       "JOBY"
@@ -5053,5 +5034,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T09:47:53.613161-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;RBC Considers Blocking Meta\u2019s Muse AI Agent, CEO Dave McKay Says&#39; - Bloomberg News",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-20T09:26:37.716619-04:00",
-    "symbols": [
-      "IRON"
-    ],
-    "headline": "Wedbush Maintains Outperform on Disc Medicine, Raises Price Target to $110",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-20T09:26:37.719651-04:00",
     "symbols": [
       "IRON"
@@ -5068,5 +5058,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T15:53:02.369038-04:00",
+    "symbols": [
+      "BRZE"
+    ],
+    "headline": "Wells Fargo Downgrades Braze to Equal-Weight, Raises Price Target to $47.5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

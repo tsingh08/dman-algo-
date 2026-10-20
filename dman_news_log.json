@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-19T15:51:22.732432-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Peter Schiff Says AI Could Rewrite the Rules of Starting a Business: \u2018Don\u2019t Look for a Job\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-19T15:51:22.740143-04:00",
     "symbols": [
       "BABA"
@@ -5052,5 +5042,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T12:32:38.196758-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Iran Tells Pakistan It Has Nothing New To Say To U.S.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

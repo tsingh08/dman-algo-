@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-20T09:26:14.959725-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "3M Stock Is Gaining Tuesday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T09:26:14.962132-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Announces Plan To Invest More Than \u20ac16B ($18B) In Germany In 2027, Spanning Data Centers, AI, Satellite Internet, Logistics And Prime Video",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T09:26:15.225993-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "SpaceX&#39;s Starship Catch Could Unlock Valuation Upside, Morgan Stanley&#39;s Adam Jonas Says Ahead of SPCX Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T09:26:15.228657-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla Likely To Report Lower Q3 Earnings; These Most Accurate Analysts Revise Forecasts Ahead Of Earnings Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T09:26:15.231110-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Cantor Fitzgerald Reiterates Overweight on Tesla, Maintains $485 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-20T09:26:15.233514-04:00",
     "symbols": [
       "TSLA"
@@ -5062,5 +5012,56 @@
     "source": "benzinga",
     "tag": "held",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T14:14:57.903312-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "SpaceX Prepares for Q3 Earnings with Focus on Starship, AI Spending",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T14:15:09.765286-04:00",
+    "symbols": [
+      "COIN",
+      "MA"
+    ],
+    "headline": "Mastercard Taps Coinbase, Cloudflare as AI Agents Learn to Pay",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T14:15:13.148123-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Prepares for Q3 Earnings with Focus on Starship, AI Spending",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T14:15:13.939609-04:00",
+    "symbols": [
+      "BRZE"
+    ],
+    "headline": "Oppenheimer Downgrades Braze to Perform",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T14:15:17.471405-04:00",
+    "symbols": [
+      "EFX"
+    ],
+    "headline": "Equifax Warns Inflation Is Squeezing Lower-Income Americans",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

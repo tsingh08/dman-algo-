@@ -23139,6 +23139,125 @@ def _dip_basket_load() -> list:
         return []
 
 
+# -------------------------------------------------------------------------
+#  PENDING MANUAL EXITS - a decision to sell outlives the attempt to sell
+# -------------------------------------------------------------------------
+#
+# Twice now a manual close has hit the same wall. A resting GTC stop holds the
+# whole position, so closing means cancel-then-submit; outside market hours
+# Alpaca parks that cancel in PENDING_CANCEL and keeps the shares reserved
+# until the session opens. Verified live 2026-10-20 at 03:10 ET on IOVA, where
+# even Alpaca's own close_position() refused:
+#
+#     insufficient qty available for order (requested: 17, available: 0)
+#     held_for_orders: 17
+#
+# PGEN was the first (2026-10-16) and the fix then was _wait_for_orders_clear,
+# which correctly REFUSES to submit a close that would be rejected. That turned
+# a silent failure into a visible one -- a real improvement -- but it left the
+# decision on the floor: nothing remembered that the operator had said sell.
+# PGEN sat in limbo until a human re-issued it by hand.
+#
+# Worse, the cancel does eventually clear. So the end state of a deferred close
+# is a position with NO resting stop and NO sell order: unprotected, with
+# nothing scheduled to act. That is the hole this closes.
+#
+# The queue is the memory. Scoped to tickers written into it, drained only
+# while the market is open, idempotent by one-way row status, and it reuses
+# _close_position_at_market() rather than re-growing the race handling.
+PENDING_EXIT_FILE = "dman_pending_exits.json"
+PENDING_EXIT_MAX_ATTEMPTS = 40     # ~7 hours of 10-minute daemon passes
+
+
+def _pending_exits_load() -> list:
+    try:
+        with open(PENDING_EXIT_FILE) as _f:
+            _rows = json.load(_f)
+        return _rows if isinstance(_rows, list) else []
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
+
+
+def queue_manual_exit(ticker: str, reason: str) -> bool:
+    """Remember that this ticker is to be closed. True if newly queued."""
+    _tk = str(ticker or "").upper().strip()
+    if not _tk:
+        return False
+    _rows = _pending_exits_load()
+    if any(r.get("ticker") == _tk and r.get("status") == "queued" for r in _rows):
+        return False
+    _rows.append({"ticker": _tk, "reason": str(reason or "manual exit"),
+                  "queued_at": datetime.now(ET).isoformat(timespec="seconds"),
+                  "status": "queued", "attempts": 0})
+    _write_json_atomic(PENDING_EXIT_FILE, _rows, indent=1)
+    print(f"  \U0001f4dd Queued manual exit: {_tk} ({reason})")
+    return True
+
+
+def run_pending_exits(notify: bool = True) -> dict:
+    """Submit any queued manual exit whose shares the broker has released."""
+    out = {"closed": [], "waiting": [], "stuck": []}
+    _rows = _pending_exits_load()
+    if not any(r.get("status") == "queued" for r in _rows):
+        return out
+    # A market order outside regular hours is rejected or queued to the open,
+    # and the cancel this is waiting on will not clear until then either, so
+    # there is nothing to gain by trying.
+    if not is_market_open():
+        out["waiting"] = [r["ticker"] for r in _rows if r.get("status") == "queued"]
+        print(f"  \U0001f4dd pending exits: {len(out['waiting'])} waiting for the open "
+              f"({', '.join(out['waiting'])})")
+        return out
+    _changed = False
+    try:
+        for _r in _rows:
+            if _r.get("status") != "queued":
+                continue
+            _tk = _r["ticker"]
+            _pos = next((p for p in PositionTracker().positions
+                         if p.ticker == _tk), None)
+            if _pos is None:
+                _r["status"], _changed = "done", True
+                _r["outcome"] = "already flat"
+                out["closed"].append(_tk)
+                continue
+            _st, _oid = _close_position_at_market(_pos, _r.get("reason", "manual exit"))
+            _r["attempts"] = int(_r.get("attempts", 0)) + 1
+            _changed = True
+            if _st in ("submitted", "already_closed"):
+                _r["status"], _r["outcome"] = "done", _st
+                out["closed"].append(_tk)
+                if notify:
+                    send_telegram(f"\U0001f4e4 <b>{_tk} manual exit {_st}</b>" + chr(10)
+                                  + str(_r.get("reason", ""))[:160])
+            elif _r["attempts"] >= PENDING_EXIT_MAX_ATTEMPTS:
+                # Still blocked after a whole session. The position is almost
+                # certainly sitting with no stop by now, which is the one
+                # thing worth waking someone for.
+                _r["status"] = "stuck"
+                out["stuck"].append(_tk)
+                if notify and not _is_duplicate_alert(f"__PENDING_EXIT_STUCK__:{_tk}"):
+                    send_telegram(
+                        f"\u26a0\ufe0f <b>{_tk} exit is STUCK</b>" + chr(10)
+                        + f"{_r['attempts']} attempts and the broker still will not "
+                          "take the order. The resting stop may be gone, so assume "
+                          "the position is UNPROTECTED." + chr(10)
+                        + f"Close it from the app, or reply /close {_tk}.")
+                    _save_last_alert(f"__PENDING_EXIT_STUCK__:{_tk}")
+            else:
+                out["waiting"].append(_tk)
+    except Exception as exc:
+        _log_swallowed("pending exits", exc)
+    if _changed:
+        try:
+            _write_json_atomic(PENDING_EXIT_FILE, _rows[-200:], indent=1)
+        except Exception as exc:
+            _log_swallowed("pending exits write", exc)
+    print(f"  \U0001f4dd pending exits: {len(out['closed'])} closed, "
+          f"{len(out['waiting'])} still blocked, {len(out['stuck'])} stuck")
+    return out
+
+
 def _dip_basket_reprice_stop(row: dict, out: dict) -> None:
     """Move a filled row's stop to DIP_BASKET_STOP_PCT below its real fill.
 
@@ -31634,6 +31753,7 @@ def main():
         run_orb_shadow()
         run_dip_shadow()
         run_dip_basket_manage()
+        run_pending_exits()
 
     elif args.mode == "bzone":
         run_breakout_zone_log()

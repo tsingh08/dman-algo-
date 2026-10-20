@@ -36,6 +36,7 @@
   "run_news_source_check",
   "run_options_guard",
   "run_orb_shadow",
+  "run_pending_exits",
   "run_policy_audit",
   "run_position_reconciliation",
   "run_premarket_briefing",
@@ -1210,6 +1211,11 @@
     ],
     [
      "run_dip_basket_manage",
+     "()",
+     "[]"
+    ],
+    [
+     "run_pending_exits",
      "()",
      "[]"
     ]

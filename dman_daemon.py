@@ -1010,6 +1010,13 @@ def scan_loop() -> None:
                         algo.run_dip_basket_manage()
                     except Exception as _dbexc:
                         log(f"dip basket error: {_dbexc}")
+                    # A manual close blocked by a PENDING_CANCEL outside hours
+                    # has to be retried once the broker releases the shares,
+                    # or the position ends up with neither a stop nor a sell.
+                    try:
+                        algo.run_pending_exits()
+                    except Exception as _pexc:
+                        log(f"pending exits error: {_pexc}")
                     scan_ok = True
                 except Exception as exc:
                     log(f"scan error: {exc}")

@@ -27297,3 +27297,148 @@ class TestAnIntradayLookbackThatIsIgnoredIsWorseThanNone(unittest.TestCase):
     def test_the_minute_path_uses_it(self):
         src = inspect.getsource(a._fetch_intraday_bars)
         self.assertIn("_period_days(period)", src)
+
+class TestADecisionToSellOutlivesTheAttempt(unittest.TestCase):
+    """Twice a manual close has hit the same wall. A resting GTC stop holds the
+    whole position, so closing means cancel-then-submit, and outside market
+    hours Alpaca parks that cancel in PENDING_CANCEL while keeping the shares
+    reserved. Verified live 2026-10-20 at 03:10 ET on IOVA, where even
+    Alpaca's own close_position() refused:
+
+        insufficient qty available for order (requested: 17, available: 0)
+        held_for_orders: 17
+
+    PGEN was the first, on 2026-10-16. The fix then -- _wait_for_orders_clear
+    refusing to submit a close that would be rejected -- turned a silent
+    failure into a visible one, which was right, but it left the decision on
+    the floor. Nothing remembered that sell had been said, and PGEN sat until
+    a human re-issued it by hand.
+
+    The sharper problem is the end state. The cancel does eventually clear, so
+    a deferred close leaves a position with NO resting stop and NO sell order:
+    unprotected, with nothing scheduled to act. The queue is the memory that
+    closes that hole."""
+
+    def _run(self, rows, positions=None, market_open=True,
+             close_result=("submitted", "oid")):
+        import tempfile, json as _json
+        fd, path = tempfile.mkstemp(suffix=".json")
+        os.close(fd)
+        io.open(path, "w", encoding="utf-8").write(_json.dumps(rows))
+        tracker = MagicMock()
+        tracker.positions = positions or []
+        with patch.object(a, "PENDING_EXIT_FILE", path), \
+             patch.object(a, "is_market_open", return_value=market_open), \
+             patch.object(a, "PositionTracker", return_value=tracker), \
+             patch.object(a, "_close_position_at_market",
+                          return_value=close_result) as closer, \
+             patch.object(a, "send_telegram") as tg, \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"), \
+             patch.object(a, "_log_swallowed"), \
+             contextlib.redirect_stdout(io.StringIO()) as buf:
+            out = a.run_pending_exits(notify=True)
+        final = _json.load(io.open(path, encoding="utf-8"))
+        os.unlink(path)
+        return out, final, closer, tg, buf.getvalue()
+
+    def _pos(self, tk):
+        p = MagicMock()
+        p.ticker = tk
+        return p
+
+    def _row(self, tk="IOVA", status="queued", attempts=0):
+        return {"ticker": tk, "reason": "operator exit", "status": status,
+                "attempts": attempts, "queued_at": "2026-10-20T03:23:20-04:00"}
+
+    # --- the queue remembers ----------------------------------------------
+    def test_a_queued_exit_is_submitted_once_the_market_is_open(self):
+        out, final, closer, tg, _p = self._run(
+            [self._row()], positions=[self._pos("IOVA")])
+        closer.assert_called_once()
+        self.assertEqual(out["closed"], ["IOVA"])
+        self.assertEqual(final[0]["status"], "done")
+        self.assertEqual(tg.call_count, 1)
+
+    def test_nothing_is_attempted_while_the_market_is_closed(self):
+        """The cancel it is waiting on will not clear until the open either,
+        so trying achieves nothing but noise."""
+        out, final, closer, _tg, printed = self._run(
+            [self._row()], positions=[self._pos("IOVA")], market_open=False)
+        closer.assert_not_called()
+        self.assertEqual(out["waiting"], ["IOVA"])
+        self.assertEqual(final[0]["status"], "queued", "must stay queued")
+        self.assertIn("waiting for the open", printed)
+
+    def test_a_blocked_attempt_stays_queued_for_the_next_pass(self):
+        """This is the whole point: a refusal is not an answer."""
+        out, final, closer, _tg, _p = self._run(
+            [self._row()], positions=[self._pos("IOVA")],
+            close_result=("failed", None))
+        closer.assert_called_once()
+        self.assertEqual(final[0]["status"], "queued")
+        self.assertEqual(final[0]["attempts"], 1)
+        self.assertEqual(out["waiting"], ["IOVA"])
+
+    def test_a_position_already_gone_settles_the_row(self):
+        """Stopped out, or closed by hand. Either way the decision is served
+        and the row must not be retried forever."""
+        out, final, closer, _tg, _p = self._run([self._row()], positions=[])
+        closer.assert_not_called()
+        self.assertEqual(final[0]["status"], "done")
+        self.assertEqual(final[0]["outcome"], "already flat")
+
+    def test_a_done_row_is_never_retried(self):
+        out, final, closer, _tg, _p = self._run(
+            [self._row(status="done")], positions=[self._pos("IOVA")])
+        closer.assert_not_called()
+
+    def test_it_only_touches_tickers_in_the_queue(self):
+        out, _f, closer, _tg, _p = self._run(
+            [self._row("IOVA")],
+            positions=[self._pos("NVDA"), self._pos("IOVA")])
+        closed = [c.args[0].ticker for c in closer.call_args_list]
+        self.assertEqual(closed, ["IOVA"])
+
+    # --- giving up loudly, not quietly ------------------------------------
+    def test_it_alerts_once_it_has_been_blocked_all_session(self):
+        """By then the stop is almost certainly gone, which is the one state
+        worth waking someone for."""
+        out, final, _c, tg, _p = self._run(
+            [self._row(attempts=a.PENDING_EXIT_MAX_ATTEMPTS - 1)],
+            positions=[self._pos("IOVA")], close_result=("failed", None))
+        self.assertEqual(final[0]["status"], "stuck")
+        self.assertEqual(out["stuck"], ["IOVA"])
+        self.assertEqual(tg.call_count, 1)
+        self.assertIn("UNPROTECTED", tg.call_args[0][0])
+
+    # --- queueing ---------------------------------------------------------
+    def test_queueing_is_idempotent(self):
+        """A second /close while one is pending must not stack two exits."""
+        import tempfile, json as _json
+        fd, path = tempfile.mkstemp(suffix=".json")
+        os.close(fd)
+        os.unlink(path)
+        with patch.object(a, "PENDING_EXIT_FILE", path), \
+             contextlib.redirect_stdout(io.StringIO()):
+            first = a.queue_manual_exit("IOVA", "one")
+            second = a.queue_manual_exit("IOVA", "two")
+            rows = _json.load(io.open(path, encoding="utf-8"))
+        os.unlink(path)
+        self.assertTrue(first)
+        self.assertFalse(second)
+        self.assertEqual(len(rows), 1)
+
+    def test_an_empty_ticker_is_refused(self):
+        with contextlib.redirect_stdout(io.StringIO()):
+            self.assertFalse(a.queue_manual_exit("", "x"))
+
+    # --- it has to be called ----------------------------------------------
+    def test_the_daemon_drains_it_in_session(self):
+        """--mode orb runs after the close, when nothing can be submitted and
+        the cancel has not cleared, so it cannot be the only caller."""
+        dm = io.open("dman_daemon.py", encoding="utf-8").read()
+        self.assertIn("algo.run_pending_exits()", dm)
+
+    def test_the_scanner_runs_it_too(self):
+        self.assertIn("run_pending_exits()", inspect.getsource(a))

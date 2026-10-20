@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-20T09:18:07.959735-04:00",
-    "symbols": [
-      "MARA"
-    ],
-    "headline": "Piper Sandler Maintains Overweight on MARA Holdings, Lowers Price Target to $11",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:18:35.504447-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Live On 2WAY TV, U.S. Treasury Secretary Bessent Says I Don&#39;t See A Spillover From France Protests; Macron&#39;s Economic Team Is First Rate",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:18:55.288437-04:00",
-    "symbols": [
-      "CELZ"
-    ],
-    "headline": "Creative Medical Technology Highlights Ultrasome Data Showing 93% Response Rate, 65% Pain Reduction In Knee Osteoarthritis Study",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:19:35.836403-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Live On 2WAY TV, U.S. Treasury Secretary Bessent Says People Are Coming In To Bond Market At A Price; Not Seeking Another Job, Here For Duration",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-20T09:23:35.907512-04:00",
     "symbols": [
       "CRM"
@@ -5054,5 +5014,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T13:29:39.816807-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Ads Suite Has Better Buying, Better Planning, Better Results; Plans To Expand Ads To 15 New Countries",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T13:30:15.813999-04:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "Piper Sandler Maintains Overweight on Riot Platforms, Lowers Price Target to $19",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-20T13:30:15.831875-04:00",
+    "symbols": [
+      "MARA"
+    ],
+    "headline": "Piper Sandler Maintains Overweight on MARA Holdings, Lowers Price Target to $11",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T13:30:16.302256-04:00",
+    "symbols": [
+      "CELZ"
+    ],
+    "headline": "Creative Medical Technology Highlights Ultrasome Data Showing 93% Response Rate, 65% Pain Reduction In Knee Osteoarthritis Study",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

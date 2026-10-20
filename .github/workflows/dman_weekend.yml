@@ -49,6 +49,15 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python tools/macro_calendar_check.py --alert
 
+      # Same reasoning as the macro calendar above: a schedule nobody diffs
+      # against reality drifts silently. Every cron here is UTC and the market
+      # is ET, so the two disagree by an hour from the first Sunday in
+      # November. continue-on-error because a coverage gap is a thing to fix
+      # on a weekend, not a reason to fail the weekend job.
+      - name: DST cron coverage check
+        continue-on-error: true
+        run: python tools/dst_cron_check.py --verbose
+
       - name: Weekend catalyst watch
         env:
           TELEGRAM_TOKEN:      ${{ secrets.TELEGRAM_TOKEN }}

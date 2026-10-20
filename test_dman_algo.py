@@ -27152,3 +27152,148 @@ class TestTheShadowMeasuresBothEntryRules(unittest.TestCase):
         src = inspect.getsource(a.run_dip_shadow)
         self.assertIn("limit arm", src)
         self.assertIn("never filled", src)
+
+class TestTheDSTAuditCanActuallyFail(unittest.TestCase):
+    """tools/dst_cron_check.py passes on the real workflows, so the only thing
+    worth testing is whether that green means anything.
+
+    Its first version reported eight problems and every one was its own
+    naivety: it judged each cron of a deliberately-paired POINT job
+    individually (dman_open_check.yml ships 13:50 and 14:50 UTC with a guard
+    that runs whichever lands in 9:45-10:30 ET), and it flagged RANGE jobs for
+    starting an hour early when those jobs self-gate on ET and dman_daemon.yml
+    says so in a comment. A checker that cries wolf eight times gets ignored,
+    which is how the macro calendar came to be wrong on 20 forward dates."""
+
+    def _audit(self, files, intended, verbose=False):
+        """Run the audit against a fabricated workflow directory."""
+        import tempfile, shutil, importlib.util
+        spec = importlib.util.spec_from_file_location(
+            "dstchk", os.path.join("tools", "dst_cron_check.py"))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        tmp = tempfile.mkdtemp(prefix="wf_")
+        try:
+            for name, body in files.items():
+                io.open(os.path.join(tmp, name), "w", encoding="utf-8").write(body)
+            with patch.object(mod, "WF", tmp), \
+                 patch.object(mod, "INTENDED_ET", intended), \
+                 contextlib.redirect_stdout(io.StringIO()) as buf:
+                rc = mod.audit(verbose)
+            return rc, buf.getvalue()
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
+    def _wf(self, crons):
+        return ("on:" + chr(10) + "  schedule:" + chr(10)
+                + chr(10).join("    - cron: '%s'" % c for c in crons) + chr(10))
+
+    # --- it fails when coverage is genuinely lost ---------------------------
+    def test_a_range_that_stops_reaching_its_end_under_EST_fails(self):
+        """20:34 UTC is 16:34 ET in summer and 15:34 in winter. A window that
+        has to reach 16:00 ET loses its last hour the day the clocks change --
+        the exact silent failure this exists for."""
+        rc, out = self._audit({"x.yml": self._wf(["34 14-20 * * 1-5"])},
+                              {"x.yml": ("range", 9, 16)})
+        self.assertEqual(rc, 1)
+        self.assertIn("only reaches 15:00 ET", out)
+        self.assertIn("widen the UTC hour range", out)
+
+    def test_a_point_job_with_only_one_clocks_cron_fails(self):
+        """13:50 UTC alone is 9:50 ET in summer, 8:50 in winter -- an open
+        check running 40 minutes before the open."""
+        rc, out = self._audit({"x.yml": self._wf(["50 13 * * 1-5"])},
+                              {"x.yml": ("point", 9, 10)})
+        self.assertEqual(rc, 1)
+        self.assertIn("no cron lands inside", out)
+
+    def test_an_undeclared_workflow_is_called_out_not_skipped_silently(self):
+        """An unaudited file is the state this tool exists to prevent."""
+        rc, out = self._audit({"x.yml": self._wf(["0 14 * * 1-5"])}, {})
+        self.assertIn("no INTENDED_ET entry", out)
+
+    # --- and passes on the patterns the repo actually uses ------------------
+    def test_a_point_job_with_both_clocks_crons_passes(self):
+        """The real dman_open_check.yml shape: one cron per clock plus a
+        runtime guard. Judging these individually is what produced the first
+        version's false positives."""
+        rc, out = self._audit(
+            {"x.yml": self._wf(["50 13 * * 1-5", "50 14 * * 1-5"])},
+            {"x.yml": ("point", 9, 10)})
+        self.assertEqual(rc, 0, out)
+
+    def test_a_range_starting_early_is_not_a_failure(self):
+        """These jobs self-gate on ET, so an extra early delivery is a no-op.
+        Flagging it is noise, and noise is how a checker gets ignored."""
+        rc, out = self._audit({"x.yml": self._wf(["7,37 13-21 * * 1-5"])},
+                              {"x.yml": ("range", 9, 16)})
+        self.assertEqual(rc, 0, out)
+
+    def test_a_declared_none_is_skipped(self):
+        rc, out = self._audit({"x.yml": self._wf(["0 3 * * 0"])}, {"x.yml": None})
+        self.assertEqual(rc, 0)
+
+    def test_a_malformed_cron_is_a_failure_not_a_crash(self):
+        rc, out = self._audit({"x.yml": self._wf(["0 14 * *"])},
+                              {"x.yml": ("range", 9, 16)})
+        self.assertEqual(rc, 1)
+        self.assertIn("not 5 fields", out)
+
+    # --- the real repo ------------------------------------------------------
+    def test_the_live_workflows_pass_today(self):
+        """If this ever goes red, read the message: it names the file, the
+        clock and the hour to widen."""
+        import importlib.util
+        spec = importlib.util.spec_from_file_location(
+            "dstchk2", os.path.join("tools", "dst_cron_check.py"))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        with contextlib.redirect_stdout(io.StringIO()) as buf:
+            rc = mod.audit(False)
+        self.assertEqual(rc, 0, buf.getvalue())
+
+    def test_every_workflow_with_a_cron_is_declared(self):
+        import glob, importlib.util
+        spec = importlib.util.spec_from_file_location(
+            "dstchk3", os.path.join("tools", "dst_cron_check.py"))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        for f in glob.glob(os.path.join(".github", "workflows", "*.yml")):
+            body = io.open(f, encoding="utf-8").read()
+            if mod.CRON.findall(body):
+                self.assertIn(os.path.basename(f), mod.INTENDED_ET,
+                              "%s has crons and no DST declaration" % f)
+
+
+class TestAnIntradayLookbackThatIsIgnoredIsWorseThanNone(unittest.TestCase):
+    """_fetch_intraday_bars(ticker, interval, period) accepted `period` and
+    then hardcoded start to TODAY's 09:30 ET, so every lookback returned one
+    session and said nothing. Calls with "5d", "30d" and "60d" all came back
+    with the same 622 bars.
+
+    Found 2026-10-19 while checking whether a minute-path exit study was
+    possible. A parameter that looks like a lookback and silently is not would
+    have made that study read one day of paths and report it as a month."""
+
+    def test_one_day_still_means_today(self):
+        self.assertEqual(a._period_days("1d"), 0)
+
+    def test_a_multi_day_period_is_honoured(self):
+        self.assertEqual(a._period_days("5d"), 4)
+        self.assertEqual(a._period_days("30d"), 29)
+
+    def test_weeks_months_and_years_parse(self):
+        self.assertEqual(a._period_days("2w"), 14)
+        self.assertEqual(a._period_days("1mo"), 30)
+        self.assertEqual(a._period_days("3mo"), 90)
+        self.assertEqual(a._period_days("1y"), 365)
+
+    def test_junk_falls_back_to_today_not_to_a_wide_window(self):
+        """A typo must not quietly multiply the data pulled by a live
+        in-session call."""
+        for bad in ("", "junk", "xd", None):
+            self.assertEqual(a._period_days(bad), 0, repr(bad))
+
+    def test_the_minute_path_uses_it(self):
+        src = inspect.getsource(a._fetch_intraday_bars)
+        self.assertIn("_period_days(period)", src)

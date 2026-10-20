@@ -83,6 +83,8 @@ CRITICAL = {
     # Guards that only work if they are present to run.
     "tools/py311_check.py": "catches 3.12-only syntax before the 3.11 jobs hit it",
     "tools/hollow_assert_check.py": "catches tests that cannot fail",
+    "tools/dst_cron_check.py": "the only thing that verifies 25 UTC crons still cover their ET windows after DST ends",
+    "tools/exit_policy_study.py": "replays labelled signals on real minute paths; the exit is the biggest measured lever",
     "tools/pylance_env_check.py": "tells you in one second whether thousands of editor problems are the code or a stale language server",
     "tools/macro_calendar_check.py": "diffs the hardcoded macro dates against BLS and the Fed -- they had drifted and nothing checked",
 

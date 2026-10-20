@@ -9465,6 +9465,27 @@ def _interval_to_resample_rule(interval: str) -> Optional[str]:
     return None
 
 
+def _period_days(period: str) -> int:
+    """Calendar days of lookback a yfinance-style period string asks for.
+
+    0 means "today only", which is what "1d" has always meant to every caller
+    of _fetch_intraday_bars(). Anything unparseable falls back to 0 rather
+    than to a wide window: a typo must not quietly multiply the data pulled
+    for a live in-session call.
+    """
+    _p = str(period or "").strip().lower()
+    _mult = {"d": 1, "w": 7, "mo": 30, "y": 365}
+    for _suffix in ("mo", "d", "w", "y"):          # "mo" before "o"-less "d"
+        if _p.endswith(_suffix):
+            try:
+                _n = int(_p[: -len(_suffix)])
+            except ValueError:
+                return 0
+            return max(0, (_n - 1) * _mult[_suffix] if _suffix == "d"
+                       else _n * _mult[_suffix])
+    return 0
+
+
 def _fetch_intraday_bars(ticker: str, interval: str = "5m", period: str = "1d"):
     """Fetch intraday bars — Alpaca 1-min SIP primary (Algo Trader Plus), yfinance 5-min fallback."""
     # ── Alpaca 1-min bars (SIP real-time feed) ────────────────────────────────
@@ -9476,7 +9497,16 @@ def _fetch_intraday_bars(ticker: str, interval: str = "5m", period: str = "1d"):
                 from datetime import timezone as _tz
                 _ET = _zi.ZoneInfo("America/New_York")
                 _now_et = datetime.now(_ET)
-                _sess_start = _now_et.replace(hour=9, minute=30, second=0, microsecond=0)
+                # `period` used to be accepted and then ignored here: start was
+                # always TODAY's 09:30, so _fetch_intraday_bars(t, "1Min", "30d")
+                # returned one session and said nothing about it. Found
+                # 2026-10-19 while checking whether a minute-path exit study
+                # was possible -- calls with "5d", "30d" and "60d" all came
+                # back with the same 622 bars. A parameter that looks like a
+                # lookback and silently is not would have made that study read
+                # one day of paths and call it a month.
+                _sess_start = (_now_et - timedelta(days=_period_days(period))).replace(
+                    hour=9, minute=30, second=0, microsecond=0)
                 from alpaca.data.enums import Adjustment as _AdjM
                 _alp_req = StockBarsRequest(
                     symbol_or_symbols=ticker,

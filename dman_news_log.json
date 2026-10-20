@@ -1,26 +1,5 @@
 [
   {
-    "ts": "2026-10-20T09:13:54.557179-04:00",
-    "symbols": [
-      "RIOT"
-    ],
-    "headline": "Piper Sandler Maintains Overweight on Riot Platforms, Lowers Price Target to $19",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-20T09:15:10.661704-04:00",
-    "symbols": [
-      "SPCX",
-      "TSLA"
-    ],
-    "headline": "SpaceX&#39;s Starship Catch Could Unlock Valuation Upside, Morgan Stanley&#39;s Adam Jonas Says Ahead of SPCX Q3 Earnings",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-20T09:18:07.959735-04:00",
     "symbols": [
       "MARA"
@@ -5054,5 +5033,26 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T13:26:12.563498-04:00",
+    "symbols": [
+      "HTZ"
+    ],
+    "headline": "Hertz Stock Rises After Oro Mobility Raises $80 Million for Autonomous Fleet Expansion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T13:26:37.612954-04:00",
+    "symbols": [
+      "NVO",
+      "ORCL"
+    ],
+    "headline": "Oracle Joins Forces With AstraZeneca to Put AI to Work in Drug Research",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

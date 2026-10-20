@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-19T16:07:24.927178-04:00",
-    "symbols": [
-      "RMCF"
-    ],
-    "headline": "Rocky Mountain Chocolate Q2 EPS $(0.14) Down From $(0.09) YoY, Sales $6.652M Down From $6.823M YoY",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-20T09:13:16.229343-04:00",
     "symbols": [
       "HTZ"
@@ -5054,5 +5044,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T13:20:53.624887-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Shares of software companies are trading higher as the sector rebounds from recent weakness. Also, recent economic data raised expectations that the Fed will skip interest rate hikes this month.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

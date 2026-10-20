@@ -1,76 +1,5 @@
 [
   {
-    "ts": "2026-10-19T14:18:11.519037-04:00",
-    "symbols": [
-      "KLAC"
-    ],
-    "headline": "Benzinga's 'Stock Whisper' Index: Five Stocks Investors Secretly Monitor But Don't Talk About Yet",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T14:18:12.817609-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "What's Going On With Exxon Stock On Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T14:18:12.941963-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Rocket Lab Stock Climbs: What's Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T14:33:44.276575-04:00",
-    "symbols": [
-      "YHC"
-    ],
-    "headline": "LQR House shares are trading higher after the company announced a one-year agreement to secure up to $3 million in OpenAI-powered AI computing resources for AI research and portfolio optimization initiatives.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T14:37:57.696112-04:00",
-    "symbols": [
-      "BIVI"
-    ],
-    "headline": "BioVie shares are trading higher after the company announced the presentation of Phase 2 Long COVID data showing statistically significant improvements in fatigue and cognitive measures in certain patient subgroups treated with bezisterim.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T14:39:57.391861-04:00",
-    "symbols": [
-      "ARQT"
-    ],
-    "headline": "Guggenheim Maintains Buy on Arcutis Biotherapeutics, Raises Price Target to $44",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T14:46:27.049444-04:00",
-    "symbols": [
-      "MSFT",
-      "NVDA"
-    ],
-    "headline": "Microsoft Walks Away From AI Data Center Deal, but SemiAnalysis Predicts 50-GW Boom in 2027",
-    "source": "benzinga",
-    "tag": "held",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-19T14:50:39.028423-04:00",
     "symbols": [
       "MSFT"
@@ -5025,5 +4954,76 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T10:46:38.173225-04:00",
+    "symbols": [
+      "GOOGL",
+      "NFLX"
+    ],
+    "headline": "Analysts Eye $3 Billion Ad Revenue Surge Ahead of Netflix Earnings",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T10:47:23.582089-04:00",
+    "symbols": [
+      "CLNN"
+    ],
+    "headline": "Why 3M Shares Are Trading Higher; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T10:47:23.856265-04:00",
+    "symbols": [
+      "SOAR"
+    ],
+    "headline": "SOAR AI Says Ohio Compute Campus Remains On Track For First 4,096 AMD MI355X GPUs By Dec. 31; Expects Orders To Generate Revenue Of ~$175M-$200M In 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T10:47:24.117002-04:00",
+    "symbols": [
+      "EFX"
+    ],
+    "headline": "Hasbro Posts Upbeat Q3 Earnings, Joins Myriad Genetics, Equifax And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T10:47:24.432201-04:00",
+    "symbols": [
+      "AEYE"
+    ],
+    "headline": "AudioEye Board Authorizes Repurchase Of Up To $15M Of Outstanding Common Shares Expiring On October 18, 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T10:47:24.723723-04:00",
+    "symbols": [
+      "BNAI"
+    ],
+    "headline": "Brand Engagement Network Expects One-Time Exit Costs Estimated At ~$177K Related To Its Acquisition Of Cataneo",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T10:47:24.727864-04:00",
+    "symbols": [
+      "NOC"
+    ],
+    "headline": "Northrop Grumman Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

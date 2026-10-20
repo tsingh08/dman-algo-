@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-19T16:07:21.960775-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Strategy (MSTR) Stock Just Flashed a Golden Cross. Bitcoin Bulls Still Have Two Problems",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-19T16:07:24.927178-04:00",
     "symbols": [
       "RMCF"
@@ -5054,5 +5044,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-20T13:16:18.852290-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Q3 Preview: Muse Put Company in Spotlight, Will Financials Support a Rally?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

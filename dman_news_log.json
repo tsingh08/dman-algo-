@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-19T15:31:25.242672-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "SpaceX Could Swing $128 Billion After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-19T15:31:25.250290-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "SpaceX Could Swing $128 Billion After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-19T15:31:25.557590-04:00",
     "symbols": [
       "SPOT"
@@ -5029,5 +5009,26 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T11:31:13.491173-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Energy Secretary Chris Wright Says U.S. Is Pushing Domestic Refiners To Expand Capacity",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T11:31:40.222180-04:00",
+    "symbols": [
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "SpaceX Stock for Every Child Could Kick Off $100B Giving Race, Brad Gerstner Says",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

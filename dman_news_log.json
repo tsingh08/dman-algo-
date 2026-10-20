@@ -1,295 +1,5 @@
 [
   {
-    "ts": "2026-10-20T09:26:16.723570-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "&#39;Qualcomm to cut jobs worldwide in performance-focused layoffs, internal memo shows&#39; - Reuters Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:17.681733-04:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "JP Morgan Maintains Neutral on Enphase Energy, Lowers Price Target to $35",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:17.902608-04:00",
-    "symbols": [
-      "FSLR"
-    ],
-    "headline": "JP Morgan Maintains Overweight on First Solar, Lowers Price Target to $252",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:18.143752-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "AbbVie Says Health Canada Approves Skyrizi For Moderate To Severe Plaque Psoriasis In Patients Aged 6 To Under 18",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:18.146458-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "AbbVie Inks Multi-Year Collaboration With McLaren Racing To Be Its Official Pharmaceutical Partner Of McLaren Mastercard Formula 1 Team",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:18.606424-04:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "Occidental Petroleum To Rally Over 18%? Here Are 10 Top Analyst Forecasts For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:18.609185-04:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "B of A Securities Maintains Buy on Gilead Sciences, Raises Price Target to $172",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:18.843246-04:00",
-    "symbols": [
-      "HIMS"
-    ],
-    "headline": "Hims &amp; Hers Health Announces Launch Of Hims In Germany",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-20T09:26:19.570001-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "Why Are GameStop Warrants Trending Overnight?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T09:26:19.839202-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Chevron, ExxonMobil Stocks Hit 52-Week Highs as Fresh US-Israel Threats Against Iran Push Brent Crude to 5-Month Highs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:20.082754-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Elon Musk Just Dropped a Big Hint About SpaceX\u2019s $28.5 Trillion Opportunity \u2014 \u2018It Is Vastly Higher Than That\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T09:26:20.309791-04:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "Jim Cramer Passes on AppLovin: &#39;In the Crosshairs of Alphabet&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-20T09:26:20.312720-04:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "Citigroup Maintains Buy on AppLovin, Lowers Price Target to $500",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-20T09:26:20.540866-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Dan Ives Sees Cybersecurity Spending Doubling: 5 Stocks That Could Benefit",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-20T09:26:20.767311-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Dan Ives Sees Cybersecurity Spending Doubling: 5 Stocks That Could Benefit",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:20.991648-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin, Ethereum, XRP, Dogecoin Dip Even as &#39;Greed&#39; Runs High: Analyst Sees &#39;Strong Bullish Setup&#39; if This Trend Continues",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:21.750626-04:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "Dan Ives Sees Cybersecurity Spending Doubling: 5 Stocks That Could Benefit",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:21.972334-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Dan Ives Sees Cybersecurity Spending Doubling: 5 Stocks That Could Benefit",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:22.203183-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Comparative Study: Airbnb And Industry Competitors In Hotels, Restaurants &amp; Leisure Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T09:26:22.467454-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "ByteDance, Alibaba, Tencent Place Massive $35 Billion NVIDIA Order",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T09:26:22.470130-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "&#39;ByteDance, Alibaba, Tencent Place Over $35 Billion Worth of Nvidia Chip Orders&#39; - Reuters Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T09:26:22.704246-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Here\u2019s How Much You Would Have Made Owning Baidu Stock In The Last 20 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-20T09:26:22.938138-04:00",
-    "symbols": [
-      "RCAT"
-    ],
-    "headline": "Needham Reiterates Buy on Red Cat Holdings, Maintains $15 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:23.164878-04:00",
-    "symbols": [
-      "SMR"
-    ],
-    "headline": "NuScale Stock Hits New Low After Barclays Downgrades It to Underweight, Cuts Target to $5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:23.167879-04:00",
-    "symbols": [
-      "SMR"
-    ],
-    "headline": "General Motors, Genuine Parts, Steel Dynamics And Other Big Stocks Moving Lower In Tuesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:23.395059-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "GE Vernova Secures Order To Supply 9E Gas Turbine For 372MW Songon Power Plant In C\u00f4te D\u2019Ivoire, Scheduled To Launch In 2029",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:23.662331-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Karman Space &amp; Defense Inks Seven-Year, $218M Agreement With Lockheed Martin For Shrouds Offering For Terminal High Altitude Defense Program",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:23.665041-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Lockheed Martin Advances The Extended-Range GMLRS Rocket Into Production And Fielding",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:23.887603-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "RTX CFO Says FY26 Forecast Raise Includes IEEPA Recovery; Profit Forecast Midpoint Increase Primarily Driven By $0.28 Of Performance Across Co. $0.25 Of IEEPA Recovery",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-20T09:26:23.890290-04:00",
     "symbols": [
       "RTX"
@@ -5063,5 +4773,295 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-20T14:27:07.286801-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce To Acquire Braze For ~$5.66B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T14:27:07.290406-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Eric Schmidt Wrote a Check to Anthropic Before the AI Boom: Here\u2019s How Big the Payoff Could Get",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T14:27:07.579116-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "PLTR Stock\u2019s Biggest Risk Isn\u2019t Slowing Growth, but Its Price, Analyst Warns \u2014 Valuation Already Bakes In \u2018Years of Exceptional Execution\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T14:27:07.582756-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Cathie Wood Buys $8.1 Million of CoreWeave Stock as Goldman Sachs Upgrades, Ark Invest Sells Palantir Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T14:27:07.949632-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "FedEx To Continue Utilizing Broadcom&#39;s Infrastructure Software Portfolio Under Expanded Collaboration",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T14:27:07.953390-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Reported Earlier, Broadcom And NTT DOCOMO Sign 10-Year Agreement To Advance DOCOMO\u2019s Private Cloud, Built On VMware Cloud Foundation, Amid AI Expansion And Cyberattacks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T14:27:08.107351-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Technology To Invest In Critical Minerals Under Its $3B Investment Plan",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T14:27:08.654430-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "&#39;Qualcomm to cut jobs worldwide in performance-focused layoffs, internal memo shows&#39; - Reuters Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T14:27:09.250124-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "AbbVie Says Health Canada Approves Skyrizi For Moderate To Severe Plaque Psoriasis In Patients Aged 6 To Under 18",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T14:27:09.254049-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "AbbVie Inks Multi-Year Collaboration With McLaren Racing To Be Its Official Pharmaceutical Partner Of McLaren Mastercard Formula 1 Team",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T14:27:09.811861-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Occidental Petroleum To Rally Over 18%? Here Are 10 Top Analyst Forecasts For Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T14:27:09.815753-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "B of A Securities Maintains Buy on Gilead Sciences, Raises Price Target to $172",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T14:27:10.062140-04:00",
+    "symbols": [
+      "HIMS"
+    ],
+    "headline": "Hims &amp; Hers Health Announces Launch Of Hims In Germany",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-20T14:27:10.449017-04:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "Why Are GameStop Warrants Trending Overnight?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T14:27:10.675332-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Chevron, ExxonMobil Stocks Hit 52-Week Highs as Fresh US-Israel Threats Against Iran Push Brent Crude to 5-Month Highs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T14:27:10.867871-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Elon Musk Just Dropped a Big Hint About SpaceX\u2019s $28.5 Trillion Opportunity \u2014 \u2018It Is Vastly Higher Than That\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T14:27:11.060169-04:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "Jim Cramer Passes on AppLovin: &#39;In the Crosshairs of Alphabet&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-20T14:27:11.579596-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Mastercard Taps Coinbase, Cloudflare as AI Agents Learn to Pay",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T14:27:11.724746-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Bitcoin, Ethereum, XRP, Dogecoin Dip Even as &#39;Greed&#39; Runs High: Analyst Sees &#39;Strong Bullish Setup&#39; if This Trend Continues",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T14:27:12.287170-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Comparative Study: Airbnb And Industry Competitors In Hotels, Restaurants &amp; Leisure Industry",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T14:27:12.668171-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "ByteDance, Alibaba, Tencent Place Massive $35 Billion NVIDIA Order",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T14:27:12.672151-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "&#39;ByteDance, Alibaba, Tencent Place Over $35 Billion Worth of Nvidia Chip Orders&#39; - Reuters Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T14:27:12.979514-04:00",
+    "symbols": [
+      "BIDU"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning Baidu Stock In The Last 20 Years",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-20T14:27:13.111092-04:00",
+    "symbols": [
+      "RCAT"
+    ],
+    "headline": "Needham Reiterates Buy on Red Cat Holdings, Maintains $15 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T14:27:13.308373-04:00",
+    "symbols": [
+      "SMR"
+    ],
+    "headline": "NuScale Stock Hits New Low After Barclays Downgrades It to Underweight, Cuts Target to $5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T14:27:13.312452-04:00",
+    "symbols": [
+      "SMR"
+    ],
+    "headline": "General Motors, Genuine Parts, Steel Dynamics And Other Big Stocks Moving Lower In Tuesday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T14:27:13.476861-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "GE Vernova Secures Order To Supply 9E Gas Turbine For 372MW Songon Power Plant In C\u00f4te D\u2019Ivoire, Scheduled To Launch In 2029",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T14:27:13.666911-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Karman Space &amp; Defense Inks Seven-Year, $218M Agreement With Lockheed Martin For Shrouds Offering For Terminal High Altitude Defense Program",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T14:27:14.836139-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Mastercard Taps Coinbase, Cloudflare as AI Agents Learn to Pay",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

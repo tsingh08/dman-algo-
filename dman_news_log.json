@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-19T15:51:22.690552-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "AST SpaceMobile Welcomes European LoI Signed By Deutsche Telekom, Orange, Telef\u00f3nica And Vodafone To Explore A Potential Joint Bid For Mobile Satellite Services Spectrum",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-19T15:51:22.696324-04:00",
     "symbols": [
       "ARM"
@@ -5040,5 +5030,24 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T12:21:15.404384-04:00",
+    "symbols": [
+      "AAPL",
+      "AMZN",
+      "META",
+      "MSFT",
+      "NFLX",
+      "NVDA",
+      "QQQ",
+      "SPCX",
+      "SPY",
+      "TSLA"
+    ],
+    "headline": "408x Oversubscribed AI IPO Crashes 32%\u2014Democratic Sweep Prospects Trigger Selling in Data Center Stocks",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

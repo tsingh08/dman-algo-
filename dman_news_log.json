@@ -1,169 +1,5 @@
 [
   {
-    "ts": "2026-10-19T15:51:22.740143-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "&#39;JPMorgan and Alibaba Are Said Among Investors in Dongshan\u2019s Listing&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-19T15:51:22.745688-04:00",
-    "symbols": [
-      "ACHR"
-    ],
-    "headline": "Archer Completes Electric Air Taxi Flights Over San Francisco Bay",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T15:51:22.750921-04:00",
-    "symbols": [
-      "RCAT"
-    ],
-    "headline": "Stock Market Today: Dow Futures Drop, S&amp;P 500, Nasdaq 100 Rise as Scott Bessent Links September Inflation to &#39;Energy Shock&#39;\u2014 RCAT, ESLT, STLD in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T15:51:22.755488-04:00",
-    "symbols": [
-      "RCAT"
-    ],
-    "headline": "Red Cat Eyes Global Defense Market Expansion Through Steyr Motors Takeover",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T15:51:22.760517-04:00",
-    "symbols": [
-      "RCAT"
-    ],
-    "headline": "Red Cat Proposes Public Purchase Offer For All Steyr Motors Shares At \u20ac39.00 Per Share In Cash, Subject To 50% Plus One Share Threshold And Regulatory Approvals",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T15:51:22.768292-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Raytheon, Lockheed Martin Joint Venture Receives $215M U.S. Army Production Contract For Lightweight Commercial Launch Units",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T15:51:22.773469-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Raytheon, Lockheed Martin Joint Venture Receives $215M U.S. Army Production Contract For Lightweight Commercial Launch Units",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T15:52:40.419190-04:00",
-    "symbols": [
-      "GE",
-      "ISRG",
-      "NFLX",
-      "RTX",
-      "SPCX"
-    ],
-    "headline": "SpaceX, GE Aerospace On Deck Tuesday As Growth, Aerospace Demand Face Test",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T15:52:59.031806-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "NVIDIA CEO Jensen Huang Announces New Planned Investments In Germany&#39;s Agile Robots, Avelios Medical, Mirelo And Reflex Aerospace",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:53:52.624488-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Q3 Earnings Preview: Does Elon Musk-Led Company Turn Quarterly Profit?",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:54:28.098762-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Could Bitcoin's Next Big Catalyst Come From the $300 Trillion Bond Market?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:54:28.104385-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Michael Saylor 'Found More Room for Orange' as Strategy Adds 267 Bitcoin",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:54:28.341327-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "'Uber Wins Bid to Dismiss \u00a3250 Million Black Cab Driver Suit' - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-19T15:54:29.272416-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "'JPMorgan and Alibaba Are Said Among Investors in Dongshan\u2019s Listing' - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-19T15:54:30.366344-04:00",
-    "symbols": [
-      "RCAT"
-    ],
-    "headline": "Stock Market Today: Dow Futures Drop, S&P 500, Nasdaq 100 Rise as Scott Bessent Links September Inflation to 'Energy Shock'\u2014 RCAT, ESLT, STLD in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T15:54:31.553109-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "We Asked ChatGPT, Grok and Claude for 1 Stock to Buy This Week. No One Picked Tesla.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-19T15:54:31.808768-04:00",
     "symbols": [
       "ETN"
@@ -5051,6 +4887,166 @@
     "headline": "Iran Tells Pakistan It Has Nothing New To Say To U.S.",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T12:37:16.630709-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Stock of the Day: Where is the Bottom for NVIDIA?",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T12:37:29.738069-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Iran Security Chief Says No Talks Unless U.S. Builds Trust",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T12:37:58.860363-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Stock Moves Higher: What&#39;s Going On?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T12:38:30.867014-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Qualcomm Plans Global Layoffs Starting November",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T12:38:30.870506-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "408x Oversubscribed AI IPO Crashes 32%\u2014Democratic Sweep Prospects Trigger Selling in Data Center Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T12:38:31.169219-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "408x Oversubscribed AI IPO Crashes 32%\u2014Democratic Sweep Prospects Trigger Selling in Data Center Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T12:38:31.174756-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "408x Oversubscribed AI IPO Crashes 32%\u2014Democratic Sweep Prospects Trigger Selling in Data Center Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T12:38:31.764075-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "408x Oversubscribed AI IPO Crashes 32%\u2014Democratic Sweep Prospects Trigger Selling in Data Center Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T12:38:32.365190-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "408x Oversubscribed AI IPO Crashes 32%\u2014Democratic Sweep Prospects Trigger Selling in Data Center Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T12:38:32.622139-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "408x Oversubscribed AI IPO Crashes 32%\u2014Democratic Sweep Prospects Trigger Selling in Data Center Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T12:38:32.882350-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "408x Oversubscribed AI IPO Crashes 32%\u2014Democratic Sweep Prospects Trigger Selling in Data Center Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T12:38:34.297300-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Qualcomm Plans Global Layoffs Starting November",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T12:38:44.767082-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "408x Oversubscribed AI IPO Crashes 32%\u2014Democratic Sweep Prospects Trigger Selling in Data Center Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T12:38:45.008063-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "408x Oversubscribed AI IPO Crashes 32%\u2014Democratic Sweep Prospects Trigger Selling in Data Center Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T12:38:50.092471-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "408x Oversubscribed AI IPO Crashes 32%\u2014Democratic Sweep Prospects Trigger Selling in Data Center Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T12:38:52.273768-04:00",
+    "symbols": [
+      "MYGN"
+    ],
+    "headline": "Myriad Genetics Offloads Struggling Prenatal Unit for $210 Million to Labcorp",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

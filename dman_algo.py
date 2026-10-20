@@ -777,7 +777,7 @@ ENABLE_NL_COMMANDS = True
 NL_COMMAND_MODEL   = "claude-haiku-4-5-20251001"
 # Commands that change money or risk state — echoed for confirmation, never
 # auto-run from an interpretation.
-NL_CONFIRM_REQUIRED = {"buy", "close", "halt", "resume", "probation", "endprobation",
+NL_CONFIRM_REQUIRED = {"buy", "enter", "close", "halt", "resume", "probation", "endprobation",
                        "setupprobation", "endsetupprobation", "restart", "flags"}
 _TELEGRAM_KEEP = (
     "auto-exec", "order placed", "order submitted", "filled", "fill",
@@ -2518,6 +2518,7 @@ TELEGRAM_COMMANDS: list[tuple[str, str]] = [
     ("endprobation", "End probation, restore normal circuit breakers"),
     ("setupprobation", "Manually restrict a weak setup — /setupprobation SETUP NAME"),
     ("endsetupprobation", "Clear a setup's restriction — /endsetupprobation SETUP NAME"),
+    ("enter",     "Open a SHARE position — /enter TICKER [stop%] [limit]"),
     ("close",     "Close a position now — /close TICKER"),
     ("cancel",    "Cancel working orders for a ticker — /cancel TICKER"),
     ("why",       "Explain a ticker's current signal — /why TICKER"),
@@ -4221,6 +4222,172 @@ def _tg_cmd_review():
 
 
 
+# Operator sizing, stated 2026-10: $250-$300 a trade expressed as a FRACTION
+# so it compounds with the account instead of going stale.
+MANUAL_ENTRY_EQUITY_PCT = 0.10
+# The operator's stated max loss band. A /enter stop is clamped into it rather
+# than refused, because the failure mode worth preventing from a phone is a
+# fat-fingered 1 or 80, not a 7 when 8 was meant.
+MANUAL_ENTRY_STOP_MIN_PCT = 5.0
+MANUAL_ENTRY_STOP_MAX_PCT = 10.0
+MANUAL_ENTRY_STOP_DEFAULT_PCT = 8.0
+# How far above the last trade a /enter limit is placed. Small on purpose: the
+# point of a limit is to refuse to chase, and on 2026-10-19 that refusal was
+# worth 1.3 points on NVDA and avoided MRVL's -1.21% day entirely.
+MANUAL_ENTRY_LIMIT_BUFFER_PCT = 0.3
+
+
+def _tg_cmd_enter(parts: list) -> None:
+    """Open a SHARE position from the phone -- /enter TICKER [stop%] [limit]
+
+    Options were already reachable from a phone (/options browses live
+    contracts, /buy confirms one) and exits were (/close, /cancel). Shares
+    were not: opening one meant running a script on a machine that is
+    deliberately never on. On 2026-10-19 three dip entries had to be
+    hand-written for exactly this reason, and a hand-written order is the one
+    that forgets the stop.
+
+    So this is not a new strategy, it is the missing half of a control
+    surface. Everything it does was done by hand that day; the difference is
+    that it cannot forget a step.
+
+      - sizes at MANUAL_ENTRY_EQUITY_PCT of LIVE equity, never a stale number
+      - GTC limit + OTO stop in ONE submission, so a fill can never land
+        unprotected. A DAY bracket is wrong here: its stop leg expires at
+        16:00 and strands the position overnight (see _submit_equity_entry).
+      - registers the row in DIP_BASKET_FILE, so the 5-session time exit and
+        the gap-fill stop reprice both cover it. An entry nothing will ever
+        close is how IOVA came to sit for 20 days.
+      - refuses rather than guesses: halt, macro blackout, MAX_POSITIONS,
+        cash, an existing position or working order, earnings inside the hold
+        window, sub-$1 price, and a risk charge over MAX_TRADE_LOSS_PCT.
+    """
+    _tk = (parts[1].upper().strip() if len(parts) > 1 else "")
+    if not _tk:
+        send_telegram("Usage: <code>/enter TICKER [stop%] [limit]</code>" + chr(10)
+                      + f"Sizes at {MANUAL_ENTRY_EQUITY_PCT:.0%} of equity with a "
+                        f"{MANUAL_ENTRY_STOP_DEFAULT_PCT:.0f}% stop by default.")
+        return
+    try:
+        _stop_pct = float(parts[2]) if len(parts) > 2 else MANUAL_ENTRY_STOP_DEFAULT_PCT
+    except ValueError:
+        send_telegram(f"\u274c /enter: {parts[2]!r} is not a stop percent.")
+        return
+    _clamped = min(max(_stop_pct, MANUAL_ENTRY_STOP_MIN_PCT), MANUAL_ENTRY_STOP_MAX_PCT)
+    try:
+        _limit_in = float(parts[3]) if len(parts) > 3 else None
+    except ValueError:
+        send_telegram(f"\u274c /enter: {parts[3]!r} is not a limit price.")
+        return
+
+    if is_halted():
+        send_telegram("\u26d4 /enter refused — entries are HALTED. /resume first.")
+        return
+    _safe, _ = check_macro_safe()
+    if not _safe:
+        send_telegram("\u26d4 /enter refused — macro blackout. A stop does not "
+                      "cap a scheduled-event gap.")
+        return
+
+    _client = get_alpaca_client()
+    if _client is None:
+        send_telegram("\u274c /enter: no broker connection.")
+        return
+    try:
+        _held = {p.symbol.upper() for p in _client.get_all_positions()}
+        _working = {o.symbol.upper() for o in _client.get_orders()}
+        _equity = float(_client.get_account().equity)
+        _cash = float(_client.get_account().cash)
+    except Exception as _exc:
+        send_telegram(f"\u274c /enter: broker read failed — {_exc}")
+        return
+    if _tk in _held:
+        send_telegram(f"\u26d4 /enter {_tk} refused — already held. "
+                      f"Use the app to add, or /close first.")
+        return
+    if _tk in _working:
+        send_telegram(f"\u26d4 /enter {_tk} refused — an order is already working. "
+                      f"<code>/cancel {_tk}</code> first.")
+        return
+    if len(_held | _working) >= MAX_POSITIONS:
+        send_telegram(f"\u26d4 /enter {_tk} refused — {len(_held | _working)} of "
+                      f"{MAX_POSITIONS} slots committed.")
+        return
+
+    try:
+        _df = fetch_df(_tk, 260)
+        _last = float(_df["Close"].iloc[-1])
+    except Exception:
+        _last = 0.0
+    if _last < 1.0:
+        send_telegram(f"\u26d4 /enter {_tk} refused — no usable price "
+                      f"(got {_last}). Sub-$1 names are not sized here.")
+        return
+
+    # Earnings inside the hold window is the one gate the algo already applies
+    # to every automatic entry, and the earnings-spread record (-63%/trade over
+    # four live trades, three of them near-total losses) is why.
+    try:
+        _ed = _et_today()
+        _earn = _fetch_massive_earnings(
+            _tk, _ed, _ed + timedelta(days=DIP_BASKET_HOLD_SESSIONS + 2)) or []
+        if _earn:
+            _when = sorted(str(e.get("date"))[:10] for e in _earn)[0]
+            send_telegram(f"\u26d4 /enter {_tk} refused — reports {_when}, inside "
+                          f"the {DIP_BASKET_HOLD_SESSIONS}-session hold.")
+            return
+    except Exception as _exc:
+        _log_swallowed("enter earnings check", _exc)
+
+    _limit = round(_limit_in if _limit_in else _last * (1 + MANUAL_ENTRY_LIMIT_BUFFER_PCT / 100.0), 2)
+    _stop = round(_limit * (1 - _clamped / 100.0), 2)
+    _qty = int((_equity * MANUAL_ENTRY_EQUITY_PCT) // _limit)
+    if _qty < 1:
+        send_telegram(f"\u26d4 /enter {_tk} refused — one share is ${_limit:,.2f} "
+                      f"against a ${_equity * MANUAL_ENTRY_EQUITY_PCT:,.0f} budget.")
+        return
+    _cost, _risk = _limit * _qty, (_limit - _stop) * _qty
+    if _cost > _cash:
+        send_telegram(f"\u26d4 /enter {_tk} refused — ${_cost:,.2f} needed, "
+                      f"${_cash:,.2f} cash.")
+        return
+    if _risk > _equity * MAX_TRADE_LOSS_PCT:
+        send_telegram(f"\u26d4 /enter {_tk} refused — ${_risk:,.2f} at risk is over "
+                      f"the {MAX_TRADE_LOSS_PCT:.0%} single-trade ceiling.")
+        return
+
+    try:
+        from alpaca.trading.requests import LimitOrderRequest, StopLossRequest
+        from alpaca.trading.enums import OrderSide, TimeInForce, OrderClass
+        _o = _client.submit_order(LimitOrderRequest(
+            symbol=_tk, qty=_qty, side=OrderSide.BUY, limit_price=_limit,
+            time_in_force=TimeInForce.GTC, order_class=OrderClass.OTO,
+            stop_loss=StopLossRequest(stop_price=_stop)))
+    except Exception as _exc:
+        send_telegram(f"\u274c /enter {_tk} FAILED — {_exc}")
+        return
+
+    try:
+        _rows = _dip_basket_load()
+        _rows.append({"ticker": _tk, "order_id": str(_o.id),
+                      "submitted": _et_today().isoformat(), "entry_date": None,
+                      "status": "pending", "limit": str(_limit),
+                      "note": f"/enter {_clamped:.0f}% stop"})
+        _write_json_atomic(DIP_BASKET_FILE, _rows, indent=1)
+    except Exception as _exc:
+        _log_swallowed("enter basket register", _exc)
+
+    send_telegram(
+        f"\U0001f4e5 <b>/enter {_tk}</b> — {_qty} share(s)" + chr(10)
+        + f"limit ${_limit:,.2f} · stop ${_stop:,.2f} ({_clamped:.0f}%)" + chr(10)
+        + f"cost ${_cost:,.2f} · risk ${_risk:,.2f} "
+          f"({_risk / _equity * 100:.2f}% of equity)" + chr(10)
+        + (f"stop clamped from {_stop_pct:.0f}% into the "
+           f"{MANUAL_ENTRY_STOP_MIN_PCT:.0f}-{MANUAL_ENTRY_STOP_MAX_PCT:.0f}% band"
+           + chr(10) if abs(_clamped - _stop_pct) > 1e-9 else "")
+        + f"GTC with the stop attached; exits in {DIP_BASKET_HOLD_SESSIONS} sessions.")
+
+
 def _tg_cmd_cancel(_arg):
     """Cancel working ORDERS for a ticker. Not positions -- that is /close.
 
@@ -4434,6 +4601,9 @@ def _handle_telegram_command_inner(text: str) -> None:
         # Alpaca credentials, so it's structurally unable to push code or
         # place a real trade regardless of what it decides to do.
         _tg_cmd_review()
+
+    elif _cmd == "enter":
+        _tg_cmd_enter(_parts)
 
     elif _cmd == "close" and _arg:
         _tg_cmd_close(_arg)

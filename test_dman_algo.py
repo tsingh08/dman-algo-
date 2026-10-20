@@ -27442,3 +27442,190 @@ class TestADecisionToSellOutlivesTheAttempt(unittest.TestCase):
 
     def test_the_scanner_runs_it_too(self):
         self.assertIn("run_pending_exits()", inspect.getsource(a))
+
+class TestSharesWereTheOneThingAPhoneCouldNotOpen(unittest.TestCase):
+    """Options were reachable from a phone (/options browses contracts, /buy
+    confirms) and so were exits (/close, /cancel). Shares were not: opening
+    one meant running a script on a machine that is deliberately never on. On
+    2026-10-19 three dip entries had to be hand-written for that reason, and a
+    hand-written order is the one that forgets the stop.
+
+    /enter is the missing half of a control surface, not a new strategy. Every
+    check below is one that was applied by hand that day; the point is that it
+    cannot skip one. The refusals matter more than the happy path -- this
+    submits real orders from a phone."""
+
+    def _run(self, parts, held=(), working=(), equity=2800.0, cash=2500.0,
+             last=200.0, earnings=(), halted=False, macro=(True, 5),
+             submit_exc=None):
+        import tempfile, json as _json
+        fd, path = tempfile.mkstemp(suffix=".json")
+        os.close(fd)
+        io.open(path, "w", encoding="utf-8").write("[]")
+        acct = MagicMock()
+        acct.equity, acct.cash = str(equity), str(cash)
+        cl = MagicMock()
+        cl.get_account.return_value = acct
+        cl.get_all_positions.return_value = [
+            SimpleNamespace(symbol=t) for t in held]
+        cl.get_orders.return_value = [SimpleNamespace(symbol=t) for t in working]
+        order = MagicMock()
+        order.id = "neworder1"
+        if submit_exc:
+            cl.submit_order.side_effect = submit_exc
+        else:
+            cl.submit_order.return_value = order
+        import pandas as pd
+        df = pd.DataFrame({"Close": [last] * 5})
+        with patch.object(a, "DIP_BASKET_FILE", path), \
+             patch.object(a, "get_alpaca_client", return_value=cl), \
+             patch.object(a, "is_halted", return_value=halted), \
+             patch.object(a, "check_macro_safe", return_value=macro), \
+             patch.object(a, "fetch_df", return_value=df), \
+             patch.object(a, "_fetch_massive_earnings", return_value=list(earnings)), \
+             patch.object(a, "send_telegram") as tg, \
+             patch.object(a, "_log_swallowed"), \
+             contextlib.redirect_stdout(io.StringIO()):
+            a._tg_cmd_enter(parts)
+        rows = _json.load(io.open(path, encoding="utf-8"))
+        os.unlink(path)
+        msg = tg.call_args[0][0] if tg.call_args else ""
+        return cl, rows, msg
+
+    # --- the happy path ----------------------------------------------------
+    def test_it_submits_a_limit_with_the_stop_attached(self):
+        """One submission, never an entry and a stop as two steps -- a fill
+        between them is a naked position."""
+        cl, rows, msg = self._run(["/enter", "NVDA"])
+        cl.submit_order.assert_called_once()
+        req = cl.submit_order.call_args[0][0]
+        self.assertEqual(req.symbol, "NVDA")
+        self.assertEqual(str(req.time_in_force.value).lower(), "gtc")
+        self.assertIsNotNone(getattr(req, "stop_loss", None))
+        # 8% of a 200.60 limit (200 + 0.3% buffer)
+        self.assertAlmostEqual(float(req.limit_price), 200.60, places=2)
+        self.assertAlmostEqual(float(req.stop_loss.stop_price), 184.55, places=2)
+        self.assertEqual(int(req.qty), 1)          # 10% of 2800 = 280
+
+    def test_the_row_is_registered_so_something_will_close_it(self):
+        """An entry nothing will ever close is how IOVA came to sit 20 days."""
+        cl, rows, msg = self._run(["/enter", "NVDA"])
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]["ticker"], "NVDA")
+        self.assertEqual(rows[0]["status"], "pending")
+        self.assertEqual(rows[0]["order_id"], "neworder1")
+
+    def test_a_tif_of_day_is_never_used(self):
+        """A DAY bracket's stop leg expires at 16:00 and strands the fill
+        overnight -- a logged incident in this repo."""
+        src = inspect.getsource(a._tg_cmd_enter)
+        self.assertIn("TimeInForce.GTC", src)
+        self.assertNotIn("TimeInForce.DAY", src)
+
+    # --- the refusals ------------------------------------------------------
+    def test_it_refuses_while_halted(self):
+        cl, rows, msg = self._run(["/enter", "NVDA"], halted=True)
+        cl.submit_order.assert_not_called()
+        self.assertIn("HALTED", msg)
+
+    def test_it_refuses_inside_a_macro_blackout(self):
+        """Fails CLOSED, like every other scheduled-event gate: a stop does
+        not cap a gap."""
+        cl, rows, msg = self._run(["/enter", "NVDA"], macro=(False, 0))
+        cl.submit_order.assert_not_called()
+        self.assertIn("macro blackout", msg)
+
+    def test_it_refuses_a_name_already_held(self):
+        cl, rows, msg = self._run(["/enter", "NVDA"], held=("NVDA",))
+        cl.submit_order.assert_not_called()
+        self.assertIn("already held", msg)
+
+    def test_it_refuses_when_an_order_is_already_working(self):
+        cl, rows, msg = self._run(["/enter", "NVDA"], working=("NVDA",))
+        cl.submit_order.assert_not_called()
+        self.assertIn("already working", msg)
+
+    def test_it_refuses_when_every_slot_is_committed(self):
+        cl, rows, msg = self._run(
+            ["/enter", "NVDA"], held=("A", "B", "C"), working=("D", "E"))
+        cl.submit_order.assert_not_called()
+        self.assertIn("slots committed", msg)
+
+    def test_it_refuses_earnings_inside_the_hold_window(self):
+        """The gate every automatic entry already gets. The earnings-spread
+        record is -63% a trade over four live trades, three near-total."""
+        cl, rows, msg = self._run(
+            ["/enter", "NVDA"], earnings=[{"date": "2026-10-22"}])
+        cl.submit_order.assert_not_called()
+        self.assertIn("reports 2026-10-22", msg)
+
+    def test_it_refuses_when_one_share_is_over_budget(self):
+        cl, rows, msg = self._run(["/enter", "SNDK"], last=1300.0)
+        cl.submit_order.assert_not_called()
+        self.assertIn("against a", msg)
+
+    def test_it_refuses_when_cash_is_short(self):
+        cl, rows, msg = self._run(["/enter", "NVDA"], last=200.0, cash=50.0)
+        cl.submit_order.assert_not_called()
+        self.assertIn("cash", msg)
+
+    def test_it_refuses_a_sub_dollar_price(self):
+        cl, rows, msg = self._run(["/enter", "PENNY"], last=0.4)
+        cl.submit_order.assert_not_called()
+        self.assertIn("Sub-$1", msg)
+
+    def test_a_failed_submission_registers_nothing(self):
+        """A row for an order that does not exist would have the time exit
+        chasing a ghost."""
+        cl, rows, msg = self._run(["/enter", "NVDA"],
+                                  submit_exc=RuntimeError("alpaca 422"))
+        self.assertEqual(rows, [])
+        self.assertIn("FAILED", msg)
+
+    # --- the stop band -----------------------------------------------------
+    def test_a_fat_fingered_stop_is_clamped_not_obeyed(self):
+        """1% from a phone is a typo, not an instruction."""
+        cl, rows, msg = self._run(["/enter", "NVDA", "1"])
+        req = cl.submit_order.call_args[0][0]
+        lim = float(req.limit_price)
+        self.assertAlmostEqual(float(req.stop_loss.stop_price),
+                               round(lim * 0.95, 2), places=2)
+        self.assertIn("clamped", msg)
+
+    def test_a_stop_over_the_band_is_clamped_down(self):
+        cl, rows, msg = self._run(["/enter", "NVDA", "40"])
+        req = cl.submit_order.call_args[0][0]
+        lim = float(req.limit_price)
+        self.assertAlmostEqual(float(req.stop_loss.stop_price),
+                               round(lim * 0.90, 2), places=2)
+
+    def test_a_stop_inside_the_band_is_used_as_given(self):
+        cl, rows, msg = self._run(["/enter", "NVDA", "6"])
+        req = cl.submit_order.call_args[0][0]
+        lim = float(req.limit_price)
+        self.assertAlmostEqual(float(req.stop_loss.stop_price),
+                               round(lim * 0.94, 2), places=2)
+        self.assertNotIn("clamped", msg)
+
+    def test_an_explicit_limit_is_honoured(self):
+        cl, rows, msg = self._run(["/enter", "NVDA", "8", "210.00"])
+        req = cl.submit_order.call_args[0][0]
+        self.assertAlmostEqual(float(req.limit_price), 210.00, places=2)
+
+    def test_junk_arguments_are_refused_not_coerced(self):
+        for parts in (["/enter", "NVDA", "abc"], ["/enter", "NVDA", "8", "xyz"]):
+            cl, rows, msg = self._run(parts)
+            cl.submit_order.assert_not_called()
+
+    def test_no_ticker_prints_usage(self):
+        cl, rows, msg = self._run(["/enter"])
+        cl.submit_order.assert_not_called()
+        self.assertIn("Usage", msg)
+
+    # --- the control surface ------------------------------------------------
+    def test_it_is_registered_and_confirmation_gated(self):
+        """Every other order-placing command needs a YES; this places the
+        largest single order available from a phone."""
+        self.assertIn("enter", a.NL_CONFIRM_REQUIRED)
+        self.assertIn("enter", [c for c, _d in a.TELEGRAM_COMMANDS])
+        self.assertIn('_cmd == "enter"', inspect.getsource(a))

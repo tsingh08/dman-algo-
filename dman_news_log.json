@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-19T14:18:09.906782-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Alphabet Stock Rises: What's Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-19T14:18:10.089696-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla Stock Trends Higher: What's Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-19T14:18:10.185819-04:00",
     "symbols": [
       "NFLX"
@@ -5022,6 +5002,26 @@
       "MSFT"
     ],
     "headline": "Six Years Late, Boeing&#39;s Biggest 737 MAX May Finally Be Cleared for Takeoff",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T10:37:04.388555-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Mexico President Claudia Sheinbaum Says Trade Deal With U.S. Is Very Close, Although There Are Still Some Issues To Be Resolved",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T10:37:12.790323-04:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "Biogen shares are trading higher after Wells Fargo maintained its Overweight rating on the stock and raised its price target from $250 to $310.",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"

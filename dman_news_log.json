@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-19T15:02:29.324660-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Tesla Stock Trends Higher: What's Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T15:02:29.331333-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "'Of Course' Bitcoin Could Grow to $50 Trillion, Jordi Visser Says: But How?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T15:02:29.446552-04:00",
-    "symbols": [
-      "WFF"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:02:29.555172-04:00",
-    "symbols": [
-      "XHG"
-    ],
-    "headline": "12 Financials Stocks Moving In Monday's Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-19T15:02:29.659884-04:00",
     "symbols": [
       "YHC"
@@ -5028,5 +4988,57 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T10:59:58.346982-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Watching S&amp;P Futures; Market Indices Are Moving Higher, Traders Cite Qatar\u2019s Diplomatic Push To Bring Washington And Tehran Back To The Negotiating Table As Turkey Submits Saudi-Pakistan Defence Pact To Parliament For Ratification Amid Ongoing Efforts To Restore Free Transit Through The Strait Of Hormuz",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T11:00:06.850490-04:00",
+    "symbols": [
+      "DDOG"
+    ],
+    "headline": "Rep. Jonathan Jackson Has Bought Up to $250K Worth Of Datadog Stock: Here\u2019s What You Should Know",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T11:00:06.876891-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Recent Report Shows That Rep. Michael Rulli Sold Up to $115K Worth of Alphabet Stock",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T11:00:42.494837-04:00",
+    "symbols": [
+      "AVGO",
+      "DIA",
+      "IWM",
+      "JPM",
+      "LLY",
+      "NEM",
+      "NVDA",
+      "ORCL",
+      "QQQ",
+      "SPY",
+      "UNH",
+      "V",
+      "XOM"
+    ],
+    "headline": "Energy Only Sector Lower In Tuesday Trading As Defensives Lead",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

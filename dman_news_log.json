@@ -1,33 +1,5 @@
 [
   {
-    "ts": "2026-10-19T15:30:55.334581-04:00",
-    "symbols": [
-      "GE",
-      "ISRG",
-      "LMT",
-      "META",
-      "NFLX",
-      "RTX",
-      "SPCX",
-      "SPOT",
-      "TSLA"
-    ],
-    "headline": "SpaceX Could Swing $128 Billion After Earnings",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T15:31:25.228610-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "SpaceX Could Swing $128 Billion After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-19T15:31:25.242672-04:00",
     "symbols": [
       "TSLA"
@@ -5037,5 +5009,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T11:28:49.725442-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Department Of Energy Investing ~$967M To Upgrade Critical Energy Infrastructure, Lower Electricity Costs, Enhance America\u2019s Power Grid",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T11:29:18.909751-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Energy Secretary Chris Wright Says Over $50M Of DOE&#39;s New Grid Investment To Go To Texas, Which Utility Companies Will Match; U.S. Working With India To Increase Refining Output To Bring More Products To Global Market; Meaningful Diesel Price Relief Is Possible If Europeans Agree To A Coordinated Release; Russian Diesel Likely To Go To New England, If It Goes To The U.S.",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

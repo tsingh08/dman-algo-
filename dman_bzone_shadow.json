@@ -1288,5 +1288,45 @@
 "extension_pct": 10.6,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "SLN",
+"date": "2026-10-20",
+"close": 19.61,
+"base_days": 0,
+"above_low_pct": 356.0,
+"extension_pct": 82.6,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "FRSH",
+"date": "2026-10-20",
+"close": 14.85,
+"base_days": 35,
+"above_low_pct": 115.8,
+"extension_pct": 11.6,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "HALO",
+"date": "2026-10-20",
+"close": 124.37,
+"base_days": 0,
+"above_low_pct": 101.8,
+"extension_pct": 10.0,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "BRZE",
+"date": "2026-10-20",
+"close": 45.57,
+"base_days": 297,
+"above_low_pct": 188.6,
+"extension_pct": 69.5,
+"fresh_base": true,
+"weak_band": true
 }
 ]

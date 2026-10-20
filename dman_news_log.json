@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-20T09:26:24.128360-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "GE Aerospace CEO Says In Conference Call That Q3 Departures Up 1%, Wide-Bodies Strong Despite Possible Flight Schedule Trims; Expects Departures Growth In 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:24.130761-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "GE Aerospace CFO Says In Conference Call The Company Is Working To Achieve GE9X FAA Certification By End Of 2026, Assumes Fewer Units In Year Given Timing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:24.133173-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "GE Aerospace CFO Says In Conference Call That Spare Parts Delinquency Increased Sequentially Despite Strong Revenue Growth, Reflecting Strong Underlying Demand",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:24.586922-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "If You Invested $1000 In JPMorgan Chase Stock 10 Years Ago, You Would Have This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T09:26:24.807787-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Live On 2WAY TV, U.S. Treasury Secretary Bessent Says We Have All Hands On Deck To Free Us From Dependency On Chinese Critical Minerals",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-20T09:26:24.813597-04:00",
     "symbols": [
       "GS"
@@ -5064,5 +5014,55 @@
     "source": "benzinga",
     "tag": "held",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T14:51:28.573002-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;Amazon Is Buying Billions In NVIDIA AI Systems It Can&#39;t Yet Turn On&#39; - Business Insider",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T14:51:29.297371-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;Amazon Is Buying Billions In NVIDIA AI Systems It Can&#39;t Yet Turn On&#39; - Business Insider",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T14:51:36.222085-04:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "GE Aerospace Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T14:51:45.327926-04:00",
+    "symbols": [
+      "EIDO"
+    ],
+    "headline": "Under the Radar: 2 Beaten-Down Asian Markets Trading at Bargain Prices",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T14:51:46.614312-04:00",
+    "symbols": [
+      "RBB"
+    ],
+    "headline": "RBB Bancorp Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

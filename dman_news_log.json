@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-19T15:54:31.808768-04:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "ServiceNow, Eaton, SentinelOne And A Financial Stock: CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:54:32.077246-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "What's Going On With Exxon Stock On Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-19T15:54:32.082701-04:00",
     "symbols": [
       "JPM"
@@ -5048,5 +5028,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T12:42:01.950747-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Analyst Raises Revenues Estimates Ahead Of Q3 Results",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T12:42:20.615681-04:00",
+    "symbols": [
+      "RAPP"
+    ],
+    "headline": "HC Wainwright &amp; Co. Reiterates Buy on Rapport Therapeutics, Maintains $66 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

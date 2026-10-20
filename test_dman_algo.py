@@ -27028,3 +27028,127 @@ class TestAGapFillDoesNotInheritTheLimitsStop(unittest.TestCase):
         src = inspect.getsource(a.run_dip_basket_manage)
         self.assertIn("_dip_basket_reprice_stop(_r, out)", src)
         self.assertIn('_r["fill_px"]', src)
+
+class TestTheShadowMeasuresBothEntryRules(unittest.TestCase):
+    """The shadow measured a NEXT-OPEN entry. The live basket taken on
+    2026-10-19 rests a limit at the signal close + 0.5% so it never chases a
+    gap up. Two different strategies, and only the open one had a number
+    attached -- so a positive shadow verdict would not have licensed what the
+    money was actually doing.
+
+    Monday showed the gap is not academic. Of three limits one filled (NVDA at
+    215.20 against a 218.09 open, 1.3 points better) and two never traded down
+    to their level: ANET opened 182.87 against a 177.86 limit, MRVL 240.00
+    against 228.97. Buying MRVL at the open would have lost 1.21% that day, so
+    not filling was a gain rather than a miss. One session proves nothing,
+    which is the point: both arms now ride the same signals over the same
+    horizon so the entry rule gets measured instead of argued."""
+
+    def _run(self, ohlc, start=None):
+        """ohlc: list of (open, high, low, close). Index is daily from 2026-01-01."""
+        import pandas as pd, tempfile, os, datetime as _dt
+        idx = pd.date_range(start or "2026-01-01", periods=len(ohlc), freq="D")
+        df = pd.DataFrame({"Open": [x[0] for x in ohlc],
+                           "High": [x[1] for x in ohlc],
+                           "Low": [x[2] for x in ohlc],
+                           "Close": [x[3] for x in ohlc],
+                           "Volume": [1e6] * len(ohlc)}, index=idx)
+        fd, path = tempfile.mkstemp(suffix=".json")
+        os.close(fd)
+        os.unlink(path)
+        with patch.object(a, "DIP_SHADOW_FILE", path), \
+             patch.object(a, "WATCHLIST", ["AAA"]), \
+             patch.object(a, "DIP_SHADOW_START", _dt.date(2026, 1, 1)), \
+             patch.object(a, "fetch_df", return_value=df), \
+             patch.object(a, "send_telegram"), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"), \
+             patch.object(a, "_log_swallowed"), \
+             contextlib.redirect_stdout(io.StringIO()) as buf:
+            a.run_dip_shadow(notify=False)
+            try:
+                rows = json.load(io.open(path, encoding="utf-8"))
+            except Exception:
+                rows = []
+        try:
+            os.unlink(path)
+        except OSError:
+            pass
+        return rows, buf.getvalue()
+
+    def _bars(self, next_day):
+        """A rising series ending in one hard down day, then `next_day` as the
+        entry session, then flat room to resolve."""
+        bars = []
+        px = 50.0
+        for _ in range(213):
+            bars.append((px, px * 1.01, px * 0.99, px))
+            px += 0.5
+        dip = px * 0.88                      # the signal close
+        bars.append((px, px * 1.01, dip * 0.99, dip))
+        bars.append(next_day)
+        last = next_day[3]
+        for _ in range(8):
+            bars.append((last, last * 1.01, last * 0.99, last))
+        return bars, dip
+
+    def test_an_open_at_or_below_the_limit_fills_at_the_open(self):
+        """You never pay more than the market. A buy limit above the open is
+        filled at the open, not at the limit."""
+        bars, dip = self._bars(next_day=(1.0, 1.0, 1.0, 1.0))
+        open_px = dip * 0.98                 # opens BELOW the limit
+        bars[214] = (open_px, open_px * 1.01, open_px * 0.99, open_px)
+        for k in range(215, len(bars)):
+            bars[k] = (open_px, open_px * 1.01, open_px * 0.99, open_px)
+        rows, _out = self._run(bars)
+        self.assertTrue(rows, "no signal fired")
+        r = rows[0]
+        self.assertAlmostEqual(float(r["entry_lim"]), round(open_px, 4), places=3)
+        self.assertAlmostEqual(float(r["entry"]), round(open_px, 4), places=3)
+
+    def test_a_gap_up_that_never_comes_back_records_no_fill(self):
+        """The arm declining to buy is the behaviour under test. It must be a
+        null, not a zero -- averaging a non-trade in as flat would flatter
+        the rule exactly where it refused to act."""
+        bars, dip = self._bars(next_day=(1.0, 1.0, 1.0, 1.0))
+        hi = dip * 1.05                      # gaps above the limit and holds
+        for k in range(214, len(bars)):
+            bars[k] = (hi, hi * 1.01, hi * 0.999, hi)
+        rows, _out = self._run(bars)
+        self.assertTrue(rows)
+        self.assertIsNone(rows[0]["entry_lim"])
+        self.assertIsNone(rows[0]["pnl_lim_pct"])
+        self.assertIsNotNone(rows[0]["entry"], "the open arm still has a trade")
+
+    def test_a_gap_up_that_trades_back_fills_at_the_limit(self):
+        """Monday's NVDA: open 218.09, limit 215.20, filled intraday."""
+        bars, dip = self._bars(next_day=(1.0, 1.0, 1.0, 1.0))
+        lim = dip * (1 + a.DIP_SHADOW_LIMIT_BUFFER)
+        hi = dip * 1.05
+        bars[214] = (hi, hi * 1.01, lim * 0.999, hi)     # low pierces the limit
+        for k in range(215, len(bars)):
+            bars[k] = (hi, hi * 1.01, hi * 0.99, hi)
+        rows, _out = self._run(bars)
+        self.assertTrue(rows)
+        self.assertAlmostEqual(float(rows[0]["entry_lim"]), round(lim, 4), places=3)
+        self.assertGreater(float(rows[0]["entry"]), float(rows[0]["entry_lim"]),
+                           "the limit arm should have the better entry here")
+
+    def test_the_two_arms_are_resolved_against_the_same_exit_bar(self):
+        """Otherwise the comparison is between two horizons, not two entries."""
+        bars, dip = self._bars(next_day=(1.0, 1.0, 1.0, 1.0))
+        lim = dip * (1 + a.DIP_SHADOW_LIMIT_BUFFER)
+        hi = dip * 1.05
+        bars[214] = (hi, hi * 1.01, lim * 0.999, hi)
+        for k in range(215, len(bars)):
+            bars[k] = (hi, hi * 1.01, hi * 0.99, hi)
+        rows, _out = self._run(bars)
+        r = next(x for x in rows if x.get("pnl_pct") is not None)
+        self.assertIsNotNone(r["pnl_lim_pct"])
+        # Same exit price, cheaper entry => strictly better result.
+        self.assertGreater(float(r["pnl_lim_pct"]), float(r["pnl_pct"]))
+
+    def test_the_report_prints_the_limit_arm_beside_the_open_arm(self):
+        src = inspect.getsource(a.run_dip_shadow)
+        self.assertIn("limit arm", src)
+        self.assertIn("never filled", src)

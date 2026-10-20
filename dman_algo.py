@@ -23014,6 +23014,23 @@ DIP_SHADOW_START    = date(2026, 10, 16)
 DIP_SHADOW_RSI_MAX  = 10.0    # 2-period RSI; washed out, not merely soft
 DIP_SHADOW_HOLD     = 5       # sessions, matching SIGNAL_LABEL_HORIZON_DAYS
 DIP_SHADOW_REVIEW_N = 30      # resolved trades before the verdict
+# The shadow measures a NEXT-OPEN entry, which is what the +0.45% was measured
+# on. The live basket taken on 2026-10-19 does not: it rests a limit at the
+# signal close + this buffer, so it never chases a gap up. Those are two
+# different strategies and only one of them had a number attached, which means
+# a positive shadow verdict would not have licensed what the money was
+# actually doing.
+#
+# Monday showed the difference is not academic. Of three limits, one filled
+# (NVDA at 215.20 while the open was 218.09 -- 1.3 points better) and two
+# never traded down to their level: ANET opened 182.87 against a 177.86 limit,
+# MRVL opened 240.00 against 228.97. Buying MRVL at the open would have lost
+# 1.21% on the day, so not filling was a gain, not a miss. One day proves
+# nothing; it is exactly why this needs measuring rather than arguing.
+#
+# So the shadow now carries BOTH arms on the SAME signals over the SAME
+# horizon, and the report prints them side by side.
+DIP_SHADOW_LIMIT_BUFFER = 0.005
 
 
 def _rsi2(closes: list) -> Optional[float]:
@@ -23261,6 +23278,7 @@ def run_dip_shadow(notify: bool = True) -> dict:
                 continue
             _c = [float(x) for x in _df["Close"]]
             _o = [float(x) for x in _df["Open"]]
+            _lo = [float(x) for x in _df["Low"]]
             _idx = [str(x)[:10] for x in _df.index]
             # Leave DIP_SHADOW_HOLD + 1 bars of room so a logged signal can
             # still be resolved from the same series on a later pass.
@@ -23279,8 +23297,22 @@ def run_dip_shadow(notify: bool = True) -> dict:
                 _entry = _o[_i + 1]
                 if _entry < 1.0:
                     continue
+                # The limit arm. A buy limit at _lim fills at the OPEN when
+                # the open is already at or below it (you never pay more than
+                # the market), otherwise only if the session's low reaches it.
+                # If neither happens there is no position, which is a real
+                # outcome of the rule and recorded as such -- not as a zero.
+                _lim = _c[_i] * (1.0 + DIP_SHADOW_LIMIT_BUFFER)
+                if _o[_i + 1] <= _lim:
+                    _lfill = _o[_i + 1]
+                elif _lo[_i + 1] <= _lim:
+                    _lfill = _lim
+                else:
+                    _lfill = None
                 _row = {"date": _d, "ticker": _tk, "entry": round(_entry, 4),
-                        "rsi2": round(_r, 1), "pnl_pct": None}
+                        "rsi2": round(_r, 1), "pnl_pct": None,
+                        "entry_lim": (round(_lfill, 4) if _lfill else None),
+                        "pnl_lim_pct": None}
                 _log.append(_row)
                 _seen.add((_d, _tk))
                 out["logged"].append(_tk)
@@ -23314,6 +23346,10 @@ def run_dip_shadow(notify: bool = True) -> dict:
                 if _e <= 0:
                     continue
                 _row["pnl_pct"] = round((_c[_exit_i] - _e) / _e * 100.0, 2)
+                _el = _row.get("entry_lim")
+                if _el:
+                    _row["pnl_lim_pct"] = round(
+                        (_c[_exit_i] - float(_el)) / float(_el) * 100.0, 2)
                 out["resolved"].append(_tk)
     except Exception as exc:
         _log_swallowed("dip shadow", exc)
@@ -23331,6 +23367,19 @@ def run_dip_shadow(notify: bool = True) -> dict:
     # exactly like "crashed and was swallowed" -- and proving which took
     # re-deriving the signal condition by hand against Friday's bars.
     _wr = (100.0 * sum(1 for x in _done if x > 0) / len(_done)) if _done else 0.0
+    # The limit arm, on the same resolved signals. "no fill" is a third
+    # outcome, not a zero: the rule declining to buy is the behaviour under
+    # test, so it is counted separately rather than averaged in as a flat
+    # trade, which would quietly flatter it.
+    _rl = [r for r in _log if r.get("pnl_pct") is not None]
+    _lim_done = [float(r["pnl_lim_pct"]) for r in _rl
+                 if r.get("pnl_lim_pct") is not None]
+    _lim_nofill = sum(1 for r in _rl if r.get("entry_lim") is None)
+    if _lim_done:
+        _lwr = 100.0 * sum(1 for x in _lim_done if x > 0) / len(_lim_done)
+        print(f"     limit arm (+{DIP_SHADOW_LIMIT_BUFFER:.1%} buffer): "
+              f"n={len(_lim_done)} mean {sum(_lim_done) / len(_lim_done):+.2f}%, "
+              f"{_lwr:.0f}% win, {_lim_nofill} never filled")
     print(f"  \U0001f4d0 dip shadow: {len(_done)}/{DIP_SHADOW_REVIEW_N} resolved"
           + (f", mean {out['mean']:+.2f}%, {_wr:.0f}% win" if _done else "")
           + f" | +{len(out['logged'])} logged, {len(_log) - len(_done)} awaiting exit"

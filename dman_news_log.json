@@ -1,47 +1,5 @@
 [
   {
-    "ts": "2026-10-19T15:54:32.340258-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "'Goldman, Evercore Are Pitching \u2018Forever Funds\u2019 to Private Equity' - Bloomberg Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-19T15:54:47.508642-04:00",
-    "symbols": [
-      "SLGN"
-    ],
-    "headline": "'Silgan Nears $3.4 Billion Purchase of Trivium Packaging' - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:56:08.762849-04:00",
-    "symbols": [
-      "MU",
-      "NVDA",
-      "SPY"
-    ],
-    "headline": "TIPS Now Pay 2.8% Above Inflation. Here&#39;s The Hurdle That Sets For S&amp;P 500 Investors",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T16:00:52.656476-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Here&#39;s How Much $100 Invested In Oracle 20 Years Ago Would Be Worth Today",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-19T16:02:20.952318-04:00",
     "symbols": [
       "NVDA"
@@ -5049,5 +5007,45 @@
     "source": "benzinga",
     "tag": "held",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T12:56:38.539813-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is SMCI Stock Seesawing on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T12:56:40.467828-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Why Is SMCI Stock Seesawing on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T12:56:58.764002-04:00",
+    "symbols": [
+      "QGEN"
+    ],
+    "headline": "&#39;EQT Is in Advanced Talks to Buy Testing Firm Qiagen&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T12:56:59.171540-04:00",
+    "symbols": [
+      "LION"
+    ],
+    "headline": "&#39;Legendary Revives Lionsgate Takeover Talks, Submits Offer&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

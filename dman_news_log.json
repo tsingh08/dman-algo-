@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-19T15:51:22.638380-04:00",
-    "symbols": [
-      "KLAC"
-    ],
-    "headline": "Chip Stocks Repeated a Lehman-Era Losing Streak: Is The Bottom Now In?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:51:22.645152-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "AbbVie\u2019s Dual-Target Drug Shows Phase 2 Results for Hard-to-Treat Crohn\u2019s Disease",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-19T15:51:22.650531-04:00",
     "symbols": [
       "ABBV"
@@ -5039,6 +5019,26 @@
     "headline": "Deep Fission Signs Definitive Power Purchase Agreement With Great Plains Development Authority For Kansas Commercial Project",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T12:01:54.921048-04:00",
+    "symbols": [
+      "HTZ"
+    ],
+    "headline": "Nasdaq Rises Over 100 Points; 3M Earnings Top Views",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T12:03:58.109830-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;HHS releases new kidney care plan&#39; - Axios Exclusive",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

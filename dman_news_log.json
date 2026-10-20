@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-19T15:31:25.557590-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "SpaceX Could Swing $128 Billion After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-19T15:31:25.939513-04:00",
     "symbols": [
       "ISRG"
@@ -5030,5 +5020,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T11:35:18.580875-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Live On CNN News18, U.S. Secretary Of State Rubio On Trade Deal With India, Says Down To Some Technical Details That Have To Be Worked Out; Anticipate Seeing In A Matter Of Weeks Not Months",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

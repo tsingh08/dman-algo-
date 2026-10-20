@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-20T09:26:36.561826-04:00",
-    "symbols": [
-      "EFX"
-    ],
-    "headline": "SpaceX, GE Aerospace On Deck Tuesday As Growth, Aerospace Demand Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-20T09:26:36.791220-04:00",
     "symbols": [
       "WASH"
@@ -5064,5 +5054,16 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-20T15:30:21.556106-04:00",
+    "symbols": [
+      "META",
+      "TSLA"
+    ],
+    "headline": "Meta Platforms, Tesla Could Swing More Than $100 Billion After Earnings",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

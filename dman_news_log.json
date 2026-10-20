@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-19T16:02:20.965497-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Nasdaq Tumbles Over 2%, Records Weekly Loss: Investor Sentiment Weakens, Fear &amp; Greed Index Moves to \u2018Extreme Fear\u2019 Zone",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-19T16:02:20.972791-04:00",
     "symbols": [
       "GOOGL"
@@ -5051,5 +5041,16 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T13:01:29.321827-04:00",
+    "symbols": [
+      "AMZN",
+      "UNH"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Amazon, UnitedHealth Group, Twilio, eBay",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

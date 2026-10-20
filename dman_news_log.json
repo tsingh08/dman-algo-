@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-20T09:26:14.353800-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Wedbush Reiterates Outperform on Advanced Micro Devices, Maintains $600 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:14.588693-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "CoreWeave Stock Down 56% From its Peak \u2014 HSBC Sees More Pain Ahead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:14.591685-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Q3 Earnings Preview: Wall Street Eyes Muse AI Monetization As Mark Zuckerberg&#39;s AI Bet Faces Its Next Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:14.594292-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "CoreWeave Stock Sinks to 52-Week Low As Wall Street&#39;s AI Debt Fears Deepen",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-20T09:26:14.596723-04:00",
     "symbols": [
       "META"
@@ -5057,6 +5017,46 @@
       "BRZE"
     ],
     "headline": "Stifel Downgrades Braze to Hold, Raises Price Target to $47.5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T13:46:24.958008-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "BMO Capital Maintains Outperform on Alphabet, Raises Price Target to $480",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T13:46:51.812606-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Reported Earlier: The Hormuz Letter Posted On X &#34;Iran announces an oil tanker has caught fire in the US-backed southern Omani corridor of the Strait of Hormuz today, after hitting a naval mine.&#34;",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T13:46:54.387586-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "CoreWeave Stock Down 56% From its Peak \u2014 HSBC Sees More Pain Ahead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T13:46:54.397674-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Wedbush Reiterates Outperform on Advanced Micro Devices, Maintains $600 Price Target",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

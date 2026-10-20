@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-19T14:50:39.028423-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Walks Away From AI Data Center Deal, but SemiAnalysis Predicts 50-GW Boom in 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-19T14:50:39.188630-04:00",
     "symbols": [
       "NVDA"
@@ -5024,6 +5014,18 @@
     "headline": "Northrop Grumman Q3 2026 Earnings Call Transcript",
     "source": "scan-prefetch",
     "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T10:52:46.195328-04:00",
+    "symbols": [
+      "NVDA",
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "SpaceX Earnings Prediction Market Preview: What Will Elon Musk Say?",
+    "source": "benzinga",
+    "tag": "macro",
     "sentiment": null
   }
 ]

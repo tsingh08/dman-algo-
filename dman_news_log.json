@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-19T13:40:17.125989-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-19T13:40:17.309433-04:00",
     "symbols": [
       "SPY"
@@ -5030,5 +5020,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T10:10:27.628586-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "UnitedHealth Group shares are trading higher amid a rally sparked sparked by the company&#39;s better-than-expected Q3 financial results on October 13. Also, RBC Capital maintained its Outperform rating on the stock and raised its price target from $478 to $498.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

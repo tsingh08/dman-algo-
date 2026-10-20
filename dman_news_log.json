@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-20T09:26:35.396899-04:00",
-    "symbols": [
-      "HSAI"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-20T09:26:35.399981-04:00",
     "symbols": [
       "HSAI"
@@ -5064,5 +5054,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T15:16:23.605050-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "AI\u2019s Most Watched Cooling Stock Has Fallen for 11 Straight Days: Analysts Now See a 50% Upside",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

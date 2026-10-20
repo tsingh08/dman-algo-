@@ -1618,5 +1618,17 @@
     "pnl_pct": 4.49,
     "score": 16,
     "is_live": true
+  },
+  {
+    "ticker": "IOVA",
+    "date": "2026-10-20",
+    "bias": "LONG",
+    "setup": "Breakout Zone +698% off low",
+    "entry": 14.17,
+    "exit": 14.1,
+    "outcome": "LOSS",
+    "pnl_pct": -0.47,
+    "score": 69,
+    "is_live": true
   }
 ]

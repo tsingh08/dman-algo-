@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-19T13:40:17.309433-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Dow Jones Industrial Average in Spotlight: 5 Stocks Report This Week, Including 2 of the Worst Performing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T13:40:17.410860-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Dow Jones Industrial Average in Spotlight: 5 Stocks Report This Week, Including 2 of the Worst Performing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-19T13:40:18.515462-04:00",
     "symbols": [
       "HTZ"
@@ -5030,5 +5010,25 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T10:11:19.670984-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Earnings Prediction Market Preview: Will Ted Sarandos Discuss Layoffs?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T10:12:18.533519-04:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "Believe And Spotify Partner To Unlock New Opportunities For Artists Through Licensed Fan Remixes And Covers",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

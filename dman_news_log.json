@@ -1,285 +1,5 @@
 [
   {
-    "ts": "2026-10-20T09:26:26.453280-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Oracle Joins Forces With AstraZeneca to Put AI to Work in Drug Research",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T09:26:26.673346-04:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "&#39;Projects Signal AI Copper Use May Triple by 2028, Trafigura Says&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:26.676030-04:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "&#39;Codelco Sets European Copper Premium at Record $350 a Ton&#39;- Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:27.136450-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Walmart Bundles Its Walmart+ and Sam\u2019s Club Plus Memberships Together For $120/Year",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:27.360501-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Joins Forces With AstraZeneca to Put AI to Work in Drug Research",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:27.363318-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Announces Non-Binding Agreement With AstraZeneca To Explore AI And Real-World Data For Clinical Trial Patient Identification, Evidence Generation And Care Insights",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:27.597334-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Understanding Adobe&#39;s Position In Software Industry Compared To Competitors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:27.823637-04:00",
-    "symbols": [
-      "FDX"
-    ],
-    "headline": "FedEx To Continue Utilizing Broadcom&#39;s Infrastructure Software Portfolio Under Expanded Collaboration",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:28.058654-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Redbook Retail Sales Index For October 2026 Vs October 2025: 9.7% YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:28.061284-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Redbook Retail Sales Index Up 9.0% YoY For Week Ended 10/17/26",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:28.063689-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA Housing Starts (MoM) For Sept. Revises Prior From -2.6% To -5.9%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:28.293165-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Tom Lee Predicts S&amp;P 500 At 8,400 By Year-End, Says Midterm Elections Could Trigger \u2018Risk-On\u2019 Rally in Tech Stocks and Crypto: \u2018We Are in an Unprecedented Time\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:28.295812-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market Today:  Dow Jones, S&amp;P 500, Nasdaq 100 Futures Fall as Iran Threatens to Target Undersea Cables \u2014 SPCX, NFLX, STLD in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:28.298223-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:28.523959-04:00",
-    "symbols": [
-      "ADGM"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:28.979276-04:00",
-    "symbols": [
-      "CHOW"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:28.981985-04:00",
-    "symbols": [
-      "CHOW"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:29.210536-04:00",
-    "symbols": [
-      "CLRO"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:29.452123-04:00",
-    "symbols": [
-      "DBGI"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Monday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:29.677292-04:00",
-    "symbols": [
-      "DFSC"
-    ],
-    "headline": "DEFSEC Technologies Reports Preliminary Cash And Cash Equivalents Of ~$7.7M And $0 Of Debt As Of September 30",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:29.897790-04:00",
-    "symbols": [
-      "ENSC"
-    ],
-    "headline": "Cantor Fitzgerald Initiates Coverage On Ensysce Biosciences with Overweight Rating, Announces Price Target of $2",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:30.126955-04:00",
-    "symbols": [
-      "FGL"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:30.348707-04:00",
-    "symbols": [
-      "GNS"
-    ],
-    "headline": "Genius Group Says Financial Wins In Last Quarter Are Underpinned By Our Legal Wins; Now Free To Pursue $1.2B Capital Plan We Announced In August To Fund Our Dual AI And Bitcoin Treasury Strategy, Relaunched Bitcoin Treasury In Early October; On September 27, Federal Court Denied All Motions To Dismiss Our RICO Lawsuit",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:30.351364-04:00",
-    "symbols": [
-      "GNS"
-    ],
-    "headline": "Genius Group Q3 Revenue $4.1M, Gross Profit Rises 108% To $2.7M, And Operating Profit Reaches $235K; 9-Month Revenue Climbs 112% To $10.3M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:30.353936-04:00",
-    "symbols": [
-      "GNS"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Monday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:30.574315-04:00",
-    "symbols": [
-      "HTZ"
-    ],
-    "headline": "Hertz Global Says Oro Mobility Secures $80M Equity Investment From Consortium Of Investors Including Cohen Private Ventures, Certares, And Knighthead Capital Affiliates",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:30.794547-04:00",
-    "symbols": [
-      "INLF"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:31.015632-04:00",
-    "symbols": [
-      "IPW"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-20T09:26:31.018323-04:00",
     "symbols": [
       "IPW"
@@ -5064,5 +4784,285 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T15:02:45.941355-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "If You Invested $1000 In JPMorgan Chase Stock 10 Years Ago, You Would Have This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T15:02:46.148249-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Bank Stocks Are On Their Longest Losing Streak Since 2008: Rates Aren&#39;t The Only Problem",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T15:02:46.151864-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Top 3 Financial Stocks Which Could Rescue Your Portfolio In Q4",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T15:02:46.155344-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Anthony Scaramucci Says Ukraine Gave Up Nuclear Arsenal, And Trump Is Treating The Deal \u2018As If It Never Existed\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T15:02:46.158778-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Jim Cramer Calls Trump&#39;s Russia Sanctions Waiver &#39;Tragic&#39; After Report Says President &#39;Openly Aiding the Kremlin&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T15:02:46.325815-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa Partners With Bill.com And Billtrust To Launch First Live Pilot For Trusted AI Agents To Initiate And Complete Approved Buyer Invoice Payments",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T15:02:46.637411-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Chevron, ExxonMobil Stocks Hit 52-Week Highs as Fresh US-Israel Threats Against Iran Push Brent Crude to 5-Month Highs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T15:02:46.813843-04:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "Occidental Petroleum To Rally Over 18%? Here Are 10 Top Analyst Forecasts For Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T15:02:46.817375-04:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "Susquehanna Maintains Positive on Occidental Petroleum, Raises Price Target to $77",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T15:02:46.999519-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Twilio, Transocean and a Health Care Stock on CNBC\u2019s \u2018Final Trades\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T15:02:47.390890-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Oracle Joins Forces With AstraZeneca to Put AI to Work in Drug Research",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T15:02:47.599131-04:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "&#39;Projects Signal AI Copper Use May Triple by 2028, Trafigura Says&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T15:02:47.603231-04:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "&#39;Codelco Sets European Copper Premium at Record $350 a Ton&#39;- Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T15:02:47.983040-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Walmart Bundles Its Walmart+ and Sam\u2019s Club Plus Memberships Together For $120/Year",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T15:02:48.152964-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Joins Forces With AstraZeneca to Put AI to Work in Drug Research",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T15:02:48.156882-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Announces Non-Binding Agreement With AstraZeneca To Explore AI And Real-World Data For Clinical Trial Patient Identification, Evidence Generation And Care Insights",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T15:02:48.346397-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Understanding Adobe&#39;s Position In Software Industry Compared To Competitors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T15:02:48.524893-04:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "FedEx To Continue Utilizing Broadcom&#39;s Infrastructure Software Portfolio Under Expanded Collaboration",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T15:02:48.886548-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Tom Lee Predicts S&amp;P 500 At 8,400 By Year-End, Says Midterm Elections Could Trigger \u2018Risk-On\u2019 Rally in Tech Stocks and Crypto: \u2018We Are in an Unprecedented Time\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T15:02:48.890234-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Stock Market Today:  Dow Jones, S&amp;P 500, Nasdaq 100 Futures Fall as Iran Threatens to Target Undersea Cables \u2014 SPCX, NFLX, STLD in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T15:02:49.723458-04:00",
+    "symbols": [
+      "CHOW"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-20T15:02:49.883102-04:00",
+    "symbols": [
+      "CLRO"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T15:02:50.075530-04:00",
+    "symbols": [
+      "DFSC"
+    ],
+    "headline": "DEFSEC Technologies Reports Preliminary Cash And Cash Equivalents Of ~$7.7M And $0 Of Debt As Of September 30",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T15:02:50.245749-04:00",
+    "symbols": [
+      "ENSC"
+    ],
+    "headline": "Cantor Fitzgerald Initiates Coverage On Ensysce Biosciences with Overweight Rating, Announces Price Target of $2",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T15:02:50.377290-04:00",
+    "symbols": [
+      "GNS"
+    ],
+    "headline": "Genius Group Says Financial Wins In Last Quarter Are Underpinned By Our Legal Wins; Now Free To Pursue $1.2B Capital Plan We Announced In August To Fund Our Dual AI And Bitcoin Treasury Strategy, Relaunched Bitcoin Treasury In Early October; On September 27, Federal Court Denied All Motions To Dismiss Our RICO Lawsuit",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T15:02:50.381357-04:00",
+    "symbols": [
+      "GNS"
+    ],
+    "headline": "Genius Group Q3 Revenue $4.1M, Gross Profit Rises 108% To $2.7M, And Operating Profit Reaches $235K; 9-Month Revenue Climbs 112% To $10.3M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T15:02:50.550491-04:00",
+    "symbols": [
+      "HTZ"
+    ],
+    "headline": "Hertz Global Says Oro Mobility Secures $80M Equity Investment From Consortium Of Investors Including Cohen Private Ventures, Certares, And Knighthead Capital Affiliates",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T15:02:57.606455-04:00",
+    "symbols": [
+      "LION"
+    ],
+    "headline": "Apollo-Backed Legendary Makes Fresh Bid For Lionsgate, Stock Jumps",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-19T14:18:10.185819-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Stock Dips: What's Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-19T14:18:10.191313-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "'Dan Lin Out as Netflix Film Chief' - Variety",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-19T14:18:11.519037-04:00",
     "symbols": [
       "KLAC"
@@ -5005,6 +4985,26 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T10:36:20.094719-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Six Years Late, Boeing&#39;s Biggest 737 MAX May Finally Be Cleared for Takeoff",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T10:36:33.551208-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Canadian Minister Responsible For U.S. Trade Says Canada Continues To Have Trade Talks With Its U.S. Counterparts; When Asked About Trump&#39;s Bombardier Comments, Says Protecting The Aerospace Sector Is Important Right Across The Country; We&#39;re Going To Find A Deal With The United States At Some Point That&#39;s In The Interests Of The Entire Canadian Economy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   },
   {
     "ts": "2026-10-20T10:37:04.388555-04:00",

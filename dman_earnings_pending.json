@@ -1,7 +1,56 @@
 {
-  "pending": [],
-  "consumed": {
-    "NFLX_2026-10-20": 1792438059.9315846,
-    "GE_2026-10-20": 1792440160.5233889
-  }
+  "pending": [
+    {
+      "ticker": "NFLX",
+      "earn_date": "2026-10-20",
+      "created_at": "2026-10-20T10:40:25.264283-04:00",
+      "expires_at": "2026-10-20T14:40:25.264286-04:00",
+      "status": "awaiting_approval",
+      "plan": {
+        "ticker": "NFLX",
+        "earn_date": "2026-10-20",
+        "timing": "AMC",
+        "current_price": 70.11000061035156,
+        "sets": 1,
+        "net_debit": 1.08,
+        "total_cost": 108.0,
+        "directional": null,
+        "last_moves_pct": [
+          -5.4,
+          -11.9,
+          11.5,
+          -7.9
+        ],
+        "call": {
+          "long_occ": "NFLX261030C00075000",
+          "short_occ": "NFLX261030C00077000",
+          "long_strike": 75.0,
+          "short_strike": 77.0,
+          "long_oi": 3900,
+          "short_oi": 2116,
+          "net_debit": 0.53,
+          "expiry": "2026-10-30",
+          "dte": 10,
+          "max_gain": 147.0,
+          "breakeven": 75.53
+        },
+        "put": {
+          "long_occ": "NFLX261030P00065000",
+          "short_occ": "NFLX261030P00063000",
+          "long_strike": 65.0,
+          "short_strike": 63.0,
+          "long_oi": 6094,
+          "short_oi": 1110,
+          "net_debit": 0.55,
+          "expiry": "2026-10-30",
+          "dte": 10,
+          "max_gain": 145.0,
+          "breakeven": 64.45
+        },
+        "max_loss": 108.0,
+        "ai_analysis": "Technicals are soft but not broken: price $70.17 is below both EMA20 and EMA50 with negative MACD and a flat-to-slightly-down 5-day trend, while RSI 52.1 is neutral, so this reads as mild bearish-to-sideways momentum rather than a strong directional move. Consensus estimates call for EPS of $0.82 vs prior $0.587 and revenue of $12.87B vs prior $11.51B, a meaningful sequential beat requirement that raises the bar for the stock to react positively. The last four post-earnings moves (-5.4%, -11.9%, +11.5%, -7.9%) show NFLX regularly makes large swings in either direction, which fits a double-sided debit spread designed to profit from a big move regardless of direction, but three of four moves were down, so skew toward downside is not guaranteed by structure alone. The headlines are mostly macro noise (I"
+      }
+    }
+  ],
+  "consumed": {}
 }

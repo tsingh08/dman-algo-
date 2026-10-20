@@ -2131,5 +2131,14 @@
   "drift_pct": 0.16,
   "range_ratio": 0.23,
   "near_high": 0.979
+ },
+ {
+  "ts": "2026-10-20T11:17:38.417481-04:00",
+  "ticker": "ESGU",
+  "price": 168.26,
+  "rvol": 1.74,
+  "drift_pct": 0.12,
+  "range_ratio": 0.46,
+  "near_high": 0.986
  }
 ]

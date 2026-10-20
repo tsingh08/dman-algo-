@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-20T09:26:35.399981-04:00",
-    "symbols": [
-      "HSAI"
-    ],
-    "headline": "Why 3M Shares Are Trading Higher; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:35.637681-04:00",
-    "symbols": [
-      "ALVO"
-    ],
-    "headline": "FDA Approves Alvotech\u2019s Process 2.0 For SIMLANDI Drug Substance, More Than Doubling Output Per Batch Without Changing Upstream Manufacturing Scale",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:35.861791-04:00",
-    "symbols": [
-      "MSCI"
-    ],
-    "headline": "MSCI Q3 Adj. EPS $5.11 Beats $5.02 Estimate, Sales $892.000M Beat $885.749M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:35.864506-04:00",
-    "symbols": [
-      "MSCI"
-    ],
-    "headline": "SpaceX, GE Aerospace On Deck Tuesday As Growth, Aerospace Demand Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:36.100933-04:00",
-    "symbols": [
-      "RBB"
-    ],
-    "headline": "RBB Bancorp Q3 EPS $0.74 Beats $0.57 Estimate, Sales $36.866M Beat $34.310M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:36.322596-04:00",
-    "symbols": [
-      "MPLT"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:36.554260-04:00",
-    "symbols": [
-      "EFX"
-    ],
-    "headline": "Equifax Sees Q4 Adj EPS $2.07-$2.17 vs $2.20 Est; Sees Sales $1.605B-$1.635B vs $1.692B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:36.556970-04:00",
-    "symbols": [
-      "EFX"
-    ],
-    "headline": "Equifax Narrows FY2026 Adj EPS Guidance from $8.39-$8.69 to $8.45-$8.55 vs $8.50 Est; Lowers FY2026 Sales Guidance from $6.710B-$6.780B to $6.646B-$6.676B vs $6.736B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-20T09:26:36.559406-04:00",
     "symbols": [
       "EFX"
@@ -5061,6 +4981,86 @@
       "CAT"
     ],
     "headline": "AI\u2019s Most Watched Cooling Stock Has Fallen for 11 Straight Days: Analysts Now See a 50% Upside",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T15:26:41.741348-04:00",
+    "symbols": [
+      "HOST"
+    ],
+    "headline": "Host Digital Announces Buyback Program Of Up To $15M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T15:26:42.952865-04:00",
+    "symbols": [
+      "HSAI"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T15:26:42.956493-04:00",
+    "symbols": [
+      "HSAI"
+    ],
+    "headline": "Why 3M Shares Are Trading Higher; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T15:26:43.101202-04:00",
+    "symbols": [
+      "KVYO"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T15:26:43.267632-04:00",
+    "symbols": [
+      "ALVO"
+    ],
+    "headline": "FDA Approves Alvotech\u2019s Process 2.0 For SIMLANDI Drug Substance, More Than Doubling Output Per Batch Without Changing Upstream Manufacturing Scale",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T15:26:45.126694-04:00",
+    "symbols": [
+      "MSCI"
+    ],
+    "headline": "MSCI Q3 Adj. EPS $5.11 Beats $5.02 Estimate, Sales $892.000M Beat $885.749M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T15:26:45.272780-04:00",
+    "symbols": [
+      "MPLT"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T15:27:03.707278-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Claude Opus 5.5, Claude Sonnet 5.5 Are Now Available In Google Antigravity",
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"

@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-10-19T15:51:22.696324-04:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "Chip Stocks Repeated a Lehman-Era Losing Streak: Is The Bottom Now In?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:51:22.701579-04:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "This Intel Analyst Is No Longer Bearish; Here Are Top 5 Upgrades For Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T15:51:22.706444-04:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Bernstein Upgrades Datadog to Outperform, Raises Price Target to $350",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T15:51:22.711124-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "JPMorgan Taps Ethereum for JPM Coin as Tokenization Race Heats Up",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-19T15:51:22.717308-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Michael Saylor &#39;Found More Room for Orange&#39; as Strategy Adds 267 Bitcoin",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:51:22.723181-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "&#39;Uber Wins Bid to Dismiss \u00a3250 Million Black Cab Driver Suit&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-19T15:51:22.727928-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Market Analysis: Airbnb And Competitors In Hotels, Restaurants &amp; Leisure Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-19T15:51:22.732432-04:00",
     "symbols": [
       "ABNB"
@@ -5049,5 +4979,78 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T12:27:54.561667-04:00",
+    "symbols": [
+      "AAPL",
+      "QCOM"
+    ],
+    "headline": "Qualcomm Plans Global Layoffs Starting November",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T12:28:23.983206-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Earnings on Tap: These 8 Congress Members Who Own Shares Could be Watching Closely",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T12:28:37.742425-04:00",
+    "symbols": [
+      "MSCI"
+    ],
+    "headline": "MSCI Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T12:28:37.745184-04:00",
+    "symbols": [
+      "MSCI"
+    ],
+    "headline": "MSCI Jumps After Q3 Revenue Beat Led by Its Index Business",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T12:28:38.054349-04:00",
+    "symbols": [
+      "VG"
+    ],
+    "headline": "This American Electric Power Analyst Turns Bullish; Here Are Top 5 Upgrades For Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T12:28:38.057222-04:00",
+    "symbols": [
+      "VG"
+    ],
+    "headline": "Wells Fargo Upgrades Venture Global to Overweight, Raises Price Target to $21",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T12:28:41.515606-04:00",
+    "symbols": [
+      "COIN",
+      "MARA",
+      "MSTR"
+    ],
+    "headline": "Shares of crypto-linked companies are trading higher amid a rise in Bitcoin.",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

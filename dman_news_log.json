@@ -1,56 +1,5 @@
 [
   {
-    "ts": "2026-10-20T09:23:35.907512-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce Bets $5.7 Billion on AI Marketing With Braze Acquisition",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T09:24:27.545032-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL"
-    ],
-    "headline": "Hunterbrook Media Issues Report On Anthropic; Finds Claude AI Designed Experimental Scorpion Antivenom Binders, But Tests Show Mixed Results And No Proven Toxin Neutralization Yet; States Hunterbrook Capital Is Both Long And Short Securities Related To AI In Biotech",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T09:25:55.488543-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Live On 2WAY TV, U.S. Treasury Secretary Bessent Says Whatever We Do On Fannie Mae, Freddie Mac Will Ensure No Widening Of Agency Debt Spreads",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:13.489015-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Occidental Petroleum To Rally Over 18%? Here Are 10 Top Analyst Forecasts For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T09:26:13.491685-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "This Apple Analyst Is No Longer Bullish; Here Are Top 5 Downgrades For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-20T09:26:13.494123-04:00",
     "symbols": [
       "AAPL"
@@ -5054,5 +5003,62 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T13:35:10.667026-04:00",
+    "symbols": [
+      "MU",
+      "NVDA",
+      "SNDK"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T13:35:11.438025-04:00",
+    "symbols": [
+      "CAT",
+      "HTZ",
+      "LMT",
+      "RKLB"
+    ],
+    "headline": "10 Industrials Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T13:35:11.653476-04:00",
+    "symbols": [
+      "ISRG",
+      "LLY"
+    ],
+    "headline": "9 Health Care Stocks Whale Activity In Today\u2019s Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T13:35:15.763655-04:00",
+    "symbols": [
+      "GOOGL",
+      "SPCX"
+    ],
+    "headline": "Alphabet Earnings Ahead: Cloud Growth, Gemini, TPU Sales Could Drive Upside",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T13:35:24.504203-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Bets $5.7 Billion on AI Marketing With Braze Acquisition",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

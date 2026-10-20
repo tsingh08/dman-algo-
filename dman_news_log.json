@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-20T09:26:34.002372-04:00",
-    "symbols": [
-      "SAIQ"
-    ],
-    "headline": "WISeSat.Space Announces Successful Launch And Deployment Of FOSSASAT-2E27, Its 6U Satellite Aboard SpaceX&#39;s Falcon 9 Bandwagon-5 Mission",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-20T09:26:34.226171-04:00",
     "symbols": [
       "MYGN"
@@ -5064,5 +5054,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T15:12:35.573942-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;Big Short&#39; Trader Danny Moses Calls CoreWeave the WeWork of AI",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": "neutral"
   }
 ]

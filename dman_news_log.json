@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-10-20T09:26:34.226171-04:00",
-    "symbols": [
-      "MYGN"
-    ],
-    "headline": "Myriad Genetics To Sell Its Prenatal Health Testing Business, Including Prequel, Foresight, SneakPeek And FirstGene Tests, To Labcorp For $210M In Cash Plus Inventory Value",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:34.453789-04:00",
-    "symbols": [
-      "RAPP"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:34.456472-04:00",
-    "symbols": [
-      "RAPP"
-    ],
-    "headline": "BTIG Maintains Buy on Rapport Therapeutics, Raises Price Target to $89",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:34.459214-04:00",
-    "symbols": [
-      "RAPP"
-    ],
-    "headline": "Rapport Therapeutics Announces That Topline Results From Its Phase 2 Trial Of RAP-219 In Adults With Acute Bipolar Mania Met Primary Endpoint",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:26:34.682319-04:00",
-    "symbols": [
-      "HOST"
-    ],
-    "headline": "Host Digital Announces Buyback Program Of Up To $15M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:34.912011-04:00",
-    "symbols": [
-      "GDHG"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Monday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T09:26:35.164591-04:00",
-    "symbols": [
-      "KVYO"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-20T09:26:35.396899-04:00",
     "symbols": [
       "HSAI"
@@ -5064,5 +4994,75 @@
     "source": "benzinga",
     "tag": "held",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T15:14:26.003819-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump, On Endorsing Vance In 2028, Says It Is Very Early Right Now And That He Does Not Think They Ever Talked About A Vance 2028 Run",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T15:15:08.077578-04:00",
+    "symbols": [
+      "SAIQ"
+    ],
+    "headline": "WISeSat.Space Announces Successful Launch And Deployment Of FOSSASAT-2E27, Its 6U Satellite Aboard SpaceX&#39;s Falcon 9 Bandwagon-5 Mission",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T15:15:08.292997-04:00",
+    "symbols": [
+      "MYGN"
+    ],
+    "headline": "Myriad Genetics To Sell Its Prenatal Health Testing Business, Including Prequel, Foresight, SneakPeek And FirstGene Tests, To Labcorp For $210M In Cash Plus Inventory Value",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T15:15:10.939021-04:00",
+    "symbols": [
+      "RAPP"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T15:15:10.943149-04:00",
+    "symbols": [
+      "RAPP"
+    ],
+    "headline": "BTIG Maintains Buy on Rapport Therapeutics, Raises Price Target to $89",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T15:15:10.946648-04:00",
+    "symbols": [
+      "RAPP"
+    ],
+    "headline": "Rapport Therapeutics Announces That Topline Results From Its Phase 2 Trial Of RAP-219 In Adults With Acute Bipolar Mania Met Primary Endpoint",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T15:15:23.033507-04:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "GE Aerospace Turns To AI To Ease Engine Maintenance Bottlenecks",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

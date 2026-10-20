@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-19T16:02:20.972791-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;Nscale, Anthropic in Talks for $45 Billion Cloud Computing Deal&#39; - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-19T16:02:20.980537-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#39;Nscale, Anthropic in Talks for $45 Billion Cloud Computing Deal&#39; - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-19T16:02:20.990007-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "SpaceX, GE Aerospace On Deck Tuesday As Growth, Aerospace Demand Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-19T16:02:21.005641-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "TIPS Now Pay 2.8% Above Inflation. Here&#39;s The Hurdle That Sets For S&amp;P 500 Investors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T16:02:21.033236-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Elon Musk Challenges Jeff Bezos&#39; Blue Origin and Other SpaceX Rivals, Says They Still Can\u2019t Catch Starship \u2014 \u2018Even Their Future Plans Are Behind\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-19T16:02:21.056195-04:00",
     "symbols": [
       "RTX"
@@ -5052,5 +5002,58 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T13:02:38.517438-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Heads Into Earnings With AI Ambitions Soaring, Cash Burn in Focus",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T13:03:05.911689-04:00",
+    "symbols": [
+      "ADBE",
+      "CRM"
+    ],
+    "headline": "Why Is Braze Stock Surging on Tuesday?",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T13:05:46.830553-04:00",
+    "symbols": [
+      "CHOW"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T13:05:47.030801-04:00",
+    "symbols": [
+      "IPW"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T13:05:47.465503-04:00",
+    "symbols": [
+      "BIVI",
+      "CDT",
+      "SXTC"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

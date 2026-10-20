@@ -1,26 +1,5 @@
 [
   {
-    "ts": "2026-10-19T13:05:49.441693-04:00",
-    "symbols": [
-      "INLF",
-      "RBNE"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T13:05:49.850239-04:00",
-    "symbols": [
-      "CDT"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-19T13:05:50.313704-04:00",
     "symbols": [
       "XHG"
@@ -5041,6 +5020,26 @@
       "SPY"
     ],
     "headline": "U.S. Energy Under Secretary Kyle Haustveit Says Diesel Prices Are Higher Than Anyone Wants Right Now, Working With Refiners To Seek Ways To Produce More",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T09:55:47.883264-04:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Biogen, Raises Price Target to $310",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T10:00:09.828045-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Pending Home Sales (MoM)\u00a0 September -7.3% Vs -0.7% Est.",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

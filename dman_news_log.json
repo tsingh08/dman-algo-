@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-10-19T15:43:07.361812-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "'Nscale, Anthropic in Talks for $45 Billion Cloud Computing Deal' - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-19T15:43:17.361991-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "SpaceX Could Swing $128 Billion After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T15:43:17.615202-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "SpaceX Could Swing $128 Billion After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T15:43:17.855313-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "SpaceX Could Swing $128 Billion After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T15:43:25.601988-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Could Swing $128 Billion After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T15:43:30.531347-04:00",
-    "symbols": [
-      "SLGN"
-    ],
-    "headline": "Silgan Seals $3.4B Trivium Deal, Keeps 60% Control Of $7.3B Packaging Business",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:43:30.537090-04:00",
-    "symbols": [
-      "SLGN"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Silgan Hldgs, Lowers Price Target to $52",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:43:30.541515-04:00",
-    "symbols": [
-      "SLGN"
-    ],
-    "headline": "Silgan Holdings, Trivium Packaging To Combine Metal Packaging Businesses In $3.4B Transformational Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:43:30.545483-04:00",
-    "symbols": [
-      "SLGN"
-    ],
-    "headline": "&#39;Silgan Nears $3.4 Billion Purchase of Trivium Packaging&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-19T15:50:43.498021-04:00",
     "symbols": [
       "ELF"
@@ -5040,5 +4950,95 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T11:55:11.031437-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "SK Hynix Drops 30% During China Competition, Solidigm IPO Doubts",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T11:55:41.988000-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Michael Burry Sees a 2000-Style Rotation Out of the Market&#39;s Winners",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T11:55:42.285737-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Michael Burry Sees a 2000-Style Rotation Out of the Market&#39;s Winners",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T11:55:42.607890-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Michael Burry Sees a 2000-Style Rotation Out of the Market&#39;s Winners",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T11:55:43.249383-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Michael Burry Sees a 2000-Style Rotation Out of the Market&#39;s Winners",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T11:55:43.597642-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Michael Burry Sees a 2000-Style Rotation Out of the Market&#39;s Winners",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T11:55:43.900922-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Michael Burry Sees a 2000-Style Rotation Out of the Market&#39;s Winners",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T11:55:44.982691-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Michael Burry Sees a 2000-Style Rotation Out of the Market&#39;s Winners",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T11:55:57.547315-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Michael Burry Sees a 2000-Style Rotation Out of the Market&#39;s Winners",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

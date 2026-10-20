@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-19T12:58:56.497627-04:00",
-    "symbols": [
-      "JOBY"
-    ],
-    "headline": "Morgan Stanley Maintains Equal-Weight on Joby Aviation, Lowers Price Target to $10",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-19T13:00:54.023419-04:00",
     "symbols": [
       "UNH"
@@ -5044,5 +5034,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T09:49:40.733452-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Stock in Focus as iPhone Duo Launch, U.S. Expansion and Earnings Loom",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

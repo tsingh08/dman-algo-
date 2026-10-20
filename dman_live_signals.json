@@ -71,6 +71,30 @@
       "score": 100,
       "date": "2026-10-20",
       "timestamp": "2026-10-20T09:44:48.491146-04:00"
+    },
+    {
+      "ticker": "HLT",
+      "setup": "Gap & Hold",
+      "bias": "LONG",
+      "entry": 354.94,
+      "stop": 345.47,
+      "target1": 378.61,
+      "target2": 392.82,
+      "score": 100,
+      "date": "2026-10-20",
+      "timestamp": "2026-10-20T10:25:13.689035-04:00"
+    },
+    {
+      "ticker": "SOLS",
+      "setup": "Gap & Hold",
+      "bias": "LONG",
+      "entry": 63.13,
+      "stop": 59.95,
+      "target1": 71.41,
+      "target2": 76.37,
+      "score": 100,
+      "date": "2026-10-20",
+      "timestamp": "2026-10-20T10:25:13.737284-04:00"
     }
   ]
 }

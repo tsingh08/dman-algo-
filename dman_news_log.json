@@ -1,37 +1,5 @@
 [
   {
-    "ts": "2026-10-19T15:31:25.939513-04:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "SpaceX Could Swing $128 Billion After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T15:33:58.620328-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "NVDA"
-    ],
-    "headline": "&#39;Nscale, Anthropic in Talks for $45 Billion Cloud Computing Deal&#39; - Bloomberg News",
-    "source": "benzinga",
-    "tag": "held",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-19T15:37:23.767370-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "'Nscale, Anthropic in Talks for $45 Billion Cloud Computing Deal' - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-19T15:37:24.180662-04:00",
     "symbols": [
       "META"
@@ -5030,5 +4998,40 @@
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T11:36:08.663139-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Energy Secretary Chris Wright Says U.S. Is Also Pushing Shuttered Domestic Refineries To Reopen",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T11:39:51.429110-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "Truist Securities Maintains Buy on DraftKings, Lowers Price Target to $26",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-20T11:39:56.803087-04:00",
+    "symbols": [
+      "AAPL",
+      "AMZN",
+      "META",
+      "MSFT",
+      "NVDA",
+      "TSLA"
+    ],
+    "headline": "&#39;A Surprisingly Large Amount Of Your Investment Is Divided Across Just 7 Companies&#39; \u2014 Former Investment Banker Says She&#39;s Changing How She Invests",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": "neutral"
   }
 ]

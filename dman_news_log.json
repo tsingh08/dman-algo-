@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-19T15:02:29.659884-04:00",
-    "symbols": [
-      "YHC"
-    ],
-    "headline": "LQR House's YHC AI Enters Into A 1-Year Agreement To Procure Up To $3M In OpenAI-Powered Computing Resources To Advance AI-Driven Financial Research And Portfolio Optimization",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:02:29.757091-04:00",
-    "symbols": [
-      "YMAT"
-    ],
-    "headline": "Crude Oil Moves Higher; US Homebuilder Sentiment Falls In October",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:02:30.023767-04:00",
-    "symbols": [
-      "AAME"
-    ],
-    "headline": "12 Financials Stocks Moving In Monday's Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:02:30.029638-04:00",
-    "symbols": [
-      "AAME"
-    ],
-    "headline": "11 Financials Stocks Moving In Monday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-19T15:02:30.159529-04:00",
     "symbols": [
       "IRON"
@@ -5037,6 +4997,47 @@
       "XOM"
     ],
     "headline": "Energy Only Sector Lower In Tuesday Trading As Defensives Lead",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T11:04:27.981651-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;On at least one occasion, the Trump administration was \u2018very close\u2019 to authorizing a strike on Iran&#39; - i24NEWS",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T11:05:11.930515-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Energy Only Sector Lower In Tuesday Trading As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T11:05:12.237264-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Energy Only Sector Lower In Tuesday Trading As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T11:05:13.110506-04:00",
+    "symbols": [
+      "SPCX",
+      "TSLA"
+    ],
+    "headline": "EXCLUSIVE: Tesla SpaceX Merger? 70% of Benzinga Viewers Say Elon Musk Will Get There \u2014 But Not When You Think",
     "source": "benzinga",
     "tag": "macro",
     "sentiment": null

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-19T15:02:29.201153-04:00",
-    "symbols": [
-      "RBNE"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-19T15:02:29.324660-04:00",
     "symbols": [
       "SPCX"
@@ -5028,5 +5018,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T10:59:36.776435-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "JP Morgan Maintains Neutral on Robinhood Markets, Raises Price Target to $115",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

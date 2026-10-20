@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-20T09:26:24.123243-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "GE Aerospace Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-20T09:26:24.125909-04:00",
     "symbols": [
       "GE"
@@ -5063,5 +5053,15 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T14:41:13.601654-04:00",
+    "symbols": [
+      "SMR"
+    ],
+    "headline": "Barclays Downgrades NuScale Power to Underweight, Lowers Price Target to $5",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-19T14:18:09.785605-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Analyst Sees Billions in Walmart's Next Big Advertising Opportunity",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-19T14:18:09.793625-04:00",
     "symbols": [
       "META"
@@ -5025,5 +5015,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T10:31:02.685323-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Canadian Minister Responsible For U.S. Trade Says Canada Continues To Have Trade Talks With Its U.S. Counterparts; When Asked About Trump&#39;s Bombardier Comments, Says Protecting The Aerospace Sector Is Important Right Across The Country; We&#39;re Going To Find A Deal With The United States At Some Point That&#39;s In The Interests Of The Entire Canadian Economy",
+    "source": "benzinga",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

@@ -750,27 +750,5 @@
    "regime": "CHOP",
    "regime_score": 9
   }
- },
- {
-  "ts": "2026-10-20T14:48:51.210334-04:00",
-  "kind": "signal",
-  "ticker": "HLT",
-  "verdict": "skip",
-  "confidence": 92,
-  "reason": "RSI 83.9 is deeply overbought; gap-and-hold in CHOP regime lacks directional conviction. Risk/reward insufficient to offset mean reversion pressure.",
-  "facts": {
-   "setup": "Gap & Hold",
-   "bias": "LONG",
-   "confluence_score": 100,
-   "entry": 358.68,
-   "stop": 348.47,
-   "target1": 391.7,
-   "rr": 3.23,
-   "rvol": 2.59,
-   "rsi": 83.9,
-   "reason": "Gap up +2.9% from prior close, holding, RVOL 2.6x",
-   "regime": "CHOP",
-   "regime_score": 10
-  }
  }
 ]

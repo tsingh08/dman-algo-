@@ -3,8 +3,7 @@
   "ticker": "IOVA",
   "reason": "operator exit 2026-10-20: peaked +6.6% (15.11) and gave it all back; a 5% trail from that peak (14.35) was already breached; zone setup n=4 mean -3.44% cum -13.8%; +165% above MA200; earnings 11-05",
   "queued_at": "2026-10-20T03:23:20-04:00",
-  "status": "done",
-  "attempts": 0,
-  "outcome": "already flat"
+  "status": "queued",
+  "attempts": 0
  }
 ]

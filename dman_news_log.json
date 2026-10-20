@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-19T14:50:39.188630-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Microsoft Walks Away From AI Data Center Deal, but SemiAnalysis Predicts 50-GW Boom in 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-19T14:50:52.178196-04:00",
-    "symbols": [
-      "DXC"
-    ],
-    "headline": "DXC Technology Eyes $2.4 Billion Insurance Unit Sale to Eldridge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T14:57:58.823211-04:00",
-    "symbols": [
-      "INLF"
-    ],
-    "headline": "Crude Oil Moves Higher; US Homebuilder Sentiment Falls In October",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:02:28.673361-04:00",
-    "symbols": [
-      "INLF"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday's Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:02:28.982429-04:00",
-    "symbols": [
-      "MASK"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday's Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:02:28.987421-04:00",
-    "symbols": [
-      "MASK"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:02:28.991984-04:00",
-    "symbols": [
-      "MASK"
-    ],
-    "headline": "3 E Network Technology Group's Finland Subsidiary Inks 9 MVA Power Distribution Network Connection Deal For Mikkeli AI Compute Center in Finland",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-19T15:02:29.196440-04:00",
-    "symbols": [
-      "RBNE"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday's Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-19T15:02:29.201153-04:00",
     "symbols": [
       "RBNE"
@@ -5026,6 +4946,87 @@
     "headline": "SpaceX Earnings Prediction Market Preview: What Will Elon Musk Say?",
     "source": "benzinga",
     "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T10:57:58.211668-04:00",
+    "symbols": [
+      "GE",
+      "RTX"
+    ],
+    "headline": "RTX\u2019s Engine Aftermarket Surged 21%. GE Aerospace Is the Rival to Watch",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T10:58:18.135650-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "SpaceX Earnings Prediction Market Preview: What Will Elon Musk Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T10:58:19.017733-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Analysts Eye $3 Billion Ad Revenue Surge Ahead of Netflix Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T10:58:19.584162-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "SpaceX Earnings Prediction Market Preview: What Will Elon Musk Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T10:58:19.882837-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Analysts Eye $3 Billion Ad Revenue Surge Ahead of Netflix Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T10:58:36.743767-04:00",
+    "symbols": [
+      "INLF"
+    ],
+    "headline": "Crude Oil Moves Higher; US Homebuilder Sentiment Falls In October",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T10:58:39.158743-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Earnings Prediction Market Preview: What Will Elon Musk Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T10:58:44.364169-04:00",
+    "symbols": [
+      "EFX"
+    ],
+    "headline": "Equifax Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
     "sentiment": null
   }
 ]

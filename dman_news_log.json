@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-19T13:40:18.515462-04:00",
-    "symbols": [
-      "HTZ"
-    ],
-    "headline": "10 Industrials Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-19T13:40:19.602459-04:00",
     "symbols": [
       "NBIS"
@@ -5030,5 +5020,16 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T10:16:26.920069-04:00",
+    "symbols": [
+      "HTZ",
+      "KPLT"
+    ],
+    "headline": "Hasbro Posts Upbeat Q3 Earnings, Joins Myriad Genetics, Equifax And Other Big Stocks Moving Higher On Tuesday",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

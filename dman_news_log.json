@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-20T09:26:14.925976-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;Waymo Plans To Quintuple Its Fleet&#39; - Semafor Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T09:26:14.945070-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "CoreWeave Stock Down 56% From its Peak \u2014 HSBC Sees More Pain Ahead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T09:26:14.947568-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Synaptics Announces Availability Of Its Synaptics Coralboard For Purchase Through DigiKey",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T09:26:14.950035-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Jim Cramer Passes on AppLovin: &#39;In the Crosshairs of Alphabet&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-20T09:26:14.952482-04:00",
     "symbols": [
       "AMZN"
@@ -5061,5 +5021,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-20T14:00:01.549781-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Why Is 3M Stock Soaring Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T14:00:04.227905-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Why Is 3M Stock Soaring Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T14:00:25.225574-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;OpenAI Acquires Biotech Startup As AI Race Moves Into Drug Development&#39; - Axios Exclusive",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T14:00:34.945388-04:00",
+    "symbols": [
+      "VICR"
+    ],
+    "headline": "Needham Reiterates Buy on Vicor, Maintains $350 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

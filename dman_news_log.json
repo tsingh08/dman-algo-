@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-19T15:54:32.082701-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Taps Ethereum for JPM Coin as Tokenization Race Heats Up",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-19T15:54:32.087117-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "ServiceNow, Eaton, SentinelOne And A Financial Stock: CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-19T15:54:32.091127-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "'JPMorgan and Alibaba Are Said Among Investors in Dongshan\u2019s Listing' - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-19T15:54:32.095097-04:00",
     "symbols": [
       "JPM"
@@ -5048,5 +5018,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-20T12:45:07.439122-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Live On CNBC, Josh Brown Trimmed Netflix Position",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T12:45:51.272979-04:00",
+    "symbols": [
+      "KZIA"
+    ],
+    "headline": "Leerink Partners Initiates Coverage On Kazia Therapeutics with Outperform Rating, Announces Price Target of $30",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-20T12:46:11.375503-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Michael Saylor Says Bitcoin&#39;s Next Bull Run Has Begun",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-20T09:38:41.104490-04:00",
-    "symbols": [
-      "RAPP"
-    ],
-    "headline": "Why Is Rapport Therapeutics Stock Trading Higher Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:43:52.713191-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "GE Aerospace shares are trading lower after the company reported Q3 financial results. During a conference call, the company&#39;s CFO mentioned growing spare parts delinquency and that investors should assume fewer GE9X units for 2026.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:43:55.399813-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "RTX Q3 2026 Earnings Call Transcript",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T09:44:35.318891-04:00",
-    "symbols": [
-      "FRTT"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-20T09:44:35.322166-04:00",
     "symbols": [
       "FRTT"
@@ -5068,5 +5028,45 @@
     "source": "benzinga",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T16:03:21.337141-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Sees Q4 GAAP EPS $0.67 vs $0.73 Est; Sees Sales $13.442B vs $13.517B Est",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T16:03:55.074481-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Q3 EPS $0.59 Misses $0.82 Estimate, Sales $11.510B Miss $12.876B Estimate",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T16:03:57.417302-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Narrows FY2026 Sales Guidance from $51.000B-$51.400B to $51.100B vs $51.230B Est",
+    "source": "benzinga",
+    "tag": "held",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-20T16:06:06.126961-04:00",
+    "symbols": [
+      "ISRG"
+    ],
+    "headline": "Intuitive Surgical Q3 Adj. EPS $3.00 Beats $2.64 Estimate, Sales $3.049B Beat $2.906B Estimate",
+    "source": "benzinga",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

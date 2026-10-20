@@ -750,27 +750,5 @@
    "regime": "CHOP",
    "regime_score": 9
   }
- },
- {
-  "ts": "2026-10-20T15:01:58.616470-04:00",
-  "kind": "signal",
-  "ticker": "ZCMD",
-  "verdict": "skip",
-  "confidence": 85,
-  "reason": "Regime score 10 (CHOP) contradicts high confluence. Entry 1.3727 offers poor RR on weak regime confirmation despite catalyst strength.",
-  "facts": {
-   "setup": "Low Float Catalyst",
-   "bias": "LONG",
-   "confluence_score": 100,
-   "entry": 1.3727,
-   "stop": 1.0982,
-   "target1": 2.06,
-   "rr": 2.5,
-   "rvol": 0.51,
-   "rsi": 33.3,
-   "reason": "Float 0.0M | RVOL 0.5x | \u26a1 ULTRA-LOW FLOAT | \ud83d\udd25 Float 6.5x rotated | \u2705 POST-RS | Bottom chart (9% off 52wk low) | \ud83d\udcb0 Below cash value (2.3x) | MACD curling from oversold RSI 33",
-   "regime": "CHOP",
-   "regime_score": 10
-  }
  }
 ]

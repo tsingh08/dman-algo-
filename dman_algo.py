@@ -641,6 +641,11 @@ EARNINGS_DIRECTIONAL_LOOKBACK  = 4       # how many past earnings moves to look 
 EARNINGS_DIRECTIONAL_MIN_AVG_PCT = 8.0   # ...and the average magnitude must be at least this
 EARNINGS_IV_BACKWARDATION_MIN  = 0.05    # front-vs-back ATM IV gap required to treat "earnings today" as still pending
 EARNINGS_APPROVAL_TIMEOUT_MIN  = 240     # minutes to wait for a Telegram YES before the offer expires
+# How far back _spread_legs_already_live() looks for an order on the same
+# contracts. Wider than any plausible gap between two processes handling the
+# same reply (the 2026-10-20 duplicate was 86 seconds apart), narrow enough
+# that a genuine re-entry the next session is not blocked.
+SPREAD_DUPLICATE_WINDOW_MIN = 90
                                           # (permanent, always-on gate — no auto-promotion to autonomous
                                           # submission; every earnings spread requires a human YES).
                                           # Was 30 min until 2026-08-10: confirmed live that's
@@ -1355,6 +1360,33 @@ _SEC_CIK_MAP_FILE    = "dman_sec_cik_map.json"
 _SEC_CIK_MAP_TTL_S   = 7 * 24 * 3600   # 1 week — the ticker/CIK map barely changes day to day
 
 TICKER_SECTOR = {
+    # Promoted out of DMAN_SMALLCAP_WATCHLIST on 2026-10-20. Membership of
+    # TICKER_SECTOR is what makes a name auto-executable (WATCHLIST is just
+    # its keys), and the smallcap list is scan/alert-ONLY -- measured at
+    # -4.97% per five days with a buy-hold median of -95.2%, which is the
+    # correct treatment for ADTX/APVO/ATOS and absurd for these four.
+    #
+    # Average 20-day dollar volume when promoted:
+    #
+    #     SPCX   $13,164M/day    more liquid than AMD ($12,984M)
+    #     NBIS    $4,138M/day
+    #     XBI     $1,575M/day
+    #     APLD      $580M/day
+    #     ---------------------  cliff: the next name down is WFF at $133M
+    #
+    # SPCX is the one that cost something. SpaceX listed 2026-06-12 in the
+    # largest IPO ever and reported on 2026-10-20 at 16:01 ET, moving +8.66%
+    # after hours ($146.97 -> $159.70). The algo could not act on a
+    # trillion-dollar Nasdaq name because it was filed with the sub-dollar
+    # shells, and nothing re-examined that once it was written down.
+    # tools/watchlist_tier_check.py now does.
+    # XBI gets a real sector, not "". A blank sector is reserved for the three
+    # REGIME etfs (IWM/QQQ/SPY), which are inputs to the market-regime
+    # computation rather than tradeable names, and there is an invariant
+    # asserting exactly that trio. XBI is a biotech sector ETF, so Healthcare
+    # is both true and keeps the distinction intact.
+    "SPCX": "Industrials", "NBIS": "Technology", "APLD": "Technology",
+    "XBI": "Healthcare",
     # Mega-cap tech
     "AAPL":"Technology","MSFT":"Technology","NVDA":"Technology","AMD":"Technology",
     "META":"Technology","GOOGL":"Comm Services","AMZN":"Consumer Disc","TSLA":"Consumer Disc",
@@ -1470,6 +1502,13 @@ TICKER_SECTOR = {
 }
 
 WATCHLIST = list(TICKER_SECTOR.keys())
+# The two universes must never overlap: one is auto-executable and the other is
+# alert-only, and a name in both would be handled twice with different rules.
+# This is enforced here rather than maintained by hand, because the hand-
+# maintained version is what left SPCX in the junk list. TICKER_SECTOR wins --
+# promoting a name is a one-line edit above and the demotion happens by itself.
+DMAN_SMALLCAP_WATCHLIST = [t for t in DMAN_SMALLCAP_WATCHLIST
+                           if t not in TICKER_SECTOR]
 
 # Real-time news relevance — moved here from dman_daemon.py 2026-08-21 (was
 # defined next to news_data_stream_loop, the only consumer at the time) so
@@ -5555,6 +5594,11 @@ def _handle_earnings_approval_reply(text: str) -> bool:
                 )
                 return True
 
+    _dupe = _spread_legs_already_live(client, plan)
+    if _dupe:
+        send_telegram(f"\u26d4 <b>{entry['ticker']} spread REFUSED</b> \u2014 {_dupe}."
+                      + chr(10) + "Nothing was submitted.")
+        return True
     order_id, err = _submit_earnings_spread(client, plan)
     if err:
         send_telegram(f"❌ <b>{entry['ticker']} earnings spread FAILED</b>\n{err}")
@@ -23364,6 +23408,30 @@ def queue_manual_exit(ticker: str, reason: str) -> bool:
     return True
 
 
+def _orphan_position_shim(symbol: str):
+    """A minimal position object for something held at the broker but untracked.
+
+    _close_position_at_market() needs .ticker, .entry, .bias and .setup. An
+    orphan has no tracker row to read them from, so they come off the broker
+    position itself. Returns None when the broker is not holding it either --
+    which is the only case that genuinely means "already closed".
+    """
+    from types import SimpleNamespace as _NS
+    try:
+        _p = get_alpaca_client().get_open_position(symbol)
+        if _p is None or abs(float(_p.qty)) <= 0:
+            return None
+        return _NS(
+            ticker=str(_p.symbol).upper(),
+            entry=float(_p.avg_entry_price or 0),
+            bias="SHORT" if float(_p.qty) < 0 else "LONG",
+            setup=ADOPTED_SETUP, shares=abs(int(float(_p.qty))),
+            entry_date="", stop=0.0, target1=0.0, legs=[], spread_qty=0)
+    except Exception as _exc:
+        _log_swallowed("orphan shim", _exc)
+        return None
+
+
 def run_pending_exits(notify: bool = True) -> dict:
     """Submit any queued manual exit whose shares the broker has released."""
     out = {"closed": [], "waiting": [], "stuck": []}
@@ -23387,10 +23455,18 @@ def run_pending_exits(notify: bool = True) -> dict:
             _pos = next((p for p in PositionTracker().positions
                          if p.ticker == _tk), None)
             if _pos is None:
-                _r["status"], _changed = "done", True
-                _r["outcome"] = "already flat"
-                out["closed"].append(_tk)
-                continue
+                # An ORPHAN -- held at the broker, absent from the tracker.
+                # The NFLX legs from the 2026-10-20 duplicate landed exactly
+                # here, and the first version of this loop would have marked
+                # them "already flat" and walked away from two live contracts
+                # with no stop. Untracked is not closed.
+                _live = _orphan_position_shim(_tk)
+                if _live is None:
+                    _r["status"], _changed = "done", True
+                    _r["outcome"] = "already flat"
+                    out["closed"].append(_tk)
+                    continue
+                _pos = _live
             _st, _oid = _close_position_at_market(_pos, _r.get("reason", "manual exit"))
             _r["attempts"] = int(_r.get("attempts", 0)) + 1
             _changed = True
@@ -29680,6 +29756,65 @@ def _submit_options_put(
     except Exception as exc:
         print(f"  ❌ Put options order failed ({ticker}): {exc}")
         return None, None
+
+
+def _spread_legs_already_live(client, plan: dict) -> Optional[str]:
+    """Reason to refuse this spread because the broker already has it, else None.
+
+    On 2026-10-20 a single "YES NFLX" produced TWO multi-leg orders 86 seconds
+    apart -- 15:12:44 cancelled, 15:14:10 filled -- 24 minutes AFTER the daemon
+    had already told the operator:
+
+        14:50:46  NFLX earnings spread offer expired - no reply within
+                  240 min, no order placed.
+
+    The offer was swept, tombstoned and pruned correctly. In the DAEMON's
+    checkout. The hourly cron scanner also handles Telegram replies, from a
+    separate checkout, and its dman_earnings_pending.json still showed the
+    offer as awaiting_approval because the tombstone travels by git sync and
+    the sync had not happened yet. Every comment around _consume_earnings_offer
+    anticipates this resurrection; what none of them could fix is that two
+    processes cannot agree about a file neither has received.
+
+    So stop asking the file. The BROKER is the one piece of state both
+    processes genuinely share, and it already knows whether these exact
+    contracts are live. Checked immediately before submission, this makes a
+    duplicate impossible regardless of how stale either checkout is -- and it
+    costs one API call against an order that is about to risk real money.
+    """
+    _legs = [str(l.get("symbol", "")).upper()
+             for l in (plan.get("legs") or []) if l.get("symbol")]
+    if not _legs:
+        return None
+    try:
+        _held = {str(p.symbol).upper() for p in client.get_all_positions()}
+        _dupe = [s for s in _legs if s in _held]
+        if _dupe:
+            return ("already holding " + ", ".join(sorted(_dupe))
+                    + " - a second order would double the position")
+        from alpaca.trading.requests import GetOrdersRequest
+        from alpaca.trading.enums import QueryOrderStatus
+        from datetime import timezone as _utc
+        _recent = client.get_orders(filter=GetOrdersRequest(
+            status=QueryOrderStatus.ALL, limit=50))
+        _cut = datetime.now(_utc.utc) - timedelta(
+            minutes=SPREAD_DUPLICATE_WINDOW_MIN)
+        for _o in _recent:
+            _ts = getattr(_o, "submitted_at", None)
+            if _ts is None or _ts < _cut:
+                continue
+            _syms = {str(getattr(_o, "symbol", "") or "").upper()}
+            for _l in (getattr(_o, "legs", None) or []):
+                _syms.add(str(getattr(_l, "symbol", "") or "").upper())
+            _hit = [s for s in _legs if s in _syms]
+            if _hit:
+                return ("an order for " + ", ".join(sorted(_hit))
+                        + " was submitted at " + str(_ts)[11:19]
+                        + " UTC - refusing a duplicate")
+    except Exception as _exc:
+        _log_swallowed("spread duplicate check", _exc)
+        return None          # never block a real entry on a failed lookup
+    return None
 
 
 def _submit_earnings_spread(client, plan: dict) -> tuple[str | None, str | None]:

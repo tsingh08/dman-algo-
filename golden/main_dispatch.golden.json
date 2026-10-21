@@ -68,7 +68,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -79,7 +79,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -103,7 +103,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -114,7 +114,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -138,13 +138,13 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ]
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -168,7 +168,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -184,7 +184,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -211,7 +211,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -222,7 +222,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -246,7 +246,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -257,7 +257,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -281,7 +281,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -292,7 +292,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -316,7 +316,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -327,7 +327,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -351,13 +351,13 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ]
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -381,7 +381,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -392,7 +392,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -416,7 +416,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -427,7 +427,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -452,7 +452,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -463,7 +463,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -491,7 +491,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -502,7 +502,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -526,7 +526,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -537,7 +537,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -561,7 +561,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -572,7 +572,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -596,7 +596,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -612,7 +612,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -636,7 +636,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -647,7 +647,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -671,7 +671,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -682,7 +682,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -706,7 +706,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -717,7 +717,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -741,7 +741,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -752,7 +752,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -776,7 +776,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -792,7 +792,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -816,7 +816,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -827,7 +827,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -888,7 +888,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -909,7 +909,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -951,7 +951,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -962,7 +962,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -986,7 +986,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -997,7 +997,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -1021,7 +1021,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -1032,7 +1032,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -1056,7 +1056,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -1067,7 +1067,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -1091,7 +1091,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -1102,7 +1102,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -1126,7 +1126,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -1137,7 +1137,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -1161,7 +1161,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -1172,7 +1172,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -1196,7 +1196,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -1222,7 +1222,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -1246,7 +1246,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -1257,7 +1257,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -1281,7 +1281,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -1292,7 +1292,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -1316,7 +1316,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -1327,7 +1327,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -1375,7 +1375,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -1386,7 +1386,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",
@@ -1410,7 +1410,7 @@
     ],
     [
      "augment_universe_with_movers",
-     "(['AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'SNDK', 'SKHY', 'QCOM', 'MRVL', '",
+     "(['SPCX', 'NBIS', 'APLD', 'XBI', 'AAPL', 'MSFT', 'NVDA', 'AMD', 'META', 'GOOGL', 'AMZN', 'TSLA', 'NFLX', 'CRM', 'SNOW', 'PLTR', 'SMCI', 'AVGO', 'AMAT', 'MU', 'S",
      "[]"
     ],
     [
@@ -1421,7 +1421,7 @@
    ],
    "stdout": [
     "  📱 Processed <MagicMock name='_process_telegram_commands' id=ID> Telegram command(s)",
-    "  📋 Using curated watchlist: 108 tickers (run premarket briefing first to enable full universe)",
+    "  📋 Using curated watchlist: 112 tickers (run premarket briefing first to enable full universe)",
     "  ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗",
     "  ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3",
     "  ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters",

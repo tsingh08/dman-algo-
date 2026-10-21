@@ -27629,3 +27629,204 @@ class TestSharesWereTheOneThingAPhoneCouldNotOpen(unittest.TestCase):
         self.assertIn("enter", a.NL_CONFIRM_REQUIRED)
         self.assertIn("enter", [c for c, _d in a.TELEGRAM_COMMANDS])
         self.assertIn('_cmd == "enter"', inspect.getsource(a))
+
+class TestOneYesMustNotBecomeTwoOrders(unittest.TestCase):
+    """On 2026-10-20 a single "YES NFLX" produced TWO multi-leg orders 86
+    seconds apart -- 15:12:44 cancelled, 15:14:10 filled -- twenty-four
+    minutes AFTER the daemon had told the operator:
+
+        14:50:46  NFLX earnings spread offer expired - no reply within
+                  240 min, no order placed.
+
+    The sweep, tombstone and prune all worked. In the DAEMON's checkout. The
+    hourly cron scanner also handles Telegram replies, from a separate
+    checkout, and its dman_earnings_pending.json still read awaiting_approval
+    because the tombstone travels by git sync and the sync had not happened.
+    Every comment around _consume_earnings_offer anticipates the resurrection;
+    none of them can fix two processes disagreeing about a file neither has
+    received.
+
+    So this stops asking the file. The broker is the one piece of state both
+    processes share, and it already knows whether the contracts are live."""
+
+    def _plan(self, *syms):
+        return {"ticker": "NFLX", "legs": [{"symbol": s} for s in syms]}
+
+    def _client(self, held=(), orders=()):
+        cl = MagicMock()
+        cl.get_all_positions.return_value = [
+            SimpleNamespace(symbol=s) for s in held]
+        cl.get_orders.return_value = list(orders)
+        return cl
+
+    def _order(self, minutes_ago, symbol=None, legs=()):
+        import datetime as _dt
+        o = MagicMock()
+        o.submitted_at = (_dt.datetime.now(_dt.timezone.utc)
+                          - _dt.timedelta(minutes=minutes_ago))
+        o.symbol = symbol
+        o.legs = [SimpleNamespace(symbol=s) for s in legs]
+        return o
+
+    def test_a_leg_already_held_refuses(self):
+        cl = self._client(held=("NFLX261030C00073000",))
+        why = a._spread_legs_already_live(cl, self._plan("NFLX261030C00073000",
+                                                        "NFLX261030P00064000"))
+        self.assertIsNotNone(why)
+        self.assertIn("already holding", why)
+
+    def test_a_recent_order_on_the_same_legs_refuses(self):
+        """The 86-second case. Neither process had a position yet -- the first
+        order was still working -- so holdings alone would not have caught
+        it."""
+        cl = self._client(orders=(self._order(1, legs=("NFLX261030C00073000",)),))
+        why = a._spread_legs_already_live(cl, self._plan("NFLX261030C00073000"))
+        self.assertIsNotNone(why)
+        self.assertIn("refusing a duplicate", why)
+
+    def test_an_old_order_on_the_same_legs_does_not_refuse(self):
+        """A genuine re-entry next session must still be possible."""
+        cl = self._client(orders=(
+            self._order(a.SPREAD_DUPLICATE_WINDOW_MIN + 30,
+                        legs=("NFLX261030C00073000",)),))
+        self.assertIsNone(
+            a._spread_legs_already_live(cl, self._plan("NFLX261030C00073000")))
+
+    def test_an_unrelated_recent_order_does_not_refuse(self):
+        cl = self._client(orders=(self._order(1, symbol="BTE"),))
+        self.assertIsNone(
+            a._spread_legs_already_live(cl, self._plan("NFLX261030C00073000")))
+
+    def test_a_clean_book_does_not_refuse(self):
+        self.assertIsNone(
+            a._spread_legs_already_live(self._client(), self._plan("X260101C00001000")))
+
+    def test_a_broker_lookup_failure_never_blocks_a_real_entry(self):
+        """Failing closed here would silently stop every spread on a transient
+        API error. The duplicate is the rarer harm."""
+        cl = MagicMock()
+        cl.get_all_positions.side_effect = RuntimeError("alpaca 500")
+        with patch.object(a, "_log_swallowed") as sw:
+            self.assertIsNone(
+                a._spread_legs_already_live(cl, self._plan("X260101C00001000")))
+        sw.assert_called_once()
+
+    def test_a_plan_with_no_legs_is_not_blocked(self):
+        self.assertIsNone(a._spread_legs_already_live(self._client(), {"legs": []}))
+
+    def test_the_submit_path_consults_it(self):
+        src = inspect.getsource(a)
+        self.assertIn("_spread_legs_already_live(client, plan)", src)
+        self.assertIn("spread REFUSED", src)
+
+
+class TestAnOrphanIsNotTheSameAsClosed(unittest.TestCase):
+    """The duplicate left both NFLX legs open at the broker and absent from the
+    tracker -- the daemon said so at 15:15:34, "ORPHAN POSITIONS - NO STOP
+    COVERAGE". run_pending_exits() looked a position up in PositionTracker and
+    treated a miss as "already flat", so queueing those legs would have marked
+    them closed and walked away from two live contracts with no stop."""
+
+    def test_the_shim_reads_the_broker_when_the_tracker_is_empty(self):
+        p = MagicMock()
+        p.symbol, p.qty, p.avg_entry_price = "NFLX261030C00073000", "1", "1.78"
+        cl = MagicMock()
+        cl.get_open_position.return_value = p
+        with patch.object(a, "get_alpaca_client", return_value=cl):
+            pos = a._orphan_position_shim("NFLX261030C00073000")
+        self.assertIsNotNone(pos)
+        self.assertEqual(pos.ticker, "NFLX261030C00073000")
+        self.assertEqual(pos.entry, 1.78)
+        self.assertEqual(pos.bias, "LONG")
+
+    def test_a_short_orphan_is_read_as_short(self):
+        p = MagicMock()
+        p.symbol, p.qty, p.avg_entry_price = "XYZ", "-5", "10.0"
+        cl = MagicMock()
+        cl.get_open_position.return_value = p
+        with patch.object(a, "get_alpaca_client", return_value=cl):
+            self.assertEqual(a._orphan_position_shim("XYZ").bias, "SHORT")
+
+    def test_nothing_held_returns_none(self):
+        """The only case that genuinely means already closed."""
+        cl = MagicMock()
+        cl.get_open_position.side_effect = Exception("404 position not found")
+        with patch.object(a, "get_alpaca_client", return_value=cl), \
+             patch.object(a, "_log_swallowed"):
+            self.assertIsNone(a._orphan_position_shim("GONE"))
+
+    def test_pending_exits_consults_the_shim(self):
+        src = inspect.getsource(a.run_pending_exits)
+        self.assertIn("_orphan_position_shim(_tk)", src)
+        # The hollow-assert checker was right to flag the prose version of
+        # this: grepping for a COMMENT passes even after the behaviour is
+        # deleted. Assert the behaviour instead -- a queued row whose ticker
+        # the broker still holds must not settle as "already flat".
+        import tempfile, json as _json
+        fd, path = tempfile.mkstemp(suffix=".json")
+        os.close(fd)
+        io.open(path, "w", encoding="utf-8").write(_json.dumps(
+            [{"ticker": "ORPH", "reason": "x", "status": "queued",
+              "attempts": 0, "queued_at": "2026-10-20T03:00:00-04:00"}]))
+        tracker = MagicMock()
+        tracker.positions = []
+        with patch.object(a, "PENDING_EXIT_FILE", path),              patch.object(a, "is_market_open", return_value=True),              patch.object(a, "PositionTracker", return_value=tracker),              patch.object(a, "_orphan_position_shim",
+                          return_value=SimpleNamespace(ticker="ORPH")) as shim,              patch.object(a, "_close_position_at_market",
+                          return_value=("submitted", "o1")) as closer,              patch.object(a, "send_telegram"),              patch.object(a, "_log_swallowed"),              contextlib.redirect_stdout(io.StringIO()):
+            a.run_pending_exits(notify=False)
+        final = _json.load(io.open(path, encoding="utf-8"))
+        os.unlink(path)
+        shim.assert_called_once_with("ORPH")
+        closer.assert_called_once()
+        self.assertEqual(final[0]["outcome"], "submitted",
+                         "an orphan must be CLOSED, not settled as already flat")
+
+
+class TestAMegaCapWasFiledWithTheShells(unittest.TestCase):
+    """SPCX -- SpaceX, listed 2026-06-12 in the largest IPO ever, trading
+    $13.2 BILLION a day, more than AMD -- was in DMAN_SMALLCAP_WATCHLIST,
+    which is scan/alert ONLY and measured at -4.97% per five sessions with a
+    buy-hold median of -95.2%. So when it reported on 2026-10-20 and moved
+    +8.66% after hours, the algo could not act. It had been written down once
+    and nothing ever re-examined it."""
+
+    def test_the_four_promoted_names_are_executable(self):
+        for t in ("SPCX", "NBIS", "APLD", "XBI"):
+            self.assertIn(t, a.WATCHLIST, t)
+            self.assertIn(t, a.TICKER_SECTOR, t)
+
+    def test_the_universes_do_not_overlap(self):
+        """One is auto-executable and the other alert-only. A name in both is
+        handled twice under different rules."""
+        self.assertEqual(set(a.WATCHLIST) & set(a.DMAN_SMALLCAP_WATCHLIST), set())
+
+    def test_the_dedup_is_enforced_not_maintained(self):
+        """Hand-maintained is what left SPCX in the junk list for four
+        months."""
+        src = inspect.getsource(a)
+        self.assertIn("if t not in TICKER_SECTOR", src)
+
+    def test_promoting_a_name_demotes_it_automatically(self):
+        """The property the enforcement buys: one edit, not two."""
+        src = inspect.getsource(a)
+        i = src.index("WATCHLIST = list(TICKER_SECTOR.keys())")
+        j = src.index("DMAN_SMALLCAP_WATCHLIST = [t for t in", i)
+        self.assertGreater(j, i, "the subtraction must run after both exist")
+
+    def test_the_checker_passes_and_can_fail(self):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location(
+            "tierchk", os.path.join("tools", "watchlist_tier_check.py"))
+        with contextlib.redirect_stdout(io.StringIO()):
+            mod = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(mod)
+            # Hermetic: the real audit fetches 124 tickers and takes ~100s,
+            # which does not belong in a unit suite. The live run is the
+            # weekend job's business.
+            with patch.object(mod.a, "DMAN_SMALLCAP_WATCHLIST", ["ADTX"]),                  patch.object(mod, "dollar_volume", return_value=4e6):
+                self.assertEqual(mod.audit(False), 0, "illiquid is fine")
+            with patch.object(mod.a, "DMAN_SMALLCAP_WATCHLIST", ["ADTX"]),                  patch.object(mod, "dollar_volume", return_value=9e9):
+                self.assertEqual(mod.audit(False), 1, "a liquid one must fail")
+            with patch.object(mod.a, "DMAN_SMALLCAP_WATCHLIST",
+                              list(mod.a.WATCHLIST)[:1]),                  patch.object(mod, "dollar_volume", return_value=4e6):
+                self.assertEqual(mod.audit(False), 1, "overlap must fail")

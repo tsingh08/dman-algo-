@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-10-20T11:58:34.757625-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Michael Burry Sees a 2000-Style Rotation Out of the Market&#39;s Winners",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T11:58:35.552951-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "SK Hynix Drops 30% During China Competition, Solidigm IPO Doubts",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T11:58:47.615653-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Michael Burry Sees a 2000-Style Rotation Out of the Market&#39;s Winners",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T11:58:49.640401-04:00",
-    "symbols": [
-      "QGEN"
-    ],
-    "headline": "Watching Qiagen; Shares Move Higher, Traders Circulate Unconfirmed Rumor From M&amp;A Blog Suggesting The Co Is Seeing Takeover Interest",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T11:58:50.127424-04:00",
-    "symbols": [
-      "FISN"
-    ],
-    "headline": "Deep Fission Signs Definitive Power Purchase Agreement With Great Plains Development Authority For Kansas Commercial Project",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T12:01:54.921048-04:00",
-    "symbols": [
-      "HTZ"
-    ],
-    "headline": "Nasdaq Rises Over 100 Points; 3M Earnings Top Views",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T12:03:58.109830-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;HHS releases new kidney care plan&#39; - Axios Exclusive",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T12:07:10.359739-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#39;Joel Kaplan leaving Meta after 15 years as policy chief&#39; - Axios Exclusive",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T12:07:40.902025-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Defense Giant RTX Order Backlog Hits Record $340 Billion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T12:07:52.770377-04:00",
-    "symbols": [
-      "BRZE"
-    ],
-    "headline": "Nasdaq Rises Over 100 Points; 3M Earnings Top Views",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-20T12:07:53.470245-04:00",
     "symbols": [
       "MYGN"
@@ -5035,5 +4935,105 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-21T11:02:11.969798-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Broadcom Launches Arcot Scam Defense to Combat Social Engineering Fraud",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-21T11:02:12.097081-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Volkswagen Group Partners with Microsoft for Autonomous Vehicle AI Development",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-21T11:02:12.238375-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Mastercard Gateway Launches in Syria",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-21T11:02:12.395316-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "3Business and AWS Launch AI Marketplace in Hong Kong",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-21T11:02:12.538109-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Omdia Reports Global Smartphone Market Contraction in 3Q26",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-21T11:02:12.673417-04:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "Multiple Analysts Adjust Price Targets and Ratings for GE Aerospace",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-21T11:02:12.832372-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Launches AI Agent Studio for Industry Applications",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-21T11:02:13.007498-04:00",
+    "symbols": [
+      "DDOG"
+    ],
+    "headline": "Analyst Maintains Bullish Rating on Datadog",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-21T11:03:12.077583-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Analysts Adjust Price Targets for SpaceX Following Q3 Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-21T11:04:12.041571-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Announces Season 2 of 'Love is Blind Habibi'",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

@@ -1328,5 +1328,105 @@
 "extension_pct": 69.5,
 "fresh_base": true,
 "weak_band": true
+},
+{
+"ticker": "MRNA",
+"date": "2026-10-21",
+"close": 245.81,
+"base_days": 3,
+"above_low_pct": 999.3,
+"extension_pct": 18.8,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "SLN",
+"date": "2026-10-21",
+"close": 19.67,
+"base_days": 0,
+"above_low_pct": 357.4,
+"extension_pct": 77.1,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "TEAM",
+"date": "2026-10-21",
+"close": 225.5,
+"base_days": 3,
+"above_low_pct": 294.6,
+"extension_pct": 13.7,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "HNGE",
+"date": "2026-10-21",
+"close": 112.0,
+"base_days": 0,
+"above_low_pct": 259.3,
+"extension_pct": 12.8,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "AMPL",
+"date": "2026-10-21",
+"close": 16.52,
+"base_days": 7,
+"above_low_pct": 194.5,
+"extension_pct": 12.5,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "FTRE",
+"date": "2026-10-21",
+"close": 24.06,
+"base_days": 59,
+"above_low_pct": 171.3,
+"extension_pct": 15.7,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "AVTR",
+"date": "2026-10-21",
+"close": 17.26,
+"base_days": 0,
+"above_low_pct": 132.9,
+"extension_pct": 10.9,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "CRL",
+"date": "2026-10-21",
+"close": 344.87,
+"base_days": 11,
+"above_low_pct": 130.0,
+"extension_pct": 15.6,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "PEB",
+"date": "2026-10-21",
+"close": 21.1,
+"base_days": 0,
+"above_low_pct": 105.9,
+"extension_pct": 10.5,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "BRZE",
+"date": "2026-10-21",
+"close": 45.68,
+"base_days": 0,
+"above_low_pct": 189.3,
+"extension_pct": 63.8,
+"fresh_base": false,
+"weak_band": true
 }
 ]

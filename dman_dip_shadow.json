@@ -220,50 +220,5 @@
 "pnl_pct": null,
 "entry_lim": 113.04,
 "pnl_lim_pct": null
-},
-{
-"date": "2026-10-20",
-"ticker": "AAPL",
-"entry": 339.36,
-"rsi2": 0.0,
-"pnl_pct": null,
-"entry_lim": 339.36,
-"pnl_lim_pct": null
-},
-{
-"date": "2026-10-20",
-"ticker": "META",
-"entry": 697.595,
-"rsi2": 0.0,
-"pnl_pct": null,
-"entry_lim": 697.595,
-"pnl_lim_pct": null
-},
-{
-"date": "2026-10-20",
-"ticker": "GME",
-"entry": 26.39,
-"rsi2": 7.5,
-"pnl_pct": null,
-"entry_lim": 26.39,
-"pnl_lim_pct": null
-},
-{
-"date": "2026-10-20",
-"ticker": "XOM",
-"entry": 177.72,
-"rsi2": 0.0,
-"pnl_pct": null,
-"entry_lim": 177.72,
-"pnl_lim_pct": null
-},
-{
-"date": "2026-10-20",
-"ticker": "NEM",
-"entry": 117.34,
-"rsi2": 0.0,
-"pnl_pct": null,
-"entry_lim": 117.34,
-"pnl_lim_pct": null
 }
 ]

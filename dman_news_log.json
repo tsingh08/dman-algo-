@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-20T12:07:53.470245-04:00",
-    "symbols": [
-      "MYGN"
-    ],
-    "headline": "Nasdaq Rises Over 100 Points; 3M Earnings Top Views",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-20T12:10:29.522303-04:00",
     "symbols": [
       "AMD"
@@ -5035,5 +5025,15 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-21T12:02:12.176825-04:00",
+    "symbols": [
+      "MB"
+    ],
+    "headline": "Mediobanca Analysts Revise Salvatore Ferragamo Estimates",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

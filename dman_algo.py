@@ -782,7 +782,7 @@ ENABLE_NL_COMMANDS = True
 NL_COMMAND_MODEL   = "claude-haiku-4-5-20251001"
 # Commands that change money or risk state — echoed for confirmation, never
 # auto-run from an interpretation.
-NL_CONFIRM_REQUIRED = {"buy", "enter", "close", "halt", "resume", "probation", "endprobation",
+NL_CONFIRM_REQUIRED = {"buy", "enter", "spread", "close", "halt", "resume", "probation", "endprobation",
                        "setupprobation", "endsetupprobation", "restart", "flags"}
 _TELEGRAM_KEEP = (
     "auto-exec", "order placed", "order submitted", "filled", "fill",
@@ -2565,6 +2565,7 @@ TELEGRAM_COMMANDS: list[tuple[str, str]] = [
     ("endprobation", "End probation, restore normal circuit breakers"),
     ("setupprobation", "Manually restrict a weak setup — /setupprobation SETUP NAME"),
     ("endsetupprobation", "Clear a setup's restriction — /endsetupprobation SETUP NAME"),
+    ("spread",    "Build a debit spread on demand — /spread TICKER [call|put]"),
     ("enter",     "Open a SHARE position — /enter TICKER [stop%] [limit]"),
     ("close",     "Close a position now — /close TICKER"),
     ("cancel",    "Cancel working orders for a ticker — /cancel TICKER"),
@@ -4284,6 +4285,154 @@ MANUAL_ENTRY_STOP_DEFAULT_PCT = 8.0
 MANUAL_ENTRY_LIMIT_BUFFER_PCT = 0.3
 
 
+# Days out to target when /spread is asked for a name with no upcoming
+# earnings. Inside EARNINGS_SPREAD_MIN_DTE..MAX_DTE so the same leg finder
+# applies unchanged.
+MANUAL_SPREAD_DEFAULT_DTE = 9
+
+
+def _tg_cmd_spread(parts: list) -> None:
+    """Build a debit spread on demand — /spread TICKER [call|put]
+
+    The automatic earnings offers are gated behind ENABLE_EARNINGS_SPREADS,
+    which is False and staying False: that strategy's live record is n=4,
+    mean -63.13%, cumulative -252.5%, with CRWD at exactly -100%. This is the
+    MANUAL path, so the operator can ask for a specific name at a specific
+    moment, and it shows that record in the approval message every single
+    time rather than letting it be forgotten.
+
+    It reuses build_earnings_spread_plan() rather than picking strikes itself.
+    That matters: asked for META on 2026-10-21, a naive nearest-strike pick
+    was 695/697.5 -- 0.36% wide, risking $210 to make $40 -- while the real
+    builder enforces a 3-12%-of-spot width band and correctly refused the
+    whole name, because the cheapest sound spread on a $694 stock costs $975
+    against a $139 budget. When a name does not fit, this says so WITH the
+    number, which is the useful answer; a silent "no" would send the operator
+    looking for a bug.
+    """
+    _tk = (parts[1].upper().strip() if len(parts) > 1 else "")
+    _side = (parts[2].lower().strip() if len(parts) > 2 else "")
+    if not _tk:
+        send_telegram("Usage: <code>/spread TICKER [call|put]</code>" + chr(10)
+                      + "Builds a debit spread from the live chain and asks "
+                        "before placing anything.")
+        return
+    if _side and _side not in ("call", "put", "both"):
+        send_telegram(f"\u274c /spread: {_side!r} is not call, put or both.")
+        return
+    if is_halted():
+        send_telegram("\u26d4 /spread refused — entries are HALTED.")
+        return
+    _safe, _ = check_macro_safe()
+    if not _safe:
+        send_telegram("\u26d4 /spread refused — macro blackout.")
+        return
+    _client = get_alpaca_client()
+    if _client is None:
+        send_telegram("\u274c /spread: no broker connection.")
+        return
+    # The LIVE price, not the last daily close. Strikes are picked around this
+    # number, and on 2026-10-21 the close had NFLX at $68.69 while it was
+    # actually trading $64.72 after its report -- 5.8% away, which picks a call
+    # spread far out of the money and a put spread nearly in it. The approval
+    # path's drift guard is 8%, so it would NOT have caught this.
+    _spot = 0.0
+    try:
+        from alpaca.data.requests import StockLatestTradeRequest
+        _dc = get_alpaca_data_client()
+        if _dc is not None:
+            _t = _dc.get_stock_latest_trade(
+                StockLatestTradeRequest(symbol_or_symbols=[_tk]))
+            _spot = float(_t[_tk].price)
+    except Exception as _exc:
+        _log_swallowed("spread live price", _exc)
+    if _spot <= 0:
+        try:
+            _spot = float(fetch_df(_tk, 260)["Close"].iloc[-1])
+        except Exception:
+            _spot = 0.0
+    if _spot <= 0:
+        send_telegram(f"\u274c /spread {_tk}: no usable price.")
+        return
+
+    # Target the real earnings date when there is one in range, so the leg
+    # finder picks an expiry that actually straddles the event.
+    _target, _why = None, "no earnings in range"
+    try:
+        _e = _fetch_massive_earnings(
+            _tk, _et_today(), _et_today() + timedelta(days=EARNINGS_SPREAD_MAX_DTE)) or []
+        _ds = sorted(str(x.get("date"))[:10] for x in _e)
+        if _ds:
+            _target = date.fromisoformat(_ds[0])
+            _why = f"earnings {_ds[0]}"
+    except Exception as _exc:
+        _log_swallowed("spread earnings lookup", _exc)
+    if _target is None:
+        _target = _et_today() + timedelta(days=MANUAL_SPREAD_DEFAULT_DTE)
+
+    # io and contextlib are not module-level in this file.
+    import io as _io, contextlib as _ctx
+    _buf = _io.StringIO()
+    try:
+        with _ctx.redirect_stdout(_buf):
+            _plan = build_earnings_spread_plan(_client, _tk, _spot, _target, "amc")
+    except Exception as _exc:
+        send_telegram(f"\u274c /spread {_tk} failed — {_exc}")
+        return
+    if not _plan:
+        _reason = (_buf.getvalue().strip().splitlines() or [""])[-1].strip()
+        send_telegram(f"\u26d4 <b>/spread {_tk}: nothing viable</b>" + chr(10)
+                      + (_reason[:300] if _reason else
+                         "no spread inside the width, DTE and open-interest bands")
+                      + chr(10) + f"spot ${_spot:,.2f} · {_why}")
+        return
+
+    # The per-trade ceiling, same rule the automatic path now enforces. A long
+    # debit spread can lose the whole debit, and CRWD did exactly that.
+    _cap = get_effective_account() * MAX_TRADE_LOSS_PCT
+    if float(_plan.get("max_loss", 0)) > _cap:
+        send_telegram(f"\u26d4 <b>/spread {_tk} refused</b> — ${_plan['max_loss']:.0f} "
+                      f"max loss is over the {MAX_TRADE_LOSS_PCT:.0%} single-trade "
+                      f"ceiling (${_cap:.0f}).")
+        return
+    if _side in ("call", "put"):
+        _plan.pop("put" if _side == "call" else "call", None)
+        _plan["total_cost"] = _plan["max_loss"] = round(
+            float((_plan.get(_side) or {}).get("net_debit", 0)) * 100
+            * int(_plan.get("sets", 1) or 1), 2)
+        if _plan["max_loss"] <= 0:
+            send_telegram(f"\u26d4 /spread {_tk}: no {_side} side in the plan.")
+            return
+
+    _lines = [f"\U0001f4ca <b>/spread {_tk}</b> — spot ${_spot:,.2f} · {_why}",
+              f"cost ${_plan['total_cost']:.0f} · max loss ${_plan['max_loss']:.0f} "
+              f"({_plan['max_loss'] / max(get_effective_account(), 1) * 100:.1f}% of equity)"]
+    for _s in ("call", "put"):
+        _L = _plan.get(_s)
+        if _L:
+            _lines.append(f"{_s}: {_L.get('long_strike')}/{_L.get('short_strike')} "
+                          f"debit {_L.get('net_debit', 0):.2f} · max gain "
+                          f"${_L.get('max_gain', 0):.0f} · BE {_L.get('breakeven', 0):.2f}")
+    _lines.append("")
+    _lines.append("\u26a0\ufe0f This strategy's live record: <b>n=4, mean -63.1%, "
+                  "cum -252.5%</b> (CRWD went to -100%). The automatic version is "
+                  "switched off for that reason.")
+    _lines.append(f"Reply <b>YES {_tk}</b> to place it as one atomic order.")
+    _pending, _consumed = _load_earnings_state()
+    _pending = [p for p in _pending
+                if str(p.get("ticker", "")).upper() != _tk
+                or p.get("status") != "awaiting_approval"]
+    _pending.append({
+        "ticker": _tk, "status": "awaiting_approval", "plan": _plan,
+        "earn_date": _target.isoformat(), "timing": "amc",
+        "snapshot_price": _spot, "source": "manual /spread",
+        "expires_at": (datetime.now(ET)
+                       + timedelta(minutes=EARNINGS_APPROVAL_TIMEOUT_MIN)).isoformat(),
+    })
+    _save_earnings_state(_pending, _consumed)
+    send_telegram(chr(10).join(_lines))
+
+
 def _tg_cmd_enter(parts: list) -> None:
     """Open a SHARE position from the phone -- /enter TICKER [stop%] [limit]
 
@@ -4648,6 +4797,9 @@ def _handle_telegram_command_inner(text: str) -> None:
         # Alpaca credentials, so it's structurally unable to push code or
         # place a real trade regardless of what it decides to do.
         _tg_cmd_review()
+
+    elif _cmd == "spread":
+        _tg_cmd_spread(_parts)
 
     elif _cmd == "enter":
         _tg_cmd_enter(_parts)

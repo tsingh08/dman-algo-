@@ -28178,3 +28178,180 @@ class TestABasketStopHadToBeMovedByHand(unittest.TestCase):
         110 signals, which is a sample artefact, not an edge."""
         self.assertGreaterEqual(a.DIP_BASKET_TRAIL_PCT, 3.0)
         self.assertLessEqual(a.DIP_BASKET_TRAIL_PCT, 6.0)
+
+class TestSpreadOnDemand(unittest.TestCase):
+    """/spread TICKER builds a debit spread on request. The automatic earnings
+    offers stay gated behind ENABLE_EARNINGS_SPREADS=False, because that
+    strategy's live record is n=4, mean -63.13%, cum -252.5% with CRWD at
+    exactly -100%; this is the manual path and it reprints that record every
+    single time.
+
+    It reuses build_earnings_spread_plan() rather than picking strikes. Asked
+    for META on 2026-10-21, a naive nearest-strike pick was 695/697.5 -- 0.36%
+    wide, risking $210 to make $40 -- while the real builder enforces a
+    3-12%-of-spot width band and refused the name outright, because the
+    cheapest sound spread on a $694 stock costs $975 against a $139 budget."""
+
+    def _plan(self, cost=118.0):
+        return {"sets": 1, "total_cost": cost, "max_loss": cost,
+                "directional": None,
+                "call": {"long_strike": 69.0, "short_strike": 71.0,
+                         "net_debit": 0.93, "max_gain": 107.0, "breakeven": 69.93},
+                "put": {"long_strike": 60.0, "short_strike": 58.0,
+                        "net_debit": 0.25, "max_gain": 175.0, "breakeven": 59.75}}
+
+    def _run(self, parts, plan="default", spot=64.72, halted=False,
+             macro=(True, 5), earnings=()):
+        import pandas as pd
+        _plan = self._plan() if plan == "default" else plan
+        trade = MagicMock()
+        trade.price = spot
+        dc = MagicMock()
+        dc.get_stock_latest_trade.return_value = {parts[1]: trade} if len(parts) > 1 else {}
+        with patch.object(a, "is_halted", return_value=halted), \
+             patch.object(a, "check_macro_safe", return_value=macro), \
+             patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "get_alpaca_data_client", return_value=dc), \
+             patch.object(a, "fetch_df",
+                          return_value=pd.DataFrame({"Close": [spot] * 5})), \
+             patch.object(a, "_fetch_massive_earnings", return_value=list(earnings)), \
+             patch.object(a, "build_earnings_spread_plan", return_value=_plan), \
+             patch.object(a, "get_effective_account", return_value=2784.0), \
+             patch.object(a, "_load_earnings_state", return_value=([], {})), \
+             patch.object(a, "_save_earnings_state") as save, \
+             patch.object(a, "send_telegram") as tg, \
+             patch.object(a, "_log_swallowed"), \
+             contextlib.redirect_stdout(io.StringIO()):
+            a._tg_cmd_spread(parts)
+        return (tg.call_args[0][0] if tg.call_args else ""), save
+
+    # --- the plan ----------------------------------------------------------
+    def test_a_viable_plan_is_offered_for_approval(self):
+        msg, save = self._run(["/spread", "NFLX"])
+        self.assertIn("/spread NFLX", msg)
+        self.assertIn("69.0/71.0", msg)
+        self.assertIn("YES NFLX", msg)
+        save.assert_called_once()
+        stored = save.call_args[0][0][-1]
+        self.assertEqual(stored["status"], "awaiting_approval")
+        self.assertEqual(stored["source"], "manual /spread")
+
+    def test_the_losing_record_is_in_every_offer(self):
+        """It is switched off automatically for a reason and the operator
+        should see that reason at the moment of deciding, not have to recall
+        it."""
+        msg, _s = self._run(["/spread", "NFLX"])
+        self.assertIn("-63.1%", msg)
+        self.assertIn("-100%", msg)
+
+    def test_it_uses_the_live_trade_not_the_daily_close(self):
+        """On 2026-10-21 the close had NFLX at 68.69 while it traded 64.72 --
+        5.8% away, which is UNDER the 8% approval drift guard, so strikes
+        picked off the close would have gone through unchallenged."""
+        import pandas as pd
+        trade = MagicMock()
+        trade.price = 64.72
+        dc = MagicMock()
+        dc.get_stock_latest_trade.return_value = {"NFLX": trade}
+        seen = {}
+
+        def spy(client, ticker, price, earn_date, timing):
+            seen["price"] = price
+            return self._plan()
+
+        with patch.object(a, "is_halted", return_value=False), \
+             patch.object(a, "check_macro_safe", return_value=(True, 5)), \
+             patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "get_alpaca_data_client", return_value=dc), \
+             patch.object(a, "fetch_df",
+                          return_value=pd.DataFrame({"Close": [68.69] * 5})), \
+             patch.object(a, "_fetch_massive_earnings", return_value=[]), \
+             patch.object(a, "build_earnings_spread_plan", side_effect=spy), \
+             patch.object(a, "get_effective_account", return_value=2784.0), \
+             patch.object(a, "_load_earnings_state", return_value=([], {})), \
+             patch.object(a, "_save_earnings_state"), \
+             patch.object(a, "send_telegram"), \
+             patch.object(a, "_log_swallowed"), \
+             contextlib.redirect_stdout(io.StringIO()):
+            a._tg_cmd_spread(["/spread", "NFLX"])
+        self.assertAlmostEqual(seen["price"], 64.72, places=2)
+
+    def test_it_falls_back_to_the_close_when_no_live_trade(self):
+        import pandas as pd
+        dc = MagicMock()
+        dc.get_stock_latest_trade.side_effect = RuntimeError("no feed")
+        seen = {}
+
+        def spy(client, ticker, price, earn_date, timing):
+            seen["price"] = price
+            return self._plan()
+
+        with patch.object(a, "is_halted", return_value=False), \
+             patch.object(a, "check_macro_safe", return_value=(True, 5)), \
+             patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "get_alpaca_data_client", return_value=dc), \
+             patch.object(a, "fetch_df",
+                          return_value=pd.DataFrame({"Close": [68.69] * 5})), \
+             patch.object(a, "_fetch_massive_earnings", return_value=[]), \
+             patch.object(a, "build_earnings_spread_plan", side_effect=spy), \
+             patch.object(a, "get_effective_account", return_value=2784.0), \
+             patch.object(a, "_load_earnings_state", return_value=([], {})), \
+             patch.object(a, "_save_earnings_state"), \
+             patch.object(a, "send_telegram"), \
+             patch.object(a, "_log_swallowed"), \
+             contextlib.redirect_stdout(io.StringIO()):
+            a._tg_cmd_spread(["/spread", "NFLX"])
+        self.assertAlmostEqual(seen["price"], 68.69, places=2)
+
+    # --- the refusals ------------------------------------------------------
+    def test_an_unaffordable_name_says_why_with_the_number(self):
+        """A silent no sends the operator looking for a bug. META's real
+        answer is '$975 exceeds budget $139'."""
+        msg, save = self._run(["/spread", "META"], plan=None)
+        self.assertIn("nothing viable", msg)
+        save.assert_not_called()
+
+    def test_a_plan_over_the_single_trade_ceiling_is_refused(self):
+        msg, save = self._run(["/spread", "NFLX"], plan=self._plan(cost=900.0))
+        self.assertIn("refused", msg)
+        self.assertIn("single-trade ceiling", msg)
+        save.assert_not_called()
+
+    def test_it_refuses_while_halted(self):
+        msg, save = self._run(["/spread", "NFLX"], halted=True)
+        self.assertIn("HALTED", msg)
+        save.assert_not_called()
+
+    def test_it_refuses_in_a_macro_blackout(self):
+        msg, save = self._run(["/spread", "NFLX"], macro=(False, 0))
+        self.assertIn("macro blackout", msg)
+        save.assert_not_called()
+
+    def test_a_bad_side_is_refused(self):
+        msg, save = self._run(["/spread", "NFLX", "straddle"])
+        self.assertIn("not call, put or both", msg)
+        save.assert_not_called()
+
+    def test_no_ticker_prints_usage(self):
+        msg, save = self._run(["/spread"])
+        self.assertIn("Usage", msg)
+        save.assert_not_called()
+
+    # --- one side only -----------------------------------------------------
+    def test_asking_for_one_side_drops_the_other_and_reprices(self):
+        msg, save = self._run(["/spread", "NFLX", "call"])
+        self.assertIn("call:", msg)
+        self.assertNotIn("put:", msg)
+        stored = save.call_args[0][0][-1]["plan"]
+        self.assertNotIn("put", stored)
+        self.assertAlmostEqual(stored["max_loss"], 93.0, places=2)
+
+    # --- the control surface -----------------------------------------------
+    def test_it_is_registered_dispatched_and_confirm_gated(self):
+        self.assertIn("spread", a.NL_CONFIRM_REQUIRED)
+        self.assertIn("spread", [c for c, _d in a.TELEGRAM_COMMANDS])
+        self.assertIn('_cmd == "spread"', inspect.getsource(a))
+
+    def test_the_automatic_path_stays_off(self):
+        """This command existing must not be read as re-arming the scan."""
+        self.assertFalse(a.ENABLE_EARNINGS_SPREADS)

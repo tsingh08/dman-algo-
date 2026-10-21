@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-20T12:38:30.867014-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Qualcomm Plans Global Layoffs Starting November",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T12:38:30.870506-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "408x Oversubscribed AI IPO Crashes 32%\u2014Democratic Sweep Prospects Trigger Selling in Data Center Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T12:38:31.169219-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "408x Oversubscribed AI IPO Crashes 32%\u2014Democratic Sweep Prospects Trigger Selling in Data Center Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T12:38:31.174756-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "408x Oversubscribed AI IPO Crashes 32%\u2014Democratic Sweep Prospects Trigger Selling in Data Center Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T12:38:31.764075-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "408x Oversubscribed AI IPO Crashes 32%\u2014Democratic Sweep Prospects Trigger Selling in Data Center Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T12:38:32.365190-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "408x Oversubscribed AI IPO Crashes 32%\u2014Democratic Sweep Prospects Trigger Selling in Data Center Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-20T12:38:32.622139-04:00",
     "symbols": [
       "TSLA"
@@ -5023,5 +4963,65 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-21T15:03:12.156570-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "IronSight AI and Fast Iron Partner to Enhance Inventory Management for Caterpillar Dealers",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-21T15:03:12.409866-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "CIRO Schedules Settlement Hearing for Goldman Sachs Canada Inc.",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-21T15:03:12.678539-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "UnitedHealth Group Sued by Major Corporations Over Claims Handling",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-21T15:03:13.402971-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Uber Reports Success with 'Beyond the Checkbox' Human Risk Management Program",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-21T15:03:13.672837-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Allergan Aesthetics Presents New Clinical Evidence at AMWC Dubai",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-21T15:03:13.929305-04:00",
+    "symbols": [
+      "ISRG"
+    ],
+    "headline": "Analysts Adjust Price Targets for Intuitive Surgical Following Q3 Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

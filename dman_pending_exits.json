@@ -10,14 +10,16 @@
   "ticker": "NFLX261030C00073000",
   "reason": "close the post-earnings strangle: NFLX fell to 64.72 (-5.8%), breakevens were 60.74/76.26 (+/-11%), the event is spent and 10 days of decay remain",
   "queued_at": "2026-10-20T22:45:04-04:00",
-  "status": "queued",
-  "attempts": 0
+  "status": "cancelled",
+  "attempts": 0,
+  "outcome": "dequeued 2026-10-21 on operator instruction - the NFLX close is theirs to make"
  },
  {
   "ticker": "NFLX261030P00064000",
   "reason": "close the post-earnings strangle: NFLX fell to 64.72 (-5.8%), breakevens were 60.74/76.26 (+/-11%), the event is spent and 10 days of decay remain",
   "queued_at": "2026-10-20T22:45:04-04:00",
-  "status": "queued",
-  "attempts": 0
+  "status": "cancelled",
+  "attempts": 0,
+  "outcome": "dequeued 2026-10-21 on operator instruction - the NFLX close is theirs to make"
  }
 ]

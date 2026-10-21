@@ -1,27 +1,5 @@
 [
   {
-    "ts": "2026-10-19T13:56:06.583824-04:00",
-    "regime": "CHOP",
-    "regime_score": 10,
-    "vix": 18.4,
-    "min_score": 85,
-    "universe": "all",
-    "tickers_total": 132,
-    "signals": 1,
-    "signal_tickers": [
-      "IRON"
-    ],
-    "signal_scores": [
-      100
-    ],
-    "rejected_no_signal": 131,
-    "rejected_hard_gate": 0,
-    "rejected_low_score": 0,
-    "budget_hit": false,
-    "news_breadth_pct": 92.2,
-    "news_breadth_total": 355
-  },
-  {
     "ts": "2026-10-19T13:57:14.313870-04:00",
     "regime": "CHOP",
     "regime_score": 10,
@@ -2278,6 +2256,15 @@
   },
   {
     "ts": "2026-10-21T12:23:08.723136-04:00",
+    "halted": true,
+    "halt_reason": "daily_loss_limit",
+    "min_score": 85,
+    "tickers_total": 295,
+    "signals": 0,
+    "signal_tickers": []
+  },
+  {
+    "ts": "2026-10-21T12:33:11.026133-04:00",
     "halted": true,
     "halt_reason": "daily_loss_limit",
     "min_score": 85,

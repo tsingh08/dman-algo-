@@ -4484,6 +4484,12 @@ def _tg_cmd_spread(parts: list) -> None:
             _lines.append(f"{_s}: {_L.get('long_strike')}/{_L.get('short_strike')} "
                           f"debit {_L.get('net_debit', 0):.2f} · max gain "
                           f"${_L.get('max_gain', 0):.0f} · BE {_L.get('breakeven', 0):.2f}")
+    # The premium verdict, shown whether it blocks or not. This is the test
+    # nothing in the system had ever run: is the event priced above what the
+    # name actually does on events?
+    _ok_prem, _why_prem = _earnings_premium_verdict(_client, _tk, _spot)
+    _lines.append("")
+    _lines.append(("✅ " if _ok_prem else "⛔ ") + _why_prem)
     _lines.append("")
     _lines.append("\u26a0\ufe0f This strategy's live record: <b>n=4, mean -63.1%, "
                   "cum -252.5%</b> (CRWD went to -100%). The automatic version is "
@@ -17183,6 +17189,20 @@ def run_earnings_spread_scan() -> None:
             # on a $2,785 account -- 11.71%, legal under the aggregate cap and
             # over the documented single-trade ceiling. Two caps claiming to
             # govern the same risk, one of them honoured.
+            # Is the premium itself worth paying? Asked here for the first
+            # time on 2026-10-21. Nothing in this system had ever compared
+            # what it pays for an event to what the stock does on events, and
+            # the long-premium record is n=4, mean -63.13%, cum -252.5%.
+            _ok_prem, _why_prem = _earnings_premium_verdict(
+                client, c["ticker"], c.get("price") or 0)
+            if not _ok_prem:
+                print(f"  \u23ed\ufe0f  {c['ticker']} earnings spread skipped — {_why_prem}")
+                _pk = f"{c['ticker']}_EARNSPREAD_PREMIUM_{c['earn_date'].isoformat()}"
+                if not _is_alerted_today(_pk):
+                    _mark_alerted(_pk)
+                    send_telegram(f"\u23ed\ufe0f <b>{c['ticker']} earnings spread NOT "
+                                  f"offered</b> — {_why_prem}")
+                continue
             _per_trade_cap = get_effective_account() * MAX_TRADE_LOSS_PCT
             if plan["max_loss"] > _per_trade_cap:
                 print(f"  \u23ed\ufe0f  {c['ticker']} earnings spread skipped — "
@@ -19088,6 +19108,159 @@ def _confirm_directional_with_options_flow(ticker: str, hist_direction: str) -> 
     print(f"  🔀 {ticker}: historical {hist_direction} pattern NOT confirmed by real-time "
           f"options flow (P/C {flow['pc_ratio']}, {flow['flow_label']}) — defaulting to double spread")
     return None
+
+
+# How much richer than its own history an event's premium may be before
+# buying it is a bad bet. 1.0 = pay exactly what the stock typically delivers.
+# 1.15 allows a modest premium for convexity and slippage; past that, the
+# buyer is paying for a move the name does not usually make.
+EARNINGS_PREMIUM_MAX_RATIO = 1.15
+# The two expiries the event move is extracted from. Front as close to the
+# event as a listed weekly allows; back far enough that the same event is a
+# small fraction of its variance.
+EVENT_IV_FRONT_DTE = 2
+EVENT_IV_BACK_GAP_DTE = 7
+
+
+def _past_earnings_reactions(ticker: str, n: int = 8) -> list[float]:
+    """Signed next-session reaction % for the last n CONFIRMED earnings dates.
+
+    _last_n_earnings_moves() is a proxy -- "the n most recent ~quarterly gap
+    days" -- and for judging whether premium is expensive it is biased in the
+    one direction that matters. It selects the BIGGEST gaps, so it overstates
+    the typical earnings move, which makes premium look cheap. Measured
+    2026-10-21:
+
+        META  proxy [-10.2, 7.9, 10.3, -11.0]  median 10.3%  (n=4)
+              real  [-4.1, 1.6, 4.2, 11.3, -11.3, 10.4, -8.6, -8.0]
+                                               median  8.6%  (n=8)
+
+    On the proxy META's premium read 0.96x and passed; on the real history it
+    is 1.16x and fails. The earnings feed gives confirmed dates, so there is
+    no reason to infer them from gap size.
+    """
+    try:
+        _rows = _fetch_massive_earnings(
+            ticker, _et_today() - timedelta(days=760), _et_today()) or []
+        _dates = sorted({str(r.get("date"))[:10] for r in _rows if r.get("date")})
+        if not _dates:
+            return []
+        _df = fetch_df(ticker, 900)
+        if _df is None or len(_df) < 30:
+            return []
+        _idx = [str(x)[:10] for x in _df.index]
+        _cl = [float(x) for x in _df["Close"]]
+        _out = []
+        for _d in _dates:
+            # The reaction is the session AFTER the report, measured
+            # close-to-close. An after-the-close print moves the NEXT open.
+            _after = [i for i, x in enumerate(_idx) if x > _d]
+            if not _after or _after[0] < 1:
+                continue
+            _i = _after[0]
+            _out.append(round((_cl[_i] / _cl[_i - 1] - 1) * 100.0, 2))
+        return _out[-max(1, n):]
+    except Exception as exc:
+        _log_swallowed("past earnings reactions", exc)
+        return []
+
+
+def _event_implied_move_pct(client, ticker: str, current_price: float) -> Optional[float]:
+    """The EVENT-day move the option market is pricing, in percent.
+
+    An ATM straddle is not this number. The straddle prices the whole period
+    to expiry, so it blends the earnings jump with ordinary daily vol and
+    understates the event badly. Measured 2026-10-21 against the live chain:
+
+        META  straddle move 7.22%   extracted EVENT move 10.6%
+        TSLA  straddle move 6.57%   extracted EVENT move  9.6%
+
+    Three points of difference, and in the direction that makes premium look
+    cheap when it is expensive. I made exactly that error in this session --
+    told the operator META's premium was "cheap" off the 7.22% figure when the
+    market was pricing 10.6% against an 8.55% historical median.
+
+    The extraction is the standard two-expiry decomposition. A front expiry
+    contains ONE event day plus ordinary days; a later one contains the same
+    event diluted across more days:
+
+        iv_front^2 * T1 = sigma_event^2 + sigma_normal^2 * (T1 - 1)
+        iv_back^2  * T2 = sigma_event^2 + sigma_normal^2 * (T2 - 1)
+
+    Two equations, two unknowns. _get_atm_iv() was ALREADY being called at
+    both of these DTEs -- see _earnings_timing_for(), which used the same two
+    numbers only to answer the boolean "is the event still pending". The
+    inputs were there; nothing had ever solved them.
+    """
+    try:
+        # The front expiry has to be the FIRST one after the event, or the
+        # single event day is diluted across a week of ordinary sessions and
+        # the extraction understates it. With the fixed 7/28 DTE pair this
+        # returned 9.9% for META on 2026-10-21 where the 2-day/9-day pair gave
+        # 10.6% -- and the whole point of extracting is not to understate.
+        _t1 = max(1, EVENT_IV_FRONT_DTE)
+        _t2 = _t1 + EVENT_IV_BACK_GAP_DTE
+        _iv1 = _get_atm_iv(client, ticker, current_price, _t1)
+        _iv2 = _get_atm_iv(client, ticker, current_price, _t2)
+        if not _iv1 or not _iv2:
+            return None
+        _a1, _a2 = _iv1 ** 2 * _t1, _iv2 ** 2 * _t2
+        _sn2 = (_a2 - _a1) / float(_t2 - _t1)
+        _se2 = _a1 - _sn2 * (_t1 - 1)
+        if _se2 <= 0 or _sn2 <= 0:
+            return None        # no backwardation: nothing to attribute to an event
+        return round(math.sqrt(_se2) / math.sqrt(252.0) * 100.0, 2)
+    except Exception as exc:
+        _log_swallowed("event implied move", exc)
+        return None
+
+
+def _earnings_premium_verdict(client, ticker: str,
+                              current_price: float) -> tuple[bool, str]:
+    """(worth_buying, explanation) for this name's event premium right now.
+
+    The question no part of this system had ever asked: is what the option
+    market charges for the event bigger than what this stock actually does on
+    earnings? When implied exceeds the historical median by more than
+    EARNINGS_PREMIUM_MAX_RATIO, the buyer of premium is paying for a move the
+    name does not usually make, and the long-premium record says exactly that:
+    n=4, mean -63.13%, cum -252.5%.
+
+    Unknown is NOT fine. Missing IV or too little history returns False, so a
+    lookup failure cannot read as permission.
+    """
+    # The extraction assumes an event is PENDING. For a name that has already
+    # reported there is nothing to attribute the front-month premium to, and
+    # the number is noise -- NFLX returned 26.6% on 2026-10-21, the day after
+    # its print, which would have looked like a wildly expensive event rather
+    # than the absence of one.
+    try:
+        _soon = _fetch_massive_earnings(
+            ticker, _et_today(), _et_today() + timedelta(days=EVENT_IV_FRONT_DTE + 8)) or []
+        if not _soon:
+            return True, "no earnings pending — the event-premium test does not apply"
+    except Exception as _exc:
+        _log_swallowed("premium verdict earnings lookup", _exc)
+    _imp = _event_implied_move_pct(client, ticker, current_price)
+    if _imp is None:
+        return False, "no event-implied move available (needs front and back ATM IV)"
+    _real = _past_earnings_reactions(ticker)
+    _src = "confirmed earnings dates"
+    if len(_real) < 4:
+        _real = _last_n_earnings_moves(ticker) or []
+        _src = "quarterly-gap proxy"     # biased large; only when the feed fails
+    _moves = sorted(abs(float(m)) for m in _real)
+    if len(_moves) < 4:
+        return False, f"implied event move {_imp:.1f}% but only {len(_moves)} past move(s) to judge it against"
+    _median = _moves[len(_moves) // 2]
+    _mean = sum(_moves) / len(_moves)
+    _ratio = _imp / _median if _median > 0 else 999.0
+    _detail = (f"implied event move {_imp:.1f}% vs this name's own history "
+               f"(median {_median:.1f}%, mean {_mean:.1f}%, n={len(_moves)}, "
+               f"{_src}) = {_ratio:.2f}x")
+    if _ratio > EARNINGS_PREMIUM_MAX_RATIO:
+        return False, _detail + " — premium is EXPENSIVE, buying it is the losing side"
+    return True, _detail + " — premium is within range"
 
 
 def build_earnings_spread_plan(client, ticker: str, current_price: float,

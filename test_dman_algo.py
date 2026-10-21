@@ -28478,3 +28478,154 @@ class TestPlainEnglishReachesTheSpreadDesk(unittest.TestCase):
         src = inspect.getsource(a._interpret_plain_english)
         self.assertIn("company NAME", src)
         self.assertIn("pick the FIRST", src)
+
+class TestWhatThePremiumCostsVsWhatTheStockDoes(unittest.TestCase):
+    """The question nothing in this system had ever asked: is the event priced
+    above what the name actually does on events?
+
+    The long-premium record is n=4, mean -63.13%, cum -252.5%. Measured
+    2026-10-21, the answer for both names reporting that night was yes -- META
+    1.31x its own median, TSLA 1.43x -- so every long structure was paying for
+    a move the stock does not usually make. Nothing could see that, because
+    nothing compared the two.
+
+    An ATM straddle is NOT the event move. It prices the whole period to
+    expiry and so blends the earnings jump with ordinary daily vol:
+
+        META  straddle 7.22%   extracted EVENT move 10.6%
+        TSLA  straddle 6.57%   extracted EVENT move  9.6%
+
+    Three points, in the direction that makes premium look cheap when it is
+    expensive. I made that exact error in this session and told the operator
+    META's premium was "cheap" off the straddle figure."""
+
+    def _iv(self, front, back):
+        return lambda client, ticker, price, dte: (
+            front if dte <= a.EVENT_IV_FRONT_DTE else back)
+
+    # --- the extraction ----------------------------------------------------
+    def test_it_extracts_the_event_day_from_the_term_structure(self):
+        """META's live numbers: 122.3% over 2d against 66.3% over 9d."""
+        with patch.object(a, "_get_atm_iv", side_effect=self._iv(1.223, 0.663)):
+            got = a._event_implied_move_pct(MagicMock(), "META", 691.5)
+        self.assertAlmostEqual(got, 10.6, delta=0.3)
+
+    def test_a_flat_term_structure_prices_the_event_as_an_ordinary_day(self):
+        """My first version of this asserted None and was wrong. A flat
+        structure means the market sees the event day as no different from any
+        other, and the decomposition says exactly that -- 50% IV at both
+        expiries gives 3.15%, which IS the ordinary daily move. A real answer,
+        and a cheap one: no event premium is being charged."""
+        with patch.object(a, "_get_atm_iv", side_effect=self._iv(0.50, 0.50)), \
+             patch.object(a, "_log_swallowed"):
+            got = a._event_implied_move_pct(MagicMock(), "X", 100.0)
+        self.assertAlmostEqual(got, 50.0 / (252 ** 0.5), delta=0.1)
+
+    def test_an_inverted_structure_returns_none(self):
+        """Front IV BELOW what the back month implies for ordinary days leaves
+        negative variance for the event -- no real number to report."""
+        with patch.object(a, "_get_atm_iv", side_effect=self._iv(0.40, 0.70)), \
+             patch.object(a, "_log_swallowed") as sw:
+            self.assertIsNone(a._event_implied_move_pct(MagicMock(), "X", 100.0))
+        # And handled by the GUARD, not by letting math.sqrt raise. Both
+        # return None, so a mutation removing the guard survived the first
+        # version of this test. Contango is an ordinary market state and
+        # logging it as a swallowed error would bury the real ones.
+        sw.assert_not_called()
+
+    def test_a_missing_iv_is_none_not_zero(self):
+        with patch.object(a, "_get_atm_iv", return_value=None), \
+             patch.object(a, "_log_swallowed"):
+            self.assertIsNone(a._event_implied_move_pct(MagicMock(), "X", 100.0))
+
+    def test_the_front_expiry_is_near_the_event(self):
+        """With the old fixed 7/28 DTE pair the single event day was diluted
+        across a week of ordinary sessions and META read 9.9% instead of
+        10.6%. The point of extracting is not to understate."""
+        self.assertLessEqual(a.EVENT_IV_FRONT_DTE, 3)
+        self.assertIn("EVENT_IV_FRONT_DTE",
+                      inspect.getsource(a._event_implied_move_pct))
+
+    # --- the verdict --------------------------------------------------------
+    def _verdict(self, implied, reactions, soon=True):
+        with patch.object(a, "_event_implied_move_pct", return_value=implied), \
+             patch.object(a, "_past_earnings_reactions", return_value=reactions), \
+             patch.object(a, "_fetch_massive_earnings",
+                          return_value=([{"date": "2026-10-21"}] if soon else [])), \
+             patch.object(a, "_log_swallowed"):
+            return a._earnings_premium_verdict(MagicMock(), "X", 100.0)
+
+    def test_expensive_premium_is_refused(self):
+        ok, why = self._verdict(11.2, [-4.1, 1.6, 4.2, 11.3, -11.3, 10.4, -8.6, -8.0])
+        self.assertFalse(ok)
+        self.assertIn("EXPENSIVE", why)
+        self.assertIn("1.3", why)
+
+    def test_premium_inside_the_band_passes(self):
+        ok, why = self._verdict(8.0, [-9.0, 8.0, 9.0, -8.0, 7.5, -7.0, 8.5, -8.2])
+        self.assertTrue(ok)
+        self.assertIn("within range", why)
+
+    def test_an_unavailable_implied_move_refuses_rather_than_permits(self):
+        """Unknown is not fine. A lookup failure must not read as permission
+        on a path that risks the whole debit."""
+        ok, why = self._verdict(None, [1, 2, 3, 4, 5, 6, 7, 8])
+        self.assertFalse(ok)
+
+    def test_too_little_history_refuses(self):
+        ok, why = self._verdict(10.0, [5.0, 6.0])
+        self.assertFalse(ok)
+
+    def test_a_name_with_no_pending_event_is_not_judged_on_it(self):
+        """NFLX returned 26.6% the day AFTER its print -- noise, because there
+        was no event left to attribute the front-month premium to. That must
+        not read as a wildly expensive event."""
+        ok, why = self._verdict(26.6, [11.1, 9.7, 1.5, -5.1, -10.1, -2.2, -9.7, -7.3],
+                                soon=False)
+        self.assertTrue(ok)
+        self.assertIn("no earnings pending", why)
+
+    # --- the history it judges against -------------------------------------
+    def test_it_prefers_confirmed_dates_over_the_gap_proxy(self):
+        """_last_n_earnings_moves picks the BIGGEST quarterly gaps, so it
+        overstates the typical move and makes premium look cheap. On the proxy
+        META read 0.96x and passed; on real dates it is 1.31x and fails."""
+        with patch.object(a, "_event_implied_move_pct", return_value=11.2), \
+             patch.object(a, "_past_earnings_reactions",
+                          return_value=[-4.1, 1.6, 4.2, 11.3, -11.3, 10.4, -8.6, -8.0]), \
+             patch.object(a, "_last_n_earnings_moves",
+                          return_value=[-10.2, 7.9, 10.3, -11.0]) as proxy, \
+             patch.object(a, "_fetch_massive_earnings",
+                          return_value=[{"date": "2026-10-21"}]), \
+             patch.object(a, "_log_swallowed"):
+            ok, why = a._earnings_premium_verdict(MagicMock(), "META", 691.5)
+        self.assertFalse(ok)
+        self.assertIn("confirmed earnings dates", why)
+        proxy.assert_not_called()
+
+    def test_the_proxy_is_the_fallback_and_is_labelled(self):
+        with patch.object(a, "_event_implied_move_pct", return_value=11.2), \
+             patch.object(a, "_past_earnings_reactions", return_value=[]), \
+             patch.object(a, "_last_n_earnings_moves",
+                          return_value=[-10.2, 7.9, 10.3, -11.0]), \
+             patch.object(a, "_fetch_massive_earnings",
+                          return_value=[{"date": "2026-10-21"}]), \
+             patch.object(a, "_log_swallowed"):
+            ok, why = a._earnings_premium_verdict(MagicMock(), "META", 691.5)
+        self.assertIn("quarterly-gap proxy", why)
+
+    def test_reactions_come_from_the_session_after_the_report(self):
+        """An after-the-close print moves the NEXT session, not the one the
+        report landed in."""
+        src = inspect.getsource(a._past_earnings_reactions)
+        self.assertIn("_idx[i] > _d" if "_idx[i] > _d" in src else "x > _d", src)
+
+    # --- it is wired in -----------------------------------------------------
+    def test_the_offer_path_refuses_on_it(self):
+        src = inspect.getsource(a)
+        self.assertIn("_earnings_premium_verdict(", src)
+        self.assertIn("EARNSPREAD_PREMIUM", src)
+
+    def test_the_spread_command_shows_it(self):
+        self.assertIn("_earnings_premium_verdict(_client, _tk, _spot)",
+                      inspect.getsource(a._tg_cmd_spread))

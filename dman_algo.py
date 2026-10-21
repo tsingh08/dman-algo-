@@ -782,7 +782,14 @@ ENABLE_NL_COMMANDS = True
 NL_COMMAND_MODEL   = "claude-haiku-4-5-20251001"
 # Commands that change money or risk state — echoed for confirmation, never
 # auto-run from an interpretation.
-NL_CONFIRM_REQUIRED = {"buy", "enter", "spread", "close", "halt", "resume", "probation", "endprobation",
+# A plain-English interpretation may never RUN these -- the line is "does it
+# submit an order or change risk state". /spread is deliberately NOT one: it
+# places nothing, it prices a plan and ends with "Reply YES TICKER", and that
+# YES is a separate explicit message with its own matcher. Gating it made
+# English echo the command back instead of quoting the trade, which defeated
+# the purpose without making anything safer. /buy and /enter stay, because
+# they submit immediately.
+NL_CONFIRM_REQUIRED = {"buy", "enter", "close", "halt", "resume", "probation", "endprobation",
                        "setupprobation", "endsetupprobation", "restart", "flags"}
 _TELEGRAM_KEEP = (
     "auto-exec", "order placed", "order submitted", "filled", "fill",
@@ -4291,6 +4298,65 @@ MANUAL_ENTRY_LIMIT_BUFFER_PCT = 0.3
 MANUAL_SPREAD_DEFAULT_DTE = 9
 
 
+# Company name -> ticker, for commands reached through plain English.
+#
+# The language model picks the COMMAND; this resolves the SYMBOL. That split is
+# deliberate. Asked "do the debit spread for Netflix" on 2026-10-21 the model
+# answered /spread NETFLIX, and "a put spread on tesla" gave /spread TESLA --
+# company names, not tickers. A wrong symbol on an order that risks real money
+# is not something to delegate to a model that is also guessing at intent, and
+# the failure is quiet: /spread NETFLIX just reports "no usable price", which
+# looks like a data problem rather than a resolution problem.
+#
+# Only names a person would actually type. Anything already a valid symbol
+# passes straight through, so this never has to be exhaustive.
+_TICKER_ALIASES = {
+    "netflix": "NFLX", "spacex": "SPCX", "space x": "SPCX",
+    "space exploration": "SPCX", "starlink": "SPCX",
+    "tesla": "TSLA", "meta": "META", "facebook": "META", "instagram": "META",
+    "nvidia": "NVDA", "apple": "AAPL", "microsoft": "MSFT", "msft": "MSFT",
+    "amazon": "AMZN", "google": "GOOGL", "alphabet": "GOOGL",
+    "palantir": "PLTR", "advanced micro": "AMD", "broadcom": "AVGO",
+    "micron": "MU", "marvell": "MRVL", "arista": "ANET", "snowflake": "SNOW",
+    "crowdstrike": "CRWD", "cloudflare": "NET", "datadog": "DDOG",
+    "zscaler": "ZS", "fortinet": "FTNT", "palo alto": "PANW",
+    "coreweave": "CRWV", "nebius": "NBIS", "applied digital": "APLD",
+    "super micro": "SMCI", "dell": "DELL", "intel": "INTC",
+    "coinbase": "COIN", "microstrategy": "MSTR", "strategy": "MSTR",
+    "robinhood": "HOOD", "sandisk": "SNDK", "western digital": "WDC",
+    "baytex": "BTE", "iovance": "IOVA",
+}
+
+
+def _resolve_ticker_alias(raw: str) -> str:
+    """Best-effort symbol for whatever the operator typed. "" if unresolvable.
+
+    Order matters: an exact symbol wins over an alias, so a real ticker that
+    happens to spell a word is never rewritten.
+    """
+    _t = str(raw or "").strip().upper().replace("$", "")
+    if not _t:
+        return ""
+    if _t in {str(x).upper() for x in TICKER_SECTOR} or _t in {
+            str(x).upper() for x in DMAN_SMALLCAP_WATCHLIST}:
+        return _t
+    _low = _t.lower()
+    if _low in _TICKER_ALIASES:
+        return _TICKER_ALIASES[_low]
+    for _name, _sym in _TICKER_ALIASES.items():
+        if _low.startswith(_name) or _name.startswith(_low):
+            return _sym
+    # Not a name we know: let the broker arbitrate, so any valid symbol still
+    # works without being listed anywhere here.
+    try:
+        _asset = get_alpaca_client().get_asset(_t)
+        if _asset is not None and getattr(_asset, "tradable", False):
+            return _t
+    except Exception as _exc:
+        _log_swallowed("ticker alias", _exc)
+    return ""
+
+
 def _tg_cmd_spread(parts: list) -> None:
     """Build a debit spread on demand — /spread TICKER [call|put]
 
@@ -4310,7 +4376,12 @@ def _tg_cmd_spread(parts: list) -> None:
     number, which is the useful answer; a silent "no" would send the operator
     looking for a bug.
     """
-    _tk = (parts[1].upper().strip() if len(parts) > 1 else "")
+    _raw = (parts[1].strip() if len(parts) > 1 else "")
+    _tk = _resolve_ticker_alias(_raw)
+    if _raw and not _tk:
+        send_telegram(f"\u274c /spread: could not resolve {_raw!r} to a tradable "
+                      "symbol. Try the ticker.")
+        return
     _side = (parts[2].lower().strip() if len(parts) > 2 else "")
     if not _tk:
         send_telegram("Usage: <code>/spread TICKER [call|put]</code>" + chr(10)
@@ -4458,7 +4529,12 @@ def _tg_cmd_enter(parts: list) -> None:
         cash, an existing position or working order, earnings inside the hold
         window, sub-$1 price, and a risk charge over MAX_TRADE_LOSS_PCT.
     """
-    _tk = (parts[1].upper().strip() if len(parts) > 1 else "")
+    _raw = (parts[1].strip() if len(parts) > 1 else "")
+    _tk = _resolve_ticker_alias(_raw)
+    if _raw and not _tk:
+        send_telegram(f"❌ /enter: could not resolve {_raw!r} to a tradable "
+                      "symbol. Try the ticker.")
+        return
     if not _tk:
         send_telegram("Usage: <code>/enter TICKER [stop%] [limit]</code>" + chr(10)
                       + f"Sizes at {MANUAL_ENTRY_EQUITY_PCT:.0%} of equity with a "
@@ -4861,13 +4937,20 @@ def _interpret_plain_english(text: str) -> tuple[str, str]:
     _clean = (text or "").strip()
     if not _clean or _clean.startswith("/") or len(_clean) > 200:
         return "", ""
+    # "Spacex/netflix" is one token to the model, matches no company, and the
+    # "do not invent arguments" rule then correctly makes it answer null -- so
+    # the real phrase the operator typed on 2026-10-21 came back unclear while
+    # the same sentence with one name worked. A slash between two words is an
+    # operator writing a list, not a path, so split it into words and let the
+    # "pick the first" rule do its job.
+    _clean = re.sub(r"(?<=[A-Za-z])/(?=[A-Za-z])", " or ", _clean)
     try:
         _menu = "\n".join(f"/{c} — {d}" for c, d in TELEGRAM_COMMANDS)
         _prompt = (
             "Map the user's message to exactly one command from this trading bot's menu.\n\n"
             f"{_menu}\n\n"
             "Rules: include arguments the command needs (a ticker, a number) when the "
-            "message supplies them. If the message does not clearly correspond to one "
+            "message supplies them. A company NAME is a valid argument: pass it through unchanged and the caller resolves it to a ticker. If the message names SEVERAL companies, pick the FIRST and still return the command. If the message does not clearly correspond to one "
             "command, return null. Do not invent commands or arguments.\n\n"
             f"Message: {_clean}\n\n"
             'Answer ONLY with JSON: {"command": "/status" or null, "why": "<=12 words"}')

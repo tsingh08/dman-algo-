@@ -28347,11 +28347,134 @@ class TestSpreadOnDemand(unittest.TestCase):
         self.assertAlmostEqual(stored["max_loss"], 93.0, places=2)
 
     # --- the control surface -----------------------------------------------
-    def test_it_is_registered_dispatched_and_confirm_gated(self):
-        self.assertIn("spread", a.NL_CONFIRM_REQUIRED)
+    def test_it_is_registered_and_dispatched(self):
         self.assertIn("spread", [c for c, _d in a.TELEGRAM_COMMANDS])
         self.assertIn('_cmd == "spread"', inspect.getsource(a))
+
+    def test_it_is_deliberately_not_confirm_gated(self):
+        """I gated it first and that was wrong. NL_CONFIRM_REQUIRED stops a
+        plain-English interpretation from RUNNING a command, and the line is
+        "does it submit an order". /spread submits nothing -- it prices a plan
+        and ends with "Reply YES TICKER", a separate message with its own
+        matcher. Gating it made English echo the command back instead of
+        quoting the trade, which defeated the purpose without making anything
+        safer."""
+        self.assertNotIn("spread", a.NL_CONFIRM_REQUIRED)
+        self.assertIn("YES {_tk}", inspect.getsource(a._tg_cmd_spread))
+        for submits in ("buy", "enter", "close"):
+            self.assertIn(submits, a.NL_CONFIRM_REQUIRED, submits)
 
     def test_the_automatic_path_stays_off(self):
         """This command existing must not be read as re-arming the scan."""
         self.assertFalse(a.ENABLE_EARNINGS_SPREADS)
+
+class TestPlainEnglishReachesTheSpreadDesk(unittest.TestCase):
+    """The operator wants to type "I want to do the debit spread option play
+    for Spacex/netflix" and get a priced plan back. Three things were in the
+    way, and all three were mine.
+
+    1. /spread was in NL_CONFIRM_REQUIRED, so an interpretation echoed the
+       command instead of running it. Wrong line: /spread places nothing, it
+       prices a plan and ends with "Reply YES TICKER", and that YES is a
+       separate message with its own matcher. /buy and /enter stay gated
+       because they submit immediately.
+    2. The model answered /spread NETFLIX and /spread TESLA -- company names,
+       not tickers. A wrong symbol on a real order is not something to
+       delegate to a model that is also guessing at intent, and the failure is
+       quiet: /spread NETFLIX reports "no usable price", which reads as a data
+       problem rather than a resolution problem. So the model picks the
+       COMMAND and _resolve_ticker_alias() resolves the SYMBOL.
+    3. "Spacex/netflix" is one token, matches no company, and the "do not
+       invent arguments" rule then correctly produced null -- so the exact
+       sentence the operator typed came back unclear while the same sentence
+       with one name worked."""
+
+    # --- the symbol, resolved deterministically ---------------------------
+    def test_company_names_resolve(self):
+        for raw, want in (("Netflix", "NFLX"), ("netflix", "NFLX"),
+                          ("SPACEX", "SPCX"), ("Spacex", "SPCX"),
+                          ("tesla", "TSLA"), ("facebook", "META"),
+                          ("nvidia", "NVDA"), ("coreweave", "CRWV")):
+            self.assertEqual(a._resolve_ticker_alias(raw), want, raw)
+
+    def test_a_real_ticker_passes_through_unchanged(self):
+        for t in ("NFLX", "META", "NVDA", "SPCX"):
+            self.assertEqual(a._resolve_ticker_alias(t), t)
+
+    def test_an_exact_symbol_beats_an_alias(self):
+        """META is both a ticker and a company name. The ticker must win, so a
+        real symbol that happens to spell a word is never rewritten."""
+        self.assertEqual(a._resolve_ticker_alias("META"), "META")
+        self.assertIn("META", a.TICKER_SECTOR)
+
+    def test_a_dollar_prefix_is_tolerated(self):
+        self.assertEqual(a._resolve_ticker_alias("$NFLX"), "NFLX")
+
+    def test_an_unknown_name_resolves_to_nothing(self):
+        """Not to a guess. An unresolvable name must stop the command, not
+        reach the broker as garbage."""
+        cl = MagicMock()
+        cl.get_asset.side_effect = Exception("asset not found")
+        with patch.object(a, "get_alpaca_client", return_value=cl), \
+             patch.object(a, "_log_swallowed"):
+            self.assertEqual(a._resolve_ticker_alias("ZZZZNOTREAL"), "")
+        self.assertEqual(a._resolve_ticker_alias(""), "")
+
+    def test_any_tradable_symbol_works_without_being_listed(self):
+        """The alias map never has to be exhaustive."""
+        asset = MagicMock()
+        asset.tradable = True
+        cl = MagicMock()
+        cl.get_asset.return_value = asset
+        with patch.object(a, "get_alpaca_client", return_value=cl):
+            self.assertEqual(a._resolve_ticker_alias("XYZQ"), "XYZQ")
+
+    def test_an_untradable_asset_is_refused(self):
+        asset = MagicMock()
+        asset.tradable = False
+        cl = MagicMock()
+        cl.get_asset.return_value = asset
+        with patch.object(a, "get_alpaca_client", return_value=cl):
+            self.assertEqual(a._resolve_ticker_alias("XYZQ"), "")
+
+    # --- the commands use it ----------------------------------------------
+    def test_spread_and_enter_both_resolve_names(self):
+        for fn in (a._tg_cmd_spread, a._tg_cmd_enter):
+            self.assertIn("_resolve_ticker_alias(_raw)", inspect.getsource(fn))
+
+    def test_an_unresolvable_name_stops_the_command(self):
+        cl = MagicMock()
+        cl.get_asset.side_effect = Exception("nope")
+        with patch.object(a, "get_alpaca_client", return_value=cl), \
+             patch.object(a, "send_telegram") as tg, \
+             patch.object(a, "_log_swallowed"), \
+             contextlib.redirect_stdout(io.StringIO()):
+            a._tg_cmd_spread(["/spread", "Nonsenseco"])
+        self.assertIn("could not resolve", tg.call_args[0][0])
+
+    # --- the gate -----------------------------------------------------------
+    def test_spread_may_run_from_an_interpretation(self):
+        """It quotes; it does not trade. The YES trades."""
+        self.assertNotIn("spread", a.NL_CONFIRM_REQUIRED)
+
+    def test_the_commands_that_actually_submit_stay_gated(self):
+        for c in ("buy", "enter", "close", "halt"):
+            self.assertIn(c, a.NL_CONFIRM_REQUIRED, c)
+
+    def test_the_offer_still_requires_an_explicit_yes(self):
+        """The safety property that makes ungating /spread correct."""
+        self.assertIn("YES {_tk}", inspect.getsource(a._tg_cmd_spread))
+
+    # --- the slash list ----------------------------------------------------
+    def test_a_slash_joined_pair_is_split_before_the_model_sees_it(self):
+        src = inspect.getsource(a._interpret_plain_english)
+        self.assertIn('/(?=[A-Za-z])', src)
+
+    def test_a_leading_slash_is_still_a_command_not_prose(self):
+        """The normaliser must not turn /status into prose."""
+        self.assertEqual(a._interpret_plain_english("/status"), ("", ""))
+
+    def test_the_prompt_tells_the_model_to_pass_names_through(self):
+        src = inspect.getsource(a._interpret_plain_english)
+        self.assertIn("company NAME", src)
+        self.assertIn("pick the FIRST", src)

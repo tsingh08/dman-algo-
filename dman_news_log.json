@@ -1,167 +1,5 @@
 [
   {
-    "ts": "2026-10-20T12:10:29.522303-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "AMD And Intel Collaborate To Combine x86 CPU Optimization Work For PyTorch In oneDNN, Open-Source Deep Learning Library Governed By Unified Acceleration Foundation",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T12:11:06.719806-04:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "Truist Securities Maintains Buy on Fortinet, Raises Price Target to $200",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T12:20:22.427534-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "Live On CNBC, Kevin Simpson Announces Bought More UnitedHealth Group",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T12:21:15.404384-04:00",
-    "symbols": [
-      "AAPL",
-      "AMZN",
-      "META",
-      "MSFT",
-      "NFLX",
-      "NVDA",
-      "QQQ",
-      "SPCX",
-      "SPY",
-      "TSLA"
-    ],
-    "headline": "408x Oversubscribed AI IPO Crashes 32%\u2014Democratic Sweep Prospects Trigger Selling in Data Center Stocks",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T12:27:54.561667-04:00",
-    "symbols": [
-      "AAPL",
-      "QCOM"
-    ],
-    "headline": "Qualcomm Plans Global Layoffs Starting November",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T12:28:23.983206-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Earnings on Tap: These 8 Congress Members Who Own Shares Could be Watching Closely",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T12:28:37.742425-04:00",
-    "symbols": [
-      "MSCI"
-    ],
-    "headline": "MSCI Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T12:28:37.745184-04:00",
-    "symbols": [
-      "MSCI"
-    ],
-    "headline": "MSCI Jumps After Q3 Revenue Beat Led by Its Index Business",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T12:28:38.054349-04:00",
-    "symbols": [
-      "VG"
-    ],
-    "headline": "This American Electric Power Analyst Turns Bullish; Here Are Top 5 Upgrades For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T12:28:38.057222-04:00",
-    "symbols": [
-      "VG"
-    ],
-    "headline": "Wells Fargo Upgrades Venture Global to Overweight, Raises Price Target to $21",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T12:28:41.515606-04:00",
-    "symbols": [
-      "COIN",
-      "MARA",
-      "MSTR"
-    ],
-    "headline": "Shares of crypto-linked companies are trading higher amid a rise in Bitcoin.",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T12:32:38.196758-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Iran Tells Pakistan It Has Nothing New To Say To U.S.",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T12:37:16.630709-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Stock of the Day: Where is the Bottom for NVIDIA?",
-    "source": "benzinga",
-    "tag": "held",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T12:37:29.738069-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Iran Security Chief Says No Talks Unless U.S. Builds Trust",
-    "source": "benzinga",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T12:37:58.860363-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Stock Moves Higher: What&#39;s Going On?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-20T12:38:30.867014-04:00",
     "symbols": [
       "AAPL"
@@ -5035,5 +4873,155 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-21T14:02:12.127678-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Mubadala Bio and Lilly Announce Landmark Agreement to Advance Pharmaceutical Contract Manufacturing in Abu Dhabi",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-21T14:02:12.432263-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Ordered to Pay $25 Billion in New Mexico Cambridge Analytica Case",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-21T14:03:12.155910-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Music Unveils Refreshed Visual Identity",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-21T14:03:12.412175-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan's Turkish Brokerage Unit to Surrender Operating License",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-21T14:03:12.637623-04:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "Deutsche Bank Reaffirms Buy Rating for Arista Networks",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-21T14:03:12.916981-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab's Maxwell Spacecraft Successfully Launched for NASA Demonstration",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-21T14:03:13.196923-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Highlights AI Growth and Data Center Expansion Plans",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-21T14:03:13.430827-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Supermicro Reports Preliminary September Quarter Gross Margin Update",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-21T14:03:13.669786-04:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "BofA Securities Adjusts Occidental Petroleum Price Target",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-21T14:03:13.919392-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Constellation Energy Recognized for Brand Trust Gains in Texas Market",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-21T14:03:14.157512-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "RBC Analyst Comments on Biktarvy Pricing Impact",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-21T14:03:14.161846-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "TD Cowen Maintains Buy Rating on Gilead Sciences",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-21T14:03:14.429375-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Strategy Inc Increases Preferred Stock Buyback Program to $3 Billion",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-21T14:03:14.670458-04:00",
+    "symbols": [
+      "OKLO"
+    ],
+    "headline": "Citi Maintains Oklo Inc. With Hold Rating, Adjusts Price Target",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-21T14:03:14.913116-04:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Cloudflare Updates Firewall Rules in Response to Emerging PHP Vulnerabilities",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

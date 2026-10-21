@@ -28039,3 +28039,142 @@ class TestAnOptionCanRestAStopAfterAll(unittest.TestCase):
         self.assertIn("_ensure_option_broker_stops()", inspect.getsource(a))
         dm = io.open("dman_daemon.py", encoding="utf-8").read()
         self.assertIn("algo._ensure_option_broker_stops()", dm)
+
+class TestABasketStopHadToBeMovedByHand(unittest.TestCase):
+    """A basket stop sat wherever the fill put it. Nothing ever raised it.
+
+    That is precisely how IOVA ran to +6.6% and was closed at +0.3% -- its
+    floor never moved, so the whole excursion was handed back and the only
+    thing that could have ended the trade was a -10% stop. The dip basket
+    shipped with an entry expiry, a time exit and a one-time gap reprice, and
+    no trail at all.
+
+    DIP_BASKET_TRAIL_PCT is the one number in the file chosen by measurement
+    rather than argument: tools/exit_policy_study.py replayed 110 signals on
+    real minute paths, found 2-6% all within half a point of each other, and
+    5% is the middle of that flat region. The tightest value (2%) scored best
+    and is deliberately NOT used -- it stops out 100 of 110, which on a
+    negative-mean sample says "leaving sooner loses less", not "trailing
+    works"."""
+
+    def _run(self, row, highs, dates, resting_stop=197.98, side="sell"):
+        import pandas as pd
+        df = pd.DataFrame({"High": highs, "Close": highs, "Open": highs,
+                           "Low": [h * 0.99 for h in highs],
+                           "Volume": [1e6] * len(highs)},
+                          index=pd.to_datetime(dates))
+        o = MagicMock()
+        o.id = "stop1"
+        o.side = side
+        o.stop_price = resting_stop
+        cl = MagicMock()
+        cl.get_orders.return_value = [o]
+        out = {}
+        with patch.object(a, "fetch_df", return_value=df), \
+             patch.object(a, "get_alpaca_client", return_value=cl), \
+             patch.object(a, "_log_swallowed"), \
+             contextlib.redirect_stdout(io.StringIO()) as buf:
+            a._dip_basket_ratchet_stop(row, out)
+        return out, cl, buf.getvalue()
+
+    def _row(self, fill=215.20, entry_date="2026-10-19"):
+        return {"ticker": "NVDA", "fill_px": fill, "entry_date": entry_date,
+                "status": "open"}
+
+    def test_it_raises_the_stop_to_the_trail(self):
+        """The live case: peak 219.62, 5% under it is 208.64, against a
+        resting 197.98."""
+        out, cl, printed = self._run(
+            self._row(), highs=[210.0, 219.62], dates=["2026-10-19", "2026-10-20"])
+        cl.replace_order_by_id.assert_called_once()
+        req = cl.replace_order_by_id.call_args[0][1]
+        self.assertAlmostEqual(float(req.stop_price), 208.64, places=2)
+        self.assertEqual(out["ratcheted"], ["NVDA"])
+        self.assertIn("197.98 -> 208.64", printed)
+
+    def test_it_never_lowers_a_stop(self):
+        """A drawdown must not loosen anything. The peak falls out of the
+        window only if someone rewrites history; the stop still holds."""
+        out, cl, _p = self._run(
+            self._row(), highs=[205.0, 203.0], dates=["2026-10-19", "2026-10-20"],
+            resting_stop=197.98)
+        # 5% under a 205 peak is 194.75, below the resting 197.98
+        cl.replace_order_by_id.assert_not_called()
+        self.assertNotIn("ratcheted", out)
+
+    def test_the_initial_stop_stays_the_floor_early_in_a_trade(self):
+        """Before price has run, the trail sits under the 8% stop and nothing
+        should happen -- not a replace to a looser level."""
+        out, cl, _p = self._run(
+            self._row(), highs=[215.2], dates=["2026-10-19"])
+        cl.replace_order_by_id.assert_not_called()
+
+    def test_it_measures_the_peak_from_entry_not_from_the_whole_series(self):
+        """A high from BEFORE the entry is not this trade's peak. Using it
+        would place the stop above a level the position never saw."""
+        out, cl, _p = self._run(
+            self._row(entry_date="2026-10-20"),
+            highs=[300.0, 219.62], dates=["2026-10-19", "2026-10-20"])
+        req = cl.replace_order_by_id.call_args[0][1]
+        self.assertAlmostEqual(float(req.stop_price), 208.64, places=2)
+
+    def test_it_uses_highs_not_closes(self):
+        """The excursion is what the trail is protecting; a close understates
+        it. IOVA's +6.6% was a high and its best CLOSE was +4.59% -- which is
+        exactly how the zone trail failed to arm."""
+        src = inspect.getsource(a._dip_basket_ratchet_stop)
+        self.assertIn('_df["High"]', src)
+        self.assertNotIn('_df["Close"]', src)
+
+    def test_it_ignores_a_buy_side_order(self):
+        out, cl, _p = self._run(
+            self._row(), highs=[210.0, 219.62],
+            dates=["2026-10-19", "2026-10-20"], side="buy")
+        cl.replace_order_by_id.assert_not_called()
+
+    def test_it_replaces_rather_than_cancelling(self):
+        """A cancel would open a PENDING_CANCEL window where the broker holds
+        the shares and the position has no stop -- the exact state that left
+        PGEN and IOVA stuck. A PATCH has no such window."""
+        src = inspect.getsource(a._dip_basket_ratchet_stop)
+        self.assertIn("replace_order_by_id", src)
+        self.assertNotIn("cancel_order", src)
+
+    def test_a_row_with_no_fill_or_date_does_nothing(self):
+        for row in ({"ticker": "NVDA", "fill_px": 0, "entry_date": "2026-10-19"},
+                    {"ticker": "NVDA", "fill_px": 215.2, "entry_date": ""},
+                    {"ticker": "", "fill_px": 215.2, "entry_date": "2026-10-19"}):
+            out, cl, _p = self._run(row, highs=[219.62], dates=["2026-10-19"])
+            cl.replace_order_by_id.assert_not_called()
+
+    def test_a_broker_error_is_swallowed(self):
+        import pandas as pd
+        # TWO bars: _dip_basket_ratchet_stop returns early on len(df) < 2,
+        # so a one-bar fixture never reaches the broker and the first version
+        # of this test proved nothing.
+        df = pd.DataFrame({"High": [210.0, 219.62], "Close": [210.0, 219.62],
+                           "Open": [210.0, 219.62], "Low": [205.0, 210.0],
+                           "Volume": [1e6, 1e6]},
+                          index=pd.to_datetime(["2026-10-19", "2026-10-20"]))
+        cl = MagicMock()
+        cl.get_orders.side_effect = RuntimeError("alpaca 500")
+        with patch.object(a, "fetch_df", return_value=df), \
+             patch.object(a, "get_alpaca_client", return_value=cl), \
+             patch.object(a, "_log_swallowed") as sw, \
+             contextlib.redirect_stdout(io.StringIO()):
+            a._dip_basket_ratchet_stop(self._row(), {})
+        sw.assert_called_once()
+
+    def test_the_manager_ratchets_every_open_row_before_the_horizon(self):
+        src = inspect.getsource(a.run_dip_basket_manage)
+        self.assertIn("_dip_basket_ratchet_stop(_r, out)", src)
+        # and it must run BEFORE the "still holding" continue, or it never runs
+        i = src.index("_dip_basket_ratchet_stop(_r, out)")
+        j = src.index('out["open"].append', i)
+        self.assertLess(i, j)
+
+    def test_the_trail_is_the_middle_of_the_measured_flat_region(self):
+        """Not the best-scoring value. 2% won the study and stops out 100 of
+        110 signals, which is a sample artefact, not an edge."""
+        self.assertGreaterEqual(a.DIP_BASKET_TRAIL_PCT, 3.0)
+        self.assertLessEqual(a.DIP_BASKET_TRAIL_PCT, 6.0)

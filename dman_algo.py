@@ -23366,6 +23366,26 @@ DIP_BASKET_STOP_PCT = 0.08
 # fill at or above the limit leaves it slightly WIDER than 8%, which is the
 # operator's 5-10% band and not worth an order amendment.
 DIP_BASKET_STOP_MIN_PCT = 0.065
+# Trail distance from the peak, and the ONLY number in this file chosen by the
+# minute-path study rather than by argument. tools/exit_policy_study.py
+# replayed 110 labelled signals bar by bar on real intraday paths:
+#
+#     as-traded (fixed stop + T1)   -3.18%   25% win
+#     trail 6% from peak            -0.90%
+#     trail 5% from peak            -0.75%
+#     trail 3% from peak            -0.63%
+#     trail 2% from peak            -0.45%   stop=100 of 110
+#
+# The tightest value wins, and that is exactly why it is not used. The ranking
+# is near-monotone in tightness on a sample whose mean is negative, which says
+# "leaving sooner loses less", not "trailing works" -- and the 2% trail stops
+# out 100 of 110, cutting losses faster rather than capturing winners. 2-6%
+# all land within half a point of each other, so the edge of that range is
+# noise-fitting. 5% is the middle of the flat region.
+#
+# Without this, a basket stop sat wherever the fill put it. That is how IOVA
+# ran to +6.6% and was closed at +0.3%: nothing ever moved its floor up.
+DIP_BASKET_TRAIL_PCT = 5.0
 
 
 def _sessions_between(d0: date, d1: date) -> int:
@@ -23641,6 +23661,57 @@ def run_pending_exits(notify: bool = True) -> dict:
     return out
 
 
+def _dip_basket_ratchet_stop(row: dict, out: dict) -> None:
+    """Raise a filled row's resting stop to DIP_BASKET_TRAIL_PCT under its peak.
+
+    Only ever raises. The initial 8% stop is the floor, so early in a trade
+    when the trail would sit below it nothing happens, and a drawdown never
+    loosens anything.
+
+    Uses ReplaceOrderRequest, which is an in-place PATCH -- no cancel, so no
+    PENDING_CANCEL window where the broker holds the shares and the position
+    is unprotected. That distinction is why a resting stop can be ratcheted at
+    all and why closing a position cannot be done the same way.
+    """
+    _tk = row.get("ticker", "")
+    _entry = float(row.get("fill_px") or row.get("limit") or 0)
+    _ed = row.get("entry_date") or ""
+    if not _tk or _entry <= 0 or not _ed:
+        return
+    try:
+        _df = fetch_df(_tk, 260)
+        if _df is None or len(_df) < 2:
+            return
+        _idx = [str(x)[:10] for x in _df.index]
+        _hi = [float(x) for x in _df["High"]]
+        _since = [_hi[i] for i in range(len(_idx)) if _idx[i] >= _ed]
+        if not _since:
+            return
+        _peak = max(_since)
+        _want = round(_peak * (1 - DIP_BASKET_TRAIL_PCT / 100.0), 2)
+        if _want <= 0:
+            return
+        from alpaca.trading.requests import GetOrdersRequest, ReplaceOrderRequest
+        from alpaca.trading.enums import QueryOrderStatus
+        _client = get_alpaca_client()
+        for _o in _client.get_orders(filter=GetOrdersRequest(
+                symbols=[_tk], status=QueryOrderStatus.OPEN)):
+            if str(getattr(_o.side, "value", _o.side)).lower() != "sell":
+                continue
+            _cur = float(getattr(_o, "stop_price", 0) or 0)
+            if _cur <= 0 or _want <= _cur:
+                return          # never loosen, never churn
+            _client.replace_order_by_id(_o.id, ReplaceOrderRequest(stop_price=_want))
+            row["trail_stop"] = _want
+            out.setdefault("ratcheted", []).append(_tk)
+            print(f"  \u2934 {_tk} stop {_cur:.2f} -> {_want:.2f} "
+                  f"({DIP_BASKET_TRAIL_PCT:.0f}% under the {_peak:.2f} peak, "
+                  f"locking {(_want / _entry - 1) * 100:+.1f}%)")
+            return
+    except Exception as exc:
+        _log_swallowed("dip basket ratchet", exc)
+
+
 def _dip_basket_reprice_stop(row: dict, out: dict) -> None:
     """Move a filled row's stop to DIP_BASKET_STOP_PCT below its real fill.
 
@@ -23738,6 +23809,9 @@ def run_dip_basket_manage(notify: bool = True) -> dict:
                 _held = (_sessions_between(date.fromisoformat(_ed), _today)
                          if _ed else 0)
                 if _held < DIP_BASKET_HOLD_SESSIONS:
+                    # Before the horizon the only job is to keep the floor
+                    # moving up behind the price.
+                    _dip_basket_ratchet_stop(_r, out)
                     out["open"].append(f"{_tk}({_held}/{DIP_BASKET_HOLD_SESSIONS})")
                     continue
                 # A market order outside regular hours is rejected or
@@ -23780,6 +23854,7 @@ def run_dip_basket_manage(notify: bool = True) -> dict:
     print(f"  ⏱ dip basket: {len(out['closed'])} closed, "
           f"{len(out['expired'])} expired, {len(out['pending'])} awaiting fill"
           + (f", holding {', '.join(out['open'])}" if out["open"] else "")
+          + (f", ratcheted {', '.join(out['ratcheted'])}" if out.get("ratcheted") else "")
           + (f", {len(out['due'])} DUE at the next open ({', '.join(out['due'])})"
              if out["due"] else ""))
     return out

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-20T11:58:33.582173-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Michael Burry Sees a 2000-Style Rotation Out of the Market&#39;s Winners",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-20T11:58:34.757625-04:00",
     "symbols": [
       "PLTR"
@@ -5035,5 +5025,15 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-21T10:32:11.991859-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nebius Launches Public Live GPU Spot Pricing and Expands AI Builder Program",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1630,5 +1630,29 @@
     "pnl_pct": -0.47,
     "score": 69,
     "is_live": true
+  },
+  {
+    "ticker": "NFLX",
+    "date": "2026-10-21",
+    "bias": "LONG",
+    "setup": "Options Call NFLX261030C00073000",
+    "entry": 1.78,
+    "exit": 0.17,
+    "outcome": "LOSS",
+    "pnl_pct": -90.45,
+    "score": 0,
+    "is_live": true
+  },
+  {
+    "ticker": "NFLX",
+    "date": "2026-10-21",
+    "bias": "LONG",
+    "setup": "Options Put NFLX261030P00064000",
+    "entry": 1.48,
+    "exit": 0.42,
+    "outcome": "LOSS",
+    "pnl_pct": -71.62,
+    "score": 0,
+    "is_live": true
   }
 ]

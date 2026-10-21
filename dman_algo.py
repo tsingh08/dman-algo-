@@ -802,6 +802,14 @@ _TELEGRAM_SUPPRESSED = [0]       # counted so the EOD note can mention them
 # day-trade counting and NO exit management, so it is brought back under
 # management as a swing rather than left invisible.
 ADOPTED_SETUP = "Adopted (orphan reconciliation)"
+# A dip-basket entry adopted as an orphan used to come back labelled
+# ADOPTED_SETUP, which silently destroyed the only thing the basket exists to
+# produce. NVDA -- opened 2026-10-19 specifically to test the dip rule -- was
+# tracked as "Adopted (orphan reconciliation)" by 2026-10-20, so its result
+# would have landed in win-rate history attributed to orphan reconciliation
+# instead of to the rule under test. Adoption already preserves ZONE identity
+# through _bzone_entry_on_record(); this is the same idea for the basket.
+DIP_BASKET_SETUP = "Dip in Uptrend"
 # Only used when the broker has no stop at all, on a position being adopted.
 # Was 0.08. Moved below BZONE_CATASTROPHE_STOP_MIN_PCT on 2026-10-15 when the
 # operator set max loss to 5-10%: an 8% placeholder would then sit INSIDE the
@@ -16930,6 +16938,32 @@ def run_earnings_spread_scan() -> None:
             # a later scan cycle once an existing spread closes and frees up
             # room, not permanently silenced for the rest of today the way a
             # real sent offer is.
+            # PER-TRADE ceiling first. The cap below is an AGGREGATE one --
+            # total committed across every open and pending spread -- and until
+            # 2026-10-20 it was the only size check on this path, so one spread
+            # could legally take the whole 15%. MAX_TRADE_LOSS_PCT says no
+            # SINGLE trade may lose more than 10% of equity, and for a long
+            # debit structure the debit IS the maximum loss: CRWD on 2026-08-27
+            # went to exactly -100%. The NFLX strangle on 2026-10-20 paid $326
+            # on a $2,785 account -- 11.71%, legal under the aggregate cap and
+            # over the documented single-trade ceiling. Two caps claiming to
+            # govern the same risk, one of them honoured.
+            _per_trade_cap = get_effective_account() * MAX_TRADE_LOSS_PCT
+            if plan["max_loss"] > _per_trade_cap:
+                print(f"  \u23ed\ufe0f  {c['ticker']} earnings spread skipped — "
+                      f"${plan['max_loss']:.0f} max loss exceeds the "
+                      f"{MAX_TRADE_LOSS_PCT*100:.0f}% single-trade ceiling "
+                      f"(${_per_trade_cap:.0f})")
+                _pt_key = f"{c['ticker']}_EARNSPREAD_PERTRADE_{c['earn_date'].isoformat()}"
+                if not _is_alerted_today(_pt_key):
+                    _mark_alerted(_pt_key)
+                    send_telegram(
+                        f"\u23ed\ufe0f <b>{c['ticker']} earnings spread NOT offered</b> — "
+                        f"${plan['max_loss']:.0f} max loss is over the "
+                        f"{MAX_TRADE_LOSS_PCT*100:.0f}% single-trade ceiling "
+                        f"(${_per_trade_cap:.0f}). A long debit spread can lose all "
+                        f"of it — CRWD did, exactly.")
+                continue
             _committed = _earnings_spread_committed_risk(pending)
             _cap = get_effective_account() * EARNINGS_SPREAD_MAX_AGGREGATE_RISK_PCT
             if _committed + plan["max_loss"] > _cap:
@@ -23408,6 +23442,109 @@ def queue_manual_exit(ticker: str, reason: str) -> bool:
     return True
 
 
+# An options position's stop lived only in the tracker, enforced by the
+# daemon's poll. That is the same shape as the zone trail before it moved to
+# the broker -- and the measurement that forced that move was AMPL filling 2
+# cents off its trigger against RSKD's 2.43 POINTS, purely because one was a
+# resting order and the other was a poll.
+#
+# Options were assumed to be unable to rest a stop at all. Tested 2026-10-20
+# against the live account: a StopOrderRequest on NFLX261030C00073000 was
+# ACCEPTED. The assumption was wrong and had never been checked.
+#
+# This is deliberately a CATASTROPHE stop, not the real one. An option stop
+# triggers on the last trade and then sells at market into a spread that can
+# be very wide, so it is a bad PRIMARY exit -- the daemon's monitored stop,
+# fed by the live quote stream, is strictly better and stays primary. This
+# exists for the case the daemon is not there: a crashed session, a cancelled
+# job, the gap between passes. Same role as BZONE_CATASTROPHE_STOP_ATR.
+OPTION_CATASTROPHE_STOP_FRACTION = 0.25   # of entry premium -- a -75% floor
+
+
+def _ensure_option_broker_stops(notify: bool = True) -> dict:
+    """Rest a catastrophe stop at the broker for every tracked option.
+
+    Idempotent: it looks for an existing resting sell-stop on the exact OCC
+    symbol first, so repeated daemon passes place nothing. Never tightens an
+    existing one and never touches equities.
+    """
+    out = {"placed": [], "already": [], "failed": []}
+    _client = get_alpaca_client()
+    if _client is None:
+        return out
+    try:
+        from alpaca.trading.requests import StopOrderRequest, GetOrdersRequest
+        from alpaca.trading.enums import OrderSide, TimeInForce, QueryOrderStatus
+        _open = _client.get_orders(filter=GetOrdersRequest(
+            status=QueryOrderStatus.OPEN, limit=200))
+        _resting = {str(o.symbol).upper() for o in _open
+                    if str(getattr(o.side, "value", o.side)).lower() == "sell"
+                    and "stop" in str(getattr(o.order_type, "value", o.order_type) or "").lower()}
+        _held = {str(p.symbol).upper(): p for p in _client.get_all_positions()}
+        for _pos in PositionTracker().positions:
+            _occ = _position_identity(_pos.ticker, getattr(_pos, "setup", "") or "")
+            if not _is_option_position(getattr(_pos, "setup", "") or ""):
+                continue
+            if _is_spread_setup(getattr(_pos, "setup", "") or ""):
+                continue      # a leg stop on a spread can orphan the other side
+            _occ = str(_occ).upper()
+            if _occ not in _held:
+                continue
+            if _occ in _resting:
+                out["already"].append(_occ)
+                continue
+            _entry = float(getattr(_pos, "entry", 0) or 0)
+            _qty = abs(int(float(_held[_occ].qty)))
+            if _entry <= 0 or _qty < 1:
+                continue
+            _stop = round(_entry * OPTION_CATASTROPHE_STOP_FRACTION, 2)
+            if _stop < 0.01:
+                continue
+            try:
+                _o = _client.submit_order(StopOrderRequest(
+                    symbol=_occ, qty=_qty, side=OrderSide.SELL,
+                    stop_price=_stop, time_in_force=TimeInForce.GTC))
+                out["placed"].append(_occ)
+                print(f"  \U0001f6e1 {_occ} catastrophe stop ${_stop:.2f} "
+                      f"({OPTION_CATASTROPHE_STOP_FRACTION:.0%} of the "
+                      f"${_entry:.2f} entry) id={str(_o.id)[:8]}")
+            except Exception as _exc:
+                out["failed"].append(_occ)
+                _log_swallowed("option broker stop", _exc)
+    except Exception as exc:
+        _log_swallowed("option broker stops", exc)
+    if out["placed"] and notify:
+        send_telegram("\U0001f6e1 <b>Broker-side option stops placed</b>" + chr(10)
+                      + ", ".join(out["placed"]) + chr(10)
+                      + f"Catastrophe floor at {OPTION_CATASTROPHE_STOP_FRACTION:.0%} "
+                        "of entry. The daemon's monitored stop is still the primary "
+                        "exit; this only covers the daemon not being there.")
+    if out["placed"] or out["failed"]:
+        print(f"  \U0001f6e1 option stops: {len(out['placed'])} placed, "
+              f"{len(out['already'])} already resting, {len(out['failed'])} failed")
+    return out
+
+
+def _dip_basket_entry_on_record(symbol: str) -> bool:
+    """Was this symbol opened as a dip-basket entry?
+
+    The basket file is the record of intent, written at submission time, so it
+    survives whatever the tracker later says the setup was. Mirrors
+    _bzone_entry_on_record()'s reasoning: the setup STRING is not a reliable
+    carrier of strategy identity once adoption has been through it, and the
+    attribution is the entire output of a shadow-tracked experiment.
+    """
+    _sym = str(symbol or "").upper().strip()
+    if not _sym:
+        return False
+    try:
+        return any(str(r.get("ticker", "")).upper() == _sym
+                   for r in _dip_basket_load())
+    except Exception as _exc:
+        _log_swallowed("dip basket identity", _exc)
+        return False
+
+
 def _orphan_position_shim(symbol: str):
     """A minimal position object for something held at the broker but untracked.
 
@@ -27782,7 +27919,9 @@ def adopt_orphan_positions() -> int:
         pos = OpenPosition(
             ticker     = sym,
             bias       = "LONG" if is_long else "SHORT",
-            setup      = (f"{BZONE_SETUP} (adopted)" if _was_bzone else ADOPTED_SETUP),
+            setup      = (f"{BZONE_SETUP} (adopted)" if _was_bzone
+                          else f"{DIP_BASKET_SETUP} (adopted)" if _dip_basket_entry_on_record(sym)
+                          else ADOPTED_SETUP),
             entry      = round(entry, 4),
             stop       = round(stop, 4),
             target1    = round(entry + risk * 2.0, 4),
@@ -32059,6 +32198,7 @@ def main():
         run_dip_shadow()
         run_dip_basket_manage()
         run_pending_exits()
+        _ensure_option_broker_stops()
 
     elif args.mode == "bzone":
         run_breakout_zone_log()

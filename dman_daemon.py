@@ -1017,6 +1017,12 @@ def scan_loop() -> None:
                         algo.run_pending_exits()
                     except Exception as _pexc:
                         log(f"pending exits error: {_pexc}")
+                    # Options could not rest a stop at the broker -- that was
+                    # the assumption, and it was never tested. It is wrong.
+                    try:
+                        algo._ensure_option_broker_stops()
+                    except Exception as _oexc:
+                        log(f"option broker stops error: {_oexc}")
                     scan_ok = True
                 except Exception as exc:
                     log(f"scan error: {exc}")

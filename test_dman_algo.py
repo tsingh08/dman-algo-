@@ -27830,3 +27830,212 @@ class TestAMegaCapWasFiledWithTheShells(unittest.TestCase):
             with patch.object(mod.a, "DMAN_SMALLCAP_WATCHLIST",
                               list(mod.a.WATCHLIST)[:1]),                  patch.object(mod, "dollar_volume", return_value=4e6):
                 self.assertEqual(mod.audit(False), 1, "overlap must fail")
+
+class TestTwoCapsGovernedTheSameRisk(unittest.TestCase):
+    """EARNINGS_SPREAD_MAX_AGGREGATE_RISK_PCT is 15% across EVERY open and
+    pending spread. Until 2026-10-20 it was the only size check on that path,
+    so a single spread could legally take the whole 15% -- while
+    MAX_TRADE_LOSS_PCT says no one trade may lose more than 10% of equity.
+
+    For a long debit structure the debit IS the maximum loss, and CRWD on
+    2026-08-27 went to exactly -100%. The NFLX strangle paid $326 on a $2,785
+    account: 11.71%, legal under the aggregate cap and over the documented
+    single-trade ceiling. Two caps claiming to govern the same risk and only
+    one of them honoured."""
+
+    def test_the_per_trade_ceiling_is_tighter_than_the_aggregate_one(self):
+        """If this ever inverts, the per-trade check becomes dead code."""
+        self.assertLess(a.MAX_TRADE_LOSS_PCT,
+                        a.EARNINGS_SPREAD_MAX_AGGREGATE_RISK_PCT)
+
+    def test_the_nfl_x_sized_spread_would_now_be_refused(self):
+        """$326 against a $2,785 account is 11.71%."""
+        eq = 2785.0
+        self.assertGreater(326.0, eq * a.MAX_TRADE_LOSS_PCT)
+        self.assertLess(326.0, eq * a.EARNINGS_SPREAD_MAX_AGGREGATE_RISK_PCT)
+
+    def test_the_check_runs_before_the_aggregate_one(self):
+        """Order matters only for which message the operator gets, but the
+        per-trade ceiling is the harder rule so it should speak first."""
+        src = inspect.getsource(a)
+        _pt = src.index("_per_trade_cap = get_effective_account()")
+        _agg = src.index("_cap = get_effective_account() * EARNINGS_SPREAD_MAX_AGGREGATE_RISK_PCT")
+        self.assertLess(_pt, _agg)
+
+    def test_it_compares_max_loss_not_premium_paid(self):
+        src = inspect.getsource(a)
+        i = src.index("_per_trade_cap = get_effective_account()")
+        window = src[i:i + 400]
+        self.assertIn('plan["max_loss"] > _per_trade_cap', window)
+
+    def test_the_per_trade_cap_is_built_from_the_per_trade_constant(self):
+        """A mutation swapping in the AGGREGATE constant here survived the
+        first version of this class: every other assertion matched on the
+        variable NAME, which the swap leaves alone. The ceiling has to be the
+        10% one or the check silently becomes a no-op."""
+        src = inspect.getsource(a)
+        i = src.index("_per_trade_cap = get_effective_account()")
+        line = src[i:src.index(chr(10), i)]
+        self.assertIn("MAX_TRADE_LOSS_PCT", line)
+        self.assertNotIn("AGGREGATE", line)
+
+
+class TestAdoptionMustNotEraseTheExperiment(unittest.TestCase):
+    """NVDA was opened 2026-10-19 specifically to test the dip rule. By the
+    next day orphan adoption had relabelled it "Adopted (orphan
+    reconciliation)", so its result would have entered win-rate history
+    attributed to orphan reconciliation rather than to the rule under test --
+    destroying the only output a shadow-tracked experiment has.
+
+    Adoption already protects ZONE identity through _bzone_entry_on_record().
+    This is the same idea: the basket file is the record of intent, written at
+    submission, and it survives whatever the setup string later says."""
+
+    def test_a_basket_ticker_is_recognised(self):
+        import tempfile, json as _json
+        fd, path = tempfile.mkstemp(suffix=".json")
+        os.close(fd)
+        io.open(path, "w", encoding="utf-8").write(
+            _json.dumps([{"ticker": "NVDA", "status": "open"}]))
+        with patch.object(a, "DIP_BASKET_FILE", path):
+            self.assertTrue(a._dip_basket_entry_on_record("NVDA"))
+            self.assertTrue(a._dip_basket_entry_on_record("nvda"))
+            self.assertFalse(a._dip_basket_entry_on_record("BTE"))
+        os.unlink(path)
+
+    def test_an_empty_or_missing_file_is_not_a_crash(self):
+        with patch.object(a, "DIP_BASKET_FILE", "no_such_basket_file.json"), \
+             patch.object(a, "_log_swallowed"):
+            self.assertFalse(a._dip_basket_entry_on_record("NVDA"))
+        self.assertFalse(a._dip_basket_entry_on_record(""))
+
+    def test_adoption_consults_it_and_zones_still_win(self):
+        src = inspect.getsource(a.adopt_orphan_positions)
+        self.assertIn("_dip_basket_entry_on_record(sym)", src)
+        # BZONE first: a zone that also appears in the basket is still a zone.
+        self.assertLess(src.index("BZONE_SETUP"),
+                        src.index("_dip_basket_entry_on_record"))
+
+    def test_the_label_is_not_the_adopted_one(self):
+        self.assertNotIn(a.ADOPTED_SETUP, a.DIP_BASKET_SETUP)
+        self.assertIn("Dip", a.DIP_BASKET_SETUP)
+
+
+class TestAnOptionCanRestAStopAfterAll(unittest.TestCase):
+    """An options position's stop lived only in the tracker, enforced by the
+    daemon's poll -- the same shape as the zone trail before it moved to the
+    broker, and that move was forced by AMPL filling 2 cents off its trigger
+    against RSKD's 2.43 POINTS.
+
+    Options were assumed unable to rest a stop. Tested 2026-10-20 against the
+    live account: a StopOrderRequest on NFLX261030C00073000 was ACCEPTED. The
+    assumption was wrong and had never been checked.
+
+    It is a CATASTROPHE stop by design. An option stop triggers on the last
+    trade and then sells at market into a spread that can be very wide, so it
+    is a poor PRIMARY exit; the daemon's quote-fed stop stays primary and this
+    covers only the daemon not being there."""
+
+    def _run(self, tracked, held, resting=()):
+        cl = MagicMock()
+        cl.get_orders.return_value = [
+            SimpleNamespace(symbol=s, side="sell",
+                            order_type="stop") for s in resting]
+        cl.get_all_positions.return_value = [
+            SimpleNamespace(symbol=s, qty=q) for s, q in held]
+        order = MagicMock()
+        order.id = "stopid1"
+        cl.submit_order.return_value = order
+        tracker = MagicMock()
+        tracker.positions = tracked
+        with patch.object(a, "get_alpaca_client", return_value=cl), \
+             patch.object(a, "PositionTracker", return_value=tracker), \
+             patch.object(a, "send_telegram") as tg, \
+             patch.object(a, "_log_swallowed"), \
+             contextlib.redirect_stdout(io.StringIO()):
+            out = a._ensure_option_broker_stops(notify=True)
+        return out, cl, tg
+
+    def _opt(self, occ, entry=1.78, right="Call"):
+        p = MagicMock()
+        p.ticker, p.entry = occ.split("2")[0], entry
+        p.setup = "Options %s %s" % (right, occ)
+        return p
+
+    def test_a_floor_is_placed_at_a_fraction_of_entry(self):
+        occ = "NFLX261030C00073000"
+        out, cl, tg = self._run([self._opt(occ)], [(occ, "1")])
+        cl.submit_order.assert_called_once()
+        req = cl.submit_order.call_args[0][0]
+        self.assertEqual(req.symbol, occ)
+        self.assertAlmostEqual(float(req.stop_price),
+                               round(1.78 * a.OPTION_CATASTROPHE_STOP_FRACTION, 2),
+                               places=2)
+        self.assertEqual(out["placed"], [occ])
+        self.assertEqual(tg.call_count, 1)
+
+    def test_it_is_idempotent_against_an_existing_resting_stop(self):
+        """Repeated daemon passes must not stack orders."""
+        occ = "NFLX261030C00073000"
+        out, cl, tg = self._run([self._opt(occ)], [(occ, "1")], resting=(occ,))
+        cl.submit_order.assert_not_called()
+        self.assertEqual(out["already"], [occ])
+
+    def test_it_never_touches_equities(self):
+        eq = MagicMock()
+        eq.ticker, eq.entry, eq.setup = "NVDA", 215.2, "Dip in Uptrend (adopted)"
+        out, cl, tg = self._run([eq], [("NVDA", "1")])
+        cl.submit_order.assert_not_called()
+
+    def test_it_skips_a_spread_leg(self):
+        """A stop on one leg of a spread can leave the other side naked --
+        the same reason _refuse_orphaning_close() exists."""
+        occ = "NFLX261030C00073000"
+        p = self._opt(occ)          # keeps an "Options Call ..." setup so it
+                                    # PASSES _is_option_position and actually
+                                    # reaches the spread guard. The first
+                                    # version used an "Earnings Spread ..."
+                                    # string, which the options check rejected
+                                    # first -- so deleting the spread guard
+                                    # left the test green.
+        with patch.object(a, "_is_option_position", return_value=True),              patch.object(a, "_is_spread_setup", return_value=True):
+            out, cl, tg = self._run([p], [(occ, "1")])
+        cl.submit_order.assert_not_called()
+
+    def test_a_position_not_actually_held_is_skipped(self):
+        occ = "NFLX261030C00073000"
+        out, cl, tg = self._run([self._opt(occ)], [])
+        cl.submit_order.assert_not_called()
+
+    def test_a_zero_entry_is_skipped_rather_than_stopped_at_a_penny(self):
+        occ = "NFLX261030C00073000"
+        out, cl, tg = self._run([self._opt(occ, entry=0.0)], [(occ, "1")])
+        cl.submit_order.assert_not_called()
+
+    def test_a_rejected_order_is_recorded_not_raised(self):
+        occ = "NFLX261030C00073000"
+        cl = MagicMock()
+        cl.get_orders.return_value = []
+        cl.get_all_positions.return_value = [SimpleNamespace(symbol=occ, qty="1")]
+        cl.submit_order.side_effect = RuntimeError("422 stop not permitted")
+        tracker = MagicMock()
+        tracker.positions = [self._opt(occ)]
+        with patch.object(a, "get_alpaca_client", return_value=cl), \
+             patch.object(a, "PositionTracker", return_value=tracker), \
+             patch.object(a, "send_telegram"), \
+             patch.object(a, "_log_swallowed") as sw, \
+             contextlib.redirect_stdout(io.StringIO()):
+            out = a._ensure_option_broker_stops(notify=False)
+        self.assertEqual(out["failed"], [occ])
+        sw.assert_called()
+
+    def test_the_floor_is_below_the_monitored_stop_not_above_it(self):
+        """If the broker floor were tighter than the daemon's stop it would
+        become the primary exit -- a market sell into a wide option spread,
+        which is exactly what it must not be."""
+        self.assertLess(a.OPTION_CATASTROPHE_STOP_FRACTION, 0.5)
+
+    def test_both_callers_are_wired(self):
+        self.assertIn("_ensure_option_broker_stops()", inspect.getsource(a))
+        dm = io.open("dman_daemon.py", encoding="utf-8").read()
+        self.assertIn("algo._ensure_option_broker_stops()", dm)

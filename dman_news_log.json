@@ -1,205 +1,5 @@
 [
   {
-    "ts": "2026-10-21T09:25:45.379397-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Needham Maintains Buy on Coinbase Global, Raises Price Target to $205",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-21T09:25:45.384097-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "SpaceX Becoming a Bitcoin Hodler? Elon Musk-Led  Rocket Company Keeps All BTC, Now Worth $1.57 Billion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-21T09:25:45.458665-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin, Ethereum, XRP, Dogecoin Gain as Oil Prices and Treasury Yields Cool: Analyst Says BTC &#39;Building Bottom,&#39; but Spot Demand &#39;Still Weak&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-21T09:25:45.525630-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Nvidia Showcases Selected Autonomous-Mobility Use Cases On Its Hyperion Computing Platform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:45.597683-04:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "Deutsche Bank Adjusts e.l.f. Beauty Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-21T09:25:45.602884-04:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "E-L Financial Corporation Limited to Participate in Algoma Central Corporation's Private Placement",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-21T09:25:45.672814-04:00",
-    "symbols": [
-      "DECK"
-    ],
-    "headline": "Jefferies Adjusts Price Target on Deckers Outdoor to $120 From $130",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-21T09:25:45.677478-04:00",
-    "symbols": [
-      "DECK"
-    ],
-    "headline": "Evercore ISI Adjusts Price Target on Deckers Outdoor to $90 From $108",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-21T09:25:45.756674-04:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "Morgan Stanley Adjusts Price Target on Vistra to $226 From $227",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:45.761361-04:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "Raymond James Adjusts Price Target on Vistra to $176 From $182",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:45.829531-04:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "Arete Downgrades Fortinet to Sell",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-21T09:25:45.834197-04:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "Truist Securities Raises Fortinet Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-21T09:25:45.936891-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "This Equinix Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-21T09:25:45.941489-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "DA Davidson Initiates Coverage On Zscaler with Neutral Rating, Announces Price Target of $215",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-21T09:25:45.945992-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Zscaler Supports Nvidia OpenShell Reference Architecture For Safe AI Agents",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-21T09:25:46.015993-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Comparing Airbnb With Industry Competitors In Hotels, Restaurants &amp; Leisure Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:46.141830-04:00",
-    "symbols": [
-      "WOLF"
-    ],
-    "headline": "Susquehanna Maintains Neutral on Wolfspeed, Lowers Price Target to $25",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-21T09:25:46.205004-04:00",
-    "symbols": [
-      "LUNR"
-    ],
-    "headline": "Space Stocks Coast Through SpaceX Q3 Print: Rocket Lab, Firefly Steady",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-21T09:25:46.274008-04:00",
-    "symbols": [
-      "RCAT"
-    ],
-    "headline": "Steyr Motors AG Signs Business Combination Agreement with Red Cat Holdings, Inc.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-21T09:25:46.340979-04:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "Morgan Stanley Adjusts Price Target on Constellation Energy to $378 From $369",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-21T09:25:46.408662-04:00",
     "symbols": [
       "NRG"
@@ -4995,6 +4795,206 @@
       "XXII"
     ],
     "headline": "22nd Century Group Expects Q3 Net Revenue Of ~$4.8M, Up 66% Sequentially",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T10:46:44.326572-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Scotiabank Maintains Sector Perform on Meta Platforms, Raises Price Target to $650",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T10:46:44.331251-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Platforms\u2019 $25B Penalty Has a Second Bill: $3.5B a Year",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T10:46:44.335676-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Just Burned Cash for the First Time Since Its IPO Year: Wall Street Raised Its Targets Anyway",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T10:46:48.110981-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Starts Construction On $5B Production Site In Richmond, Virginia",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T10:46:50.978550-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "Chinese Regulator Convenes E-Commerce Platforms to Discuss Quality Standards",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T10:46:51.782383-04:00",
+    "symbols": [
+      "TLN"
+    ],
+    "headline": "TD Cowen Initiates Coverage On Talen Energy with Buy Rating, Announces Price Target of $475",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T10:46:53.867529-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Natural Gas Storage 77B Vs 80B Est.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T10:46:54.358586-04:00",
+    "symbols": [
+      "MLTX"
+    ],
+    "headline": "Healthcare Services Posts Upbeat Q3 Earnings, Joins Pool, Spotify And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T10:46:54.462723-04:00",
+    "symbols": [
+      "HXL"
+    ],
+    "headline": "Hexcel Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T10:46:54.467327-04:00",
+    "symbols": [
+      "HXL"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T10:46:54.471839-04:00",
+    "symbols": [
+      "HXL"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T10:46:54.476257-04:00",
+    "symbols": [
+      "HXL"
+    ],
+    "headline": "Hexcel Affirms FY2026 Adj EPS Guidance of $2.30-$2.40 vs $2.40 Est; Affirms FY2026 Sales Guidance of $2.025B-$2.125B vs $2.094B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T10:46:54.480621-04:00",
+    "symbols": [
+      "HXL"
+    ],
+    "headline": "Hexcel Q3 Adj. EPS $0.50 Beats $0.49 Estimate, Sales $496.400M Miss $502.761M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T10:46:54.554552-04:00",
+    "symbols": [
+      "FPS"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T10:46:54.559125-04:00",
+    "symbols": [
+      "FPS"
+    ],
+    "headline": "Forgent Power Solutions Appoints Amy Ard As CFO; Ryan Fiedler To Transition To External Consultant",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T10:46:54.667528-04:00",
+    "symbols": [
+      "TTMI"
+    ],
+    "headline": "TTM Technologies Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T10:46:54.672131-04:00",
+    "symbols": [
+      "TTMI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T10:46:54.676544-04:00",
+    "symbols": [
+      "TTMI"
+    ],
+    "headline": "TTM Technologies Initiates Preliminary FY2027 Guidance With Expected Adj EPS Of $8.10-$8.90 vs $7.24 Est; Sees Sales Of $6.500B-$6.750B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T10:46:54.680974-04:00",
+    "symbols": [
+      "TTMI"
+    ],
+    "headline": "TTM Technologies Sees FY2026 Adj EPS $4.97-$5.03 vs $4.81 Est; Raises FY2026 Sales Guidance from $4.000B to $4.470B-$4.490B vs $4.413B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T10:46:54.685443-04:00",
+    "symbols": [
+      "TTMI"
+    ],
+    "headline": "TTM Technologies Q3 Adj. EPS $1.46 Beats $1.25 Estimate, Sales $1.204B Beat $1.130B Estimate",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

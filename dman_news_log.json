@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-10-21T09:25:47.370409-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Chevron Moves to Take Over Iraqi Oil Field",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:47.442980-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "Amazon, Twilio, eBay And A Health Care Stock: CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-21T09:25:47.524415-04:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "Barclays Maintains Overweight on Intuitive Surgical, Raises Price Target to $500",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:47.529217-04:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "RBC Capital Maintains Outperform on Intuitive Surgical, Lowers Price Target to $550",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:47.533744-04:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "Mizuho Maintains Neutral on Intuitive Surgical, Lowers Price Target to $400",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:47.538274-04:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "Netflix, Intuitive Surgical, Pegasystems And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:47.543304-04:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "Robinhood To Rally Over 28%? Here Are 10 Top Analyst Forecasts For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:47.619633-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Novo Resources Corp. Reports Soil Geochemistry Results at Belltopper Project",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:47.749079-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Southwest General Integrating Oracle Health Patient Accounting, Oracle Health Data Intelligence, Oracle Fusion Cloud Applications",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:47.754317-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "US Electricity Prices Are \u2018Skyrocketing,\u2019 Says Kobeissi Letter as AI Boom Drives Demand, Marjorie Taylor Greene Questions AI Companies\u2019 Promises of Thousands in \u2018Free\u2019 Monthly Payments",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-21T09:25:47.787362-04:00",
     "symbols": [
       "ORCL"
@@ -4998,5 +4898,105 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T11:02:18.080521-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Rockwell Automation Adds Support for NVIDIA Nemotron Models",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T11:02:18.085736-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly and Company Breaks Ground on $5B Integrated Manufacturing Site in Virginia",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T11:02:18.089174-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "IQBAR Launches Indulgent Protein Bites at Costco",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T11:02:18.097553-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "ModelOp Integrates Microsoft Agent 365 and Copilot Studio into AI Governance Platform",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T11:02:18.100679-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Merck Collaborates with Microsoft, NVIDIA, and Dawn Health on Patient Support Programs",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T11:02:18.103577-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft and Boehringer Ingelheim Announce Strategic AI Collaboration",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T11:02:18.106898-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Announces 2-for-1 Stock Split and $825 Billion AI Infrastructure Commitment",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T11:02:18.111772-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Shell and ExxonMobil Joint Venture Infineum Explores $8 Billion Sale",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T11:02:18.120974-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "TerraPay Integrates with Kinexys by J.P. Morgan",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T11:02:18.123926-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Chase Upgrades CME Group Inc. to Buy",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

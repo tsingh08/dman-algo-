@@ -1,315 +1,5 @@
 [
   {
-    "ts": "2026-10-22T11:36:42.936646-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Meta Platforms, Lowers Price Target to $995",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T11:36:53.675416-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "$100 Invested In JPMorgan Chase 15 Years Ago Would Be Worth This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T11:48:09.897817-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Why Is Adobe Stock Surging on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T11:48:10.064671-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Posts On Truth Social &#34;Iran is doing everything they can to drive up the price of Oil prior to the U.S. Midterm Election. They are even making up fake hits, mines, and everything else, because more Oil is coming through the Hormuz Strait now than it did even prior to the beginning of the Conflict....&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T11:48:10.937054-04:00",
-    "symbols": [
-      "CHOW"
-    ],
-    "headline": "ChowChow Cloud International Holdings Limited Provides Update on Private Placement",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-22T11:48:10.939855-04:00",
-    "symbols": [
-      "CHOW"
-    ],
-    "headline": "ChowChow Cloud International Holdings Limited Addresses Unusual Trading Activity",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-22T11:57:17.164993-04:00",
-    "symbols": [
-      "FR"
-    ],
-    "headline": "First Industrial Realty Narrows FY2026 FFO Guidance from $3.12-$3.20 to $3.15-$3.19 vs $3.16 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T11:57:17.169765-04:00",
-    "symbols": [
-      "FR"
-    ],
-    "headline": "First Industrial Realty Q3 FFO $0.81 Misses $0.82 Estimate, Sales $197.115M Beat $195.848M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T11:57:17.241977-04:00",
-    "symbols": [
-      "OII"
-    ],
-    "headline": "Oceaneering International Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T11:57:17.246432-04:00",
-    "symbols": [
-      "OII"
-    ],
-    "headline": "Oceaneering International Q3 Adj. EPS $0.50 Misses $0.58 Estimate, Sales $784.554M Beat $773.229M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T12:10:34.081883-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "&#39;Elon Musk Makes $1 Billion Investment In Ellison\u2019s Skydance&#39; - Semafor Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T12:10:34.084833-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "\u2018If You\u2019re Not in a Body Anymore, There\u2019s Definitely Gonna Be Some Difference\u2019 \u2014 Elon Musk Says We Could Upload Ourselves Into Humanoids to Live Forever",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T12:10:35.222541-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "RBC Capital Maintains Outperform on Meta Platforms, Raises Price Target to $800",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T12:10:35.672332-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Blackstone CEO Dismisses AI Bubble Fears: &#39;Critical Scarcity of Supply Has Intensified&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T12:10:35.869737-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "&#39;Elon Musk Makes $1 Billion Investment In Ellison\u2019s Skydance&#39; - Semafor Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T12:10:35.873055-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "\u2018If You\u2019re Not in a Body Anymore, There\u2019s Definitely Gonna Be Some Difference\u2019 \u2014 Elon Musk Says We Could Upload Ourselves Into Humanoids to Live Forever",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T12:10:55.453046-04:00",
-    "symbols": [
-      "CSX"
-    ],
-    "headline": "RBC Capital Maintains Outperform on CSX, Raises Price Target to $54",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T12:11:53.348727-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "&#39;Elon Musk Makes $1 Billion Investment In Ellison\u2019s Skydance&#39; - Semafor Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T12:11:53.351964-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "\u2018If You\u2019re Not in a Body Anymore, There\u2019s Definitely Gonna Be Some Difference\u2019 \u2014 Elon Musk Says We Could Upload Ourselves Into Humanoids to Live Forever",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T12:11:54.422729-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "RBC Capital Maintains Outperform on Meta Platforms, Raises Price Target to $800",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T12:11:54.826108-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Blackstone CEO Dismisses AI Bubble Fears: &#39;Critical Scarcity of Supply Has Intensified&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T12:11:55.045892-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "RBC Capital Reiterates Outperform on Tesla, Maintains $480 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T12:11:55.049726-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "&#39;Elon Musk Makes $1 Billion Investment In Ellison\u2019s Skydance&#39; - Semafor Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T12:11:55.053255-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "\u2018If You\u2019re Not in a Body Anymore, There\u2019s Definitely Gonna Be Some Difference\u2019 \u2014 Elon Musk Says We Could Upload Ourselves Into Humanoids to Live Forever",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T12:12:07.966188-04:00",
-    "symbols": [
-      "MLTX"
-    ],
-    "headline": "Watching MoonLake Immunotherapeutics; Shares Trading Higher After AbbVie Reports Phase 3 INTREPID Results For Competing Hidradenitis Suppurativa Drug; MoonLake Awaits FDA Review of Its Tri-Specific Nanobody Sonelokimab",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T12:12:09.259422-04:00",
-    "symbols": [
-      "KALU"
-    ],
-    "headline": "Kaiser Aluminum Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T12:12:09.262936-04:00",
-    "symbols": [
-      "KALU"
-    ],
-    "headline": "Tesla, Lam Research, Rollins And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T12:12:09.265919-04:00",
-    "symbols": [
-      "KALU"
-    ],
-    "headline": "Kaiser Aluminum Q3 Adj. EPS $1.89 Misses $2.36 Estimate, Sales $1.214B Inline",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T12:12:09.415057-04:00",
-    "symbols": [
-      "NOK"
-    ],
-    "headline": "Nokia&#39;s AI Business Soars 126%, Data Center Boom Is Becoming a Big Profit Story",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T12:12:09.418492-04:00",
-    "symbols": [
-      "NOK"
-    ],
-    "headline": "Nokia Sees Q4 Sales $7.118B-$7.355B vs $7.300B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T12:12:09.421602-04:00",
-    "symbols": [
-      "NOK"
-    ],
-    "headline": "Nokia Expects Q4 Net Sales Up 20%-24% QoQ, 2026 Comparable Operating Profit Of EUR 2.1B-EUR 2.6B Above Mid-Point On Strong Q4",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-22T12:12:09.424606-04:00",
     "symbols": [
       "NOK"
@@ -4998,5 +4688,315 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T15:05:25.365587-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "What&#39;s Going On with AST SpaceMobile Shares On Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T15:05:26.545973-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "DA Davidson Maintains Buy on Meta Platforms, Raises Price Target to $800",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T15:05:27.152322-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Gov. Ron DeSantis Says Florida Will Legalize Tesla&#39;s Flying Roadster So It Can &#39;Leapfrog Golf Carts&#39; \u2014 But His Term Is Almost Over",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T15:05:27.155030-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "CLSA Upgrades Tesla to Hold, Raises Price Target to $400",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T15:05:29.156409-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "SanDisk Stock Drops as AI Cost Worries Mount",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T15:05:30.910724-04:00",
+    "symbols": [
+      "AFRM"
+    ],
+    "headline": "Affirm Announces Multi-Year Partnership with Sam's Club",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T15:05:31.078506-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Why Is Moderna Stock Sinking Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T15:05:31.470570-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Starts Construction On $5B Production Site In Richmond, Virginia",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T15:05:35.892217-04:00",
+    "symbols": [
+      "PDD"
+    ],
+    "headline": "China's State Administration for Market Regulation Convenes E-Commerce Platforms",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:05:36.970387-04:00",
+    "symbols": [
+      "TLN"
+    ],
+    "headline": "TD Cowen Initiates Coverage On Talen Energy with Buy Rating, Announces Price Target of $475",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:05:39.545089-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "New Zealand Commerce Commission Caps Commercial Credit Card Interchange Fees",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T15:05:42.224752-04:00",
+    "symbols": [
+      "QGEN"
+    ],
+    "headline": "JP Morgan Downgrades Qiagen to Neutral, Lowers Price Target to $52",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:05:42.227754-04:00",
+    "symbols": [
+      "QGEN"
+    ],
+    "headline": "Baird Maintains Outperform on Qiagen, Raises Price Target to $52",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:05:42.591518-04:00",
+    "symbols": [
+      "MLTX"
+    ],
+    "headline": "Healthcare Services Posts Upbeat Q3 Earnings, Joins Pool, Spotify And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:05:42.796906-04:00",
+    "symbols": [
+      "FPS"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:05:42.799657-04:00",
+    "symbols": [
+      "FPS"
+    ],
+    "headline": "Forgent Power Solutions Appoints Amy Ard As CFO; Ryan Fiedler To Transition To External Consultant",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:05:43.331185-04:00",
+    "symbols": [
+      "HXL"
+    ],
+    "headline": "Hexcel Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T15:05:43.334106-04:00",
+    "symbols": [
+      "HXL"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T15:05:44.873573-04:00",
+    "symbols": [
+      "HDV"
+    ],
+    "headline": "Chevron Stock Hits New 52-Week High - Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:05:45.698501-04:00",
+    "symbols": [
+      "ROP"
+    ],
+    "headline": "Meta Tumbles 6% on AI Spending Fears, 10-Year Yield Falls Below 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:05:45.701382-04:00",
+    "symbols": [
+      "ROP"
+    ],
+    "headline": "Roper Techs Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:05:45.703951-04:00",
+    "symbols": [
+      "ROP"
+    ],
+    "headline": "Roper Technologies Sees Q4 Adj EPS $5.95-$6.00 vs $5.91 Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:05:45.706541-04:00",
+    "symbols": [
+      "ROP"
+    ],
+    "headline": "Roper Technologies Raises FY2026 Adj EPS Guidance from $22.15-$22.30 to $22.35-$22.40 vs $22.22 Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:05:45.709143-04:00",
+    "symbols": [
+      "ROP"
+    ],
+    "headline": "Roper Techs Q3 Adj. EPS $5.89 Beats $5.79 Estimate, Sales $2.172B Inline",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:05:46.683764-04:00",
+    "symbols": [
+      "NAIL"
+    ],
+    "headline": "Reported Earlier, U.S. Treasury Department Issues Proposed Regulations To Make Homeownership More Affordable; From January 7, 2027, Large Institutional Investors Generally May Not Purchase A Single-Family Home",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:05:47.012089-04:00",
+    "symbols": [
+      "KSS"
+    ],
+    "headline": "Gordon Haskett Upgrades Kohl&#39;s to Buy, Announces $27 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:05:47.015074-04:00",
+    "symbols": [
+      "KSS"
+    ],
+    "headline": "10 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:05:47.208616-04:00",
+    "symbols": [
+      "LBRT"
+    ],
+    "headline": "Liberty Energy Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-22T15:05:47.346771-04:00",
+    "symbols": [
+      "INIO"
+    ],
+    "headline": "INNIO Receives 620 MW Follow-On Order From A U.S. Data Center Operator; New Order Brings Cumulative Orders From The Customer To ~1.72 GW",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:05:47.349624-04:00",
+    "symbols": [
+      "INIO"
+    ],
+    "headline": "Tesla, Lam Research, Rollins And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:05:47.556167-04:00",
+    "symbols": [
+      "GTY"
+    ],
+    "headline": "Getty Realty Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

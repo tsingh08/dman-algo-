@@ -124,6 +124,18 @@
       "ticker": "ROP",
       "setup": "Gap & Hold",
       "bias": "LONG",
+      "entry": 437.48,
+      "stop": 419.57,
+      "target1": 527.0,
+      "target2": 580.72,
+      "score": 100,
+      "date": "2026-10-22",
+      "timestamp": "2026-10-22T15:07:06.538600-04:00"
+    },
+    {
+      "ticker": "ROP",
+      "setup": "Gap & Hold",
+      "bias": "LONG",
       "entry": 435.43,
       "stop": 418.55,
       "target1": 519.83,

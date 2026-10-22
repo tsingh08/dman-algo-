@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-22T09:26:07.355156-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "Spotify Says All Q3 KPIs Meeting Or Exceeding Guidance; Added 11M MAUs Vs. Guidance Of 11M, While Subscriber Net Additions Of 6M Were 1M Ahead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T09:26:07.523327-04:00",
-    "symbols": [
-      "CELH"
-    ],
-    "headline": "Deutsche Bank Adjusts Celsius Holdings Price Target to $32",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:07.734547-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "&#39;Kashagan Arbitration Court Invalidates $12 Billion of Cost Claim&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T09:26:07.957594-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "$100 Invested In Rocket Lab 5 Years Ago Would Be Worth This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:07.960234-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Why Is Rocket Lab Stock Surging on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-22T09:26:07.963049-04:00",
     "symbols": [
       "RKLB"
@@ -4998,5 +4948,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:47:15.004143-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "AbbVie Reports Topline Results From Phase 3 INTREPID Study Evaluating Lutikizumab, Investigational Dual-Variable-Domain IL 1\u03b1/1\u03b2 Antagonist, In Hidradenitis Suppurativa; Study Met Primary Endpoint And 8 Ranked Secondary Endpoints",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:47:15.010354-04:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "B of A Securities Maintains Neutral on Biogen, Raises Price Target to $244",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:47:15.037485-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "BioNTech Enters Clinical Trial Collaboration And Supply Agreement With Gilead Sciences To Evaluate Pumitamig In Combination With Sacituzumab Govitecan As First-Line Treatment For Patients With Locally Advanced Or Metastatic PD-L1 Low Or Negative Triple-negative Breast Cancer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:47:15.043644-04:00",
+    "symbols": [
+      "HIMS"
+    ],
+    "headline": "Hims & Hers Launches Injectable and Oral Testosterone Treatments",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-22T13:47:15.051956-04:00",
+    "symbols": [
+      "CELH"
+    ],
+    "headline": "Deutsche Bank Adjusts Celsius Holdings Price Target to $32",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

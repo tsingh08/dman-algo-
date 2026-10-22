@@ -1,135 +1,5 @@
 [
   {
-    "ts": "2026-10-22T09:26:08.959959-04:00",
-    "symbols": [
-      "CLSK"
-    ],
-    "headline": "This Constellation Energy Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T09:26:08.965131-04:00",
-    "symbols": [
-      "CLSK"
-    ],
-    "headline": "Canaccord Genuity Initiates Coverage On Cleanspark with Buy Rating, Announces Price Target of $20",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T09:26:09.370525-04:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "e.l.f. Beauty Announces Earnings Release Date",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:09.373236-04:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "E-L Financial to Participate in $20 Million Private Placement of Algoma Central Debentures",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:09.500823-04:00",
-    "symbols": [
-      "DECK"
-    ],
-    "headline": "Deckers Outdoor Likely To Report Lower Q2 Earnings; These Most Accurate Analysts Revise Forecasts Ahead Of Earnings Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T09:26:09.503483-04:00",
-    "symbols": [
-      "DECK"
-    ],
-    "headline": "Procter &amp; Gamble, Western Digital On Deck Thursday As Growth, AI Demand Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T09:26:09.673995-04:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "HSBC Initiates Coverage On Vistra with Buy Rating, Announces Price Target of $190",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:09.796340-04:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "Fortinet Devices Targeted in Recent Cybersecurity Campaign",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:09.953168-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "What&#39;s Driving Zscaler Stock Higher Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T09:26:10.117352-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "American Express, Airbnb Ink Collaboration To Bring Airbnb Listing To Amex Travel",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:10.119855-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Evaluating Airbnb Against Peers In Hotels, Restaurants &amp; Leisure Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:10.285803-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Alibaba Drops 3% Against Broader Market Rally: AI Investments Clash with Technical Downtrend",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:10.316904-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "9 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-22T09:26:10.468341-04:00",
     "symbols": [
       "JD"
@@ -4998,5 +4868,135 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-22T14:02:18.080679-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "J.P. Morgan Asset Management Launches Tokenized Money Market Funds on Solana",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T14:02:18.237220-04:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "Arista Networks Named Overall LAN Solution of the Year at 2026 Mobile Breakthrough Awards",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T14:02:18.253748-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "TradePMR by Robinhood Integrates ICE Connect Wealth into Fusion Platform",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T14:02:18.261970-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "28 North Consulting and Lumin Partner to Integrate Document Workflows with Salesforce",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T14:02:18.266861-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "REI Systems Launches GovGrants\u00ae Public Sector on Salesforce",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T14:02:28.390359-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T14:02:28.398238-04:00",
+    "symbols": [
+      "CLSK"
+    ],
+    "headline": "This Constellation Energy Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-22T14:02:28.402714-04:00",
+    "symbols": [
+      "CLSK"
+    ],
+    "headline": "Canaccord Genuity Initiates Coverage On Cleanspark with Buy Rating, Announces Price Target of $20",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-22T14:02:28.409863-04:00",
+    "symbols": [
+      "DECK"
+    ],
+    "headline": "Deckers Outdoor Likely To Report Lower Q2 Earnings; These Most Accurate Analysts Revise Forecasts Ahead Of Earnings Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T14:02:28.415036-04:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "HSBC Initiates Coverage On Vistra with Buy Rating, Announces Price Target of $190",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T14:02:28.419733-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Fortinet Devices Targeted in Recent Cybersecurity Campaign",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T14:02:28.425950-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "American Express, Airbnb Ink Collaboration To Bring Airbnb Listing To Amex Travel",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T14:02:28.430418-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Evaluating Airbnb Against Peers In Hotels, Restaurants &amp; Leisure Industry",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

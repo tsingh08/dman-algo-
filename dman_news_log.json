@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-22T09:45:46.576034-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Platform&#39;s 5-year Credit Default Swaps Hit All-Time High, Last At 114.5 Basis Points",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:45:46.578984-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Top Economists Warn California\u2019s Billionaire Tax Could Backfire, Wealthy Residents Leaving Could Cost the State $39 Billion More Than It Collects: &#39;Will Not Fulfill the Primary Functions&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:45:46.582137-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "TD Cowen Maintains Buy on Meta Platforms, Lowers Price Target to $850",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:45:46.843800-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Top Economists Warn California\u2019s Billionaire Tax Could Backfire, Wealthy Residents Leaving Could Cost the State $39 Billion More Than It Collects: &#39;Will Not Fulfill the Primary Functions&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:45:47.276650-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "TD Cowen Reiterates Buy on Tesla, Maintains $460 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-22T09:45:47.279552-04:00",
     "symbols": [
       "TSLA"
@@ -4998,5 +4948,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T14:36:11.126359-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Qualcomm Schedules Fourth Quarter and Fiscal 2026 Earnings Release and Conference Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T14:36:11.133098-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "DeFi Development Corp.'s CHAD Preferred Stock Now Available on Robinhood",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T14:36:11.143748-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Gilead Sciences to Present New Clinical Data at The Liver Meeting 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T14:36:11.167467-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "MoffettNathanson Adjusts DraftKings Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T14:36:11.187391-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Mastercard Joins Global Operation Against AI-Powered Fraud Networks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

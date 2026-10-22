@@ -1,315 +1,5 @@
 [
   {
-    "ts": "2026-10-22T09:26:04.152330-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Snowflake Automation Integration Announced for AI Cost Management",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T09:26:04.315769-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Stagwell Expands Partnership With Palantir Over AI-Powered Marketing Services",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:04.318306-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Cathie Wood Adds Netflix After Earnings Selloff, Ark Keeps Selling Palantir Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:04.472416-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Supermicro Launches NVIDIA Vera CPU Rack With 256 Liquid-Cooled CPUs, Supporting Up To 22,500 Agent Sandboxes Per Rack For Agentic AI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:04.474887-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:04.608247-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Tigress Financial Initiates Coverage On Broadcom with Buy Rating, Announces Price Target of $600",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:04.791196-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Lam Research Stock Sinks After Guidance Falls Short of Whispers: Cantor Calls It a &#39;Top Pick&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:04.911039-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron CTO Downplays New Memory Chip Design as \u2018Complex and Costly\u2019 While Chinese Rival CXMT Advances DRAM Technology",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:04.913526-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Needham Reiterates Buy on Micron Technology, Maintains $1650 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:04.915963-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Introduces Quarterly Profit-Linked Bonuses Worldwide Following Taiwan Union Demands For Profit-Sharing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:05.087100-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Micron CTO Downplays New Memory Chip Design as \u2018Complex and Costly\u2019 While Chinese Rival CXMT Advances DRAM Technology",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:05.089542-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Stock Futures Sink, Asian Markets Turn Red as US, Israel Draw Up Post-Midterm Iran Strike Plans: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:05.250176-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "CEO.CA's 'Inside the Boardroom' Features Marvel Biosciences President Dr. Mark Williams",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:05.413345-04:00",
-    "symbols": [
-      "KLAC"
-    ],
-    "headline": "Lam Research Stock Sinks After Guidance Falls Short of Whispers: Cantor Calls It a &#39;Top Pick&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:05.588269-04:00",
-    "symbols": [
-      "RIOT"
-    ],
-    "headline": "Tesla Doesn\u2019t Sell a Single Bitcoin in Q3 as Crypto Stash Jumps 42% to $962 Million",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T09:26:05.755110-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Robinhood Receives Approval to Launch Retail Investing Platform in the Middle East",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:05.757535-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Robinhood, Coinbase Face a New Rival as Bybit Eyes US Entry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:05.883696-04:00",
-    "symbols": [
-      "AFRM"
-    ],
-    "headline": "Affirm Partners Exclusively With SAM\u2019s Club In Multi-Year Deal, Launching Buy Now, Pay Later Online Before Expanding In-Store In 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:06.039835-04:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "BMO Capital Maintains Market Perform on Enphase Energy, Lowers Price Target to $28",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T09:26:06.245750-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Jefferies Adjusts Price Target on Moderna to $215 From $150",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:06.429252-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "AbbVie Reports Topline Results From Phase 3 INTREPID Study Evaluating Lutikizumab, Investigational Dual-Variable-Domain IL 1\u03b1/1\u03b2 Antagonist, In Hidradenitis Suppurativa; Study Met Primary Endpoint And 8 Ranked Secondary Endpoints",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:06.597262-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "If You Invested $100 In Eli Lilly Stock 20 Years Ago, You Would Have This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:06.600332-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Leerink Partners Maintains Outperform on Eli Lilly, Raises Price Target to $1316",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:06.729396-04:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "B of A Securities Maintains Neutral on Biogen, Raises Price Target to $244",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:06.893333-04:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "BioNTech Enters Clinical Trial Collaboration And Supply Agreement With Gilead Sciences To Evaluate Pumitamig In Combination With Sacituzumab Govitecan As First-Line Treatment For Patients With Locally Advanced Or Metastatic PD-L1 Low Or Negative Triple-negative Breast Cancer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:07.050270-04:00",
-    "symbols": [
-      "VRTX"
-    ],
-    "headline": "Vortex Energy Corp. Receives Government Approval for Ground Gravity Survey",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:07.213772-04:00",
-    "symbols": [
-      "HIMS"
-    ],
-    "headline": "Hims & Hers Launches Injectable and Oral Testosterone Treatments",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-22T09:26:07.345289-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "Spotify Technology Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T09:26:07.347881-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Dow Jones, Nasdaq 100 Futures Drop Following Asian Market Sell-off, Middle East Tensions\u2014 NFLX, SPCX, SMCI in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T09:26:07.350340-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "Spotify Co-CEO Gustav Soderstrom Says Consumption Is Growing 90% Q/Q, And Millions Of People Create Mixes Of Their Own Each Month; Audiobooks Are Almost As Big As Music In Sweden",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T09:26:07.352742-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "Spotify Co-CEO Alex Norstrom: Nearly 50% Of Sweden\u2019s Population Pays For Its Service; Says Fewer Than 4% Of The Global Population Pays For Its Service; Paid Penetration In Emerging Markets Remains Below 3%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-22T09:26:07.355156-04:00",
     "symbols": [
       "SPOT"
@@ -4995,6 +4685,316 @@
       "PG"
     ],
     "headline": "Meta Tumbles 6% on AI Spending Fears, 10-Year Yield Falls Below 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:40:38.039323-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Analyst Sees an Empire Taking Shape in Orbit",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:40:38.300429-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:40:38.747808-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:40:39.101132-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:40:39.233061-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Morgan Stanley Maintains Equal-Weight on Tesla, Raises Price Target to $410",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:40:39.237824-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:40:39.242303-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "SpaceX Analyst Sees an Empire Taking Shape in Orbit",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:40:39.672823-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:40:39.789932-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Stagwell Expands Partnership With Palantir Over AI-Powered Marketing Services",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:40:40.007182-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Tigress Financial Initiates Coverage On Broadcom with Buy Rating, Announces Price Target of $600",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:40:40.121758-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Lam Research Stock Sinks After Guidance Falls Short of Whispers: Cantor Calls It a &#39;Top Pick&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:40:40.236577-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "What&#39;s Going On With Micron Technology Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:40:40.358335-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:40:40.470358-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Micron CTO Downplays New Memory Chip Design as \u2018Complex and Costly\u2019 While Chinese Rival CXMT Advances DRAM Technology",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:40:40.475813-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Stock Futures Sink, Asian Markets Turn Red as US, Israel Draw Up Post-Midterm Iran Strike Plans: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:40:40.798586-04:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "Lam Research Stock Sinks After Guidance Falls Short of Whispers: Cantor Calls It a &#39;Top Pick&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:40:41.051629-04:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "Tesla Doesn\u2019t Sell a Single Bitcoin in Q3 as Crypto Stash Jumps 42% to $962 Million",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T13:40:41.170793-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Receives Approval to Launch Retail Investing Platform in the Middle East",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:40:41.370913-04:00",
+    "symbols": [
+      "AFRM"
+    ],
+    "headline": "Affirm Partners Exclusively With SAM\u2019s Club In Multi-Year Deal, Launching Buy Now, Pay Later Online Before Expanding In-Store In 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:40:42.458740-04:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T13:40:42.791887-04:00",
+    "symbols": [
+      "DDOG"
+    ],
+    "headline": "&#39;Datadog Recently Offered To Buy Cloud Cybersecurity Startup Upwind Security For Nearly $4 Billion; Upwind, Which Hasn\u2019t Accepted The Offer, Is Finalizing A $300 Million Funding Round At A Roughly $3.8 Billion Valuation&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:40:43.269321-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "10 Industrials Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:40:44.322476-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "10 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:40:45.342820-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "10 Industrials Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:40:45.825597-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "10 Industrials Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:40:47.509070-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "The Israel Defense Forces, U.S. Military Have Drawn Up Plans To Renew Joint Strikes On Iran In The Coming Weeks After The U.S. Midterm Elections",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:40:53.252690-04:00",
+    "symbols": [
+      "CSX"
+    ],
+    "headline": "B of A Securities Maintains Buy on CSX, Raises Price Target to $57",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:40:53.366392-04:00",
+    "symbols": [
+      "AVEX"
+    ],
+    "headline": "Oppenheimer Initiates Coverage On AEVEX with Outperform Rating, Announces Price Target of $21",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T13:40:53.371142-04:00",
+    "symbols": [
+      "AVEX"
+    ],
+    "headline": "AEVEX Stock Bounces Back: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T13:40:53.375696-04:00",
+    "symbols": [
+      "AVEX"
+    ],
+    "headline": "RBC Capital Maintains Outperform on AEVEX, Lowers Price Target to $22",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T13:40:53.719033-04:00",
+    "symbols": [
+      "PG"
+    ],
+    "headline": "QUICK SPARK: Procter &amp; Gamble Stock Eyes Best Day Since 2020 \u2013 The Rally Is Hiding Something Bigger",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

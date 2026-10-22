@@ -1,185 +1,5 @@
 [
   {
-    "ts": "2026-10-22T09:26:03.258011-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google CEO Says Fully Self-Improving AI Is Still a Long Way Off",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:03.260549-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Citizens Maintains Market Outperform on Alphabet, Lowers Price Target to $450",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:03.263005-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Ted Lieu Pushes Congress to Act as NSA Warns of Critical Cyber Vulnerabilities: \u2018We Need More Cybersecurity Personnel\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:03.265477-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Voltus, Google Expand Agreement To Construct 1 GW Virtual Power Plant In PJM Grid",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:03.267901-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google\u2019s Ex-CEO Says China Trails US by 6 Months in AI Race, but Could Still Win Due to This Strategy: \u2018We\u2019re Already Losing\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:03.460253-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Earnings Are a Week Away: Here\u2019s What to Expect",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:03.464755-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "NextDC&#39;s 40% Crash Is the Warning Shot for Data Center Trade",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:03.467220-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Anthropic Could Take Major IPO Step as Soon as Friday: What Investors Need to Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:03.469658-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Reported Earlier, Amazon Threat Intelligence Detects PHP2Shell Exploitation Attempt On Oct. 17, Four Days Before Public Disclosure Of CVE-2026-109618, CVE-2026-109619; Urges Immediate Upgrade",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:03.472058-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "United Airlines CEO Says Starlink Is a Key Factor in Customers\u2019 Flight Choices\u2014Elon Musk Responds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:03.635414-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Piper Sandler Maintains Overweight on Tesla, Raises Price Target to $475",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:03.637915-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "StoneX Reiterates Buy on Tesla, Maintains $475 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:03.640382-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla Got Trump Tariff Refunds, and Elon Musk Isn\u2019t Sitting on the Cash \u2014 CFO Says Money Is Going Into...",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:03.642791-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "&#39;Almost Everything Elon Musk Touches\u2019 Grows 10x and More, Says Top Analyst as He Makes the Case for Tesla-SpaceX Merger",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:03.645233-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Dow Jones, Nasdaq 100 Futures Drop Following Asian Market Sell-off, Middle East Tensions\u2014 NFLX, SPCX, SMCI in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:03.807243-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Pivotal Research Maintains Hold on Netflix, Lowers Price Target to $65",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-22T09:26:03.809999-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Cathie Wood Adds Netflix After Earnings Selloff, Ark Keeps Selling Palantir Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-22T09:26:03.980791-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Eric Schmidt Wrote a Check to Anthropic Before the AI Boom: Here\u2019s How Big the Payoff Could Get (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-22T09:26:04.152330-04:00",
     "symbols": [
       "SNOW"
@@ -4995,6 +4815,186 @@
       "ONON"
     ],
     "headline": "Wolfe Research Initiates Coverage On On Holding with Outperform Rating, Announces Price Target of $47",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:29:19.125364-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Meta Tumbles 6% on AI Spending Fears, 10-Year Yield Falls Below 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:29:19.268746-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Meta Tumbles 6% on AI Spending Fears, 10-Year Yield Falls Below 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:29:19.405802-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "BMO Capital Maintains Market Perform on Meta Platforms, Raises Price Target to $685",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:29:19.410853-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Tumbles 6% on AI Spending Fears, 10-Year Yield Falls Below 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:29:19.557437-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google CEO Says Fully Self-Improving AI Is Still a Long Way Off",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:29:19.562152-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Citizens Maintains Market Outperform on Alphabet, Lowers Price Target to $450",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:29:19.685761-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Meta Tumbles 6% on AI Spending Fears, 10-Year Yield Falls Below 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:29:20.638129-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Meta Tumbles 6% on AI Spending Fears, 10-Year Yield Falls Below 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:29:21.725269-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Watching Moderna; Shares Continue Seeing Downside Volume Following Alleged Leak Of ESMO 2026 Abstract With Melanoma Vaccine Trial Data Evaluating Intismeran Autogene/Keytruda Combo Showing Reduced Risk Of Recurrence/Death By 42%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:29:22.123845-04:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "BofA Global Research Raises Biogen Price Target to $244",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:29:22.569301-04:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "Meta Tumbles 6% on AI Spending Fears, 10-Year Yield Falls Below 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-22T13:29:23.734849-04:00",
+    "symbols": [
+      "DECK"
+    ],
+    "headline": "Meta Tumbles 6% on AI Spending Fears, 10-Year Yield Falls Below 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T13:29:26.073824-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Meta Tumbles 6% on AI Spending Fears, 10-Year Yield Falls Below 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:29:27.401936-04:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "Meta Tumbles 6% on AI Spending Fears, 10-Year Yield Falls Below 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:29:27.961487-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Meta Tumbles 6% on AI Spending Fears, 10-Year Yield Falls Below 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:29:28.076173-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Meta Tumbles 6% on AI Spending Fears, 10-Year Yield Falls Below 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T13:29:32.930665-04:00",
+    "symbols": [
+      "ALLE"
+    ],
+    "headline": "Meta Tumbles 6% on AI Spending Fears, 10-Year Yield Falls Below 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:29:34.077336-04:00",
+    "symbols": [
+      "PG"
+    ],
+    "headline": "Meta Tumbles 6% on AI Spending Fears, 10-Year Yield Falls Below 5%: Stock Market Today",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

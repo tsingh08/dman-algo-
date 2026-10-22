@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-21T09:25:43.776229-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Wedbush Maintains Outperform on Netflix, Lowers Price Target to $80",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-21T09:25:43.846015-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Cantor Fitzgerald Reiterates Overweight on Salesforce, Maintains $300 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-21T09:25:43.915428-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Palantir and NVIDIA Collaborate on OpenShell Reference Architecture for Secure AI Agents",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-21T09:25:43.920377-04:00",
     "symbols": [
       "PLTR"
@@ -4995,6 +4965,36 @@
       "TSLA"
     ],
     "headline": "Nasdaq Down 400 Points; Tesla Shares Fall After Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T10:20:38.040543-04:00",
+    "symbols": [
+      "STAK"
+    ],
+    "headline": "Nasdaq Down 400 Points; Tesla Shares Fall After Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T10:20:38.410729-04:00",
+    "symbols": [
+      "NCPL"
+    ],
+    "headline": "Nasdaq Down 400 Points; Tesla Shares Fall After Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-22T10:20:41.007407-04:00",
+    "symbols": [
+      "LAD"
+    ],
+    "headline": "JP Morgan Maintains Neutral on Lithia Motors, Lowers Price Target to $315",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

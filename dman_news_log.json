@@ -1,285 +1,5 @@
 [
   {
-    "ts": "2026-10-21T14:03:14.670458-04:00",
-    "symbols": [
-      "OKLO"
-    ],
-    "headline": "Citi Maintains Oklo Inc. With Hold Rating, Adjusts Price Target",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-21T14:03:14.913116-04:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Cloudflare Updates Firewall Rules in Response to Emerging PHP Vulnerabilities",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-21T15:03:12.156570-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "IronSight AI and Fast Iron Partner to Enhance Inventory Management for Caterpillar Dealers",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T15:03:12.409866-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "CIRO Schedules Settlement Hearing for Goldman Sachs Canada Inc.",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-21T15:03:12.678539-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "UnitedHealth Group Sued by Major Corporations Over Claims Handling",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-21T15:03:13.402971-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Uber Reports Success with 'Beyond the Checkbox' Human Risk Management Program",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T15:03:13.672837-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Allergan Aesthetics Presents New Clinical Evidence at AMWC Dubai",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T15:03:13.929305-04:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "Analysts Adjust Price Targets for Intuitive Surgical Following Q3 Results",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T20:02:12.041275-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Visa Launches Commercial Fraud Solutions and Enhanced Spend Analytics",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T20:02:12.260554-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Palantir Accelerates Delivery of Sovereign AI to New Wave of Customers",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T20:02:12.394577-04:00",
-    "symbols": [
-      "TNMG"
-    ],
-    "headline": "TNL Mediagene Announces $6.25 Million Strategic Investment and Anticipated Change of Control",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-21T20:02:12.536159-04:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "Intuitive Surgical Faces Potential 2027 Procedure Momentum Risks from Pricing Actions, RBC Says",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T20:02:12.541028-04:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "Intuitive Surgical Stock Declines Following 2026 Growth Outlook Adjustment and $450 Million Charge",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T20:02:12.545607-04:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "Barclays Adjusts Intuitive Surgical Price Target to $500",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:02.019457-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "&#39;Almost Everything Elon Musk Touches\u2019 Grows 10x and More, Says Top Analyst as He Makes the Case for Tesla-SpaceX Merger",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:02.022178-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk Says Tesla Cars&#39; Value Lies in FSD Service: &#39;People Are Buying FSD With a Car Attached, Not the Other Way Around&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:02.024680-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "B of A Securities Maintains Buy on SpaceX, Raises Price Target to $275",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:02.027219-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk\u2019s Dream of Sending a Million People to Mars Meets a Nobel Laureate\u2019s Warning: \u2018We Do Not Have a Planet B&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:02.029674-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "CoreWeave Stock Is Getting Crushed \u2014 But Daniel Newman Says the Selloff Is a \u2018Psyop\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:02.198527-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "What&#39;s Going On With Nebius Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:02.201167-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nebius Enters $3.5B Senior Secured Facility Provided By Citi; Increases Flexibility Over Timing And Structure Of Longer-Term Financing To Fuel Growth In 2027 And Beyond",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T09:26:02.367210-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Gene Munster Points to 'Good News for Neoclouds' in SpaceX Earnings: IREN, TeraWulf Bounce",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:02.593770-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Investigating Apple&#39;s Standing In Technology Hardware, Storage &amp; Peripherals Industry Compared To Competitors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:02.596444-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Reported Earlier, Australian Court Orders Apple To Allow Alternative App Distribution, Payments For Australian Users From March 1, 2027; Rejects Epic\u2019s Global Relief",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:02.749000-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Ted Lieu Pushes Congress to Act as NSA Warns of Critical Cyber Vulnerabilities: \u2018We Need More Cybersecurity Personnel\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:02.751525-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "NextDC&#39;s 40% Crash Is the Warning Shot for Data Center Trade",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:02.754005-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Anthropic Could Take Major IPO Step as Soon as Friday: What Investors Need to Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:02.918596-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Jensen Huang Says Nvidia GPUs Could Last Over 8 Years, Not 4, Carry \u2018Really High\u2019 Residual Value: \u2018Lowest Risk\u2019 Assets for Lenders",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-22T09:26:02.921265-04:00",
     "symbols": [
       "NVDA"
@@ -4998,5 +4718,285 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:06:51.273525-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Is A War Imminent? Concerns Overshadow Strong Meta, Tesla Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:06:51.403656-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Is A War Imminent? Concerns Overshadow Strong Meta, Tesla Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:06:51.526151-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Mizuho Maintains Outperform on Meta Platforms, Raises Price Target to $950",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:06:51.531117-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Is A War Imminent? Concerns Overshadow Strong Meta, Tesla Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:06:51.762572-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Is A War Imminent? Concerns Overshadow Strong Meta, Tesla Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:06:51.902592-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Elon Musk\u2019s Mom Says a Tunnel \u2018Makes Your Life Happier\u2019 as Boring Company Brings 900,000-Pound Machine to San Antonio",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:06:51.907381-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Is A War Imminent? Concerns Overshadow Strong Meta, Tesla Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:06:52.043289-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Stock Moves Higher: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-22T13:06:52.164708-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Why Is Salesforce Stock Surging on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:06:53.845423-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:06:54.301408-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "BioNTech and Gilead Sciences Announce Clinical Trial Collaboration for Triple-Negative Breast Cancer Treatment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:06:54.662688-04:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Zscaler, Spotify Technology, ServiceNow",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-22T13:06:56.137778-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Zscaler, Spotify Technology, ServiceNow",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T13:06:59.786519-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Israeli Senior Officers Says No Reason To Strike Iran Before U.S. Elections&#39; - Ynet Global",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:06:59.791934-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Is A War Imminent? Concerns Overshadow Strong Meta, Tesla Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:06:59.911621-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Is A War Imminent? Concerns Overshadow Strong Meta, Tesla Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:07:00.460641-04:00",
+    "symbols": [
+      "DBGI"
+    ],
+    "headline": "10 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T13:07:01.607241-04:00",
+    "symbols": [
+      "HUBC"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T13:07:02.280097-04:00",
+    "symbols": [
+      "NEXR"
+    ],
+    "headline": "10 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T13:07:02.534581-04:00",
+    "symbols": [
+      "RBNE"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T13:07:03.126957-04:00",
+    "symbols": [
+      "TENX"
+    ],
+    "headline": "Tenax Therapeutics Reports Beneficial Ownership Change by ADAR1 Capital Management",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T13:07:03.235111-04:00",
+    "symbols": [
+      "TNMG"
+    ],
+    "headline": "TNL Mediagene Announces $6.25 Million Strategic Investment and Anticipated Change of Control",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T13:07:04.223036-04:00",
+    "symbols": [
+      "BHVN"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T13:07:04.472383-04:00",
+    "symbols": [
+      "BKYI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:07:04.603836-04:00",
+    "symbols": [
+      "PFSA"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T13:07:04.970908-04:00",
+    "symbols": [
+      "XLAB"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T13:07:06.349944-04:00",
+    "symbols": [
+      "KPTI"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T13:07:06.476930-04:00",
+    "symbols": [
+      "CRMT"
+    ],
+    "headline": "10 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

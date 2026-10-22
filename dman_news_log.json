@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-21T11:02:12.832372-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Launches AI Agent Studio for Industry Applications",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T11:02:13.007498-04:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Analyst Maintains Bullish Rating on Datadog",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-21T11:03:12.077583-04:00",
     "symbols": [
       "SPCX"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T12:40:30.602974-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Dell Stock Drops in Tech Sell-Off: Profit-Taking Hits AI Server Giant",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T12:40:30.854326-04:00",
+    "symbols": [
+      "BDN"
+    ],
+    "headline": "Brandywine Realty Tr Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

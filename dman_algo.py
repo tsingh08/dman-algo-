@@ -3228,6 +3228,14 @@ def resolve_live_outcomes(verbose: bool = True) -> int:
                f"{p.get('score', 0)},{result['hold_bars']}")
         csv_rows.append(row)
         resolved_count += 1
+        # The union-merge can leave two same-(ticker, date) entries in pending
+        # (e.g. the two ROP 2026-10-22 entries that differed only in fill
+        # price). already_logged is snapshotted before this loop, so without
+        # recording the write here both resolve in the SAME run and both
+        # append a CSV row — confirmed live with the duplicated CCC 2026-10-12
+        # rows. Adding the key routes the second entry through the
+        # already-logged drop above, same as a cross-cycle resurrection.
+        already_logged.add((p["ticker"], p["date"]))
 
         if verbose:
             icon = "✅" if result["outcome"] == "WIN" else ("⚪" if result["pnl_pct"] == 0 else "❌")

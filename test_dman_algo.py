@@ -48,6 +48,7 @@ mocked so this suite is fast and deterministic regardless of market hours.
 """
 from __future__ import annotations
 
+import csv
 import inspect
 import json
 import os
@@ -28902,3 +28903,57 @@ class TestEarningsScanHonoursTheDisableOnEveryPath(unittest.TestCase):
 
     def test_the_shipped_default_is_off(self):
         self.assertFalse(a.ENABLE_EARNINGS_SPREADS)
+
+
+class TestOneTradeOneRowEvenInTheSameRun(unittest.TestCase):
+    """resolve_live_outcomes() dedups against dman_live_outcomes.csv, but the
+    already-logged snapshot was taken once before the loop — two pending
+    entries sharing (ticker, date) (the union-merge keeps both when any other
+    field differs, e.g. the two ROP 2026-10-22 entries with different fill
+    prices) therefore both resolved in the SAME run and each appended a CSV
+    row. Confirmed live: CCC 2026-10-12 logged twice on 2026-10-22. The fix
+    records each write into the set as it happens, so the second entry takes
+    the existing already-logged drop path instead."""
+
+    def setUp(self):
+        self._sig_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        pending = [
+            {"ticker": "CCC", "setup": "Gap & Hold", "bias": "LONG",
+             "date": "2026-10-12", "entry": 7.70, "stop": 7.43,
+             "target1": 8.42, "target2": 8.78, "score": 100},
+            {"ticker": "CCC", "setup": "Gap & Hold", "bias": "LONG",
+             "date": "2026-10-12", "entry": 7.71, "stop": 7.43,
+             "target1": 8.42, "target2": 8.78, "score": 100},
+        ]
+        self._sig_tmp.write(json.dumps({"pending": pending}).encode())
+        self._sig_tmp.close()
+        self._sig_patch = patch.object(a, "LIVE_SIGNALS_FILE", self._sig_tmp.name)
+        self._sig_patch.start()
+
+        self._out_path = self._sig_tmp.name + ".csv"   # must not exist yet
+        self._out_patch = patch.object(a, "LIVE_OUTCOMES_FILE", self._out_path)
+        self._out_patch.start()
+
+    def tearDown(self):
+        self._sig_patch.stop()
+        self._out_patch.stop()
+        os.unlink(self._sig_tmp.name)
+        if os.path.exists(self._out_path):
+            os.unlink(self._out_path)
+
+    def test_duplicate_pending_entries_write_a_single_csv_row(self):
+        result = {"exit_date": "2026-10-22", "exit_px": 7.66,
+                  "exit_reason": "STALL", "pnl_pct": -0.45,
+                  "outcome": "SCRATCH", "hold_bars": 8}
+        with patch.object(a, "_simulate_trade_outcome", return_value=result):
+            resolved = a.resolve_live_outcomes(verbose=False)
+
+        self.assertEqual(resolved, 1)
+        with open(self._out_path) as f:
+            rows = [r for r in csv.DictReader(f)]
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]["ticker"], "CCC")
+        # Both copies must leave pending — one resolved, one dropped as
+        # already logged — or the sync would resurrect it forever.
+        with open(self._sig_tmp.name) as f:
+            self.assertEqual(json.load(f)["pending"], [])

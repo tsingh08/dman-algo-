@@ -41245,16 +41245,16 @@
 "bias": "LONG",
 "taken": false,
 "reject": "mtf: weekly disagrees",
-"score": 75,
-"final_score": 75.0,
+"score": 77,
+"final_score": 77.0,
 "ai_scored": false,
-"entry": 7.2,
+"entry": 7.58,
 "stop": 6.26,
-"target1": 9.53,
-"rr": 2.48,
-"rsi": 64.0,
-"rvol": 6.22,
-"atr": 1.9164285714285716,
+"target1": 10.88,
+"rr": 2.5,
+"rsi": 64.7,
+"rvol": 4.69,
+"atr": 2.0164285714285715,
 "beta": 1.0,
 "catalyst_tier": "",
 "news_boost": false,
@@ -41278,11 +41278,11 @@
 "Earn React": 0,
 "Fibonacci": 0,
 "VWAP": 8,
-"POC": 0,
+"POC": 7,
 "No Divergence": 5,
 "RSI Zone": 0,
 "52wk Prox": 0,
-"Candle": 5,
+"Candle": 0,
 "Supertrend": 8,
 "ADX Trend": 0,
 "Ichimoku": 0,
@@ -41294,10 +41294,10 @@
 "Gap Size": 0,
 "News Catalyst": 0
 },
-"seen": 46,
-"last_ts": "2026-10-22T12:54:58.693154-04:00",
+"seen": 48,
+"last_ts": "2026-10-22T12:57:02.769954-04:00",
 "entry_min": 7.2,
-"entry_max": 7.2
+"entry_max": 7.58
 },
 {
 "ts": "2026-10-22T09:47:08.236288-04:00",
@@ -41418,9 +41418,9 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 16,
-"last_ts": "2026-10-22T12:54:59.384663-04:00",
+"seen": 17,
+"last_ts": "2026-10-22T12:57:04.648398-04:00",
 "entry_min": 172.85,
-"entry_max": 172.85
+"entry_max": 174.24
 }
 ]

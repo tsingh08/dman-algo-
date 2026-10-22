@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-21T14:03:13.919392-04:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "Constellation Energy Recognized for Brand Trust Gains in Texas Market",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-21T14:03:14.157512-04:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "RBC Analyst Comments on Biktarvy Pricing Impact",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T14:03:14.161846-04:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "TD Cowen Maintains Buy Rating on Gilead Sciences",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T14:03:14.429375-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Strategy Inc Increases Preferred Stock Buyback Program to $3 Billion",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-21T14:03:14.670458-04:00",
     "symbols": [
       "OKLO"
@@ -4998,5 +4958,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T12:56:29.666429-04:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "B. Riley Securities Maintains Buy on ON Semiconductor, Lowers Price Target to $105",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T12:56:43.423913-04:00",
+    "symbols": [
+      "CRMT"
+    ],
+    "headline": "America's Car-Mart in Negotiations for Potential Sale Amid Financial Struggles",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T12:56:44.056987-04:00",
+    "symbols": [
+      "VLY"
+    ],
+    "headline": "Valley Ntl Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T12:56:44.062262-04:00",
+    "symbols": [
+      "VLY"
+    ],
+    "headline": "Valley Ntl Q3 Adj. EPS $0.36 Beats $0.33 Estimate, Sales $584.151M Beat $577.189M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

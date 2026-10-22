@@ -2131,5 +2131,14 @@
   "drift_pct": 0.16,
   "range_ratio": 0.23,
   "near_high": 0.979
+ },
+ {
+  "ts": "2026-10-22T10:11:40.701684-04:00",
+  "ticker": "ITHA",
+  "price": 10.07,
+  "rvol": 7.03,
+  "drift_pct": 0.0,
+  "range_ratio": 0.0,
+  "near_high": 0.997
  }
 ]

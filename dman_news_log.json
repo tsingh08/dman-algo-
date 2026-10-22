@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-21T09:25:50.350601-04:00",
-    "symbols": [
-      "DUOT"
-    ],
-    "headline": "Duos Technologies Announces Over $400M, 10-Year Colocation Contract For 20 MW With Unnamed Publicly Traded Cloud Provider",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-21T09:25:50.415684-04:00",
-    "symbols": [
-      "ROLR"
-    ],
-    "headline": "High Roller Technologies Announces Commercial Launch Of Prediction Markets Platform ROLR",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-21T09:25:50.488089-04:00",
-    "symbols": [
-      "QUAD"
-    ],
-    "headline": "Quad Declares Quarterly Dividend",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-21T09:25:50.552576-04:00",
-    "symbols": [
-      "SMCIP"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-21T09:25:50.557545-04:00",
     "symbols": [
       "SMCIP"
@@ -4998,5 +4958,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-22T11:57:17.164993-04:00",
+    "symbols": [
+      "FR"
+    ],
+    "headline": "First Industrial Realty Narrows FY2026 FFO Guidance from $3.12-$3.20 to $3.15-$3.19 vs $3.16 Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T11:57:17.169765-04:00",
+    "symbols": [
+      "FR"
+    ],
+    "headline": "First Industrial Realty Q3 FFO $0.81 Misses $0.82 Estimate, Sales $197.115M Beat $195.848M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T11:57:17.241977-04:00",
+    "symbols": [
+      "OII"
+    ],
+    "headline": "Oceaneering International Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T11:57:17.246432-04:00",
+    "symbols": [
+      "OII"
+    ],
+    "headline": "Oceaneering International Q3 Adj. EPS $0.50 Misses $0.58 Estimate, Sales $784.554M Beat $773.229M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -41294,8 +41294,8 @@
 "Gap Size": 0,
 "News Catalyst": 0
 },
-"seen": 68,
-"last_ts": "2026-10-22T14:05:38.438953-04:00",
+"seen": 70,
+"last_ts": "2026-10-22T14:29:40.494789-04:00",
 "entry_min": 7.1,
 "entry_max": 7.58
 },
@@ -41492,7 +41492,7 @@
 "setup": "Low Float Catalyst",
 "bias": "LONG",
 "taken": false,
-"reject": "heat cap 0.4%/6%",
+"reject": "setup disabled: 0W/21L over 21 live trades (0% WR, -159.4% c",
 "score": 100,
 "final_score": 0.0,
 "ai_scored": false,

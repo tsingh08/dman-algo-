@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-10-22T09:26:02.921265-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Rockwell Automation Announces Expansion Of FactoryTalk Conductor Through Nvidia Nemotron",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:02.923794-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nokia&#39;s AI Business Soars 126%, Data Center Boom Is Becoming a Big Profit Story",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:02.926241-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia\u2019s Jensen Huang Says AI Agents Have Sent Token, GPU Demand \u2018Through the Roof\u2019: Gene Munster Sees 15 Million Bot Users Soaring to Billions",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:02.928635-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia CEO Huang Said Trying To Establish Nvidia&#39;s Compute As A Financeable Asset",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:03.055225-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Piper Sandler Maintains Overweight on Meta Platforms, Lowers Price Target to $850",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:03.057739-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "StoneX Reiterates Hold on Meta Platformsto Hold",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:03.060218-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Just Unveiled a New Takeover Weapon \u2014 But There&#39;s a Catch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:03.062641-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Wedbush Maintains Neutral on Meta Platforms, Raises Price Target to $730",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T09:26:03.065050-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Guggenheim Reiterates Buy on Meta Platforms, Maintains $850 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-22T09:26:03.258011-04:00",
     "symbols": [
       "GOOGL"
@@ -4998,5 +4908,95 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T13:18:11.597221-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "AMD Stock Drops 7% in Chip Sell-Off - Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:18:11.720308-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "What&#39;s Going On With Nebius Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:18:12.005122-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Ted Lieu Pushes Congress to Act as NSA Warns of Critical Cyber Vulnerabilities: \u2018We Need More Cybersecurity Personnel\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:18:12.332231-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD Stock Drops 7% in Chip Sell-Off - Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:18:12.516099-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Evercore ISI Group Maintains Outperform on Meta Platforms, Raises Price Target to $870",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T13:18:13.143206-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Wolfe Research Downgrades Netflix to Peer Perform",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-22T13:18:14.207668-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "AMD Stock Drops 7% in Chip Sell-Off - Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T13:18:19.062375-04:00",
+    "symbols": [
+      "DECK"
+    ],
+    "headline": "Wolfe Research Initiates Coverage On Deckers Outdoor with Peer Perform Rating",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T13:18:19.576989-04:00",
+    "symbols": [
+      "ONON"
+    ],
+    "headline": "Wolfe Research Initiates Coverage On On Holding with Outperform Rating, Announces Price Target of $47",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

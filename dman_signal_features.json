@@ -41245,8 +41245,8 @@
 "bias": "LONG",
 "taken": false,
 "reject": "mtf: weekly disagrees",
-"score": 75,
-"final_score": 75.0,
+"score": 76,
+"final_score": 76.0,
 "ai_scored": false,
 "entry": 7.2,
 "stop": 6.26,
@@ -41259,14 +41259,14 @@
 "catalyst_tier": "",
 "news_boost": false,
 "regime": "CHOP",
-"regime_score": 7,
+"regime_score": 11,
 "mtf_ok": false,
 "regime_ok": true,
 "earnings_ok": true,
 "macro_ok": true,
 "divergence_free": true,
 "breakdown": {
-"Regime": 7,
+"Regime": 8,
 "MTF": 0,
 "Rel Strength": 5,
 "Sector": 6,
@@ -41294,8 +41294,8 @@
 "Gap Size": 0,
 "News Catalyst": 0
 },
-"seen": 4,
-"last_ts": "2026-10-22T09:47:06.481672-04:00",
+"seen": 6,
+"last_ts": "2026-10-22T09:58:17.308006-04:00",
 "entry_min": 7.2,
 "entry_max": 7.2
 },
@@ -41356,8 +41356,8 @@
 "Gap Size": 3,
 "News Catalyst": 5
 },
-"seen": 1,
-"last_ts": "2026-10-22T09:47:08.236288-04:00",
+"seen": 2,
+"last_ts": "2026-10-22T09:58:17.577643-04:00",
 "entry_min": 51.27,
 "entry_max": 51.27
 }

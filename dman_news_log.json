@@ -1,165 +1,5 @@
 [
   {
-    "ts": "2026-10-21T09:25:50.849432-04:00",
-    "symbols": [
-      "RCUS"
-    ],
-    "headline": "Truist Securities Maintains Buy on Arcus Biosciences, Raises Price Target to $41",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-21T09:25:50.854441-04:00",
-    "symbols": [
-      "RCUS"
-    ],
-    "headline": "Wedbush Maintains Outperform on Arcus Biosciences, Raises Price Target to $49",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-21T09:25:51.011755-04:00",
-    "symbols": [
-      "XPEV"
-    ],
-    "headline": "Netflix, Intuitive Surgical, Pegasystems And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-21T09:25:51.304185-04:00",
-    "symbols": [
-      "CWST"
-    ],
-    "headline": "UBS Downgrades Casella Waste Systems to Neutral, Lowers Price Target to $95",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-21T09:25:51.368675-04:00",
-    "symbols": [
-      "ACH"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-21T09:25:51.437997-04:00",
-    "symbols": [
-      "KEY"
-    ],
-    "headline": "RBC Capital Markets Adjusts KeyCorp Price Target to $24",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:51.503156-04:00",
-    "symbols": [
-      "LAD"
-    ],
-    "headline": "Lithia Motors Boosts Dividend After Strong Quarter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-21T09:25:51.508728-04:00",
-    "symbols": [
-      "LAD"
-    ],
-    "headline": "Lithia &amp; Driveway Raises Quarterly Dividend 7% To $0.75 Per Share, Payable November 20, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-21T09:25:51.514293-04:00",
-    "symbols": [
-      "LAD"
-    ],
-    "headline": "Lithia Motors Q3 Adj. EPS $10.34 Beats $9.77 Estimate, Sales $9.947B Beat $9.728B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-21T09:32:11.833699-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Susquehanna Adjusts Price Target on Advanced Micro Devices to $620 From $550",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-21T09:32:11.843390-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Costco Taiwan Announces 14-Day Black Friday Shopping Event",
-    "source": "fiscal.ai",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-21T09:32:11.852540-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Southwest General Expands Relationship with Oracle",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:32:11.857482-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Collins Aerospace Announces Radio Altimeter Upgrades for 5G Resilience",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:33:12.009986-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Palo Alto Networks Joins NVIDIA OpenShell Reference Architecture Ecosystem",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-21T09:33:12.015758-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Supermicro and Nutanix Announce AI Infrastructure Partnership",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-21T09:33:12.022634-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Qualcomm Announces Quarterly Cash Dividend",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-21T09:33:12.028613-04:00",
     "symbols": [
       "QCOM"
@@ -4998,5 +4838,165 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T12:11:53.348727-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "&#39;Elon Musk Makes $1 Billion Investment In Ellison\u2019s Skydance&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T12:11:53.351964-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "\u2018If You\u2019re Not in a Body Anymore, There\u2019s Definitely Gonna Be Some Difference\u2019 \u2014 Elon Musk Says We Could Upload Ourselves Into Humanoids to Live Forever",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T12:11:54.422729-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "RBC Capital Maintains Outperform on Meta Platforms, Raises Price Target to $800",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T12:11:54.826108-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Blackstone CEO Dismisses AI Bubble Fears: &#39;Critical Scarcity of Supply Has Intensified&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T12:11:55.045892-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "RBC Capital Reiterates Outperform on Tesla, Maintains $480 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T12:11:55.049726-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "&#39;Elon Musk Makes $1 Billion Investment In Ellison\u2019s Skydance&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T12:11:55.053255-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "\u2018If You\u2019re Not in a Body Anymore, There\u2019s Definitely Gonna Be Some Difference\u2019 \u2014 Elon Musk Says We Could Upload Ourselves Into Humanoids to Live Forever",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T12:12:07.966188-04:00",
+    "symbols": [
+      "MLTX"
+    ],
+    "headline": "Watching MoonLake Immunotherapeutics; Shares Trading Higher After AbbVie Reports Phase 3 INTREPID Results For Competing Hidradenitis Suppurativa Drug; MoonLake Awaits FDA Review of Its Tri-Specific Nanobody Sonelokimab",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T12:12:09.259422-04:00",
+    "symbols": [
+      "KALU"
+    ],
+    "headline": "Kaiser Aluminum Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T12:12:09.262936-04:00",
+    "symbols": [
+      "KALU"
+    ],
+    "headline": "Tesla, Lam Research, Rollins And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T12:12:09.265919-04:00",
+    "symbols": [
+      "KALU"
+    ],
+    "headline": "Kaiser Aluminum Q3 Adj. EPS $1.89 Misses $2.36 Estimate, Sales $1.214B Inline",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T12:12:09.415057-04:00",
+    "symbols": [
+      "NOK"
+    ],
+    "headline": "Nokia&#39;s AI Business Soars 126%, Data Center Boom Is Becoming a Big Profit Story",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T12:12:09.418492-04:00",
+    "symbols": [
+      "NOK"
+    ],
+    "headline": "Nokia Sees Q4 Sales $7.118B-$7.355B vs $7.300B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T12:12:09.421602-04:00",
+    "symbols": [
+      "NOK"
+    ],
+    "headline": "Nokia Expects Q4 Net Sales Up 20%-24% QoQ, 2026 Comparable Operating Profit Of EUR 2.1B-EUR 2.6B Above Mid-Point On Strong Q4",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T12:12:09.424606-04:00",
+    "symbols": [
+      "NOK"
+    ],
+    "headline": "Nokia AI &amp; Cloud Sales More Than Double YoY, EUR 1.5B New Orders; Optical And IP Networks Seen Growing 25%-30% In 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T12:12:09.427583-04:00",
+    "symbols": [
+      "NOK"
+    ],
+    "headline": "Nokia Q3 Adj. EPS $0.10 Beats $0.08 Estimate, Sales $5.931B Beat $5.800B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

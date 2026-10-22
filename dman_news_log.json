@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-10-22T13:18:14.207668-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "AMD Stock Drops 7% in Chip Sell-Off - Here&#39;s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T13:18:19.062375-04:00",
-    "symbols": [
-      "DECK"
-    ],
-    "headline": "Wolfe Research Initiates Coverage On Deckers Outdoor with Peer Perform Rating",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T13:18:19.576989-04:00",
-    "symbols": [
-      "ONON"
-    ],
-    "headline": "Wolfe Research Initiates Coverage On On Holding with Outperform Rating, Announces Price Target of $47",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T13:29:19.125364-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Meta Tumbles 6% on AI Spending Fears, 10-Year Yield Falls Below 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T13:29:19.268746-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Meta Tumbles 6% on AI Spending Fears, 10-Year Yield Falls Below 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T13:29:19.405802-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "BMO Capital Maintains Market Perform on Meta Platforms, Raises Price Target to $685",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T13:29:19.410853-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Tumbles 6% on AI Spending Fears, 10-Year Yield Falls Below 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-22T13:29:19.557437-04:00",
     "symbols": [
       "GOOGL"
@@ -4995,6 +4925,76 @@
       "TCBI"
     ],
     "headline": "Piper Sandler Maintains Neutral on Texas Capital Bancshares, Raises Price Target to $101",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T16:02:18.347077-04:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "Barclays Adjusts Price Target on Spotify Technology",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T16:02:50.695222-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD Stock Drops 7% in Chip Sell-Off - Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T16:02:51.872412-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Wolfe Research Downgrades Netflix to Peer Perform",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-22T16:02:52.928152-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "AMD Stock Drops 7% in Chip Sell-Off - Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T16:03:00.546558-04:00",
+    "symbols": [
+      "DECK"
+    ],
+    "headline": "Wolfe Research Initiates Coverage On Deckers Outdoor with Peer Perform Rating",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T16:03:01.735440-04:00",
+    "symbols": [
+      "ONON"
+    ],
+    "headline": "Wolfe Research Initiates Coverage On On Holding with Outperform Rating, Announces Price Target of $47",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T16:03:22.788815-04:00",
+    "symbols": [
+      "LAD"
+    ],
+    "headline": "UBS Maintains Neutral on Lithia Motors, Lowers Price Target to $305",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-21T11:03:12.077583-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Analysts Adjust Price Targets for SpaceX Following Q3 Results",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T11:04:12.041571-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Announces Season 2 of 'Love is Blind Habibi'",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-21T12:02:12.176825-04:00",
     "symbols": [
       "MB"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-22T12:43:04.107832-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Stock Drops 5% After Big Rally: Super Micro Computer Pulls Back During AI Supply Fears",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T12:43:04.114912-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell Feels Supply Chain Bottlenecks Pressure, Stock Drops Amid Tech Sell-Off",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

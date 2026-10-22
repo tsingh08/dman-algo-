@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-21T11:02:12.395316-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "3Business and AWS Launch AI Marketplace in Hong Kong",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-21T11:02:12.538109-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Omdia Reports Global Smartphone Market Contraction in 3Q26",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-21T11:02:12.673417-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "Multiple Analysts Adjust Price Targets and Ratings for GE Aerospace",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-21T11:02:12.832372-04:00",
     "symbols": [
       "ORCL"
@@ -4995,6 +4965,36 @@
       "METQ"
     ],
     "headline": "Meta\u2019s $25 Billion Headache: The ETF Cashing In on META\u2019s Pain",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T12:33:31.422736-04:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "Live On CNBC, Josh Brown Announces Bought More Spotify Technology",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-22T12:33:36.738597-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Crude Oil Moves Higher; Lockheed Martin Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T12:33:41.419647-04:00",
+    "symbols": [
+      "EZRA"
+    ],
+    "headline": "Reliance Global Group  To Rebrand As &#34;GPU Exchange&#34; And Plans To Change Its NASDAQ Ticker To &#34;XGPU&#34;",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

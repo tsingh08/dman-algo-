@@ -18569,6 +18569,27 @@ def get_this_month_loss() -> float:
     return _period_pnl_total(MONTHLY_PNL_FILE, datetime.now(ET).strftime("%Y-%m"))
 
 
+def _close_pnl_acct_pct(dollar_pnl: float) -> float:
+    """A realized close as a % of the equity the trade started from.
+
+    Dividing by live equity (what both fill syncs did until 2026-10-22)
+    divides by equity AFTER the trade's P&L: closing converts market value to
+    cash and leaves equity where the move already put it. So losses read big
+    and gains read small -- NFLX's -$267 was booked as -10.58% of $2,525
+    instead of -9.56% of the $2,792 it was opened from. Across October that
+    put the ledger at -3.90% while the broker showed about -2.8%, with
+    MONTHLY_LOSS_LIMIT at 4%.
+
+    Live equity minus this close's P&L is the pre-trade base, and it holds
+    whether or not get_effective_account()'s 5-minute cache predates the fill.
+    """
+    _eq = get_effective_account() or ACCOUNT_SIZE   # unknown equity: its own fallback
+    _base = _eq - dollar_pnl
+    if _base <= 0:
+        _base = _eq          # degenerate: never divide by zero or flip sign
+    return dollar_pnl / _base * 100 if _base > 0 else 0.0
+
+
 def record_monthly_pnl(pnl_pct: float, key: Optional[str] = None) -> None:
     """Append pnl_pct (signed %) as a new entry to this month's P&L log.
     See _record_period_pnl()'s docstring — same append-only-log reasoning,
@@ -19243,7 +19264,12 @@ def _event_implied_move_pct(client, ticker: str, current_price: float) -> Option
         _se2 = _a1 - _sn2 * (_t1 - 1)
         if _se2 <= 0 or _sn2 <= 0:
             return None        # no backwardation: nothing to attribute to an event
-        return round(math.sqrt(_se2) / math.sqrt(252.0) * 100.0, 2)
+        # 365, not 252: _t1/_t2 are CALENDAR days to the expiries and the
+        # broker's IV is annualized over a calendar year, so the event's
+        # variance in iv^2-days converts back over 365. 252 read every
+        # event ~20% (sqrt(365/252)) bigger than priced -- DECK's 13.3% as
+        # 16.0% -- and so called fairly priced premium "EXPENSIVE" (2026-10-22).
+        return round(math.sqrt(_se2) / math.sqrt(365.0) * 100.0, 2)
     except Exception as exc:
         _log_swallowed("event implied move", exc)
         return None
@@ -28755,7 +28781,7 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
             # stale constant understates or overstates every recorded %
             # relative to what DAILY_LOSS_LIMIT/MONTHLY_LOSS_LIMIT actually
             # compare it against on this same live account.
-            acct_pct   = dollar_pnl / get_effective_account() * 100
+            acct_pct   = _close_pnl_acct_pct(dollar_pnl)
 
             _fa = getattr(order, "filled_at", None)
             fill_date = (_fa.strftime("%Y-%m-%d") if _fa else
@@ -29086,7 +29112,7 @@ def sync_earnings_spread_fills(tracker: WinRateTracker, recorded_ids: set[str]) 
         dollar_pnl = credit_received - debit_paid
         pnl_pct = (dollar_pnl / debit_paid * 100) if debit_paid > 0 else 0.0
         outcome = "WIN" if pnl_pct > 0.1 else "LOSS" if pnl_pct < -0.1 else "BE"
-        acct_pct = dollar_pnl / get_effective_account() * 100
+        acct_pct = _close_pnl_acct_pct(dollar_pnl)
 
         # Same ledger-level dupe guard sync_alpaca_fills() uses (see its
         # own comments for the CLRO incident this protects against).
@@ -32045,7 +32071,7 @@ def _main_mode_record(args):
     shares_used = closed.shares if closed else (args.shares or 0)
     if shares_used > 0:
         dollar_pnl   = (args.exit_price - args.entry) * shares_used * (1 if bias == "LONG" else -1)
-        acct_pnl_pct = dollar_pnl / ACCOUNT_SIZE * 100
+        acct_pnl_pct = _close_pnl_acct_pct(dollar_pnl)
         record_daily_pnl(acct_pnl_pct)   # account-level %, not stock price %
     print(f"\n  ✅ Recorded: {args.ticker.upper()} {bias} "
           f"${args.entry} → ${args.exit_price} | {outcome} ({pnl_pct:+.2f}%)\n")

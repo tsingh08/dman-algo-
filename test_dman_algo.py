@@ -8940,9 +8940,11 @@ class TestSyncAlpacaFillsPnlAccounting(unittest.TestCase):
             a.sync_alpaca_fills(tracker)
         with open(self._daily_tmp.name) as f:
             daily = json.load(f)
-        # -$922 / $4500 effective account * 100 = -20.49%
+        # -$922 over the PRE-trade base ($4500 live - (-$922)) = -17.01%,
+        # where the missing multiplier would give -0.17% (see
+        # _close_pnl_acct_pct for why the base excludes the trade, 2026-10-22).
         total = sum(e["pnl_pct"] for e in daily["entries"])
-        self.assertAlmostEqual(total, -922 / 4500 * 100, places=2)
+        self.assertAlmostEqual(total, -922 / (4500 + 922) * 100, places=2)
 
     def test_equity_close_pnl_uses_live_effective_account_not_static_size(self):
         from alpaca.trading.enums import OrderStatus, OrderSide
@@ -8965,7 +8967,8 @@ class TestSyncAlpacaFillsPnlAccounting(unittest.TestCase):
             daily = json.load(f)
         dollar_pnl = (28.01 - 35.85) * 47
         total = sum(e["pnl_pct"] for e in daily["entries"])
-        self.assertAlmostEqual(total, dollar_pnl / 4500.0 * 100, places=2)
+        # Live $4500 (not the static ACCOUNT_SIZE), less the trade's own P&L.
+        self.assertAlmostEqual(total, dollar_pnl / (4500.0 - dollar_pnl) * 100, places=2)
 
     def test_a_real_close_also_records_monthly_pnl(self):
         # record_monthly_pnl() previously had zero call sites anywhere in
@@ -28520,7 +28523,7 @@ class TestWhatThePremiumCostsVsWhatTheStockDoes(unittest.TestCase):
              patch.object(a, "_get_atm_iv", side_effect=self._iv(2.544, 0.943)):
             got = a._event_implied_move_pct(MagicMock(), "DECK", 85.49)
         self.assertIsNotNone(got)
-        self.assertAlmostEqual(got, (2.544 ** 2 * 1) ** 0.5 / 252 ** 0.5 * 100, delta=0.05)
+        self.assertAlmostEqual(got, (2.544 ** 2 * 1) ** 0.5 / 365 ** 0.5 * 100, delta=0.05)
 
     def test_atm_iv_reads_the_nearest_listed_strike(self):
         """NEM at 117.18 rounded to an assumed $2.50 grid is 117.50, which its
@@ -28537,21 +28540,25 @@ class TestWhatThePremiumCostsVsWhatTheStockDoes(unittest.TestCase):
 
     # --- the extraction ----------------------------------------------------
     def test_it_extracts_the_event_day_from_the_term_structure(self):
-        """META's live numbers: 122.3% over 2d against 66.3% over 9d."""
+        """META's live numbers: 122.3% over 2d against 66.3% over 9d. Read as
+        10.6% while the extraction annualized calendar days over 252; over
+        365, which is what both T and the IV are quoted in, it is 8.84%
+        (2026-10-22). Still above the 7.22% straddle figure, as it must be."""
         with patch.object(a, "_get_atm_iv", side_effect=self._iv(1.223, 0.663)):
             got = a._event_implied_move_pct(MagicMock(), "META", 691.5)
-        self.assertAlmostEqual(got, 10.6, delta=0.3)
+        self.assertAlmostEqual(got, 8.84, delta=0.1)
+        self.assertGreater(got, 7.22)
 
     def test_a_flat_term_structure_prices_the_event_as_an_ordinary_day(self):
         """My first version of this asserted None and was wrong. A flat
         structure means the market sees the event day as no different from any
         other, and the decomposition says exactly that -- 50% IV at both
-        expiries gives 3.15%, which IS the ordinary daily move. A real answer,
-        and a cheap one: no event premium is being charged."""
+        expiries gives 2.62% (50/sqrt(365)), which IS the ordinary calendar-day
+        move. A real answer, and a cheap one: no event premium is being charged."""
         with patch.object(a, "_get_atm_iv", side_effect=self._iv(0.50, 0.50)), \
              patch.object(a, "_log_swallowed"):
             got = a._event_implied_move_pct(MagicMock(), "X", 100.0)
-        self.assertAlmostEqual(got, 50.0 / (252 ** 0.5), delta=0.1)
+        self.assertAlmostEqual(got, 50.0 / (365 ** 0.5), delta=0.1)
 
     def test_an_inverted_structure_returns_none(self):
         """Front IV BELOW what the back month implies for ordinary days leaves
@@ -28815,3 +28822,38 @@ class TestEarningsScanPassesSpotToPremiumVerdict(unittest.TestCase):
              patch.object(a, "send_telegram"):
             a.run_earnings_spread_scan()
         self.assertEqual(seen.get("ACME"), 123.45)
+
+
+class TestClosePnlIsAPercentOfPreTradeEquity(unittest.TestCase):
+    """Both fill syncs divided by live equity, which already contains the
+    trade's P&L, so losses read big and gains small. NFLX's -$267 on
+    2026-10-21 was booked -10.58% of $2,525 instead of -9.56% of $2,792, and
+    October read -3.90% against MONTHLY_LOSS_LIMIT 4% while the broker showed
+    about -2.8%. Fixed 2026-10-22."""
+
+    def test_a_loss_is_measured_against_the_equity_it_started_from(self):
+        with patch.object(a, "get_effective_account", return_value=2525.0):
+            got = a._close_pnl_acct_pct(-267.0)
+        self.assertAlmostEqual(got, -267.0 / 2792.0 * 100, places=4)
+        self.assertGreater(got, -267.0 / 2525.0 * 100)   # the old, inflated figure
+
+    def test_a_gain_is_not_understated(self):
+        with patch.object(a, "get_effective_account", return_value=2816.78):
+            got = a._close_pnl_acct_pct(204.0)
+        self.assertAlmostEqual(got, 204.0 / 2612.78 * 100, places=4)
+
+    def test_a_degenerate_base_never_flips_the_sign(self):
+        with patch.object(a, "get_effective_account", return_value=100.0):
+            self.assertGreater(a._close_pnl_acct_pct(150.0), 0.0)
+        # Unknown equity falls back to ACCOUNT_SIZE rather than inventing a
+        # -100% or silently dropping the loss from the breaker.
+        with patch.object(a, "get_effective_account", return_value=0.0), \
+             patch.object(a, "ACCOUNT_SIZE", 2000.0):
+            self.assertAlmostEqual(a._close_pnl_acct_pct(-10.0), -10.0 / 2010.0 * 100, places=4)
+
+    def test_every_close_path_uses_it(self):
+        for fn in (a.sync_alpaca_fills, a.sync_earnings_spread_fills, a._main_mode_record):
+            src = inspect.getsource(fn)
+            self.assertIn("_close_pnl_acct_pct(dollar_pnl)", src, fn.__name__)
+            self.assertNotIn("dollar_pnl / get_effective_account()", src, fn.__name__)
+            self.assertNotIn("dollar_pnl / ACCOUNT_SIZE", src, fn.__name__)

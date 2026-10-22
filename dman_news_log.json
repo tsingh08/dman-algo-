@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-21T09:25:47.787362-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Trump Floats \u2018Dividend\u2019 Payments to Communities Hosting AI Data Centers \u2014 Tells Big Tech That Financial Deals Can Turn Local Opposition Into \u2018Extremely Popular\u2019 Support",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-21T09:25:47.873024-04:00",
     "symbols": [
       "ADBE"
@@ -4998,5 +4988,15 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T11:03:18.094305-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "Goldman Sachs Adjusts RTX Price Target",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

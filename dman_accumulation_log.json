@@ -2176,5 +2176,14 @@
   "drift_pct": 0.0,
   "range_ratio": 0.0,
   "near_high": 0.997
+ },
+ {
+  "ts": "2026-10-22T14:53:39.462018-04:00",
+  "ticker": "PTRB",
+  "price": 40.155,
+  "rvol": 1.68,
+  "drift_pct": 0.74,
+  "range_ratio": 0.4,
+  "near_high": 0.975
  }
 ]

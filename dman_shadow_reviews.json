@@ -772,5 +772,49 @@
    "regime": "CHOP",
    "regime_score": 7
   }
+ },
+ {
+  "ts": "2026-10-22T14:53:38.475585-04:00",
+  "kind": "signal",
+  "ticker": "POOL",
+  "verdict": "skip",
+  "confidence": 85,
+  "reason": "RSI 74.6 overbought; regime CHOP (7/10) weak for gap holds; entry already deep into move.",
+  "facts": {
+   "setup": "Gap & Hold",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 190.64,
+   "stop": 181.41,
+   "target1": 235.56,
+   "rr": 4.87,
+   "rvol": 2.55,
+   "rsi": 74.6,
+   "reason": "Gap up +1.7% from prior close, holding, RVOL 2.6x",
+   "regime": "CHOP",
+   "regime_score": 7
+  }
+ },
+ {
+  "ts": "2026-10-22T14:53:39.459542-04:00",
+  "kind": "signal",
+  "ticker": "ROP",
+  "verdict": "skip",
+  "confidence": 85,
+  "reason": "RSI 93.9 is extreme overbought; gap-and-hold in choppy regime offers poor risk/reward despite high confluence score.",
+  "facts": {
+   "setup": "Gap & Hold",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 435.43,
+   "stop": 418.55,
+   "target1": 519.83,
+   "rr": 5.0,
+   "rvol": 2.39,
+   "rsi": 93.9,
+   "reason": "Gap up +2.6% from prior close, holding, RVOL 2.4x",
+   "regime": "CHOP",
+   "regime_score": 7
+  }
  }
 ]

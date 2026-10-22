@@ -1,245 +1,5 @@
 [
   {
-    "ts": "2026-10-22T10:54:47.239133-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Palantir Makes Sovereignty Its Selling Point After Ukraine&#39;s Starlink Disruptions",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T10:54:52.560083-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Ripple Sees a $100 Million Opportunity for Banks\u2014What\u2019s in It for XRP?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-22T10:55:04.137539-04:00",
-    "symbols": [
-      "SHFS"
-    ],
-    "headline": "Nasdaq Down 400 Points; Tesla Shares Fall After Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T10:55:06.501047-04:00",
-    "symbols": [
-      "CGTX"
-    ],
-    "headline": "Cognition Therapeutics Aligns With FDA On Key Elements Of Phase 3 Study In Dementia With Lewy Bodies Including Patient Selection, Dose, Duration, And Endpoints",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T10:55:06.638067-04:00",
-    "symbols": [
-      "ALLE"
-    ],
-    "headline": "Allegion Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T10:55:06.640611-04:00",
-    "symbols": [
-      "ALLE"
-    ],
-    "headline": "Allegion Raises FY2026 Adj EPS Guidance from $8.85-$9.00 to $9.05-$9.10 vs $8.98 Est; Raises FY2026 Sales Guidance from $4.372B-$4.413B to $4.453B-$4.494B vs $4.413B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T10:55:06.643111-04:00",
-    "symbols": [
-      "ALLE"
-    ],
-    "headline": "Allegion Raises FY2026 GAAP EPS Guidance from $7.95-$8.10 to $8.35-$8.40 vs $8.21 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T10:55:06.645591-04:00",
-    "symbols": [
-      "ALLE"
-    ],
-    "headline": "Allegion Q3 Adj. EPS $2.60 Beats $2.50 Estimate, Sales $1.173B Beat $1.137B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T10:55:07.265185-04:00",
-    "symbols": [
-      "EGBN"
-    ],
-    "headline": "Eagle Bancorp Q3 EPS $0.79, Sales $61.309M Miss $63.564M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T11:02:18.080521-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Rockwell Automation Adds Support for NVIDIA Nemotron Models",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T11:02:18.085736-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly and Company Breaks Ground on $5B Integrated Manufacturing Site in Virginia",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T11:02:18.089174-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "IQBAR Launches Indulgent Protein Bites at Costco",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T11:02:18.097553-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "ModelOp Integrates Microsoft Agent 365 and Copilot Studio into AI Governance Platform",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T11:02:18.100679-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Merck Collaborates with Microsoft, NVIDIA, and Dawn Health on Patient Support Programs",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T11:02:18.103577-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft and Boehringer Ingelheim Announce Strategic AI Collaboration",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T11:02:18.106898-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Announces 2-for-1 Stock Split and $825 Billion AI Infrastructure Commitment",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T11:02:18.111772-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Shell and ExxonMobil Joint Venture Infineum Explores $8 Billion Sale",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T11:02:18.120974-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "TerraPay Integrates with Kinexys by J.P. Morgan",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T11:02:18.123926-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Chase Upgrades CME Group Inc. to Buy",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T11:03:18.094305-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Goldman Sachs Adjusts RTX Price Target",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T11:13:47.570986-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Eric Schmidt Rejects AI Bubble Fears, Says Anthropic Is Growing Twice as Fast as Google Did",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T11:13:47.573949-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Defensives Lead Sectors In Thursday Trading As Growth Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T11:13:47.987683-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Eric Schmidt Rejects AI Bubble Fears, Says Anthropic Is Growing Twice as Fast as Google Did",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T11:13:50.817547-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Defensives Lead Sectors In Thursday Trading As Growth Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-22T11:13:53.169064-04:00",
     "symbols": [
       "LLY"
@@ -4998,5 +4758,245 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T14:52:33.498756-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "What&#39;s Going On with AST SpaceMobile Shares On Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T14:52:34.563320-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "DA Davidson Maintains Buy on Meta Platforms, Raises Price Target to $800",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T14:52:35.091231-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "CLSA Upgrades Tesla to Hold, Raises Price Target to $400",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T14:52:37.710451-04:00",
+    "symbols": [
+      "AFRM"
+    ],
+    "headline": "Affirm Announces Multi-Year Partnership with Sam's Club",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T14:52:37.877717-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Why Is Moderna Stock Sinking Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T14:52:38.148143-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Starts Construction On $5B Production Site In Richmond, Virginia",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T14:52:42.753149-04:00",
+    "symbols": [
+      "TLN"
+    ],
+    "headline": "TD Cowen Initiates Coverage On Talen Energy with Buy Rating, Announces Price Target of $475",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T14:52:46.593238-04:00",
+    "symbols": [
+      "QGEN"
+    ],
+    "headline": "JP Morgan Downgrades Qiagen to Neutral, Lowers Price Target to $52",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T14:52:46.597820-04:00",
+    "symbols": [
+      "QGEN"
+    ],
+    "headline": "Baird Maintains Outperform on Qiagen, Raises Price Target to $52",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T14:52:46.907577-04:00",
+    "symbols": [
+      "MLTX"
+    ],
+    "headline": "Healthcare Services Posts Upbeat Q3 Earnings, Joins Pool, Spotify And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T14:52:47.067993-04:00",
+    "symbols": [
+      "FPS"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T14:52:47.075156-04:00",
+    "symbols": [
+      "FPS"
+    ],
+    "headline": "Forgent Power Solutions Appoints Amy Ard As CFO; Ryan Fiedler To Transition To External Consultant",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T14:52:47.384776-04:00",
+    "symbols": [
+      "HXL"
+    ],
+    "headline": "Hexcel Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T14:52:47.389216-04:00",
+    "symbols": [
+      "HXL"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T14:52:49.217240-04:00",
+    "symbols": [
+      "ROP"
+    ],
+    "headline": "Meta Tumbles 6% on AI Spending Fears, 10-Year Yield Falls Below 5%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T14:52:49.221813-04:00",
+    "symbols": [
+      "ROP"
+    ],
+    "headline": "Roper Techs Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T14:52:49.226184-04:00",
+    "symbols": [
+      "ROP"
+    ],
+    "headline": "Roper Technologies Sees Q4 Adj EPS $5.95-$6.00 vs $5.91 Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T14:52:49.230557-04:00",
+    "symbols": [
+      "ROP"
+    ],
+    "headline": "Roper Technologies Raises FY2026 Adj EPS Guidance from $22.15-$22.30 to $22.35-$22.40 vs $22.22 Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T14:52:49.234885-04:00",
+    "symbols": [
+      "ROP"
+    ],
+    "headline": "Roper Techs Q3 Adj. EPS $5.89 Beats $5.79 Estimate, Sales $2.172B Inline",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T14:52:50.670748-04:00",
+    "symbols": [
+      "NAIL"
+    ],
+    "headline": "Reported Earlier, U.S. Treasury Department Issues Proposed Regulations To Make Homeownership More Affordable; From January 7, 2027, Large Institutional Investors Generally May Not Purchase A Single-Family Home",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T14:52:51.003841-04:00",
+    "symbols": [
+      "HDV"
+    ],
+    "headline": "Chevron Stock Hits New 52-Week High - Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T14:52:51.137416-04:00",
+    "symbols": [
+      "KSS"
+    ],
+    "headline": "Gordon Haskett Upgrades Kohl&#39;s to Buy, Announces $27 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T14:52:51.141832-04:00",
+    "symbols": [
+      "KSS"
+    ],
+    "headline": "10 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T14:52:51.319903-04:00",
+    "symbols": [
+      "LBRT"
+    ],
+    "headline": "Liberty Energy Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

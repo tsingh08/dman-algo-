@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-20T12:38:32.622139-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "408x Oversubscribed AI IPO Crashes 32%\u2014Democratic Sweep Prospects Trigger Selling in Data Center Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T12:38:32.882350-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "408x Oversubscribed AI IPO Crashes 32%\u2014Democratic Sweep Prospects Trigger Selling in Data Center Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T12:38:34.297300-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Qualcomm Plans Global Layoffs Starting November",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T12:38:44.767082-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "408x Oversubscribed AI IPO Crashes 32%\u2014Democratic Sweep Prospects Trigger Selling in Data Center Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T12:38:45.008063-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "408x Oversubscribed AI IPO Crashes 32%\u2014Democratic Sweep Prospects Trigger Selling in Data Center Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T12:38:50.092471-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "408x Oversubscribed AI IPO Crashes 32%\u2014Democratic Sweep Prospects Trigger Selling in Data Center Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-20T12:38:52.273768-04:00",
     "symbols": [
       "MYGN"
@@ -5020,6 +4960,66 @@
       "ISRG"
     ],
     "headline": "Analysts Adjust Price Targets for Intuitive Surgical Following Q3 Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-21T20:02:12.041275-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa Launches Commercial Fraud Solutions and Enhanced Spend Analytics",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-21T20:02:12.260554-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir Accelerates Delivery of Sovereign AI to New Wave of Customers",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-21T20:02:12.394577-04:00",
+    "symbols": [
+      "TNMG"
+    ],
+    "headline": "TNL Mediagene Announces $6.25 Million Strategic Investment and Anticipated Change of Control",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-21T20:02:12.536159-04:00",
+    "symbols": [
+      "ISRG"
+    ],
+    "headline": "Intuitive Surgical Faces Potential 2027 Procedure Momentum Risks from Pricing Actions, RBC Says",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-21T20:02:12.541028-04:00",
+    "symbols": [
+      "ISRG"
+    ],
+    "headline": "Intuitive Surgical Stock Declines Following 2026 Growth Outlook Adjustment and $450 Million Charge",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-21T20:02:12.545607-04:00",
+    "symbols": [
+      "ISRG"
+    ],
+    "headline": "Barclays Adjusts Intuitive Surgical Price Target to $500",
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"

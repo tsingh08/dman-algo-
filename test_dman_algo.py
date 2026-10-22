@@ -28499,9 +28499,41 @@ class TestWhatThePremiumCostsVsWhatTheStockDoes(unittest.TestCase):
     expensive. I made that exact error in this session and told the operator
     META's premium was "cheap" off the straddle figure."""
 
+    def setUp(self):
+        # The extraction uses the real days to the chosen Fridays, so the
+        # calibration numbers below only hold on the weekday they were taken:
+        # Wednesday 2026-10-21, Fridays 2 and 9 days out.
+        _p = patch.object(a, "_et_today", return_value=date(2026, 10, 21))
+        _p.start()
+        self.addCleanup(_p.stop)
+
     def _iv(self, front, back):
         return lambda client, ticker, price, dte: (
             front if dte <= a.EVENT_IV_FRONT_DTE else back)
+
+    def test_thursday_uses_the_days_the_expiries_actually_have_left(self):
+        """DECK, Thursday 2026-10-22, reporting after the close: front 254.4%
+        (Friday, 1 day) vs back 94.3% (next Friday, 8 days). Solved with the
+        requested 2/9 instead of the real 1/8 this came out as negative
+        ordinary variance -- None, and the earnings offer was refused."""
+        with patch.object(a, "_et_today", return_value=date(2026, 10, 22)), \
+             patch.object(a, "_get_atm_iv", side_effect=self._iv(2.544, 0.943)):
+            got = a._event_implied_move_pct(MagicMock(), "DECK", 85.49)
+        self.assertIsNotNone(got)
+        self.assertAlmostEqual(got, (2.544 ** 2 * 1) ** 0.5 / 252 ** 0.5 * 100, delta=0.05)
+
+    def test_atm_iv_reads_the_nearest_listed_strike(self):
+        """NEM at 117.18 rounded to an assumed $2.50 grid is 117.50, which its
+        $1 grid does not list -- the old exact-strike lookup returned None."""
+        client = MagicMock()
+        client.get_option_contracts.return_value = SimpleNamespace(option_contracts=[
+            SimpleNamespace(symbol=f"NEM261023C00{k}000", strike_price=str(k))
+            for k in (115, 116, 117, 118, 119)])
+        with patch.object(a, "_get_option_snapshot",
+                          side_effect=lambda s: {"iv": 1.245} if "117" in s else {"iv": 9.9}) as snap:
+            got = a._get_atm_iv(client, "NEM", 117.18, 2)
+        self.assertEqual(got, 1.245)
+        snap.assert_called_once_with("NEM261023C00117000")
 
     # --- the extraction ----------------------------------------------------
     def test_it_extracts_the_event_day_from_the_term_structure(self):
@@ -28629,3 +28661,157 @@ class TestWhatThePremiumCostsVsWhatTheStockDoes(unittest.TestCase):
     def test_the_spread_command_shows_it(self):
         self.assertIn("_earnings_premium_verdict(_client, _tk, _spot)",
                       inspect.getsource(a._tg_cmd_spread))
+
+
+class TestEntryPullbackFlagIsAnOnOffSwitch(unittest.TestCase):
+    """flag() only stores booleans. The old code fed its value through float(),
+    so turning ENTRY_PULLBACK_PCT on made the pullback float(True) = 1% rather
+    than the configured ENTRY_PULLBACK_PCT. Fixed 2026-10-21."""
+
+    def test_on_uses_the_configured_percentage(self):
+        with patch.object(a, "flag", return_value=True):
+            got = a._entry_limit_price(100.0, "LONG")
+        self.assertAlmostEqual(got, 100.0 * (1 - a.ENTRY_PULLBACK_PCT / 100))
+        self.assertNotAlmostEqual(got, 99.0)   # the float(True) = 1% bug
+
+    def test_on_moves_a_short_above_the_signal(self):
+        with patch.object(a, "flag", return_value=True):
+            got = a._entry_limit_price(100.0, "SHORT")
+        self.assertAlmostEqual(got, 100.0 * (1 + a.ENTRY_PULLBACK_PCT / 100))
+
+    def test_off_rests_at_the_signal_price(self):
+        with patch.object(a, "flag", return_value=False):
+            self.assertEqual(a._entry_limit_price(100.0, "LONG"), 100.0)
+
+    def test_no_override_keeps_the_configured_default(self):
+        with patch.object(a, "flag", side_effect=lambda _n, d: d):
+            got = a._entry_limit_price(100.0, "LONG")
+        self.assertAlmostEqual(got, 100.0 * (1 - a.ENTRY_PULLBACK_PCT / 100))
+
+
+class TestEnterSkipsMultiLegOrders(unittest.TestCase):
+    """A working spread order has symbol=None. /enter's "already working?" set
+    called .upper() on it and every /enter replied "broker read failed" while
+    any spread was open. Fixed 2026-10-21."""
+
+    def _run(self, orders):
+        client = MagicMock()
+        client.get_all_positions.return_value = []
+        client.get_orders.return_value = orders
+        client.get_account.return_value = SimpleNamespace(equity="2500", cash="1800")
+        sent = []
+        with patch.object(a, "_resolve_ticker_alias", return_value="NVDA"), \
+             patch.object(a, "is_halted", return_value=False), \
+             patch.object(a, "check_macro_safe", return_value=(True, 0)), \
+             patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "fetch_df", return_value=None), \
+             patch.object(a, "send_telegram", side_effect=lambda m, *x, **k: sent.append(m)):
+            a._tg_cmd_enter(["/enter", "NVDA"])
+        return sent
+
+    def test_a_spread_order_does_not_fail_the_broker_read(self):
+        sent = self._run([SimpleNamespace(symbol=None)])
+        self.assertTrue(sent)
+        self.assertFalse(any("broker read failed" in m for m in sent), sent)
+        # Got past the broker read to the price check (fetch_df is None here).
+        self.assertTrue(any("no usable price" in m for m in sent), sent)
+
+    def test_an_equity_order_alongside_it_still_blocks(self):
+        sent = self._run([SimpleNamespace(symbol=None), SimpleNamespace(symbol="nvda")])
+        self.assertTrue(any("already working" in m for m in sent), sent)
+
+
+class TestDaemonStateSync(unittest.TestCase):
+    """2026-10-22: the daemon wrote four files it never stashed, so every
+    `git pull --rebase` after the first write failed, every sync took the
+    push-rejected retry, and `reset --soft` there committed the daemon's stale
+    copy of every non-state file -- IOVA's exit flipped done -> queued on each
+    daemon sync and dman_dip_shadow.json lost 45 lines each time."""
+
+    @classmethod
+    def setUpClass(cls):
+        import dman_daemon
+        cls.d = dman_daemon
+
+    def test_files_the_daemon_writes_are_persisted(self):
+        for f in ("dman_pending_exits.json", "dman_dip_basket.json",
+                  "dman_accumulation_log.json", "dman_shadow_reviews.json"):
+            self.assertIn(f, self.d.STATE_FILES)
+
+    def test_constants_match_the_persisted_names(self):
+        for const in ("PENDING_EXIT_FILE", "DIP_BASKET_FILE",
+                      "ACCUM_LOG_FILE", "SHADOW_REVIEW_FILE"):
+            self.assertIn(getattr(a, const), self.d.STATE_FILES, const)
+
+    def _git_recorder(self, push_codes):
+        calls = []
+        pushes = iter(push_codes)
+
+        def fake_git(*args):
+            calls.append(args)
+            rc = 0
+            if args[:1] == ("push",):
+                rc = next(pushes)
+            elif args[:3] == ("diff", "--staged", "--quiet"):
+                rc = 1          # something is staged
+            return SimpleNamespace(returncode=rc, stdout="", stderr="")
+        return calls, fake_git
+
+    def test_push_retry_resets_the_index_not_just_the_branch(self):
+        calls, fake_git = self._git_recorder([1, 0])
+        with patch.object(self.d, "_git", side_effect=fake_git), \
+             patch.object(self.d, "_existing", return_value=[]), \
+             patch.object(self.d, "_tracked", return_value=[]), \
+             patch.object(self.d.algo, "sync_all_state_with_remote"):
+            self.d.git_sync()
+        resets = [c for c in calls if c[:1] == ("reset",)]
+        self.assertTrue(resets, calls)
+        for c in resets:
+            self.assertIn("--mixed", c)
+            self.assertNotIn("--soft", c)
+
+    def test_drift_outside_state_files_is_restored_on_a_runner(self):
+        calls = []
+
+        def fake_git(*args):
+            calls.append(args)
+            out = "dman_dip_shadow.json\ndman_positions.json\n" if args[:2] == ("diff", "--name-only") else ""
+            return SimpleNamespace(returncode=0, stdout=out, stderr="")
+        with patch.dict(os.environ, {"GITHUB_ACTIONS": "true"}), \
+             patch.object(self.d, "_git", side_effect=fake_git):
+            drift = self.d._discard_non_state_drift()
+        self.assertEqual(drift, ["dman_dip_shadow.json"])   # positions is a state file
+        self.assertIn(("checkout", "--", "dman_dip_shadow.json"), calls)
+
+    def test_drift_is_never_touched_off_a_runner(self):
+        with patch.dict(os.environ, {"GITHUB_ACTIONS": ""}), \
+             patch.object(self.d, "_git") as g:
+            self.assertEqual(self.d._discard_non_state_drift(), [])
+        g.assert_not_called()
+
+
+class TestEarningsScanPassesSpotToPremiumVerdict(unittest.TestCase):
+    """The premium verdict read c.get("price"), a key the candidate dict never
+    has, so it priced every event at spot 0, found no ATM strike, and refused
+    every offer as "no event-implied move". Fixed 2026-10-22."""
+
+    def test_the_candidate_current_price_reaches_the_verdict(self):
+        cand = {"ticker": "ACME", "earn_date": date(2026, 10, 22),
+                "timing": "AFTER-CLOSE", "current_price": 123.45}
+        seen = {}
+
+        def verdict(_client, tk, spot):
+            seen[tk] = spot
+            return False, "stop here"
+        with patch.object(a, "is_market_open", return_value=True), \
+             patch.object(a, "_setup_probation_bonus", return_value=0), \
+             patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "get_earnings_spread_candidates", return_value=[cand]), \
+             patch.object(a, "_load_earnings_pending", return_value=[]), \
+             patch.object(a, "_is_alerted_today", return_value=False), \
+             patch.object(a, "_mark_alerted"), \
+             patch.object(a, "build_earnings_spread_plan", return_value={"max_loss": 50.0, "total_cost": 50.0}), \
+             patch.object(a, "_earnings_premium_verdict", side_effect=verdict), \
+             patch.object(a, "send_telegram"):
+            a.run_earnings_spread_scan()
+        self.assertEqual(seen.get("ACME"), 123.45)

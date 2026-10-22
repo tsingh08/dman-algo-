@@ -416,7 +416,7 @@ jobs:
             dman_dip_shadow.json
             dman_dip_basket.json
             dman_pending_exits.json
-            dman_accumulation_log.json
+            dman_accumulation_log.json dman_shadow_reviews.json
             dman_alpaca_sync.json dman_positions.json
             dman_win_rate.json dman_monthly_pnl.json dman_daily_pnl.json
             dman_day_start_equity.json

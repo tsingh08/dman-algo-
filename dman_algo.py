@@ -33,10 +33,10 @@
 
 from __future__ import annotations
 
-import os, sys, json, time, math, re, argparse, warnings, traceback, requests, csv, tempfile, threading, html, glob
+import os, sys, json, time, math, re, argparse, warnings, requests, csv, tempfile, threading, html, glob
 from datetime import datetime, timedelta, date
 from dataclasses import dataclass, field, asdict
-from typing import Optional
+from typing import TYPE_CHECKING, Any, Optional, cast
 import zoneinfo
 
 import numpy as np
@@ -1762,10 +1762,10 @@ def build_scan_universe(min_price: float = 2.0,
                   f"continuing with {len(active)} candidates", flush=True)
             break
         try:
-            snap = yf.download(
+            snap = cast(pd.DataFrame, yf.download(
                 batch, period="5d", progress=False,
                 group_by="ticker", auto_adjust=True, threads=True
-            )
+            ))
             for sym in batch:
                 try:
                     closes = snap[sym]["Close"].dropna()
@@ -1859,8 +1859,8 @@ def fetch_premarket_gap_universe(min_price: float = 0.30, max_price: float = 20.
                   f"{len(batches)} — continuing with {len(liquid)} candidates", flush=True)
             break
         try:
-            snap = yf.download(batch, period="5d", progress=False,
-                               group_by="ticker", auto_adjust=True, threads=True)
+            snap = cast(pd.DataFrame, yf.download(batch, period="5d", progress=False,
+                               group_by="ticker", auto_adjust=True, threads=True))
             for sym in batch:
                 try:
                     closes = snap[sym]["Close"].dropna()
@@ -1885,8 +1885,8 @@ def fetch_premarket_gap_universe(min_price: float = 0.30, max_price: float = 20.
     cand_batches = [cand_syms[i:i+batch_size] for i in range(0, len(cand_syms), batch_size)]
     for batch in cand_batches:
         try:
-            snap = yf.download(batch, period="1d", interval="1m", prepost=True,
-                               progress=False, group_by="ticker", threads=True)
+            snap = cast(pd.DataFrame, yf.download(batch, period="1d", interval="1m", prepost=True,
+                               progress=False, group_by="ticker", threads=True))
             for sym in batch:
                 try:
                     closes = snap[sym]["Close"].dropna()
@@ -2308,7 +2308,7 @@ def _fetch_alpaca_daily(ticker: str, period_days: int) -> Optional[pd.DataFrame]
             # dividends anyway.
             adjustment=_Adjustment.SPLIT,
             start=(datetime.today() - timedelta(days=period_days + 5)).replace(tzinfo=_tz.utc),
-            feed=_resolve_stock_feed(),
+            feed=DataFeed(_resolve_stock_feed()),
         )
         _resp = dc.get_stock_bars(_alp_req)
         # BarSet doesn't support `in` the way a dict does — `ticker in _resp` is
@@ -2367,7 +2367,7 @@ def prewarm_alpaca_bars(tickers: list[str], period_days: int = 430,
                     symbol_or_symbols=chunk,
                     timeframe=TimeFrame.Day,
                     start=_start,
-                    feed=_resolve_stock_feed(),
+                    feed=DataFeed(_resolve_stock_feed()),
                 )
                 _resp = dc.get_stock_bars(_req)
                 for ticker in chunk:
@@ -2980,7 +2980,7 @@ def _split_unadjust_factor(ticker: str, since: date) -> float:
         _f = 1.0
         for _ts, _ratio in _sp.items():
             try:
-                _d = _ts.date()
+                _d = cast(pd.Timestamp, _ts).date()
             except Exception:
                 continue
             if _d > since and float(_ratio) > 0:
@@ -2992,7 +2992,7 @@ def _split_unadjust_factor(ticker: str, since: date) -> float:
 
 def _simulate_trade_outcome(ticker: str, entry: float, stop: float,
                              target1: float, target2: float, bias: str,
-                             start_date: str, be_at_1r: bool = True) -> dict:
+                             start_date: str, be_at_1r: bool = True) -> Optional[dict]:
     """
     Simulate trade outcome using daily bars from start_date onward.
     Returns dict with exit_date, exit_px, exit_reason, outcome, pnl_pct, hold_bars.
@@ -3795,7 +3795,7 @@ def _setup_live_record() -> dict:
                 if not _setup:
                     continue
                 try:
-                    _pnl = float(_row.get("pnl_pct"))
+                    _pnl = _float_strict(_row.get("pnl_pct"))
                 except (TypeError, ValueError):
                     continue
                 _e = _rec.setdefault(_setup, {"n": 0, "wins": 0, "cum_pct": 0.0})
@@ -4192,11 +4192,11 @@ def _tg_cmd_status():
     if _setup_prob:
         _h += f"  |  🟡 {len(_setup_prob)} setup(s) restricted: {', '.join(_setup_prob.keys())}"
     try:
-        _acct = get_alpaca_client().get_account()
-        _eq   = float(_acct.equity)
+        _acct = _alpaca_client_or_raise().get_account()
+        _eq   = _float_strict(_acct.equity)
         _dt   = int(getattr(_acct, "daytrade_count", 0) or 0)
         _acct_line = (f"Equity <b>${_eq:,.2f}</b>  "
-                      f"BP ${float(_acct.buying_power):,.2f}  "
+                      f"BP ${_float_strict(_acct.buying_power):,.2f}  "
                       f"Day trades {_dt}/3")
     except Exception:
         _acct_line = "Alpaca unreachable"
@@ -4349,7 +4349,7 @@ def _resolve_ticker_alias(raw: str) -> str:
     # Not a name we know: let the broker arbitrate, so any valid symbol still
     # works without being listed anywhere here.
     try:
-        _asset = get_alpaca_client().get_asset(_t)
+        _asset = _alpaca_client_or_raise().get_asset(_t)
         if _asset is not None and getattr(_asset, "tradable", False):
             return _t
     except Exception as _exc:
@@ -4419,7 +4419,7 @@ def _tg_cmd_spread(parts: list) -> None:
         _log_swallowed("spread live price", _exc)
     if _spot <= 0:
         try:
-            _spot = float(fetch_df(_tk, 260)["Close"].iloc[-1])
+            _spot = float(cast(pd.DataFrame, fetch_df(_tk, 260))["Close"].iloc[-1])   # None: caught below
         except Exception:
             _spot = 0.0
     if _spot <= 0:
@@ -4573,9 +4573,11 @@ def _tg_cmd_enter(parts: list) -> None:
         return
     try:
         _held = {p.symbol.upper() for p in _client.get_all_positions()}
-        _working = {o.symbol.upper() for o in _client.get_orders()}
-        _equity = float(_client.get_account().equity)
-        _cash = float(_client.get_account().cash)
+        # A multi-leg (spread) order has symbol=None; its legs are OCC
+        # symbols, so it can never match an equity ticker here anyway.
+        _working = {o.symbol.upper() for o in _client.get_orders() if o.symbol}
+        _equity = _float_strict(_client.get_account().equity)
+        _cash = _float_strict(_client.get_account().cash)
     except Exception as _exc:
         send_telegram(f"\u274c /enter: broker read failed — {_exc}")
         return
@@ -4593,7 +4595,7 @@ def _tg_cmd_enter(parts: list) -> None:
         return
 
     try:
-        _df = fetch_df(_tk, 260)
+        _df = cast(pd.DataFrame, fetch_df(_tk, 260))   # None: caught below
         _last = float(_df["Close"].iloc[-1])
     except Exception:
         _last = 0.0
@@ -4793,7 +4795,7 @@ def _tg_cmd_close(_arg):
             # The RESOLVED position's ticker, not the raw argument: it is
             # already normalised, and a lowercase /close would otherwise be
             # sent to the broker as typed.
-            get_alpaca_client().close_position(_pos.ticker)
+            _alpaca_client_or_raise().close_position(_pos.ticker)
             send_telegram(f"📤 /close {_pos.ticker}: equity close submitted")
         except Exception as _e:
             send_telegram(f"❌ /close {_arg} failed: {_e}")
@@ -5374,7 +5376,7 @@ def _handle_manual_options_buy_reply(text: str) -> bool:
     _word = pending["option_type"].lower() + ("s" if pending["contracts"] != 1 else "")
     send_telegram(
         f"📤 <b>Submitted</b>: {pending['contracts']} {_word} of {pending['ticker']}  "
-        f"id {order_id[:8]}…\n"
+        f"id {(order_id or '')[:8]}…\n"
         f"(${pending['strike']:g} strike, exp {pending['expiry']}, ~${pending['total_cost']:.0f} total)"
     )
     return True
@@ -5872,7 +5874,7 @@ def _handle_earnings_approval_reply(text: str) -> bool:
             for side in ("call", "put") if plan.get(side)
         )
         send_telegram(
-            f"🚨 <b>{entry['ticker']} earnings spread FILLED but NOT TRACKED</b>  id {order_id[:8]}…\n"
+            f"🚨 <b>{entry['ticker']} earnings spread FILLED but NOT TRACKED</b>  id {(order_id or '')[:8]}…\n"
             f"Cost ${plan.get('total_cost', 0):.0f} — position tracking failed ({_exc}). "
             f"This is a REAL live position at the broker with no automated stop/exit/close-sync. "
             f"Legs: {_legs_desc or plan}\n"
@@ -5880,7 +5882,7 @@ def _handle_earnings_approval_reply(text: str) -> bool:
         )
         return True
 
-    send_telegram(f"📤 <b>{entry['ticker']} EARNINGS SPREAD SUBMITTED</b>  id {order_id[:8]}…\n"
+    send_telegram(f"📤 <b>{entry['ticker']} EARNINGS SPREAD SUBMITTED</b>  id {(order_id or '')[:8]}…\n"
                  f"Cost ${plan['total_cost']:.0f}  Max loss ${plan['max_loss']:.0f}")
     return True
 
@@ -7011,7 +7013,7 @@ def _news_sentiment_verdict(ticker: str, hours_back: int = 48) -> Optional[str]:
                     votes[s] += 1
     if sum(votes.values()) == 0:
         return None
-    return max(votes, key=votes.get)
+    return max(votes, key=lambda _k: votes[_k])
 
 
 def _news_boost_after_sentiment_veto(has_headline: bool, ticker: str) -> bool:
@@ -8015,7 +8017,6 @@ def _fetch_breaking_news_rss(hours_back: int = 8) -> list[tuple[str, str, str, i
 
     import xml.etree.ElementTree as _etree
     from email.utils import parsedate_to_datetime as _parse_date
-    import re as _re
 
     _RSS_FEEDS = [
         ("https://feeds.reuters.com/reuters/businessNews", "Reuters"),
@@ -9980,7 +9981,7 @@ def _fetch_intraday_bars(ticker: str, interval: str = "5m", period: str = "1d"):
                     # thousand-percent move.
                     adjustment=_AdjM.SPLIT,
                     start=_sess_start.astimezone(_tz.utc),
-                    feed=_resolve_stock_feed(),
+                    feed=DataFeed(_resolve_stock_feed()),
                 )
                 _alp_resp = dc.get_stock_bars(_alp_req)
                 # see _fetch_alpaca_daily — BarSet's `in` always returns False,
@@ -10981,7 +10982,7 @@ def _opt_exit_expiry_backstop(_ctrs, _dte_now, _kp, _occ, _pnl_pct, _tod, kind, 
         _action = "⏳ EXPIRY BACKSTOP — AUTO-CLOSED"
         _msg = (f"{_dte_now}d to expiry — closed to avoid assignment. "
                 f"P&L: {_pnl_pct:+.0f}%. SELL ×{_ctrs} submitted "
-                f"(id {_coid[:8]}…).")
+                f"(id {(_coid or '')[:8]}…).")
     elif _st == "pending":
         _action = "⏳ EXPIRY BACKSTOP — close order working"
         _msg = f"SELL already open (id {(_coid or '?')[:8]}…) — awaiting fill"
@@ -11062,7 +11063,7 @@ def _opt_exit_stop(_ctrs, _exit_prem, _occ, _pnl_pct, _stop_prem, _stopk, kind, 
         _action = "🔴 STOP HIT — AUTO-CLOSED"
         _msg = (f"Bid ${_exit_prem:.2f} ≤ stop ${_stop_prem:.2f} "
                 f"({_pnl_pct:+.0f}%) — SELL ×{_ctrs} submitted "
-                f"(id {_coid[:8]}…). Sync will record P&L.")
+                f"(id {(_coid or '')[:8]}…). Sync will record P&L.")
     elif _st == "pending":
         _action = "🔴 STOP HIT — close order working"
         _msg = f"SELL already open (id {(_coid or '?')[:8]}…) — awaiting fill"
@@ -11104,7 +11105,7 @@ def _opt_exit_trailing(_ctrs, _cur_prem, _flow_lean, _flow_tightened, _giveback_
     if _st == "submitted":
         _action = "🚀 TRAIL EXIT — AUTO-CLOSED (full exit)"
         _msg = (f"Gave back {_giveback_pct:.0f}%+ off the peak{_flow_note} — {_giveback_desc} — "
-                f"SELL ×{_ctrs} submitted (id {_coid[:8]}…). Runner banked.")
+                f"SELL ×{_ctrs} submitted (id {(_coid or '')[:8]}…). Runner banked.")
     elif _st == "pending":
         _action = "🚀 TRAIL EXIT — close order working"
         _msg = f"SELL already open (id {(_coid or '?')[:8]}…) — awaiting fill"
@@ -11154,7 +11155,7 @@ def _opt_exit_t1_half(_ctrs, _cur_prem, _entry_prem, _occ, _pnl_pct, _t1_prem, _
             _action = "🟢 T1 HIT — ½ SOLD, stop → breakeven"
             _msg = (f"Premium ${_cur_prem:.2f} ≥ T1 ${_t1_prem:.2f} "
                     f"({_pnl_pct:+.0f}%) — sold {_half}/{_ctrs} "
-                    f"(id {_coid[:8]}…), stop raised to ${_entry_prem:.2f}")
+                    f"(id {(_coid or '')[:8]}…), stop raised to ${_entry_prem:.2f}")
         elif _st in ("pending", "already_closed"):
             _action = "🟢 T1 — partial close in progress"
             _msg = "Half-sell order working or already done"
@@ -11277,7 +11278,7 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
                           if _occ_info["right"] == "CALL"
                           else max(0.0, _occ_info["strike"] - float(_und_px)))
             _intrinsic_known = True
-            if _intrinsic > _stop_ref:
+            if _stop_ref is not None and _intrinsic > _stop_ref:
                 _stop_ref = round(_intrinsic, 2)
     except Exception:
         pass
@@ -11351,7 +11352,8 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
         # strategy exit below it. In particular the T1 branch sells only HALF
         # a position -- at DTE 1 that would leave the other half to expire.
         _action, _msg = _opt_exit_expiry_backstop(_ctrs, _dte_now, _kp, _occ, _pnl_pct, _tod, kind, t)
-    elif (_quote_ok and _stop_verified and not _trail_active and _stop_ref <= _stop_prem
+    elif (_quote_ok and _stop_verified and not _trail_active
+          and _stop_ref is not None and _stop_ref <= _stop_prem
           and not _has_open_opposite_leg(_occ)):
         # Baseline floor for a position that never became meaningfully
         # profitable — trailing can't protect a move that hasn't happened.
@@ -11757,7 +11759,7 @@ def _force_close_day_only_positions(_now_et: Optional[datetime] = None) -> int:
             _mark_alerted(_dedup_key)
         if status == "submitted":
             closed += 1
-            send_telegram(f"🕓 <b>{pos.ticker} DAY-ONLY EOD CLOSE</b> — id {order_id[:8]}…\n"
+            send_telegram(f"🕓 <b>{pos.ticker} DAY-ONLY EOD CLOSE</b> — id {(order_id or '')[:8]}…\n"
                           f"Momentum-watch breakout entry closing per session scope.")
         elif status == "failed":
             if not _is_duplicate_alert(f"__DAYONLY_CLOSE_FAIL_{pos.ticker}_{today_str}__"):
@@ -11858,7 +11860,7 @@ def _monitor_earnings_spread_position(pos: dict) -> Optional[str]:
         st, oid = _close_earnings_spread(pos, f"{t} earnings spread DTE close")
         if st == "submitted":
             action, msg = "🔴 DTE CLOSE — AUTO-CLOSED", \
-                f"{dte_now}d to expiry — closing to avoid pin/assignment risk. id {oid[:8]}…"
+                f"{dte_now}d to expiry — closing to avoid pin/assignment risk. id {(oid or '')[:8]}…"
         elif st == "pending":
             action, msg = "🔴 DTE CLOSE — close order working", "Close order already open — awaiting fill"
         elif st == "already_closed":
@@ -11874,7 +11876,7 @@ def _monitor_earnings_spread_position(pos: dict) -> Optional[str]:
         st, oid = _close_earnings_spread(pos, f"{t} earnings spread take-profit")
         if st == "submitted":
             action, msg = "🚀 TAKE-PROFIT — AUTO-CLOSED", \
-                f"Value ${cur_value:.0f} >= {EARNINGS_SPREAD_TAKE_PROFIT_PCT*100:.0f}% of max gain ${max_gain:.0f}. id {oid[:8]}…"
+                f"Value ${cur_value:.0f} >= {EARNINGS_SPREAD_TAKE_PROFIT_PCT*100:.0f}% of max gain ${max_gain:.0f}. id {(oid or '')[:8]}…"
         elif st == "pending":
             action, msg = "🚀 TAKE-PROFIT — close order working", "Close order already open — awaiting fill"
         elif st == "already_closed":
@@ -11902,7 +11904,7 @@ def _monitor_earnings_spread_position(pos: dict) -> Optional[str]:
             _pek = f"{t}_EARNSPREAD_POSTEVENT_{_tod}"
             if st == "submitted":
                 action, msg = "📉 POST-EVENT DECAY — AUTO-CLOSED", \
-                    f"Value ${cur_value:.0f} vs ${_debit_paid:.0f} paid, earnings already resolved ({_earn_date_str}). id {oid[:8]}…"
+                    f"Value ${cur_value:.0f} vs ${_debit_paid:.0f} paid, earnings already resolved ({_earn_date_str}). id {(oid or '')[:8]}…"
             elif st == "pending":
                 action, msg = "📉 POST-EVENT DECAY — close order working", "Close order already open — awaiting fill"
             elif st == "already_closed":
@@ -11950,7 +11952,7 @@ def run_options_guard(verbose: bool = True, get_snapshot_fn=None, get_price_fn=N
     if positions is None:
         try:
             with open(POSITIONS_FILE) as _f:
-                positions = json.load(_f)
+                positions = cast(list, json.load(_f))
         except Exception:
             return alerts
     for _pos in positions:
@@ -12333,7 +12335,7 @@ def run_equity_guard(get_price_fn=None, positions: Optional[list] = None) -> Non
     if positions is None:
         try:
             with open(POSITIONS_FILE) as f:
-                positions = json.load(f)
+                positions = cast(list, json.load(f))
         except Exception:
             return
     for pos in positions:
@@ -12641,7 +12643,7 @@ def _probation_size_mult() -> float:
     return MOMENTUM_PROBATION_SIZE_MULT
 
 
-def _mw_pick_and_execute(candidates: list[dict]) -> list[str]:
+def _mw_pick_and_execute(candidates: list) -> list[str]:
     """Alert the single best breakout and trade only that one.
 
     Everything else becomes one line. Acting on a five-name menu is the part
@@ -13236,12 +13238,12 @@ def _pmb_live_suggestion():
                 for setup, grp in df_live.groupby("setup"):
                     if len(grp) >= 8:
                         g_wr = (grp["outcome"] == "WIN").mean() * 100
-                        bt   = bt_baseline.get(setup, 65.0)
+                        bt   = bt_baseline.get(cast(str, setup), 65.0)
                         if g_wr < bt - 8:
                             suggestions.append(
                                 f"⚠️ {setup} live WR {g_wr:.0f}% vs backtest {bt:.0f}% — "
                                 f"consider raising SETUP_MIN_CONFLUENCE to "
-                                f"{SETUP_MIN_CONFLUENCE.get(setup, MIN_CONFLUENCE) + 3}"
+                                f"{SETUP_MIN_CONFLUENCE.get(cast(str, setup), MIN_CONFLUENCE) + 3}"
                             )
                 suggestion_line = ("\n\n💡 <b>CODE SUGGESTIONS</b>\n" + "\n".join(suggestions)
                                    if suggestions else "\n\n💡 <b>CODE SUGGESTIONS</b>: None — filters on track.")
@@ -13793,7 +13795,7 @@ def _zone_peak_gain_pct(ticker: str, entry: float, entry_date,
         _rows = [_i for _i, _d in enumerate(_df.index) if str(_d)[:10] >= _since]
         if not _rows:
             return float(stored or 0.0)
-        _hi = float(_df["Close"].iloc[_rows].max())
+        _hi = float(cast(pd.Series, _df["Close"]).take(_rows).max())
         return max(float(stored or 0.0), (_hi - _e) / _e * 100.0)
     except Exception as exc:
         _log_swallowed("zone peak gain", exc)
@@ -13898,7 +13900,7 @@ def _zone_trail_exit_check(notify: bool = True) -> list:
             if _ap is None:
                 continue
             try:
-                _gain = float(_ap.unrealized_plpc) * 100.0
+                _gain = _float_strict(_ap.unrealized_plpc) * 100.0
             except (TypeError, ValueError):
                 continue
             # Derived from bars, with any persisted mark as a floor. See
@@ -13944,7 +13946,7 @@ def _zone_trail_exit_check(notify: bool = True) -> list:
     return _hit
 
 
-def _place_bzone_catastrophe_stop(ticker: str, qty: int, entry: float):
+def _place_bzone_catastrophe_stop(ticker: str, qty: float, entry: float):
     """Rest a GTC catastrophe stop at the broker for a zone position.
 
     (ok, detail). Never raises: a zone that fills and then fails to get its
@@ -14199,7 +14201,7 @@ def _bzone_exposure() -> float:
         for _pos in _client.get_all_positions():
             if str(_pos.symbol).upper() in _zone_syms:
                 try:
-                    _tot += abs(float(_pos.market_value))
+                    _tot += abs(_float_strict(_pos.market_value))
                 except (TypeError, ValueError):
                     pass
         return _tot
@@ -15475,7 +15477,7 @@ def _project_partial_session_rvol(df: "pd.DataFrame",
         _raw = df["RVOL"].iloc[-1]
         if _raw is None or (isinstance(_raw, float) and _raw != _raw):
             return df
-        df.iloc[-1, df.columns.get_loc("RVOL")] = float(_raw) / _frac
+        df.iloc[-1, cast(int, df.columns.get_loc("RVOL"))] = float(_raw) / _frac
     except Exception:
         return df
     return df
@@ -15766,6 +15768,16 @@ class ProSignal:
     atr:  float = 0.0
     beta: float = 1.0
 
+    # Backtest-only state the walk-forward loop sets on the open signal.
+    # Declared for the type checker only: never executed, so these are not
+    # dataclass fields and asdict()/repr()/__init__ are unchanged.
+    if TYPE_CHECKING:
+        _t1_hit:        bool  = field(init=False)
+        _trail_stop:    float = field(init=False)
+        _remain_shares: int   = field(init=False)
+        _be1r_set:      bool  = field(init=False)
+        _partial_pnl:   float = field(init=False)
+
     @property
     def risk_per_share(self) -> float:
         return abs(self.entry - self.stop)
@@ -15962,8 +15974,8 @@ def _regime_defensive_rotation(defensive_rotation):
     def_rotation_note  = ""
     try:
         def_tickers = ["XLK","XLP","XLU","XLV"]
-        def_data    = yf.download(def_tickers, period="3d", progress=False,
-                                  auto_adjust=True)["Close"]
+        def_data    = cast(pd.DataFrame, cast(pd.DataFrame, yf.download(
+            def_tickers, period="3d", progress=False, auto_adjust=True))["Close"])
         if isinstance(def_data.columns, pd.MultiIndex):
             def_data.columns = def_data.columns.droplevel(1)
         if len(def_data) >= 2:
@@ -16348,7 +16360,7 @@ def get_top_sectors(n: int = 4) -> list[str]:
         except Exception:
             continue
 
-    ranked = sorted(scores, key=scores.get, reverse=True)
+    ranked = sorted(scores, key=lambda _k: scores[_k], reverse=True)
     _sector_cache    = ranked
     _sector_cache_ts = datetime.now()
     return _sector_cache[:n]
@@ -16626,7 +16638,7 @@ def _extract_earnings_dates_status(ticker: str) -> tuple[list[date], bool]:
     # Legacy DataFrame shape — kept in case yfinance reverts this upstream.
     try:
         if hasattr(cal, "empty") and not cal.empty and "Earnings Date" in cal.columns:
-            return [d.date() for d in pd.to_datetime(cal["Earnings Date"]).dropna()], True
+            return [d.date() for d in cast(pd.Series, pd.to_datetime(cal["Earnings Date"])).dropna()], True
     except Exception:
         return [], False
     return [], True
@@ -16870,15 +16882,8 @@ def _fetch_benzinga_earnings_time(ticker: str, earn_date: date) -> Optional[str]
     return None
 
 
-def _get_atm_iv(client, ticker: str, current_price: float, target_dte: int) -> Optional[float]:
-    """
-    ATM implied vol for the expiry nearest target_dte, via the same
-    GetOptionContractsRequest + _get_option_snapshot pattern _find_best_call_contract
-    uses. Returns None on any lookup/data failure (fail-closed for the caller).
-    """
-    from alpaca.trading.requests import GetOptionContractsRequest
-    from alpaca.trading.enums import ContractType
-
+def _atm_iv_expiry(target_dte: int) -> Optional[date]:
+    """The Friday expiry _get_atm_iv() reads for target_dte: the one nearest it."""
     today = _et_today()
     target_expiry = None
     best_diff = float("inf")
@@ -16889,24 +16894,40 @@ def _get_atm_iv(client, ticker: str, current_price: float, target_dte: int) -> O
             if diff < best_diff:
                 best_diff = diff
                 target_expiry = candidate
-    if not target_expiry:
+    return target_expiry
+
+
+def _get_atm_iv(client, ticker: str, current_price: float, target_dte: int) -> Optional[float]:
+    """
+    ATM implied vol for the expiry nearest target_dte, via the same
+    GetOptionContractsRequest + _get_option_snapshot pattern _find_best_call_contract
+    uses. Returns None on any lookup/data failure (fail-closed for the caller).
+    """
+    from alpaca.trading.requests import GetOptionContractsRequest
+    from alpaca.trading.enums import ContractType
+
+    target_expiry = _atm_iv_expiry(target_dte)
+    if not target_expiry or current_price <= 0:
         return None
 
-    incr = 1.0 if current_price < 25 else (2.5 if current_price < 200 else 5.0)
-    atm = round(round(current_price / incr) * incr, 2)
+    # Nearest listed strike, not a guessed one. This used to round spot to an
+    # assumed $1/$2.50/$5 grid and ask for that exact strike; NEM at 117.18
+    # rounds to 117.50, which does not exist on its $1 grid, so the lookup
+    # returned None and the premium verdict refused it (2026-10-22).
     try:
         raw = client.get_option_contracts(GetOptionContractsRequest(
             underlying_symbols=[ticker],
             expiration_date=target_expiry,
             type=ContractType.CALL,
-            strike_price_gte=str(round(atm - 0.01, 2)),
-            strike_price_lte=str(round(atm + 0.01, 2)),
-            limit=1,
+            strike_price_gte=str(round(current_price * 0.95, 2)),
+            strike_price_lte=str(round(current_price * 1.05, 2)),
+            limit=100,
         ))
         items = getattr(raw, "option_contracts", None) or (raw if isinstance(raw, list) else [])
         if not items:
             return None
-        snap = _get_option_snapshot(items[0].symbol)
+        _atm = min(items, key=lambda _c: abs(float(_c.strike_price) - current_price))
+        snap = _get_option_snapshot(_atm.symbol)
         if not snap or snap.get("iv", 0) <= 0:
             return None
         return float(snap["iv"])
@@ -17193,8 +17214,11 @@ def run_earnings_spread_scan() -> None:
             # time on 2026-10-21. Nothing in this system had ever compared
             # what it pays for an event to what the stock does on events, and
             # the long-premium record is n=4, mean -63.13%, cum -252.5%.
+            # current_price, the key get_earnings_spread_candidates() sets.
+            # It read c.get("price") until 2026-10-22, which is always absent:
+            # spot 0 -> no ATM strike -> no implied move -> every offer refused.
             _ok_prem, _why_prem = _earnings_premium_verdict(
-                client, c["ticker"], c.get("price") or 0)
+                client, c["ticker"], c["current_price"])
             if not _ok_prem:
                 print(f"  \u23ed\ufe0f  {c['ticker']} earnings spread skipped — {_why_prem}")
                 _pk = f"{c['ticker']}_EARNSPREAD_PREMIUM_{c['earn_date'].isoformat()}"
@@ -17739,8 +17763,8 @@ def _load_sec_cik_map() -> dict:
             age = time.time() - os.path.getmtime(_SEC_CIK_MAP_FILE)
             if age < _SEC_CIK_MAP_TTL_S:
                 with open(_SEC_CIK_MAP_FILE, "r") as f:
-                    _sec_cik_map = json.load(f)
-                    return _sec_cik_map
+                    _sec_cik_map = _loaded = json.load(f)
+                    return _loaded
     except Exception:
         pass
     try:
@@ -17765,8 +17789,8 @@ def _load_sec_cik_map() -> dict:
     try:
         if os.path.exists(_SEC_CIK_MAP_FILE):
             with open(_SEC_CIK_MAP_FILE, "r") as f:
-                _sec_cik_map = json.load(f)
-                return _sec_cik_map
+                _sec_cik_map = _loaded = json.load(f)
+                return _loaded
     except Exception:
         pass
     _sec_cik_map = {}
@@ -18005,7 +18029,7 @@ def compute_poc(df: pd.DataFrame, lookback: int = 30) -> float:
         bins    = pd.cut(typical, bins=20)
         vol_by_bin = window.groupby(bins, observed=True)["Volume"].sum()
         poc_bin    = vol_by_bin.idxmax()
-        poc_price  = float(poc_bin.mid)
+        poc_price  = float(cast(pd.Interval, poc_bin).mid)
         return poc_price
     except Exception:
         return float(df["Close"].iloc[-1])
@@ -19198,12 +19222,22 @@ def _event_implied_move_pct(client, ticker: str, current_price: float) -> Option
         # the extraction understates it. With the fixed 7/28 DTE pair this
         # returned 9.9% for META on 2026-10-21 where the 2-day/9-day pair gave
         # 10.6% -- and the whole point of extracting is not to understate.
-        _t1 = max(1, EVENT_IV_FRONT_DTE)
-        _t2 = _t1 + EVENT_IV_BACK_GAP_DTE
-        _iv1 = _get_atm_iv(client, ticker, current_price, _t1)
-        _iv2 = _get_atm_iv(client, ticker, current_price, _t2)
+        _want1 = max(1, EVENT_IV_FRONT_DTE)
+        _want2 = _want1 + EVENT_IV_BACK_GAP_DTE
+        _iv1 = _get_atm_iv(client, ticker, current_price, _want1)
+        _iv2 = _get_atm_iv(client, ticker, current_price, _want2)
         if not _iv1 or not _iv2:
             return None
+        # T is the time the chosen expiries actually have left, not the DTE
+        # that was asked for. The two only agree on a Wednesday (Friday is 2
+        # and 9 days out). On a Thursday they are 1 and 8, and solving with
+        # 2/9 turned DECK's 254%-vs-94% term structure -- an event if there
+        # ever was one -- into "no backwardation" (2026-10-22).
+        _e1, _e2 = _atm_iv_expiry(_want1), _atm_iv_expiry(_want2)
+        if not _e1 or not _e2 or _e2 <= _e1:
+            return None
+        _today = _et_today()
+        _t1, _t2 = (_e1 - _today).days, (_e2 - _today).days
         _a1, _a2 = _iv1 ** 2 * _t1, _iv2 ** 2 * _t2
         _sn2 = (_a2 - _a1) / float(_t2 - _t1)
         _se2 = _a1 - _sn2 * (_t1 - 1)
@@ -20352,7 +20386,7 @@ def sync_positions_with_remote() -> None:
 
 
 def merge_json_lists(local_list: list, remote_list: list, key_fn=None,
-                     max_entries: int = None) -> list:
+                     max_entries: Optional[int] = None) -> list:
     """
     Generic union-merge for append-only JSON list files that can be
     concurrently written by separate processes (the cron scanner and the
@@ -22824,8 +22858,8 @@ def _check_stop_coverage() -> Optional[dict]:
                 _pos = _alp_positions[_sym]
                 _qty  = float(_pos.qty)
                 _ep   = float(_pos.avg_entry_price)
-                _upnl = float(_pos.unrealized_pl)
-                _upct = float(_pos.unrealized_plpc) * 100
+                _upnl = _float_strict(_pos.unrealized_pl)
+                _upct = _float_strict(_pos.unrealized_plpc) * 100
                 _orphan_msgs.append(
                     f"  {_sym}: {_qty:.0f}sh @ ${_ep:.2f}  "
                     f"unreal {'+' if _upnl >= 0 else ''}{_upnl:.2f} ({_upct:+.1f}%)"
@@ -23261,7 +23295,7 @@ def print_scan_log() -> None:
 #  SECTION 19.6 — SIGNAL EXPLAINABILITY  (/why TICKER)
 # ═══════════════════════════════════════════════════════════════════════════
 
-def explain_ticker(ticker: str, min_score: int = None) -> str:
+def explain_ticker(ticker: str, min_score: Optional[int] = None) -> str:
     """
     Read-only diagnostic: runs the exact same detection → scoring → gate
     sequence run_pro_scanner() uses, but for one ticker on demand, and
@@ -23597,7 +23631,7 @@ def _orb_session_bars(bars: list) -> dict:
     return out
 
 
-def _orb_trade(day: list, prev_close: float, prior_days: list, qqq_day: list):
+def _orb_trade(day: list, prev_close: float, prior_days: list, qqq_day: Optional[list]):
     """The backtested rule for one symbol-session. None if no breakout.
 
     Opening range 9:30-10:00; entry is the first 5-min CLOSE above the range
@@ -23973,7 +24007,7 @@ def _dip_basket_entry_on_record(symbol: str) -> bool:
         return False
 
 
-def _orphan_position_shim(symbol: str):
+def _orphan_position_shim(symbol: str) -> Optional["OpenPosition"]:
     """A minimal position object for something held at the broker but untracked.
 
     _close_position_at_market() needs .ticker, .entry, .bias and .setup. An
@@ -23983,15 +24017,16 @@ def _orphan_position_shim(symbol: str):
     """
     from types import SimpleNamespace as _NS
     try:
-        _p = get_alpaca_client().get_open_position(symbol)
+        _p = _alpaca_client_or_raise().get_open_position(symbol)
         if _p is None or abs(float(_p.qty)) <= 0:
             return None
-        return _NS(
+        # Duck-typed stand-in: carries every field _close_position_at_market reads.
+        return cast("OpenPosition", _NS(
             ticker=str(_p.symbol).upper(),
             entry=float(_p.avg_entry_price or 0),
             bias="SHORT" if float(_p.qty) < 0 else "LONG",
             setup=ADOPTED_SETUP, shares=abs(int(float(_p.qty))),
-            entry_date="", stop=0.0, target1=0.0, legs=[], spread_qty=0)
+            entry_date="", stop=0.0, target1=0.0, legs=[], spread_qty=0))
     except Exception as _exc:
         _log_swallowed("orphan shim", _exc)
         return None
@@ -24101,7 +24136,7 @@ def _dip_basket_ratchet_stop(row: dict, out: dict) -> None:
             return
         from alpaca.trading.requests import GetOrdersRequest, ReplaceOrderRequest
         from alpaca.trading.enums import QueryOrderStatus
-        _client = get_alpaca_client()
+        _client = _alpaca_client_or_raise()
         for _o in _client.get_orders(filter=GetOrdersRequest(
                 symbols=[_tk], status=QueryOrderStatus.OPEN)):
             if str(getattr(_o.side, "value", _o.side)).lower() != "sell":
@@ -24139,7 +24174,7 @@ def _dip_basket_reprice_stop(row: dict, out: dict) -> None:
     try:
         from alpaca.trading.requests import GetOrdersRequest, ReplaceOrderRequest
         from alpaca.trading.enums import QueryOrderStatus
-        _client = get_alpaca_client()
+        _client = _alpaca_client_or_raise()
         for _o in _client.get_orders(filter=GetOrdersRequest(
                 symbols=[row["ticker"]], status=QueryOrderStatus.OPEN)):
             if str(getattr(_o.side, "value", _o.side)).lower() != "sell":
@@ -24172,7 +24207,8 @@ def run_dip_basket_manage(notify: bool = True) -> dict:
     if not _rows:
         return out
     _today = _et_today()
-    _client = get_alpaca_client()
+    # A None client fails each row's broker call, caught per row below.
+    _client = cast("TradingClient", get_alpaca_client())
     try:
         for _r in _rows:
             _tk, _st = _r.get("ticker", ""), _r.get("status", "")
@@ -24552,7 +24588,7 @@ def run_api_health_check(notify: bool = False) -> list[str]:
         if not c:
             return False, "no client (keys missing or rejected)"
         acct = c.get_account()
-        return True, f"equity ${float(acct.equity):,.2f}  status {acct.status}"
+        return True, f"equity ${_float_strict(acct.equity):,.2f}  status {acct.status}"
 
     def _alpaca_positions():
         c = get_alpaca_client()
@@ -24859,7 +24895,6 @@ def run_news_source_check(notify: bool = False) -> list[str]:
     Prints status per source and NEVER prints a key -- only its length and last
     four characters, which is enough to tell two keys apart.
     """
-    import datetime as _d
     _cut = (datetime.now(ET) - timedelta(hours=48)).strftime("%Y-%m-%dT%H:%M:%SZ")
     _lines = []
 
@@ -25959,7 +25994,7 @@ def _scan_friday_closeout():
 
 
 def run_pro_scanner(tickers: list[str] = WATCHLIST,
-                    min_score: int = None,
+                    min_score: Optional[int] = None,
                     use_ai: bool = False,
                     universe_label: str = "curated",
                     include_dynamic_smallcap: bool = True) -> list[ProSignal]:
@@ -26015,7 +26050,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
         _esc, _escv = _scan_consecutive_loss_gate(
             min_score, tracker.rolling_stats(live_only=True), tickers)
         if _esc == 'return':
-            return _escv
+            return _escv or []
     elif not _is_duplicate_alert("__PROBATION_ACTIVE__"):
         print(f"\n  🟡 PROBATION ACTIVE — consec-loss/monthly-loss guards bypassed, "
               f"sizing ×{_probation_mult:.2f}\n")
@@ -26593,6 +26628,8 @@ class _PointInTimeData:
         try:
             t = self._fetch_df(ticker, 400)
             m = self._fetch_df("SPY", 400)
+            if t is None or m is None:
+                return 1.0
             r = pd.concat([t["Close"].pct_change(), m["Close"].pct_change()], axis=1).dropna().tail(252)
             var = float(r.iloc[:, 1].var())
             return round(float(r.iloc[:, 0].cov(r.iloc[:, 1])) / var, 2) if var > 0 else 1.0
@@ -26613,15 +26650,16 @@ class _PointInTimeData:
         if self._vix is None:
             try:
                 import yfinance as _yf
-                v = _yf.download("^VIX", period="10y", interval="1d", progress=False, auto_adjust=False)
+                v = cast(pd.DataFrame, _yf.download("^VIX", period="10y", interval="1d", progress=False, auto_adjust=False))
                 if hasattr(v.columns, "levels"):
                     v.columns = v.columns.get_level_values(0)
                 self._vix = v["Close"]
             except Exception:
                 self._vix = pd.Series(dtype=float)
         try:
-            idx = self._vix.index.tz_localize(None) if getattr(self._vix.index, "tz", None) else self._vix.index
-            sub = self._vix[idx.normalize() <= pd.Timestamp(self.asof)]
+            _vi = cast(pd.DatetimeIndex, self._vix.index)
+            idx = _vi.tz_localize(None) if getattr(_vi, "tz", None) else _vi
+            sub = self._vix[idx.normalize() <= pd.Timestamp(cast(Any, self.asof))]
             return float(sub.iloc[-1]) if len(sub) else 20.0
         except Exception:
             return 20.0
@@ -26645,7 +26683,7 @@ def run_pro_backtest(tickers: list[str] = WATCHLIST, years: int = 2,
     return res
 
 
-def _bt_score_live(_pit, current_date, hist_regime, i, min_score, raw, sig, tracker, window):
+def _bt_score_live(_pit, current_date, hist_regime, i, min_score: int, raw, sig, tracker, window):
     """Extracted verbatim from _run_pro_backtest_impl() on 2026-09-14 (refx).
     Returns (escape, value, locals().get("bt_score", _REFX_UNBOUND), locals().get("sig", _REFX_UNBOUND)); escape is None or the original
     return/continue/break of the block.
@@ -26677,7 +26715,7 @@ def _bt_score_live(_pit, current_date, hist_regime, i, min_score, raw, sig, trac
     return (None, None, locals().get("bt_score", _REFX_UNBOUND), locals().get("sig", _REFX_UNBOUND))
 
 
-def _bt_score_legacy(bt_score, hist_regime, i, min_score, raw, sig, window):
+def _bt_score_legacy(bt_score, hist_regime, i, min_score: int, raw, sig, window):
     """Extracted verbatim from _run_pro_backtest_impl() on 2026-09-14 (refx).
     Returns (escape, value, locals().get("bt_score", _REFX_UNBOUND)); escape is None or the original
     return/continue/break of the block.
@@ -26864,6 +26902,7 @@ def _run_pro_backtest_impl(tickers: list[str] = WATCHLIST,
             else:
                 bar   = raw.iloc[i]
                 sig   = open_sig
+                assert sig is not None   # in_trade is set only alongside open_sig
                 ep    = entry_px
                 hold  = i - entry_i
                 is_lo = sig.bias == "LONG"
@@ -27046,7 +27085,7 @@ def _missing_components(sig: ProSignal, gap: int) -> str:
 
 
 def run_ranking(tickers: list[str] = WATCHLIST,
-                min_score: int = None) -> None:
+                min_score: Optional[int] = None) -> None:
     """
     Score every ticker in the watchlist and print a leaderboard that includes
     near-signals (within 20 pts of threshold) — useful on flat scan days so
@@ -27335,6 +27374,7 @@ try:
     from alpaca.data.historical import StockHistoricalDataClient
     from alpaca.data.requests import StockLatestQuoteRequest, StockBarsRequest
     from alpaca.data.timeframe import TimeFrame
+    from alpaca.data.enums import DataFeed
     ALPACA_AVAILABLE = True
 except ImportError:
     ALPACA_AVAILABLE = False
@@ -27361,6 +27401,23 @@ def get_alpaca_data_client() -> Optional["StockHistoricalDataClient"]:
     return _alp_data
 
 
+def _alpaca_client_or_raise() -> "TradingClient":
+    """get_alpaca_client() for callers already inside a try. Raises the same
+    AttributeError a chained call on None would, so handlers are unchanged."""
+    _c = get_alpaca_client()
+    if _c is None:
+        raise AttributeError("no Alpaca client (keys missing)")
+    return _c
+
+
+def _float_strict(v: Any) -> float:
+    """float(v) for Alpaca fields typed Optional[str] that the broker fills.
+    None raises TypeError exactly as float(None) does, so no handler changes."""
+    if v is None:
+        raise TypeError("float() argument must be a string or a real number, not 'NoneType'")
+    return float(v)
+
+
 def get_live_quote(ticker: str) -> Optional[dict]:
     """
     Full top-of-book quote from Alpaca — mid/bid/ask price AND bid_size/
@@ -27380,7 +27437,7 @@ def get_live_quote(ticker: str) -> Optional[dict]:
             return None
         # See get_live_price()'s matching comment: feed= must be explicit
         # here too, same SIP-entitlement-lapse gap it was added to close.
-        req   = StockLatestQuoteRequest(symbol_or_symbols=ticker, feed=_resolve_stock_feed())
+        req   = StockLatestQuoteRequest(symbol_or_symbols=ticker, feed=DataFeed(_resolve_stock_feed()))
         quote = dc.get_stock_latest_quote(req)[ticker]
         ask, bid = float(quote.ask_price), float(quote.bid_price)
         if ask <= 0 or bid <= 0:
@@ -27674,7 +27731,10 @@ def _entry_limit_price(entry: float, bias: str) -> float:
     says it is, so a filled trade simply carries more room. Unfilled means the
     move left without us, which the study says is the cheaper mistake."""
     try:
-        pct = float(flag("ENTRY_PULLBACK_PCT", ENTRY_PULLBACK_PCT))
+        # flag() only honours a bool override, so it is an on/off switch:
+        # off rests at the signal price, on uses the configured percentage.
+        # (It used to pass the number through float(), making "on" mean 1%.)
+        pct = float(ENTRY_PULLBACK_PCT if flag("ENTRY_PULLBACK_PCT", True) else 0.0)
     except (TypeError, ValueError):
         return entry          # misconfigured: rest at the signal price, as before
     if pct <= 0 or entry <= 0:
@@ -27693,7 +27753,7 @@ def _cap_shares_to_cash(ticker: str, qty: int, price: float) -> tuple[int, str]:
     try:
         if qty <= 0 or price <= 0:
             return max(0, qty), ""
-        _acct = get_alpaca_client().get_account()
+        _acct = _alpaca_client_or_raise().get_account()
         _cash = float(getattr(_acct, "cash", 0) or 0)
         _max = int((_cash * SHARES_FALLBACK_MAX_CASH_PCT) // price)
         if _max < 1:
@@ -28334,7 +28394,7 @@ def adopt_orphan_positions() -> int:
         if "stop" not in str(getattr(o.order_type, "value", o.order_type)).lower():
             continue
         sp = getattr(o, "stop_price", None)
-        if sp is None:
+        if sp is None or not o.symbol:
             continue
         try:
             stops[o.symbol.upper()] = float(sp)
@@ -28697,8 +28757,8 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
             # compare it against on this same live account.
             acct_pct   = dollar_pnl / get_effective_account() * 100
 
-            fill_date = (order.filled_at.strftime("%Y-%m-%d")
-                         if getattr(order, "filled_at", None) else
+            _fa = getattr(order, "filled_at", None)
+            fill_date = (_fa.strftime("%Y-%m-%d") if _fa else
                          _et_today().isoformat())
 
             # Independent safety net against duplicate recording, on top of
@@ -28946,7 +29006,7 @@ def sync_earnings_spread_fills(tracker: WinRateTracker, recorded_ids: set[str]) 
             continue
 
         from alpaca.trading.enums import OrderStatus as _OrderStatus
-        _matched = None
+        _matched: Any = None
         for order in orders:
             if str(order.id) in recorded_ids:
                 continue
@@ -29010,7 +29070,7 @@ def sync_earnings_spread_fills(tracker: WinRateTracker, recorded_ids: set[str]) 
             oids = [str(o.id) for o in _matched]
             credit_received = 0.0
             for o in _matched:
-                was_long = (legs.index(getattr(o, "symbol", None)) % 2 == 0)
+                was_long = (legs.index(cast(str, getattr(o, "symbol", None))) % 2 == 0)
                 px = float(o.filled_avg_price or 0)
                 credit_received += (px if was_long else -px) * 100 * qty
             _fill_dts = [o.filled_at for o in _matched if getattr(o, "filled_at", None)]
@@ -29020,8 +29080,8 @@ def sync_earnings_spread_fills(tracker: WinRateTracker, recorded_ids: set[str]) 
             oids = [str(_matched.id)]
             fill_px = float(_matched.filled_avg_price or 0)
             credit_received = -fill_px * 100 * qty
-            fill_date = (_matched.filled_at.strftime("%Y-%m-%d")
-                         if getattr(_matched, "filled_at", None) else _et_today().isoformat())
+            _fa = getattr(_matched, "filled_at", None)
+            fill_date = (_fa.strftime("%Y-%m-%d") if _fa else _et_today().isoformat())
         debit_paid = float(pos.entry)
         dollar_pnl = credit_received - debit_paid
         pnl_pct = (dollar_pnl / debit_paid * 100) if debit_paid > 0 else 0.0
@@ -29091,9 +29151,9 @@ def show_alpaca_account() -> None:
         print(f"  Alpaca [{mode_label}] Account  —  "
               f"{datetime.today().strftime('%A %b %d, %Y')}")
         print(f"{'─'*W}")
-        print(f"  Portfolio Value : ${float(acct.portfolio_value):>12,.2f}")
-        print(f"  Cash            : ${float(acct.cash):>12,.2f}")
-        print(f"  Buying Power    : ${float(acct.buying_power):>12,.2f}")
+        print(f"  Portfolio Value : ${_float_strict(acct.portfolio_value):>12,.2f}")
+        print(f"  Cash            : ${_float_strict(acct.cash):>12,.2f}")
+        print(f"  Buying Power    : ${_float_strict(acct.buying_power):>12,.2f}")
         unreal = float(getattr(acct, "unrealized_pl", 0) or 0)
         sign   = "+" if unreal >= 0 else ""
         print(f"  Unrealized P&L  : {sign}${unreal:>11,.2f}")
@@ -29233,8 +29293,8 @@ def send_account_pnl_telegram(label: str = "EOD") -> None:
         from alpaca.trading.client import TradingClient
         tc    = TradingClient(ALPACA_API_KEY, ALPACA_SECRET_KEY, paper=ALPACA_PAPER)
         acct  = tc.get_account()
-        equity     = float(acct.equity)
-        cash       = float(acct.cash)
+        equity     = _float_strict(acct.equity)
+        cash       = _float_strict(acct.cash)
         last_eq    = _get_day_start_equity(equity)
         day_pl     = equity - last_eq
         day_pl_pct = day_pl / last_eq * 100 if last_eq > 0 else 0.0
@@ -29255,8 +29315,8 @@ def send_account_pnl_telegram(label: str = "EOD") -> None:
             for p in positions:
                 qty    = p.qty
                 avg_px = float(p.avg_entry_price)
-                pl     = float(p.unrealized_pl)
-                pl_pct = float(p.unrealized_plpc) * 100
+                pl     = _float_strict(p.unrealized_pl)
+                pl_pct = _float_strict(p.unrealized_plpc) * 100
                 p_arrow = "🟢" if pl >= 0 else "🔴"
                 # Options positions used to fall through to this same
                 # equity-shaped line -- raw OCC symbol, "sh" instead of
@@ -30163,9 +30223,9 @@ def _fetch_option_chain_for_display(client, ticker: str, current_price: float,
 
 def _find_spread_legs(client, ticker: str, current_price: float, side: str,
                       target_debit: float,
-                      long_otm_pct: float = None, short_otm_pct: float = None,
-                      min_width_pct: float = None, width_step: float = 0.01,
-                      max_width_pct: float = None) -> Optional[dict]:
+                      long_otm_pct: Optional[float] = None, short_otm_pct: Optional[float] = None,
+                      min_width_pct: Optional[float] = None, width_step: float = 0.01,
+                      max_width_pct: Optional[float] = None) -> Optional[dict]:
     """
     Select a long OTM leg + short OTM leg for an earnings vertical debit spread,
     on the Friday nearest EARNINGS_SPREAD_TARGET_DTE. Starts at
@@ -32387,7 +32447,7 @@ def _main_mode_scan(args, tickers):
 
 def main():
     if hasattr(sys.stdout, "reconfigure"):
-        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        cast(Any, sys.stdout).reconfigure(encoding="utf-8", errors="replace")
     parser = argparse.ArgumentParser(
         description="D🔥man Algorithm v3 PRO — targeting 80%+ win rate"
     )

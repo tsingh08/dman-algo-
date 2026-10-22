@@ -163,6 +163,16 @@ STATE_FILES = [
                                 # is not the usual "state resets" nuisance: every fresh
                                 # checkout would report a full 3-trade budget, which is
                                 # exactly the silent reset the ledger exists to prevent.
+    # Found 2026-10-22, all four written by THIS process every session and on
+    # none of this list: pending exits + dip basket (run_pending_exits /
+    # run_dip_basket_manage in scan_loop), accumulation log + shadow reviews
+    # (run_pro_scanner). An unstashed write fails `git pull --rebase` for the
+    # rest of the session, every sync then fell through to the push-rejected
+    # retry, and that retry committed the daemon's stale copy of every other
+    # file: IOVA's exit flipped done -> queued on each daemon sync through
+    # 2026-10-21, and each one deleted 45 lines of dman_dip_shadow.json.
+    "dman_pending_exits.json", "dman_dip_basket.json",
+    "dman_accumulation_log.json", "dman_shadow_reviews.json",
 ]
 
 EARNINGS_LOOP_TRIGGER_HHMM = 1445   # 2:45 PM ET — ~45 min buffer before the 4 PM close
@@ -554,6 +564,35 @@ def _restore_corrupted_state_files(paths: list[str]) -> list[str]:
     return ok
 
 
+def _discard_non_state_drift() -> list[str]:
+    """Restore any tracked file outside STATE_FILES that this checkout modified.
+
+    Nothing outside STATE_FILES can be published from here, but one modified
+    tracked file is enough to make `git pull --rebase` refuse for the rest of
+    the session (see the 2026-10-22 note at the end of STATE_FILES). Restoring
+    it keeps the pull working, and the log line names the file, so a future
+    missing STATE_FILES entry shows up as a name instead of a silent wedge.
+
+    Runner-only: a local run must never throw away someone's working edits.
+    """
+    if os.environ.get("GITHUB_ACTIONS") != "true":
+        return []
+    try:
+        result = _git("diff", "--name-only")
+        if result.returncode != 0:
+            return []
+        _state = set(STATE_FILES)
+        drift = [p for p in result.stdout.splitlines() if p and p not in _state]
+        if drift:
+            log(f"  ⚠️  restoring {len(drift)} tracked file(s) this daemon cannot "
+                f"publish, so the pull is not blocked: {', '.join(drift)}")
+            _git("checkout", "--", *drift)
+        return drift
+    except Exception as exc:
+        log(f"  non-state drift check failed (non-fatal): {exc}")
+        return []
+
+
 _git_lock = threading.Lock()
 
 
@@ -580,11 +619,19 @@ def git_sync() -> None:
         log("git sync skipped — another sync already in progress past timeout")
         return
     try:
+        _discard_non_state_drift()
         _present = _existing(STATE_FILES)
         if _present:
             _git("stash", "push", "--include-untracked", "--", *_present)
         pull = _git("pull", "--rebase", "origin", "main")
         if pull.returncode != 0:
+            # Was silent. A failing pull leaves this checkout's copy of every
+            # state file frozen at session start, and that copy gets staged
+            # over origin -- how an expired setup probation kept coming back
+            # through 2026-10-21. Say so, so the wedge is a log line, not a
+            # day of mystery reverts.
+            log(f"  ⚠️  git pull --rebase failed: "
+                f"{(pull.stderr or pull.stdout or '').strip()[:300]}")
             _git("rebase", "--abort")
         if _present:
             pop = _git("stash", "pop")
@@ -699,11 +746,19 @@ def git_sync() -> None:
             # tried here first and confirmed live to hit exactly this
             # kind of conflict on a JSON file mid-race — see this
             # function's docstring for the full incident.
+            #
+            # --mixed, not --soft (2026-10-22): --soft kept the index from the
+            # OLD HEAD, so the retry commit carried this checkout's stale copy
+            # of every file outside STATE_FILES and reverted whatever the
+            # scanner had pushed to them (pending exits, the shadow logs, and
+            # in principle code). --mixed resets the index to origin/main and
+            # still leaves the working tree alone; the next iteration re-stages
+            # STATE_FILES only, so a retry commit can contain nothing else.
             fetch_retry = _git("fetch", "origin", "main")
             if fetch_retry.returncode != 0:
                 log("git sync: fetch failed on retry — giving up this cycle, next sync will catch up")
                 break
-            _git("reset", "--soft", "origin/main")
+            _git("reset", "--mixed", "-q", "origin/main")
         else:
             log("git sync: push still rejected after 3 attempts — giving up this cycle, next sync will catch up")
     except Exception as exc:

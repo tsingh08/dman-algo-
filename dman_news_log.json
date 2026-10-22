@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-21T09:25:45.089361-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Jury Verdict in Mazza v. ExxonMobil Litigation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-21T09:25:45.160863-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Viasat Announces Launch Of Rocket Lab-Built Spacecraft For NASA Satellite Relay Demonstration Under $81M In Contracts",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-21T09:25:45.229814-04:00",
-    "symbols": [
-      "ANET"
-    ],
-    "headline": "Arista Networks Officer Kenneth Duda Files Intent to Sell Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:45.297944-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "CrowdStrike Announces Expanded Nvidia Collaboration To Integrate Falcon Guardian AI Agent Security With OpenShell, Plans Chip-Level Enforcement Via Sentry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:45.369656-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Reported Earlier, U.S. OCC Finalizes Information Collection To Include Weekly And Quarterly Reporting Forms By Permitted Payment Stablecoin Issuers And Foreign Payment Stablecoin Issuers Under The Stablecoins (GENIUS) Act",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-21T09:25:45.374606-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Robinhood To Rally Over 28%? Here Are 10 Top Analyst Forecasts For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-21T09:25:45.379397-04:00",
     "symbols": [
       "COIN"
@@ -4998,5 +4938,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T10:43:17.580862-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Just Burned Cash for the First Time Since Its IPO Year: Wall Street Raised Its Targets Anyway",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T10:43:21.715909-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Starts Construction On $5B Production Site In Richmond, Virginia",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T10:43:25.510108-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "Chinese Regulator Convenes E-Commerce Platforms to Discuss Quality Standards",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T10:43:26.697316-04:00",
+    "symbols": [
+      "TLN"
+    ],
+    "headline": "TD Cowen Initiates Coverage On Talen Energy with Buy Rating, Announces Price Target of $475",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T10:43:30.555467-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Natural Gas Storage 77B Vs 80B Est.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T10:43:37.720656-04:00",
+    "symbols": [
+      "XXII"
+    ],
+    "headline": "22nd Century Group Expects Q3 Net Revenue Of ~$4.8M, Up 66% Sequentially",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

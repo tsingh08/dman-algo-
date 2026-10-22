@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-21T12:02:12.176825-04:00",
-    "symbols": [
-      "MB"
-    ],
-    "headline": "Mediobanca Analysts Revise Salvatore Ferragamo Estimates",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-21T14:02:12.127678-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Mubadala Bio and Lilly Announce Landmark Agreement to Advance Pharmaceutical Contract Manufacturing in Abu Dhabi",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-21T14:02:12.432263-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Ordered to Pay $25 Billion in New Mexico Cambridge Analytica Case",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-21T14:03:12.155910-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Music Unveils Refreshed Visual Identity",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-21T14:03:12.412175-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan's Turkish Brokerage Unit to Surrender Operating License",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-21T14:03:12.637623-04:00",
-    "symbols": [
-      "ANET"
-    ],
-    "headline": "Deutsche Bank Reaffirms Buy Rating for Arista Networks",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T14:03:12.916981-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Rocket Lab's Maxwell Spacecraft Successfully Launched for NASA Demonstration",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-21T14:03:13.196923-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Highlights AI Growth and Data Center Expansion Plans",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-21T14:03:13.430827-04:00",
     "symbols": [
       "SMCI"
@@ -4998,5 +4918,85 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T12:46:01.239417-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Stock Drops 5% After Big Rally: Super Micro Computer Pulls Back During AI Supply Fears",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T12:46:01.242319-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Dell Stock Drops in Tech Sell-Off: Profit-Taking Hits AI Server Giant",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T12:46:02.332165-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "BNP Paribas Upgrades Tesla to Neutral, Raises Price Target to $420",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T12:46:02.335192-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Beat Wall Street, But TSLL Bulls Face a Crucial Test\u2014Here\u2019s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T12:46:04.292864-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Samsung Turns to Rival TSMC for Nvidia\u2019s Next-Generation Memory\u2014Micron, SK Hynix Face Same Request: Report (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T12:46:05.656464-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Watching Moderna; Shares Plunge ~15% After Popular YouTuber TOGI Reveals Full-Portfolio Put Position Against The Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T12:46:06.981997-04:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "Spotify&#39;s Subscriber Machine Shows No Signs of Stopping \u2014 316 Million Now in Sight",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-22T12:46:07.350813-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "&#39;Qatar Scours for More LNG to Boost Supply Outside Middle East&#39; - Bloomberg Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

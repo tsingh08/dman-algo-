@@ -12943,6 +12943,10 @@ class TestEarningsSpreadScanAggregateRiskCap(unittest.TestCase):
     a LATER scan can still retry once room frees up."""
 
     def setUp(self):
+        # These test the scan's internals; it is OFF by default (2026-09-03).
+        _en = patch.object(a, "ENABLE_EARNINGS_SPREADS", True)
+        _en.start()
+        self.addCleanup(_en.stop)
         self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
         self._tmp.close()
         self._pending_patch = patch.object(a, "EARNINGS_SPREAD_PENDING_FILE", self._tmp.name)
@@ -13046,6 +13050,10 @@ class TestEarningsSpreadScanSetupProbationGate(unittest.TestCase):
     probation is cleared or has expired."""
 
     def setUp(self):
+        # These test the scan's internals; it is OFF by default (2026-09-03).
+        _en = patch.object(a, "ENABLE_EARNINGS_SPREADS", True)
+        _en.start()
+        self.addCleanup(_en.stop)
         self._pending_tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
         self._pending_tmp.close()
         self._pending_patch = patch.object(a, "EARNINGS_SPREAD_PENDING_FILE", self._pending_tmp.name)
@@ -13211,6 +13219,10 @@ class TestEarningsSpreadScanSkipsUnresolvedTiming(unittest.TestCase):
     ticker that already reported or whose timing couldn't be confirmed."""
 
     def setUp(self):
+        # These test the scan's internals; it is OFF by default (2026-09-03).
+        _en = patch.object(a, "ENABLE_EARNINGS_SPREADS", True)
+        _en.start()
+        self.addCleanup(_en.stop)
         self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
         self._tmp.close()
         self._patch = patch.object(a, "EARNINGS_SPREAD_PENDING_FILE", self._tmp.name)
@@ -13280,6 +13292,10 @@ class TestEarningsSpreadScanSectorOverlapSymmetry(unittest.TestCase):
     appended so far."""
 
     def setUp(self):
+        # These test the scan's internals; it is OFF by default (2026-09-03).
+        _en = patch.object(a, "ENABLE_EARNINGS_SPREADS", True)
+        _en.start()
+        self.addCleanup(_en.stop)
         self._tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
         self._tmp.close()
         self._patch = patch.object(a, "EARNINGS_SPREAD_PENDING_FILE", self._tmp.name)
@@ -28811,6 +28827,7 @@ class TestEarningsScanPassesSpotToPremiumVerdict(unittest.TestCase):
             seen[tk] = spot
             return False, "stop here"
         with patch.object(a, "is_market_open", return_value=True), \
+             patch.object(a, "flag", side_effect=lambda n, d: True if n == "ENABLE_EARNINGS_SPREADS" else d), \
              patch.object(a, "_setup_probation_bonus", return_value=0), \
              patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
              patch.object(a, "get_earnings_spread_candidates", return_value=[cand]), \
@@ -28857,3 +28874,31 @@ class TestClosePnlIsAPercentOfPreTradeEquity(unittest.TestCase):
             self.assertIn("_close_pnl_acct_pct(dollar_pnl)", src, fn.__name__)
             self.assertNotIn("dollar_pnl / get_effective_account()", src, fn.__name__)
             self.assertNotIn("dollar_pnl / ACCOUNT_SIZE", src, fn.__name__)
+
+
+class TestEarningsScanHonoursTheDisableOnEveryPath(unittest.TestCase):
+    """ENABLE_EARNINGS_SPREADS was checked only by the daemon's earnings_loop.
+    The hourly cron's --mode earnings-scan called run_earnings_spread_scan()
+    directly, so the disable never applied there; setup probation hid it
+    until it lapsed on 2026-10-22. Fixed by gating inside the shared
+    function."""
+
+    def _scan(self, enabled):
+        with patch.object(a, "is_market_open", return_value=True), \
+             patch.object(a, "flag", side_effect=lambda n, d: enabled if n == "ENABLE_EARNINGS_SPREADS" else d), \
+             patch.object(a, "_setup_probation_bonus", return_value=0), \
+             patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "get_earnings_spread_candidates", return_value=[]) as cands, \
+             patch.object(a, "_load_earnings_pending", return_value=[]), \
+             patch.object(a, "send_telegram"):
+            a.run_earnings_spread_scan()
+        return cands
+
+    def test_disabled_sends_nothing_and_never_looks_for_candidates(self):
+        self._scan(False).assert_not_called()
+
+    def test_enabled_still_scans(self):
+        self._scan(True).assert_called_once()
+
+    def test_the_shipped_default_is_off(self):
+        self.assertFalse(a.ENABLE_EARNINGS_SPREADS)

@@ -17108,6 +17108,17 @@ def run_earnings_spread_scan() -> None:
             print("  ⏸️  Market closed — earnings scan skipped (avoids sending an "
                   "approval offer whose timer would expire before the next session opens)")
             return
+        # The disable lives HERE, in the function both dispatchers share. Only
+        # the daemon's earnings_loop checked ENABLE_EARNINGS_SPREADS; the hourly
+        # cron's --mode earnings-scan called straight in. Setup probation masked
+        # that until it lapsed 2026-10-22, the morning the premium verdict
+        # started passing DECK and NEM -- so the cron would have sent offers for
+        # a strategy switched off on 2026-09-03 (n=4, -252% cumulative).
+        # /spread TICKER still builds one on request.
+        if not flag("ENABLE_EARNINGS_SPREADS", ENABLE_EARNINGS_SPREADS):
+            print("  ⏸️  Earnings spreads disabled (ENABLE_EARNINGS_SPREADS) — "
+                  "no automatic offers; /spread TICKER builds one on request")
+            return
         # Setup-probation gate — found in the 2026-09-03 review:
         # setup_performance_drift() auto-restricted the canonical
         # "Earnings Spread" setup on 2026-08-31 (25% WR over the last 4

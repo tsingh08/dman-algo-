@@ -1,10 +1,12 @@
 {
-  "last_sync": "2026-10-22T14:25:35.229281+00:00",
+  "last_sync": "2026-10-22T14:30:37.789167+00:00",
   "recorded_ids": [
     "60855fa2-562c-4d5f-8c93-37751e3b8cc5",
+    "70dd0b26-d8fc-4007-af34-dab8794455ad",
     "8d69f92f-87a8-4407-b3b7-383957461de3",
     "f082c4a7-ebf1-47fd-9eb8-fa62d8ce9921",
     "adb020dc-7bd5-4bd4-878a-4f887cd72b3b",
+    "82a1feba-db1a-40b0-acc8-baf21961a9f2",
     "f3d8cec0-865c-4aff-91c0-39dae3540385",
     "69c08af7-34fd-4b69-8009-462104fd973e",
     "9afaa42d-07ff-4dc0-bcfb-7da4188d81af",
@@ -23,5 +25,7 @@
     "e7d4c077-9a0c-4403-a988-ae276b7fd274",
     "a7360f41-d35f-4f9b-99da-3a973e26b756"
   ],
-  "closed_identities": {}
+  "closed_identities": {
+    "NVDA": 1792679437.7473183
+  }
 }

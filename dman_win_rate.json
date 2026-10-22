@@ -1654,5 +1654,17 @@
     "pnl_pct": -71.62,
     "score": 0,
     "is_live": true
+  },
+  {
+    "ticker": "NVDA",
+    "date": "2026-10-22",
+    "bias": "LONG",
+    "setup": "Dip in Uptrend (adopted)",
+    "entry": 215.2,
+    "exit": 215.2,
+    "outcome": "BE",
+    "pnl_pct": 0.0,
+    "score": 0,
+    "is_live": true
   }
 ]

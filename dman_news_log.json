@@ -1,295 +1,5 @@
 [
   {
-    "ts": "2026-10-20T16:00:30.919606-04:00",
-    "symbols": [
-      "HTFL"
-    ],
-    "headline": "Piper Sandler Reiterates Overweight on HeartFlow, Raises Price Target to $64",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T16:02:53.354019-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Q3 EPS $0.35 Beats $0.12 Estimate, Sales $14.575B Beat $12.738B Estimate",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T16:03:21.337141-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Sees Q4 GAAP EPS $0.67 vs $0.73 Est; Sees Sales $13.442B vs $13.517B Est",
-    "source": "benzinga",
-    "tag": "held",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T16:03:55.074481-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Q3 EPS $0.59 Misses $0.82 Estimate, Sales $11.510B Miss $12.876B Estimate",
-    "source": "benzinga",
-    "tag": "held",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T16:03:57.417302-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Narrows FY2026 Sales Guidance from $51.000B-$51.400B to $51.100B vs $51.230B Est",
-    "source": "benzinga",
-    "tag": "held",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T16:06:06.126961-04:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "Intuitive Surgical Q3 Adj. EPS $3.00 Beats $2.64 Estimate, Sales $3.049B Beat $2.906B Estimate",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:42.536685-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Lifts All Boats: Chip Stocks Claw Back $274 Billion After a $1.6 Trillion Rout",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:42.544179-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Keybanc Reiterates Sector Weight on SpaceXto Sector Weight",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:42.549948-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Susquehanna Maintains Neutral on SpaceX, Raises Price Target to $176",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:42.555061-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk&#39;s Tesla-SpaceX Mega-Merger Could Create &#39;Most Unique Company in the World,&#39; Says Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:42.560056-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Super Micro Stock Gains on Strong Outlook, Fuels Dan Niles\u2019 AI Rally Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:42.736023-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nebius Now Presenting Live At NVIDIA GTC Berlin Day 1",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:42.741513-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "NVDA, CRWV, NBIS and Crypto Miners Surge After Elon Musk Says Cloud Providers &#39;Don&#39;t Have Any&#39; AI Compute",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:42.746808-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Piper Sandler Maintains Neutral on Nebius Group, Lowers Price Target to $185",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:42.751712-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nebius Announces Public Live GPU Spot Pricing, Expands European AI Builder Program With Additional $10M In Compute Grants",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:42.756768-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Sereact, NVIDIA, Nebius, CEVA Logistics And Zalando Announce Closed Training Loop For Cortex, Sereact&#39;s Robot Brain",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:42.847139-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Soluna Announces Joint Venture With Applied Digital For 50 MW Texas AI Data Center, Applied To Hold 51%; ChronoScale Signs Non-Binding Lease LOI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-21T09:25:42.851887-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Roth Capital Reinstates Buy on Applied Digital, Announces $35 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-21T09:25:42.926697-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Meta Muse Wants to Run Your Life, and Analyst Says the Winner Will Be Whoever You Trust \u2018With Their Card and Their Habits\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-21T09:25:42.931404-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Industry Comparison: Evaluating Apple Against Competitors In Technology Hardware, Storage &amp; Peripherals Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-21T09:25:43.007985-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "ChatGPT Ads Expands To 26 New Countries As Over 100,000 Advertisers Have Used The Platform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:43.012829-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;OpenAI To Bring AI Models To Google\u2019s Cloud, In Further Expansion Beyond Microsoft&#39; - CNBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:43.017404-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "US Electricity Prices Are \u2018Skyrocketing,\u2019 Says Kobeissi Letter as AI Boom Drives Demand, Marjorie Taylor Greene Questions AI Companies\u2019 Promises of Thousands in \u2018Free\u2019 Monthly Payments",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:43.021799-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Trump Floats \u2018Dividend\u2019 Payments to Communities Hosting AI Data Centers \u2014 Tells Big Tech That Financial Deals Can Turn Local Opposition Into \u2018Extremely Popular\u2019 Support",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:43.026244-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "$39 or $150? Wall Street Can&#39;t Agree on CoreWeave&#39;s Future As AI Debt Fears Mount",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:43.129384-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Amadeus And NVIDIA Sign MoU To Accelerate AI-Powered Flight Search And Optimize Computing Efficiency",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:43.134103-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "SpaceX Lifts All Boats: Chip Stocks Claw Back $274 Billion After a $1.6 Trillion Rout",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:43.138651-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nebius Now Presenting Live At NVIDIA GTC Berlin Day 1",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-21T09:25:43.143245-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Procore Collaborates With Nvidia To Roll Out Digital Twin Capabilities For Construction Projects",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-21T09:25:43.147744-04:00",
     "symbols": [
       "NVDA"
@@ -4998,5 +4708,295 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T09:45:45.297295-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Tech Mahindra Partners With SpaceXSI To Upgrade Legacy Applications, Software Delivery, Developer Productivity",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T09:45:45.305243-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Tesla To Rally Around 23%? Here Are 10 Top Analyst Forecasts For Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T09:45:45.307885-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Tesla\u2019s Most Boring Business Upstages Entire Company",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T09:45:46.572637-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Tesla To Rally Around 23%? Here Are 10 Top Analyst Forecasts For Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T09:45:46.576034-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Platform&#39;s 5-year Credit Default Swaps Hit All-Time High, Last At 114.5 Basis Points",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T09:45:46.578984-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Top Economists Warn California\u2019s Billionaire Tax Could Backfire, Wealthy Residents Leaving Could Cost the State $39 Billion More Than It Collects: &#39;Will Not Fulfill the Primary Functions&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T09:45:46.582137-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "TD Cowen Maintains Buy on Meta Platforms, Lowers Price Target to $850",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T09:45:46.843800-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Top Economists Warn California\u2019s Billionaire Tax Could Backfire, Wealthy Residents Leaving Could Cost the State $39 Billion More Than It Collects: &#39;Will Not Fulfill the Primary Functions&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T09:45:47.276650-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "TD Cowen Reiterates Buy on Tesla, Maintains $460 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T09:45:47.279552-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla To Rally Around 23%? Here Are 10 Top Analyst Forecasts For Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T09:45:47.282225-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla\u2019s Most Boring Business Upstages Entire Company",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T09:45:54.771706-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "&#39;Shell And Exxon\u2019s $8B UK Chemicals Unit Put Up For Sale&#39; - Financial Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T09:45:55.762126-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "&#39;Long Coins, Short Stocks&#39;: Expert Bullish on Bitcoin, Cautious on XRP, Coinbase, Circle",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-22T09:45:55.974244-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "&#39;Long Coins, Short Stocks&#39;: Expert Bullish on Bitcoin, Cautious on XRP, Coinbase, Circle",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T09:45:58.919633-04:00",
+    "symbols": [
+      "OKLO"
+    ],
+    "headline": "Tesla To Rally Around 23%? Here Are 10 Top Analyst Forecasts For Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T09:45:59.416423-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Defense Giant Lockheed Martin Raises 2026 Outlook, Backlog Hits Record $292 Billion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T09:46:01.222649-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Tesla To Rally Around 23%? Here Are 10 Top Analyst Forecasts For Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T09:46:11.039333-04:00",
+    "symbols": [
+      "PFSA"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T09:46:11.569417-04:00",
+    "symbols": [
+      "XLAB"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T09:46:11.787430-04:00",
+    "symbols": [
+      "SNAL"
+    ],
+    "headline": "Snail, Inc. Provides Update on Game Portfolio Progress",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T09:46:12.282149-04:00",
+    "symbols": [
+      "PG"
+    ],
+    "headline": "Procter &amp; Gamble CFO Says Expect Materially Higher Cost Headwinds In Q2, Second Half Of Fiscal 2027 From Higher Oil Prices",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T09:46:12.284998-04:00",
+    "symbols": [
+      "PG"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500, Dow Jones, Nasdaq 100 Futures Drop Following Asian Market Sell-off, Middle East Tensions\u2014 NFLX, SPCX, SMCI in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T09:46:12.287636-04:00",
+    "symbols": [
+      "PG"
+    ],
+    "headline": "Procter &amp; Gamble Expects Continued Geopolitical And Economic Challenges; Strong Start Keeps Us On Track To Deliver Within FY Guidance Ranges For Organic Sales Growth, Core EPS Growth And FCF Productivity",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T09:46:12.290827-04:00",
+    "symbols": [
+      "PG"
+    ],
+    "headline": "Procter &amp; Gamble Affirms FY2027 Adj EPS Guidance of $6.89-$7.11 vs $6.97 Est; Raises FY2027 Sales Guidance from $85.127B-$86.813B to $85.970B-$87.655B vs $88.838B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T09:46:12.293458-04:00",
+    "symbols": [
+      "PG"
+    ],
+    "headline": "Procter &amp; Gamble Q1 Adj. EPS $2.00 Beats $1.88 Estimate, Sales $23.276B Beat $22.795B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T09:46:12.515765-04:00",
+    "symbols": [
+      "CSX"
+    ],
+    "headline": "JP Morgan Maintains Overweight on CSX, Raises Price Target to $58",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T09:46:12.518608-04:00",
+    "symbols": [
+      "CSX"
+    ],
+    "headline": "CSX Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T09:46:12.521570-04:00",
+    "symbols": [
+      "CSX"
+    ],
+    "headline": "CSX Rolls Past Q3 Estimates as Volume Climbs 5%, Stock Jumps After Hours",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T09:46:12.524563-04:00",
+    "symbols": [
+      "CSX"
+    ],
+    "headline": "CSX Q3 EPS $0.57 Beats $0.53 Estimate, Sales $4.020B Beat $3.962B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

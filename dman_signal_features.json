@@ -41294,8 +41294,8 @@
 "Gap Size": 0,
 "News Catalyst": 0
 },
-"seen": 72,
-"last_ts": "2026-10-22T14:36:32.138353-04:00",
+"seen": 74,
+"last_ts": "2026-10-22T14:40:35.869084-04:00",
 "entry_min": 7.1,
 "entry_max": 7.58
 },
@@ -41306,7 +41306,7 @@
 "setup": "Gap & Hold",
 "bias": "LONG",
 "taken": false,
-"reject": "setup disabled: 9W/39L over 48 live trades (19% WR, -90.4% c",
+"reject": "setup disabled: 9W/40L over 49 live trades (18% WR, -95.6% c",
 "score": 100,
 "final_score": 100.0,
 "ai_scored": false,
@@ -41356,8 +41356,8 @@
 "Gap Size": 3,
 "News Catalyst": 5
 },
-"seen": 21,
-"last_ts": "2026-10-22T14:36:32.442182-04:00",
+"seen": 22,
+"last_ts": "2026-10-22T14:40:36.695151-04:00",
 "entry_min": 51.27,
 "entry_max": 51.81
 },
@@ -41514,8 +41514,8 @@
 "macro_ok": true,
 "divergence_free": true,
 "breakdown": {},
-"seen": 2,
-"last_ts": "2026-10-22T14:36:34.465418-04:00",
+"seen": 3,
+"last_ts": "2026-10-22T14:40:38.678205-04:00",
 "entry_min": 1.1974,
 "entry_max": 1.2224
 }

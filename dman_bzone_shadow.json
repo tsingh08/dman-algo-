@@ -1428,5 +1428,75 @@
 "extension_pct": 63.8,
 "fresh_base": false,
 "weak_band": true
+},
+{
+"ticker": "KSS",
+"date": "2026-10-22",
+"close": 24.78,
+"base_days": 225,
+"above_low_pct": 114.5,
+"extension_pct": 23.8,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "ARHS",
+"date": "2026-10-22",
+"close": 11.53,
+"base_days": 298,
+"above_low_pct": 100.5,
+"extension_pct": 16.7,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "SSL",
+"date": "2026-10-22",
+"close": 17.46,
+"base_days": 3,
+"above_low_pct": 227.6,
+"extension_pct": 17.5,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "AMPL",
+"date": "2026-10-22",
+"close": 17.07,
+"base_days": 0,
+"above_low_pct": 204.3,
+"extension_pct": 15.2,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "FIGS",
+"date": "2026-10-22",
+"close": 20.46,
+"base_days": 4,
+"above_low_pct": 177.2,
+"extension_pct": 27.9,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "FRSH",
+"date": "2026-10-22",
+"close": 15.32,
+"base_days": 1,
+"above_low_pct": 122.7,
+"extension_pct": 13.2,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "BRZE",
+"date": "2026-10-22",
+"close": 45.86,
+"base_days": 0,
+"above_low_pct": 190.4,
+"extension_pct": 58.8,
+"fresh_base": false,
+"weak_band": true
 }
 ]

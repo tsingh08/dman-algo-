@@ -1,259 +1,5 @@
 [
   {
-    "ts": "2026-10-20T15:26:42.956493-04:00",
-    "symbols": [
-      "HSAI"
-    ],
-    "headline": "Why 3M Shares Are Trading Higher; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T15:26:43.101202-04:00",
-    "symbols": [
-      "KVYO"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T15:26:43.267632-04:00",
-    "symbols": [
-      "ALVO"
-    ],
-    "headline": "FDA Approves Alvotech\u2019s Process 2.0 For SIMLANDI Drug Substance, More Than Doubling Output Per Batch Without Changing Upstream Manufacturing Scale",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T15:26:45.126694-04:00",
-    "symbols": [
-      "MSCI"
-    ],
-    "headline": "MSCI Q3 Adj. EPS $5.11 Beats $5.02 Estimate, Sales $892.000M Beat $885.749M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T15:26:45.272780-04:00",
-    "symbols": [
-      "MPLT"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T15:27:03.707278-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Claude Opus 5.5, Claude Sonnet 5.5 Are Now Available In Google Antigravity",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T15:27:14.186062-04:00",
-    "symbols": [
-      "EFX"
-    ],
-    "headline": "Equifax Sees Q4 Adj EPS $2.07-$2.17 vs $2.20 Est; Sees Sales $1.605B-$1.635B vs $1.692B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-20T15:30:21.556106-04:00",
-    "symbols": [
-      "META",
-      "TSLA"
-    ],
-    "headline": "Meta Platforms, Tesla Could Swing More Than $100 Billion After Earnings",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T15:39:55.615673-04:00",
-    "symbols": [
-      "AMZN",
-      "GOOGL",
-      "MSFT",
-      "NVDA"
-    ],
-    "headline": "&#39;Anthropic S-1 Shows Red-Hot Growth, Risks and Massive Computing Costs; In A New Draft Prospectus Viewed By The Journal, The AI Giant Disclosed An $80.7 Billion Net Loss For The First Half Of 2026 And A Long List Of Risk Factors&#39; - WSJ Exclusive",
-    "source": "benzinga",
-    "tag": "held",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T15:41:42.331111-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;Anthropic S-1 Shows Red-Hot Growth, Risks and Massive Computing Costs; In A New Draft Prospectus Viewed By The Journal, The AI Giant Disclosed An $80.7 Billion Net Loss For The First Half Of 2026 And A Long List Of Risk Factors&#39; - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T15:41:42.553969-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;Anthropic S-1 Shows Red-Hot Growth, Risks and Massive Computing Costs; In A New Draft Prospectus Viewed By The Journal, The AI Giant Disclosed An $80.7 Billion Net Loss For The First Half Of 2026 And A Long List Of Risk Factors&#39; - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T15:41:42.950567-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Platforms, Tesla Could Swing More Than $100 Billion After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T15:41:43.179629-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;Anthropic S-1 Shows Red-Hot Growth, Risks and Massive Computing Costs; In A New Draft Prospectus Viewed By The Journal, The AI Giant Disclosed An $80.7 Billion Net Loss For The First Half Of 2026 And A Long List Of Risk Factors&#39; - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T15:41:43.184899-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#39;Anthropic S-1 Shows Red-Hot Growth, Risks and Massive Computing Costs; In A New Draft Prospectus Viewed By The Journal, The AI Giant Disclosed An $80.7 Billion Net Loss For The First Half Of 2026 And A Long List Of Risk Factors&#39; - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T15:41:43.375137-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Meta Platforms, Tesla Could Swing More Than $100 Billion After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T15:53:02.369038-04:00",
-    "symbols": [
-      "BRZE"
-    ],
-    "headline": "Wells Fargo Downgrades Braze to Equal-Weight, Raises Price Target to $47.5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T15:59:59.484486-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "After Braze, Could Klaviyo Be Big Tech\u2019s Next Billion-Dollar Bet?",
-    "source": "benzinga",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T16:00:29.704270-04:00",
-    "symbols": [
-      "KVYO"
-    ],
-    "headline": "After Braze, Could Klaviyo Be Big Tech\u2019s Next Billion-Dollar Bet?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-20T16:00:29.922840-04:00",
-    "symbols": [
-      "HCTI"
-    ],
-    "headline": "Healthcare Triangle Expects Annual Revenue Of ~$1.34M By Its Teyame Business; Teyame Also Intends To Sign Additional ~$3.31M Engagements In Incremental Annual Revenue Beginning January Next Year",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T16:00:30.162677-04:00",
-    "symbols": [
-      "ACRV"
-    ],
-    "headline": "Acrivon Therapeutics Advances ACR-7280, Showing Complete Tumor Regression In AML Models, With IND Filing Targeted For H1 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T16:00:30.456568-04:00",
-    "symbols": [
-      "CWST"
-    ],
-    "headline": "&#39;Jana Partners Built Stake In Casella Waste Systems, Urges Management To Improve Margins And Returns On Capital&#39; - Reuters",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-20T16:00:30.687956-04:00",
-    "symbols": [
-      "KEY"
-    ],
-    "headline": "KeyCorp Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T16:00:30.691825-04:00",
-    "symbols": [
-      "KEY"
-    ],
-    "headline": "Keycorp Reaffirms FY26 Share Repurchase Target Of At Least $1.3B",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T16:00:30.695444-04:00",
-    "symbols": [
-      "KEY"
-    ],
-    "headline": "KeyCorp Sees FY2026 Sales $8.114B vs $8.083B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-20T16:00:30.698955-04:00",
-    "symbols": [
-      "KEY"
-    ],
-    "headline": "KeyCorp Q3 Adj. EPS $0.51 Beats $0.47 Estimate, Sales $2.052B Beat $2.046B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-20T16:00:30.919606-04:00",
     "symbols": [
       "HTFL"
@@ -5002,5 +4748,255 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T09:32:18.106006-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Orangetheory Fitness Launches OTconnect for Apple Watch",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T09:32:18.112307-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Infragistics Announces Collaboration with Microsoft to Advance Blazor",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T09:32:18.117576-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "American Express and Airbnb Announce Strategic Partnership",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T09:32:18.120354-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Zadara Achieves NVIDIA AI Cloud Ready Validation",
+    "source": "fiscal.ai",
+    "tag": "held",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T09:32:18.614640-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Announces Surge in Future Spending Commitments",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T09:32:18.618066-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Adobe and BWT Alpine Formula One Team Announce Global Partnership",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T09:32:18.620772-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "UnitedHealthcare Announces Support for Northeast Missouri Health Council Maternal Healthcare",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T09:32:18.623404-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa in Discussions to Acquire Fireblocks",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T09:32:18.630025-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Tigress Financial Initiates Coverage on Broadcom",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T09:32:18.637501-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Mastercard Joins Global Operation Against AI-Powered Fraud Networks",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T09:32:18.641589-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Goldman Sachs Adjusts Price Target on AbbVie",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T09:32:18.646036-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "AbbVie Announces Positive Phase 3 Results for Lutikizumab in Hidradenitis Suppurativa",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T09:32:18.890689-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Qualcomm Schedules Fourth Quarter and Fiscal 2026 Earnings Release and Conference Call",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-22T09:32:18.895257-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Lockheed Martin Raises Fiscal Year Outlook as Backlog Hits Record",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T09:33:18.111232-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "DeFi Development Corp.'s CHAD Preferred Stock Now Available on Robinhood",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T09:33:18.122422-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Mizuho Adjusts Price Target on CrowdStrike Holdings to $275 From $250",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T09:33:18.128174-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Gilead Sciences to Present New Clinical Data at The Liver Meeting 2026",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T09:33:18.367107-04:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "B. Riley Adjusts Price Target on ON Semiconductor",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T09:33:18.370231-04:00",
+    "symbols": [
+      "NRG"
+    ],
+    "headline": "HSBC Initiates Coverage of NRG Energy with Buy Rating",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-22T09:33:18.373188-04:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "HSBC Initiates Coverage on Vistra With Buy Rating",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T09:33:18.376118-04:00",
+    "symbols": [
+      "TLN"
+    ],
+    "headline": "HSBC Initiates Coverage on Talen Energy With Buy Rating",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T09:33:18.571362-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "MoffettNathanson Adjusts DraftKings Price Target",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T09:33:18.574307-04:00",
+    "symbols": [
+      "OKLO"
+    ],
+    "headline": "Truist Securities Adjusts Price Target for Oklo Inc.",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T09:34:18.080737-04:00",
+    "symbols": [
+      "CLSK"
+    ],
+    "headline": "Canaccord Genuity Initiates Coverage of CleanSpark with Buy Rating",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T09:34:33.333510-04:00",
+    "symbols": [
+      "WFRD"
+    ],
+    "headline": "RBC Trims Price Target on Weatherford International to $123 From $124",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

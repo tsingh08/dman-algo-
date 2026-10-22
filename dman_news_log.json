@@ -1,125 +1,5 @@
 [
   {
-    "ts": "2026-10-22T10:46:54.480621-04:00",
-    "symbols": [
-      "HXL"
-    ],
-    "headline": "Hexcel Q3 Adj. EPS $0.50 Beats $0.49 Estimate, Sales $496.400M Miss $502.761M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T10:46:54.554552-04:00",
-    "symbols": [
-      "FPS"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T10:46:54.559125-04:00",
-    "symbols": [
-      "FPS"
-    ],
-    "headline": "Forgent Power Solutions Appoints Amy Ard As CFO; Ryan Fiedler To Transition To External Consultant",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T10:46:54.667528-04:00",
-    "symbols": [
-      "TTMI"
-    ],
-    "headline": "TTM Technologies Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T10:46:54.672131-04:00",
-    "symbols": [
-      "TTMI"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T10:46:54.676544-04:00",
-    "symbols": [
-      "TTMI"
-    ],
-    "headline": "TTM Technologies Initiates Preliminary FY2027 Guidance With Expected Adj EPS Of $8.10-$8.90 vs $7.24 Est; Sees Sales Of $6.500B-$6.750B",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T10:46:54.680974-04:00",
-    "symbols": [
-      "TTMI"
-    ],
-    "headline": "TTM Technologies Sees FY2026 Adj EPS $4.97-$5.03 vs $4.81 Est; Raises FY2026 Sales Guidance from $4.000B to $4.470B-$4.490B vs $4.413B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T10:46:54.685443-04:00",
-    "symbols": [
-      "TTMI"
-    ],
-    "headline": "TTM Technologies Q3 Adj. EPS $1.46 Beats $1.25 Estimate, Sales $1.204B Beat $1.130B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T10:54:44.820657-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Palantir Makes Sovereignty Its Selling Point After Ukraine&#39;s Starlink Disruptions",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T10:54:44.823648-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Introduces Super Intelligence Partner Network, &#34;Our Official Program For Companies Building Products, Solutions, And Services With Grok For Our Joint Prospects And Customers.&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T10:54:45.815309-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Palantir Makes Sovereignty Its Selling Point After Ukraine&#39;s Starlink Disruptions",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T10:54:46.694695-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Argus Research Maintains Buy on Netflix, Lowers Price Target to $95",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-22T10:54:47.239133-04:00",
     "symbols": [
       "PLTR"
@@ -4995,6 +4875,126 @@
       "PG"
     ],
     "headline": "Procter &amp; Gamble Q1 2027 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T14:51:38.877995-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "What&#39;s Going On with AST SpaceMobile Shares On Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T14:51:41.313065-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "CLSA Upgrades Tesla to Hold, Raises Price Target to $400",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T14:51:45.319632-04:00",
+    "symbols": [
+      "AFRM"
+    ],
+    "headline": "Affirm Announces Multi-Year Partnership with Sam's Club",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T14:51:45.537099-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Why Is Moderna Stock Sinking Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T14:51:45.988814-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Starts Construction On $5B Production Site In Richmond, Virginia",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T14:51:52.410802-04:00",
+    "symbols": [
+      "TLN"
+    ],
+    "headline": "TD Cowen Initiates Coverage On Talen Energy with Buy Rating, Announces Price Target of $475",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T14:52:07.731504-04:00",
+    "symbols": [
+      "ARAI"
+    ],
+    "headline": "Arrive AI Transfers Nasdaq Listing To Capital Market, Effective October 23, 2026; Regains Compliance With Two Listing Requirements; Working to Meet Minimum Bid Price Rule",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T14:52:09.385102-04:00",
+    "symbols": [
+      "TSCO"
+    ],
+    "headline": "Tractor Supply Stock Up After Q3 Earnings Beat, Reaffirmed Outlook \u2014 Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T14:52:09.389031-04:00",
+    "symbols": [
+      "TSCO"
+    ],
+    "headline": "Tractor Supply Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T14:52:09.393201-04:00",
+    "symbols": [
+      "TSCO"
+    ],
+    "headline": "Tractor Supply Affirms FY2026 GAAP EPS Guidance of $1.78-$1.88 vs $1.94 Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T14:52:09.396635-04:00",
+    "symbols": [
+      "TSCO"
+    ],
+    "headline": "Tractor Supply Affirms FY2026 Adj EPS Guidance of $1.90-$2.00 vs $1.94 Est; Affirms FY2026 Sales Guidance of $15.912B-$16.067B vs $15.980B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T14:52:09.400044-04:00",
+    "symbols": [
+      "TSCO"
+    ],
+    "headline": "Tractor Supply Q3 EPS $0.43 Beats $0.41 Estimate, Sales $3.910B Beat $3.819B Estimate",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

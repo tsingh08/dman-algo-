@@ -750,5 +750,27 @@
    "regime": "CHOP",
    "regime_score": 9
   }
+ },
+ {
+  "ts": "2026-10-22T14:19:06.275067-04:00",
+  "kind": "signal",
+  "ticker": "POOL",
+  "verdict": "skip",
+  "confidence": 85,
+  "reason": "RSI 74.3 is deeply overbought; gap & hold works best with RSI under 70. Regime chop (score 7) conflicts with trending entry. Risk/reward insufficient to offset.",
+  "facts": {
+   "setup": "Gap & Hold",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 189.93,
+   "stop": 180.7,
+   "target1": 233.08,
+   "rr": 4.67,
+   "rvol": 2.65,
+   "rsi": 74.3,
+   "reason": "Gap up +1.7% from prior close, holding, RVOL 2.6x",
+   "regime": "CHOP",
+   "regime_score": 7
+  }
  }
 ]

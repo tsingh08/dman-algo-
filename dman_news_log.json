@@ -1,245 +1,5 @@
 [
   {
-    "ts": "2026-10-22T13:06:54.301408-04:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "BioNTech and Gilead Sciences Announce Clinical Trial Collaboration for Triple-Negative Breast Cancer Treatment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T13:06:54.662688-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: Zscaler, Spotify Technology, ServiceNow",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-22T13:06:56.137778-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: Zscaler, Spotify Technology, ServiceNow",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T13:06:59.786519-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Israeli Senior Officers Says No Reason To Strike Iran Before U.S. Elections&#39; - Ynet Global",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T13:06:59.791934-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Is A War Imminent? Concerns Overshadow Strong Meta, Tesla Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T13:06:59.911621-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Is A War Imminent? Concerns Overshadow Strong Meta, Tesla Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T13:07:00.460641-04:00",
-    "symbols": [
-      "DBGI"
-    ],
-    "headline": "10 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T13:07:01.607241-04:00",
-    "symbols": [
-      "HUBC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T13:07:02.280097-04:00",
-    "symbols": [
-      "NEXR"
-    ],
-    "headline": "10 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T13:07:02.534581-04:00",
-    "symbols": [
-      "RBNE"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T13:07:03.126957-04:00",
-    "symbols": [
-      "TENX"
-    ],
-    "headline": "Tenax Therapeutics Reports Beneficial Ownership Change by ADAR1 Capital Management",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T13:07:03.235111-04:00",
-    "symbols": [
-      "TNMG"
-    ],
-    "headline": "TNL Mediagene Announces $6.25 Million Strategic Investment and Anticipated Change of Control",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T13:07:04.223036-04:00",
-    "symbols": [
-      "BHVN"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T13:07:04.472383-04:00",
-    "symbols": [
-      "BKYI"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T13:07:04.603836-04:00",
-    "symbols": [
-      "PFSA"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T13:07:04.970908-04:00",
-    "symbols": [
-      "XLAB"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T13:07:06.349944-04:00",
-    "symbols": [
-      "KPTI"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T13:07:06.476930-04:00",
-    "symbols": [
-      "CRMT"
-    ],
-    "headline": "10 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T13:18:11.597221-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "AMD Stock Drops 7% in Chip Sell-Off - Here&#39;s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T13:18:11.720308-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "What&#39;s Going On With Nebius Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T13:18:12.005122-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Ted Lieu Pushes Congress to Act as NSA Warns of Critical Cyber Vulnerabilities: \u2018We Need More Cybersecurity Personnel\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T13:18:12.332231-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "AMD Stock Drops 7% in Chip Sell-Off - Here&#39;s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T13:18:12.516099-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Evercore ISI Group Maintains Outperform on Meta Platforms, Raises Price Target to $870",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T13:18:13.143206-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Wolfe Research Downgrades Netflix to Peer Perform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-22T13:18:14.207668-04:00",
     "symbols": [
       "SMCI"
@@ -4998,5 +4758,245 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T15:52:01.788335-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Is A War Imminent? Concerns Overshadow Strong Meta, Tesla Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T15:52:01.811626-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Stock Moves Higher: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-22T15:52:01.816551-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Why Is Salesforce Stock Surging on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T15:52:01.837586-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T15:52:01.845870-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "BioNTech and Gilead Sciences Announce Clinical Trial Collaboration for Triple-Negative Breast Cancer Treatment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T15:52:01.852310-04:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Zscaler, Spotify Technology, ServiceNow",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T15:52:01.874909-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Zscaler, Spotify Technology, ServiceNow",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:52:01.917701-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Is A War Imminent? Concerns Overshadow Strong Meta, Tesla Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T15:52:01.926679-04:00",
+    "symbols": [
+      "DBGI"
+    ],
+    "headline": "10 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:52:01.934593-04:00",
+    "symbols": [
+      "HUBC"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:52:01.941801-04:00",
+    "symbols": [
+      "NEXR"
+    ],
+    "headline": "10 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:52:01.947058-04:00",
+    "symbols": [
+      "RBNE"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:52:01.953398-04:00",
+    "symbols": [
+      "TENX"
+    ],
+    "headline": "Tenax Therapeutics Reports Beneficial Ownership Change by ADAR1 Capital Management",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:52:01.957094-04:00",
+    "symbols": [
+      "TNMG"
+    ],
+    "headline": "TNL Mediagene Announces $6.25 Million Strategic Investment and Anticipated Change of Control",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:52:01.966026-04:00",
+    "symbols": [
+      "BHVN"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:52:01.973247-04:00",
+    "symbols": [
+      "BKYI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T15:52:01.978189-04:00",
+    "symbols": [
+      "PFSA"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:52:01.984095-04:00",
+    "symbols": [
+      "XLAB"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:52:02.242418-04:00",
+    "symbols": [
+      "PDC"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:52:02.250856-04:00",
+    "symbols": [
+      "CRMT"
+    ],
+    "headline": "10 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:52:02.254297-04:00",
+    "symbols": [
+      "KPTI"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-22T15:52:02.258292-04:00",
+    "symbols": [
+      "CSX"
+    ],
+    "headline": "UBS Maintains Buy on CSX, Raises Price Target to $60",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T15:52:02.517028-04:00",
+    "symbols": [
+      "TCBI"
+    ],
+    "headline": "RBC Capital Maintains Sector Perform on Texas Capital Bancshares, Lowers Price Target to $110",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T15:52:02.521209-04:00",
+    "symbols": [
+      "TCBI"
+    ],
+    "headline": "Piper Sandler Maintains Neutral on Texas Capital Bancshares, Raises Price Target to $101",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

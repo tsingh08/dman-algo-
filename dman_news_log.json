@@ -1,345 +1,5 @@
 [
   {
-    "ts": "2026-10-22T15:52:01.984095-04:00",
-    "symbols": [
-      "XLAB"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T15:52:02.242418-04:00",
-    "symbols": [
-      "PDC"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T15:52:02.250856-04:00",
-    "symbols": [
-      "CRMT"
-    ],
-    "headline": "10 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T15:52:02.254297-04:00",
-    "symbols": [
-      "KPTI"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T15:52:02.258292-04:00",
-    "symbols": [
-      "CSX"
-    ],
-    "headline": "UBS Maintains Buy on CSX, Raises Price Target to $60",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T15:52:02.517028-04:00",
-    "symbols": [
-      "TCBI"
-    ],
-    "headline": "RBC Capital Maintains Sector Perform on Texas Capital Bancshares, Lowers Price Target to $110",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T15:52:02.521209-04:00",
-    "symbols": [
-      "TCBI"
-    ],
-    "headline": "Piper Sandler Maintains Neutral on Texas Capital Bancshares, Raises Price Target to $101",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T16:02:18.347077-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "Barclays Adjusts Price Target on Spotify Technology",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T16:02:50.695222-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "AMD Stock Drops 7% in Chip Sell-Off - Here&#39;s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T16:02:51.872412-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Wolfe Research Downgrades Netflix to Peer Perform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-22T16:02:52.928152-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "AMD Stock Drops 7% in Chip Sell-Off - Here&#39;s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T16:03:00.546558-04:00",
-    "symbols": [
-      "DECK"
-    ],
-    "headline": "Wolfe Research Initiates Coverage On Deckers Outdoor with Peer Perform Rating",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T16:03:01.735440-04:00",
-    "symbols": [
-      "ONON"
-    ],
-    "headline": "Wolfe Research Initiates Coverage On On Holding with Outperform Rating, Announces Price Target of $47",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T16:03:22.788815-04:00",
-    "symbols": [
-      "LAD"
-    ],
-    "headline": "UBS Maintains Neutral on Lithia Motors, Lowers Price Target to $305",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T16:05:16.484880-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Meta Tumbles 6% on AI Spending Fears, 10-Year Yield Falls Below 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T20:02:08.104550-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Mastercard Introduces AI-Powered Benefits Assistant 'Mastercard Max'",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T20:03:08.070319-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Liquibase Secure Now Available on Snowflake Marketplace",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:44.164227-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Nearly Doubled Its Starlink Users, So Why Are Customers Worth Less?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:44.168737-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "American Airlines CEO Robert Isom Backs Elon Musk\u2019s Starlink When Pressed Over Ukraine, Says Customers Want the Best Product on the Market: \u2018It\u2019s Starlink\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:44.173221-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk Recused Himself From SpaceX-Tesla Merger Talks Over Conflicts of Interest \u2014 But Rocket Giant Says His Word Will Be Final",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:44.177496-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Anthropic\u2019s Path to $1.5 Trillion Demands 30% Margins: Plausible, but Delivering Is Another Matter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:44.181733-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Investor Ross Gerber Says He&#39;s &#39;Disgusted&#39; With Elon Musk Over Ukraine&#39;s Starlink Slowdown, Warns Governments May Lose Trust: &#39;Strategically Horrendous&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:44.386989-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Can Apple Top Nvidia? iPhone Duo and Nov. 2 Earnings Hold the Key",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:44.391456-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Assessing Apple&#39;s Performance Against Competitors In Technology Hardware, Storage &amp; Peripherals Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:44.395772-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Anthropic\u2019s Path to $1.5 Trillion Demands 30% Margins: Plausible, but Delivering Is Another Matter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:44.468613-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Anthropic\u2019s Path to $1.5 Trillion Demands 30% Margins: Plausible, but Delivering Is Another Matter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:25:44.473412-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "OpenAI Signs Agreement With Poland\u2019s NASK To Explore Collaboration On AI Safety, Security And Technical Research, Strengthening Safeguards Against Emerging Risks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:25:44.477716-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;OpenAI nears up to $30 billion funding round at $1.25 trillion valuation led by UAE investors&#39;- CNBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:25:44.482028-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Michael Burry Shares Chilling Song on AI: &#39;Watching Trillion-Dollar Monuments Become Obsolete&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:25:44.689224-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Can Apple Top Nvidia? iPhone Duo and Nov. 2 Earnings Hold the Key",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:25:44.693773-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Newegg Announces Availability OF Nvidia RTX Spark Laptops In U.S., Canada",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:25:44.698067-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "The Average Stock Is Beating the S&amp;P 500 by the Most Since April 2009: Is the Rotation Now Over?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:25:44.702404-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Pony AI, NVIDIA Take Their Robotaxi Ambitions to a New Market",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:25:44.706889-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia\u2019s China Market Has Effectively Vanished: \u2018Every Restriction Also Gives Chinese Suppliers a Larger Captive Market,\u2019 Says Shay Boloor",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-23T09:25:44.781125-04:00",
     "symbols": [
       "AMD"
@@ -4998,5 +4658,345 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T13:09:14.732018-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Pays Up: $40 Billion Debt Deal Prices Above 8%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T13:09:15.235634-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "S&amp;P 500 Near Record Highs, But 60% of Stocks Are in a Bear Market. Is SPY Hiding a Bigger Problem?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T13:09:15.241027-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Michael Burry Warns Washington Has Little Room Left to Fight the Next Crisis",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T13:09:15.525278-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "S&amp;P 500 Near Record Highs, But 60% of Stocks Are in a Bear Market. Is SPY Hiding a Bigger Problem?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T13:09:15.839627-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "S&amp;P 500 Near Record Highs, But 60% of Stocks Are in a Bear Market. Is SPY Hiding a Bigger Problem?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T13:09:16.423719-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "SpaceX Pays Up: $40 Billion Debt Deal Prices Above 8%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T13:09:17.265634-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "SpaceX Pays Up: $40 Billion Debt Deal Prices Above 8%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T13:09:20.909432-04:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "Rivian Automotive Acquires AI Simulation Startup Third Dimension AI",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T13:09:22.516930-04:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "Piper Sandler Reiterates Neutral on Spotify Technology, Raises Price Target to $580",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T13:09:27.824685-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: IBM, Devon Energy, Goldman Sachs Group, Lockheed Martin",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T13:09:29.037623-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: IBM, Devon Energy, Goldman Sachs Group, Lockheed Martin",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T13:09:31.688789-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "SpaceX Pays Up: $40 Billion Debt Deal Prices Above 8%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T13:09:32.253956-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "S&amp;P 500 Near Record Highs, But 60% of Stocks Are in a Bear Market. Is SPY Hiding a Bigger Problem?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T13:09:32.258795-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Baker Hughes Oil Rig Count +1 To 460; U.S. Baker Hughes NatGas Rig Count -1 To 132; U.S. Baker Hughes Total Rig Count 603 Vs 603 Prior",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T13:09:32.263152-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Michael Burry Warns Washington Has Little Room Left to Fight the Next Crisis",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T13:09:33.450617-04:00",
+    "symbols": [
+      "CLRO"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T13:09:33.935626-04:00",
+    "symbols": [
+      "DBGI"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T13:09:34.186196-04:00",
+    "symbols": [
+      "DFNS"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T13:09:34.457449-04:00",
+    "symbols": [
+      "FGL"
+    ],
+    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T13:09:34.688051-04:00",
+    "symbols": [
+      "FMFC"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T13:09:35.152963-04:00",
+    "symbols": [
+      "HUBC"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T13:09:35.621729-04:00",
+    "symbols": [
+      "LABT"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T13:09:37.459548-04:00",
+    "symbols": [
+      "MYND"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T13:09:37.696012-04:00",
+    "symbols": [
+      "BOLT"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T13:09:38.176609-04:00",
+    "symbols": [
+      "LUCD"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T13:09:39.199974-04:00",
+    "symbols": [
+      "YMAT"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T13:09:39.699937-04:00",
+    "symbols": [
+      "AIXI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T13:09:39.945345-04:00",
+    "symbols": [
+      "GPUS"
+    ],
+    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T13:09:40.214537-04:00",
+    "symbols": [
+      "BKYI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T13:09:40.710158-04:00",
+    "symbols": [
+      "RNG"
+    ],
+    "headline": "Oppenheimer Maintains Outperform on RingCentral, Raises Price Target to $110",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T13:09:40.714793-04:00",
+    "symbols": [
+      "RNG"
+    ],
+    "headline": "Piper Sandler Maintains Neutral on RingCentral, Raises Price Target to $94",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T13:09:41.210074-04:00",
+    "symbols": [
+      "RHI"
+    ],
+    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T13:09:42.669801-04:00",
+    "symbols": [
+      "ITG"
+    ],
+    "headline": "ITG, Inc. Announces Preliminary Third Quarter 2026 Financial Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T13:09:45.594051-04:00",
+    "symbols": [
+      "HTCO"
+    ],
+    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

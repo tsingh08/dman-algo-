@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-23T09:37:29.829075-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Wedbush Reports Micron Has No Plans for Denser DRAM Layout",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:37:30.128464-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Bloom Energy\u2019s October Stock Slump Deepens: Options Signal Post-Earnings Bounce to $230",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:37:30.779795-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "What&#39;s Going On with MoonLake Immunotherapeutics Stock on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:37:30.785365-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "AbbVie\u2019s Skin Disease Drug Hits Phase 3 Goal, but Efficacy Falls Short of Benchmarks: Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:37:31.379236-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "TD Cowen Reiterates Hold on Spotify Technology, Maintains $525 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:37:32.001883-04:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Datadog Reportedly Offers Nearly $4 Billion for Upwind Security",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:37:32.381458-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Uber Expands ChatGPT Work Access to Over 30,000 Employees",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:37:32.472638-04:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "Canaccord Genuity Maintains Buy on e.l.f. Beauty, Raises Price Target to $137",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-23T09:37:33.964096-04:00",
     "symbols": [
       "LMT"
@@ -4998,5 +4918,85 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T15:24:08.877749-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI Says It Expects That Future Models Will Be Able To Identify &amp; Exploit Vulnerabilities Of Which It Is Not Yet Aware",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T15:24:10.779415-04:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "Rivian Acquires AI Simulation Startup to Advance Self-Driving Technology",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T15:24:12.155708-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Rivian Acquires AI Simulation Startup to Advance Self-Driving Technology",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T15:24:14.367255-04:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "Crude Oil Surges 4%; SLB Shares Jump Following Upbeat Q3 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T15:24:15.091971-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Texas Attorney General Paxton Sued OpenAI Over Alleged Imposition Of Negative Side Effects On Clients",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T15:24:16.373830-04:00",
+    "symbols": [
+      "QMCO"
+    ],
+    "headline": "Crude Oil Surges 4%; SLB Shares Jump Following Upbeat Q3 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T15:24:17.205295-04:00",
+    "symbols": [
+      "CCI"
+    ],
+    "headline": "Crude Oil Surges 4%; SLB Shares Jump Following Upbeat Q3 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T15:24:17.457368-04:00",
+    "symbols": [
+      "RHI"
+    ],
+    "headline": "Crude Oil Surges 4%; SLB Shares Jump Following Upbeat Q3 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

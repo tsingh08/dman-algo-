@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-10-22T15:52:01.926679-04:00",
-    "symbols": [
-      "DBGI"
-    ],
-    "headline": "10 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T15:52:01.934593-04:00",
-    "symbols": [
-      "HUBC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T15:52:01.941801-04:00",
-    "symbols": [
-      "NEXR"
-    ],
-    "headline": "10 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T15:52:01.947058-04:00",
-    "symbols": [
-      "RBNE"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T15:52:01.953398-04:00",
-    "symbols": [
-      "TENX"
-    ],
-    "headline": "Tenax Therapeutics Reports Beneficial Ownership Change by ADAR1 Capital Management",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T15:52:01.957094-04:00",
-    "symbols": [
-      "TNMG"
-    ],
-    "headline": "TNL Mediagene Announces $6.25 Million Strategic Investment and Anticipated Change of Control",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T15:52:01.966026-04:00",
-    "symbols": [
-      "BHVN"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T15:52:01.973247-04:00",
-    "symbols": [
-      "BKYI"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T15:52:01.978189-04:00",
-    "symbols": [
-      "PFSA"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-22T15:52:01.984095-04:00",
     "symbols": [
       "XLAB"
@@ -4998,5 +4908,95 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T12:52:47.921357-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nvidia Analyst Warns 45% of AI Data Center Capacity Planned for 2027 May Not Get Built",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T12:52:48.004325-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Nvidia Analyst Warns 45% of AI Data Center Capacity Planned for 2027 May Not Get Built",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T12:52:48.120756-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Nvidia Analyst Warns 45% of AI Data Center Capacity Planned for 2027 May Not Get Built",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T12:52:48.235603-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Stellantis Stock Drops to New 52-Week Low: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T12:52:48.240082-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Analyst Warns 45% of AI Data Center Capacity Planned for 2027 May Not Get Built",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T12:52:49.443336-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Nvidia Analyst Warns 45% of AI Data Center Capacity Planned for 2027 May Not Get Built",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T12:52:50.084455-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Piper Sandler Maintains Overweight on Palantir Technologies, Raises Price Target to $231",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T12:52:53.217410-04:00",
+    "symbols": [
+      "RCAT"
+    ],
+    "headline": "Piper Sandler Maintains Neutral on Red Cat Holdings, Lowers Price Target to $6",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T12:52:55.135367-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Department Of Energy Designates Helium Under Critical Material List",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

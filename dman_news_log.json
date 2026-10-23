@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-23T09:25:54.408682-04:00",
-    "symbols": [
-      "TSCO"
-    ],
-    "headline": "BNP Paribas Maintains Outperform on Tractor Supply, Raises Price Target to $38",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:54.474587-04:00",
-    "symbols": [
-      "AVEX"
-    ],
-    "headline": "AEVEX Corp. Announces Third Quarter 2026 Earnings Release Date",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-23T09:25:54.560456-04:00",
     "symbols": [
       "INFY"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T15:00:13.682371-04:00",
+    "symbols": [
+      "ZLAB"
+    ],
+    "headline": "Zai Lab Announces Phase 1b Zoci Plus Atezolizumab Trial Delivers 81.8% Response Rate In First-Line Extensive-Stage Small Cell Lung Cancer, Advances Toward Phase 3",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T15:00:13.688074-04:00",
+    "symbols": [
+      "ZLAB"
+    ],
+    "headline": "Reported Earlier, Zai Lab Announces $250M PIPE Financing Of 11.34M ADSs At $22.04 Each, To Fund Zoci Development",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

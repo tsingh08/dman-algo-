@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-10-23T09:25:53.925785-04:00",
-    "symbols": [
-      "ZLAB"
-    ],
-    "headline": "Zai Lab Announces Phase 1b Zoci Plus Atezolizumab Trial Delivers 81.8% Response Rate In First-Line Extensive-Stage Small Cell Lung Cancer, Advances Toward Phase 3",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:53.930598-04:00",
-    "symbols": [
-      "ZLAB"
-    ],
-    "headline": "Reported Earlier, Zai Lab Announces $250M PIPE Financing Of 11.34M ADSs At $22.04 Each, To Fund Zoci Development",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:53.996354-04:00",
-    "symbols": [
-      "BHVN"
-    ],
-    "headline": "RBC Raises Price Target on Biohaven to $22 From $19",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:54.001688-04:00",
-    "symbols": [
-      "BHVN"
-    ],
-    "headline": "Biohaven Shares Rise After FDA Accepts Vyglxia Resubmission for Review",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:54.068191-04:00",
-    "symbols": [
-      "KPTI"
-    ],
-    "headline": "Karyopharm Therapeutics Extends Forbearance Period End Date To November 1, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:54.137786-04:00",
-    "symbols": [
-      "BBT"
-    ],
-    "headline": "Beacon Financial Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-23T09:25:54.202425-04:00",
-    "symbols": [
-      "ZGN"
-    ],
-    "headline": "TD Cowen Maintains Buy on Ermenegildo Zegna, Raises Price Target to $16",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:54.268968-04:00",
-    "symbols": [
-      "BYND"
-    ],
-    "headline": "Beyond Meat to Report Third Quarter 2026 Financial Results on November 4, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:54.335464-04:00",
-    "symbols": [
-      "KSS"
-    ],
-    "headline": "What&#39;s Going On With Kohl&#39;s Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-23T09:25:54.404176-04:00",
     "symbols": [
       "TSCO"
@@ -4978,6 +4888,96 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T14:47:01.155263-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron&#39;s Next AI Memory Breakthrough Has a Cooling Problem",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T14:47:08.613544-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Citigroup Maintains Buy on Lockheed Martin, Raises Price Target to $706",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T14:47:13.780420-04:00",
+    "symbols": [
+      "RY"
+    ],
+    "headline": "&#39;Trump Expected To Remove Some Tariffs On Canada In Bid To Help Susan Collins; The Move, Which Could Come As Soon As Friday, Would Remove Tariffs On Some Agricultural And Forestry Goods But Could Raise Levies On Other Products&#39; - WSJ Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T14:47:14.806999-04:00",
+    "symbols": [
+      "HURN"
+    ],
+    "headline": "Truist Securities Maintains Buy on Huron Consulting Gr, Raises Price Target to $220",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T14:47:15.372044-04:00",
+    "symbols": [
+      "FPH"
+    ],
+    "headline": "Deckers Outdoor Posts Mixed Q2 Results, Joins BayCom, Five Point Holdings And Other Big Stocks Moving Lower In Friday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T14:47:15.691722-04:00",
+    "symbols": [
+      "FHB"
+    ],
+    "headline": "First Hawaiian Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T14:47:15.695310-04:00",
+    "symbols": [
+      "FHB"
+    ],
+    "headline": "First Hawaiian Q3 EPS $0.52 Misses $0.56 Estimate, Sales $230.227M Beat $229.619M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T14:47:15.698603-04:00",
+    "symbols": [
+      "FHB"
+    ],
+    "headline": "First Hawaiian Likely To Report Higher Q3 Revenue; These Most Accurate Analysts Revise Forecasts Ahead Of Earnings Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T14:47:15.701855-04:00",
+    "symbols": [
+      "FHB"
+    ],
+    "headline": "American Express, Eni On Deck Friday As Spending, Energy Demand Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   },
   {
     "ts": "2026-10-23T14:48:49.373987-04:00",

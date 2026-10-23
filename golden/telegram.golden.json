@@ -1,18 +1,38 @@
 {
  "patch_names": [
   "PositionTracker",
+  "_alpaca_client_or_raise",
   "_close_earnings_spread",
+  "_dip_basket_load",
+  "_earnings_premium_verdict",
   "_enter_setup_probation",
+  "_et_today",
+  "_fetch_massive_earnings",
+  "_float_strict",
   "_handle_buy_command",
   "_handle_options_command",
   "_interpret_plain_english",
+  "_is_option_position",
+  "_is_spread_setup",
+  "_load_earnings_state",
   "_load_setup_probation",
+  "_log_swallowed",
+  "_position_identity",
+  "_resolve_ticker_alias",
+  "_save_earnings_state",
   "_save_setup_probation",
+  "_setup_probation_alt_key",
   "_submit_options_close",
   "_trigger_workflow_restart",
+  "_write_json_atomic",
+  "build_earnings_spread_plan",
+  "check_macro_safe",
   "explain_ticker",
+  "fetch_df",
   "flag",
   "get_alpaca_client",
+  "get_alpaca_data_client",
+  "get_effective_account",
   "get_this_month_loss",
   "get_todays_loss",
   "is_halted",
@@ -73,6 +93,11 @@
     [
      "flag",
      "('ENABLE_TELEGRAM_QUIET', True)",
+     "[]"
+    ],
+    [
+     "flag",
+     "('ENABLE_DIP_AUTO', True)",
      "[]"
     ],
     [
@@ -149,6 +174,11 @@
     [
      "flag",
      "('ENABLE_TELEGRAM_QUIET', True)",
+     "[]"
+    ],
+    [
+     "flag",
+     "('ENABLE_DIP_AUTO', True)",
      "[]"
     ],
     [
@@ -265,7 +295,7 @@
    "calls": [
     [
      "send_telegram",
-     "('❓ Unknown flag <b>bogus</b>. Known: accum, beargap, english, market, options, quiet, rvol, setupkill, shadow, shares, smallcap, strangle, watchlistonly',)",
+     "('❓ Unknown flag <b>bogus</b>. Known: accum, beargap, dipauto, english, market, options, quiet, rvol, setupkill, shadow, shares, smallcap, strangle, watchliston",
      "[]"
     ]
    ],
@@ -276,7 +306,7 @@
    "calls": [
     [
      "send_telegram",
-     "('❓ Unknown flag <b>bogus</b>. Known: accum, beargap, english, market, options, quiet, rvol, setupkill, shadow, shares, smallcap, strangle, watchlistonly',)",
+     "('❓ Unknown flag <b>bogus</b>. Known: accum, beargap, dipauto, english, market, options, quiet, rvol, setupkill, shadow, shares, smallcap, strangle, watchliston",
      "[]"
     ]
    ],
@@ -499,6 +529,11 @@
      "[]"
     ],
     [
+     "_setup_probation_alt_key",
+     "('Gap',)",
+     "[]"
+    ],
+    [
      "send_telegram",
      "(\"🟢 Gap isn't restricted — nothing to end.\",)",
      "[]"
@@ -541,8 +576,13 @@
      "[]"
     ],
     [
-     "get_alpaca_client",
+     "_alpaca_client_or_raise",
      "()",
+     "[]"
+    ],
+    [
+     "_float_strict",
+     "(<MagicMock name='_alpaca_client_or_raise.get_account().equity' id=ID>,)",
      "[]"
     ],
     [
@@ -562,7 +602,7 @@
     ],
     [
      "send_telegram",
-     "('📊 <b>DMan status</b> — 🛑 HALTED  |  🟡 PROBATION ×0.50  |  🟡 0 setup(s) restricted: \\nEquity <b>$1.00</b>  BP $1.00  Day trades 1/3\\nTracked positions: 0\\nToda",
+     "('📊 <b>DMan status</b> — 🛑 HALTED  |  🟡 PROBATION ×0.50  |  🟡 0 setup(s) restricted: \\nAlpaca unreachable\\nTracked positions: 0\\nToday P&L: +123.45%  Month: -2.",
      "[]"
     ]
    ],
@@ -587,7 +627,7 @@
      "[]"
     ],
     [
-     "get_alpaca_client",
+     "_alpaca_client_or_raise",
      "()",
      "[]"
     ],
@@ -1113,8 +1153,13 @@
      "[]"
     ],
     [
-     "get_alpaca_client",
+     "_alpaca_client_or_raise",
      "()",
+     "[]"
+    ],
+    [
+     "_float_strict",
+     "(<MagicMock name='_alpaca_client_or_raise.get_account().equity' id=ID>,)",
      "[]"
     ],
     [
@@ -1134,7 +1179,7 @@
     ],
     [
      "send_telegram",
-     "('📊 <b>DMan status</b> — 🛑 HALTED  |  🟡 PROBATION ×0.50  |  🟡 0 setup(s) restricted: \\nEquity <b>$1.00</b>  BP $1.00  Day trades 1/3\\nTracked positions: 0\\nToda",
+     "('📊 <b>DMan status</b> — 🛑 HALTED  |  🟡 PROBATION ×0.50  |  🟡 0 setup(s) restricted: \\nAlpaca unreachable\\nTracked positions: 0\\nToday P&L: +123.45%  Month: -2.",
      "[]"
     ]
    ],
@@ -1159,7 +1204,7 @@
      "[]"
     ],
     [
-     "get_alpaca_client",
+     "_alpaca_client_or_raise",
      "()",
      "[]"
     ],

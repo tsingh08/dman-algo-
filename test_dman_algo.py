@@ -13726,6 +13726,7 @@ class TestSubmitSignalsSizeMult(unittest.TestCase):
              patch.object(a, "WATCHLIST", ["TESTX"]), \
              patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
              patch.object(a, "_submit_options_call", side_effect=_fake_submit_options_call), \
+             patch.object(a, "_options_earned", return_value=True), \
              patch.object(a, "send_telegram", return_value=True):
             MockWRT.return_value.rolling_stats.return_value = {
                 "consec_losses": 0, "win_rate": 0.6, "avg_win_r": 2.0,
@@ -15506,6 +15507,11 @@ class TestOptionsUnavailableSkipsInsteadOfSharesFallback(unittest.TestCase):
         self._nokill = patch.object(a, "_setup_is_disabled", return_value=(False, ""))
         self._nokill.start()
         self.addCleanup(self._nokill.stop)
+        # Same reason, 2026-10-23: options are now earned per setup from the
+        # live fill record. These assert routing once options ARE allowed.
+        self._earned = patch.object(a, "_options_earned", return_value=True)
+        self._earned.start()
+        self.addCleanup(self._earned.stop)
 
     def test_options_eligible_but_unfillable_non_watchlist_signal_is_skipped_not_bought(self):
         sig = a.ProSignal(
@@ -26819,6 +26825,100 @@ class TestDipCandidatesReachThePhone(unittest.TestCase):
 
     def test_a_macro_blackout_offers_nothing(self):
         self._send(self._at(7), macro=False).assert_not_called()
+
+
+class TestEvidenceGatedAutonomy(unittest.TestCase):
+    """2026-10-23, operator: 'completely self-sufficient', evidence-gated.
+    The dip rule enters by itself once its LIMIT arm has earned it; a setup
+    trades options once its own live fills have earned it."""
+
+    def _shadow(self, n, pnl):
+        import tempfile, os, json as _json
+        fd, path = tempfile.mkstemp(suffix=".json")
+        os.close(fd)
+        rows = [{"date": "2026-10-01", "ticker": f"T{i}", "pnl_pct": pnl,
+                 "pnl_lim_pct": pnl} for i in range(n)]
+        rows.append({"date": "2026-10-01", "ticker": "NOFILL", "pnl_pct": 5.0,
+                     "pnl_lim_pct": None})       # a no-fill is not a trade
+        with io.open(path, "w", encoding="utf-8") as f:
+            f.write(_json.dumps(rows))
+        self.addCleanup(os.unlink, path)
+        return patch.object(a, "DIP_SHADOW_FILE", path)
+
+    def test_promotion_needs_thirty_limit_fills_with_a_positive_mean(self):
+        with self._shadow(29, 1.0):
+            self.assertFalse(a._dip_rule_promoted()[0])
+        with self._shadow(30, -0.1):
+            self.assertFalse(a._dip_rule_promoted()[0])
+        with self._shadow(30, 0.2):
+            ok, n, m = a._dip_rule_promoted()
+            self.assertEqual((ok, n), (True, 30))
+
+    def _auto(self, promoted, hhmm=(9, 40), bar="2026-10-22", entered=None):
+        import tempfile, os, json as _json, datetime as _dt
+        fd, path = tempfile.mkstemp(suffix=".json")
+        os.close(fd)
+        with io.open(path, "w", encoding="utf-8") as f:
+            f.write(_json.dumps({"bar": bar, "entered": entered,
+                                 "tickers": [{"ticker": "CRM", "close": 230.0}]}))
+        self.addCleanup(os.unlink, path)
+        now = _dt.datetime(2026, 10, 23, *hhmm, tzinfo=a.ET)
+        with patch.object(a, "DIP_CANDIDATES_FILE", path), \
+             patch.object(a, "datetime") as dtm, \
+             patch.object(a, "is_market_open", return_value=True), \
+             patch.object(a, "flag", side_effect=lambda k, d=None: d), \
+             patch.object(a, "_dip_rule_promoted", return_value=(promoted, 30, 0.5)), \
+             patch.object(a, "_tg_cmd_enter") as ent, \
+             contextlib.redirect_stdout(io.StringIO()):
+            dtm.now.return_value = now
+            a._dip_auto_enter()
+            a._dip_auto_enter()                  # second pass, same session
+        return ent, _json.load(io.open(path, encoding="utf-8"))
+
+    def test_unpromoted_rule_never_enters(self):
+        ent, st = self._auto(False)
+        ent.assert_not_called()
+        self.assertIsNone(st["entered"])
+
+    def test_promoted_rule_enters_once_at_the_limit_arm_price(self):
+        ent, st = self._auto(True)
+        ent.assert_called_once()
+        self.assertEqual(ent.call_args[0][0], ["/enter", "CRM", "8", "231.15"])  # 230 * 1.005
+        self.assertEqual(st["entered"], "2026-10-23")
+
+    def test_no_entry_after_the_cutoff_or_off_an_unfinished_bar(self):
+        self._auto(True, hhmm=(11, 0))[0].assert_not_called()
+        self._auto(True, bar="2026-10-23")[0].assert_not_called()
+
+    # --- options are earned --------------------------------------------------
+    def test_setup_family_strips_wrappers_and_numbers(self):
+        self.assertEqual(a._setup_family("Momentum Call Spread — Gap & Hold"), "Gap & Hold")
+        self.assertEqual(a._setup_family("Breakout Zone +148% off low"), "Breakout Zone")
+        self.assertEqual(a._setup_family("Dip in Uptrend (adopted)"), "Dip in Uptrend")
+
+    def _route(self, n, pnl):
+        sig = MagicMock(ticker="AAPL", bias="LONG", setup="Day 2 Continuation")
+        recs = [MagicMock(is_live=True, setup="Day 2 Continuation", pnl_pct=pnl)
+                for _ in range(n)]
+        recs.append(MagicMock(is_live=True, setup="Gap & Hold", pnl_pct=50.0))
+        with patch.object(a, "WinRateTracker") as W, \
+             patch.object(a, "WATCHLIST", ["AAPL"]), \
+             patch.object(a, "ENABLE_OPTIONS_TRADING", True), \
+             contextlib.redirect_stdout(io.StringIO()):
+            W.return_value.records = recs
+            return a._options_route(sig)
+
+    def test_options_locked_until_the_setup_has_earned_them(self):
+        self.assertEqual(self._route(2, 3.6), (False, False))    # Day 2 today: n=2
+        self.assertEqual(self._route(8, -0.5), (False, False))   # enough, but negative
+        self.assertEqual(self._route(8, 1.0), (True, False))
+
+    def test_an_unreadable_record_means_shares(self):
+        sig = MagicMock(ticker="AAPL", bias="LONG", setup="Day 2 Continuation")
+        with patch.object(a, "WinRateTracker", side_effect=OSError("disk")), \
+             patch.object(a, "WATCHLIST", ["AAPL"]), \
+             contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(a._options_route(sig), (False, False))
 
 
 class TestTheDipBasketHasATimeExit(unittest.TestCase):

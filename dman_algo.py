@@ -2805,6 +2805,9 @@ TOGGLEABLE_FLAGS = {
     "quiet":   ("ENABLE_TELEGRAM_QUIET",
                 "send only money/safety messages (orders, fills, exits, halts, "
                 "failures, EOD P&L). OFF sends everything."),
+    "dipauto": ("ENABLE_DIP_AUTO",
+                "enter promoted dip-in-uptrend candidates at the open on their "
+                "own. Inert until the shadow's limit arm has 30 fills, mean > 0."),
     "strangle":("ENABLE_STRANGLE_AUTO_EXEC",
                 "place event strangles automatically. OFF sends the advisory "
                 "and leaves the order to you."),
@@ -24271,6 +24274,10 @@ def run_dip_basket_manage(notify: bool = True) -> dict:
     instead of submitting twice.
     """
     out = {"expired": [], "closed": [], "open": [], "pending": [], "due": []}
+    try:
+        out["auto"] = _dip_auto_enter()
+    except Exception as exc:
+        _log_swallowed("dip auto-exec", exc)
     _rows = _dip_basket_load()
     if not _rows:
         return out
@@ -24546,6 +24553,65 @@ def run_dip_shadow(notify: bool = True) -> dict:
 
 
 DIP_CANDIDATES_MAX = 5
+# Evidence-gated autonomy (operator, 2026-10-23: "completely self-sufficient",
+# chose the gated version). The dip rule enters on its own only once the
+# shadow's LIMIT arm -- the entry the money actually uses, see 1be3956f --
+# has DIP_SHADOW_REVIEW_N fills with a positive mean. Until then the alert
+# asks for /enter. `/flags` can switch it off.
+ENABLE_DIP_AUTO = True
+DIP_CANDIDATES_FILE = "dman_dip_candidates.json"
+DIP_AUTO_CUTOFF_HHMM = 1030     # a dip entry is a next-open trade, not a noon one
+
+
+def _dip_rule_promoted() -> tuple[bool, int, float]:
+    """(promoted, limit-arm fills, their mean %) from the shadow log."""
+    try:
+        with open(DIP_SHADOW_FILE) as _f:
+            _log = json.load(_f)
+        _x = [float(r["pnl_lim_pct"]) for r in _log
+              if isinstance(r, dict) and r.get("pnl_lim_pct") is not None]
+    except Exception:
+        return False, 0, 0.0
+    _m = sum(_x) / len(_x) if _x else 0.0
+    return (len(_x) >= DIP_SHADOW_REVIEW_N and _m > 0), len(_x), _m
+
+
+def _dip_auto_enter() -> list[str]:
+    """Enter the saved candidates through /enter once the rule is promoted.
+
+    Once per entry session, in-session before DIP_AUTO_CUTOFF_HHMM, so the
+    macro gate is judged on the day the trade opens. The limit is the
+    signal close + DIP_SHADOW_LIMIT_BUFFER -- the arm the verdict measured.
+    /enter keeps every refusal (halt, macro, slots, cash, earnings, risk).
+    """
+    if not flag("ENABLE_DIP_AUTO", ENABLE_DIP_AUTO) or not is_market_open():
+        return []
+    _now = datetime.now(ET)
+    if _now.hour * 100 + _now.minute >= DIP_AUTO_CUTOFF_HHMM:
+        return []
+    try:
+        with open(DIP_CANDIDATES_FILE) as _f:
+            _st = json.load(_f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
+    _today = _now.date().isoformat()
+    if not isinstance(_st, dict) or _st.get("entered") or str(_st.get("bar", "")) >= _today:
+        return []
+    _ok, _n, _m = _dip_rule_promoted()
+    if not _ok:
+        return []
+    # Marked BEFORE submitting: a crash mid-loop must not re-enter tomorrow's
+    # pass on a stale list, and /enter refuses a ticker with a working order.
+    _st["entered"] = _today
+    _write_json_atomic(DIP_CANDIDATES_FILE, _st, indent=1)
+    _done = []
+    for c in (_st.get("tickers") or [])[:DIP_CANDIDATES_MAX]:
+        _lim = round(float(c["close"]) * (1 + DIP_SHADOW_LIMIT_BUFFER), 2)
+        print(f"  \U0001f916 dip auto-exec {c['ticker']} limit {_lim:.2f} "
+              f"(limit arm n={_n}, mean {_m:+.2f}%)")
+        _tg_cmd_enter(["/enter", c["ticker"], f"{DIP_BASKET_STOP_PCT * 100:.0f}", f"{_lim:.2f}"])
+        _done.append(c["ticker"])
+    return _done
 
 
 def _dip_candidates_notify(cands: list, n: int, mean: float, wr: float) -> None:
@@ -24605,6 +24671,15 @@ def _dip_candidates_notify(cands: list, n: int, mean: float, wr: float) -> None:
           f"(${_budget:,.0f} budget)")
     if not _ok:
         return
+    try:
+        _write_json_atomic(DIP_CANDIDATES_FILE, {
+            "bar": _bar, "entered": None,
+            "tickers": [{"ticker": c["ticker"], "close": round(c["close"], 4)} for c in _ok]},
+            indent=1)
+    except Exception as _exc:
+        _log_swallowed("dip candidates write", _exc)
+    _auto, _ln, _lm = _dip_rule_promoted()
+    _auto = _auto and flag("ENABLE_DIP_AUTO", ENABLE_DIP_AUTO)
     _rec = (f"shadow record n={n}, mean {mean:+.2f}%, {wr:.0f}% win" if n
             else "shadow record: none resolved yet")
     _lines = [f"\U0001f4d0 <b>Dip in uptrend — next open</b> (closes {_bar})",
@@ -24613,9 +24688,15 @@ def _dip_candidates_notify(cands: list, n: int, mean: float, wr: float) -> None:
     for c in _ok:
         _lines.append(f"<b>{c['ticker']}</b> ${c['close']:,.2f} · RSI2 {c['rsi2']:.1f} · "
                       f"+{c['over_ma']:.1f}% over MA200 → <code>/enter {c['ticker']}</code>")
-    _lines += ["", f"In-sample +0.45%/trade, 52.5% win; {_rec}.",
-               # "awaiting" is a quiet-mode keep word, and true: this waits on you.
-               "Awaiting your /enter — nothing is placed without it."]
+    _lines += ["", f"In-sample +0.45%/trade, 52.5% win; {_rec}."]
+    if _auto:
+        # "auto-exec" is a quiet-mode keep word.
+        _lines.append(f"Promoted (limit arm n={_ln}, mean {_lm:+.2f}%): auto-exec at the "
+                      f"open, limit close +{DIP_SHADOW_LIMIT_BUFFER:.1%}. /flags to stop.")
+    else:
+        # "awaiting" is a quiet-mode keep word, and true: this waits on you.
+        _lines.append(f"Not yet promoted (limit arm {_ln}/{DIP_SHADOW_REVIEW_N} fills). "
+                      "Awaiting your /enter — nothing is placed without it.")
     send_telegram(chr(10).join(_lines))
     _mark_alerted(_key)
     _save_last_alert(_key)
@@ -31247,6 +31328,37 @@ def _is_spread_setup(setup: str) -> bool:
     return str(setup or "").startswith(("Earnings ", "Momentum Call Spread"))
 
 
+OPTIONS_UNLOCK_MIN_TRADES = 8   # = SETUP_KILL_MIN_TRADES: the same "enough to judge"
+
+
+def _setup_family(setup: str) -> str:
+    """'Momentum Call Spread — Gap & Hold' -> 'Gap & Hold';
+    'Breakout Zone +148% off low' -> 'Breakout Zone'."""
+    _s = str(setup or "").split(" — ")[-1]
+    return re.split(r"\s[+\-]?\d", _s, maxsplit=1)[0].replace(" (adopted)", "").strip()
+
+
+def _setup_fill_record(setup: str) -> tuple[int, float]:
+    """(closed LIVE trades, mean pnl %) for the setup's family, any vehicle."""
+    try:
+        _fam = _setup_family(setup)
+        rs = [r for r in WinRateTracker().records
+              if r.is_live and _setup_family(r.setup) == _fam]
+        return len(rs), (sum(float(r.pnl_pct) for r in rs) / len(rs) if rs else 0.0)
+    except Exception:
+        return 0, 0.0
+
+
+def _options_earned(setup: str) -> bool:
+    """Options are leverage, and leverage on a negative edge loses faster.
+    A setup trades options only once its own live record has
+    OPTIONS_UNLOCK_MIN_TRADES closes with a positive mean; until then it
+    trades shares, which is what builds that record. Operator chose this
+    evidence-gated autonomy 2026-10-23. Unreadable record -> shares."""
+    _n, _m = _setup_fill_record(setup)
+    return _n >= OPTIONS_UNLOCK_MIN_TRADES and _m > 0
+
+
 def _options_route(sig) -> tuple[bool, bool]:
     """(use_calls, use_puts) for this signal -- the one definition of which
     signals may trade as options. It was inline in the submit loop, which is
@@ -31255,6 +31367,12 @@ def _options_route(sig) -> tuple[bool, bool]:
               and (sig.ticker in WATCHLIST or sig.setup in OPTIONS_SETUPS))
     _puts = (OPTIONS_ENABLE_PUTS and sig.bias == "SHORT"
              and (sig.ticker in WATCHLIST or sig.setup == "Bear Gap Hold"))
+    if (_calls or _puts) and not _options_earned(sig.setup):
+        _n, _m = _setup_fill_record(sig.setup)
+        print(f"  \U0001f512 {sig.ticker}: options locked for {_setup_family(sig.setup)} "
+              f"(live n={_n}, mean {_m:+.1f}%; needs {OPTIONS_UNLOCK_MIN_TRADES}+ "
+              f"and > 0) -- shares")
+        return False, False
     return bool(_calls), bool(_puts)
 
 

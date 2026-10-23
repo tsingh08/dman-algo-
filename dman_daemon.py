@@ -173,6 +173,9 @@ STATE_FILES = [
     # 2026-10-21, and each one deleted 45 lines of dman_dip_shadow.json.
     "dman_pending_exits.json", "dman_dip_basket.json",
     "dman_accumulation_log.json", "dman_shadow_reviews.json",
+    # Written by the scanner's ORB step, marked "entered" by _dip_auto_enter()
+    # from scan_loop -- the same two-writer shape as the four above.
+    "dman_dip_candidates.json",
 ]
 
 EARNINGS_LOOP_TRIGGER_HHMM = 1445   # 2:45 PM ET — ~45 min buffer before the 4 PM close

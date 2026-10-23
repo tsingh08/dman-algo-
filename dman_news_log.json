@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-22T15:46:38.767342-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "B. Riley Securities Maintains Buy on ON Semiconductor, Lowers Price Target to $105",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T15:46:39.868821-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Watching Moderna; Shares Plunge ~15% After Popular YouTuber TOGI Reveals Full-Portfolio Put Position Against The Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T15:46:41.404268-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "Spotify&#39;s Subscriber Machine Shows No Signs of Stopping \u2014 316 Million Now in Sight",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T15:46:42.025487-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "&#39;Qatar Scours for More LNG to Boost Supply Outside Middle East&#39; - Bloomberg Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T15:46:50.173407-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "&#39;Qatar Scours for More LNG to Boost Supply Outside Middle East&#39; - Bloomberg Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T15:46:52.381098-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Adjusting Imports Of Wind Turbines And Their Parts And Components Into The United States",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T15:47:07.217447-04:00",
-    "symbols": [
-      "VLY"
-    ],
-    "headline": "Valley Ntl Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T15:47:07.221427-04:00",
-    "symbols": [
-      "VLY"
-    ],
-    "headline": "Valley Ntl Q3 Adj. EPS $0.36 Beats $0.33 Estimate, Sales $584.151M Beat $577.189M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-22T15:52:01.788335-04:00",
     "symbols": [
       "MSFT"
@@ -4998,5 +4918,85 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T12:19:25.924186-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Comcast Posts Q3 EBITDA Beat On Media Upside, Faces Threat From AI Tools Like Muse",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T12:19:26.239019-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Live On CNBC, Stephanie Link Announces Bought More Amazon",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T12:19:28.106358-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Gilead Sciences to Acquire Oral IL-23R Inhibitor Program for $1.275 Billion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T12:19:28.111833-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Gilead Sciences to Pay $45 Million in Texas Medicaid Settlement",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T12:19:31.259450-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Urban Remedy Launches Chocolate Protein Collagen Shake at Select Costco Warehouses",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T12:19:33.938362-04:00",
+    "symbols": [
+      "RNG"
+    ],
+    "headline": "Evercore ISI Group Maintains In-Line on RingCentral, Raises Price Target to $90",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T12:19:34.084355-04:00",
+    "symbols": [
+      "RHI"
+    ],
+    "headline": "JP Morgan Maintains Neutral on Robert Half, Raises Price Target to $45",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T12:19:35.979306-04:00",
+    "symbols": [
+      "GMAB"
+    ],
+    "headline": "Genmab\u2019s Phase 3 RAINFOL-02 Trial Meets Primary PFS And Key Secondary OS Endpoints, Demonstrating A Statistically Significant And Clinically Meaningful Improvement For Rina-S In Platinum-Resistant Ovarian Cancer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

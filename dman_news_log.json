@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-23T09:25:49.266689-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "RTX Unit Pratt &amp; Whitney Begins Construction Of New $100M Rzesz\u00f3w Manufacturing Expansion In Poland",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:49.336784-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "GE Aerospace Joins NATICA Project for ATS Platform Development",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:49.341379-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "Wall Street Analysts Update Ratings and Price Targets for GE Aerospace",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:49.414846-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "GE Vernova Stock Rebounds, AI Sell-Off Gives Way To Earnings Focus",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:49.419432-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "AI Sell-Off Spreads to Industrials: Caterpillar, GE Vernova, Vertiv Trapped in Bear Market",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:49.423881-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Michael Burry Shares Chilling Song on AI: &#39;Watching Trillion-Dollar Monuments Become Obsolete&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-23T09:25:49.428500-04:00",
     "symbols": [
       "CAT"
@@ -4998,5 +4938,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T14:02:07.991864-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Taiwan Workers Reject Bonus Proposal",
+    "source": "fiscal.ai",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T14:02:08.416470-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Cybersecurity Warning Issued Regarding Fraudulent iPhone Duo Sales",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T14:02:15.306601-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "GE Vernova Stock Rebounds, AI Sell-Off Gives Way To Earnings Focus",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T14:02:15.313881-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "US Adversaries Russia, Iran and China Are Expanding Their Military Might, and Lockheed Martin Is Ramping Up \u2014 CEO Calls for \u2018Wartime Speed and Scale\u2019 as Backlog Hits Record $292 Billion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T14:02:15.318816-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "RTX Unit Pratt &amp; Whitney Begins Construction Of New $100M Rzesz\u00f3w Manufacturing Expansion In Poland",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T14:02:15.325108-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "GE Vernova Stock Rebounds, AI Sell-Off Gives Way To Earnings Focus",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

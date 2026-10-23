@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-22T15:52:01.874909-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: Zscaler, Spotify Technology, ServiceNow",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T15:52:01.917701-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Is A War Imminent? Concerns Overshadow Strong Meta, Tesla Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-22T15:52:01.926679-04:00",
     "symbols": [
       "DBGI"
@@ -4995,6 +4975,26 @@
       "SLB"
     ],
     "headline": "SLB&#39;s Next Big Growth Engine Isn&#39;t Oil \u2014 It&#39;s the AI Data Center Boom",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T12:41:54.370914-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Live On CNBC, Stephanie Link Announces Bought Zscaler",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T12:41:54.614628-04:00",
+    "symbols": [
+      "BIDU"
+    ],
+    "headline": "JP Morgan Maintains Overweight on Baidu, Lowers Price Target to $145",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"

@@ -1498,5 +1498,115 @@
 "extension_pct": 58.8,
 "fresh_base": false,
 "weak_band": true
+},
+{
+"ticker": "SSL",
+"date": "2026-10-23",
+"close": 18.03,
+"base_days": 0,
+"above_low_pct": 226.6,
+"extension_pct": 20.1,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "AMPL",
+"date": "2026-10-23",
+"close": 17.42,
+"base_days": 0,
+"above_low_pct": 210.5,
+"extension_pct": 16.2,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "USO",
+"date": "2026-10-23",
+"close": 169.53,
+"base_days": 27,
+"above_low_pct": 156.2,
+"extension_pct": 11.8,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "NIQ",
+"date": "2026-10-23",
+"close": 20.02,
+"base_days": 0,
+"above_low_pct": 151.2,
+"extension_pct": 11.2,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "APA",
+"date": "2026-10-23",
+"close": 51.9,
+"base_days": 2,
+"above_low_pct": 146.4,
+"extension_pct": 13.8,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "BTE",
+"date": "2026-10-23",
+"close": 5.5,
+"base_days": 3,
+"above_low_pct": 145.6,
+"extension_pct": 12.6,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "FRSH",
+"date": "2026-10-23",
+"close": 15.49,
+"base_days": 0,
+"above_low_pct": 125.1,
+"extension_pct": 13.4,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "PR",
+"date": "2026-10-23",
+"close": 25.49,
+"base_days": 3,
+"above_low_pct": 117.5,
+"extension_pct": 10.7,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "ARHS",
+"date": "2026-10-23",
+"close": 11.7,
+"base_days": 0,
+"above_low_pct": 103.5,
+"extension_pct": 17.2,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "OSPN",
+"date": "2026-10-23",
+"close": 20.19,
+"base_days": 0,
+"above_low_pct": 102.6,
+"extension_pct": 11.8,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "EQNR",
+"date": "2026-10-23",
+"close": 48.82,
+"base_days": 4,
+"above_low_pct": 123.2,
+"extension_pct": 11.5,
+"fresh_base": false,
+"weak_band": true
 }
 ]

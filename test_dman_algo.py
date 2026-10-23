@@ -26807,6 +26807,9 @@ class TestDipCandidatesReachThePhone(unittest.TestCase):
         self.assertIn("/enter CRM", msg)
         self.assertNotIn("META", msg)       # $649 > the $253 position budget
         self.assertNotIn("AMZN", msg)       # reports inside the hold
+        # 2026-10-23's first live send was eaten by quiet mode.
+        with patch.object(a, "flag", return_value=True):
+            self.assertTrue(a._telegram_worth_sending(msg))
 
     def test_nothing_while_the_bar_is_still_forming(self):
         self._send(self._at(11), market_open=True).assert_not_called()

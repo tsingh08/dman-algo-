@@ -24569,7 +24569,9 @@ def _dip_candidates_notify(cands: list, n: int, mean: float, wr: float) -> None:
     # every in-session scan, where the last bar is still forming.
     if is_market_open() or (_bar == _today and _now.hour < 16):
         return
-    _key = f"__DIP_CANDIDATES__:{_bar}"
+    # Not __DIP_CANDIDATES__: the first run marked that key for a message
+    # quiet mode had swallowed (send_telegram returns True when it filters).
+    _key = f"__DIP_CANDIDATES_SENT__:{_bar}"
     if _is_alerted_today(_key) or _is_duplicate_alert(_key, 24 * 60):
         return
     _safe, _ = check_macro_safe()
@@ -24612,7 +24614,8 @@ def _dip_candidates_notify(cands: list, n: int, mean: float, wr: float) -> None:
         _lines.append(f"<b>{c['ticker']}</b> ${c['close']:,.2f} · RSI2 {c['rsi2']:.1f} · "
                       f"+{c['over_ma']:.1f}% over MA200 → <code>/enter {c['ticker']}</code>")
     _lines += ["", f"In-sample +0.45%/trade, 52.5% win; {_rec}.",
-               "Nothing is placed unless you send /enter."]
+               # "awaiting" is a quiet-mode keep word, and true: this waits on you.
+               "Awaiting your /enter — nothing is placed without it."]
     send_telegram(chr(10).join(_lines))
     _mark_alerted(_key)
     _save_last_alert(_key)

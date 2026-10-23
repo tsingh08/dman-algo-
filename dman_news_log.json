@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-22T14:40:13.400748-04:00",
-    "symbols": [
-      "RTO"
-    ],
-    "headline": "Healthcare Services Posts Upbeat Q3 Earnings, Joins Pool, Spotify And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T14:40:13.404356-04:00",
-    "symbols": [
-      "RTO"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-22T14:40:13.407782-04:00",
     "symbols": [
       "RTO"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T10:33:43.722598-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google Cloud Revenue Surges: Alphabet Focuses on $100 Billion TPU Opportunity Ahead of Q3 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T10:33:54.070621-04:00",
+    "symbols": [
+      "MGNX"
+    ],
+    "headline": "MacroGenics Announces Phase 1 MGC026 Delivers 27% Response Rate In SCCHN, Showing Durable Tumor Activity And Advancing Toward Front-Line Pembrolizumab Combination Trial",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

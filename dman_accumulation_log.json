@@ -2194,5 +2194,32 @@
   "drift_pct": 0.74,
   "range_ratio": 0.4,
   "near_high": 0.975
+ },
+ {
+  "ts": "2026-10-23T10:34:59.402273-04:00",
+  "ticker": "IEAG",
+  "price": 10.05,
+  "rvol": 4.23,
+  "drift_pct": 0.0,
+  "range_ratio": 0.42,
+  "near_high": 0.98
+ },
+ {
+  "ts": "2026-10-23T10:34:59.402287-04:00",
+  "ticker": "GUSE",
+  "price": 45.46,
+  "rvol": 59.24,
+  "drift_pct": 0.83,
+  "range_ratio": 0.69,
+  "near_high": 0.972
+ },
+ {
+  "ts": "2026-10-23T10:34:59.402291-04:00",
+  "ticker": "KFII",
+  "price": 10.71,
+  "rvol": 8.18,
+  "drift_pct": 0.09,
+  "range_ratio": 0.5,
+  "near_high": 0.999
  }
 ]

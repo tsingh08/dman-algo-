@@ -12044,6 +12044,15 @@ def _progress_equity_stop_to_trailing(pos: "OpenPosition", cur_price: float,
     # tightest possible trading stop.
     if _is_no_stop_by_design(getattr(pos, "setup", ""), getattr(pos, "ticker", "")):
         return None
+    # A dip-basket row owns its stop: 8% floor, then _dip_basket_ratchet_stop()
+    # trailing 5% under the peak -- the shape the +0.45% was measured with.
+    # Confirmed live 2026-10-21: the order-flow early lock caught NVDA at +2.5%
+    # pre-open and PATCHed the 208.64 trail to the 215.20 entry, and that
+    # breakeven stop took the position on the first dip 10-22, session 3 of 5.
+    # The "INERT while share setups are disabled" note on
+    # EARLY_PROFIT_LOCK_GAIN_PCT was wrong for adopted/manual positions.
+    if _dip_basket_manages(getattr(pos, "ticker", ""), getattr(pos, "setup", "")):
+        return None
     if pos.stop_stage == "trailing":
         return None
     _gate = trigger_price if trigger_price is not None else pos.target1
@@ -12158,9 +12167,9 @@ def _progress_equity_stop_to_trailing(pos: "OpenPosition", cur_price: float,
 # system: BZONE_TRAIL_ACTIVATE_PCT, where a 4x4 grid favoured 5%/25% in all
 # 16 cells. Settling it properly needs the same minute replay for shares.
 #
-# Currently INERT: Gap & Hold and Morning Runner are both disabled by the kill
-# switch, so this governs nothing until a share setup is re-enabled -- which is
-# exactly why it was safe to change now.
+# NOT inert, though Gap & Hold and Morning Runner are both kill-switched: it
+# still governs adopted and manual share positions. Dip-basket rows are exempt
+# (they own their stop) -- see _dip_basket_manages().
 EARLY_PROFIT_LOCK_GAIN_PCT = 5.0   # see _check_equity_position_target's early-lock branch
 # Order-flow-aware early lock (added 2026-08-23, equity counterpart to the
 # options trail-tightening feature) -- half of EARLY_PROFIT_LOCK_GAIN_PCT,
@@ -23886,6 +23895,20 @@ def _dip_basket_load() -> list:
         return []
 
 
+def _dip_basket_manages(ticker: str, setup: str = "") -> bool:
+    """True when the dip basket, not generic stop progression, owns this stop.
+
+    The setup label alone is not enough -- adoption rewrites it (see
+    _is_no_stop_by_design) -- so a live basket row for the ticker counts too.
+    """
+    if str(setup).startswith(DIP_BASKET_SETUP):
+        return True
+    _tk = str(ticker).upper()
+    return bool(_tk) and any(
+        str(r.get("ticker", "")).upper() == _tk and r.get("status") in ("pending", "open")
+        for r in _dip_basket_load())
+
+
 # -------------------------------------------------------------------------
 #  PENDING MANUAL EXITS - a decision to sell outlives the attempt to sell
 # -------------------------------------------------------------------------
@@ -24290,6 +24313,20 @@ def run_dip_basket_manage(notify: bool = True) -> dict:
                 _held = (_sessions_between(date.fromisoformat(_ed), _today)
                          if _ed else 0)
                 if _held < DIP_BASKET_HOLD_SESSIONS:
+                    # A stop that fires mid-hold left NVDA reading "holding
+                    # 4/5" for two sessions after the broker sold it on
+                    # 2026-10-22. Ask the BROKER, not the tracker: the tracker
+                    # adopts a fresh fill a sync late, and a false "closed"
+                    # here would skip the horizon exit for a live position.
+                    try:
+                        _client.get_open_position(_tk)
+                    except Exception as _exc:
+                        if "40410000" in str(_exc) or "position does not exist" in str(_exc):
+                            _r["status"] = "closed"
+                            _r["exit_reason"] = f"stopped out in session {_held}"
+                            out["closed"].append(_tk)
+                            continue
+                        _log_swallowed("dip basket position check", _exc)
                     # Before the horizon the only job is to keep the floor
                     # moving up behind the price.
                     _dip_basket_ratchet_stop(_r, out)
@@ -31060,7 +31097,7 @@ def _live_mode_preflight(signals: list) -> Optional[tuple]:
         for _ev_live in sorted(_FOMC_DATES):
             _d_live = (_ev_live - _today_live).days
             if 0 <= _d_live <= 7:
-                if not _is_duplicate_alert("__FOMC_WARN__"):
+                if not _is_duplicate_alert("__FOMC_WARN__", 720):
                     msg = (f"⚠️ <b>DMan LIVE mode</b>: FOMC {_ev_live.strftime('%a %b %d')} "
                            f"in {_d_live}d — elevated risk. "
                            "Recommend paper mode until after FOMC + OPEX clear. "

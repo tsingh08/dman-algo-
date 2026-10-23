@@ -26775,12 +26775,12 @@ class TestTheDipBasketHasATimeExit(unittest.TestCase):
     there and on nothing else."""
 
     def _run(self, rows, orders=None, positions=None, today=None, notify=False,
-             market_open=True):
+             market_open=True, client=None):
         import tempfile, os, datetime as _dt, json as _json
         fd, path = tempfile.mkstemp(suffix=".json")
         os.close(fd)
         io.open(path, "w", encoding="utf-8").write(_json.dumps(rows))
-        cl = MagicMock()
+        cl = client or MagicMock()
         cl.get_order_by_id.side_effect = lambda oid: (orders or {})[oid]
         tracker = MagicMock()
         tracker.positions = positions or []
@@ -26829,6 +26829,69 @@ class TestTheDipBasketHasATimeExit(unittest.TestCase):
             rows, positions=[self._pos("NVDA")], today=_dt.date(2026, 10, 23))
         closer.assert_not_called()
         self.assertEqual(final[0]["status"], "open")
+
+    def _flat_client(self, msg):
+        """A client whose get_open_position raises `msg`."""
+        cl = MagicMock()
+        cl.get_open_position.side_effect = Exception(msg)
+        return cl
+
+    def test_a_mid_hold_stop_out_closes_the_row(self):
+        """NVDA's stop filled 2026-10-22, session 3 -- and the row kept
+        reporting 'holding NVDA(4/5)' because only the horizon branch ever
+        looked for the position."""
+        import datetime as _dt
+        rows = [{"ticker": "NVDA", "order_id": "x", "submitted": "2026-10-19",
+                 "entry_date": "2026-10-19", "status": "open"}]
+        out, final, closer, _c, _tg, _o = self._run(
+            rows, today=_dt.date(2026, 10, 23),
+            client=self._flat_client('{"code":40410000,"message":"position does not exist"}'))
+        closer.assert_not_called()
+        self.assertEqual(out["closed"], ["NVDA"])
+        self.assertEqual(final[0]["status"], "closed")
+        self.assertIn("stopped out", final[0]["exit_reason"])
+
+    def test_a_broker_hiccup_mid_hold_does_not_close_the_row(self):
+        """Only a definite 'position does not exist' ends it. A timeout
+        closing the row would cancel the horizon exit on a live position."""
+        import datetime as _dt
+        rows = [{"ticker": "NVDA", "order_id": "x", "submitted": "2026-10-19",
+                 "entry_date": "2026-10-19", "status": "open"}]
+        out, final, _cl, _c, _tg, _o = self._run(
+            rows, today=_dt.date(2026, 10, 23), client=self._flat_client("read timed out"))
+        self.assertEqual(final[0]["status"], "open")
+        self.assertEqual(out["closed"], [])
+
+    def _progress(self, setup, rows):
+        import tempfile, os, json as _json
+        fd, path = tempfile.mkstemp(suffix=".json")
+        os.close(fd)
+        io.open(path, "w", encoding="utf-8").write(_json.dumps(rows))
+        pos = a.OpenPosition(ticker="NVDA", bias="LONG", setup=setup, entry=215.2,
+                             stop=197.98, target1=249.64, target2=275.47, shares=1,
+                             entry_date="2026-10-19")
+        cl = MagicMock()
+        with patch.object(a, "DIP_BASKET_FILE", path), \
+             patch.object(a, "get_alpaca_client", return_value=cl), \
+             contextlib.redirect_stdout(io.StringIO()):
+            a._progress_equity_stop_to_trailing(pos, 220.6, trigger_price=220.58)
+        os.unlink(path)
+        return cl
+
+    def test_early_lock_never_moves_a_basket_stop_to_breakeven(self):
+        """Live 2026-10-21: the order-flow lock PATCHed NVDA's 208.64 trail to
+        the 215.20 entry pre-open; that stop sold it the next morning."""
+        cl = self._progress("Dip in Uptrend (adopted)", [])
+        cl.replace_order_by_id.assert_not_called()
+
+    def test_a_relabelled_basket_position_keeps_its_exemption(self):
+        """Adoption rewrites the setup string, so the basket row must count."""
+        cl = self._progress(a.ADOPTED_SETUP, [{"ticker": "NVDA", "status": "open"}])
+        cl.replace_order_by_id.assert_not_called()
+
+    def test_a_closed_basket_row_does_not_exempt_a_new_trade(self):
+        cl = self._progress("Gap & Hold", [{"ticker": "NVDA", "status": "closed"}])
+        cl.get_orders.assert_called()
 
     def test_the_horizon_counts_sessions_not_calendar_days(self):
         """Monday entry plus 5 CALENDAR days is Saturday, which is only FOUR

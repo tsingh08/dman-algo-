@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-22T15:34:52.750363-04:00",
-    "symbols": [
-      "VRTX"
-    ],
-    "headline": "Vertex Pharmaceuticals Receives FDA&#39;s Orphan Designation For Atumelnant To Treat Endogenous Cushing\u2019s Syndrome",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T15:34:52.974298-04:00",
-    "symbols": [
-      "HIMS"
-    ],
-    "headline": "&#39;Hims Seeks Dismissal of FTC Suit Over User Data, Subscriptions&#39; - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-22T15:34:53.317322-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "Live On CNBC, Josh Brown Announces Bought More Spotify Technology",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T15:34:55.542355-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Uber Brings ChatGPT Work To All Employees With OpenAI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T15:35:00.181646-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Crude Oil Moves Higher; Lockheed Martin Posts Upbeat Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T15:35:02.186548-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Warren Buffett Who? Berkshire Stock Hits Records as These Holdings Drive Gains Under Greg Abel",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-22T15:35:02.442752-04:00",
     "symbols": [
       "OXY"
@@ -4998,5 +4938,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T11:57:31.904158-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta&#39;s Q3 FCF Turns Negative On AI Spend\u2014Q4 Capex Implied At $49B-59B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T11:57:40.250743-04:00",
+    "symbols": [
+      "AIOK"
+    ],
+    "headline": "AI OKTO Shares Halted On Circuit Breaker To The Upside, Stock Now Up 227.53%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T11:57:40.676158-04:00",
+    "symbols": [
+      "RNG"
+    ],
+    "headline": "RingCentral Targets Stronger 2027 Growth As AI Adoption Accelerates",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T11:57:41.784095-04:00",
+    "symbols": [
+      "COSM"
+    ],
+    "headline": "Cosmos Health Expands E-Commerce and Subscription Business to Oceania",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T11:57:42.563796-04:00",
+    "symbols": [
+      "PHVS"
+    ],
+    "headline": "This Allegion Analyst Turns Bullish; Here Are Top 5 Upgrades For Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T11:57:42.568871-04:00",
+    "symbols": [
+      "PHVS"
+    ],
+    "headline": "B of A Securities Upgrades Pharvaris to Buy, Maintains Price Target to $44",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-10-23T09:25:53.560444-04:00",
-    "symbols": [
-      "RITM"
-    ],
-    "headline": "Rithm Capital Q3 Adj. EPS $0.55 Beats $0.50 Estimate, Sales $1.756B Beat $1.468B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:53.564765-04:00",
-    "symbols": [
-      "RITM"
-    ],
-    "headline": "American Express, Eni On Deck Friday As Spending, Energy Demand Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:53.633598-04:00",
-    "symbols": [
-      "SIGI"
-    ],
-    "headline": "Selective Insurance Gr Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:53.638129-04:00",
-    "symbols": [
-      "SIGI"
-    ],
-    "headline": "Selective Insurance Group Authorizes $200M Share Repurchase Program",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:53.642942-04:00",
-    "symbols": [
-      "SIGI"
-    ],
-    "headline": "Selective Insurance Group Increases Quarterly Dividend From $0.43 To $0.48",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:53.647747-04:00",
-    "symbols": [
-      "SIGI"
-    ],
-    "headline": "Selective Insurance Gr Q3 Adj. EPS $2.37 Beats $1.91 Estimate, Sales $1.123B Miss $1.172B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:53.715342-04:00",
-    "symbols": [
-      "R"
-    ],
-    "headline": "Stephens &amp; Co. Maintains Overweight on Ryder System, Raises Price Target to $305",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-23T09:25:53.785892-04:00",
     "symbols": [
       "AXTI"
@@ -4998,5 +4928,75 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T14:37:50.460325-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Amazon CEO Andy Jassy Says AI Inference Is Still 10 Times Too Expensive, Claims Amazon Chips Offer Answer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T14:37:50.868298-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon CEO Andy Jassy Says AI Inference Is Still 10 Times Too Expensive, Claims Amazon Chips Offer Answer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T14:37:59.106497-04:00",
+    "symbols": [
+      "ITG"
+    ],
+    "headline": "Citigroup Maintains Buy on ITG, Lowers Price Target to $9",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T14:37:59.183760-04:00",
+    "symbols": [
+      "SIGI"
+    ],
+    "headline": "Selective Insurance Gr Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T14:37:59.703959-04:00",
+    "symbols": [
+      "RITM"
+    ],
+    "headline": "Rithm Capital Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T14:37:59.708512-04:00",
+    "symbols": [
+      "RITM"
+    ],
+    "headline": "Rithm Capital Q3 Adj. EPS $0.55 Beats $0.50 Estimate, Sales $1.756B Beat $1.468B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T14:37:59.712925-04:00",
+    "symbols": [
+      "RITM"
+    ],
+    "headline": "American Express, Eni On Deck Friday As Spending, Energy Demand Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

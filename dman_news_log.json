@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-22T15:05:45.698501-04:00",
-    "symbols": [
-      "ROP"
-    ],
-    "headline": "Meta Tumbles 6% on AI Spending Fears, 10-Year Yield Falls Below 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T15:05:45.701382-04:00",
-    "symbols": [
-      "ROP"
-    ],
-    "headline": "Roper Techs Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T15:05:45.703951-04:00",
-    "symbols": [
-      "ROP"
-    ],
-    "headline": "Roper Technologies Sees Q4 Adj EPS $5.95-$6.00 vs $5.91 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T15:05:45.706541-04:00",
-    "symbols": [
-      "ROP"
-    ],
-    "headline": "Roper Technologies Raises FY2026 Adj EPS Guidance from $22.15-$22.30 to $22.35-$22.40 vs $22.22 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-22T15:05:45.709143-04:00",
     "symbols": [
       "ROP"
@@ -4998,5 +4958,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T11:35:20.486229-04:00",
+    "symbols": [
+      "HIMS"
+    ],
+    "headline": "Hims & Hers Health, Inc. Files Motion to Dismiss FTC Complaint",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T11:35:20.680227-04:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "Spotify Posts Strong Q3, Analysts Raise Price Targets Citing Encouraging  AI Updates",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T11:35:21.080264-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Live on CNBC, CrowdStrike CEO George Kurtz, Says Will See A Lot Of Breaches In Coming Months From PHP Vulnerability; Al Attacks Have Doubled Every Month",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T11:35:24.559029-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-23T09:25:54.776797-04:00",
-    "symbols": [
-      "CSGP"
-    ],
-    "headline": "Keefe, Bruyette & Woods Adjusts Price Target on CoStar Group",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:32:07.983897-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Robinhood Ventures Fund I Invests in Cognition",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-23T09:32:07.989908-04:00",
     "symbols": [
       "ORCL"
@@ -4995,6 +4975,26 @@
       "GEV"
     ],
     "headline": "GE Vernova Hitachi Nuclear Energy Partners for BWRX-300 Project in Poland",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T15:03:07.996509-04:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "GE Aerospace F404 Engine Deliveries and Production Impact on India's Tejas Fighter Program",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T15:03:08.001414-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Chevron to Increase Drilling Rigs at Argentina's El Trapial Block",
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"

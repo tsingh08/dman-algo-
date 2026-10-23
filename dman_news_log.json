@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-10-23T09:57:51.850615-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "American Express Raises Profit Outlook, But Layoff Plans and Rising Costs Draw Scrutiny",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:57:55.342131-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Trump Administration&#39;s $8B In Diesel Aid For Farmers Will Not Arrive Before Nov. 3 Election",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:57:55.347035-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA S&amp;P Global Composite PMI For October\u00a057.6 Vs 58.4 Prior",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:57:55.351915-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA S&amp;P Global Manufacturing PMI For October 56.0 Vs 55.4 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:57:55.356348-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA S&amp;P Global Services PMI For October\u00a0 57.9 Vs 57.9 Est.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:57:57.125095-04:00",
-    "symbols": [
-      "LABT"
-    ],
-    "headline": "Dow Tumbles Over 500 Points; American Express Shares Fall After Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:57:58.318993-04:00",
-    "symbols": [
-      "XXII"
-    ],
-    "headline": "Dow Tumbles Over 500 Points; American Express Shares Fall After Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T10:08:59.873643-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Bill Ackman Lost $400 Million on Netflix. Now He Sees 20%-Plus Annual Returns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-23T10:08:59.972039-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Tesla Wants To Learn the Roads With AI \u2014 Google Maps, Take Note",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-23T10:09:00.291557-04:00",
     "symbols": [
       "TSLA"
@@ -4998,5 +4908,95 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T15:57:19.728189-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "NHTSA Proposes Updating Vehicle Lighting Standard, Federal Motor Vehicle Safety Standards No. 108, To Accommodate Automated Driving Systems And Modernize Headlamp Requirements; NHTSA Says The Changes Are Intended To Eliminate Unnecessary Regulatory Barriers, Reduce Costs, And Enable Innovation Without Compromising Vehicle Safety",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T15:57:19.825943-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "NHTSA Proposes Updating Vehicle Lighting Standard, Federal Motor Vehicle Safety Standards No. 108, To Accommodate Automated Driving Systems And Modernize Headlamp Requirements; NHTSA Says The Changes Are Intended To Eliminate Unnecessary Regulatory Barriers, Reduce Costs, And Enable Innovation Without Compromising Vehicle Safety",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T15:57:19.910250-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "NHTSA Proposes Updating Vehicle Lighting Standard, Federal Motor Vehicle Safety Standards No. 108, To Accommodate Automated Driving Systems And Modernize Headlamp Requirements; NHTSA Says The Changes Are Intended To Eliminate Unnecessary Regulatory Barriers, Reduce Costs, And Enable Innovation Without Compromising Vehicle Safety",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T15:57:24.888805-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "NHTSA Proposes Updating Vehicle Lighting Standard, Federal Motor Vehicle Safety Standards No. 108, To Accommodate Automated Driving Systems And Modernize Headlamp Requirements; NHTSA Says The Changes Are Intended To Eliminate Unnecessary Regulatory Barriers, Reduce Costs, And Enable Innovation Without Compromising Vehicle Safety",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T15:57:25.310295-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "American Express Raises Profit Outlook, But Layoff Plans and Rising Costs Draw Scrutiny",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T15:57:25.960855-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "UBS Maintains Buy on Lockheed Martin, Raises Price Target to $692",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T15:57:28.432636-04:00",
+    "symbols": [
+      "LABT"
+    ],
+    "headline": "Dow Tumbles Over 500 Points; American Express Shares Fall After Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T15:57:29.001626-04:00",
+    "symbols": [
+      "XXII"
+    ],
+    "headline": "Dow Tumbles Over 500 Points; American Express Shares Fall After Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T15:57:29.655472-04:00",
+    "symbols": [
+      "RNG"
+    ],
+    "headline": "UBS Maintains Neutral on RingCentral, Raises Price Target to $105",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

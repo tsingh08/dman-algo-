@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-23T09:37:33.964096-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Barclays Maintains Equal-Weight on Lockheed Martin, Raises Price Target to $560",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:37:35.545108-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Meta Bulls Beware: Bond Market Sends Its Loudest Warning on Zuckerberg&#39;s Borrowing Binge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:37:35.550169-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Bloom Energy\u2019s October Stock Slump Deepens: Options Signal Post-Earnings Bounce to $230",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:37:35.826666-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "China Wields ETFs Against Market Rout: Could America Copy The Strategy?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-23T09:43:10.817737-04:00",
     "symbols": [
       "YMAT"
@@ -4998,5 +4958,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T15:35:08.729020-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Elon Musk Says Ukraine&#39;s Elites Profit From War as Starlink Restrictions Disrupt Ukrainian Drones",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T15:35:09.073388-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Texas Attorney General Paxton Sues OpenAI, CEO Altman Over Alleged Imposition Of Negative Side Effects On Clients",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T15:35:14.183964-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Barclays Maintains Equal-Weight on Lockheed Martin, Raises Price Target to $560",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T15:35:15.863570-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Texas Attorney General Paxton Sues OpenAI, CEO Altman Over Alleged Imposition Of Negative Side Effects On Clients",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

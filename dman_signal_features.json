@@ -41792,8 +41792,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 6,
-"last_ts": "2026-10-23T13:56:14.979573-04:00",
+"seen": 7,
+"last_ts": "2026-10-23T14:16:11.637798-04:00",
 "entry_min": 3.67,
 "entry_max": 3.73
 },
@@ -41804,7 +41804,7 @@
 "setup": "Gap & Hold",
 "bias": "LONG",
 "taken": false,
-"reject": "ai 3/10",
+"reject": "setup disabled: 9W/40L over 49 live trades (18% WR, -95.6% c",
 "score": 100,
 "final_score": 79.0,
 "ai_scored": true,
@@ -41854,8 +41854,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 3,
-"last_ts": "2026-10-23T14:06:36.753702-04:00",
+"seen": 4,
+"last_ts": "2026-10-23T14:16:11.872166-04:00",
 "entry_min": 46.08,
 "entry_max": 46.16
 },
@@ -41916,8 +41916,8 @@
 "Gap Size": 3,
 "News Catalyst": 0
 },
-"seen": 1,
-"last_ts": "2026-10-23T13:56:17.436858-04:00",
+"seen": 2,
+"last_ts": "2026-10-23T14:16:12.285306-04:00",
 "entry_min": 19.11,
 "entry_max": 19.11
 }

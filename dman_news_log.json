@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-22T14:40:04.981106-04:00",
-    "symbols": [
-      "HTZ"
-    ],
-    "headline": "Healthcare Services Posts Upbeat Q3 Earnings, Joins Pool, Spotify And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T14:40:10.202412-04:00",
-    "symbols": [
-      "STAK"
-    ],
-    "headline": "Nasdaq Down 400 Points; Tesla Shares Fall After Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T14:40:10.632245-04:00",
-    "symbols": [
-      "BHVN"
-    ],
-    "headline": "Healthcare Services Posts Upbeat Q3 Earnings, Joins Pool, Spotify And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-22T14:40:10.636262-04:00",
     "symbols": [
       "BHVN"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T10:19:54.862876-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Former Salesforce Global Head of Brand and Creative Scott Larson Joins OpenArt AI",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T10:19:59.095088-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "RBC Capital Maintains Sector Perform on Lockheed Martin, Raises Price Target to $600",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T10:20:01.719885-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Energy Department Authorizes Strategic Petroleum Reserve Exchange To Support Fuel Supply Stability",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

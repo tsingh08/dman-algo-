@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-10-23T09:33:08.056684-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "DBS Bank Adjusts Salesforce Price Target to $300 From $240",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:33:08.245813-04:00",
-    "symbols": [
-      "OKLO"
-    ],
-    "headline": "Oklo Announces Date for Third Quarter 2026 Financial Results and Business Update Call",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:33:08.251127-04:00",
-    "symbols": [
-      "ACHR"
-    ],
-    "headline": "Archer Aviation Announces New Air Taxi Networks in Texas",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:34:07.999417-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla Cancels Cybertruck Production Plans for Australia and New Zealand",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-23T09:37:28.747327-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Platforms To Expand Implementation Date Of Updated Commercial Terms To Nov. 20",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-23T09:37:29.231108-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "&#39;Salesforce Customers Brace For New Fees to Use Claude in Its Apps&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:37:29.824209-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "RBC Capital Markets Maintains Outperform Rating on Micron",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-23T09:37:29.829075-04:00",
     "symbols": [
       "MU"
@@ -4998,5 +4928,75 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T15:13:04.851418-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "The AI Boom Isn&#39;t 1999\u2014and Big Tech Could Cushion a Market Crash, This CEO Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T15:13:04.931881-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "The AI Boom Isn&#39;t 1999\u2014and Big Tech Could Cushion a Market Crash, This CEO Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T15:13:05.085978-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "The AI Boom Isn&#39;t 1999\u2014and Big Tech Could Cushion a Market Crash, This CEO Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T15:13:05.982422-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "DBS Bank Adjusts Salesforce Price Target to $300 From $240",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T15:13:06.561158-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "SanDisk Showcases iNAND AT EU752 Automotive Embedded Flash",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T15:13:09.399245-04:00",
+    "symbols": [
+      "OKLO"
+    ],
+    "headline": "Oklo Announces Date for Third Quarter 2026 Financial Results and Business Update Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T15:13:11.238084-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Iraq Aims To Gradually Raise Oil Production To 10M Barrels Per Day By 2032",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

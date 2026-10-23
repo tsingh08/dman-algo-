@@ -1,175 +1,5 @@
 [
   {
-    "ts": "2026-10-23T09:25:44.781125-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Nvidia\u2019s China Market Has Effectively Vanished: \u2018Every Restriction Also Gives Chinese Suppliers a Larger Captive Market,\u2019 Says Shay Boloor",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:44.785659-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Nasdaq Records Worst Session Since June: Investor Sentiment Weakens, Greed Index Moves To \u2018Extreme Fear\u2019 Zone",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:44.790082-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:44.935513-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "The Average Stock Is Beating the S&amp;P 500 by the Most Since April 2009: Is the Rotation Now Over?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-23T09:25:44.941262-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "AWS Margin Expansion Drives the Bull Case for Amazon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-23T09:25:44.945655-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Anthropic\u2019s Path to $1.5 Trillion Demands 30% Margins: Plausible, but Delivering Is Another Matter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-23T09:25:44.949905-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta&#39;s AI Revolution Has Wall Street Excited \u2014 And Worried About The Bill",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-23T09:25:44.954199-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Spotify Embraces AI Agents From ChatGPT to Muse as New Growth Engine: \u2018We Are Simply Everywhere\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-23T09:25:45.048637-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Anthropic\u2019s Path to $1.5 Trillion Demands 30% Margins: Plausible, but Delivering Is Another Matter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:25:45.053431-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Meta, Nvidia Lead Tech Sell-Off as AI Spending Fears Rattle Wall Street, But Gene Munster Sides With Musk, Zuckerberg and Huang: \u2018We\u2019re Still Early&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:25:45.058096-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Trump Asked Google\u2019s Sundar Pichai to Rename Atlantic Ocean After America, But the CEO Wasn\u2019t Having It: \u2018Please Don\u2019t Ask Us to Do That\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:25:45.062796-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Ro Khanna Says Zuckerberg\u2019s California Deal Undercuts Billionaire Tax Exodus Warnings: \u2018Gavin, Can You and Sergey Brin Stop...\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:25:45.067708-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Michael Burry Shares Chilling Song on AI: &#39;Watching Trillion-Dollar Monuments Become Obsolete&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:25:45.137621-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "AWS Margin Expansion Drives the Bull Case for Amazon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:25:45.142088-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Anthropic\u2019s Path to $1.5 Trillion Demands 30% Margins: Plausible, but Delivering Is Another Matter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:25:45.146449-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Former Fed Adviser Danielle DiMartino Booth Warns Recession May Already Be Here: Treasury Rally Signals \u2018Far More Consequential\u2019 Shift",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:25:45.151187-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Crown Castle Stock Jumps as SpaceX Eyes 80,000 Cell Sites for Wireless Network: \u2018We\u2019re Talking to All Parties\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-23T09:25:45.155459-04:00",
     "symbols": [
       "AMZN"
@@ -4998,5 +4828,175 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T13:21:27.330149-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Can Apple Top Nvidia? iPhone Duo and Nov. 2 Earnings Hold the Key",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T13:21:27.335121-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Assessing Apple&#39;s Performance Against Competitors In Technology Hardware, Storage &amp; Peripherals Industry",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T13:21:27.629462-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Oil Tops $100 on Iran Fears, Energy ETF XLE Hits New Record: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T13:21:28.169494-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Nvidia\u2019s China Market Has Effectively Vanished: \u2018Every Restriction Also Gives Chinese Suppliers a Larger Captive Market,\u2019 Says Shay Boloor",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T13:21:28.174139-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Nasdaq Records Worst Session Since June: Investor Sentiment Weakens, Greed Index Moves To \u2018Extreme Fear\u2019 Zone",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T13:21:28.468916-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;Meta&#39;s Muse AI To Counter China Models With Subscribers, Not Ads; Meta Plans To Offer Paid Enterprise Services, Will Take Commissions From Sellers On Purchases Made Using Agents, Alexandr Wang Says&#39; - Nikkei Asia",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T13:21:28.753771-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Oil Tops $100 on Iran Fears, Energy ETF XLE Hits New Record: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T13:21:34.665041-04:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "Oppenheimer Maintains Outperform on Spotify Technology, Raises Price Target to $650",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T13:21:42.598193-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Oil Tops $100 on Iran Fears, Energy ETF XLE Hits New Record: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T13:21:42.602720-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Chevron Stock Moves Higher: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T13:21:45.287664-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Oil Tops $100 on Iran Fears, Energy ETF XLE Hits New Record: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T13:21:45.524711-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Oil Tops $100 on Iran Fears, Energy ETF XLE Hits New Record: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T13:21:52.278193-04:00",
+    "symbols": [
+      "CCI"
+    ],
+    "headline": "Oil Tops $100 on Iran Fears, Energy ETF XLE Hits New Record: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T13:21:52.526321-04:00",
+    "symbols": [
+      "RNG"
+    ],
+    "headline": "Oil Tops $100 on Iran Fears, Energy ETF XLE Hits New Record: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T13:21:53.019416-04:00",
+    "symbols": [
+      "RHI"
+    ],
+    "headline": "Oil Tops $100 on Iran Fears, Energy ETF XLE Hits New Record: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T13:21:53.290799-04:00",
+    "symbols": [
+      "AMT"
+    ],
+    "headline": "Oil Tops $100 on Iran Fears, Energy ETF XLE Hits New Record: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T13:21:57.112454-04:00",
+    "symbols": [
+      "AMTB"
+    ],
+    "headline": "Amerant Bancorp Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

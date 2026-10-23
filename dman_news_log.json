@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-22T14:52:47.389216-04:00",
-    "symbols": [
-      "HXL"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T14:52:49.217240-04:00",
-    "symbols": [
-      "ROP"
-    ],
-    "headline": "Meta Tumbles 6% on AI Spending Fears, 10-Year Yield Falls Below 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T14:52:49.221813-04:00",
-    "symbols": [
-      "ROP"
-    ],
-    "headline": "Roper Techs Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T14:52:49.226184-04:00",
-    "symbols": [
-      "ROP"
-    ],
-    "headline": "Roper Technologies Sees Q4 Adj EPS $5.95-$6.00 vs $5.91 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T14:52:49.230557-04:00",
-    "symbols": [
-      "ROP"
-    ],
-    "headline": "Roper Technologies Raises FY2026 Adj EPS Guidance from $22.15-$22.30 to $22.35-$22.40 vs $22.22 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T14:52:49.234885-04:00",
-    "symbols": [
-      "ROP"
-    ],
-    "headline": "Roper Techs Q3 Adj. EPS $5.89 Beats $5.79 Estimate, Sales $2.172B Inline",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-22T14:52:50.670748-04:00",
     "symbols": [
       "NAIL"
@@ -4998,5 +4938,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T11:02:07.986927-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Delivery Drivers at OIL9 Facility Join Teamsters",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T11:02:07.994157-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Announces Enhancements to Oracle Marketplace",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T11:02:08.001247-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Platforms to Implement New Commercial Terms",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T11:02:08.160401-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Qualcomm Dragonwing\u2122 Agentic RAN Management Service Named Finalist for 2026 Fierce Network Innovation Awards",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T11:02:08.166503-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Fortinet Expands Presence in Oracle Marketplace",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T11:02:16.708553-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "EXCLUSIVE: Korea's Chip Selloff Flashes Rare 'Capitulation' Signal Ahead of SK Hynix Earnings, Analyst Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

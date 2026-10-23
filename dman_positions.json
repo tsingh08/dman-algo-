@@ -50,5 +50,31 @@
     "trail_pct": 0.0,
     "day_only": false,
     "elevated_size": false
+  },
+  {
+    "ticker": "ARHS",
+    "bias": "LONG",
+    "setup": "Breakout Zone +100% off low",
+    "entry": 11.545,
+    "stop": 0.01,
+    "target1": 1000000000.0,
+    "target2": 1000000000.0,
+    "shares": 21,
+    "entry_date": "2026-10-23",
+    "atr": 0.0,
+    "score": 10,
+    "legs": [],
+    "spread_qty": 0,
+    "max_loss": 0.0,
+    "max_gain": 0.0,
+    "earn_date": "",
+    "stop_stage": "initial",
+    "milestone_gain_alerted": 0.0,
+    "milestone_loss_alerted": 0.0,
+    "peak_premium": 0.0,
+    "peak_gain_pct": 0.20874837592031767,
+    "trail_pct": 0.0,
+    "day_only": false,
+    "elevated_size": false
   }
 ]

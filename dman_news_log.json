@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-23T09:25:53.785892-04:00",
-    "symbols": [
-      "AXTI"
-    ],
-    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:53.860134-04:00",
-    "symbols": [
-      "IMUX"
-    ],
-    "headline": "Cantor Fitzgerald Initiates Coverage On Immunic with Overweight Rating",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-23T09:25:53.925785-04:00",
     "symbols": [
       "ZLAB"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T14:48:49.373987-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron&#39;s Next AI Memory Breakthrough Has a Cooling Problem",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T14:48:52.992835-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Citigroup Maintains Buy on Lockheed Martin, Raises Price Target to $706",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-10-23T09:43:10.817737-04:00",
-    "symbols": [
-      "YMAT"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:43:10.823564-04:00",
-    "symbols": [
-      "YMAT"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:43:10.975005-04:00",
-    "symbols": [
-      "GLE"
-    ],
-    "headline": "Societe Generale Discloses Change in Major Holding in Spire Healthcare Group PLC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:43:11.050538-04:00",
-    "symbols": [
-      "FMST"
-    ],
-    "headline": "Reported Earlier, Foremost To Sell 31% Of GR, Blackwing To Denison In $650,000 Deal, Form Two JVs, Retain 20%; Issue 1,031,191 Warrants At $1.80",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:46:57.566217-04:00",
-    "symbols": [
-      "MYND"
-    ],
-    "headline": "Dow Tumbles Over 500 Points; American Express Shares Fall After Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:57:45.624668-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft&#39;s Earnings Are Days Away: Here\u2019s What Investors Need to Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:57:46.277019-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Anthropic Announces Co. Investigates Certain Behaviors From Claude Mythos 5 Further, To Understand What They Reveal About Model\u2019s Alignment; Claude Opus 5.5, Claude Mythos 5.1 Fall Short Of Consistently Stopping Attacks Underway, But Internal Research Model Does So Consistently; Mythos 5 Attempted To Submit Malicious Code To Repository; Recent Incidents Motivated Changes To How Co. Is Training &amp; Monitoring Alignment Of Its Models",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:57:46.426821-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Anthropic Announces Co. Investigates Certain Behaviors From Claude Mythos 5 Further, To Understand What They Reveal About Model\u2019s Alignment; Claude Opus 5.5, Claude Mythos 5.1 Fall Short Of Consistently Stopping Attacks Underway, But Internal Research Model Does So Consistently; Mythos 5 Attempted To Submit Malicious Code To Repository; Recent Incidents Motivated Changes To How Co. Is Training &amp; Monitoring Alignment Of Its Models",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:57:46.661929-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Releases 'My Sad Dead' Community Project",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-23T09:57:50.018603-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "Barclays Maintains Overweight on Spotify Technology, Raises Price Target to $650",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:57:51.354161-04:00",
-    "symbols": [
-      "DECK"
-    ],
-    "headline": "Wells Fargo Maintains Underweight on Deckers Outdoor, Lowers Price Target to $70",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-23T09:57:51.850615-04:00",
     "symbols": [
       "ABNB"
@@ -4998,5 +4888,115 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T15:46:19.631146-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Palmer Luckey&#39;s New Defense Startup Is Cloning War Dogs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T15:46:20.365770-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palmer Luckey&#39;s New Defense Startup Is Cloning War Dogs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T15:46:21.649528-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "AbbVie Receives FDA Approval For Its Subcutaneous Induction Regimen For SKYRIZI To Treat Moderately To Severely Active Crohn&#39;s Disease",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T15:46:22.993540-04:00",
+    "symbols": [
+      "DECK"
+    ],
+    "headline": "UBS Maintains Buy on Deckers Outdoor, Lowers Price Target to $137",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T15:46:25.804336-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Donald J. Trump Further Modifies Canadian Products Subject To Tariffs Under Section 338; Removing Certain Products Such As Plywood Sheets, Some Paper Products, Certain Machinery And Refrigeration Equipment, And Certain Packing Crates And Boxes; Replacing Those Products With Certain Valves, Carpets, Waste Products, And Others; Product Additions And Removals Will Take Effect On October 30, 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T15:46:27.372378-04:00",
+    "symbols": [
+      "MYND"
+    ],
+    "headline": "Dow Tumbles Over 500 Points; American Express Shares Fall After Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T15:46:27.781513-04:00",
+    "symbols": [
+      "YMAT"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T15:46:28.384966-04:00",
+    "symbols": [
+      "FMST"
+    ],
+    "headline": "Reported Earlier, Foremost To Sell 31% Of GR, Blackwing To Denison In $650,000 Deal, Form Two JVs, Retain 20%; Issue 1,031,191 Warrants At $1.80",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T15:46:30.415868-04:00",
+    "symbols": [
+      "THRM"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T15:46:30.420720-04:00",
+    "symbols": [
+      "THRM"
+    ],
+    "headline": "JP Morgan Maintains Overweight on Gentherm, Lowers Price Target to $47",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T15:46:30.425676-04:00",
+    "symbols": [
+      "THRM"
+    ],
+    "headline": "Stifel Maintains Buy on Gentherm, Lowers Price Target to $46",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

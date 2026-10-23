@@ -24396,6 +24396,7 @@ def run_dip_shadow(notify: bool = True) -> dict:
     catches up instead of skipping.
     """
     out = {"logged": [], "resolved": [], "pending": [], "n": 0, "mean": 0.0}
+    _cands: list[dict] = []
     try:
         with open(DIP_SHADOW_FILE) as _f:
             _log = json.load(_f)
@@ -24463,6 +24464,9 @@ def run_dip_shadow(notify: bool = True) -> dict:
                 if (_ma_l > 0 and _c[_last] > _ma_l and _c[_last] >= 1.0
                         and _r_l is not None and _r_l < DIP_SHADOW_RSI_MAX):
                     out["pending"].append(_tk)
+                    _cands.append({"ticker": _tk, "date": _idx[_last],
+                                   "close": _c[_last], "rsi2": _r_l,
+                                   "over_ma": (_c[_last] / _ma_l - 1) * 100.0})
 
             # resolve anything of this ticker's that has aged enough
             for _row in _log:
@@ -24536,7 +24540,82 @@ def run_dip_shadow(notify: bool = True) -> dict:
                     + chr(10) + _verdict + chr(10)
                     + "Shadow only — nothing was placed.")
                 _save_last_alert(_key)
+    if notify:
+        _dip_candidates_notify(_cands, out["n"], out["mean"], _wr)
     return out
+
+
+DIP_CANDIDATES_MAX = 5
+
+
+def _dip_candidates_notify(cands: list, n: int, mean: float, wr: float) -> None:
+    """Send the next session's dip names that /enter can actually take.
+
+    The shadow worked out every qualifier and told nobody: the 2026-10-19
+    basket was found by hand, and on 2026-10-23 a manual META idea failed
+    two of the operator's own rules ($649 a share against a $253 position
+    budget; a sound spread costs ~$975 against a $253 loss cap). This is
+    the list filtered to what /enter will not refuse, one message per
+    completed bar, so the whole loop runs from the phone.
+
+    Places nothing. /enter re-checks halt, macro, slots, cash and earnings.
+    """
+    if not cands:
+        return
+    _now = datetime.now(ET)
+    _today = _now.date().isoformat()
+    _bar = max(c["date"] for c in cands)
+    # A bar is complete once the session is over. This step also runs on
+    # every in-session scan, where the last bar is still forming.
+    if is_market_open() or (_bar == _today and _now.hour < 16):
+        return
+    _key = f"__DIP_CANDIDATES__:{_bar}"
+    if _is_alerted_today(_key) or _is_duplicate_alert(_key, 24 * 60):
+        return
+    _safe, _ = check_macro_safe()
+    if not _safe:
+        return          # /enter would refuse every one
+    # [] from _fetch_massive_earnings means "none" OR "lookup failed". A
+    # scheduled event must fail closed, so with no key nothing is offered.
+    if not os.getenv("MASSIVE_API_KEY"):
+        print("  \U0001f4d0 dip candidates: MASSIVE_API_KEY unset, earnings "
+              "unverifiable -- not offered")
+        return
+    _budget = get_effective_account() * MANUAL_ENTRY_EQUITY_PCT
+    _d0 = _et_today()
+    _ok = []
+    for c in sorted(cands, key=lambda c: c["rsi2"]):
+        if c["date"] != _bar:
+            continue
+        if c["close"] * (1 + MANUAL_ENTRY_LIMIT_BUFFER_PCT / 100.0) > _budget:
+            continue
+        try:
+            if _fetch_massive_earnings(
+                    c["ticker"], _d0, _d0 + timedelta(days=DIP_BASKET_HOLD_SESSIONS + 2)):
+                continue
+        except Exception as _exc:
+            _log_swallowed("dip candidate earnings", _exc)
+            continue
+        _ok.append(c)
+        if len(_ok) >= DIP_CANDIDATES_MAX:
+            break
+    print(f"  \U0001f4d0 dip candidates: {len(_ok)} of {len(cands)} fit /enter "
+          f"(${_budget:,.0f} budget)")
+    if not _ok:
+        return
+    _rec = (f"shadow record n={n}, mean {mean:+.2f}%, {wr:.0f}% win" if n
+            else "shadow record: none resolved yet")
+    _lines = [f"\U0001f4d0 <b>Dip in uptrend — next open</b> (closes {_bar})",
+              f"above MA200, RSI2 &lt; {DIP_SHADOW_RSI_MAX:.0f}, hold "
+              f"{DIP_BASKET_HOLD_SESSIONS} sessions, 8% stop", ""]
+    for c in _ok:
+        _lines.append(f"<b>{c['ticker']}</b> ${c['close']:,.2f} · RSI2 {c['rsi2']:.1f} · "
+                      f"+{c['over_ma']:.1f}% over MA200 → <code>/enter {c['ticker']}</code>")
+    _lines += ["", f"In-sample +0.45%/trade, 52.5% win; {_rec}.",
+               "Nothing is placed unless you send /enter."]
+    send_telegram(chr(10).join(_lines))
+    _mark_alerted(_key)
+    _save_last_alert(_key)
 
 
 def run_orb_shadow(notify: bool = True) -> list[dict]:

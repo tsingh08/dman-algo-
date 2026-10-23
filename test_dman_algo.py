@@ -26762,6 +26762,62 @@ class TestTheEditorCheckAsksWhichFolderIsOpen(unittest.TestCase):
         self.assertIn("for workspace", src)
         self.assertIn("Found (", src)
 
+class TestDipCandidatesReachThePhone(unittest.TestCase):
+    """2026-10-23: the shadow knew every qualifier and told nobody, and the
+    one name picked by hand (META) failed both of the operator's caps. The
+    alert offers only what /enter will take, once per completed bar."""
+
+    def _cands(self):
+        return [{"ticker": "META", "date": "2026-10-22", "close": 648.85, "rsi2": 3.4, "over_ma": 2.7},
+                {"ticker": "AMZN", "date": "2026-10-22", "close": 250.38, "rsi2": 8.0, "over_ma": 2.9},
+                {"ticker": "CRM",  "date": "2026-10-22", "close": 230.10, "rsi2": 1.0, "over_ma": 21.6}]
+
+    def _send(self, now, market_open=False, key="k", earnings=None, macro=True):
+        import tempfile, os, datetime as _dt
+        d = tempfile.mkdtemp()
+        env = {"MASSIVE_API_KEY": key} if key else {}
+        with patch.object(a, "datetime") as dtm, \
+             patch.dict(os.environ, env, clear=False), \
+             patch.object(a, "is_market_open", return_value=market_open), \
+             patch.object(a, "check_macro_safe", return_value=(macro, 0)), \
+             patch.object(a, "get_effective_account", return_value=2528.0), \
+             patch.object(a, "_et_today", return_value=now.date()), \
+             patch.object(a, "_fetch_massive_earnings",
+                          side_effect=lambda t, *_: (earnings or {}).get(t, [])), \
+             patch.object(a, "_ALERT_DEDUP_FILE", os.path.join(d, "dd.json")), \
+             patch.object(a, "LAST_ALERTS_FILE", os.path.join(d, "la.json")), \
+             patch.object(a, "send_telegram") as tg, \
+             contextlib.redirect_stdout(io.StringIO()):
+            dtm.now.return_value = now
+            dtm.fromisoformat = _dt.datetime.fromisoformat
+            if not key:
+                os.environ.pop("MASSIVE_API_KEY", None)
+            a._dip_candidates_notify(self._cands(), 0, 0.0, 0.0)
+            a._dip_candidates_notify(self._cands(), 0, 0.0, 0.0)
+        return tg
+
+    def _at(self, h, m=0, day=23):
+        import datetime as _dt
+        return _dt.datetime(2026, 10, day, h, m, tzinfo=a.ET)
+
+    def test_pre_open_offers_only_what_enter_can_take_once(self):
+        tg = self._send(self._at(7), earnings={"AMZN": [{"date": "2026-10-29"}]})
+        tg.assert_called_once()
+        msg = tg.call_args[0][0]
+        self.assertIn("/enter CRM", msg)
+        self.assertNotIn("META", msg)       # $649 > the $253 position budget
+        self.assertNotIn("AMZN", msg)       # reports inside the hold
+
+    def test_nothing_while_the_bar_is_still_forming(self):
+        self._send(self._at(11), market_open=True).assert_not_called()
+
+    def test_no_key_means_earnings_unverified_and_nothing_offered(self):
+        self._send(self._at(7), key="").assert_not_called()
+
+    def test_a_macro_blackout_offers_nothing(self):
+        self._send(self._at(7), macro=False).assert_not_called()
+
+
 class TestTheDipBasketHasATimeExit(unittest.TestCase):
     """Searched 2026-10-19: BACKTEST_MAX_HOLD_BARS was the ONLY max-hold in
     this file and it is simulation-only. Live positions sat until a stop or a

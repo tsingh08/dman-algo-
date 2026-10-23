@@ -367,6 +367,8 @@ jobs:
           APCA_API_SECRET_KEY: ${{ secrets.APCA_API_SECRET_KEY }}
           TELEGRAM_TOKEN:      ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID:    ${{ secrets.TELEGRAM_CHAT_ID }}
+          # The dip-candidate alert's earnings filter fails closed without it.
+          MASSIVE_API_KEY:     ${{ secrets.MASSIVE_API_KEY }}
           PYTHONIOENCODING:    utf-8
         run: python dman_algo.py --mode orb || true
 

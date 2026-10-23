@@ -1,155 +1,5 @@
 [
   {
-    "ts": "2026-10-22T14:30:56.913841-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;Salesforce Customers Brace For New Fees to Use Claude in Its Apps&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T14:30:57.251723-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Meta Bulls Beware: Bond Market Sends Its Loudest Warning on Zuckerberg&#39;s Borrowing Binge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T14:30:57.256253-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#39;Salesforce Customers Brace For New Fees to Use Claude in Its Apps&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T14:30:57.499632-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Canaccord Genuity Maintains Buy on Tesla, Raises Price Target to $442",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T14:30:57.504209-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "&#39;He Thrives on Chaos&#39; \u2014 Elon Musk&#39;s First Wife Says He Can &#39;Jump Off the Edge of a Cliff and Invent a Parachute on the Way Down&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T14:30:58.118695-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "&#39;Salesforce Customers Brace For New Fees to Use Claude in Its Apps&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T14:30:59.915324-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Lam Research Stock Sinks After Guidance Falls Short of Whispers: Cantor Calls It a 'Top Pick'",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T14:30:59.920011-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Applied Materials to Report Fourth Quarter and Fiscal 2026 Results on Nov. 12, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T14:31:01.295338-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Bloom Energy\u2019s October Stock Slump Deepens: Options Signal Post-Earnings Bounce to $230",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T14:31:01.529878-04:00",
-    "symbols": [
-      "KLAC"
-    ],
-    "headline": "Lam Research Stock Sinks After Guidance Falls Short of Whispers: Cantor Calls It a 'Top Pick'",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T14:31:02.894446-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "What&#39;s Going On with MoonLake Immunotherapeutics Stock on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T14:31:02.899005-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "AbbVie\u2019s Skin Disease Drug Hits Phase 3 Goal, but Efficacy Falls Short of Benchmarks: Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T14:31:06.835938-04:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "Canaccord Genuity Maintains Buy on e.l.f. Beauty, Raises Price Target to $137",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T14:31:12.728205-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Axios Reported Morgan Stanley, Bank Of America, JPMorgan, Wells Fargo, Other Major U.S. Banks Race To Block Unauthorized Third-Party AI Agents Accessing Customer Accounts, Some Acting Independently Of User Instructions",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T14:31:12.959823-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs Launches Small Business AI Institute",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-22T14:31:12.964579-04:00",
     "symbols": [
       "GS"
@@ -4998,5 +4848,155 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T09:32:07.983897-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Ventures Fund I Invests in Cognition",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T09:32:07.989908-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Commits $1 Billion to Partner Ecosystem for AI",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T09:32:16.839483-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "CoreWeave Debt Stress Mounts: Bond Yield Hits Record as Stock Suffers $44 Billion Wipeout",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T09:32:16.848661-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T09:32:16.878204-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Trump Admin Warned Netflix Its Warner Bid Was Going Nowhere, John Malone Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T09:32:16.896704-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "TradePMR by Robinhood Integrates ICE Connect Wealth into Fusion Platform",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T09:32:16.908682-04:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "BofA Securities Adjusts Biogen Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T09:32:16.996358-04:00",
+    "symbols": [
+      "LCID"
+    ],
+    "headline": "Why Is Lucid Stock Surging on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T09:33:07.985025-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "SanDisk Showcases iNAND AT EU752 Automotive Embedded Flash",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T09:33:08.002813-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Autonomous Research Adjusts Price Target on Coinbase Global",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T09:33:08.041146-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "White River Health to Exit UnitedHealthcare Medicare Advantage Network",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T09:33:08.056684-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "DBS Bank Adjusts Salesforce Price Target to $300 From $240",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T09:33:08.245813-04:00",
+    "symbols": [
+      "OKLO"
+    ],
+    "headline": "Oklo Announces Date for Third Quarter 2026 Financial Results and Business Update Call",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T09:33:08.251127-04:00",
+    "symbols": [
+      "ACHR"
+    ],
+    "headline": "Archer Aviation Announces New Air Taxi Networks in Texas",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T09:34:07.999417-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Cancels Cybertruck Production Plans for Australia and New Zealand",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

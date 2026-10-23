@@ -2221,5 +2221,41 @@
   "drift_pct": 0.09,
   "range_ratio": 0.5,
   "near_high": 0.999
+ },
+ {
+  "ts": "2026-10-23T11:18:23.670931-04:00",
+  "ticker": "IEAG",
+  "price": 10.005,
+  "rvol": 4.24,
+  "drift_pct": 0.45,
+  "range_ratio": 0.42,
+  "near_high": 0.975
+ },
+ {
+  "ts": "2026-10-23T11:18:23.670946-04:00",
+  "ticker": "HYBL",
+  "price": 27.32,
+  "rvol": 2.51,
+  "drift_pct": 0.24,
+  "range_ratio": 0.25,
+  "near_high": 0.971
+ },
+ {
+  "ts": "2026-10-23T11:18:23.670951-04:00",
+  "ticker": "IBD",
+  "price": 23.26,
+  "rvol": 2.48,
+  "drift_pct": 0.91,
+  "range_ratio": 0.55,
+  "near_high": 0.982
+ },
+ {
+  "ts": "2026-10-23T11:18:23.670954-04:00",
+  "ticker": "KFII",
+  "price": 10.72,
+  "rvol": 8.19,
+  "drift_pct": 0.19,
+  "range_ratio": 0.5,
+  "near_high": 1.0
  }
 ]

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-22T13:29:19.562152-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Citizens Maintains Market Outperform on Alphabet, Lowers Price Target to $450",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T13:29:19.685761-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Meta Tumbles 6% on AI Spending Fears, 10-Year Yield Falls Below 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-22T13:29:20.638129-04:00",
     "symbols": [
       "MU"
@@ -4996,6 +4976,26 @@
     ],
     "headline": "Meta Tumbles 6% on AI Spending Fears, 10-Year Yield Falls Below 5%: Stock Market Today",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-22T20:02:08.104550-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Mastercard Introduces AI-Powered Benefits Assistant 'Mastercard Max'",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-22T20:03:08.070319-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Liquibase Secure Now Available on Snowflake Marketplace",
+    "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"
   }

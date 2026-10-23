@@ -1,135 +1,5 @@
 [
   {
-    "ts": "2026-10-23T10:09:00.291557-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla Wants To Learn the Roads With AI \u2014 Google Maps, Take Note",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-23T10:09:00.393064-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Bill Ackman Lost $400 Million on Netflix. Now He Sees 20%-Plus Annual Returns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-23T10:09:00.621159-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Dan Ives Says Palantir and Snowflake Are Nearing the &#39;End of That Gap&#39; Between AI CapEx and True Monetization, Warns Wall Street Is Underestimating Tech Earnings by Up to 25%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T10:09:00.730244-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Dan Ives Says Palantir and Snowflake Are Nearing the &#39;End of That Gap&#39; Between AI CapEx and True Monetization, Warns Wall Street Is Underestimating Tech Earnings by Up to 25%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T10:09:07.071179-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Netanyahu says army prepared for \u2018large-scale operation\u2019 in West Bank&#39; - Al Jazeera",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T10:09:07.077278-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Michigan Consumer Sentiment For October\u00a048.0 Vs 46.3 Est.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T10:09:07.083179-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Michigan Consumer Expectations For October\u00a048.8 Vs 47.3 Est.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T10:09:07.088340-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Chinese Fast Fashion Platform Shein To Pay $100M In U.S. FTC Probe Settlement",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T10:09:08.969126-04:00",
-    "symbols": [
-      "BOLT"
-    ],
-    "headline": "Trading Halt: Halt status updated at 9:45:00 AM ET: Quotation Resumption: News and Resumption Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T10:09:08.973637-04:00",
-    "symbols": [
-      "BOLT"
-    ],
-    "headline": "Bolt\u2019s Acquisition Positions It To Advance Prana\u2019s Inspire Multispecific Antibody Pipeline; Phase 2 PRA-216 Readouts Expected Starting Q2 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T10:09:08.978087-04:00",
-    "symbols": [
-      "BOLT"
-    ],
-    "headline": "Bolt Biotherapeutics Secures $120M Private Placement, With Potential Additional $60M From Warrant Exercise To Fund Operations Into 2028",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T10:09:08.983048-04:00",
-    "symbols": [
-      "BOLT"
-    ],
-    "headline": "Bolt Biotherapeutics Acquires Prana Therapies In Sign-And-Close Reverse Merger, Shifts Focus To Multispecific Antibody Pipeline; Prana Holders to Own 51.7% of Combined Company, Backed by Up To $180M Financing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T10:09:08.987862-04:00",
-    "symbols": [
-      "BOLT"
-    ],
-    "headline": "Trading Halt: Halted at 8:40:00 a.m. ET - Trading Halt: Halt News Pending",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-23T10:09:09.314541-04:00",
     "symbols": [
       "AIOK"
@@ -4995,6 +4865,136 @@
       "RNG"
     ],
     "headline": "UBS Maintains Neutral on RingCentral, Raises Price Target to $105",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T16:02:07.990763-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "FDA Approves Awiqli\u00ae for Children 10 Years and Older with Type 2 Diabetes",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T16:02:24.410103-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Tesla Wants To Learn the Roads With AI \u2014 Google Maps, Take Note",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T16:02:24.422238-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Bill Ackman Lost $400 Million on Netflix. Now He Sees 20%-Plus Annual Returns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T16:02:24.427476-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Dan Ives Says Palantir and Snowflake Are Nearing the &#39;End of That Gap&#39; Between AI CapEx and True Monetization, Warns Wall Street Is Underestimating Tech Earnings by Up to 25%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T16:02:24.433172-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Dan Ives Says Palantir and Snowflake Are Nearing the &#39;End of That Gap&#39; Between AI CapEx and True Monetization, Warns Wall Street Is Underestimating Tech Earnings by Up to 25%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T16:02:24.752711-04:00",
+    "symbols": [
+      "ESLA"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T16:02:24.934608-04:00",
+    "symbols": [
+      "HSAI"
+    ],
+    "headline": "Selective Insurance, Crown Castle, UWM Holdings And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T16:02:25.004590-04:00",
+    "symbols": [
+      "CART"
+    ],
+    "headline": "'Instacart Has Been Working With An Investment Bank To Weigh Its Options, Held At Least Preliminary Conversations With DoorDash, Uber' - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T16:02:25.009209-04:00",
+    "symbols": [
+      "CART"
+    ],
+    "headline": "'Instacart Is Exploring A Sale' - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T16:02:25.087949-04:00",
+    "symbols": [
+      "UWMC"
+    ],
+    "headline": "Oil Tops $100 on Iran Fears, Energy ETF XLE Hits New Record: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T16:02:25.092691-04:00",
+    "symbols": [
+      "UWMC"
+    ],
+    "headline": "Selective Insurance, Crown Castle, UWM Holdings And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T16:02:25.097018-04:00",
+    "symbols": [
+      "UWMC"
+    ],
+    "headline": "UWM Holdings Reports Preliminary Q3 Net Income Of $205M-$220M And Sales Of $800M-$825M; Lowers FY26 Total Sales Guidance To ~$3.35B-$3.50B Due To Lower Origination Volume Throughout The Industry",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T16:02:25.281105-04:00",
+    "symbols": [
+      "WSFS"
+    ],
+    "headline": "WSFS Financial Q3 2026 Earnings Call Transcript",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

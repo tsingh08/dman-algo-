@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-22T15:52:01.788335-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Is A War Imminent? Concerns Overshadow Strong Meta, Tesla Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T15:52:01.811626-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Stock Moves Higher: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-22T15:52:01.816551-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Why Is Salesforce Stock Surging on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T15:52:01.837586-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T15:52:01.845870-04:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "BioNTech and Gilead Sciences Announce Clinical Trial Collaboration for Triple-Negative Breast Cancer Treatment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-22T15:52:01.852310-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: Zscaler, Spotify Technology, ServiceNow",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-22T15:52:01.874909-04:00",
     "symbols": [
       "ZS"
@@ -4998,5 +4938,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T12:30:22.291718-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "What&#39;s Going On With Micron Technology Stock Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T12:30:22.296606-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "What Is Going On With Marvell Technology Stock on Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T12:30:22.547921-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "What&#39;s Going On With Micron Technology Stock Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T12:30:22.725747-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "What Is Going On With Marvell Technology Stock on Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T12:30:23.728713-04:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "JP Morgan Maintains Overweight on Spotify Technology, Raises Price Target to $700",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T12:30:26.660029-04:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "SLB&#39;s Next Big Growth Engine Isn&#39;t Oil \u2014 It&#39;s the AI Data Center Boom",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

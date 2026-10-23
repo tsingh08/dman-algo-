@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-22T14:40:10.636262-04:00",
-    "symbols": [
-      "BHVN"
-    ],
-    "headline": "Biohaven Rebounds With FDA Review Date for Rare Disease Drug",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T14:40:10.847547-04:00",
-    "symbols": [
-      "NCPL"
-    ],
-    "headline": "Nasdaq Down 400 Points; Tesla Shares Fall After Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-22T14:40:11.276373-04:00",
-    "symbols": [
-      "PFSA"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T14:40:11.898686-04:00",
-    "symbols": [
-      "XLAB"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T14:40:12.101573-04:00",
-    "symbols": [
-      "SNAL"
-    ],
-    "headline": "Snail, Inc. Provides Update on Game Portfolio Progress",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-22T14:40:13.400748-04:00",
     "symbols": [
       "RTO"
@@ -4998,5 +4948,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T10:31:13.931885-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google Cloud Revenue Surges: Alphabet Focuses on $100 Billion TPU Opportunity Ahead of Q3 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T10:31:25.865094-04:00",
+    "symbols": [
+      "EVAX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T10:31:25.870388-04:00",
+    "symbols": [
+      "EVAX"
+    ],
+    "headline": "Evaxion Reports All Patients Maintained Clinical Response With No Tumor Progression Through Year Three Of EVX-01 Monotherapy In Advanced Melanoma Phase 2 Trial, 89% Of Vaccine Neoantigens Triggered T-Cell Responses",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T10:32:08.013997-04:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "Analysts Adjust Price Targets for Spotify Technology",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T10:32:15.682202-04:00",
+    "symbols": [
+      "EQNR"
+    ],
+    "headline": "Equinor Energy AS Exercises Option for Havila Shipping PSV Vessels",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

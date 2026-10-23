@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-10-23T09:32:07.989908-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Commits $1 Billion to Partner Ecosystem for AI",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:32:16.839483-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "CoreWeave Debt Stress Mounts: Bond Yield Hits Record as Stock Suffers $44 Billion Wipeout",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-23T09:32:16.848661-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:32:16.878204-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Trump Admin Warned Netflix Its Warner Bid Was Going Nowhere, John Malone Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-23T09:32:16.896704-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "TradePMR by Robinhood Integrates ICE Connect Wealth into Fusion Platform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:32:16.908682-04:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "BofA Securities Adjusts Biogen Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:32:16.996358-04:00",
-    "symbols": [
-      "LCID"
-    ],
-    "headline": "Why Is Lucid Stock Surging on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-23T09:33:07.985025-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "SanDisk Showcases iNAND AT EU752 Automotive Embedded Flash",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:33:08.002813-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Autonomous Research Adjusts Price Target on Coinbase Global",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:33:08.041146-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "White River Health to Exit UnitedHealthcare Medicare Advantage Network",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-23T09:33:08.056684-04:00",
     "symbols": [
       "CRM"
@@ -4908,6 +4808,106 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T15:00:54.404797-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Verizon Q3 Preview: Beat, Raise, Dividend Increase \u2013 3 Ways to Fight Off SpaceX Competition Concerns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T15:00:56.455465-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron&#39;s Next AI Memory Breakthrough Has a Cooling Problem",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T15:01:01.365788-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Citigroup Maintains Buy on Lockheed Martin, Raises Price Target to $706",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T15:01:04.858660-04:00",
+    "symbols": [
+      "RY"
+    ],
+    "headline": "&#39;Trump Expected To Remove Some Tariffs On Canada In Bid To Help Susan Collins; The Move, Which Could Come As Soon As Friday, Would Remove Tariffs On Some Agricultural And Forestry Goods But Could Raise Levies On Other Products&#39; - WSJ Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T15:01:05.539066-04:00",
+    "symbols": [
+      "HURN"
+    ],
+    "headline": "Truist Securities Maintains Buy on Huron Consulting Gr, Raises Price Target to $220",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T15:01:05.627065-04:00",
+    "symbols": [
+      "FPH"
+    ],
+    "headline": "Deckers Outdoor Posts Mixed Q2 Results, Joins BayCom, Five Point Holdings And Other Big Stocks Moving Lower In Friday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T15:01:06.114367-04:00",
+    "symbols": [
+      "FHB"
+    ],
+    "headline": "First Hawaiian Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T15:01:06.119084-04:00",
+    "symbols": [
+      "FHB"
+    ],
+    "headline": "First Hawaiian Q3 EPS $0.52 Misses $0.56 Estimate, Sales $230.227M Beat $229.619M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T15:01:06.123401-04:00",
+    "symbols": [
+      "FHB"
+    ],
+    "headline": "First Hawaiian Likely To Report Higher Q3 Revenue; These Most Accurate Analysts Revise Forecasts Ahead Of Earnings Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T15:01:06.127787-04:00",
+    "symbols": [
+      "FHB"
+    ],
+    "headline": "American Express, Eni On Deck Friday As Spending, Energy Demand Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   },
   {
     "ts": "2026-10-23T15:02:07.991086-04:00",

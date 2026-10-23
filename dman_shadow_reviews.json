@@ -794,5 +794,27 @@
    "regime": "CHOP",
    "regime_score": 7
   }
+ },
+ {
+  "ts": "2026-10-23T15:02:28.298853-04:00",
+  "kind": "signal",
+  "ticker": "RHI",
+  "verdict": "skip",
+  "confidence": 92,
+  "reason": "RSI 83.5 is deeply overbought. Gap & Hold works best with moderate momentum, not extremes. High risk of mean reversion into stop.",
+  "facts": {
+   "setup": "Gap & Hold",
+   "bias": "LONG",
+   "confluence_score": 100,
+   "entry": 46.18,
+   "stop": 43.17,
+   "target1": 60.16,
+   "rr": 4.64,
+   "rvol": 3.06,
+   "rsi": 83.5,
+   "reason": "Gap up +11.3% from prior close, holding, RVOL 3.1x",
+   "regime": "CHOP",
+   "regime_score": 7
+  }
  }
 ]

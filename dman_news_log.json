@@ -1,365 +1,5 @@
 [
   {
-    "ts": "2026-10-23T09:25:50.567989-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "The Average Stock Is Beating the S&amp;P 500 by the Most Since April 2009: Is the Rotation Now Over?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:50.572571-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Nasdaq 100, Dow Jones Futures Fall Ahead of Global PMI Data\u2014Western Digital, Newmont, Crown Castle in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:50.577332-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Tom Lee Urges Buying the Tech Dip, Calls Sell-Off a \u2018Healthy Correction,\u2019 Points to $30 Trillion Infrastructure Boom Ahead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:50.581643-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Reported October 22, U.S. Treasury Department Issues Notice Of Proposed Rulemaking For The Outbound Investment Security Program Under The COINS Act; Secretary Has Added Biotechnology To Proposed Regulations",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:50.655771-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Nasdaq 100, Dow Jones Futures Fall Ahead of Global PMI Data\u2014Western Digital, Newmont, Crown Castle in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:25:50.660487-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Tom Lee Urges Buying the Tech Dip, Calls Sell-Off a \u2018Healthy Correction,\u2019 Points to $30 Trillion Infrastructure Boom Ahead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:25:50.664926-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "AI Stocks Are Getting Crushed, But This Strategist Says the Pullback Could Keep the Boom Alive: &#39;Restraint Prevents Excess&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:25:50.669875-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Peter Schiff Warns Stock Market Crash Before Midterms &#39;Is Not Outside the Realm of Possibility&#39; \u2014 &#39;This Is October&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T09:25:50.738815-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Meta Tumbles 6% on AI Spending Fears, 10-Year Yield Falls Below 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:50.809972-04:00",
-    "symbols": [
-      "BCTX"
-    ],
-    "headline": "BriaCell Announces ESMO 2026 Poster Highlighting Circulating Immune Biomarker Associated with Clinical Outcomes in Metastatic Breast Cancer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:50.872810-04:00",
-    "symbols": [
-      "CAST"
-    ],
-    "headline": "Arctic Securities Downgrades Castellum to Sell",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:50.934532-04:00",
-    "symbols": [
-      "CYCU"
-    ],
-    "headline": "Cycurion Announces Third Quarter 2026 Earnings Conference Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:51.007010-04:00",
-    "symbols": [
-      "DCX"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:51.076802-04:00",
-    "symbols": [
-      "DFNS"
-    ],
-    "headline": "T3 Defense Delivers Mobile UAV Command-and-Control Vehicle to Israeli HLS Operator",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T09:25:51.183512-04:00",
-    "symbols": [
-      "FGL"
-    ],
-    "headline": "Founder Group Regains Nasdaq Compliance",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:51.258077-04:00",
-    "symbols": [
-      "HTZ"
-    ],
-    "headline": "Hertz Launches \"Drive the Vote\" Rental Promotion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:51.323706-04:00",
-    "symbols": [
-      "HUBC"
-    ],
-    "headline": "Why RingCentral Shares Are Trading Higher By 15%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:51.328233-04:00",
-    "symbols": [
-      "HUBC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:51.396150-04:00",
-    "symbols": [
-      "IMSR"
-    ],
-    "headline": "Lake Street Initiates Coverage on Terrestrial Energy with Buy Rating",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:51.465186-04:00",
-    "symbols": [
-      "LABT"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:51.469702-04:00",
-    "symbols": [
-      "LABT"
-    ],
-    "headline": "Why RingCentral Shares Are Trading Higher By 15%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:51.606265-04:00",
-    "symbols": [
-      "MGN"
-    ],
-    "headline": "Fearnley Securities Upgrades Magnora to Buy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:51.727020-04:00",
-    "symbols": [
-      "ONCO"
-    ],
-    "headline": "Onconetix Makes Additional Advance Of $500K To Realbotix Under Strategic Bridge Financing Facility",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:51.796531-04:00",
-    "symbols": [
-      "QMCO"
-    ],
-    "headline": "This Guardant Health Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:51.801088-04:00",
-    "symbols": [
-      "QMCO"
-    ],
-    "headline": "Cantor Fitzgerald Initiates Coverage On Quantum with Overweight Rating, Announces Price Target of $29",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:51.864988-04:00",
-    "symbols": [
-      "RBNE"
-    ],
-    "headline": "Robin Energy Agrees To Acquire 5K CBM LPG Carrier Vessel From AI OKTO For $18M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:51.869496-04:00",
-    "symbols": [
-      "RBNE"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:51.937194-04:00",
-    "symbols": [
-      "SCNI"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:51.998756-04:00",
-    "symbols": [
-      "TE"
-    ],
-    "headline": "Needham Maintains Buy on T1 Energy, Lowers Price Target to $6",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:52.062844-04:00",
-    "symbols": [
-      "YYAI"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:52.129644-04:00",
-    "symbols": [
-      "ZENA"
-    ],
-    "headline": "ZenaTech Unveils Proprietary AI Software Suite for Land Surveying",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:52.196859-04:00",
-    "symbols": [
-      "XXII"
-    ],
-    "headline": "Why RingCentral Shares Are Trading Higher By 15%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:52.262878-04:00",
-    "symbols": [
-      "LUCD"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:52.267462-04:00",
-    "symbols": [
-      "LUCD"
-    ],
-    "headline": "BTIG Reiterates Buy on Lucid Diagnostics, Maintains $2.5 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:52.271827-04:00",
-    "symbols": [
-      "LUCD"
-    ],
-    "headline": "Why RingCentral Shares Are Trading Higher By 15%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T09:25:52.276565-04:00",
-    "symbols": [
-      "LUCD"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-23T09:25:52.281408-04:00",
     "symbols": [
       "LUCD"
@@ -4998,5 +4638,365 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T14:05:49.880100-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Outlook is &#39;Grim,&#39; Former Hedge Fund Manager Won\u2019t Touch Stock &#39;With 10-Foot Pole&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T14:05:52.077136-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "SanDisk Showcases New Automotive and Enterprise NAND Flash Solutions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T14:05:53.593563-04:00",
+    "symbols": [
+      "ENPH"
+    ],
+    "headline": "Roth Capital Partners Adjusts Enphase Energy Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T14:05:54.076662-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Goldman Sachs Maintains Neutral on AbbVie, Raises Price Target to $294",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T14:05:57.318382-04:00",
+    "symbols": [
+      "DDOG"
+    ],
+    "headline": "Datadog Reportedly Offered to Acquire Upwind Security",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T14:05:57.321055-04:00",
+    "symbols": [
+      "DDOG"
+    ],
+    "headline": "BofA Securities Raises Datadog Price Target to $335",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T14:06:01.372102-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "GE Vernova Stock Rebounds, AI Sell-Off Gives Way To Earnings Focus",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T14:06:01.623657-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "US Adversaries Russia, Iran and China Are Expanding Their Military Might, and Lockheed Martin Is Ramping Up \u2014 CEO Calls for \u2018Wartime Speed and Scale\u2019 as Backlog Hits Record $292 Billion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T14:06:01.947864-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "RTX Unit Pratt &amp; Whitney Begins Construction Of New $100M Rzesz\u00f3w Manufacturing Expansion In Poland",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T14:06:02.478542-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "GE Vernova Stock Rebounds, AI Sell-Off Gives Way To Earnings Focus",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T14:06:02.861245-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Bernie Sanders and Adam Schiff Sound Alarm As Rogue AI Agents Enter Bank Accounts, Warn of Financial Chaos: \u2018Pause AI NOW!\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T14:06:03.404891-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Truist Securities Maintains Buy on Visa, Raises Price Target to $443",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T14:06:04.276275-04:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "SLB Q3 Adj. EPS $0.64 Beats $0.61 Estimate, Sales $9.449B Beat $9.280B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T14:06:04.278959-04:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T14:06:05.813111-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Costco Launches New 'Beauty Table' Program",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T14:06:07.312460-04:00",
+    "symbols": [
+      "MGNX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T14:06:08.026041-04:00",
+    "symbols": [
+      "LKQ"
+    ],
+    "headline": "Oil Tops $100 on Iran Fears, Energy ETF XLE Hits New Record: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T14:06:08.028585-04:00",
+    "symbols": [
+      "LKQ"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T14:06:08.031013-04:00",
+    "symbols": [
+      "LKQ"
+    ],
+    "headline": "LKQ Tumbles after Europe Slump Hits Earnings, Forces Leadership Shakeup",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T14:06:08.276000-04:00",
+    "symbols": [
+      "TNGX"
+    ],
+    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T14:06:08.755133-04:00",
+    "symbols": [
+      "RHI"
+    ],
+    "headline": "Goldman Sachs Maintains Sell on Robert Half, Raises Price Target to $33",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T14:06:08.996600-04:00",
+    "symbols": [
+      "FLG"
+    ],
+    "headline": "Flagstar Stock Drops to New 52-Week Low After Mixed Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T14:06:09.321446-04:00",
+    "symbols": [
+      "SLM"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on SLM, Lowers Price Target to $26",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T14:06:09.324013-04:00",
+    "symbols": [
+      "SLM"
+    ],
+    "headline": "Oil Tops $100 on Iran Fears, Energy ETF XLE Hits New Record: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-23T14:06:09.564980-04:00",
+    "symbols": [
+      "NVS"
+    ],
+    "headline": "Novartis Announces Remibrutinib Lowers Annualized Relapse Rate By 35.2%, 31.2% In  Phase III REMODEL-1, REMODEL-2 Studies To Treat Relapsing Multiple Sclerosis",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T14:06:09.567554-04:00",
+    "symbols": [
+      "NVS"
+    ],
+    "headline": "Novartis Announces Its Data From Phase III NATALEE Study Demonstrates Kisqali Eliminates Risk Of Death By ~20% In Patients With Stage II And III HR+/Her2- Early Breast Cancer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T14:06:10.855703-04:00",
+    "symbols": [
+      "KNSL"
+    ],
+    "headline": "Kinsale Cap Gr Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T14:06:11.638958-04:00",
+    "symbols": [
+      "FIX"
+    ],
+    "headline": "Oil Tops $100 on Iran Fears, Energy ETF XLE Hits New Record: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T14:06:11.641667-04:00",
+    "symbols": [
+      "FIX"
+    ],
+    "headline": "Comfort Systems USA Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T14:06:11.874317-04:00",
+    "symbols": [
+      "REXR"
+    ],
+    "headline": "Rexford Industrial Realty Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T14:06:12.361743-04:00",
+    "symbols": [
+      "STLA"
+    ],
+    "headline": "Stellantis Stock Drops to New 52-Week Low: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T14:06:12.364327-04:00",
+    "symbols": [
+      "STLA"
+    ],
+    "headline": "Stellantis, Nvidia And AI Mobility Company Wayve Partner With French Government To Advance Deployment Of Autonomous Vehicles In France And Accelerating Their Development Across The EU",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T14:06:12.610030-04:00",
+    "symbols": [
+      "LZM"
+    ],
+    "headline": "Lifezone Metals In Talks With Orion Critical Mineral Consortium For Potential Significant Equity Investment In Kabanga Nickel Project In Tanzania",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T14:06:13.153708-04:00",
+    "symbols": [
+      "ENVX"
+    ],
+    "headline": "Selective Insurance, Crown Castle, UWM Holdings And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T14:06:13.440293-04:00",
+    "symbols": [
+      "OIH"
+    ],
+    "headline": "Oil Tops $100 on Iran Fears, Energy ETF XLE Hits New Record: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T14:06:13.442861-04:00",
+    "symbols": [
+      "OIH"
+    ],
+    "headline": "Strategic Petroleum Reserve Is Emptying, Here\u2019s Why Permian Producers Can\u2019t Fill It Up",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

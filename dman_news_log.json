@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-10-22T15:05:45.709143-04:00",
-    "symbols": [
-      "ROP"
-    ],
-    "headline": "Roper Techs Q3 Adj. EPS $5.89 Beats $5.79 Estimate, Sales $2.172B Inline",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T15:05:46.683764-04:00",
-    "symbols": [
-      "NAIL"
-    ],
-    "headline": "Reported Earlier, U.S. Treasury Department Issues Proposed Regulations To Make Homeownership More Affordable; From January 7, 2027, Large Institutional Investors Generally May Not Purchase A Single-Family Home",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T15:05:47.012089-04:00",
-    "symbols": [
-      "KSS"
-    ],
-    "headline": "Gordon Haskett Upgrades Kohl&#39;s to Buy, Announces $27 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T15:05:47.015074-04:00",
-    "symbols": [
-      "KSS"
-    ],
-    "headline": "10 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T15:05:47.208616-04:00",
-    "symbols": [
-      "LBRT"
-    ],
-    "headline": "Liberty Energy Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-22T15:05:47.346771-04:00",
-    "symbols": [
-      "INIO"
-    ],
-    "headline": "INNIO Receives 620 MW Follow-On Order From A U.S. Data Center Operator; New Order Brings Cumulative Orders From The Customer To ~1.72 GW",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T15:05:47.349624-04:00",
-    "symbols": [
-      "INIO"
-    ],
-    "headline": "Tesla, Lam Research, Rollins And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-22T15:05:47.556167-04:00",
-    "symbols": [
-      "GTY"
-    ],
-    "headline": "Getty Realty Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T15:22:48.414674-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Jensen Huang Downplays Memory Glut Fears: Will Micron Rebound Next?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T15:22:49.655927-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Citigroup Maintains Buy on Meta Platforms, Raises Price Target to $905",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-22T15:22:51.254666-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Citigroup Maintains Buy on Palantir Technologies, Raises Price Target to $250",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-22T15:22:52.804606-04:00",
     "symbols": [
       "MU"
@@ -4995,6 +4885,116 @@
       "QQQ"
     ],
     "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T11:46:20.478936-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Blackstone&#39;s $2.3 Billion CoreWeave Bet Sparked a Trillion-Dollar AI Lending Boom",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T11:46:20.641778-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Blackstone&#39;s $2.3 Billion CoreWeave Bet Sparked a Trillion-Dollar AI Lending Boom",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T11:46:20.815122-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Blackstone&#39;s $2.3 Billion CoreWeave Bet Sparked a Trillion-Dollar AI Lending Boom",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T11:46:21.615308-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Blackstone&#39;s $2.3 Billion CoreWeave Bet Sparked a Trillion-Dollar AI Lending Boom",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T11:46:22.286785-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Bitcoin\u2019s Rally Hits 3 Roadblocks: Can Bulls Shake Off \u2018Black October\u2019?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T11:46:23.784679-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "JP Morgan Maintains Underweight on Fortinet, Raises Price Target to $140",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T11:46:25.100899-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Bitcoin\u2019s Rally Hits 3 Roadblocks: Can Bulls Shake Off \u2018Black October\u2019?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T11:46:26.047541-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "&#39;TikTok U.S. hunts for multiple gigawatts of computing capacity&#39; - CNBC",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T11:46:26.422048-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;TikTok U.S. hunts for multiple gigawatts of computing capacity&#39; - CNBC",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T11:46:26.427114-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;CFTC Takes Oil Trading Oversight Very Seriously, Selig Says&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T11:46:26.431557-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Japan Weighs Rebranding Energy, AI As Defense Spending Under Trump Pressure; Proposals Would Be A Step Closer To Achieving 3.5% Of GDP&#39; - Nikkei Asia",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"

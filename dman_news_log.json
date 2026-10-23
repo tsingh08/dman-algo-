@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-22T14:31:17.415225-04:00",
-    "symbols": [
-      "FPS"
-    ],
-    "headline": "Meta Tumbles 6% on AI Spending Fears, 10-Year Yield Falls Below 5%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-22T14:31:17.419911-04:00",
     "symbols": [
       "FPS"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T09:46:57.566217-04:00",
+    "symbols": [
+      "MYND"
+    ],
+    "headline": "Dow Tumbles Over 500 Points; American Express Shares Fall After Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

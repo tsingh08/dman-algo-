@@ -14003,6 +14003,34 @@ def _place_bzone_catastrophe_stop(ticker: str, qty: float, entry: float):
         return False, f"{type(exc).__name__}: {str(exc)[:70]}"
 
 
+def _broker_committed_symbols() -> set:
+    """Symbols the BROKER already holds or has an open order on. Upper-case.
+
+    The zone entry pass asked only the tracker file whether a name was held.
+    On 2026-10-23 a git sync conflict restored dman_positions.json from a
+    commit that predated the ARHS fill (13:45 UTC); the 13:56 pass saw ARHS as
+    un-held and submitted a SECOND 21-share buy. Alpaca's wash-trade guard
+    rejected it only because the catastrophe stop happened to be resting --
+    the algo's own logic had nothing. Alpaca is the source of truth for
+    holdings; the tracker is a cache that a sync can roll back.
+
+    Fails CLOSED with a sentinel: if the broker cannot be asked, return
+    {"*"} and the caller skips every entry this pass rather than guessing.
+    """
+    try:
+        _c = get_alpaca_client()
+        if _c is None:
+            return {"*"}
+        _s = {str(p.symbol).upper() for p in _c.get_all_positions()}
+        for _o in _c.get_orders(filter=GetOrdersRequest(
+                status=QueryOrderStatus.OPEN, limit=500)):
+            _s.add(str(getattr(_o, "symbol", "") or "").upper())
+        return _s
+    except Exception as exc:
+        _log_swallowed("broker committed symbols", exc)
+        return {"*"}
+
+
 def _submit_bzone_entry(ticker: str, qty: int, ref_px: float, row: dict):
     """Limit buy + tracked position for a breakout zone. (order_id, error).
 
@@ -14397,12 +14425,15 @@ def run_breakout_zone_manage(notify: bool = True) -> dict:
         _by_dollars = int(_d // BZONE_TRADE_DOLLARS) if _d > 0 else 0
         _room = min(_room, _by_dollars)
         return (_room > 0), _w
-    _held_tickers = {p.ticker for p in _open}
+    _held_tickers = {str(p.ticker).upper() for p in _open} | _broker_committed_symbols()
+    if "*" in _held_tickers:
+        out["skipped"] = "broker holdings unreadable — no zone entries this pass"
+        return out
     for _row in _recent_logged_zones(max_age_days=2):
         if _room <= 0:
             break
         _t, _px = _row.get("ticker", ""), float(_row.get("close", 0) or 0)
-        if not _t or _t in _held_tickers:
+        if not _t or _t.upper() in _held_tickers:
             continue
         if not (BZONE_TRADE_MIN_PRICE <= _px <= BZONE_TRADE_MAX_PRICE):
             continue
@@ -24563,17 +24594,37 @@ DIP_CANDIDATES_FILE = "dman_dip_candidates.json"
 DIP_AUTO_CUTOFF_HHMM = 1030     # a dip entry is a next-open trade, not a noon one
 
 
+DIP_PROMOTE_MIN_DATES = 10     # distinct signal days, not just 30 fills
+
+
 def _dip_rule_promoted() -> tuple[bool, int, float]:
-    """(promoted, limit-arm fills, their mean %) from the shadow log."""
+    """(promoted, limit-arm fills, their mean %) from the shadow log.
+
+    Fills on the same signal day are one market event, not independent
+    trades. As of 2026-10-24 the 32 limit fills came from FOUR days, 12 of
+    them from the 10-22 selloff alone -- one rebound would have cleared
+    "30 fills, mean > 0" and turned on real-money autonomy off a single
+    observation. So promotion also needs DIP_PROMOTE_MIN_DATES distinct days,
+    and the mean of the per-day means must be positive too (each day votes
+    once). The returned mean stays the per-fill mean the alerts already show.
+    """
     try:
         with open(DIP_SHADOW_FILE) as _f:
             _log = json.load(_f)
-        _x = [float(r["pnl_lim_pct"]) for r in _log
-              if isinstance(r, dict) and r.get("pnl_lim_pct") is not None]
+        _rows = [(str(r.get("date", "")), float(r["pnl_lim_pct"])) for r in _log
+                 if isinstance(r, dict) and r.get("pnl_lim_pct") is not None]
     except Exception:
         return False, 0, 0.0
+    _x = [v for _, v in _rows]
     _m = sum(_x) / len(_x) if _x else 0.0
-    return (len(_x) >= DIP_SHADOW_REVIEW_N and _m > 0), len(_x), _m
+    _by_day: dict = {}
+    for _d, _v in _rows:
+        _by_day.setdefault(_d, []).append(_v)
+    _day_means = [sum(v) / len(v) for v in _by_day.values()]
+    _dm = sum(_day_means) / len(_day_means) if _day_means else 0.0
+    _ok = (len(_x) >= DIP_SHADOW_REVIEW_N and _m > 0
+           and len(_by_day) >= DIP_PROMOTE_MIN_DATES and _dm > 0)
+    return _ok, len(_x), _m
 
 
 def _dip_auto_enter() -> list[str]:
@@ -24695,7 +24746,8 @@ def _dip_candidates_notify(cands: list, n: int, mean: float, wr: float) -> None:
                       f"open, limit close +{DIP_SHADOW_LIMIT_BUFFER:.1%}. /flags to stop.")
     else:
         # "awaiting" is a quiet-mode keep word, and true: this waits on you.
-        _lines.append(f"Not yet promoted (limit arm {_ln}/{DIP_SHADOW_REVIEW_N} fills). "
+        _lines.append(f"Not yet promoted (limit arm {_ln}/{DIP_SHADOW_REVIEW_N} fills, "
+                      f"needs {DIP_PROMOTE_MIN_DATES}+ signal days). "
                       "Awaiting your /enter — nothing is placed without it.")
     send_telegram(chr(10).join(_lines))
     _mark_alerted(_key)

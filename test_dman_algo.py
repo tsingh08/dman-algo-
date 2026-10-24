@@ -19128,8 +19128,10 @@ class TestBreakoutZoneTrading(unittest.TestCase):
                 "base_days": 5, "above_low_pct": 150.0, "extension_pct": 12.0,
                 "fresh_base": False, "weak_band": False}
 
-    def _run(self, zones=(), open_pos=(), held=0, record=(0, 0.0), cash_ok=True, market=True):
+    def _run(self, zones=(), open_pos=(), held=0, record=(0, 0.0), cash_ok=True, market=True,
+             broker=frozenset()):
         with patch.object(a, "is_market_open", return_value=market), \
+             patch.object(a, "_broker_committed_symbols", return_value=set(broker)), \
              patch.object(a, "_recent_logged_zones", return_value=list(zones)), \
              patch.object(a, "_bzone_open_positions", return_value=list(open_pos)), \
              patch.object(a, "_sessions_since", return_value=held), \
@@ -19156,6 +19158,33 @@ class TestBreakoutZoneTrading(unittest.TestCase):
     def test_an_unknown_hold_length_never_forces_an_exit(self):
         _, close, _, _ = self._run(open_pos=[self._pos()], held=-1)
         close.assert_not_called()
+
+    def test_a_name_the_broker_holds_is_not_bought_again(self):
+        """ARHS 2026-10-23: a sync conflict rolled the tracker back past the
+        fill and the next pass submitted a second buy. The broker is the
+        witness the tracker cannot overwrite."""
+        _, _, entry, _ = self._run(zones=[self._zone("AAA")], broker={"AAA"})
+        entry.assert_not_called()
+
+    def test_unreadable_broker_holdings_block_entries(self):
+        out, close, entry, _ = self._run(zones=[self._zone()], open_pos=[self._pos()],
+                                         held=a.BZONE_HOLD_SESSIONS, broker={"*"})
+        entry.assert_not_called()
+        close.assert_called_once()          # exits still run
+        self.assertIn("unreadable", out["skipped"])
+
+    def test_broker_committed_symbols_includes_open_orders_and_fails_closed(self):
+        cl = MagicMock()
+        cl.get_all_positions.return_value = [MagicMock(symbol="arhs")]
+        cl.get_orders.return_value = [MagicMock(symbol="BTE")]
+        with patch.object(a, "get_alpaca_client", return_value=cl):
+            self.assertEqual(a._broker_committed_symbols(), {"ARHS", "BTE"})
+        cl.get_all_positions.side_effect = RuntimeError("boom")
+        with patch.object(a, "get_alpaca_client", return_value=cl), \
+             patch.object(a, "_log_swallowed"):
+            self.assertEqual(a._broker_committed_symbols(), {"*"})
+        with patch.object(a, "get_alpaca_client", return_value=None):
+            self.assertEqual(a._broker_committed_symbols(), {"*"})
 
     def test_a_zone_in_the_band_is_bought(self):
         out, _, entry, tg = self._run(zones=[self._zone(close=10.0)])
@@ -26832,12 +26861,12 @@ class TestEvidenceGatedAutonomy(unittest.TestCase):
     The dip rule enters by itself once its LIMIT arm has earned it; a setup
     trades options once its own live fills have earned it."""
 
-    def _shadow(self, n, pnl):
+    def _shadow(self, n, pnl, days=30):
         import tempfile, os, json as _json
         fd, path = tempfile.mkstemp(suffix=".json")
         os.close(fd)
-        rows = [{"date": "2026-10-01", "ticker": f"T{i}", "pnl_pct": pnl,
-                 "pnl_lim_pct": pnl} for i in range(n)]
+        rows = [{"date": "2026-10-%02d" % (1 + i % days), "ticker": f"T{i}",
+                 "pnl_pct": pnl, "pnl_lim_pct": pnl} for i in range(n)]
         rows.append({"date": "2026-10-01", "ticker": "NOFILL", "pnl_pct": 5.0,
                      "pnl_lim_pct": None})       # a no-fill is not a trade
         with io.open(path, "w", encoding="utf-8") as f:
@@ -26853,6 +26882,31 @@ class TestEvidenceGatedAutonomy(unittest.TestCase):
         with self._shadow(30, 0.2):
             ok, n, m = a._dip_rule_promoted()
             self.assertEqual((ok, n), (True, 30))
+
+    def test_thirty_fills_from_a_few_days_are_not_enough(self):
+        """10-24: 32 fills came from 4 days. Same-day fills are one event."""
+        with self._shadow(40, 1.0, days=4):
+            ok, n, _ = a._dip_rule_promoted()
+            self.assertEqual((ok, n), (False, 40))
+        with self._shadow(40, 1.0, days=a.DIP_PROMOTE_MIN_DATES):
+            self.assertTrue(a._dip_rule_promoted()[0])
+
+    def test_one_big_day_cannot_carry_many_losing_days(self):
+        """Per-fill mean positive, per-day mean negative: not promoted."""
+        import tempfile, os, io, json as _json
+        rows = [{"date": "2026-10-01", "ticker": f"W{i}", "pnl_lim_pct": 3.0}
+                for i in range(21)]
+        rows += [{"date": "2026-10-%02d" % (2 + i), "ticker": f"L{i}",
+                  "pnl_lim_pct": -1.0} for i in range(10)]
+        fd, path = tempfile.mkstemp(suffix=".json")
+        os.close(fd)
+        with io.open(path, "w", encoding="utf-8") as f:
+            f.write(_json.dumps(rows))
+        self.addCleanup(os.unlink, path)
+        with patch.object(a, "DIP_SHADOW_FILE", path):
+            ok, n, m = a._dip_rule_promoted()
+        self.assertGreater(m, 0)
+        self.assertEqual((ok, n), (False, 31))
 
     def _auto(self, promoted, hhmm=(9, 40), bar="2026-10-22", entered=None):
         import tempfile, os, json as _json, datetime as _dt

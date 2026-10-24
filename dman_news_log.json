@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-10-23T10:09:09.314541-04:00",
-    "symbols": [
-      "AIOK"
-    ],
-    "headline": "AI OKTO Declares $3.50 Per Share As One-Time Special Dividend",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T10:09:09.319478-04:00",
-    "symbols": [
-      "AIOK"
-    ],
-    "headline": "Trading Halt: Halted at 9:16:43 a.m. ET - Trading Halt: Halt News Pending",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T10:09:09.323889-04:00",
-    "symbols": [
-      "AIOK"
-    ],
-    "headline": "Robin Energy Agrees To Acquire 5K CBM LPG Carrier Vessel From AI OKTO For $18M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T10:09:09.603440-04:00",
-    "symbols": [
-      "BKYI"
-    ],
-    "headline": "Dow Tumbles Over 500 Points; American Express Shares Fall After Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T10:09:10.441210-04:00",
-    "symbols": [
-      "E"
-    ],
-    "headline": "Eni Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T10:09:10.446010-04:00",
-    "symbols": [
-      "E"
-    ],
-    "headline": "Eni Q3 Adj. EPS $2.18 Beats $1.92 Estimate, Sales $29.963B Beat $22.740B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T10:09:10.450663-04:00",
-    "symbols": [
-      "E"
-    ],
-    "headline": "American Express, Eni On Deck Friday As Spending, Energy Demand Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T10:19:54.862876-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Former Salesforce Global Head of Brand and Creative Scott Larson Joins OpenArt AI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T10:19:59.095088-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "RBC Capital Maintains Sector Perform on Lockheed Martin, Raises Price Target to $600",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T10:20:01.719885-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Energy Department Authorizes Strategic Petroleum Reserve Exchange To Support Fuel Supply Stability",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-23T10:31:13.931885-04:00",
     "symbols": [
       "GOOGL"
@@ -4996,6 +4896,106 @@
     ],
     "headline": "WSFS Financial Q3 2026 Earnings Call Transcript",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T20:02:08.298753-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Analyst Speculation Regarding Potential Tesla-SpaceX Merger",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T20:02:08.528058-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Chase & Co. Reduces Holding in Vistry Group PLC Below Reporting Threshold",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T20:02:08.834784-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Schedules Investor Day Meeting for October 28, 2026",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T20:02:09.069451-04:00",
+    "symbols": [
+      "TNMG"
+    ],
+    "headline": "TNL Mediagene Expands Content Commerce Capabilities Through Partnership with The Marvel of Everything (TMOE)",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T20:03:08.240251-04:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "Vertex Pharmaceuticals Announces Publication of Phase 3 RAINIER Results for Povetacicept",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-23T20:03:08.481323-04:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "UBS Identifies Freeport-McMoRan Among Top Copper Producers in Market Outlook",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T20:03:08.773752-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Higgsfield AI Extends Series B Financing with Investment from NVIDIA",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T20:03:08.991715-04:00",
+    "symbols": [
+      "LFS"
+    ],
+    "headline": "Leifras Director Appointed to Expert Committee for Japan Sports Agency Project",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-23T20:03:09.233398-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Markets Insider Executes Share Sale",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-23T20:03:09.463560-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Chevron Implements Permian Operational Strategy in Argentina's Vaca Muerta",
+    "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"
   }

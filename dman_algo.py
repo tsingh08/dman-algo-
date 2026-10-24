@@ -14454,6 +14454,11 @@ def run_breakout_zone_manage(notify: bool = True) -> dict:
             out["skipped"] = _cash_msg
             break
         _save_last_alert(f"__BZONE_ENTRY__:{_t}")
+        _shadow_review("bzone", _t, {
+            "bar": str(_row.get("date", "")), "setup": f"{BZONE_SETUP}, "
+            f"{BZONE_HOLD_SESSIONS}-session hold, ATR catastrophe floor",
+            **{k: _row.get(k) for k in ("close", "base_days", "above_low_pct",
+                                        "extension_pct", "fresh_base", "weak_band")}})
         _oid, _err = _submit_bzone_entry(_t, _qty, _px, _row)
         out["entered"].append(f"{_t} x{_qty}: {_err or _oid}")
         if not _err:
@@ -18352,6 +18357,9 @@ def optimize_stop(df: pd.DataFrame, raw_stop: float,
 #  SECTION 15 — FILTER 11: AI SETUP SCORER (Claude API)
 # ═══════════════════════════════════════════════════════════════════════════
 
+AI_SCORE_MODEL = "claude-sonnet-5-5"
+
+
 def ai_score_signal(signal: ProSignal, regime: dict) -> Optional[int]:
     """
     Send signal details to Claude and get a 1-10 confidence score.
@@ -18413,20 +18421,32 @@ Score 5-7 for borderline or mixed signals.
 Score 1-4 for weak setups, macro headwinds, or conflicting signals."""
 
     try:
-        resp = requests.post(
-            "https://api.anthropic.com/v1/messages",
-            headers={
-                "x-api-key":         ANTHROPIC_API_KEY,
-                "anthropic-version": "2023-06-01",
-                "content-type":      "application/json",
-            },
-            json={
-                "model":      "claude-sonnet-5",
-                "max_tokens": 20,
-                "messages":   [{"role": "user", "content": prompt}],
-            },
-            timeout=15,
-        )
+        # 2026-10-24: only 3 of 93 October signals got a score; the rest were
+        # "API error" with no status recorded. The model ID itself answers 200
+        # from the same key, so the failures are transient (429/529/5xx under
+        # a scan's burst of calls). One short retry on those, and the status
+        # is now logged so the next audit is a grep, not a guess.
+        for _try in range(2):
+            resp = requests.post(
+                "https://api.anthropic.com/v1/messages",
+                headers={
+                    "x-api-key":         ANTHROPIC_API_KEY,
+                    "anthropic-version": "2023-06-01",
+                    "content-type":      "application/json",
+                },
+                json={
+                    "model":      AI_SCORE_MODEL,
+                    "max_tokens": 20,
+                    "messages":   [{"role": "user", "content": prompt}],
+                },
+                timeout=15,
+            )
+            if resp.status_code == 200:
+                break
+            sys.stdout.write(f"[ai score HTTP {resp.status_code}] ")
+            if resp.status_code not in (429, 500, 502, 503, 529) or _try:
+                return None
+            time.sleep(2.0)
         content = resp.json()["content"]
         text = next((b["text"] for b in content if b.get("type") == "text"), "").strip()
         if not text:
@@ -23621,6 +23641,75 @@ def _shadow_review(kind: str, ticker: str, facts: dict) -> Optional[dict]:
         return None
 
 
+SHADOW_REVIEW_VETO_N = 20   # outcomes per verdict before the reviewer's edge means anything
+
+
+def _shadow_review_scorecard() -> dict:
+    """Join every review to the outcome of the thing it reviewed.
+
+    {"take": [pnl%...], "skip": [pnl%...]}. The reviewer earns a say the same
+    way the dip rule and options do: by evidence. A "take" pile that beats
+    the "skip" pile by a margin, each with SHADOW_REVIEW_VETO_N outcomes, is
+    the case for letting it veto; until then it is a log line.
+
+    dip   -> the dip shadow's own row for (bar, ticker), limit arm first
+    bzone -> the first closed Breakout Zone trade on that ticker on/after it
+    signal-> the live outcome whose entry_date is the review's date
+    """
+    out: dict = {"take": [], "skip": []}
+    try:
+        with open(SHADOW_REVIEW_FILE) as f:
+            reviews = json.load(f) or []
+    except (FileNotFoundError, json.JSONDecodeError):
+        return out
+    try:
+        with open(DIP_SHADOW_FILE) as f:
+            dip = {(r.get("date"), r.get("ticker")): r for r in (json.load(f) or [])}
+    except Exception:
+        dip = {}
+    try:
+        with open(WIN_RATE_FILE) as f:
+            wr = sorted((t for t in (json.load(f) or []) if isinstance(t, dict)
+                         and str(t.get("setup", "")).startswith(BZONE_SETUP)),
+                        key=lambda t: str(t.get("date", "")))
+    except Exception:
+        wr = []
+    try:
+        with open(LIVE_OUTCOMES_FILE, newline="") as f:
+            live = {(r["ticker"], r["entry_date"]): float(r["pnl_pct"])
+                    for r in csv.DictReader(f) if r.get("pnl_pct") not in (None, "")}
+    except Exception:
+        live = {}
+    for rv in reviews:
+        v, k, t = rv.get("verdict"), rv.get("kind"), rv.get("ticker")
+        if v not in out:
+            continue
+        d = str(rv.get("ts", ""))[:10]
+        bar = str((rv.get("facts") or {}).get("bar", ""))[:10]
+        pnl = None
+        if k == "dip":
+            r = dip.get((bar, t)) or {}
+            pnl = r.get("pnl_lim_pct", r.get("pnl_pct")) if r.get("entry_lim") else r.get("pnl_pct")
+        elif k == "bzone":
+            hit = [x for x in wr if x.get("ticker") == t and str(x.get("date", ""))[:10] >= (bar or d)]
+            pnl = hit[0].get("pnl_pct") if hit else None
+        elif k == "signal":
+            pnl = live.get((t, d))
+        if pnl is not None:
+            out[v].append(float(pnl))
+    return out
+
+
+def _shadow_review_scorecard_line() -> str:
+    sc = _shadow_review_scorecard()
+    def _s(xs):
+        return (f"n={len(xs)} mean {sum(xs) / len(xs):+.2f}%" if xs else "n=0")
+    edge = ""
+    if sc["take"] and sc["skip"]:
+        edge = (f", edge {sum(sc['take']) / len(sc['take']) - sum(sc['skip']) / len(sc['skip']):+.2f} pts")
+    return f"AI reviewer: take {_s(sc['take'])} · skip {_s(sc['skip'])}{edge} (veto earns at {SHADOW_REVIEW_VETO_N} each)"
+
+
 def detect_accumulation(df) -> Optional[dict]:
     """Volume building while price goes nowhere — see the ACCUM_* constants.
 
@@ -24739,7 +24828,16 @@ def _dip_candidates_notify(cands: list, n: int, mean: float, wr: float) -> None:
     for c in _ok:
         _lines.append(f"<b>{c['ticker']}</b> ${c['close']:,.2f} · RSI2 {c['rsi2']:.1f} · "
                       f"+{c['over_ma']:.1f}% over MA200 → <code>/enter {c['ticker']}</code>")
+        _shadow_review("dip", c["ticker"], {
+            "bar": _bar, "setup": "Dip in uptrend (close > MA200, RSI2 < 10), "
+            f"{DIP_BASKET_HOLD_SESSIONS}-session hold, 8% stop",
+            "close": round(c["close"], 2), "rsi2": round(c["rsi2"], 1),
+            "pct_over_ma200": round(c["over_ma"], 1)})
     _lines += ["", f"In-sample +0.45%/trade, 52.5% win; {_rec}."]
+    try:
+        _lines.append(_shadow_review_scorecard_line())
+    except Exception as _exc:
+        _log_swallowed("review scorecard", _exc)
     if _auto:
         # "auto-exec" is a quiet-mode keep word.
         _lines.append(f"Promoted (limit arm n={_ln}, mean {_lm:+.2f}%): auto-exec at the "
@@ -25550,6 +25648,12 @@ def _finalize_and_alert_signals(signals: list["ProSignal"], regime: dict,
         else:
             _alert_batch.append(format_signal_telegram(sig, regime))
         _save_last_alert(sig.ticker)
+        # Retired setups are not reviewed: 39 of 39 reviews through 10-23
+        # were of that population and said "skip" -- correct, and worthless.
+        # The reviewer now spends its calls on what actually trades (dip,
+        # zone); see _shadow_review_scorecard().
+        if _setup_retired(sig.setup):
+            continue
         _shadow_review("signal", sig.ticker, {
             "setup": sig.setup, "bias": sig.bias, "confluence_score": sig.confluence_score,
             "entry": sig.entry, "stop": sig.stop, "target1": sig.target1,

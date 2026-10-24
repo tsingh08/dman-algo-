@@ -2122,7 +2122,7 @@ class TestAiScoreSignalFailureIsNotAZero(unittest.TestCase):
         self.assertIsNone(result)
 
     def test_valid_text_response_is_parsed(self):
-        mock_resp = MagicMock()
+        mock_resp = MagicMock(status_code=200)
         mock_resp.json.return_value = {"content": [{"type": "text", "text": "8"}]}
         with patch.object(a, "ANTHROPIC_API_KEY", "test-key"), \
              patch.object(a, "requests") as mock_requests:
@@ -2133,7 +2133,7 @@ class TestAiScoreSignalFailureIsNotAZero(unittest.TestCase):
     def test_non_text_block_before_the_real_text_block_is_skipped_not_fatal(self):
         # Reproduces the exact shape a thinking-enabled response could take:
         # a non-text block first, the real answer in a later block.
-        mock_resp = MagicMock()
+        mock_resp = MagicMock(status_code=200)
         mock_resp.json.return_value = {"content": [
             {"type": "thinking", "thinking": "considering the setup..."},
             {"type": "text", "text": "7"},
@@ -2145,7 +2145,7 @@ class TestAiScoreSignalFailureIsNotAZero(unittest.TestCase):
         self.assertEqual(result, 7)
 
     def test_no_text_block_at_all_returns_none_not_zero(self):
-        mock_resp = MagicMock()
+        mock_resp = MagicMock(status_code=200)
         mock_resp.json.return_value = {"content": [{"type": "thinking", "thinking": "..."}]}
         with patch.object(a, "ANTHROPIC_API_KEY", "test-key"), \
              patch.object(a, "requests") as mock_requests:
@@ -2155,13 +2155,33 @@ class TestAiScoreSignalFailureIsNotAZero(unittest.TestCase):
 
     def test_unparseable_text_defaults_to_five(self):
         # Pre-existing behavior, must survive the None-vs-0 change unchanged.
-        mock_resp = MagicMock()
+        mock_resp = MagicMock(status_code=200)
         mock_resp.json.return_value = {"content": [{"type": "text", "text": "not a number"}]}
         with patch.object(a, "ANTHROPIC_API_KEY", "test-key"), \
              patch.object(a, "requests") as mock_requests:
             mock_requests.post.return_value = mock_resp
             result = a.ai_score_signal(self._signal(), _fake_regime())
         self.assertEqual(result, 5)
+
+    def test_a_rate_limit_is_retried_once_then_scored(self):
+        """3 of 93 October signals got a score; the rest were transient."""
+        busy = MagicMock(status_code=529)
+        ok = MagicMock(status_code=200)
+        ok.json.return_value = {"content": [{"type": "text", "text": "6"}]}
+        with patch.object(a, "ANTHROPIC_API_KEY", "test-key"), \
+             patch.object(a, "requests") as mock_requests, \
+             patch.object(a.time, "sleep"):
+            mock_requests.post.side_effect = [busy, ok]
+            self.assertEqual(a.ai_score_signal(self._signal(), _fake_regime()), 6)
+            mock_requests.post.side_effect = [busy, busy]
+            self.assertIsNone(a.ai_score_signal(self._signal(), _fake_regime()))
+
+    def test_a_bad_request_is_not_retried(self):
+        with patch.object(a, "ANTHROPIC_API_KEY", "test-key"), \
+             patch.object(a, "requests") as mock_requests:
+            mock_requests.post.return_value = MagicMock(status_code=400)
+            self.assertIsNone(a.ai_score_signal(self._signal(), _fake_regime()))
+            self.assertEqual(mock_requests.post.call_count, 1)
 
 
 class TestNewsKeywordFreshnessCheck(unittest.TestCase):
@@ -29233,3 +29253,148 @@ class TestOneTradeOneRowEvenInTheSameRun(unittest.TestCase):
         # already logged — or the sync would resurrect it forever.
         with open(self._sig_tmp.name) as f:
             self.assertEqual(json.load(f)["pending"], [])
+
+
+class TestSyncConflictKeepsBothSides(unittest.TestCase):
+    """2026-10-23: 33 stash-pop conflicts in one day, each resolved by taking
+    origin's copy and discarding this daemon's own writes -- positions among
+    them, which is how ARHS went untracked and nearly got bought twice."""
+
+    def setUp(self):
+        import tempfile, subprocess
+        import dman_daemon
+        self.d = dman_daemon
+        self._cwd = os.getcwd()
+        self._tmp = tempfile.mkdtemp()
+        os.chdir(self._tmp)
+        self.addCleanup(os.chdir, self._cwd)
+        self.head = {}
+
+        def fake_git(*args):
+            if args[0] == "show":
+                p = args[1].split(":", 1)[1]
+                return subprocess.CompletedProcess(args, 0 if p in self.head else 1,
+                                                   self.head.get(p, ""), "")
+            return subprocess.CompletedProcess(args, 0, "", "")
+        p = patch.object(self.d, "_git", side_effect=fake_git)
+        p.start(); self.addCleanup(p.stop)
+        q = patch.object(self.d, "log"); q.start(); self.addCleanup(q.stop)
+
+    def _write(self, name, txt):
+        with open(name, "w", encoding="utf-8") as f:
+            f.write(txt)
+
+    def _read(self, name):
+        with open(name, encoding="utf-8") as f:
+            return f.read()
+
+    def test_a_semantically_merged_file_gets_the_local_copy_back(self):
+        local = json.dumps([{"ticker": "ARHS", "shares": 21}])
+        self._write(a.POSITIONS_FILE, local)
+        snap = self.d._snapshot_state([a.POSITIONS_FILE])
+        self._write(a.POSITIONS_FILE, "<<<<<<< x\n[]\n=======\n[1]\n>>>>>>> y\n")
+        self.assertEqual(self.d._resolve_conflicts_from_snapshot(snap), [a.POSITIONS_FILE])
+        self.assertEqual(json.loads(self._read(a.POSITIONS_FILE))[0]["ticker"], "ARHS")
+
+    def test_dedup_stores_keep_every_key_and_the_latest_time(self):
+        name = "dman_alerts_dedup.json"
+        self.head[name] = json.dumps({"A": "2026-10-23T10:00", "B": "2026-10-23T09:00"})
+        self._write(name, json.dumps({"B": "2026-10-23T11:00", "C": "2026-10-23T12:00"}))
+        snap = self.d._snapshot_state([name])
+        self._write(name, "<<<<<<< x\n{}\n>>>>>>> y\n")
+        self.d._resolve_conflicts_from_snapshot(snap)
+        self.assertEqual(json.loads(self._read(name)),
+                         {"A": "2026-10-23T10:00", "B": "2026-10-23T11:00",
+                          "C": "2026-10-23T12:00"})
+
+    def test_csv_rows_from_both_sides_survive_once(self):
+        name = "dman_live_outcomes.csv"
+        self.head[name] = "h\nr1\nr2\n"
+        self._write(name, "h\nr1\nr3\n")
+        snap = self.d._snapshot_state([name])
+        self._write(name, "h\n<<<<<<< x\nr2\n=======\nr3\n>>>>>>> y\n")
+        self.d._resolve_conflicts_from_snapshot(snap)
+        self.assertEqual(self._read(name).splitlines(), ["h", "r1", "r2", "r3"])
+
+    def test_an_unknown_file_is_left_for_the_origin_restore(self):
+        name = "dman_stock_feed_state.json"
+        self._write(name, '{"feed": "sip"}')
+        snap = self.d._snapshot_state([name])
+        self._write(name, "<<<<<<< x\n")
+        self.assertEqual(self.d._resolve_conflicts_from_snapshot(snap), [])
+
+    def test_a_clean_file_is_not_touched(self):
+        self._write(a.SCAN_LOG_FILE, "[1]")
+        snap = self.d._snapshot_state([a.SCAN_LOG_FILE])
+        self._write(a.SCAN_LOG_FILE, "[1, 2]")
+        self.assertEqual(self.d._resolve_conflicts_from_snapshot(snap), [])
+        self.assertEqual(self._read(a.SCAN_LOG_FILE), "[1, 2]")
+
+
+class TestShadowReviewScorecard(unittest.TestCase):
+    """2026-10-24: 39/39 reviews said skip, all of retired setups. The reviewer
+    now reviews dip and zone entries, and is scored against what happened."""
+
+    def _files(self, reviews, dip=(), wr=(), live_csv="ticker,entry_date,pnl_pct\n"):
+        import tempfile
+        paths = {}
+        for name, body in (("rv", json.dumps(reviews)), ("dip", json.dumps(list(dip))),
+                           ("wr", json.dumps(list(wr))), ("live", live_csv)):
+            fd, p = tempfile.mkstemp()
+            with os.fdopen(fd, "w", encoding="utf-8") as f:
+                f.write(body)
+            self.addCleanup(os.unlink, p)
+            paths[name] = p
+        return [patch.object(a, "SHADOW_REVIEW_FILE", paths["rv"]),
+                patch.object(a, "DIP_SHADOW_FILE", paths["dip"]),
+                patch.object(a, "WIN_RATE_FILE", paths["wr"]),
+                patch.object(a, "LIVE_OUTCOMES_FILE", paths["live"])]
+
+    def _score(self, *a_, **k):
+        ps = self._files(*a_, **k)
+        for p in ps:
+            p.start()
+        try:
+            return a._shadow_review_scorecard(), a._shadow_review_scorecard_line()
+        finally:
+            for p in ps:
+                p.stop()
+
+    def test_each_kind_joins_to_its_own_outcome(self):
+        reviews = [
+            {"ts": "2026-10-23T16:30", "kind": "dip", "ticker": "NVDA", "verdict": "take",
+             "facts": {"bar": "2026-10-23"}},
+            {"ts": "2026-10-23T09:45", "kind": "bzone", "ticker": "ARHS", "verdict": "skip",
+             "facts": {"bar": "2026-10-22"}},
+            {"ts": "2026-10-20T10:00", "kind": "signal", "ticker": "CLF", "verdict": "skip",
+             "facts": {}},
+            {"ts": "2026-10-24T10:00", "kind": "dip", "ticker": "OPEN", "verdict": "take",
+             "facts": {"bar": "2026-10-24"}},                  # unresolved: ignored
+        ]
+        dip = [{"date": "2026-10-23", "ticker": "NVDA", "pnl_pct": 1.0,
+                "entry_lim": 210.0, "pnl_lim_pct": 2.0},
+               {"date": "2026-10-24", "ticker": "OPEN", "pnl_pct": None}]
+        wr = [{"ticker": "ARHS", "setup": "Breakout Zone +100% off low",
+               "date": "2026-10-23", "pnl_pct": -4.0}]
+        sc, line = self._score(reviews, dip, wr,
+                               "ticker,entry_date,pnl_pct\nCLF,2026-10-20,-8.61\n")
+        self.assertEqual(sc["take"], [2.0])                    # the limit arm
+        self.assertEqual(sorted(sc["skip"]), [-8.61, -4.0])
+        self.assertIn("edge", line)
+
+    def test_missing_files_give_an_empty_card(self):
+        with patch.object(a, "SHADOW_REVIEW_FILE", "/nonexistent/x.json"):
+            self.assertEqual(a._shadow_review_scorecard(), {"take": [], "skip": []})
+
+    def test_retired_signals_are_no_longer_reviewed(self):
+        src = inspect.getsource(a._finalize_and_alert_signals)
+        i = src.index('_shadow_review("signal"')
+        self.assertIn("_setup_retired(sig.setup)", src[max(0, i - 600):i])
+
+    def test_dip_and_zone_entries_are_reviewed_but_never_gated(self):
+        for fn in (a._dip_candidates_notify, a.run_breakout_zone_manage):
+            lines = [l for l in inspect.getsource(fn).splitlines() if "_shadow_review(" in l]
+            self.assertTrue(lines, fn.__name__)
+            for line in lines:
+                self.assertFalse(line.strip().startswith(("if ", "elif ", "return ", "assert ")))
+                self.assertNotIn("=", line.split("_shadow_review(")[0])

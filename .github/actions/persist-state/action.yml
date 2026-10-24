@@ -112,13 +112,27 @@ runs:
         # Confirmed live: dman_watchdog.yml used to give up on the first
         # rejection instead of retrying like dman_scanner.yml and
         # dman_stocktwits.yml both already did.
-        if ! git push origin HEAD:main; then
-          echo "First push rejected — refetching and retrying"
+        #
+        # The retry used to run `git rebase origin/main || git rebase --abort`:
+        # any conflict on the retry aborted, the push then failed, and the
+        # whole run's state -- a new position included -- was never published.
+        # It now resolves conflicts exactly like the first rebase, up to 3x.
+        pushed=0
+        for attempt in 1 2 3; do
+          if git push origin HEAD:main; then pushed=1; break; fi
+          echo "Push rejected (attempt $attempt/3) — refetching and retrying"
           git fetch origin main
           if ! git diff --quiet || ! git diff --staged --quiet; then
             git add -A
             git commit -m "chore: absorb stray state change [skip ci]" || true
           fi
-          git rebase origin/main || git rebase --abort
-          git push origin HEAD:main || echo "ERROR: data push failed after retry — check branch protection rules"
-        fi
+          if ! git rebase origin/main; then
+            echo "Retry rebase conflict — keeping our new data (theirs, during rebase)"
+            for f in $STATE_FILES; do
+              [ -f "$f" ] && git checkout --theirs -- "$f" 2>/dev/null
+            done
+            git add -u
+            git rebase --continue || git rebase --abort
+          fi
+        done
+        [ "$pushed" = 1 ] || echo "ERROR: data push failed after 3 attempts — check branch protection rules"

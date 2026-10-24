@@ -32,7 +32,13 @@ on:
     # hour, not the trigger minute, so this doesn't change anything else.
     - cron: '23 13 * * 1-5'   # ~9:23 AM ET — morning session
     - cron: '53 16 * * 1-5'   # ~12:53 PM ET — afternoon session (takes over)
-    - cron: '53 20 * * 1-5'   # ~4:53 PM ET — evening session (takes over, post-market coverage)
+    # 21:05 UTC, not 20:53: in EST (from 2026-11-01) 20:53 lands 3:53 PM,
+    # cancelling the afternoon session seven minutes before the close and
+    # handing over the busiest minutes to a cold-starting runner. 21:05 is
+    # 4:05 PM EST / 5:05 PM EDT -- after the close either way. The afternoon
+    # session runs to 17:00 ET and self-dispatches the evening one, so EDT
+    # has no gap; this cron is the backstop for that dispatch.
+    - cron: '5 21 * * 1-5'    # ~4:05 PM EST / 5:05 PM EDT — evening session (post-market coverage)
   workflow_dispatch:
 
 # Afternoon session cancels the (nearly finished) morning session so exactly

@@ -567,6 +567,91 @@ def _restore_corrupted_state_files(paths: list[str]) -> list[str]:
     return ok
 
 
+# Conflicted files that are rebuilt from THIS checkout's pre-pull copy instead
+# of origin's, because algo.sync_all_state_with_remote() runs right after and
+# re-adds origin's side field by field. Restoring origin's copy (the old
+# behaviour for every file) threw away this process's own writes -- 33 times
+# on Friday 2026-10-23, positions/scan log/news log/alpaca sync among them.
+_SEMANTIC_MERGE_FILES = {
+    algo.POSITIONS_FILE, algo.SCAN_LOG_FILE, algo.WIN_RATE_FILE,
+    algo.LIVE_SIGNALS_FILE, algo.ALPACA_SYNC_FILE, algo.NEWS_LOG_FILE,
+    algo.DAILY_PNL_FILE, algo.MONTHLY_PNL_FILE, algo.EARNINGS_SPREAD_PENDING_FILE,
+}
+# {key: ISO timestamp} dedup stores. A lost key re-sends an alert (or, for
+# __BZONE_ENTRY__, re-arms an entry), so both sides are kept, latest time wins.
+_TIMESTAMP_DICT_FILES = {"dman_last_alerts.json", "dman_alerts_dedup.json"}
+
+
+def _snapshot_state(paths: list[str]) -> dict[str, str]:
+    """Pre-pull text of every state file that parses -- the local side of a merge."""
+    snap: dict[str, str] = {}
+    for p in paths:
+        try:
+            with open(p, encoding="utf-8") as f:
+                txt = f.read()
+            if p.endswith(".json"):
+                json.loads(txt)
+            snap[p] = txt
+        except Exception:
+            continue
+    return snap
+
+
+def _is_conflicted(p: str) -> bool:
+    try:
+        with open(p, encoding="utf-8", errors="replace") as f:
+            txt = f.read()
+    except FileNotFoundError:
+        return False
+    if "<<<<<<<" in txt and ">>>>>>>" in txt:
+        return True
+    if p.endswith(".json"):
+        try:
+            json.loads(txt)
+        except Exception:
+            return True
+    return False
+
+
+def _resolve_conflicts_from_snapshot(snap: dict[str, str]) -> list[str]:
+    """Rebuild conflicted state files without discarding either side.
+
+    Returns the paths it resolved. Anything it does not know how to merge is
+    left for _restore_corrupted_state_files(), i.e. origin's copy, as before.
+    """
+    done: list[str] = []
+    for p, local_txt in snap.items():
+        if not _is_conflicted(p):
+            continue
+        try:
+            if p in _SEMANTIC_MERGE_FILES:
+                out = local_txt
+            elif p in _TIMESTAMP_DICT_FILES:
+                head = _git("show", f"HEAD:{p}")
+                merged = json.loads(head.stdout) if head.returncode == 0 and head.stdout.strip() else {}
+                for k, v in json.loads(local_txt).items():
+                    if k not in merged or str(v) > str(merged[k]):
+                        merged[k] = v
+                out = json.dumps(merged)
+            elif p.endswith(".csv"):
+                head = _git("show", f"HEAD:{p}")
+                lines = (head.stdout.splitlines() if head.returncode == 0 else [])
+                seen = set(lines)
+                lines += [ln for ln in local_txt.splitlines() if ln not in seen]
+                out = "\n".join(lines) + "\n"
+            else:
+                continue
+            with open(p, "w", encoding="utf-8") as f:
+                f.write(out)
+            _git("reset", "-q", "--", p)      # clear the unmerged index entry
+            done.append(p)
+        except Exception as exc:
+            log(f"  conflict merge for {p} failed ({exc}) — falling back to origin's copy")
+    if done:
+        log(f"  merged conflicted file(s) keeping both sides: {', '.join(done)}")
+    return done
+
+
 def _discard_non_state_drift() -> list[str]:
     """Restore any tracked file outside STATE_FILES that this checkout modified.
 
@@ -624,6 +709,7 @@ def git_sync() -> None:
     try:
         _discard_non_state_drift()
         _present = _existing(STATE_FILES)
+        _snap = _snapshot_state(_present)
         if _present:
             _git("stash", "push", "--include-untracked", "--", *_present)
         pull = _git("pull", "--rebase", "origin", "main")
@@ -644,7 +730,8 @@ def git_sync() -> None:
                 # good commit, then the stash entry is fully spent (some
                 # files applied cleanly by pop itself, the rest reset by us)
                 # — drop it so conflicted stashes don't pile up run over run.
-                log("stash pop conflict — restoring corrupted file(s) from last commit")
+                log("stash pop conflict — merging conflicted file(s)")
+                _resolve_conflicts_from_snapshot(_snap)
                 _restore_corrupted_state_files(_existing(STATE_FILES))
                 _git("stash", "drop")
 

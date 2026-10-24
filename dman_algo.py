@@ -2310,14 +2310,34 @@ def _fetch_alpaca_daily(ticker: str, period_days: int) -> Optional[pd.DataFrame]
             start=(datetime.today() - timedelta(days=period_days + 5)).replace(tzinfo=_tz.utc),
             feed=DataFeed(_resolve_stock_feed()),
         )
-        _resp = dc.get_stock_bars(_alp_req)
+        # One retry, and the reason is printed. 2026-10-23: RHI/KSS/BKYI/UVXY
+        # fell through to yfinance, which served bars ending 10-19, and were
+        # skipped as stale all day -- while Alpaca held every bar through
+        # 10-23. The bare except swallowed why, so the audit had to replay
+        # the request by hand to learn the data was never missing.
+        for _try in range(2):
+            try:
+                _resp = dc.get_stock_bars(_alp_req)
+                break
+            except Exception as _exc:
+                if _try:
+                    raise
+                print(f"  [alpaca bars] {ticker}: {type(_exc).__name__}: "
+                      f"{str(_exc)[:120]} — retrying once", file=sys.stderr)
+                time.sleep(1.0)
         # BarSet doesn't support `in` the way a dict does — `ticker in _resp` is
         # always False even when _resp.data[ticker] has real bars (confirmed
         # live 2026-07-29), so this always silently returned [] before. .data
         # is a real dict; use it directly.
         _bars = _resp.data.get(ticker, [])
-        return _bars_to_df(_bars)
-    except Exception:
+        _df = _bars_to_df(_bars)
+        if _df is None:
+            print(f"  [alpaca bars] {ticker}: {len(_bars)} bar(s), unusable "
+                  f"(too few or stale) — falling back", file=sys.stderr)
+        return _df
+    except Exception as exc:
+        print(f"  [alpaca bars] {ticker}: {type(exc).__name__}: {str(exc)[:120]} "
+              f"— falling back to yfinance", file=sys.stderr)
         return None
 
 
@@ -12908,6 +12928,13 @@ def run_momentum_watch() -> None:
         _pt_age = PositionTracker()
         for _pos in _pt_age.positions:
             try:
+                # Zones (20-session hold) and the dip basket (5 sessions) own
+                # a TESTED time exit. "Consider closing" on BTE at day 3
+                # (2026-10-23) told a phone-only operator to cut a hold the
+                # backtest says to keep -- the alert can only subtract edge.
+                if (_is_bzone_position(_pos)
+                        or _dip_basket_manages(_pos.ticker, getattr(_pos, "setup", ""))):
+                    continue
                 _days_in = (_et_today() - date.fromisoformat(_pos.entry_date)).days
                 if _days_in >= _SWING_AGE_LIMIT:
                     _age_key = f"{_pos.ticker}_SWING_AGE_{_et_today().isoformat()}"
@@ -25627,6 +25654,18 @@ def _finalize_and_alert_signals(signals: list["ProSignal"], regime: dict,
         if _is_duplicate_alert(sig.ticker):
             sys.stdout.write(f"       (dup suppressed — {sig.ticker} alerted <{ALERT_COOLDOWN_MIN}m ago)\n")
             continue
+        # Kill-switched setups get the same "not a trade" treatment as retired
+        # ones, once per name per day. 2026-10-23: BKYI went out 7 times and RHI
+        # 4 as "🟢 LONG ... Gap & Hold" with entry and stop -- a setup the kill
+        # switch had turned off at 9W/36L -- because RETIRED_SETUPS only lists
+        # the hand-retired names and the 30-min cooldown re-armed every scan.
+        _off = _setup_retired(sig.setup) or _setup_is_disabled(sig.setup)[0]
+        if _off:
+            _day_key = f"__OFF_SETUP_ALERT__:{sig.ticker}:{_et_today().isoformat()}"
+            if _is_alerted_today(_day_key):
+                sys.stdout.write(f"       (disabled-setup alert for {sig.ticker} already sent today)\n")
+                continue
+            _mark_alerted(_day_key)
         # A retired setup may not take money, and it must not send a message
         # that READS like a trade either. MSGY on 2026-09-29 went out twice as
         # "🟢 LONG MSGY — Low Float Catalyst  Entry: $4.3487  Stop: $3.479",
@@ -25640,7 +25679,7 @@ def _finalize_and_alert_signals(signals: list["ProSignal"], regime: dict,
         # Kept rather than dropped, because the signal is still worth seeing, but
         # relabelled so it cannot be mistaken for an instruction: no entry, no
         # stop, no green arrow.
-        if _setup_retired(sig.setup):
+        if _off:
             _alert_batch.append(_retired_signal_alert(sig))
         elif sig.ticker in smallcap_extra:
             fl_m, sh_pct, insider_pct, post_rs = smallcap_extra[sig.ticker]
@@ -25652,7 +25691,7 @@ def _finalize_and_alert_signals(signals: list["ProSignal"], regime: dict,
         # were of that population and said "skip" -- correct, and worthless.
         # The reviewer now spends its calls on what actually trades (dip,
         # zone); see _shadow_review_scorecard().
-        if _setup_retired(sig.setup):
+        if _off:
             continue
         _shadow_review("signal", sig.ticker, {
             "setup": sig.setup, "bias": sig.bias, "confluence_score": sig.confluence_score,
@@ -25687,6 +25726,31 @@ MARKET_SCAN_MAX_GAP_PCT    = 100.0  # beyond this it is a corporate action
 MARKET_SCAN_MAX_CANDIDATES = 60
 
 
+_LISTED_EXCHANGES = {"NYSE", "NASDAQ", "ARCA", "AMEX", "BATS", "NYSEARCA"}
+_WARRANT_NAME = re.compile(r"\bwarrants?\b", re.I)
+_UNIT_RIGHT_NAME = re.compile(r"\b(units?|rights?)\b", re.I)
+
+
+def _is_listed_common(asset: dict) -> bool:
+    """Exchange-listed and not a warrant / SPAC unit / SPAC right.
+
+    "Units" and "right" alone are NOT enough: MLPs trade as "Common Units"
+    (BIP, ARLP, USAC), ADRs say "right to receive" (AMX), UNG is a "Unit".
+    So units/rights are dropped only on the SPAC symbol shape -- five letters
+    ending U or R. Warrants are dropped by name whatever the symbol.
+    """
+    if str(asset.get("exchange", "")).upper() not in _LISTED_EXCHANGES:
+        return False
+    _n = str(asset.get("name", "") or "")
+    if _WARRANT_NAME.search(_n):
+        return False
+    _s = str(asset.get("symbol", "") or "")
+    if (len(_s) == 5 and _s[-1] in "UR" and _UNIT_RIGHT_NAME.search(_n)
+            and "right to receive" not in _n.lower()):
+        return False
+    return True
+
+
 def _all_tradable_us_equities() -> list[str]:
     """Every tradable US equity Alpaca will let this account trade, cached
     for the calendar day (the list changes on listings/delistings, not
@@ -25702,9 +25766,14 @@ def _all_tradable_us_equities() -> list[str]:
             params={"status": "active", "asset_class": "us_equity"}, timeout=60)
         if r.status_code != 200:
             return _asset_universe_cache["symbols"] or []
+        # Listed common stock only. On 2026-10-23, 171 "Failed download"
+        # lines were warrants (NHIVW, MACIW, ...) and an OTC ADR (NHYDY) --
+        # none tradable by any setup here, all spending Yahoo quota, and
+        # Yahoo rate-limited the scan (YFRateLimitError) the same day.
         syms = [x["symbol"] for x in r.json()
                 if x.get("tradable") and "." not in x.get("symbol", "")
-                and 1 <= len(x.get("symbol", "")) <= 5]
+                and 1 <= len(x.get("symbol", "")) <= 5
+                and _is_listed_common(x)]
         _asset_universe_cache["symbols"] = syms
         _asset_universe_cache["day"]     = _today
         return syms

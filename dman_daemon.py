@@ -927,8 +927,14 @@ def guard_loop() -> None:
             if market_hours():
                 if not was_open:
                     log("Market open — guard active")
-                    algo.send_telegram("🛡 <b>Daemon active</b> — real-time options "
-                                       "guard + fill stream running for today's session.")
+                    # Once per day, not per session: three handovers a day
+                    # each sent this (2026-10-23). The watchdog reports a
+                    # daemon that is DOWN; a repeat "up" is noise.
+                    _k = f"__DAEMON_ACTIVE__:{algo._et_today().isoformat()}"
+                    if not algo._is_alerted_today(_k):
+                        algo.send_telegram("🛡 <b>Daemon active</b> — real-time options "
+                                           "guard + fill stream running for today's session.")
+                        algo._mark_alerted(_k)
                     was_open = True
                 # Loaded once and passed to both guards -- found in the
                 # 2026-08-16 review: run_options_guard() and
@@ -2202,10 +2208,18 @@ def main() -> None:
             algo._get_day_start_equity(_eq_now)
     except Exception as _eq_exc:
         log(f"day-start equity snapshot failed (non-fatal): {_eq_exc}")
-    algo.send_telegram("🤖 <b>DMan daemon ONLINE</b>"
-                       + (f" [cloud session → {run_until[:2]}:{run_until[2:]} ET]" if cloud else "")
-                       + " — real-time entries, exits, fill stream, and phone "
-                         "commands active. Send /help for commands.")
+    # First session of the day announces; handovers stay quiet (5 ONLINE
+    # messages on 2026-10-23). A session that never comes up is the
+    # watchdog's job to report, not this message's absence.
+    _online_key = f"__DAEMON_ONLINE__:{algo._et_today().isoformat()}"
+    if not algo._is_alerted_today(_online_key):
+        algo.send_telegram("🤖 <b>DMan daemon ONLINE</b>"
+                           + (f" [cloud session → {run_until[:2]}:{run_until[2:]} ET]" if cloud else "")
+                           + " — real-time entries, exits, fill stream, and phone "
+                             "commands active. Send /help for commands.")
+        algo._mark_alerted(_online_key)
+    else:
+        log(f"session online (→ {run_until}) — ONLINE already announced today")
 
     threads = [
         threading.Thread(target=telegram_loop, daemon=True, name="telegram"),

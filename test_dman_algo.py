@@ -1245,6 +1245,12 @@ class TestFinalizeAndAlertSignalsLogsDedupSuppressed(unittest.TestCase):
     against. Only the alert should be suppressed by dedup, not outcome
     tracking."""
 
+    def setUp(self):
+        # These tests are about dedup/format, not the kill switch; the real
+        # win-rate file has Gap & Hold disabled.
+        p = patch.object(a, "_setup_is_disabled", return_value=(False, ""))
+        p.start(); self.addCleanup(p.stop)
+
     def _signal(self, ticker):
         return a.ProSignal(
             ticker=ticker, bias="LONG", setup="Gap & Hold",
@@ -1252,6 +1258,28 @@ class TestFinalizeAndAlertSignalsLogsDedupSuppressed(unittest.TestCase):
             shares=100, rr=2.0, rsi=50.0, rvol=2.0,
             reason="test", confluence_score=0,
         )
+
+    def test_a_kill_switched_setup_is_relabelled_and_sent_once_a_day(self):
+        """10-23: BKYI went out 7x as '🟢 LONG ... Gap & Hold' with entry and
+        stop, while Gap & Hold was kill-switched at 9W/36L."""
+        sig = self._signal("BKYI")
+        sent: set = set()
+        with patch.object(a, "_setup_is_disabled", return_value=(True, "9W/36L")), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_is_alerted_today", side_effect=lambda k: k in sent), \
+             patch.object(a, "_mark_alerted", side_effect=sent.add), \
+             patch.object(a, "_log_live_signal"), patch.object(a, "_save_last_alert"), \
+             patch.object(a, "_shadow_review") as rv, \
+             patch.object(a, "format_signal_telegram") as fmt, \
+             patch.object(a, "_send_signal_alert_batch") as send:
+            a._finalize_and_alert_signals([sig], {"regime": "TREND"}, {})
+            a._finalize_and_alert_signals([sig], {"regime": "TREND"}, {})
+        fmt.assert_not_called()
+        rv.assert_not_called()
+        first, second = send.call_args_list[0][0][0], send.call_args_list[1][0][0]
+        self.assertEqual(len(first), 1)
+        self.assertIn("not traded", first[0])
+        self.assertEqual(second, [])
 
     def test_dedup_suppressed_signal_still_gets_logged_for_outcome_tracking(self):
         sig = self._signal("AAPL")
@@ -2779,6 +2807,37 @@ class TestBarSetContainsBugFix(unittest.TestCase):
         self.assertIsNotNone(df, "must recover real bars via resp.data.get(), "
                                  "not silently return None via `ticker in resp`")
         self.assertEqual(len(df), 25)
+
+    def test_fetch_alpaca_daily_retries_once_then_falls_back(self):
+        """10-23: four names fell to yfinance's stale bars with no reason logged."""
+        class FakeBarSet:
+            def __init__(self, data):
+                self.data = data
+        fake_bar = MagicMock(open=10.0, high=11.0, low=9.5, close=10.5, volume=1000,
+                             timestamp=datetime.now() - timedelta(days=1))
+        mock_dc = MagicMock()
+        mock_dc.get_stock_bars.side_effect = [RuntimeError("429"),
+                                              FakeBarSet({"TESTX": [fake_bar] * 25})]
+        with patch.object(a, "get_alpaca_data_client", return_value=mock_dc), \
+             patch.object(a.time, "sleep"):
+            self.assertEqual(len(a._fetch_alpaca_daily("TESTX", 30)), 25)
+        mock_dc.get_stock_bars.side_effect = RuntimeError("down")
+        mock_dc.get_stock_bars.reset_mock()
+        with patch.object(a, "get_alpaca_data_client", return_value=mock_dc), \
+             patch.object(a.time, "sleep"):
+            self.assertIsNone(a._fetch_alpaca_daily("TESTX", 30))
+        self.assertEqual(mock_dc.get_stock_bars.call_count, 2)
+
+
+class TestStaleAlertSparesTimedHolds(unittest.TestCase):
+    """10-23: Momentum Watch told the operator 'Consider closing' BTE, a
+    breakout zone on day 3 of a tested 20-session hold."""
+
+    def test_zone_and_dip_positions_are_exempt(self):
+        src = inspect.getsource(a.run_momentum_watch)
+        i = src.index("SWING STALE")
+        self.assertIn("_is_bzone_position(_pos)", src[:i])
+        self.assertIn("_dip_basket_manages(", src[:i])
 
 
 class TestOptionContractStrikeStringConversion(unittest.TestCase):
@@ -6262,11 +6321,36 @@ class TestMarketWideScreen(unittest.TestCase):
         a._asset_universe_cache["symbols"] = ["AAA"]
         a._asset_universe_cache["day"] = "2020-01-01"
         r = MagicMock(); r.status_code = 200
-        r.json.return_value = [{"symbol": "BBB", "tradable": True}]
+        r.json.return_value = [{"symbol": "BBB", "tradable": True, "exchange": "NYSE",
+                                "name": "BBB Corp Common Stock"}]
         with patch.object(a.requests, "get", return_value=r):
             self.assertEqual(a._all_tradable_us_equities(), ["BBB"])
         a._asset_universe_cache["symbols"] = None
         a._asset_universe_cache["day"] = ""
+
+    def test_warrants_spac_units_rights_and_otc_are_dropped(self):
+        """10-23: 171 failed Yahoo downloads were warrants and an OTC ADR."""
+        f = a._is_listed_common
+        self.assertFalse(f({"symbol": "NHIVW", "exchange": "NASDAQ",
+                            "name": "NewHold Investment Corp IV Warrants"}))
+        self.assertFalse(f({"symbol": "OPENZ", "exchange": "NASDAQ",
+                            "name": "Opendoor Technologies Inc Series Z Warrants"}))
+        self.assertFalse(f({"symbol": "ABCDU", "exchange": "NASDAQ",
+                            "name": "ABCD Acquisition Corp Units"}))
+        self.assertFalse(f({"symbol": "ABCDR", "exchange": "NASDAQ",
+                            "name": "ABCD Acquisition Corp Rights"}))
+        self.assertFalse(f({"symbol": "NHYDY", "exchange": "OTC",
+                            "name": "Norsk Hydro ASA ADR"}))
+
+    def test_partnership_units_and_adr_rights_wording_are_kept(self):
+        f = a._is_listed_common
+        for sym, ex, name in (
+                ("BIP", "NYSE", "Brookfield Infrastructure Partners L.P. Limited Partnership Units"),
+                ("ARLP", "NASDAQ", "Alliance Resource Partners, L.P. Common Units"),
+                ("UNG", "ARCA", "United States Natural Gas Fund, LP Unit"),
+                ("AMX", "NYSE", "America Movil ADS (each representing the right to receive 20 shares)"),
+                ("AAPL", "NASDAQ", "Apple Inc. Common Stock")):
+            self.assertTrue(f({"symbol": sym, "exchange": ex, "name": name}), sym)
 
     def _snap(self, o, c, v, pc):
         # Dated TODAY: these tests model an in-session snapshot, which is what
@@ -29389,7 +29473,8 @@ class TestShadowReviewScorecard(unittest.TestCase):
     def test_retired_signals_are_no_longer_reviewed(self):
         src = inspect.getsource(a._finalize_and_alert_signals)
         i = src.index('_shadow_review("signal"')
-        self.assertIn("_setup_retired(sig.setup)", src[max(0, i - 600):i])
+        self.assertIn("if _off:", src[max(0, i - 600):i])
+        self.assertIn("_setup_is_disabled(sig.setup)", src[:i])
 
     def test_dip_and_zone_entries_are_reviewed_but_never_gated(self):
         for fn in (a._dip_candidates_notify, a.run_breakout_zone_manage):

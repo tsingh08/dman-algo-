@@ -24819,14 +24819,7 @@ def _dip_candidates_notify(cands: list, n: int, mean: float, wr: float) -> None:
     _budget = get_effective_account() * MANUAL_ENTRY_EQUITY_PCT
     _d0 = _et_today()
     _ok = []
-    # Strongest trend first, not deepest dip. Measured 2026-10-24 on the
-    # WATCHLIST, 2024-03..2026-10, 5-session hold, 0.10% cost, 5 per day:
-    # lowest-RSI2 first = +0.23%/trade (H2 -0.07%), BELOW SPY's +0.33%;
-    # most-over-MA200 first = +0.63% (H1 +0.82 / H2 +0.44), ahead in every
-    # year (2024 +1.33 vs +0.63, 2025 +0.32 vs +0.02, 2026 +0.55 vs +0.08).
-    # The edge is relative strength, not the dip: the same top-5 with NO
-    # RSI2 condition did as well. See project_strategy_evidence memory.
-    for c in sorted(cands, key=lambda c: -float(c.get("over_ma", 0) or 0)):
+    for c in sorted(cands, key=lambda c: c["rsi2"]):
         if c["date"] != _bar:
             continue
         if c["close"] * (1 + MANUAL_ENTRY_LIMIT_BUFFER_PCT / 100.0) > _budget:

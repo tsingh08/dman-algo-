@@ -26950,6 +26950,15 @@ class TestDipCandidatesReachThePhone(unittest.TestCase):
         with patch.object(a, "flag", return_value=True):
             self.assertTrue(a._telegram_worth_sending(msg))
 
+    def test_strongest_trend_is_offered_first_not_deepest_dip(self):
+        """2026-10-24 study: lowest-RSI2 first was +0.23%/trade, below SPY;
+        most-over-MA200 first was +0.63%, ahead in every year."""
+        cands = [{"ticker": "DEEP", "date": "2026-10-22", "close": 50.0, "rsi2": 0.5, "over_ma": 3.0},
+                 {"ticker": "STRONG", "date": "2026-10-22", "close": 60.0, "rsi2": 9.0, "over_ma": 40.0}]
+        with patch.object(self, "_cands", return_value=cands):
+            msg = self._send(self._at(7)).call_args[0][0]
+        self.assertLess(msg.index("/enter STRONG"), msg.index("/enter DEEP"))
+
     def test_nothing_while_the_bar_is_still_forming(self):
         self._send(self._at(11), market_open=True).assert_not_called()
 

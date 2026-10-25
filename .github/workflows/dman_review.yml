@@ -94,6 +94,7 @@ jobs:
       contents: write        # needed to push the review/* branch created below --
                                # see the file header for why this can't reach main
       pull-requests: write   # needed for the "open PR" step's `gh pr create`
+      actions: read          # the kind step asks whether today's EOD review already ran
 
     steps:
       - name: Checkout repo
@@ -101,6 +102,8 @@ jobs:
 
       - name: Determine review kind
         id: kind
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           ET_HOUR=$(TZ="America/New_York" date +%H)
           # Same 10 AM-3 PM ET window as the prompt-selection logic below --
@@ -110,8 +113,31 @@ jobs:
           ET_HHMM=$(TZ="America/New_York" date +%H%M)
           if [ "$ET_HOUR" -ge 10 ] && [ "$ET_HOUR" -lt 15 ]; then
             echo "kind=midday" >> "$GITHUB_OUTPUT"
-          elif [ "$ET_HHMM" -ge 1605 ] && [ "$ET_HHMM" -lt 1700 ]; then
-            echo "kind=eod" >> "$GITHUB_OUTPUT"
+          elif [ "$ET_HHMM" -ge 1605 ]; then
+            # Any time after the close counts, not just 16:05-17:00. GitHub
+            # starts these crons up to 3.5h late: on 10-20 and 10-23 every
+            # run landed at 16:00-16:04 or after 19:00 ET and NO EOD review
+            # ran at all (1 of the 4 sessions 10-20..23 got one). So the
+            # first run after the close does the review and later late
+            # crons skip -- a /review dispatch always runs.
+            DONE=""
+            if [ "$GITHUB_EVENT_NAME" != "workflow_dispatch" ]; then
+              CUTOFF=$(date -u -d @"$(TZ="America/New_York" date -d '16:00' +%s)" +%Y-%m-%dT%H:%M:%SZ)
+              for id in $(gh run list -R "$GITHUB_REPOSITORY" --workflow dman_review.yml --limit 20 \
+                            --json databaseId,createdAt \
+                            -q ".[] | select(.createdAt >= \"$CUTOFF\") | .databaseId"); do
+                [ "$id" = "$GITHUB_RUN_ID" ] && continue
+                c=$(gh run view "$id" -R "$GITHUB_REPOSITORY" --json jobs \
+                      -q '.jobs[].steps[] | select(.name == "Create review branch") | .conclusion' 2>/dev/null)
+                [ "$c" = "success" ] && DONE="$id"
+              done
+            fi
+            if [ -n "$DONE" ]; then
+              echo "EOD review already ran today (run $DONE) -- skipping."
+              echo "kind=skip" >> "$GITHUB_OUTPUT"
+            else
+              echo "kind=eod" >> "$GITHUB_OUTPUT"
+            fi
           else
             # Before the close or long after it: the other cron owns this clock.
             echo "kind=skip" >> "$GITHUB_OUTPUT"

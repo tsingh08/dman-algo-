@@ -7377,7 +7377,7 @@ If nothing stands out, reply with exactly: No gaps found."""
                 "content-type":      "application/json",
             },
             json={
-                "model":      "claude-sonnet-5",
+                "model":      AI_SCORE_MODEL,
                 "max_tokens": 500,
                 "messages":   [{"role": "user", "content": prompt}],
             },
@@ -19204,7 +19204,7 @@ Write exactly 4-5 short plain-text sentences (no markdown, no bullets — this g
                 "content-type":      "application/json",
             },
             json={
-                "model":      "claude-sonnet-5",
+                "model":      AI_SCORE_MODEL,
                 "max_tokens": 300,
                 "messages":   [{"role": "user", "content": prompt}],
             },

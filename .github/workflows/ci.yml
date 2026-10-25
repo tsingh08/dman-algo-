@@ -50,7 +50,7 @@ jobs:
         # failed this build the day they were introduced.
         run: |
           pip install pyflakes >/dev/null
-          OUT=$(python -m pyflakes dman_algo.py dman_daemon.py 2>&1 | grep -E "undefined name|is used before assignment" || true)
+          OUT=$(python -m pyflakes dman_algo.py dman_daemon.py dman_state_merge.py 2>&1 | grep -E "undefined name|is used before assignment" || true)
           if [ -n "$OUT" ]; then
             echo "$OUT"
             echo "::error::undefined names found — these are latent NameErrors"

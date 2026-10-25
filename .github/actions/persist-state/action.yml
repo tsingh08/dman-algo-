@@ -1,6 +1,6 @@
 name: 'Persist DMan state files'
 description: >-
-  Shared git stash/fetch/rebase/push cycle for syncing JSON state files
+  Shared git fetch/rebase/push cycle for syncing JSON state files
   back to origin/main, with a JSON-corruption guard and push-retry-on-
   rejection. Extracted 2026-08-13 after this exact logic was hand-copied
   into dman_scanner.yml, dman_watchdog.yml, and dman_stocktwits.yml and
@@ -101,10 +101,16 @@ runs:
           # rebasing ONTO, "theirs" resolves to the commit being replayed
           # (our new data). Verified by direct reproduction — using --ours
           # here silently discarded real results on every rebase conflict.
-          echo "Rebase conflict on data files — keeping our new data (theirs, during rebase)"
-          for f in $STATE_FILES; do
-            [ -f "$f" ] && git checkout --theirs -- "$f" 2>/dev/null
-          done
+          # Three-way per file (dman_state_merge.py), not `checkout --theirs`:
+          # taking this run's whole copy discarded every write the daemon
+          # pushed to the same file during a scan that can run 14+ minutes.
+          echo "Rebase conflict on data files — reconciling each three ways"
+          python dman_state_merge.py $STATE_FILES || {
+            echo "  reconcile failed — keeping our copy, as before"
+            for f in $STATE_FILES; do
+              [ -f "$f" ] && git checkout --theirs -- "$f" 2>/dev/null
+            done
+          }
           git add -u
           git rebase --continue || git rebase --abort
         fi
@@ -127,10 +133,12 @@ runs:
             git commit -m "chore: absorb stray state change [skip ci]" || true
           fi
           if ! git rebase origin/main; then
-            echo "Retry rebase conflict — keeping our new data (theirs, during rebase)"
-            for f in $STATE_FILES; do
-              [ -f "$f" ] && git checkout --theirs -- "$f" 2>/dev/null
-            done
+            echo "Retry rebase conflict — reconciling each three ways"
+            python dman_state_merge.py $STATE_FILES || {
+              for f in $STATE_FILES; do
+                [ -f "$f" ] && git checkout --theirs -- "$f" 2>/dev/null
+              done
+            }
             git add -u
             git rebase --continue || git rebase --abort
           fi

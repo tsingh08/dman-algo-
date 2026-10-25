@@ -34,6 +34,7 @@ import subprocess
 import sys
 import threading
 import time
+from typing import Optional
 from datetime import datetime
 
 if hasattr(sys.stdout, "reconfigure"):
@@ -43,6 +44,7 @@ REPO_DIR = os.path.dirname(os.path.abspath(__file__))
 os.chdir(REPO_DIR)          # all state files are repo-relative
 
 import dman_algo as algo    # noqa: E402  (needs cwd set first)
+import dman_state_merge as state_merge  # noqa: E402
 
 # Real-time equity price streaming — OFF by default (2026-08-09). Confirmed
 # live: equity positions (CELZ, CLRO — everything actually held) had NO
@@ -567,89 +569,62 @@ def _restore_corrupted_state_files(paths: list[str]) -> list[str]:
     return ok
 
 
-# Conflicted files that are rebuilt from THIS checkout's pre-pull copy instead
-# of origin's, because algo.sync_all_state_with_remote() runs right after and
-# re-adds origin's side field by field. Restoring origin's copy (the old
-# behaviour for every file) threw away this process's own writes -- 33 times
-# on Friday 2026-10-23, positions/scan log/news log/alpaca sync among them.
-_SEMANTIC_MERGE_FILES = {
-    algo.POSITIONS_FILE, algo.SCAN_LOG_FILE, algo.WIN_RATE_FILE,
-    algo.LIVE_SIGNALS_FILE, algo.ALPACA_SYNC_FILE, algo.NEWS_LOG_FILE,
-    algo.DAILY_PNL_FILE, algo.MONTHLY_PNL_FILE, algo.EARNINGS_SPREAD_PENDING_FILE,
-}
-# {key: ISO timestamp} dedup stores. A lost key re-sends an alert (or, for
-# __BZONE_ENTRY__, re-arms an entry), so both sides are kept, latest time wins.
-_TIMESTAMP_DICT_FILES = {"dman_last_alerts.json", "dman_alerts_dedup.json"}
-
-
-def _snapshot_state(paths: list[str]) -> dict[str, str]:
-    """Pre-pull text of every state file that parses -- the local side of a merge."""
-    snap: dict[str, str] = {}
-    for p in paths:
-        try:
-            with open(p, encoding="utf-8") as f:
-                txt = f.read()
-            if p.endswith(".json"):
-                json.loads(txt)
-            snap[p] = txt
-        except Exception:
-            continue
-    return snap
-
-
-def _is_conflicted(p: str) -> bool:
+def _read_text(p: str) -> Optional[str]:
     try:
-        with open(p, encoding="utf-8", errors="replace") as f:
-            txt = f.read()
+        with open(p, encoding="utf-8") as f:
+            return f.read()
     except FileNotFoundError:
-        return False
-    if "<<<<<<<" in txt and ">>>>>>>" in txt:
-        return True
-    if p.endswith(".json"):
-        try:
-            json.loads(txt)
-        except Exception:
-            return True
-    return False
+        return None
 
 
-def _resolve_conflicts_from_snapshot(snap: dict[str, str]) -> list[str]:
-    """Rebuild conflicted state files without discarding either side.
+def _show(rev: str, p: str) -> Optional[str]:
+    r = _git("show", f"{rev}:{p}")
+    return r.stdout if r.returncode == 0 else None
 
-    Returns the paths it resolved. Anything it does not know how to merge is
-    left for _restore_corrupted_state_files(), i.e. origin's copy, as before.
+
+def _pull_state() -> bool:
+    """Bring origin/main in without a text merge of any state file.
+
+    Replaces `stash push` / `pull --rebase` / `stash pop`. That line-merged
+    files two processes rewrite whole every few minutes, and it lost data two
+    ways: a both-sides edit left conflict markers (resolved to origin's copy,
+    the local write gone), and a state file new on origin that this checkout
+    also had untracked made the pop refuse ("already exists, no checkout")
+    while the code then ran `stash drop` -- 27 such pops on 2026-10-23, only
+    4 of which left markers anyone could see.
+
+    Now: fetch, remember every state file's local text, move HEAD and the
+    index to origin/main (the working tree is left alone), then decide each
+    file three ways against the last common commit. Returns False when the
+    fetch fails, leaving everything as it was.
     """
-    done: list[str] = []
-    for p, local_txt in snap.items():
-        if not _is_conflicted(p):
-            continue
+    fetch = _git("fetch", "-q", "origin", "main")
+    if fetch.returncode != 0:
+        log(f"  ⚠️  git fetch failed: {(fetch.stderr or fetch.stdout or '').strip()[:300]}")
+        return False
+    mb = _git("merge-base", "HEAD", "origin/main")
+    base_rev = mb.stdout.strip() if mb.returncode == 0 and mb.stdout.strip() else "HEAD"
+    local = {p: _read_text(p) for p in STATE_FILES}
+    base = {p: _show(base_rev, p) for p in STATE_FILES}
+    _git("reset", "--mixed", "-q", "origin/main")
+    _discard_non_state_drift()
+    merged = []
+    for p in STATE_FILES:
         try:
-            if p in _SEMANTIC_MERGE_FILES:
-                out = local_txt
-            elif p in _TIMESTAMP_DICT_FILES:
-                head = _git("show", f"HEAD:{p}")
-                merged = json.loads(head.stdout) if head.returncode == 0 and head.stdout.strip() else {}
-                for k, v in json.loads(local_txt).items():
-                    if k not in merged or str(v) > str(merged[k]):
-                        merged[k] = v
-                out = json.dumps(merged)
-            elif p.endswith(".csv"):
-                head = _git("show", f"HEAD:{p}")
-                lines = (head.stdout.splitlines() if head.returncode == 0 else [])
-                seen = set(lines)
-                lines += [ln for ln in local_txt.splitlines() if ln not in seen]
-                out = "\n".join(lines) + "\n"
-            else:
-                continue
-            with open(p, "w", encoding="utf-8") as f:
-                f.write(out)
-            _git("reset", "-q", "--", p)      # clear the unmerged index entry
-            done.append(p)
+            out, how = state_merge.reconcile(p, base[p], local[p], _show("origin/main", p))
         except Exception as exc:
-            log(f"  conflict merge for {p} failed ({exc}) — falling back to origin's copy")
-    if done:
-        log(f"  merged conflicted file(s) keeping both sides: {', '.join(done)}")
-    return done
+            out, how = _show("origin/main", p), f"origin (merge failed: {exc})"
+        if how not in ("same", "origin", "local"):
+            merged.append(f"{p} [{how}]")
+        if out is None:
+            if os.path.exists(p):
+                os.remove(p)
+        elif out != local[p]:
+            with open(p, "w", encoding="utf-8", newline="") as f:
+                f.write(out)
+    if merged:
+        log(f"  both sides changed, reconciled: {', '.join(merged)}")
+    return True
 
 
 def _discard_non_state_drift() -> list[str]:
@@ -707,33 +682,9 @@ def git_sync() -> None:
         log("git sync skipped — another sync already in progress past timeout")
         return
     try:
-        _discard_non_state_drift()
-        _present = _existing(STATE_FILES)
-        _snap = _snapshot_state(_present)
-        if _present:
-            _git("stash", "push", "--include-untracked", "--", *_present)
-        pull = _git("pull", "--rebase", "origin", "main")
-        if pull.returncode != 0:
-            # Was silent. A failing pull leaves this checkout's copy of every
-            # state file frozen at session start, and that copy gets staged
-            # over origin -- how an expired setup probation kept coming back
-            # through 2026-10-21. Say so, so the wedge is a log line, not a
-            # day of mystery reverts.
-            log(f"  ⚠️  git pull --rebase failed: "
-                f"{(pull.stderr or pull.stdout or '').strip()[:300]}")
-            _git("rebase", "--abort")
-        if _present:
-            pop = _git("stash", "pop")
-            if pop.returncode != 0:
-                # Conflict: git left <<<<<<< markers in whichever file(s)
-                # couldn't auto-merge. Resolve just those files from the last
-                # good commit, then the stash entry is fully spent (some
-                # files applied cleanly by pop itself, the rest reset by us)
-                # — drop it so conflicted stashes don't pile up run over run.
-                log("stash pop conflict — merging conflicted file(s)")
-                _resolve_conflicts_from_snapshot(_snap)
-                _restore_corrupted_state_files(_existing(STATE_FILES))
-                _git("stash", "drop")
+        # A failed fetch is logged inside and must still let local state be
+        # committed below; the push then fails and the next cycle catches up.
+        _pull_state()
 
         # Merge + stage + commit + push, retried up to 3x — each attempt
         # re-runs EVERY semantic merge fresh, right before its own commit.
@@ -844,11 +795,14 @@ def git_sync() -> None:
             # in principle code). --mixed resets the index to origin/main and
             # still leaves the working tree alone; the next iteration re-stages
             # STATE_FILES only, so a retry commit can contain nothing else.
-            fetch_retry = _git("fetch", "origin", "main")
-            if fetch_retry.returncode != 0:
+            #
+            # 2026-10-25: through _pull_state(), which does that reset AND
+            # takes origin's copy of any file this side never changed --
+            # the bare reset left the working tree's copy, which was then
+            # staged over whatever the other writer had just pushed.
+            if not _pull_state():
                 log("git sync: fetch failed on retry — giving up this cycle, next sync will catch up")
                 break
-            _git("reset", "--mixed", "-q", "origin/main")
         else:
             log("git sync: push still rejected after 3 attempts — giving up this cycle, next sync will catch up")
     except Exception as exc:

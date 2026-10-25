@@ -29363,79 +29363,168 @@ class TestOneTradeOneRowEvenInTheSameRun(unittest.TestCase):
 
 
 class TestSyncConflictKeepsBothSides(unittest.TestCase):
-    """2026-10-23: 33 stash-pop conflicts in one day, each resolved by taking
-    origin's copy and discarding this daemon's own writes -- positions among
-    them, which is how ARHS went untracked and nearly got bought twice."""
+    """2026-10-23: 27 stash-pops failed in one day. Some left conflict markers
+    (resolved to origin, the local write lost); most refused outright on a
+    state file new on origin and untracked here, and the stash was then
+    dropped. The sync now decides each state file three ways instead."""
 
-    def setUp(self):
-        import tempfile, subprocess
+    @classmethod
+    def setUpClass(cls):
         import dman_daemon
-        self.d = dman_daemon
-        self._cwd = os.getcwd()
-        self._tmp = tempfile.mkdtemp()
-        os.chdir(self._tmp)
-        self.addCleanup(os.chdir, self._cwd)
-        self.head = {}
+        cls.d = dman_daemon
 
-        def fake_git(*args):
-            if args[0] == "show":
-                p = args[1].split(":", 1)[1]
-                return subprocess.CompletedProcess(args, 0 if p in self.head else 1,
-                                                   self.head.get(p, ""), "")
-            return subprocess.CompletedProcess(args, 0, "", "")
-        p = patch.object(self.d, "_git", side_effect=fake_git)
-        p.start(); self.addCleanup(p.stop)
-        q = patch.object(self.d, "log"); q.start(); self.addCleanup(q.stop)
+    def r(self, p, b, l, o):
+        import dman_state_merge as state_merge
+        return state_merge.reconcile(p, b, l, o)
 
-    def _write(self, name, txt):
-        with open(name, "w", encoding="utf-8") as f:
-            f.write(txt)
+    def test_the_semantic_list_names_the_files_the_algo_merges(self):
+        import dman_state_merge as sm
+        self.assertEqual(sm.SEMANTIC_MERGE_FILES, {
+            a.POSITIONS_FILE, a.SCAN_LOG_FILE, a.WIN_RATE_FILE, a.LIVE_SIGNALS_FILE,
+            a.ALPACA_SYNC_FILE, a.NEWS_LOG_FILE, a.DAILY_PNL_FILE, a.MONTHLY_PNL_FILE,
+            a.EARNINGS_SPREAD_PENDING_FILE})
 
-    def _read(self, name):
-        with open(name, encoding="utf-8") as f:
-            return f.read()
+    def test_an_untouched_local_copy_takes_origin(self):
+        self.assertEqual(self.r("dman_flags.json", "B", "B", "O"), ("O", "origin"))
 
-    def test_a_semantically_merged_file_gets_the_local_copy_back(self):
-        local = json.dumps([{"ticker": "ARHS", "shares": 21}])
-        self._write(a.POSITIONS_FILE, local)
-        snap = self.d._snapshot_state([a.POSITIONS_FILE])
-        self._write(a.POSITIONS_FILE, "<<<<<<< x\n[]\n=======\n[1]\n>>>>>>> y\n")
-        self.assertEqual(self.d._resolve_conflicts_from_snapshot(snap), [a.POSITIONS_FILE])
-        self.assertEqual(json.loads(self._read(a.POSITIONS_FILE))[0]["ticker"], "ARHS")
+    def test_an_untouched_origin_keeps_the_local_write(self):
+        self.assertEqual(self.r("dman_flags.json", "B", "L", "B"), ("L", "local"))
+
+    def test_a_file_new_on_both_sides_keeps_the_local_one_for_semantic_merge(self):
+        self.assertEqual(self.r(a.POSITIONS_FILE, None, "L", "O"), ("L", "semantic"))
+
+    def test_a_local_deletion_survives_when_origin_did_not_touch_it(self):
+        self.assertEqual(self.r("dman_halt.json", "B", None, "B"), (None, "local"))
 
     def test_dedup_stores_keep_every_key_and_the_latest_time(self):
-        name = "dman_alerts_dedup.json"
-        self.head[name] = json.dumps({"A": "2026-10-23T10:00", "B": "2026-10-23T09:00"})
-        self._write(name, json.dumps({"B": "2026-10-23T11:00", "C": "2026-10-23T12:00"}))
-        snap = self.d._snapshot_state([name])
-        self._write(name, "<<<<<<< x\n{}\n>>>>>>> y\n")
-        self.d._resolve_conflicts_from_snapshot(snap)
-        self.assertEqual(json.loads(self._read(name)),
-                         {"A": "2026-10-23T10:00", "B": "2026-10-23T11:00",
-                          "C": "2026-10-23T12:00"})
+        out, how = self.r("dman_alerts_dedup.json", "{}",
+                          json.dumps({"B": "2026-10-23T11:00", "C": "2026-10-23T12:00"}),
+                          json.dumps({"A": "2026-10-23T10:00", "B": "2026-10-23T09:00"}))
+        self.assertEqual(how, "union")
+        self.assertEqual(json.loads(out), {"A": "2026-10-23T10:00", "B": "2026-10-23T11:00",
+                                           "C": "2026-10-23T12:00"})
 
     def test_csv_rows_from_both_sides_survive_once(self):
-        name = "dman_live_outcomes.csv"
-        self.head[name] = "h\nr1\nr2\n"
-        self._write(name, "h\nr1\nr3\n")
-        snap = self.d._snapshot_state([name])
-        self._write(name, "h\n<<<<<<< x\nr2\n=======\nr3\n>>>>>>> y\n")
-        self.d._resolve_conflicts_from_snapshot(snap)
-        self.assertEqual(self._read(name).splitlines(), ["h", "r1", "r2", "r3"])
+        out, _ = self.r("dman_live_outcomes.csv", "h\nr1\n", "h\nr1\nr3\n", "h\nr1\nr2\n")
+        self.assertEqual(out.splitlines(), ["h", "r1", "r2", "r3"])
 
-    def test_an_unknown_file_is_left_for_the_origin_restore(self):
-        name = "dman_stock_feed_state.json"
-        self._write(name, '{"feed": "sip"}')
-        snap = self.d._snapshot_state([name])
-        self._write(name, "<<<<<<< x\n")
-        self.assertEqual(self.d._resolve_conflicts_from_snapshot(snap), [])
+    def test_separate_lines_merge_and_overlapping_lines_fall_back_to_origin(self):
+        b, l, o = "a\nb\nc\nd\ne\n", "A\nb\nc\nd\ne\n", "a\nb\nc\nd\nE\n"
+        self.assertEqual(self.r("dman_flags.json", b, l, o), ("A\nb\nc\nd\nE\n", "merged"))
+        out, how = self.r("dman_flags.json", "x\n", "y\n", "z\n")
+        self.assertEqual(out, "z\n")
+        self.assertTrue(how.startswith("origin"))
 
-    def test_a_clean_file_is_not_touched(self):
-        self._write(a.SCAN_LOG_FILE, "[1]")
-        snap = self.d._snapshot_state([a.SCAN_LOG_FILE])
-        self._write(a.SCAN_LOG_FILE, "[1, 2]")
-        self.assertEqual(self.d._resolve_conflicts_from_snapshot(snap), [])
-        self.assertEqual(self._read(a.SCAN_LOG_FILE), "[1, 2]")
+
+class TestPullStateAgainstRealGit(unittest.TestCase):
+    """_pull_state() run in a throwaway repo against the ways the old
+    stash/pull/pop lost a write."""
+
+    def setUp(self):
+        import shutil, subprocess
+        import dman_daemon
+        self.d = dman_daemon
+        self.root = tempfile.mkdtemp()
+        self.addCleanup(shutil.rmtree, self.root, True)
+        self._cwd = os.getcwd()
+        self.addCleanup(os.chdir, self._cwd)
+
+        def g(cwd, *args):
+            return subprocess.run(["git", "-c", "user.name=t", "-c", "user.email=t@t",
+                                   "-c", "core.autocrlf=false", *args],
+                                  cwd=cwd, capture_output=True, text=True, check=True)
+        self.g = g
+        bare = os.path.join(self.root, "o.git")
+        g(self.root, "init", "-q", "--bare", "-b", "main", bare)
+        self.up = os.path.join(self.root, "up")
+        self.me = os.path.join(self.root, "me")
+        g(self.root, "clone", "-q", bare, self.up)
+        self._put(self.up, "dman_flags.json", '{"a": 1}\n')
+        self._put(self.up, "code.py", "v1\n")
+        g(self.up, "add", "-A")
+        g(self.up, "commit", "-qm", "init")
+        g(self.up, "push", "-q", "origin", "HEAD:main")
+        g(self.root, "clone", "-q", bare, self.me)
+        g(self.me, "config", "core.autocrlf", "false")
+        os.chdir(self.me)
+        for target, value in (("REPO_DIR", self.me),
+                              ("STATE_FILES", ["dman_flags.json", "dman_new.json"])):
+            p = patch.object(self.d, target, value)
+            p.start()
+            self.addCleanup(p.stop)
+        q = patch.object(self.d, "log")
+        q.start()
+        self.addCleanup(q.stop)
+
+    def _put(self, repo, name, txt):
+        with open(os.path.join(repo, name), "w", encoding="utf-8", newline="\n") as f:
+            f.write(txt)
+
+    def _get(self, name):
+        with open(os.path.join(self.me, name), encoding="utf-8", newline="") as f:
+            return f.read()
+
+    def _upstream_commit(self, **files):
+        for name, txt in files.items():
+            self._put(self.up, name, txt)
+        self.g(self.up, "add", "-A")
+        self.g(self.up, "commit", "-qm", "up")
+        self.g(self.up, "push", "-q", "origin", "HEAD:main")
+
+    def test_a_file_new_on_origin_and_untracked_here_is_not_left_broken(self):
+        """The case that made `stash pop` refuse and the stash get dropped."""
+        self._upstream_commit(**{"dman_new.json": '{"x": "origin"}\n'})
+        self._put(self.me, "dman_new.json", '{"y": "local"}\n')
+        self.assertTrue(self.d._pull_state())
+        out = self._get("dman_new.json")
+        self.assertNotIn("<<<<<<<", out)
+        json.loads(out)
+
+    def test_a_local_write_survives_an_unrelated_origin_change(self):
+        self._upstream_commit(**{"code.py": "v2\n"})
+        self._put(self.me, "dman_flags.json", '{"a": 2}\n')
+        self.assertTrue(self.d._pull_state())
+        self.assertEqual(self._get("dman_flags.json"), '{"a": 2}\n')
+        self.assertEqual(self.g(self.me, "rev-parse", "HEAD").stdout,
+                         self.g(self.me, "rev-parse", "origin/main").stdout)
+
+    def test_a_stale_local_copy_never_reverts_origin(self):
+        self._upstream_commit(**{"dman_flags.json": '{"a": 9}\n'})
+        self.assertTrue(self.d._pull_state())
+        self.assertEqual(self._get("dman_flags.json"), '{"a": 9}\n')
+
+    def test_the_workflow_rebase_keeps_both_writers_dedup_keys(self):
+        """The persist-state action's path: a real conflicted rebase, resolved
+        by dman_state_merge instead of `checkout --theirs`."""
+        import dman_state_merge as sm
+        name = "dman_alerts_dedup.json"
+        self._upstream_commit(**{name: '{"BASE": "1"}\n'})
+        self.g(self.me, "pull", "-q", "origin", "main")
+        self._upstream_commit(**{name: '{"BASE": "1", "DAEMON": "2"}\n'})
+        self._put(self.me, name, '{"BASE": "1", "SCANNER": "3"}\n')
+        self.g(self.me, "add", name)
+        self.g(self.me, "commit", "-qm", "scanner run")
+        self.g(self.me, "fetch", "-q", "origin", "main")
+        import subprocess
+        rb = subprocess.run(["git", "-c", "core.editor=true", "rebase", "origin/main"],
+                            cwd=self.me, capture_output=True, text=True)
+        self.assertNotEqual(rb.returncode, 0, "the setup must actually conflict")
+        report = sm.resolve_rebase_conflicts([name])
+        self.assertEqual(report, [f"{name} [union]"])
+        self.g(self.me, "-c", "core.editor=true", "rebase", "--continue")
+        self.assertEqual(json.loads(self._get(name)), {"BASE": "1", "DAEMON": "2", "SCANNER": "3"})
+
+    def test_the_persist_action_no_longer_takes_one_side_blind(self):
+        with open(os.path.join(self._cwd, ".github", "actions", "persist-state", "action.yml"),
+                  encoding="utf-8") as f:
+            body = f.read()
+        self.assertIn("python dman_state_merge.py", body)
+
+    def test_no_stash_or_pull_is_left_in_the_sync(self):
+        src = inspect.getsource(self.d.git_sync) + inspect.getsource(self.d._pull_state)
+        code = "\n".join(l for l in src.splitlines() if not l.strip().startswith("#"))
+        self.assertNotIn('"stash"', code)
+        self.assertNotIn('"pull"', code)
 
 
 class TestShadowReviewScorecard(unittest.TestCase):

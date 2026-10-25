@@ -53,6 +53,7 @@ CRITICAL = {
     # Money paths and their tests
     "dman_algo.py": "the algorithm",
     "dman_daemon.py": "the always-on session loop",
+    "dman_state_merge.py": "how the daemon and every workflow reconcile shared state files",
     "test_dman_algo.py": "the regression suite",
     "requirements.txt": "pinned dependencies -- an unpinned install is a silent behaviour change",
 

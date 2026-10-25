@@ -14429,6 +14429,13 @@ def run_breakout_zone_manage(notify: bool = True) -> dict:
             send_telegram(f"⏹️ <b>Breakout zones switched themselves off</b> — {_n} closed live, "
                           f"mean {_avg:+.1f}%. The setup is not paying; review before re-enabling.")
         return out
+    # The same four breakers every other real-order path enforces. Zones
+    # checked none of them, so a /halt or a tripped daily/monthly loss limit
+    # still bought. Exits above stay ungated on purpose.
+    _cb_ok, _cb_reason = _entry_circuit_breakers_ok()
+    if not _cb_ok:
+        out["skipped"] = f"{_cb_reason} — no zone entries"
+        return out
     _open = _bzone_open_positions()
     # Exposure, not headcount. A count cap treated two $250 zones and two $900
     # zones as the same risk; this bounds what is actually at stake.

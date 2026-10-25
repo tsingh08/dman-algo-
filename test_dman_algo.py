@@ -19233,8 +19233,9 @@ class TestBreakoutZoneTrading(unittest.TestCase):
                 "fresh_base": False, "weak_band": False}
 
     def _run(self, zones=(), open_pos=(), held=0, record=(0, 0.0), cash_ok=True, market=True,
-             broker=frozenset()):
+             broker=frozenset(), breakers=(True, "")):
         with patch.object(a, "is_market_open", return_value=market), \
+             patch.object(a, "_entry_circuit_breakers_ok", return_value=breakers), \
              patch.object(a, "_broker_committed_symbols", return_value=set(broker)), \
              patch.object(a, "_recent_logged_zones", return_value=list(zones)), \
              patch.object(a, "_bzone_open_positions", return_value=list(open_pos)), \
@@ -19346,6 +19347,19 @@ class TestBreakoutZoneTrading(unittest.TestCase):
         _, _, entry, _ = self._run(zones=[self._zone()],
                                    record=(a.BZONE_TRADE_REVIEW_N, +8.0))
         entry.assert_called_once()
+
+    def test_a_halt_or_loss_limit_blocks_zone_entries(self):
+        out, _, entry, _ = self._run(zones=[self._zone()],
+                                     breakers=(False, "bot is halted (/resume first)"))
+        entry.assert_not_called()
+        self.assertIn("halted", out["skipped"])
+
+    def test_a_halt_still_lets_zones_exit(self):
+        _, close, entry, _ = self._run(zones=[self._zone()], open_pos=[self._pos()],
+                                       held=a.BZONE_HOLD_SESSIONS,
+                                       breakers=(False, "daily loss limit active"))
+        close.assert_called_once()
+        entry.assert_not_called()
 
     def test_the_kill_switch_stops_everything(self):
         with patch.object(a, "ENABLE_BZONE_TRADING", False), \

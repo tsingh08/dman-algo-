@@ -1950,6 +1950,15 @@ class TestMacroBlackoutWindows(unittest.TestCase):
         self.assertFalse(safe, "a configured major macro event day must "
                                "be blocked the same way FOMC is")
 
+    def test_the_midterm_reaction_is_blacked_out_nov_3_to_5(self):
+        def _safe(d):
+            with patch.object(a, "datetime") as mock_dt:
+                mock_dt.now.return_value = datetime(d.year, d.month, d.day, 12, 0, tzinfo=a.ET)
+                return a.check_macro_safe()[0]
+        for d in (date(2026, 11, 3), date(2026, 11, 4), date(2026, 11, 5)):
+            self.assertFalse(_safe(d), str(d))
+        self.assertTrue(_safe(date(2026, 11, 2)), "the Monday before stays open")
+
     def test_no_bls_release_date_falls_on_a_weekend(self):
         # Found in the 2026-08-16 review: _PPI_DATES' April 2026/2027
         # entries were computed as CPI+1 CALENDAR day, not next business

@@ -17632,6 +17632,16 @@ _MAJOR_MACRO_EVENT_DATES: set[date] = {
                         # (Aug 29 is a Saturday, moot). Update/remove after
                         # the fact if the keynote's actual date/impact
                         # turned out different from this estimate.
+    date(2026, 11, 4),  # US midterm results reaction session (election
+                        # Tue Nov 3; results land overnight). As of
+                        # 2026-10-24: growing bets Democrats take Congress,
+                        # the Fed is mid-hiking cycle (Dec hike ~80% priced),
+                        # Brent at $116 on Houthi strikes on Saudi Arabia,
+                        # and the NYT reports US/Israel plans to strike Iran
+                        # AFTER the midterms -- a binary overnight outcome
+                        # stacked on a geopolitical one. ±1 day covers
+                        # Nov 3-5; NFP (Nov 6) blocks that morning anyway.
+                        # Zone entries are not macro-gated and keep running.
 }
 
 

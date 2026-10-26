@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-23T13:33:08.871705-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Anthropic\u2019s Path to $1.5 Trillion Demands 30% Margins: Plausible, but Delivering Is Another Matter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T13:33:09.181219-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla Needs 20,000 Robots to &#39;Self-Play&#39; in Order to Improve: Musk",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T13:33:09.187907-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Gary Black Says Tesla Investors Are Taking Elon Musk&#39;s Earnings Call Projections as &#39;Gospel&#39; Despite Stock&#39;s &#39;Extreme Valuation Metrics&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T13:33:10.866072-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Nvidia\u2019s China Market Has Effectively Vanished: \u2018Every Restriction Also Gives Chinese Suppliers a Larger Captive Market,\u2019 Says Shay Boloor",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-23T13:33:12.736364-04:00",
     "symbols": [
       "HOOD"
@@ -4998,5 +4958,45 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T10:14:10.023776-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Elon Musk Posts On X &#34;Starlink coming to EasyJet&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T10:14:11.156694-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Honeywell Teams up With NVIDIA, Dell To Chase Massive Oil Refinery Savings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T10:14:14.901334-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Piper Sandler Reiterates Overweight on Moderna, Raises Price Target to $230",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T10:14:22.128047-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Susquehanna Maintains Positive on Visa, Raises Price Target to $480",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

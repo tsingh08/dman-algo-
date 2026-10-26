@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-26T09:33:24.575425-04:00",
-    "symbols": [
-      "CART"
-    ],
-    "headline": "Instacart Halts Differential Pricing Experiments Amid Regulatory Scrutiny",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-26T09:33:24.844925-04:00",
     "symbols": [
       "OII"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T14:38:23.961385-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa Analyst Sees AI Agents Strengthening its Digital Payments Business",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

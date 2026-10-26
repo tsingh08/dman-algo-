@@ -2635,5 +2635,23 @@
   "drift_pct": 0.2,
   "range_ratio": 0.67,
   "near_high": 0.997
+ },
+ {
+  "ts": "2026-10-26T15:44:26.928376-04:00",
+  "ticker": "IWD",
+  "price": 258.14,
+  "rvol": 1.64,
+  "drift_pct": 0.17,
+  "range_ratio": 0.29,
+  "near_high": 0.995
+ },
+ {
+  "ts": "2026-10-26T15:44:26.928386-04:00",
+  "ticker": "IWR",
+  "price": 110.005,
+  "rvol": 1.5,
+  "drift_pct": 0.37,
+  "range_ratio": 0.62,
+  "near_high": 0.958
  }
 ]

@@ -1,255 +1,5 @@
 [
   {
-    "ts": "2026-10-26T10:26:07.200786-04:00",
-    "symbols": [
-      "XTND"
-    ],
-    "headline": "XTEND AI Robotics Reports Preliminary 9M Sales Of ~$24.5-$26.5M, AI Robotics Segment Backlog Of $84M At End Of September; Appoints Matt McGraw As CEO",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T10:36:57.370819-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "\u2018Hire the Robot, Fire the Human And Don&#39;t Look Back\u2019: Bill Gates\u2019s Chilling Warning of a Jobs Crisis Governments Aren&#39;t Ready For",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T10:37:00.027913-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Sandisk Earnings Are Days Away: Here\u2019s What Investors Need to Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T10:37:00.473546-04:00",
-    "symbols": [
-      "KLAC"
-    ],
-    "headline": "Here&#39;s How Much $100 Invested In KLA 5 Years Ago Would Be Worth Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T10:37:04.959406-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Barclays Maintains Equal-Weight on Baidu, Lowers Price Target to $80",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-26T10:37:08.866204-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Dallas Fed Mfg Business Index For October 13.4 Vs 9.8 Prior",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T10:48:12.569435-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Nvidia Is Now Cheaper Than the Average S&amp;P 500 Stock: Wall Street Still Sees Record Profits",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T10:48:12.814656-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nvidia Is Now Cheaper Than the Average S&amp;P 500 Stock: Wall Street Still Sees Record Profits",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T10:48:13.366377-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Truist Securities Reiterates Buy on Microsoft, Raises Price Target to $600",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T10:48:13.370278-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Nvidia Is Now Cheaper Than the Average S&amp;P 500 Stock: Wall Street Still Sees Record Profits",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T10:48:13.552502-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Is Now Cheaper Than the Average S&amp;P 500 Stock: Wall Street Still Sees Record Profits",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T10:48:13.792425-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Nvidia Is Now Cheaper Than the Average S&amp;P 500 Stock: Wall Street Still Sees Record Profits",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T10:48:14.039999-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Nvidia Is Now Cheaper Than the Average S&amp;P 500 Stock: Wall Street Still Sees Record Profits",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T10:48:14.302403-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Nvidia Is Now Cheaper Than the Average S&amp;P 500 Stock: Wall Street Still Sees Record Profits",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T10:48:14.480192-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Nvidia Is Now Cheaper Than the Average S&amp;P 500 Stock: Wall Street Still Sees Record Profits",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T10:48:15.648420-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Nvidia Is Now Cheaper Than the Average S&amp;P 500 Stock: Wall Street Still Sees Record Profits",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T10:48:21.170908-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Strategy Stock Slides Monday: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T10:48:21.535063-04:00",
-    "symbols": [
-      "DECK"
-    ],
-    "headline": "Barclays Maintains Overweight on Deckers Outdoor, Lowers Price Target to $100",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T10:48:25.707962-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Nvidia Is Now Cheaper Than the Average S&amp;P 500 Stock: Wall Street Still Sees Record Profits",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T10:48:26.036183-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Nvidia Is Now Cheaper Than the Average S&amp;P 500 Stock: Wall Street Still Sees Record Profits",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T10:48:31.483307-04:00",
-    "symbols": [
-      "LU"
-    ],
-    "headline": "Range Resources, Xtend AI Robotics, Oruka Therapeutics And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T10:48:32.867674-04:00",
-    "symbols": [
-      "NBTX"
-    ],
-    "headline": "Nanobiotix Announced At ESMO Saturday, Phase 1 JNJ-1900 Data Showing 41.7% Response Rate, With 4 Complete Responses, 75% Disease Control Rate, 17.8-Month Median Overall Survival In Heavily Pretreated Anti-PD-1-Resistant Advanced Melanoma",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T11:02:08.005267-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "NVIDIA Expresses Interest in Meta Platforms Equity Offering",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T11:02:08.012499-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Mastercard and Tech Mahindra Partner to Accelerate Embedded B2B Payments",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T11:02:08.019749-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "UBS Adjusts Price Target on Caterpillar to $750 From $925",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-26T11:02:08.025766-04:00",
     "symbols": [
       "V"
@@ -4998,5 +4748,255 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T15:42:51.202928-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "IREN, CRWV, NBIS, APLD Stocks Fall Pre-Market as Analyst Echoes Elon Musk\u2019s Neocloud Debt Warning: \u2018Putting GPUs as Collateral Isn\u2019t Enough Anymore'",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T15:42:54.483695-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "SK Hynix ETF Liquidations Raise Delisting Risks for Rival Leveraged Funds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T15:42:55.253052-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Q3 Preview: Could Record Revenue Help Turn Shares Around?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T15:42:55.256315-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Visa, Coca-Cola On Deck Tuesday As Payments Growth, Global Demand Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T15:42:59.104344-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Bitmine Adds 10,452 ETH as BMNR Struggles Below $24: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T15:42:59.286340-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "&#39;DoorDash Is In Advanced Talks To Acquire Delivery Rival Instacart; Deal Could Be Completed As Soon As This Week, People Familiar With The Matter Say&#39; - WSJ Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T15:43:00.829964-04:00",
+    "symbols": [
+      "PDD"
+    ],
+    "headline": "European Union Accepts Temu's Compliance Plan for Digital Services Act",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T15:43:02.743501-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Why Is Xtend AI Robotics Stock Surging Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T15:43:03.391531-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "&#39;Saudi Aramco Nears Signing of $10 Billion Loan with Global Banks&#39; - Bloomberg Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T15:43:03.772212-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa, Coca-Cola On Deck Tuesday As Payments Growth, Global Demand Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T15:43:03.775580-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "VISA Could Swing $24.8 Billion In Value After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T15:43:03.779883-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Susquehanna Maintains Positive on Visa, Raises Price Target to $480",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T15:43:04.823455-04:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "Visa, Coca-Cola On Deck Tuesday As Payments Growth, Global Demand Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T15:43:05.514321-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Oracle, Lowers Price Target to $250",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T15:43:06.002714-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Iranian State TV Reports Iran Is Open To A Shorter U.S. Proposal Timeline If Conditions Are Met",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T15:43:06.006109-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;U.S., Canada Working On Deal To Ease U.S. Tariffs On Canadian Steel And Auto Imports&#39; - Reuters Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T15:43:06.684864-04:00",
+    "symbols": [
+      "SGRY"
+    ],
+    "headline": "Range Resources, Xtend AI Robotics, Oruka Therapeutics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T15:43:06.688215-04:00",
+    "symbols": [
+      "SGRY"
+    ],
+    "headline": "Trading Halt: Halt status updated at 9:45:00 AM ET: Quotation Resumption: News and Resumption Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T15:43:06.817997-04:00",
+    "symbols": [
+      "RRC"
+    ],
+    "headline": "Range Resources, Xtend AI Robotics, Oruka Therapeutics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T15:43:10.667064-04:00",
+    "symbols": [
+      "TLS"
+    ],
+    "headline": "Telos Corporation Announces Third Quarter 2026 Financial Results Date",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T15:43:10.831076-04:00",
+    "symbols": [
+      "KALU"
+    ],
+    "headline": "Barclays Maintains Overweight on Kaiser Aluminum, Lowers Price Target to $155",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T15:43:10.834365-04:00",
+    "symbols": [
+      "KALU"
+    ],
+    "headline": "This Tesla Analyst Turns Bullish; Here Are Top 5 Upgrades For Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T15:43:10.837678-04:00",
+    "symbols": [
+      "KALU"
+    ],
+    "headline": "JP Morgan Upgrades Kaiser Aluminum to Neutral, Lowers Price Target to $140",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T15:43:10.843817-04:00",
+    "symbols": [
+      "KALU"
+    ],
+    "headline": "Keybanc Maintains Overweight on Kaiser Aluminum, Lowers Price Target to $127",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T15:43:11.013076-04:00",
+    "symbols": [
+      "MGNX"
+    ],
+    "headline": "MacroGenics Announces Positive Interim Phase 2 LINNET Results for Lorigerlimab",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

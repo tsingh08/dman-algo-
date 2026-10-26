@@ -4,105 +4,105 @@
 "ticker": "NVDA",
 "entry": 218.095,
 "rsi2": 0.0,
-"pnl_pct": null
+"pnl_pct": -1.17
 },
 {
 "date": "2026-10-16",
 "ticker": "AMD",
 "entry": 551.78,
 "rsi2": 0.0,
-"pnl_pct": null
+"pnl_pct": -5.26
 },
 {
 "date": "2026-10-16",
 "ticker": "META",
 "entry": 707.16,
 "rsi2": 0.0,
-"pnl_pct": null
+"pnl_pct": -10.14
 },
 {
 "date": "2026-10-16",
 "ticker": "SNOW",
 "entry": 314.0,
 "rsi2": 0.0,
-"pnl_pct": null
+"pnl_pct": 3.65
 },
 {
 "date": "2026-10-16",
 "ticker": "PLTR",
 "entry": 186.995,
 "rsi2": 0.0,
-"pnl_pct": null
+"pnl_pct": 3.68
 },
 {
 "date": "2026-10-16",
 "ticker": "SNDK",
 "entry": 1359.0,
 "rsi2": 0.0,
-"pnl_pct": null
+"pnl_pct": -7.56
 },
 {
 "date": "2026-10-16",
 "ticker": "MRVL",
 "entry": 240.0,
 "rsi2": 0.0,
-"pnl_pct": null
+"pnl_pct": -4.16
 },
 {
 "date": "2026-10-16",
 "ticker": "ANET",
 "entry": 182.87,
 "rsi2": 0.0,
-"pnl_pct": null
+"pnl_pct": -4.36
 },
 {
 "date": "2026-10-16",
 "ticker": "CRWD",
 "entry": 234.18,
 "rsi2": 0.0,
-"pnl_pct": null
+"pnl_pct": 10.23
 },
 {
 "date": "2026-10-16",
 "ticker": "PANW",
 "entry": 356.0,
 "rsi2": 0.0,
-"pnl_pct": null
+"pnl_pct": 8.59
 },
 {
 "date": "2026-10-16",
 "ticker": "NET",
 "entry": 305.0,
 "rsi2": 0.0,
-"pnl_pct": null
+"pnl_pct": 5.42
 },
 {
 "date": "2026-10-16",
 "ticker": "DDOG",
 "entry": 257.825,
 "rsi2": 0.0,
-"pnl_pct": null
+"pnl_pct": 5.52
 },
 {
 "date": "2026-10-16",
 "ticker": "FTNT",
 "entry": 171.0,
 "rsi2": 0.0,
-"pnl_pct": null
+"pnl_pct": 5.57
 },
 {
 "date": "2026-10-16",
 "ticker": "ZS",
 "entry": 209.91,
 "rsi2": 0.0,
-"pnl_pct": null
+"pnl_pct": 21.09
 },
 {
 "date": "2026-10-16",
 "ticker": "QQQ",
 "entry": 719.61,
 "rsi2": 0.0,
-"pnl_pct": null
+"pnl_pct": -1.73
 },
 {
 "date": "2026-10-19",
@@ -399,6 +399,150 @@
 "rsi2": 0.0,
 "pnl_pct": null,
 "entry_lim": 62.8125,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-23",
+"ticker": "XBI",
+"entry": 150.42,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 150.2877,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-23",
+"ticker": "NVDA",
+"entry": 213.105,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": null,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-23",
+"ticker": "META",
+"entry": 638.355,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 638.355,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-23",
+"ticker": "AMZN",
+"entry": 249.47,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 249.24,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-23",
+"ticker": "PLTR",
+"entry": 197.9,
+"rsi2": 9.2,
+"pnl_pct": null,
+"entry_lim": 197.7337,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-23",
+"ticker": "SMCI",
+"entry": 33.07,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 33.07,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-23",
+"ticker": "SNDK",
+"entry": 1251.88,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 1244.2201,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-23",
+"ticker": "HOOD",
+"entry": 94.21,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 94.21,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-23",
+"ticker": "AFRM",
+"entry": 70.08,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 70.08,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-23",
+"ticker": "MRNA",
+"entry": 186.904,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 186.904,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-23",
+"ticker": "HIMS",
+"entry": 27.51,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 27.51,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-23",
+"ticker": "GME",
+"entry": 24.82,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 24.82,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-23",
+"ticker": "ANET",
+"entry": 174.21,
+"rsi2": 8.9,
+"pnl_pct": null,
+"entry_lim": 173.2318,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-23",
+"ticker": "MSTR",
+"entry": 141.665,
+"rsi2": 2.7,
+"pnl_pct": null,
+"entry_lim": 141.665,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-23",
+"ticker": "SPY",
+"entry": 762.25,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 762.25,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-23",
+"ticker": "QQQ",
+"entry": 707.06,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 707.06,
 "pnl_lim_pct": null
 }
 ]

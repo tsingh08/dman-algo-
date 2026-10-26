@@ -1,155 +1,5 @@
 [
   {
-    "ts": "2026-10-23T13:09:39.699937-04:00",
-    "symbols": [
-      "AIXI"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T13:09:39.945345-04:00",
-    "symbols": [
-      "GPUS"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T13:09:40.214537-04:00",
-    "symbols": [
-      "BKYI"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T13:09:40.710158-04:00",
-    "symbols": [
-      "RNG"
-    ],
-    "headline": "Oppenheimer Maintains Outperform on RingCentral, Raises Price Target to $110",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T13:09:40.714793-04:00",
-    "symbols": [
-      "RNG"
-    ],
-    "headline": "Piper Sandler Maintains Neutral on RingCentral, Raises Price Target to $94",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T13:09:41.210074-04:00",
-    "symbols": [
-      "RHI"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-23T13:09:42.669801-04:00",
-    "symbols": [
-      "ITG"
-    ],
-    "headline": "ITG, Inc. Announces Preliminary Third Quarter 2026 Financial Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T13:09:45.594051-04:00",
-    "symbols": [
-      "HTCO"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T13:21:27.330149-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Can Apple Top Nvidia? iPhone Duo and Nov. 2 Earnings Hold the Key",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T13:21:27.335121-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Assessing Apple&#39;s Performance Against Competitors In Technology Hardware, Storage &amp; Peripherals Industry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T13:21:27.629462-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Oil Tops $100 on Iran Fears, Energy ETF XLE Hits New Record: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T13:21:28.169494-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Nvidia\u2019s China Market Has Effectively Vanished: \u2018Every Restriction Also Gives Chinese Suppliers a Larger Captive Market,\u2019 Says Shay Boloor",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T13:21:28.174139-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Nasdaq Records Worst Session Since June: Investor Sentiment Weakens, Greed Index Moves To \u2018Extreme Fear\u2019 Zone",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T13:21:28.468916-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#39;Meta&#39;s Muse AI To Counter China Models With Subscribers, Not Ads; Meta Plans To Offer Paid Enterprise Services, Will Take Commissions From Sellers On Purchases Made Using Agents, Alexandr Wang Says&#39; - Nikkei Asia",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T13:21:28.753771-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Oil Tops $100 on Iran Fears, Energy ETF XLE Hits New Record: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-23T13:21:34.665041-04:00",
     "symbols": [
       "SPOT"
@@ -4998,5 +4848,155 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T09:42:30.550662-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "On October 25, 2026 Elon Musk Post On X &#34;As of the past few weeks, debt markets have almost entirely shut off access to money for any company that doesn\u2019t have substantial revenue independent of AI data centers.  SpaceX closed $40B of debt for GPUs, but we\u2019re investment grade and have Starlink &amp; launch revenue. That means the 200+ neoclouds are going to see guppy-level death and consolidation. Some will make it through, but not many.&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T09:42:30.759683-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "On October 25, 2026 Elon Musk Post On X &#34;As of the past few weeks, debt markets have almost entirely shut off access to money for any company that doesn\u2019t have substantial revenue independent of AI data centers.  SpaceX closed $40B of debt for GPUs, but we\u2019re investment grade and have Starlink &amp; launch revenue. That means the 200+ neoclouds are going to see guppy-level death and consolidation. Some will make it through, but not many.&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T09:42:32.085086-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Anthropic Says As Of Sept 30, About 250 Customers With $10M Or More Of Revenue On A TTM Basis; In Q3, Recognized $2B Within Other Operating And Administrative Expense",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T09:42:32.089086-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Anthropic Says Dario Amodei Owns 240.6M Class A Shares Before Offering; Total 245.3M Including 4.6M Shares Subject To Voting Proxies; Daniela Amodei Beneficially Owned 241.4M Class A Shares Before Offering",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T09:42:32.092772-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Anthropic Says For Year Ended December 31, 2025, Expenses Related To Our Donation Matching Program Were $541M; Our Rent Payments Over The Life Of Leases Under Broadcom Lease Arrangements Equal To Aggregate Of About $161.2B Excluding Interest",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T09:42:32.290230-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Anthropic Says As Of Sept 30, About 250 Customers With $10M Or More Of Revenue On A TTM Basis; In Q3, Recognized $2B Within Other Operating And Administrative Expense",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T09:42:32.295115-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Anthropic Says Dario Amodei Owns 240.6M Class A Shares Before Offering; Total 245.3M Including 4.6M Shares Subject To Voting Proxies; Daniela Amodei Beneficially Owned 241.4M Class A Shares Before Offering",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T09:42:32.298383-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Anthropic Says For Year Ended December 31, 2025, Expenses Related To Our Donation Matching Program Were $541M; Our Rent Payments Over The Life Of Leases Under Broadcom Lease Arrangements Equal To Aggregate Of About $161.2B Excluding Interest",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T09:42:32.510462-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "On October 25, 2026 Elon Musk Post On X &#34;As of the past few weeks, debt markets have almost entirely shut off access to money for any company that doesn\u2019t have substantial revenue independent of AI data centers.  SpaceX closed $40B of debt for GPUs, but we\u2019re investment grade and have Starlink &amp; launch revenue. That means the 200+ neoclouds are going to see guppy-level death and consolidation. Some will make it through, but not many.&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T09:42:32.514113-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla\u2019s FSD Reaches 10th EU Country With Latvia Approval. Here\u2019s the Road Ahead for Tesla",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T09:42:33.607507-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Anthropic Says For Year Ended December 31, 2025, Expenses Related To Our Donation Matching Program Were $541M; Our Rent Payments Over The Life Of Leases Under Broadcom Lease Arrangements Equal To Aggregate Of About $161.2B Excluding Interest",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T09:42:38.842313-04:00",
+    "symbols": [
+      "SMR"
+    ],
+    "headline": "SK Hynix ETF Liquidations Raise Delisting Risks for Rival Leveraged Funds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T09:42:40.055046-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Tech Mahindra Collaborates With Mastercard To Upgrade Business To Business Payments For Global Firms",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T09:42:45.057671-04:00",
+    "symbols": [
+      "SRTM"
+    ],
+    "headline": "Ocean Power Technologies Inks Letter Of Intent With Stratum Holdings For Proposed Partnership To Unveil Offshore Data Center Assets",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T09:42:45.819316-04:00",
+    "symbols": [
+      "FRMM"
+    ],
+    "headline": "Forum Markets\u2019 Forum Edge AI Secures $94.4M, 36-Month Nvidia B300 GPU Capacity Agreement With Fireworks For Dallas Data Center",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

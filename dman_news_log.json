@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-23T15:13:11.238084-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Iraq Aims To Gradually Raise Oil Production To 10M Barrels Per Day By 2032",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-23T15:24:08.877749-04:00",
     "symbols": [
       "MSFT"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T12:33:08.037467-04:00",
+    "symbols": [
+      "LAES"
+    ],
+    "headline": "SEALSQ Announces Intent to Acquire Satellite Capacity and Operational Services from WISeSat.Space",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

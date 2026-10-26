@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-23T15:13:04.851418-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "The AI Boom Isn&#39;t 1999\u2014and Big Tech Could Cushion a Market Crash, This CEO Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T15:13:04.931881-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "The AI Boom Isn&#39;t 1999\u2014and Big Tech Could Cushion a Market Crash, This CEO Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T15:13:05.085978-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "The AI Boom Isn&#39;t 1999\u2014and Big Tech Could Cushion a Market Crash, This CEO Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T15:13:05.982422-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "DBS Bank Adjusts Salesforce Price Target to $300 From $240",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T15:13:06.561158-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "SanDisk Showcases iNAND AT EU752 Automotive Embedded Flash",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T15:13:09.399245-04:00",
-    "symbols": [
-      "OKLO"
-    ],
-    "headline": "Oklo Announces Date for Third Quarter 2026 Financial Results and Business Update Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-23T15:13:11.238084-04:00",
     "symbols": [
       "SPY"
@@ -4998,5 +4938,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T12:28:31.143336-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft&#39;s AI Data Center Misfire Exposes a Brutal Reality: Billions Can&#39;t Buy Time",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T12:28:31.393395-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Microsoft&#39;s AI Data Center Misfire Exposes a Brutal Reality: Billions Can&#39;t Buy Time",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T12:28:32.734450-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Reed Hastings Could Get Richer From Anthropic IPO: Here&#39;s How Many Shares Netflix Co-Founder Owns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-26T12:28:47.163214-04:00",
+    "symbols": [
+      "SGRY"
+    ],
+    "headline": "Crude Oil Edges Lower; Chicago Fed Activity Index Rises In September",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T12:28:48.554220-04:00",
+    "symbols": [
+      "RRC"
+    ],
+    "headline": "Crude Oil Edges Lower; Chicago Fed Activity Index Rises In September",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T12:28:50.907076-04:00",
+    "symbols": [
+      "XTND"
+    ],
+    "headline": "Crude Oil Edges Lower; Chicago Fed Activity Index Rises In September",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

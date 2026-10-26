@@ -1608,5 +1608,65 @@
 "extension_pct": 11.5,
 "fresh_base": false,
 "weak_band": true
+},
+{
+"ticker": "SLN",
+"date": "2026-10-26",
+"close": 19.78,
+"base_days": 2,
+"above_low_pct": 360.0,
+"extension_pct": 60.1,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "PD",
+"date": "2026-10-26",
+"close": 17.82,
+"base_days": 6,
+"above_low_pct": 211.0,
+"extension_pct": 10.6,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "RBRK",
+"date": "2026-10-26",
+"close": 133.4,
+"base_days": 0,
+"above_low_pct": 204.5,
+"extension_pct": 12.3,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "CRL",
+"date": "2026-10-26",
+"close": 357.27,
+"base_days": 2,
+"above_low_pct": 138.3,
+"extension_pct": 16.5,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "PR",
+"date": "2026-10-26",
+"close": 25.77,
+"base_days": 0,
+"above_low_pct": 119.9,
+"extension_pct": 10.9,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "TENB",
+"date": "2026-10-26",
+"close": 48.21,
+"base_days": 0,
+"above_low_pct": 200.6,
+"extension_pct": 23.9,
+"fresh_base": false,
+"weak_band": true
 }
 ]

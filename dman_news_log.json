@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-23T15:46:28.384966-04:00",
-    "symbols": [
-      "FMST"
-    ],
-    "headline": "Reported Earlier, Foremost To Sell 31% Of GR, Blackwing To Denison In $650,000 Deal, Form Two JVs, Retain 20%; Issue 1,031,191 Warrants At $1.80",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T15:46:30.415868-04:00",
-    "symbols": [
-      "THRM"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-23T15:46:30.420720-04:00",
     "symbols": [
       "THRM"
@@ -4970,6 +4950,16 @@
     "sentiment": "neutral"
   },
   {
+    "ts": "2026-10-26T12:56:44.386223-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "&#39;Apple\u2019s Foldable iPhone Duo Draws Early Complaints of the Screen Cracking&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
     "ts": "2026-10-26T12:56:45.267367-04:00",
     "symbols": [
       "OKLO"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T12:56:54.053677-04:00",
+    "symbols": [
+      "OKLO"
+    ],
+    "headline": "TD Cowen Initiates Coverage On Oklo with Hold Rating, Announces Price Target of $26",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

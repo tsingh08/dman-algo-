@@ -1,175 +1,5 @@
 [
   {
-    "ts": "2026-10-23T13:55:35.213250-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Truist Securities Maintains Buy on Mastercard, Raises Price Target to $674",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T13:55:36.188262-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Trump Expected To Remove Some Tariffs On Canada In Bid To Help Susan Collins; The Move, Which Could Come As Soon As Friday, Would Remove Tariffs On Some Agricultural And Forestry Goods But Could Raise Levies On Other Products&#39; - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T13:55:36.192765-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Time To Start Deploying Cash In The AI Trade?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T13:55:36.320323-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Time To Start Deploying Cash In The AI Trade?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T14:02:07.991864-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Taiwan Workers Reject Bonus Proposal",
-    "source": "fiscal.ai",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T14:02:08.416470-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Cybersecurity Warning Issued Regarding Fraudulent iPhone Duo Sales",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T14:02:15.306601-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "GE Vernova Stock Rebounds, AI Sell-Off Gives Way To Earnings Focus",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T14:02:15.313881-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "US Adversaries Russia, Iran and China Are Expanding Their Military Might, and Lockheed Martin Is Ramping Up \u2014 CEO Calls for \u2018Wartime Speed and Scale\u2019 as Backlog Hits Record $292 Billion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T14:02:15.318816-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "RTX Unit Pratt &amp; Whitney Begins Construction Of New $100M Rzesz\u00f3w Manufacturing Expansion In Poland",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T14:02:15.325108-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "GE Vernova Stock Rebounds, AI Sell-Off Gives Way To Earnings Focus",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T14:03:07.988219-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla Plans Cybercab Sales to Fleet Customers in 2026",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T14:03:07.993936-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Visa and Singapore Tourism Board Sign Three-Year Partnership MOU",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T14:03:08.000251-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "SanDisk Showcases New Automotive and Enterprise NAND Flash Solutions",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T14:03:08.005462-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Truist Financial Maintains Buy Rating and Raises Mastercard Price Target",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T14:03:08.010561-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Mastercard Senior Strategic Advisor Raj Seshadri Appointed to Fiserv Board",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T14:03:08.113012-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Costco Launches New 'Beauty Table' Program",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T14:03:08.117906-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Applied Ventures Invests in Albert Invent Corp.",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-23T14:03:08.122767-04:00",
     "symbols": [
       "GS"
@@ -4996,6 +4826,176 @@
     ],
     "headline": "RelvatoBot Verified as Cloudflare Partner Bot",
     "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T11:13:33.888300-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "&#39;SpaceX Is the New Neocloud&#39; \u2014 So Why Pay $63 for Every $1 of Sales?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T11:13:34.780063-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Growth Leads Sectors In Monday Trading As Defensives Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T11:13:34.979401-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "$1000 Invested In Advanced Micro Devices 15 Years Ago Would Be Worth This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T11:13:35.531099-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;SpaceX Is the New Neocloud&#39; \u2014 So Why Pay $63 for Every $1 of Sales?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T11:13:35.535485-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Growth Leads Sectors In Monday Trading As Defensives Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T11:13:35.760128-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Growth Leads Sectors In Monday Trading As Defensives Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T11:13:36.522987-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Growth Leads Sectors In Monday Trading As Defensives Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T11:13:45.314176-04:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "Barclays Maintains Overweight on SLB, Lowers Price Target to $63",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T11:13:45.679385-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Growth Leads Sectors In Monday Trading As Defensives Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T11:13:45.852235-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Growth Leads Sectors In Monday Trading As Defensives Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T11:13:46.219120-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Growth Leads Sectors In Monday Trading As Defensives Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T11:13:46.434601-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Growth Leads Sectors In Monday Trading As Defensives Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T11:13:50.897902-04:00",
+    "symbols": [
+      "BRAI"
+    ],
+    "headline": "Braiin Stock Rallies: What&#39;s Driving the Move?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T11:13:51.827994-04:00",
+    "symbols": [
+      "RFAI"
+    ],
+    "headline": "RF Acquisition Corp II Shares Halted On Circuit Breaker To The Upside, Stock Now Up 104.24%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T11:13:52.021202-04:00",
+    "symbols": [
+      "ABOS"
+    ],
+    "headline": "Acumen Pharmaceuticals Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T11:13:52.024829-04:00",
+    "symbols": [
+      "ABOS"
+    ],
+    "headline": "Acumen Pharmaceuticals Q3 EPS $(0.35) Beats $(0.37) Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T11:13:52.673391-04:00",
+    "symbols": [
+      "SKHX"
+    ],
+    "headline": "SK Hynix ETF Liquidations Raise Delisting Risks for Rival Leveraged Funds",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

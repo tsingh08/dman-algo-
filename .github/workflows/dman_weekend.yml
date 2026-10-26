@@ -3,7 +3,8 @@ name: DMan Weekend Catalyst Watch
 # Of eighteen crons, exactly one ran on a Saturday or Sunday (2026-09-19), so a
 # headline that landed after Friday's close was first seen by Monday's
 # pre-market pass -- hours late, and after the gap it caused. This watches the
-# weekend for real catalysts on names that have NOT moved yet. Read-only.
+# weekend for real catalysts on names that have NOT moved yet. Read-only,
+# except the Sunday-evening small-cap list rebuild at the end.
 on:
   schedule:
     - cron: '0 15 * * 6,0'    # ~11 AM ET Sat/Sun
@@ -14,6 +15,8 @@ on:
 jobs:
   weekend:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -83,3 +86,23 @@ jobs:
           ANTHROPIC_API_KEY:   ${{ secrets.ANTHROPIC_API_KEY }}
           ACCOUNT_SIZE:        ${{ secrets.ACCOUNT_SIZE }}
         run: python dman_algo.py --mode weekend
+
+      # Weekly rebuild of the alert-only small-cap list from a liquidity
+      # screen -- see tools/smallcap_universe_refresh.py for the measurement.
+      # Sunday's last-look run only, so Monday scans the fresh list. Leaves
+      # the file untouched on a data failure.
+      - name: Rebuild small-cap list
+        id: smallcap
+        if: github.event.schedule == '0 22 * * 0' || github.event_name == 'workflow_dispatch'
+        continue-on-error: true
+        env:
+          APCA_API_KEY_ID:     ${{ secrets.APCA_API_KEY_ID }}
+          APCA_API_SECRET_KEY: ${{ secrets.APCA_API_SECRET_KEY }}
+        run: python tools/smallcap_universe_refresh.py
+
+      - name: Commit small-cap list
+        if: steps.smallcap.outcome == 'success'
+        uses: ./.github/actions/persist-state
+        with:
+          files: dman_smallcap_watchlist.json
+          commit_message: "chore: weekly small-cap list rebuild [skip ci]"

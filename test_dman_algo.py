@@ -1739,7 +1739,7 @@ class TestNewsSentimentBreadth(unittest.TestCase):
         self._patches = [
             patch.object(a, "NEWS_LOG_FILE", self._tmp.name),
             patch.object(a, "WATCHLIST", ["AAPL", "MSFT"]),
-            patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["ARTL"]),
+            patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["ARTL"]), patch.object(a, "DMAN_CALLED_TICKERS", set(["ARTL"])),
         ]
         for p in self._patches:
             p.start()
@@ -3470,11 +3470,11 @@ class TestSharesFallbackPolicy(unittest.TestCase):
     of high-value stocks instead of skipping the trade."""
 
     def test_dman_watchlist_ticker_allowed(self):
-        with patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["APVO", "MASK"]):
+        with patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["APVO", "MASK"]), patch.object(a, "DMAN_CALLED_TICKERS", set(["APVO", "MASK"])):
             self.assertTrue(a._shares_fallback_allowed("APVO"))
 
     def test_large_cap_ticker_not_allowed(self):
-        with patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["APVO", "MASK"]):
+        with patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["APVO", "MASK"]), patch.object(a, "DMAN_CALLED_TICKERS", set(["APVO", "MASK"])):
             self.assertFalse(a._shares_fallback_allowed("AMZN"))
 
     def test_low_float_catalyst_setup_allowed_even_off_watchlist(self):
@@ -3483,7 +3483,7 @@ class TestSharesFallbackPolicy(unittest.TestCase):
         # no options, no shares -- purely because it wasn't on the
         # static watchlist, despite being exactly the profile the shares
         # exception was meant for. Went on to +75.5%, never traded.
-        with patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["APVO", "MASK"]):
+        with patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["APVO", "MASK"]), patch.object(a, "DMAN_CALLED_TICKERS", set(["APVO", "MASK"])):
             self.assertTrue(a._shares_fallback_allowed("PMI", "Low Float Catalyst"))
 
     def test_other_setups_off_watchlist_still_not_allowed(self):
@@ -3491,11 +3491,11 @@ class TestSharesFallbackPolicy(unittest.TestCase):
         # or Day 2 Continuation signal on a non-watchlist ticker must
         # still skip rather than fall back to shares (the exact NDSN
         # incident this policy exists to prevent).
-        with patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["APVO", "MASK"]):
+        with patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["APVO", "MASK"]), patch.object(a, "DMAN_CALLED_TICKERS", set(["APVO", "MASK"])):
             self.assertFalse(a._shares_fallback_allowed("NDSN", "Gap & Hold"))
 
     def test_watchlist_ticker_still_allowed_regardless_of_setup(self):
-        with patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["APVO", "MASK"]):
+        with patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["APVO", "MASK"]), patch.object(a, "DMAN_CALLED_TICKERS", set(["APVO", "MASK"])):
             self.assertTrue(a._shares_fallback_allowed("APVO", "Gap & Hold"))
 
     def test_momentum_day_only_setup_allowed_even_off_watchlist(self):
@@ -3504,7 +3504,7 @@ class TestSharesFallbackPolicy(unittest.TestCase):
         # thin-float universe, and shouldn't dead-end on watchlist
         # membership any more than a dynamically-discovered Low Float
         # Catalyst signal does.
-        with patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["APVO", "MASK"]):
+        with patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["APVO", "MASK"]), patch.object(a, "DMAN_CALLED_TICKERS", set(["APVO", "MASK"])):
             self.assertTrue(a._shares_fallback_allowed("XYZ", a.MOMENTUM_DAY_ONLY_SETUP))
 
     def test_momentum_day_only_setup_is_in_options_setups(self):
@@ -3525,7 +3525,7 @@ class TestSmallcapScoreThreshold(unittest.TestCase):
         self._setup_prob_tmp.close()
         os.unlink(self._setup_prob_tmp.name)
         self._patches = [
-            patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["ARTL"]),
+            patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["ARTL"]), patch.object(a, "DMAN_CALLED_TICKERS", set(["ARTL"])),
             patch.object(a, "DMAN_WATCHLIST_MIN_SCORE", 45),
             patch.object(a, "SMALLCAP_MIN_SCORE", 55),
             patch.object(a, "SETUP_MIN_CONFLUENCE", {"Low Float Catalyst": 90}),
@@ -11528,7 +11528,7 @@ class TestLowFloatCatalystNewsGate(unittest.TestCase):
             patch.object(a, "_get_short_float_data", return_value=(1.0, 5.0, 5.0, 0.1)),
             patch.object(a, "_is_recent_reverse_split", return_value=False),
             patch.object(a, "get_effective_account", return_value=5000.0),
-            patch.object(a, "DMAN_SMALLCAP_WATCHLIST", {"DMANPICK"}),
+            patch.object(a, "DMAN_SMALLCAP_WATCHLIST", {"DMANPICK"}), patch.object(a, "DMAN_CALLED_TICKERS", set({"DMANPICK"})),
             # Default to a neutral sentiment verdict so existing tests that
             # only care about the news-existence gate aren't incidentally
             # blocked by the separate sentiment check added 2026-08-13.
@@ -13970,7 +13970,7 @@ class TestMomentumWatchAutoExecute(unittest.TestCase):
         })
         with patch.object(a, "_force_close_day_only_positions", return_value=0), \
              patch("os.path.exists", return_value=False), \
-             patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["TESTX"]), \
+             patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["TESTX"]), patch.object(a, "DMAN_CALLED_TICKERS", set(["TESTX"])), \
              patch.object(a, "_get_short_float_data", return_value=(0.0, 0.0, 0.0, 0.0)), \
              patch("yfinance.Ticker") as MockYfTicker, \
              patch.object(a, "_fetch_intraday_bars", return_value=object()), \
@@ -15669,7 +15669,7 @@ class TestOptionsUnavailableSkipsInsteadOfSharesFallback(unittest.TestCase):
              patch.object(a, "_get_pdt_status", return_value={
                  "used": 0, "remaining": 3, "swing_mode": False, "equity": 30_000.0}), \
              patch.object(a, "WATCHLIST", []), \
-             patch.object(a, "DMAN_SMALLCAP_WATCHLIST", []), \
+             patch.object(a, "DMAN_SMALLCAP_WATCHLIST", []), patch.object(a, "DMAN_CALLED_TICKERS", set([])), \
              patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
              patch.object(a, "_submit_options_call", return_value=(None, None)), \
              patch.object(a, "submit_alpaca_trade") as mock_submit, \
@@ -15748,7 +15748,7 @@ class TestSubmitSignalsRespectsMaxPositionsBeforeSubmission(unittest.TestCase):
         sig = self._sig()
         with patch.object(a, "ALPACA_API_KEY", "test-key"), \
              patch.object(a, "ENABLE_OPTIONS_TRADING", False), \
-             patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["TEST"]), \
+             patch.object(a, "DMAN_SMALLCAP_WATCHLIST", ["TEST"]), patch.object(a, "DMAN_CALLED_TICKERS", set(["TEST"])), \
              patch.object(a, "is_market_open", return_value=True), \
              patch.object(a, "is_halted", return_value=False), \
              patch.object(a, "is_on_probation", return_value=(False, 1.0)), \
@@ -29808,3 +29808,28 @@ class TestOptionsFlagsAndThePltrSpread(unittest.TestCase):
         self.assertIn("_options_aggregate_room(_total_cost)", src)
         with patch.object(a, "get_effective_account", return_value=2_542.0):
             self.assertLessEqual(a.strangle_budget(), 2_542.0 * a.MAX_TRADE_LOSS_PCT)
+
+
+class TestDmanCalledIsTheGateSubset(unittest.TestCase):
+    """2026-10-26: the small-cap list is rebuilt from a liquidity screen; only
+    names DMan actually called keep the "his call IS the catalyst" gates."""
+
+    def _load(self, doc):
+        import tempfile, os
+        f = os.path.join(tempfile.mkdtemp(), "w.json")
+        with open(f, "w", encoding="utf-8") as fh:
+            json.dump(doc, fh)
+        with patch.object(a, "SMALLCAP_WATCHLIST_FILE", f), \
+             patch.object(a, "DMAN_SMALLCAP_WATCHLIST", list(doc.get("tickers", []))):
+            return a._load_dman_called()
+
+    def test_new_format_uses_only_the_calls(self):
+        self.assertEqual(self._load({"tickers": ["BBD", "GRAB", "CISS"], "dman_calls": ["CISS"]}), {"CISS"})
+
+    def test_old_format_keeps_the_whole_list(self):
+        self.assertEqual(self._load({"tickers": ["APVO", "MASK"]}), {"APVO", "MASK"})
+
+    def test_a_screened_name_gets_the_normal_floor(self):
+        with patch.object(a, "DMAN_CALLED_TICKERS", {"CISS"}),              patch.object(a, "SETUP_MIN_CONFLUENCE", {}),              patch.object(a, "_setup_probation_bonus", return_value=0):
+            self.assertEqual(a._smallcap_score_threshold("BBD", "X"), a.SMALLCAP_MIN_SCORE)
+            self.assertEqual(a._smallcap_score_threshold("CISS", "X"), a.DMAN_WATCHLIST_MIN_SCORE)

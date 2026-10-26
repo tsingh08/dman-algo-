@@ -400,6 +400,29 @@ def _load_smallcap_watchlist() -> list[str]:
 
 DMAN_SMALLCAP_WATCHLIST = _load_smallcap_watchlist()
 
+
+def _load_dman_called() -> set[str]:
+    """Names DMan himself called -- the subset the looser gates are FOR.
+
+    The list was every DMan call ever, so membership meant "his call is the
+    catalyst" and earned RVOL 0.5x / score 45 / +10 points / the news exemption.
+    Since 2026-10-26 tools/smallcap_universe_refresh.py rebuilds the list from a
+    liquidity screen and records his recent calls under "dman_calls"; screened
+    names have no call behind them, so they get the normal small-cap gates.
+    A file without the key (the old format) keeps the old meaning: all of it.
+    """
+    try:
+        with open(SMALLCAP_WATCHLIST_FILE, encoding="utf-8") as _f:
+            _d = json.load(_f)
+        if isinstance(_d, dict) and isinstance(_d.get("dman_calls"), list):
+            return {str(t).upper().strip() for t in _d["dman_calls"] if str(t).strip()}
+    except Exception:
+        pass
+    return set(DMAN_SMALLCAP_WATCHLIST)
+
+
+DMAN_CALLED_TICKERS = _load_dman_called()
+
 # ── Options layer (Dman style: ITM calls, live execution) ────────────────────
 # The old dual-path (advisory vs live) system is gone — ONE live path remains:
 # _find_best_call_contract / _find_best_put_contract → _submit_options_call/put,
@@ -6222,6 +6245,8 @@ def _stocktwits_inject_tickers(tickers_to_add: list[str]) -> list[str]:
             print(f"  📡 {_t} already in watchlist — skipping")
             continue
         _data.setdefault("tickers", []).append(_t)
+        if isinstance(_data.get("dman_calls"), list):
+            _data["dman_calls"].append(_t)
         _current.add(_t)
         _added.append(_t)
 
@@ -6231,6 +6256,7 @@ def _stocktwits_inject_tickers(tickers_to_add: list[str]) -> list[str]:
                 json.dump(_data, _f, indent=2)
             # Update the in-memory list so this run's scans see them too
             DMAN_SMALLCAP_WATCHLIST.extend(_added)
+            DMAN_CALLED_TICKERS.update(_added)
         except Exception as _e:
             print(f"  ⚠️  Could not write {SMALLCAP_WATCHLIST_FILE}: {_e}")
             return []
@@ -21952,7 +21978,7 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
         # For Dman's personally curated watchlist, his public call IS the catalyst;
         # lower bar applies so quiet accumulation days (CAST/LABT/YHC Monday pattern) pass.
         rvol = float(r["RVOL"]) if not pd.isna(r.get("RVOL", float("nan"))) else 0
-        _rvol_gate = DMAN_WATCHLIST_MIN_RVOL if ticker in DMAN_SMALLCAP_WATCHLIST else SMALLCAP_MIN_RVOL
+        _rvol_gate = DMAN_WATCHLIST_MIN_RVOL if ticker in DMAN_CALLED_TICKERS else SMALLCAP_MIN_RVOL
         if rvol < _rvol_gate:
             return None
 
@@ -22148,7 +22174,7 @@ def detect_low_float_catalyst(df: pd.DataFrame, ticker: str) -> Optional[ProSign
         # the safer default for a speculative micro-cap is to skip a trade
         # we can't verify, not force one through.
         _edgar_found, _edgar_summary = False, ""
-        if ticker not in DMAN_SMALLCAP_WATCHLIST:
+        if ticker not in DMAN_CALLED_TICKERS:
             _news_map = _fetch_massive_benzinga_news([ticker], hours_back=CATALYST_NEWS_LOOKBACK_HOURS)
             _has_news = bool(_news_map.get(ticker))
             # SEC EDGAR full-text search as a second, faster catalyst-
@@ -22303,7 +22329,7 @@ def score_smallcap_signal(sig: ProSignal) -> int:
     elif cash_to_mc >= 0.5: score +=  5   # substantial cash cushion
 
     # Dman watchlist bonus (10 pts) — personally curated picks have informational edge
-    if sig.ticker in DMAN_SMALLCAP_WATCHLIST:
+    if sig.ticker in DMAN_CALLED_TICKERS:
         score += 10
 
     return min(100, score)
@@ -22330,7 +22356,7 @@ def _smallcap_score_threshold(ticker: str, setup: str) -> int:
     specifically can't route around its own tightening just because the
     ticker happens to be curated.
     """
-    base = DMAN_WATCHLIST_MIN_SCORE if ticker in DMAN_SMALLCAP_WATCHLIST else SMALLCAP_MIN_SCORE
+    base = DMAN_WATCHLIST_MIN_SCORE if ticker in DMAN_CALLED_TICKERS else SMALLCAP_MIN_SCORE
     # Capped for the same reason the scanner's bar is: stacked restrictions can
     # ask for more than the score can ever reach, which disables a setup
     # silently instead of tightening it. See MAX_EFFECTIVE_MIN_SCORE.
@@ -31370,7 +31396,7 @@ def _shares_fallback_allowed(ticker: str, setup: str = "", score: float = 0) -> 
     order goes out -- watchlist membership adds nothing a real YES
     doesn't already cover.
     """
-    if (ticker in DMAN_SMALLCAP_WATCHLIST or setup == "Low Float Catalyst"
+    if (ticker in DMAN_CALLED_TICKERS or setup == "Low Float Catalyst"
             or setup == MOMENTUM_DAY_ONLY_SETUP):
         return True
     # Extended 2026-09-18: a backtest-validated watchlist name that scores at

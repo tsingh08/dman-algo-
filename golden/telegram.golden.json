@@ -57,7 +57,7 @@
     ],
     [
      "flag",
-     "('ENABLE_OPTIONS_TRADING', True)",
+     "('ENABLE_OPTIONS_TRADING', False)",
      "[]"
     ],
     [
@@ -102,7 +102,7 @@
     ],
     [
      "flag",
-     "('ENABLE_STRANGLE_AUTO_EXEC', True)",
+     "('ENABLE_STRANGLE_AUTO_EXEC', False)",
      "[]"
     ],
     [
@@ -138,7 +138,7 @@
     ],
     [
      "flag",
-     "('ENABLE_OPTIONS_TRADING', True)",
+     "('ENABLE_OPTIONS_TRADING', False)",
      "[]"
     ],
     [
@@ -183,7 +183,7 @@
     ],
     [
      "flag",
-     "('ENABLE_STRANGLE_AUTO_EXEC', True)",
+     "('ENABLE_STRANGLE_AUTO_EXEC', False)",
      "[]"
     ],
     [

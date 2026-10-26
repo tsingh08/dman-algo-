@@ -57,7 +57,12 @@
     ],
     [
      "flag",
-     "('ENABLE_OPTIONS_TRADING', False)",
+     "('ENABLE_OPTIONS_TRADING', True)",
+     "[]"
+    ],
+    [
+     "flag",
+     "('ENABLE_MOMENTUM_SPREADS', True)",
      "[]"
     ],
     [
@@ -102,7 +107,7 @@
     ],
     [
      "flag",
-     "('ENABLE_STRANGLE_AUTO_EXEC', False)",
+     "('ENABLE_STRANGLE_AUTO_EXEC', True)",
      "[]"
     ],
     [
@@ -138,7 +143,12 @@
     ],
     [
      "flag",
-     "('ENABLE_OPTIONS_TRADING', False)",
+     "('ENABLE_OPTIONS_TRADING', True)",
+     "[]"
+    ],
+    [
+     "flag",
+     "('ENABLE_MOMENTUM_SPREADS', True)",
      "[]"
     ],
     [
@@ -183,7 +193,7 @@
     ],
     [
      "flag",
-     "('ENABLE_STRANGLE_AUTO_EXEC', False)",
+     "('ENABLE_STRANGLE_AUTO_EXEC', True)",
      "[]"
     ],
     [
@@ -295,7 +305,7 @@
    "calls": [
     [
      "send_telegram",
-     "('❓ Unknown flag <b>bogus</b>. Known: accum, beargap, dipauto, english, market, options, quiet, rvol, setupkill, shadow, shares, smallcap, strangle, watchliston",
+     "('❓ Unknown flag <b>bogus</b>. Known: accum, beargap, dipauto, english, market, mspread, options, quiet, rvol, setupkill, shadow, shares, smallcap, strangle, wa",
      "[]"
     ]
    ],
@@ -306,7 +316,7 @@
    "calls": [
     [
      "send_telegram",
-     "('❓ Unknown flag <b>bogus</b>. Known: accum, beargap, dipauto, english, market, options, quiet, rvol, setupkill, shadow, shares, smallcap, strangle, watchliston",
+     "('❓ Unknown flag <b>bogus</b>. Known: accum, beargap, dipauto, english, market, mspread, options, quiet, rvol, setupkill, shadow, shares, smallcap, strangle, wa",
      "[]"
     ]
    ],

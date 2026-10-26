@@ -291,12 +291,13 @@ ENABLE_PREMARKET_SUBMIT = True
 # ── Options trading (large-cap Gap & Hold only) ───────────────────────────────
 # When True, the algo buys calls on WATCHLIST tickers instead of shares.
 # Falls back to equity order if no liquid contract is found.
-# OFF 2026-10-25 by decision: every options path the scanner can take on its own
-# BUYS premium, and buying premium lost in every dataset studied -- long ATM
-# earnings straddles -7.7% mean / -24% median / 32% win over 976 real events,
-# negative every year 2024-2026. Gates calls AND puts; read through flag(), so
-# `/flags options on` restores both without a commit.
-ENABLE_OPTIONS_TRADING      = False  # buy options instead of shares on WATCHLIST signals
+# Back ON 2026-10-26 by direct instruction ("turn options trading on, follow the
+# PLTR pattern"), after one night off. The evidence against bought premium still
+# stands (long ATM earnings straddles -7.7% mean over 976 real events), so single
+# calls/puts stay behind _options_earned(); the PLTR-style call spread has its
+# own guardrails instead -- see _options_eligible(). Gates calls AND puts; read
+# through flag(), so `/flags options off` stops both without a commit.
+ENABLE_OPTIONS_TRADING      = True   # buy options instead of shares on WATCHLIST signals
 OPTIONS_MAX_POSITION_PCT    = 0.15   # CLAMPED by MAX_TRADE_LOSS_PCT -- see there.
                                        # Target budget per options trade, as a fraction of
                                        # CURRENT equity (2026-08-21 — was a flat $2,000,
@@ -613,10 +614,13 @@ EARNINGS_SPREAD_TAKE_PROFIT_PCT= 0.70    # optional early close at this fraction
 # Geometry differs from earnings spreads on purpose: an earnings spread sits 7%
 # OTM to pay for a binary event; a continuation play has to pay from the first
 # dollar of follow-through, so the long leg sits AT the money.
-# OFF 2026-10-25 with ENABLE_OPTIONS_TRADING (only reached through the calls
-# route anyway): a debit spread is bought premium, and the replay below was
-# already negative.
-ENABLE_MOMENTUM_SPREADS       = False
+# The PLTR trade (2026-10-08, Gap & Hold score 100): buy 200C / sell 205C on a
+# $199.83 stock, 8 DTE, $2.00 debit = max loss, closed next day at $4.04
+# (+102%) -- about 70% of max gain, which is EARNINGS_SPREAD_TAKE_PROFIT_PCT,
+# the exit the monitor applies. Back ON 2026-10-26 with ENABLE_OPTIONS_TRADING;
+# does NOT need _options_earned() (operator's choice), but still needs a setup
+# the kill switch has not disabled. `/flags mspread off` stops it.
+ENABLE_MOMENTUM_SPREADS       = True
 MOMENTUM_SPREAD_MIN_PRICE     = 100.0   # below this, a call or shares already fit the budget
 MOMENTUM_SPREAD_LONG_OTM_PCT  = 0.0     # long leg at the money
 MOMENTUM_SPREAD_SHORT_OTM_PCT = 0.03    # start 3% wide, narrow to fit the budget
@@ -760,10 +764,10 @@ RUNNER_MAX_DAY_GAIN_PCT = 100.0
 # Event strangles place themselves. generate_strangle_advisory() only ever sent
 # a Telegram message, so both 2026-09-15/16 QQQ strangles were typed by hand on
 # the Alpaca site -- the one part of the day that actually required a human.
-# OFF 2026-10-25: a strangle is bought event volatility, the trade the options
-# study found negative every year. Off also mutes the advisory (log only) -- a
-# message describing a negative-expectancy trade is an invitation to type it.
-ENABLE_STRANGLE_AUTO_EXEC = False
+# Back ON 2026-10-26 by direct instruction, against the 2026-10-25 study (bought
+# event volatility was negative every year). OFF mutes the advisory as well as
+# the order (log only) -- `/flags strangle off`.
+ENABLE_STRANGLE_AUTO_EXEC = True
 # A strangle only pays if the underlying can actually reach a breakeven in the
 # time left. Require the nearer breakeven to sit inside this multiple of the
 # 20-day average true range stretched over the holding period; 1.0 means "the
@@ -2814,6 +2818,9 @@ TOGGLEABLE_FLAGS = {
                 "to the curated universe plus screener pages."),
     "options": ("ENABLE_OPTIONS_TRADING",
                 "buy options instead of shares on eligible signals."),
+    "mspread": ("ENABLE_MOMENTUM_SPREADS",
+                "PLTR-style ATM call debit spread on $100+ LONG signals, score "
+                "95+, one open at a time, max loss = debit."),
     "shares":  ("ENABLE_PDT_ZERO_SHARES",
                 "at 0 day trades, allow ONE share entry with no stop on a "
                 "Tier-A catalyst that has no options chain. OFF = options only. "
@@ -5753,7 +5760,17 @@ def _open_earnings_spread_position(plan: dict) -> OpenPosition:
         legs=legs, spread_qty=plan["sets"], max_loss=plan["max_loss"],
         max_gain=max_gain, earn_date=plan["earn_date"],
     )
-    PositionTracker().open(pos)
+    # Both callers catch a raise and send "FILLED but NOT TRACKED". That is the
+    # right outcome for either case below; silently merging into another row on
+    # the same ticker, or dropping the record on a full tracker, is not.
+    _pt = PositionTracker()
+    _clash = next((p for p in _pt.positions
+                   if _position_identity(p.ticker, p.setup) == _position_identity(pos.ticker, setup_tag)), None)
+    if _clash is not None:
+        raise RuntimeError(f"{pos.ticker} is already tracked as '{_clash.setup}' -- "
+                           f"refusing to merge a spread into it")
+    if not _pt.open(pos):
+        raise RuntimeError(f"no tracking slot for {pos.ticker} (MAX_POSITIONS {MAX_POSITIONS})")
     return pos
 
 
@@ -10383,6 +10400,23 @@ def _options_close_would_violate_pdt(occ_symbol: str) -> Optional[str]:
         return None
 
 
+def _spread_close_would_violate_pdt(pos: dict) -> Optional[str]:
+    """The spread sibling of _options_close_would_violate_pdt(): same three
+    conditions, same fail-OPEN direction. Spread closes went through no PDT
+    check at all, so a call spread opened today that reached take-profit the
+    same session would have closed as a day trade on a 0-remaining budget."""
+    try:
+        if pos.get("entry_date") != datetime.now(ET).date().isoformat():
+            return None
+        pdt = _get_pdt_status()
+        if pdt.get("equity", 0) >= 25_000 or pdt.get("remaining", 3) > 0:
+            return None
+        return (f"opened today and PDT budget is {pdt['used']}/3 used "
+                f"with 0 remaining")
+    except Exception:
+        return None
+
+
 def _ticker_bench_reason(ticker: str) -> Optional[str]:
     """
     Why `ticker` is currently benched from new entries, or None.
@@ -11868,7 +11902,7 @@ def _monitor_earnings_spread_position(pos: dict) -> Optional[str]:
     debit already paid) — no stop-loss enforcement needed, unlike a naked
     long option. Only two actions: close at EARNINGS_SPREAD_CLOSE_DTE before
     expiry (avoid short-leg pin/assignment risk), or optionally earlier once
-    current value reaches EARNINGS_SPREAD_TAKE_PROFIT_PCT of max gain. Shared
+    PROFIT reaches EARNINGS_SPREAD_TAKE_PROFIT_PCT of max gain. Shared
     by run_momentum_watch (hourly cron) and the always-on daemon (60s).
     """
     t = pos.get("ticker", "")
@@ -11915,11 +11949,25 @@ def _monitor_earnings_spread_position(pos: dict) -> Optional[str]:
             _mark_alerted(_dtek)
         return f"{t}: {action}"
 
-    if got_quotes and max_gain > 0 and cur_value >= max_gain * EARNINGS_SPREAD_TAKE_PROFIT_PCT:
+    # PROFIT against max gain, not VALUE. This compared the spread's value with
+    # 70% of max gain, so a 200/205 at $2.00 debit (max gain $300) closed once
+    # worth $210 -- +5%. The PLTR spread was sold by hand at $404, +102%; under
+    # the old test the algo would have taken +5% the moment it turned green.
+    _profit = cur_value - float(pos.get("entry", 0) or 0)
+    if got_quotes and max_gain > 0 and _profit >= max_gain * EARNINGS_SPREAD_TAKE_PROFIT_PCT:
+        _pdt_block = _spread_close_would_violate_pdt(pos)
+        if _pdt_block:
+            _pdk = f"{t}_EARNSPREAD_TP_PDT_{_tod}"
+            if not _is_alerted_today(_pdk):
+                send_telegram(f"⏸ <b>{t} spread at take-profit — held to next session</b>\n"
+                              f"Profit ${_profit:.0f}, but it was {_pdt_block}. "
+                              f"Closing today would be day trade #4.")
+                _mark_alerted(_pdk)
+            return f"{t}: TAKE-PROFIT deferred — {_pdt_block}"
         st, oid = _close_earnings_spread(pos, f"{t} earnings spread take-profit")
         if st == "submitted":
             action, msg = "🚀 TAKE-PROFIT — AUTO-CLOSED", \
-                f"Value ${cur_value:.0f} >= {EARNINGS_SPREAD_TAKE_PROFIT_PCT*100:.0f}% of max gain ${max_gain:.0f}. id {(oid or '')[:8]}…"
+                f"Profit ${_profit:.0f} (value ${cur_value:.0f}) >= {EARNINGS_SPREAD_TAKE_PROFIT_PCT*100:.0f}% of max gain ${max_gain:.0f}. id {(oid or '')[:8]}…"
         elif st == "pending":
             action, msg = "🚀 TAKE-PROFIT — close order working", "Close order already open — awaiting fill"
         elif st == "already_closed":
@@ -31617,10 +31665,12 @@ def _options_earned(setup: str) -> bool:
     return _n >= OPTIONS_UNLOCK_MIN_TRADES and _m > 0
 
 
-def _options_route(sig) -> tuple[bool, bool]:
-    """(use_calls, use_puts) for this signal -- the one definition of which
-    signals may trade as options. It was inline in the submit loop, which is
-    why a check sitting ABOVE it (shares<=0) could not consult it.
+def _options_eligible(sig) -> tuple[bool, bool]:
+    """(calls, puts) this signal may be expressed as, BEFORE the earned lock.
+    The momentum call spread keys on this rather than _options_route():
+    operator's choice 2026-10-26 -- the PLTR spread carries its own guardrails
+    (score 95+, one open, max loss = debit, verdict at MOMENTUM_SPREAD_REVIEW_N)
+    so it does not wait for the setup to earn single-leg options.
 
     Read through flag(): the bare constant made `/flags options off` a no-op."""
     _on = flag("ENABLE_OPTIONS_TRADING", ENABLE_OPTIONS_TRADING)
@@ -31628,13 +31678,27 @@ def _options_route(sig) -> tuple[bool, bool]:
               and (sig.ticker in WATCHLIST or sig.setup in OPTIONS_SETUPS))
     _puts = (_on and OPTIONS_ENABLE_PUTS and sig.bias == "SHORT"
              and (sig.ticker in WATCHLIST or sig.setup == "Bear Gap Hold"))
+    return bool(_calls), bool(_puts)
+
+
+def _momentum_spread_possible(sig) -> bool:
+    """True if a PLTR-style call spread is worth trying for this signal."""
+    return (_options_eligible(sig)[0]
+            and flag("ENABLE_MOMENTUM_SPREADS", ENABLE_MOMENTUM_SPREADS))
+
+
+def _options_route(sig) -> tuple[bool, bool]:
+    """(use_calls, use_puts) for this signal -- the one definition of which
+    signals may trade as SINGLE-LEG options. It was inline in the submit loop,
+    which is why a check sitting ABOVE it (shares<=0) could not consult it."""
+    _calls, _puts = _options_eligible(sig)
     if (_calls or _puts) and not _options_earned(sig.setup):
         _n, _m = _setup_fill_record(sig.setup)
         print(f"  \U0001f512 {sig.ticker}: options locked for {_setup_family(sig.setup)} "
               f"(live n={_n}, mean {_m:+.1f}%; needs {OPTIONS_UNLOCK_MIN_TRADES}+ "
-              f"and > 0) -- shares")
+              f"and > 0) -- shares, or a call spread")
         return False, False
-    return bool(_calls), bool(_puts)
+    return _calls, _puts
 
 
 def _momentum_spread_record() -> tuple[int, float]:
@@ -31661,7 +31725,20 @@ def _try_momentum_call_spread(sig, risk_mult: float) -> bool:
     once today is past earn_date -- which, for a continuation play, is exactly
     the right stop: the entry day to follow through, then cut at half.
     """
-    if not ENABLE_MOMENTUM_SPREADS or sig.bias != "LONG":
+    if not flag("ENABLE_MOMENTUM_SPREADS", ENABLE_MOMENTUM_SPREADS) or sig.bias != "LONG":
+        return False
+    # Never onto a ticker already tracked in any form. Spread rows key on the
+    # bare ticker (_position_identity), so open() would MERGE the spread into a
+    # share or zone row on the same name -- one row, the share count and share
+    # price as its "debit", managed by the spread monitor. Reproduced
+    # 2026-10-26 with PLTR shares + the PLTR spread. Checked before submitting
+    # so nothing reaches the broker; unreadable tracker -> refuse.
+    try:
+        _held = {str(p.ticker).upper() for p in PositionTracker().positions}
+    except Exception:
+        _held = {str(sig.ticker).upper()}
+    if str(sig.ticker).upper() in _held:
+        print(f"  ⏭️  {sig.ticker}: already tracked — no call spread on top of it")
         return False
     if (sig.confluence_score or 0) < MOMENTUM_SPREAD_MIN_SCORE:
         print(f"  ⏭️  {sig.ticker}: call spread needs score {MOMENTUM_SPREAD_MIN_SCORE}+ "
@@ -32404,7 +32481,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
             continue
 
         if sig.shares <= 0:
-            if not any(_options_route(sig)):
+            if not any(_options_route(sig)) and not _momentum_spread_possible(sig):
                 print(f"  ⏭️  {sig.ticker:<8} sizing failed — even 1 share exceeds the "
                       f"risk budget for this stop distance — skipping")
                 _mark_signal_not_taken(sig.ticker, "sizing: 1 share over budget")
@@ -32491,7 +32568,9 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
         # same as before — this only widens eligibility for setups already
         # proven in backtest, not a blanket "any LONG signal" gate.
         _use_options, _use_puts = _options_route(sig)
-        _calls_route = _use_options
+        # The spread below keys on eligibility, not on the earned lock -- see
+        # _options_eligible().
+        _calls_route = _options_eligible(sig)[0]
         # Puts: WATCHLIST membership OR a Bear Gap Hold signal — that setup is
         # one of the two most strictly-gated patterns in the system (gap%,
         # RVOL, RSI, MACD-confirmed, held-below-open, MTF+news-catalyst
@@ -32520,6 +32599,12 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
         if (_calls_route and not _use_options and not oid
                 and (sig.shares <= 0 or sig.entry >= MOMENTUM_SPREAD_MIN_PRICE)):
             if _try_momentum_call_spread(sig, _risk_off_mult):
+                # The spread was recorded by its own PositionTracker, so this
+                # batch's `pt` and duplicate set must learn about it -- or a
+                # second signal on the same name this pass would open shares
+                # and merge into the spread row.
+                already_tracked.add(sig.ticker)
+                pt._load()
                 continue
 
         if sig.shares <= 0 and not (_use_options or _use_puts):

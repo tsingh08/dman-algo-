@@ -15557,6 +15557,8 @@ class TestSubmitSignalsSkipsZeroShareSizing(unittest.TestCase):
         # Not options-eligible: nothing can express it, so it stops here.
         sig = self._sig()
         with patch.object(a, "_options_route", return_value=(False, False)), \
+             patch.object(a, "_options_eligible", return_value=(False, False)), \
+             patch.object(a, "_momentum_spread_possible", return_value=False), \
              patch.object(a, "ALPACA_API_KEY", "test-key"), \
              patch.object(a, "is_market_open", return_value=True), \
              patch.object(a, "is_halted", return_value=False), \
@@ -29626,47 +29628,138 @@ class TestShadowReviewScorecard(unittest.TestCase):
                 self.assertNotIn("=", line.split("_shadow_review(")[0])
 
 
-class TestBuySideOptionsAreOff(unittest.TestCase):
-    """Decision 2026-10-25: every options path the scanner takes on its own
-    buys premium, and bought premium lost in every dataset studied (976 real
-    earnings events, negative every year). Off by default, and /flags must
-    actually reach the code -- the bare constant made `/flags options` a no-op."""
+class TestOptionsFlagsAndThePltrSpread(unittest.TestCase):
+    """2026-10-26: options back on, following the PLTR trade -- an ATM call
+    debit spread (200/205 on $199.83, $2.00 debit) closed at $4.04, +102%.
+    /flags must reach the code (the bare constant made `/flags options` a
+    no-op), the spread may trade before the setup has earned single-leg
+    options, and the exit must be on PROFIT, not value."""
 
     def setUp(self):
         p = patch.object(a, "_load_flags", return_value={})
         p.start(); self.addCleanup(p.stop)
 
-    def _sig(self, bias, setup):
-        return MagicMock(ticker=a.WATCHLIST[0], bias=bias, setup=setup)
+    def _sig(self, bias="LONG", setup="Day 2 Continuation", ticker=None):
+        return MagicMock(ticker=ticker or a.WATCHLIST[0], bias=bias, setup=setup,
+                         confluence_score=100)
 
-    def test_defaults_are_off(self):
-        self.assertFalse(a.ENABLE_OPTIONS_TRADING)
-        self.assertFalse(a.ENABLE_MOMENTUM_SPREADS)
-        self.assertFalse(a.ENABLE_STRANGLE_AUTO_EXEC)
-        self.assertFalse(a.ENABLE_EARNINGS_SPREADS)
+    def test_defaults_are_on(self):
+        self.assertTrue(a.ENABLE_OPTIONS_TRADING)
+        self.assertTrue(a.ENABLE_MOMENTUM_SPREADS)
+        self.assertTrue(a.ENABLE_STRANGLE_AUTO_EXEC)
+        self.assertIn("mspread", a.TOGGLEABLE_FLAGS)
 
-    def test_no_signal_routes_to_calls_or_puts(self):
-        for sig in (self._sig("LONG", "Gap & Hold"), self._sig("SHORT", "Bear Gap Hold")):
-            self.assertFalse(a._signal_can_use_options(sig))
-            with patch.object(a, "_options_earned", return_value=True):
+    def test_flags_off_stop_every_route(self):
+        off = {"ENABLE_OPTIONS_TRADING": False}
+        with patch.object(a, "_load_flags", return_value=off), \
+             patch.object(a, "_options_earned", return_value=True):
+            for sig in (self._sig(), self._sig("SHORT", "Bear Gap Hold")):
+                self.assertFalse(a._signal_can_use_options(sig))
                 self.assertEqual(a._options_route(sig), (False, False))
+            self.assertFalse(a._momentum_spread_possible(self._sig()))
+        with patch.object(a, "_load_flags", return_value={"ENABLE_MOMENTUM_SPREADS": False}):
+            self.assertFalse(a._momentum_spread_possible(self._sig()))
+            self.assertFalse(a._try_momentum_call_spread(self._sig(), 1.0))
 
-    def test_the_flag_reaches_both_predicates(self):
-        sig = self._sig("LONG", "Gap & Hold")
-        with patch.object(a, "_load_flags", return_value={"ENABLE_OPTIONS_TRADING": True}), \
-             patch.object(a, "_options_earned", return_value=True):
-            self.assertTrue(a._signal_can_use_options(sig))
-            self.assertEqual(a._options_route(sig), (True, False))
-        with patch.object(a, "ENABLE_OPTIONS_TRADING", True), \
-             patch.object(a, "_load_flags", return_value={"ENABLE_OPTIONS_TRADING": False}), \
-             patch.object(a, "_options_earned", return_value=True):
-            self.assertFalse(a._signal_can_use_options(sig))
+    def test_unearned_setup_keeps_single_calls_locked_but_may_spread(self):
+        sig = self._sig()
+        with patch.object(a, "_options_earned", return_value=False), \
+             contextlib.redirect_stdout(io.StringIO()):
             self.assertEqual(a._options_route(sig), (False, False))
+            self.assertEqual(a._options_eligible(sig), (True, False))
+            self.assertTrue(a._momentum_spread_possible(sig))
+
+    def test_submit_loop_routes_the_spread_on_eligibility(self):
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        self.assertIn("_calls_route = _options_eligible(sig)[0]", src)
+        self.assertIn("already_tracked.add(sig.ticker)", src)
 
     def test_strangle_advisory_is_silent_when_off(self):
-        with patch.object(a, "send_telegram") as tg, \
+        with patch.object(a, "_load_flags", return_value={"ENABLE_STRANGLE_AUTO_EXEC": False}), \
+             patch.object(a, "send_telegram") as tg, \
              patch.object(a, "select_strangle_legs") as legs, \
              contextlib.redirect_stdout(io.StringIO()):
             a.generate_strangle_advisory("FOMC")
         tg.assert_not_called()
         legs.assert_not_called()
+
+    # --- never onto a name already tracked ----------------------------------
+    def _plan(self):
+        leg = {"long_occ": "PLTR261016C00200000", "short_occ": "PLTR261016C00205000",
+               "long_strike": 200.0, "short_strike": 205.0, "net_debit": 2.0,
+               "expiry": "2026-10-16", "max_gain": 300.0}
+        return {"ticker": "PLTR", "current_price": 199.83, "sets": 1, "net_debit": 2.0,
+                "call": leg, "total_cost": 200.0, "max_loss": 200.0, "directional": "LONG",
+                "earn_date": a._et_today().isoformat(), "timing": "",
+                "setup_tag": "Momentum Call Spread — Gap & Hold"}
+
+    def _tracker_with_pltr_shares(self):
+        import tempfile, os
+        d = tempfile.mkdtemp(); f = os.path.join(d, "pos.json")
+        with open(f, "w") as fh:
+            fh.write("[]")
+        real = a.PositionTracker
+        patcher = patch.object(a, "PositionTracker", side_effect=lambda *x, **k: real(f))
+        patcher.start(); self.addCleanup(patcher.stop)
+        real(f).open(a.OpenPosition(ticker="PLTR", bias="LONG", setup="Gap & Hold", entry=199.83,
+                                     stop=195.02, target1=211.85, target2=219.07, shares=1,
+                                     entry_date=a._et_today().isoformat()))
+        return real, f
+
+    def test_a_spread_never_merges_into_a_share_row(self):
+        real, f = self._tracker_with_pltr_shares()
+        with self.assertRaises(RuntimeError):
+            a._open_earnings_spread_position(self._plan())
+        rows = real(f).positions
+        self.assertEqual(len(rows), 1)
+        self.assertEqual((rows[0].setup, rows[0].shares, rows[0].entry), ("Gap & Hold", 1, 199.83))
+
+    def test_the_spread_is_refused_before_submitting_on_a_held_name(self):
+        self._tracker_with_pltr_shares()
+        with patch.object(a, "get_alpaca_client") as cl, \
+             contextlib.redirect_stdout(io.StringIO()):
+            self.assertFalse(a._try_momentum_call_spread(self._sig(ticker="PLTR"), 1.0))
+        cl.assert_not_called()
+
+    # --- the exit: profit, not value ---------------------------------------
+    def _monitor(self, long_bid, short_ask, pdt=None):
+        pos = {"ticker": "PLTR", "entry": 200.0, "max_gain": 300.0, "spread_qty": 1,
+               "earn_date": "2026-10-08", "entry_date": "2026-10-08",
+               "legs": ["PLTR261016C00200000", "PLTR261016C00205000"]}
+        snaps = {"PLTR261016C00200000": {"bid": long_bid, "ask": long_bid + 0.05},
+                 "PLTR261016C00205000": {"bid": short_ask - 0.05, "ask": short_ask}}
+        with patch.object(a, "_et_today", return_value=date(2026, 10, 9)), \
+             patch.object(a, "_get_option_snapshot", side_effect=lambda s: snaps[s]), \
+             patch.object(a, "_close_earnings_spread", return_value=("submitted", "oid12345")) as close, \
+             patch.object(a, "_spread_close_would_violate_pdt", return_value=pdt), \
+             patch.object(a, "_is_alerted_today", return_value=False), \
+             patch.object(a, "_mark_alerted"), \
+             patch.object(a, "send_telegram", return_value=True):
+            r = a._monitor_earnings_spread_position(pos)
+        return r, close
+
+    def test_green_by_5pct_is_not_a_take_profit(self):
+        # value $210 = 70% of max GAIN, the old trigger -- profit is only $10
+        r, close = self._monitor(4.10, 2.00)
+        close.assert_not_called()
+
+    def test_profit_past_70pct_of_max_gain_closes(self):
+        # value $420, profit $220 >= 0.70 * $300
+        r, close = self._monitor(9.40, 5.20)
+        close.assert_called_once()
+        self.assertIn("take-profit", close.call_args[0][1])
+
+    def test_same_day_take_profit_waits_at_zero_day_trades(self):
+        r, close = self._monitor(9.40, 5.20, pdt="opened today and PDT budget is 3/3 used with 0 remaining")
+        close.assert_not_called()
+        self.assertIn("deferred", r)
+
+    def test_pdt_guard_only_blocks_a_position_opened_today_at_zero(self):
+        today = datetime.now(a.ET).date().isoformat()
+        with patch.object(a, "_get_pdt_status", return_value={"equity": 2500, "used": 3, "remaining": 0}):
+            self.assertIsNotNone(a._spread_close_would_violate_pdt({"entry_date": today}))
+            self.assertIsNone(a._spread_close_would_violate_pdt({"entry_date": "2026-01-02"}))
+        with patch.object(a, "_get_pdt_status", return_value={"equity": 2500, "used": 2, "remaining": 1}):
+            self.assertIsNone(a._spread_close_would_violate_pdt({"entry_date": today}))
+        with patch.object(a, "_get_pdt_status", side_effect=OSError("api")):
+            self.assertIsNone(a._spread_close_would_violate_pdt({"entry_date": today}))

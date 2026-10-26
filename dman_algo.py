@@ -13182,7 +13182,10 @@ def _pmb_macro_calendar(now_et):
                 day_lbl = f"tomorrow ({d.strftime('%a %b %d')})"
             else:
                 day_lbl = f"in {offset}d ({d.strftime('%a %b %d')})"
-            if d in _FOMC_DATES:
+            if d in _FOMC_DATES and _fomc_blackout_lifted(d):
+                events_lines.append(f"⚠️ FOMC {day_lbl} — blackout LIFTED for this meeting: "
+                                    f"entries allowed, expect Fed-day whipsaw")
+            elif d in _FOMC_DATES:
                 if offset == 0:
                     events_lines.append(f"⛔ FOMC today — full-day blackout")
                 elif offset == 1:
@@ -17838,6 +17841,19 @@ def _macro_calendar_alert(expired: list, expiring: list, today: date) -> None:
         _log_swallowed("macro calendar alert", exc)
 
 
+def _fomc_blackout_lifted(ev: date) -> bool:
+    """True if the FOMC blackout around meeting `ev` was lifted by instruction.
+
+    Direct instruction 2026-10-26 for the 10-28 meeting: "trade the block if
+    there's an opportunity". Keyed by the meeting date in the flag NAME, same
+    pattern as _monthly_halt_flag_name(): a plain switch would also have
+    silently deleted the December blackout, while this re-arms itself for the
+    next meeting. FOMC only -- CPI/NFP mornings and _MAJOR_MACRO_EVENT_DATES
+    (the Nov 3-5 midterms) keep their blackouts.
+    """
+    return flag(f"FOMC_BLACKOUT_LIFTED_{ev.isoformat()}", False)
+
+
 def check_macro_safe() -> tuple[bool, int]:
     """
     Block signals near macro catalysts that create stop-blowing whipsaws.
@@ -17882,10 +17898,11 @@ def check_macro_safe() -> tuple[bool, int]:
             # been asking for a refill on Telegram for MACRO_CALENDAR_RUNWAY_DAYS.
             return False, 0
 
-        # FOMC: full-day blackout on release day ±1 calendar day
+        # FOMC: full-day blackout on release day ±1 calendar day -- unless the
+        # operator lifted it for THAT meeting (_fomc_blackout_lifted).
         for ev in _FOMC_DATES:
             days_away = (ev - today).days
-            if -1 <= days_away <= MACRO_BLACKOUT:
+            if -1 <= days_away <= MACRO_BLACKOUT and not _fomc_blackout_lifted(ev):
                 return False, 0
 
         # Major unscheduled macro events: same full-day ±1 blackout as FOMC

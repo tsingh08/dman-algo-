@@ -29833,3 +29833,28 @@ class TestDmanCalledIsTheGateSubset(unittest.TestCase):
         with patch.object(a, "DMAN_CALLED_TICKERS", {"CISS"}),              patch.object(a, "SETUP_MIN_CONFLUENCE", {}),              patch.object(a, "_setup_probation_bonus", return_value=0):
             self.assertEqual(a._smallcap_score_threshold("BBD", "X"), a.SMALLCAP_MIN_SCORE)
             self.assertEqual(a._smallcap_score_threshold("CISS", "X"), a.DMAN_WATCHLIST_MIN_SCORE)
+
+
+class TestFomcBlackoutLiftIsPerMeeting(unittest.TestCase):
+    """2026-10-26: "trade the block if there's an opportunity" -- the 10-28
+    FOMC blackout is lifted; other meetings and other events are not."""
+
+    def _safe(self, today, flags, hour=11):
+        now = datetime(today.year, today.month, today.day, hour, 0, tzinfo=a.ET)
+        with patch.object(a, "_load_flags", return_value=flags), \
+             patch.object(a, "_macro_calendar_state", return_value=([], [])), \
+             patch.object(a, "datetime") as dtm:
+            dtm.now.return_value = now
+            return a.check_macro_safe()[0]
+
+    def test_lifted_meeting_is_tradable_unlifted_is_not(self):
+        lift = {"FOMC_BLACKOUT_LIFTED_2026-10-28": True}
+        self.assertTrue(self._safe(date(2026, 10, 28), lift))
+        self.assertTrue(self._safe(date(2026, 10, 27), lift))
+        self.assertFalse(self._safe(date(2026, 10, 28), {}))
+        self.assertFalse(self._safe(date(2026, 12, 9), lift))      # December re-arms
+
+    def test_other_blackouts_stand(self):
+        lift = {"FOMC_BLACKOUT_LIFTED_2026-10-28": True}
+        self.assertFalse(self._safe(date(2026, 11, 4), lift))      # midterms, major macro
+        self.assertFalse(self._safe(date(2026, 11, 10), lift, hour=9))   # CPI morning

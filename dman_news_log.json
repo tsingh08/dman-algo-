@@ -1,165 +1,5 @@
 [
   {
-    "ts": "2026-10-26T09:26:04.241641-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Anthropic Files For Initial Public Offering On NASDAQ Under Ticker &#34;ANT&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:04.246598-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Traders Are Pricing a 11% Swing In Intel Ahead of Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:04.250109-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Apollo&#39;s Torsten Slok Warns AI Gains Are Concentrated in Mag 7 as S&amp;P 493 Sees \u2018No Signs\u2019 of Productivity Boost: &#39;Zero Financial Payoff&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:04.408038-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "CrowdStrike Stock Rose Friday Amid Cyber Rally. Here&#39;s a Look at the Week",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:04.412231-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Zuckerberg Is Raising the Stakes: Meta Plans $95 Billion Funding Push to Fuel AI Dreams",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:04.416064-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "SKHY, BABA in the Crosshairs: Goldman Slashes KOSPI Ahead of Earnings, Morgan Stanley Warns on China AI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:04.419309-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "UPDATE: Meta Announces That Nvidia, Advanced Micro Devices And Broadcom Have Each Indicated An Interest In Purchasing Up To $5B Of Shares In The Common Stock Offering",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:04.422587-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Meta Launches Offering Of 250M Depositary Shares And $22.5B Offering Of Class A Common Stock In Connection With Forward Sale Agreements; Total Value Of Offering Seen At $95B",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:04.596830-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Zuckerberg Is Raising the Stakes: Meta Plans $95 Billion Funding Push to Fuel AI Dreams",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:04.600217-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "UPDATE: Meta Announces That Nvidia, Advanced Micro Devices And Broadcom Have Each Indicated An Interest In Purchasing Up To $5B Of Shares In The Common Stock Offering",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:04.603479-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Meta Launches Offering Of 250M Depositary Shares And $22.5B Offering Of Class A Common Stock In Connection With Forward Sale Agreements; Total Value Of Offering Seen At $95B",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:04.801313-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Zuckerberg Is Raising the Stakes: Meta Plans $95 Billion Funding Push to Fuel AI Dreams",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T09:26:04.804773-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "UPDATE: Meta Announces That Nvidia, Advanced Micro Devices And Broadcom Have Each Indicated An Interest In Purchasing Up To $5B Of Shares In The Common Stock Offering",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T09:26:04.808762-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Jamie Dimon Warns AI Agents Could Be \u2018Treacherous\u2019 for Banks, but Researcher Says There May Be Another Reason to Worry",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T09:26:04.812043-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Launches Offering Of 250M Depositary Shares And $22.5B Offering Of Class A Common Stock In Connection With Forward Sale Agreements; Total Value Of Offering Seen At $95B",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T09:26:04.815164-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Files Prospectus To Sell Mixed Securities Shelf; Size Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-26T09:26:05.063044-04:00",
     "symbols": [
       "GOOGL"
@@ -4995,6 +4835,166 @@
       "BSRR"
     ],
     "headline": "Sierra Q3 EPS $1.18 Beats $0.91 Estimate, Sales $40.081M Beat $39.251M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T13:31:59.378306-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "IREN, CRWV, NBIS, APLD Stocks Fall Pre-Market as Analyst Echoes Elon Musk\u2019s Neocloud Debt Warning: \u2018Putting GPUs as Collateral Isn\u2019t Enough Anymore&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T13:31:59.383144-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "NBIS Stock Falls Pre-Market as Nebius CEO Echoes Elon Musk&#39;s Neocloud Financing Concerns: &#39;Some of the Capital Sources Are Temporarily Closed&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T13:31:59.566357-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "IREN, CRWV, NBIS, APLD Stocks Fall Pre-Market as Analyst Echoes Elon Musk\u2019s Neocloud Debt Warning: \u2018Putting GPUs as Collateral Isn\u2019t Enough Anymore&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T13:31:59.811811-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Neoclouds Face Guppy-Level Death; 36% Of S&amp;P 500 Earnings This Week; Brazil Stocks Plunge On Election Outcome",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T13:31:59.818517-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Unveils All-New iPad mini With 8.5-Inch OLED Display, A20 Pro Chip, Apple Intelligence",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T13:32:00.064890-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Neoclouds Face Guppy-Level Death; 36% Of S&amp;P 500 Earnings This Week; Brazil Stocks Plunge On Election Outcome",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T13:32:00.290723-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Neoclouds Face Guppy-Level Death; 36% Of S&amp;P 500 Earnings This Week; Brazil Stocks Plunge On Election Outcome",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T13:32:00.731314-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Neoclouds Face Guppy-Level Death; 36% Of S&amp;P 500 Earnings This Week; Brazil Stocks Plunge On Election Outcome",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T13:32:01.160571-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Neoclouds Face Guppy-Level Death; 36% Of S&amp;P 500 Earnings This Week; Brazil Stocks Plunge On Election Outcome",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T13:32:01.392474-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Neoclouds Face Guppy-Level Death; 36% Of S&amp;P 500 Earnings This Week; Brazil Stocks Plunge On Election Outcome",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T13:32:06.841683-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Blackmail, Deception, Shutdown Resistance: Anthropic Lists AI Risks Ahead of IPO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T13:32:07.031654-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Blackmail, Deception, Shutdown Resistance: Anthropic Lists AI Risks Ahead of IPO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T13:32:08.336174-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Blackmail, Deception, Shutdown Resistance: Anthropic Lists AI Risks Ahead of IPO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T13:32:08.542148-04:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Blackmail, Deception, Shutdown Resistance: Anthropic Lists AI Risks Ahead of IPO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T13:32:13.572320-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Neoclouds Face Guppy-Level Death; 36% Of S&amp;P 500 Earnings This Week; Brazil Stocks Plunge On Election Outcome",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T13:32:13.757442-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Neoclouds Face Guppy-Level Death; 36% Of S&amp;P 500 Earnings This Week; Brazil Stocks Plunge On Election Outcome",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

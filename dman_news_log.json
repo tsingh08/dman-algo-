@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-10-23T14:37:59.106497-04:00",
-    "symbols": [
-      "ITG"
-    ],
-    "headline": "Citigroup Maintains Buy on ITG, Lowers Price Target to $9",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T14:37:59.183760-04:00",
-    "symbols": [
-      "SIGI"
-    ],
-    "headline": "Selective Insurance Gr Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T14:37:59.703959-04:00",
-    "symbols": [
-      "RITM"
-    ],
-    "headline": "Rithm Capital Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-23T14:37:59.708512-04:00",
-    "symbols": [
-      "RITM"
-    ],
-    "headline": "Rithm Capital Q3 Adj. EPS $0.55 Beats $0.50 Estimate, Sales $1.756B Beat $1.468B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-23T14:37:59.712925-04:00",
-    "symbols": [
-      "RITM"
-    ],
-    "headline": "American Express, Eni On Deck Friday As Spending, Energy Demand Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-23T14:47:01.155263-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron&#39;s Next AI Memory Breakthrough Has a Cooling Problem",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T14:47:08.613544-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Citigroup Maintains Buy on Lockheed Martin, Raises Price Target to $706",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T14:47:13.780420-04:00",
-    "symbols": [
-      "RY"
-    ],
-    "headline": "&#39;Trump Expected To Remove Some Tariffs On Canada In Bid To Help Susan Collins; The Move, Which Could Come As Soon As Friday, Would Remove Tariffs On Some Agricultural And Forestry Goods But Could Raise Levies On Other Products&#39; - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T14:47:14.806999-04:00",
-    "symbols": [
-      "HURN"
-    ],
-    "headline": "Truist Securities Maintains Buy on Huron Consulting Gr, Raises Price Target to $220",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T14:47:15.372044-04:00",
-    "symbols": [
-      "FPH"
-    ],
-    "headline": "Deckers Outdoor Posts Mixed Q2 Results, Joins BayCom, Five Point Holdings And Other Big Stocks Moving Lower In Friday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-23T14:47:15.691722-04:00",
     "symbols": [
       "FHB"
@@ -4998,5 +4898,105 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T12:17:26.533490-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Tesla-SpaceX Merger Stands at 80%-90% Chance, Dan Ives&#39; $500 Price Tag Explains Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T12:17:26.539755-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Asks U.S. Federal Communications Commission To Include 902\u2013928 MHz For Supplemental Coverage From Space",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T12:17:27.252216-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Anthropic Booked $41 Million in 2023 \u2014 And $16.3 Billion in the First Half of 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T12:17:27.454455-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Anthropic Booked $41 Million in 2023 \u2014 And $16.3 Billion in the First Half of 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T12:17:27.750699-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Anthropic Booked $41 Million in 2023 \u2014 And $16.3 Billion in the First Half of 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T12:17:28.147030-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Anthropic Booked $41 Million in 2023 \u2014 And $16.3 Billion in the First Half of 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T12:17:28.344606-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Anthropic Booked $41 Million in 2023 \u2014 And $16.3 Billion in the First Half of 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T12:17:28.348495-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Q3 Preview: Analyst Expects AWS Growth To Outperform, Drive Upside",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T12:17:28.533493-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla-SpaceX Merger Stands at 80%-90% Chance, Dan Ives&#39; $500 Price Tag Explains Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T12:17:34.660121-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Here&#39;s How Much $100 Invested In Fortinet 15 Years Ago Would Be Worth Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-26T09:26:04.234846-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;Anthropic Targets IPO Week Of November 16&#39; - WSJ Live",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:04.238327-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Scotiabank Maintains Sector Outperform on Microsoft, Raises Price Target to $625",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-26T09:26:04.241641-04:00",
     "symbols": [
       "MSFT"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T13:21:03.646546-04:00",
+    "symbols": [
+      "PLUR"
+    ],
+    "headline": "Pluri And ZEO ScientifiX Announce Strategic Agreement To Expand Parties US Manufacturing And Commercialization Platform Serving Regenerative Medicine, Aesthetics, Wellness, And Longevity Markets",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T13:21:06.512828-04:00",
+    "symbols": [
+      "BSRR"
+    ],
+    "headline": "Sierra Q3 EPS $1.18 Beats $0.91 Estimate, Sales $40.081M Beat $39.251M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

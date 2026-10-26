@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-23T15:46:30.420720-04:00",
-    "symbols": [
-      "THRM"
-    ],
-    "headline": "JP Morgan Maintains Overweight on Gentherm, Lowers Price Target to $47",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-23T15:46:30.425676-04:00",
     "symbols": [
       "THRM"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T13:02:08.305384-04:00",
+    "symbols": [
+      "STLA"
+    ],
+    "headline": "Stellantis Announces 2027 Jeep Gladiator 35-inch Tire Launch Edition",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

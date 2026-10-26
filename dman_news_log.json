@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-10-23T20:03:08.481323-04:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "UBS Identifies Freeport-McMoRan Among Top Copper Producers in Market Outlook",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T20:03:08.773752-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Higgsfield AI Extends Series B Financing with Investment from NVIDIA",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T20:03:08.991715-04:00",
-    "symbols": [
-      "LFS"
-    ],
-    "headline": "Leifras Director Appointed to Expert Committee for Japan Sports Agency Project",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T20:03:09.233398-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Robinhood Markets Insider Executes Share Sale",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T20:03:09.463560-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Chevron Implements Permian Operational Strategy in Argentina's Vaca Muerta",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T09:26:03.429083-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Verizon CEO Says Operating Under The Assumption That Everything SpaceX Says They Will Do, They Will Execute Flawlessly",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:03.432644-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Verizon CEO Says Co Could Raise Prices After Adding Value To Customer Offerings Over Past Year; Says SpaceX Would Need At Least Four To Six Years And Hundreds Of Billions Of Dollars To Build A Mobile Network; See Absolutely No Benefit Whatsoever To Extending An MVNO Deal To Any Satellite Provider",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-26T09:26:03.436179-04:00",
     "symbols": [
       "SPCX"
@@ -4995,6 +4925,76 @@
       "NN"
     ],
     "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T13:20:43.610379-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Nasdaq 100 Rallies on Chip Rebound; Brazil ETF Sinks 21%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T13:20:43.806019-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Nasdaq 100 Rallies on Chip Rebound; Brazil ETF Sinks 21%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T13:20:43.991996-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nasdaq 100 Rallies on Chip Rebound; Brazil ETF Sinks 21%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T13:20:44.976510-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Nasdaq 100 Rallies on Chip Rebound; Brazil ETF Sinks 21%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T13:20:45.429848-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Nasdaq 100 Rallies on Chip Rebound; Brazil ETF Sinks 21%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T13:20:57.310814-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Nasdaq 100 Rallies on Chip Rebound; Brazil ETF Sinks 21%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T13:20:57.496096-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Nasdaq 100 Rallies on Chip Rebound; Brazil ETF Sinks 21%: Stock Market Today",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

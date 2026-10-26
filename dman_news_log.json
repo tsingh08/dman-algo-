@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-23T14:15:38.980055-04:00",
-    "symbols": [
-      "TTMI"
-    ],
-    "headline": "Truist Securities Maintains Buy on TTM Technologies, Lowers Price Target to $170",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T14:26:38.089139-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Why Is United Airlines Stock Falling on Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T14:26:42.866288-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "Canaccord Genuity Maintains Buy on DraftKings, Lowers Price Target to $40",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-23T14:26:44.885828-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Novo Nordisk&#39;s Awiqli Receives FDA Approval As The First And Only Once-Weekly Insulin For Children 10 Years Of Age And Older With Type 2 Diabetes",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T14:26:48.706113-04:00",
-    "symbols": [
-      "BNC"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T14:26:49.518187-04:00",
-    "symbols": [
-      "WRLD"
-    ],
-    "headline": "World Acceptance Q2 EPS $1.92 Beats $0.79 Estimate, Sales $139.207M Miss $140.700M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T14:37:50.460325-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Amazon CEO Andy Jassy Says AI Inference Is Still 10 Times Too Expensive, Claims Amazon Chips Offer Answer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-23T14:37:50.868298-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon CEO Andy Jassy Says AI Inference Is Still 10 Times Too Expensive, Claims Amazon Chips Offer Answer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-23T14:37:59.106497-04:00",
     "symbols": [
       "ITG"
@@ -4995,6 +4915,86 @@
       "AKBA"
     ],
     "headline": "Akebia Therapeutics Reports Data From Vafseo Outcomes In Center Experience Study At American Society Of Nephrology Kidney Week 2026 In Patients With Treated With Vadadustat",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T12:06:07.917433-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Anthropic Publicly Files for IPO: What Will ANT Stock Be Worth on Day One?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T12:06:08.118966-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Anthropic Publicly Files for IPO: What Will ANT Stock Be Worth on Day One?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T12:06:09.454354-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Suffers a 99.8% Snub From Its Union, Exposing AI&#39;s Human Fault Line",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T12:06:10.845861-04:00",
+    "symbols": [
+      "NIO"
+    ],
+    "headline": "JP Morgan Maintains Neutral on NIO, Lowers Price Target to $3.7",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T12:06:14.969640-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "Stifel Maintains Buy on DraftKings, Lowers Price Target to $32",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T12:06:17.361399-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Mark Cuban Warns CEOs If Your Health Benefits Do Not Actually Help Employees You Are Legally Liable - &#39;It\u2019s All On You\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T12:06:17.554725-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Anthropic Publicly Files for IPO: What Will ANT Stock Be Worth on Day One?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T12:06:19.517465-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Director Of U.S. Federal Housing Bill Pulte, On Social Media, Says We Are Taking More Action This Week To Ensure Competition Is Real And Not Fake, Or Manipulated",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

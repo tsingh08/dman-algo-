@@ -1,185 +1,5 @@
 [
   {
-    "ts": "2026-10-26T09:26:05.063044-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;Anthropic Targets IPO Week Of November 16&#39; - WSJ Live",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:05.066360-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Anthropic Files For Initial Public Offering On NASDAQ Under Ticker &#34;ANT&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:05.069633-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "\u2018Best Midterm Strategy\u2019 for Stocks? Turn Off the TV and Buy on Election Day, Says Analyst \u2014What 75 Years of S&amp;P 500 History Reveals",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:05.072878-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Anthropic To Release S-1 At 9 am Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:05.076113-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Traders Are Pricing a 11% Swing In Intel Ahead of Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:05.278923-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#39;Anthropic Targets IPO Week Of November 16&#39; - WSJ Live",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:05.282380-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Anthropic Files For Initial Public Offering On NASDAQ Under Ticker &#34;ANT&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:05.285693-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "\u2018Best Midterm Strategy\u2019 for Stocks? Turn Off the TV and Buy on Election Day, Says Analyst \u2014What 75 Years of S&amp;P 500 History Reveals",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:05.288971-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Anthropic To Release S-1 At 9 am Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:05.315833-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Verizon and Amazon Web Services Expand Strategic Partnership With $2B+ AI Infrastructure Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:05.543757-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "This Tesla Analyst Turns Bullish; Here Are Top 5 Upgrades For Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:05.547224-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Barclays Upgrades Tesla to Overweight, Raises Price Target to $450",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:05.550687-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla&#39;s Cash Windfall Has a Catch: $1.9 Billion in Unpaid Bills",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:05.554065-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla Says Latvia Has Approved The Company&#39;s Full Self-Driving (Supervised) Technology",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:05.557377-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Apollo&#39;s Torsten Slok Warns AI Gains Are Concentrated in Mag 7 as S&amp;P 493 Sees \u2018No Signs\u2019 of Productivity Boost: &#39;Zero Financial Payoff&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:05.697871-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Reports of Declining User Engagement at Netflix",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-26T09:26:05.862052-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Snowflake Inc. Insider Executes Stock Sale",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T09:26:06.037493-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Deutsche Bank Adjusts Palantir Technologies Price Target to $225",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-26T09:26:06.177973-04:00",
     "symbols": [
       "SMCI"
@@ -4998,5 +4818,185 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T13:43:26.946257-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "9 Communication Services Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T13:43:27.534895-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "&#39;Apple Responds to iPhone Duo Display Cracking Reports&#39; - MacRumors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T13:43:27.540136-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple\u2019s iPhone Duo Buyers Face a Wait That Could Stretch Into January",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T13:43:27.731628-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T13:43:28.007370-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T13:43:28.201676-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Zuckerberg Is Raising the Stakes: Meta Plans $95 Billion Funding Push to Fuel AI Dreams",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T13:43:28.407485-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "9 Communication Services Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T13:43:28.589481-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "9 Communication Services Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T13:43:30.379700-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T13:43:30.558386-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T13:43:31.249092-04:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T13:43:34.274508-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "9 Industrials Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T13:43:34.616417-04:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "9 Communication Services Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-26T13:43:34.803990-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T13:43:38.347436-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "9 Industrials Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T13:43:38.722654-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "9 Industrials Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T13:43:39.085551-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "9 Industrials Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T13:43:40.739347-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

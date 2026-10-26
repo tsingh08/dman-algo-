@@ -553,7 +553,7 @@ STRANGLE_OTM_PCT    = 0.04             # 4% OTM per leg (keeps premium reasonabl
 STRANGLE_TARGET_DTE = 7                # weekly options — captures the move, limits theta
 STRANGLE_MIN_DTE    = 5                # ≥5 DTE avoids same-week expiry (gamma/theta bleed)
 STRANGLE_MAX_DTE    = 14
-STRANGLE_RISK_PCT   = 0.01             # 1% of account per strangle event
+# (STRANGLE_RISK_PCT removed 2026-10-26: never read; sizing is strangle_budget())
 
 # ── Earnings vertical/double debit spreads (rule-based, single-stock, WATCHLIST) ──
 # Turns tonight's manually-built META spread (2026-07-29) into a permanent, tested
@@ -18929,11 +18929,18 @@ def _open_options_premium_at_risk() -> float:
     contracts x 100, so entry * shares is the dollar premium paid -- which is
     also the maximum loss, since a long option has no stop and can expire
     worthless.
+
+    A spread is counted at its max_loss (entry is already the total debit,
+    shares is 0). It used to be skipped outright, so an open spread added
+    nothing to the aggregate cap it shares with single legs and strangles.
     """
     try:
         _tot = 0.0
         for p in PositionTracker().positions:
             _setup = getattr(p, "setup", "") or ""
+            if _is_spread_setup(_setup):
+                _tot += float(getattr(p, "max_loss", 0) or 0) or float(p.entry or 0)
+                continue
             if not (_setup.startswith("Options Call ") or _setup.startswith("Options Put ")):
                 continue
             _tot += float(p.entry) * float(p.shares)
@@ -22528,8 +22535,7 @@ def size_strangle_trade(total_premium: float) -> int:
     Called by format_strangle_telegram() but never defined, so every strangle
     advisory died with NameError inside the briefing's try/except and was
     never sent -- including the ones triggered by FOMC and third-Friday OPEX.
-    Sized against OPTIONS_CONTRACT_BUDGET_MAX, the same ceiling every other
-    options position answers to. 0 means one strangle already exceeds it.
+    Sized against strangle_budget(). 0 means one strangle already exceeds it.
     """
     try:
         _cost = float(total_premium) * 100
@@ -22537,7 +22543,22 @@ def size_strangle_trade(total_premium: float) -> int:
         return 0
     if _cost <= 0:
         return 0
-    return int(OPTIONS_CONTRACT_BUDGET_MAX // _cost)
+    return int(strangle_budget() // _cost)
+
+
+def strangle_budget() -> float:
+    """Dollars one event strangle may cost: OPTIONS_CONTRACT_BUDGET_MAX, capped
+    at MAX_TRADE_LOSS_PCT of equity. Unlike a single call, a strangle's legs are
+    deliberately unstopped, so the whole premium is the realistic loss -- and
+    the flat $400 was 15.7% of a $2,542 account on one event. The advisory used
+    to call this "1% acct risk". Unreadable equity -> the flat cap."""
+    try:
+        _eq = float(get_effective_account())
+        if _eq > 0:
+            return round(min(OPTIONS_CONTRACT_BUDGET_MAX, _eq * MAX_TRADE_LOSS_PCT), 2)
+    except Exception:
+        pass
+    return OPTIONS_CONTRACT_BUDGET_MAX
 
 
 def format_strangle_telegram(result: dict, event: str) -> str:
@@ -22551,7 +22572,7 @@ def format_strangle_telegram(result: dict, event: str) -> str:
     strangles  = size_strangle_trade(total)
     total_cost = round(cost_each * strangles, 0) if strangles > 0 else cost_each
     size_line  = (f"Suggested: <b>{strangles} strangle(s)</b> = ${total_cost:,.0f} total "
-                  f"(1% acct risk)\n" if strangles > 0
+                  f"(all of it at risk; cap ${strangle_budget():,.0f})\n" if strangles > 0
                   else f"Cost: ${cost_each:.0f}/strangle (budget check: may need larger acct)\n")
     return (
         f"⚡ <b>DMan STRANGLE Advisory</b> — {ticker}  [{event}]\n\n"
@@ -22630,8 +22651,12 @@ def _submit_strangle(result: dict, event: str) -> str:
     if _qty < 1:
         return (f"⛔ Not executed — one strangle costs "
                 f"${_per_strangle:.0f} at the limits being sent, over the "
-                f"${OPTIONS_CONTRACT_BUDGET_MAX:.0f} per-position budget.")
+                f"${strangle_budget():.0f} strangle budget.")
     _total_cost = round(_per_strangle * _qty, 2)
+    # Every other options entry answers to the aggregate cap; this one never did.
+    _agg = _options_aggregate_room(_total_cost)
+    if _agg:
+        return f"⛔ Not executed — {_agg}"
     # Every single-leg entry pay-checks; this path never did. Without it the
     # SECOND leg is the one that gets rejected for buying power -- leaving the
     # first leg filled and the account holding a naked directional option

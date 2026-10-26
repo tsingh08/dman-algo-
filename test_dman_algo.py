@@ -7454,8 +7454,11 @@ class TestLineByLineAuditFixes(unittest.TestCase):
     # ── strangle advisory ──────────────────────────────────────────────────
     def test_strangle_sizer_exists_and_fits_the_budget(self):
         self.assertTrue(callable(getattr(a, "size_strangle_trade", None)))
-        n = a.size_strangle_trade(1.50)            # $150 per strangle
-        self.assertEqual(n, int(a.OPTIONS_CONTRACT_BUDGET_MAX // 150))
+        with patch.object(a, "get_effective_account", return_value=10_000.0):
+            self.assertEqual(a.size_strangle_trade(1.50), int(a.OPTIONS_CONTRACT_BUDGET_MAX // 150))
+        with patch.object(a, "get_effective_account", return_value=2_542.0):
+            self.assertEqual(a.strangle_budget(), 254.2)            # 10% of equity, not $400
+            self.assertEqual(a.size_strangle_trade(1.50), 1)
         self.assertEqual(a.size_strangle_trade(0), 0)
         self.assertEqual(a.size_strangle_trade(99.0), 0)   # one exceeds budget
 
@@ -17214,6 +17217,8 @@ class TestStrangleAutoExecution(unittest.TestCase):
     were typed by hand on the Alpaca site."""
 
     def setUp(self):
+        p = patch.object(a, "get_effective_account", return_value=10_000.0)
+        p.start(); self.addCleanup(p.stop)
         _options_on(self)
         # _submit_strangle() refuses while a strangle is open; read an empty
         # book, not the live dman_positions.json. Tests patching it win.
@@ -17412,6 +17417,8 @@ class TestStrangleMoveMath(unittest.TestCase):
     "needs 0.1% move". The call side needs +5.9%, the put side -2.5%."""
 
     def setUp(self):
+        p = patch.object(a, "get_effective_account", return_value=10_000.0)
+        p.start(); self.addCleanup(p.stop)
         _options_on(self)
         p = patch.object(a, "PositionTracker", return_value=MagicMock(positions=[]))
         p.start(); self.addCleanup(p.stop)
@@ -20190,6 +20197,10 @@ class TestStrangleIsOnePositionWithTwoLegs(unittest.TestCase):
     holding a DIRECTIONAL option, the opposite of the volatility-neutral trade
     the advisory describes. This path also never pay-checked, so the SECOND
     leg is exactly the one buying power would reject."""
+
+    def setUp(self):
+        p = patch.object(a, "get_effective_account", return_value=10_000.0)
+        p.start(); self.addCleanup(p.stop)
 
     def _result(self):
         return {"ticker": "SPY", "expiration": "2026-10-16", "dte": 7,
@@ -29783,3 +29794,17 @@ class TestOptionsFlagsAndThePltrSpread(unittest.TestCase):
                                        "move_needed_pct": 0.5}, "FOMC tomorrow")
         self.assertIn("already open", note)
         cl.return_value.submit_order.assert_not_called()
+
+    def test_an_open_spread_counts_against_the_aggregate_options_cap(self):
+        rows = [MagicMock(setup="Momentum Call Spread — Gap & Hold", max_loss=200.0, entry=200.0, shares=0),
+                MagicMock(setup="Options Call AAPL261030C00250000", max_loss=0.0, entry=1.5, shares=100),
+                MagicMock(setup="Breakout Zone +100% off low", max_loss=0.0, entry=11.5, shares=21)]
+        with patch.object(a, "PositionTracker") as PT:
+            PT.return_value.positions = rows
+            self.assertEqual(a._open_options_premium_at_risk(), 350.0)
+
+    def test_strangle_answers_to_the_aggregate_cap_and_ten_pct(self):
+        src = inspect.getsource(a._submit_strangle)
+        self.assertIn("_options_aggregate_room(_total_cost)", src)
+        with patch.object(a, "get_effective_account", return_value=2_542.0):
+            self.assertLessEqual(a.strangle_budget(), 2_542.0 * a.MAX_TRADE_LOSS_PCT)

@@ -1,165 +1,5 @@
 [
   {
-    "ts": "2026-10-26T09:32:08.012158-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Verizon Signs $2 Billion AI Infrastructure Agreement with AWS",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:32:08.017231-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Turo and Tesla Launch Verified FSD Rental Experience",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:32:08.417747-04:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Oppenheimer Adjusts Datadog Price Target to $330",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T09:33:08.300383-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Allergan Aesthetics Celebrates Eight Years of Partnership with Girls Inc. to Promote STEM Education",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:33:08.304569-04:00",
-    "symbols": [
-      "NEM"
-    ],
-    "headline": "Analyst Rating and Price Target Adjustments for Newmont",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T09:33:08.579183-04:00",
-    "symbols": [
-      "VRTX"
-    ],
-    "headline": "H.C. Wainwright Maintains Buy Rating for Vertex Pharmaceuticals",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T09:33:08.583475-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Expands Autonomous AI Lakehouse with New Business Semantic Layer",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:33:08.620735-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Launches Fusion Companion and Fusion Agentic Home for AI-Powered Workflows",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:33:08.625076-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Launches AI Success Navigator to Accelerate Fusion Cloud Implementation",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:33:08.630107-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Introduces Fusion Setup and Configuration Registry to Automate AI Deployments",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:33:08.634710-04:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "Fortinet Expands AI Security with the FortiGuard Inline AI Security Service",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T09:33:08.639309-04:00",
-    "symbols": [
-      "SLB"
-    ],
-    "headline": "Analysts Adjust Price Targets for SLB N.V.",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T09:33:08.880367-04:00",
-    "symbols": [
-      "AFRM"
-    ],
-    "headline": "Monness Analyst Upgrades Affirm Holdings",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T09:33:09.222990-04:00",
-    "symbols": [
-      "OKLO"
-    ],
-    "headline": "TD Cowen Initiates Coverage of Oklo with Hold Rating",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T09:33:09.442173-04:00",
-    "symbols": [
-      "QS"
-    ],
-    "headline": "Evercore Analyst Adjusts QuantumScape Price Target",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T09:33:24.342519-04:00",
-    "symbols": [
-      "NTNX"
-    ],
-    "headline": "Guggenheim Initiates Nutanix at Buy With $100 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-26T09:33:24.575425-04:00",
     "symbols": [
       "CART"
@@ -4995,6 +4835,166 @@
       "TNXP"
     ],
     "headline": "Canaccord Genuity Initiates Coverage On Tonix Pharmaceuticals with Buy Rating, Announces Price Target of $18",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T14:15:23.078487-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Targeting Sunday, November 1 For A Falcon 9 Launch Of The USSF-432 Mission",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T14:15:23.835404-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI Rolls Out GPT-6.1 Terra To All Plus, Pro, Enterprise, And Edu Users In ChatGPT Work, Codex",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T14:15:23.840641-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft\u2019s Copilot, Azure Demand Signals Stronger AI Monetization: Analyst",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T14:15:24.663165-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Michael Burry Eyes the Exit on Walmart, Alphabet and Valero",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T14:15:24.668290-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;FTC is demanding Anthropic execs testify in expanding AI safety probe&#39; - Axios",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T14:15:24.673089-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Microsoft\u2019s Copilot, Azure Demand Signals Stronger AI Monetization: Analyst",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T14:15:24.862745-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;FTC is demanding Anthropic execs testify in expanding AI safety probe&#39; - Axios",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T14:15:24.867302-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Microsoft\u2019s Copilot, Azure Demand Signals Stronger AI Monetization: Analyst",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T14:15:28.937717-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Allergan Aesthetics Celebrates Eight Years of Partnership with Girls Inc. to Promote STEM Education",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T14:15:29.481643-04:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "H.C. Wainwright Maintains Buy Rating for Vertex Pharmaceuticals",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T14:15:36.838992-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "&#39;Stripe\u2019s AI Shopping Lead Puts Card Giants On Edge; Stripe Is Emerging As A Powerful Middleman In AI Shopping, Raising Concerns At Visa And MasterCard. Its Virtual Card Technology Could Give Stripe Greater Control Over Payments And More Insight Into Consumers\u2019 Purchases.&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T14:15:37.017966-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "&#39;Stripe\u2019s AI Shopping Lead Puts Card Giants On Edge; Stripe Is Emerging As A Powerful Middleman In AI Shopping, Raising Concerns At Visa And MasterCard. Its Virtual Card Technology Could Give Stripe Greater Control Over Payments And More Insight Into Consumers\u2019 Purchases.&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T14:15:38.647792-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Michael Burry Eyes the Exit on Walmart, Alphabet and Valero",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T14:15:39.009813-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;FTC is demanding Anthropic execs testify in expanding AI safety probe&#39; - Axios",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T14:15:39.014441-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "5 Myths And Misunderstandings About Investing In The Stock Market",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T14:15:42.614165-04:00",
+    "symbols": [
+      "QS"
+    ],
+    "headline": "Evercore Analyst Adjusts QuantumScape Price Target",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-23T14:15:30.645165-04:00",
-    "symbols": [
-      "DECK"
-    ],
-    "headline": "BNP Paribas Maintains Outperform on Deckers Outdoor, Lowers Price Target to $122",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-23T14:15:33.742921-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Gas Prices to Remain High Through Election, Expert Says &#39;It&#39;s Still Not Over&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-23T14:15:33.853897-04:00",
     "symbols": [
       "ORCL"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T11:32:08.020660-04:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "Morgan Stanley Maintains Buy Rating and $700 Price Target for Spotify",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T11:32:42.189056-04:00",
+    "symbols": [
+      "NYAX"
+    ],
+    "headline": "Nayax Ltd. Announces Third Quarter 2026 Earnings Release Date",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

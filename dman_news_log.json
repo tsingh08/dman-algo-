@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-23T14:06:13.442861-04:00",
-    "symbols": [
-      "OIH"
-    ],
-    "headline": "Strategic Petroleum Reserve Is Emptying, Here\u2019s Why Permian Producers Can\u2019t Fill It Up",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-23T14:15:30.645165-04:00",
     "symbols": [
       "DECK"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T11:24:38.363459-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "T-Mobile Stock Down 14.5% Amid SpaceX Fears, but Telecom Expert Says Selloff Is Overdone",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

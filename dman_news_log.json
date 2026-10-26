@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-26T09:33:24.844925-04:00",
-    "symbols": [
-      "OII"
-    ],
-    "headline": "Oceaneering Selected for Cronos Project Umbilical Contract",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T09:34:08.010409-04:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "Enphase Energy and Infineon Announce 900 V GaN Bidirectional Switch Devices",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T09:34:08.244361-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "My Arcade Opens Preorders for Gamestation Retro Go at GameStop",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:42:30.550662-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "On October 25, 2026 Elon Musk Post On X &#34;As of the past few weeks, debt markets have almost entirely shut off access to money for any company that doesn\u2019t have substantial revenue independent of AI data centers.  SpaceX closed $40B of debt for GPUs, but we\u2019re investment grade and have Starlink &amp; launch revenue. That means the 200+ neoclouds are going to see guppy-level death and consolidation. Some will make it through, but not many.&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:42:30.759683-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "On October 25, 2026 Elon Musk Post On X &#34;As of the past few weeks, debt markets have almost entirely shut off access to money for any company that doesn\u2019t have substantial revenue independent of AI data centers.  SpaceX closed $40B of debt for GPUs, but we\u2019re investment grade and have Starlink &amp; launch revenue. That means the 200+ neoclouds are going to see guppy-level death and consolidation. Some will make it through, but not many.&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-26T09:42:32.085086-04:00",
     "symbols": [
       "GOOGL"
@@ -4998,5 +4948,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T14:49:36.648267-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nebius Stock Moves Higher: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T14:49:36.994349-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Siri AI Is Available In More Languages Starting Today; Expanding To More People Around World, With Availability In French, Japanese, Korean, Portuguese, And Spanish Languages; Siri AI Currently Unavailable In EU; Working With EU On Path Forward",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T14:49:49.568907-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "UBS Maintains Neutral on Caterpillar, Lowers Price Target to $750",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T14:49:50.857717-04:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "UBS Maintains Buy on SLB, Lowers Price Target to $70",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T14:49:59.691303-04:00",
+    "symbols": [
+      "CTOR"
+    ],
+    "headline": "Citius Oncology Reports Preliminary Q4 FY2026 LYMPHIR Wholesaler Unit Sales More Than Doubling 120% To 792 Units, With 950 Institutional Vial Orders And 54 Institutions Ordering The CTCL Treatment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

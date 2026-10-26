@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-26T09:42:32.290230-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Anthropic Says As Of Sept 30, About 250 Customers With $10M Or More Of Revenue On A TTM Basis; In Q3, Recognized $2B Within Other Operating And Administrative Expense",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-26T09:42:32.295115-04:00",
     "symbols": [
       "AMZN"
@@ -4996,6 +4986,16 @@
     ],
     "headline": "My Arcade Opens Preorders for Gamestation Retro Go at GameStop",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T15:03:08.005039-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Mastercard Partners with MrBeast's Beast Industries for Creator-Focused Financial Tools",
+    "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-26T09:42:32.085086-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Anthropic Says As Of Sept 30, About 250 Customers With $10M Or More Of Revenue On A TTM Basis; In Q3, Recognized $2B Within Other Operating And Administrative Expense",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:42:32.089086-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Anthropic Says Dario Amodei Owns 240.6M Class A Shares Before Offering; Total 245.3M Including 4.6M Shares Subject To Voting Proxies; Daniela Amodei Beneficially Owned 241.4M Class A Shares Before Offering",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:42:32.092772-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Anthropic Says For Year Ended December 31, 2025, Expenses Related To Our Donation Matching Program Were $541M; Our Rent Payments Over The Life Of Leases Under Broadcom Lease Arrangements Equal To Aggregate Of About $161.2B Excluding Interest",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-26T09:42:32.290230-04:00",
     "symbols": [
       "AMZN"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T15:01:00.848565-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "On October 25, 2026 Elon Musk Post On X &#34;As of the past few weeks, debt markets have almost entirely shut off access to money for any company that doesn\u2019t have substantial revenue independent of AI data centers.  SpaceX closed $40B of debt for GPUs, but we\u2019re investment grade and have Starlink &amp; launch revenue. That means the 200+ neoclouds are going to see guppy-level death and consolidation. Some will make it through, but not many.&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T15:01:02.774609-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "UBS Maintains Buy on Amazon.com, Raises Price Target to $348",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T15:01:09.222219-04:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "My Arcade Opens Preorders for Gamestation Retro Go at GameStop",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

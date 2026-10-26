@@ -16934,6 +16934,39 @@ class TestPolicyAudit(unittest.TestCase):
             findings = a.run_policy_audit(notify=False)
         self.assertTrue(any("halt state" in f for f in findings), findings)
 
+    def test_a_premature_monthly_lift_is_caught(self):
+        # Found live 2026-10-26: MONTHLY_HALT_LIFTED_2026-10 was set while
+        # October's running total had never been past -2.8% — the 4% breaker
+        # was disarmed before it ever fired, and nothing reported it.
+        mk = datetime.now(a.ET).strftime("%Y-%m")
+        entries = [{"ts": f"{mk}-05T10:00:00-04:00", "pnl_pct": -2.8}]
+        with patch.object(a, "PositionTracker") as pt, \
+             patch.object(a, "get_this_month_loss", return_value=-2.8), \
+             patch.object(a, "_monthly_halt_lifted", return_value=True), \
+             patch.object(a, "_load_pnl_entries", return_value=entries), \
+             patch.object(a, "is_market_open", return_value=False), \
+             patch.object(a, "send_telegram"):
+            pt.return_value.positions = []
+            findings = a.run_policy_audit(notify=False)
+        self.assertTrue(any("disarmed" in f for f in findings), findings)
+
+    def test_a_lift_after_a_real_breach_stays_quiet(self):
+        # September's actual sequence: halt hit at -4.97%, lifted by direct
+        # instruction, month later recovered above the limit. The lift is
+        # doing its designed job; the audit must not nag about it.
+        mk = datetime.now(a.ET).strftime("%Y-%m")
+        entries = [{"ts": f"{mk}-03T10:00:00-04:00", "pnl_pct": -4.97},
+                   {"ts": f"{mk}-10T11:00:00-04:00", "pnl_pct": 3.0}]
+        with patch.object(a, "PositionTracker") as pt, \
+             patch.object(a, "get_this_month_loss", return_value=-1.97), \
+             patch.object(a, "_monthly_halt_lifted", return_value=True), \
+             patch.object(a, "_load_pnl_entries", return_value=entries), \
+             patch.object(a, "is_market_open", return_value=False), \
+             patch.object(a, "send_telegram"):
+            pt.return_value.positions = []
+            findings = a.run_policy_audit(notify=False)
+        self.assertEqual([f for f in findings if "halt state" in f], [], findings)
+
     def test_a_strangle_is_not_flagged_as_time_value_heavy(self):
         # Both legs of an event strangle are OTM on purpose.
         legs = [SimpleNamespace(ticker="QQQ", entry=1.42, stop=0.71, day_only=False,

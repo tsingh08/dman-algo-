@@ -25708,8 +25708,33 @@ def run_policy_audit(notify: bool = True) -> list[str]:
 
     def _halt_state_is_coherent():
         month = get_this_month_loss()
-        if month <= -(MONTHLY_LOSS_LIMIT * 100) and not _monthly_halt_lifted():
-            return f"month at {month:.1f}% is past the {MONTHLY_LOSS_LIMIT*100:.0f}% limit and no lift is set"
+        limit_pct = MONTHLY_LOSS_LIMIT * 100
+        if month <= -limit_pct and not _monthly_halt_lifted():
+            return f"month at {month:.1f}% is past the {limit_pct:.0f}% limit and no lift is set"
+        if _monthly_halt_lifted():
+            # The lift exists to resume trading AFTER the breaker fired. Found
+            # 2026-10-26: MONTHLY_HALT_LIFTED_2026-10 was set with October's
+            # running total never below -2.8%, so the 4% breaker was disarmed
+            # in advance -- and since nothing in the code ever SETS this flag
+            # (it is hand-edited into dman_flags.json), no code path could
+            # notice. Judged on the month's running minimum, not its current
+            # total: a legitimate lift followed by a recovery back above the
+            # limit is the flag doing its designed job and must stay quiet.
+            _mk = datetime.now(ET).strftime("%Y-%m")
+            _entries = sorted((e for e in _load_pnl_entries(MONTHLY_PNL_FILE)
+                               if str(e.get("ts", "")).startswith(_mk)),
+                              key=lambda e: str(e.get("ts", "")))
+            _run = _worst = 0.0
+            for _e in _entries:
+                try:
+                    _run += float(_e.get("pnl_pct", 0.0))
+                except (TypeError, ValueError):
+                    continue
+                _worst = min(_worst, _run)
+            if _worst > -limit_pct:
+                return (f"monthly halt lift is set but the month never reached "
+                        f"-{limit_pct:.0f}% (worst {_worst:.1f}%, now {month:.1f}%) "
+                        f"— the breaker is disarmed before it ever fired")
         return ""
 
     def _loss_guard_can_clear():

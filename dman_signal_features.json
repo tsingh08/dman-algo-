@@ -41976,9 +41976,9 @@
 "setup": "Gap & Hold",
 "bias": "LONG",
 "taken": false,
-"reject": "pre-9:45 gate",
-"score": 100,
-"final_score": 100.0,
+"reject": "mtf: weekly disagrees",
+"score": 99,
+"final_score": 99.0,
 "ai_scored": false,
 "entry": 3.39,
 "stop": 3.18,
@@ -41992,14 +41992,14 @@
 "news_boost": false,
 "regime": "CHOP",
 "regime_score": 7,
-"mtf_ok": true,
+"mtf_ok": false,
 "regime_ok": true,
 "earnings_ok": true,
 "macro_ok": true,
 "divergence_free": true,
 "breakdown": {
 "Regime": 7,
-"MTF": 10,
+"MTF": 6,
 "Rel Strength": 10,
 "Sector": 6,
 "Sector ETF": 0,
@@ -42026,8 +42026,8 @@
 "Gap Size": 5,
 "News Catalyst": 0
 },
-"seen": 2,
-"last_ts": "2026-10-26T09:26:26.175653-04:00",
+"seen": 6,
+"last_ts": "2026-10-26T09:33:36.083787-04:00",
 "entry_min": 3.39,
 "entry_max": 3.39
 },
@@ -42061,7 +42061,7 @@
 "divergence_free": true,
 "breakdown": {
 "Regime": 7,
-"MTF": 10,
+"MTF": 20,
 "Rel Strength": 15,
 "Sector": 6,
 "Sector ETF": 0,
@@ -42088,8 +42088,8 @@
 "Gap Size": 5,
 "News Catalyst": 0
 },
-"seen": 2,
-"last_ts": "2026-10-26T09:26:29.332969-04:00",
+"seen": 6,
+"last_ts": "2026-10-26T09:33:36.871698-04:00",
 "entry_min": 45.87,
 "entry_max": 45.87
 }

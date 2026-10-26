@@ -22604,6 +22604,17 @@ def _submit_strangle(result: dict, event: str) -> str:
     _day_key = f"__STRANGLE_DAY__:{_et_today()}"
     if _is_duplicate_alert(_day_key):
         return "↩️ One event strangle already placed today — advisory only."
+    # And one OPEN at a time. The FOMC trigger also fires 2-3 days early, so a
+    # Wednesday FOMC runs this Monday, Tuesday and Wednesday; the per-day and
+    # per-expiry keys alone allowed SPY Monday, QQQ Tuesday, and another
+    # Wednesday -- three bets on one event. Unreadable tracker -> refuse.
+    try:
+        _open_str = [p.ticker for p in PositionTracker().positions if "strangle]" in str(p.setup)]
+    except Exception:
+        _open_str = ["?"]
+    if _open_str:
+        return (f"↩️ An event strangle is already open ({', '.join(sorted(set(_open_str)))}) "
+                f"— not stacking another.")
     _needed = result.get("move_needed_pct")
     _expected = result.get("expected_move_pct")
     if _needed is not None and _expected is not None and _needed > _expected * STRANGLE_MOVE_HEADROOM:

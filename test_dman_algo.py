@@ -17215,6 +17215,10 @@ class TestStrangleAutoExecution(unittest.TestCase):
 
     def setUp(self):
         _options_on(self)
+        # _submit_strangle() refuses while a strangle is open; read an empty
+        # book, not the live dman_positions.json. Tests patching it win.
+        p = patch.object(a, "PositionTracker", return_value=MagicMock(positions=[]))
+        p.start(); self.addCleanup(p.stop)
 
     def _result(self):
         return {"ticker": "QQQ", "price": 700.0, "expiration": "2026-09-23", "dte": 7,
@@ -17409,6 +17413,8 @@ class TestStrangleMoveMath(unittest.TestCase):
 
     def setUp(self):
         _options_on(self)
+        p = patch.object(a, "PositionTracker", return_value=MagicMock(positions=[]))
+        p.start(); self.addCleanup(p.stop)
 
     def _result(self, needed, expected, dte=7):
         return {"ticker": "QQQ", "price": 704.0, "expiration": "2026-09-24", "dte": dte,
@@ -29763,3 +29769,17 @@ class TestOptionsFlagsAndThePltrSpread(unittest.TestCase):
             self.assertIsNone(a._spread_close_would_violate_pdt({"entry_date": today}))
         with patch.object(a, "_get_pdt_status", side_effect=OSError("api")):
             self.assertIsNone(a._spread_close_would_violate_pdt({"entry_date": today}))
+
+    def test_no_second_strangle_while_one_is_open(self):
+        # A Wednesday FOMC fires the advisory Mon, Tue and Wed.
+        held = MagicMock(ticker="SPY", setup="Options Call SPY261030C00700000 ($700C exp 2026-10-30) [FOMC in 2d strangle]")
+        with patch.object(a, "_load_flags", return_value={}), \
+             patch.object(a, "_entry_circuit_breakers_ok", return_value=(True, "")), \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "PositionTracker") as PT, \
+             patch.object(a, "get_alpaca_client") as cl:
+            PT.return_value.positions = [held]
+            note = a._submit_strangle({"ticker": "QQQ", "expiration": "2026-10-30", "dte": 4,
+                                       "move_needed_pct": 0.5}, "FOMC tomorrow")
+        self.assertIn("already open", note)
+        cl.return_value.submit_order.assert_not_called()

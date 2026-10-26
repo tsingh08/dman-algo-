@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-23T15:46:22.993540-04:00",
-    "symbols": [
-      "DECK"
-    ],
-    "headline": "UBS Maintains Buy on Deckers Outdoor, Lowers Price Target to $137",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-23T15:46:25.804336-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Donald J. Trump Further Modifies Canadian Products Subject To Tariffs Under Section 338; Removing Certain Products Such As Plywood Sheets, Some Paper Products, Certain Machinery And Refrigeration Equipment, And Certain Packing Crates And Boxes; Replacing Those Products With Certain Valves, Carpets, Waste Products, And Others; Product Additions And Removals Will Take Effect On October 30, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-23T15:46:27.372378-04:00",
-    "symbols": [
-      "MYND"
-    ],
-    "headline": "Dow Tumbles Over 500 Points; American Express Shares Fall After Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-23T15:46:27.781513-04:00",
-    "symbols": [
-      "YMAT"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-23T15:46:28.384966-04:00",
     "symbols": [
       "FMST"
@@ -4995,6 +4955,46 @@
       "SRTM"
     ],
     "headline": "Dow Surges Over 200 Points; Verizon Shares Fall Following Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T12:56:40.511420-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "&#39;Apple\u2019s Foldable iPhone Duo Draws Early Complaints of the Screen Cracking&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T12:56:45.267367-04:00",
+    "symbols": [
+      "OKLO"
+    ],
+    "headline": "TD Cowen Initiates Coverage On Oklo with Hold Rating, Announces Price Target of $26",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T12:56:48.104744-04:00",
+    "symbols": [
+      "ORIC"
+    ],
+    "headline": "Stifel Maintains Buy on ORIC Pharmaceuticals, Raises Price Target to $18",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T12:56:48.181787-04:00",
+    "symbols": [
+      "SRAD"
+    ],
+    "headline": "Stifel Maintains Buy on Sportradar Gr, Lowers Price Target to $17",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

@@ -42104,14 +42104,14 @@
 "score": 100,
 "final_score": 100.0,
 "ai_scored": false,
-"entry": 52.48,
-"stop": 49.98,
-"target1": 59.91,
-"rr": 2.97,
-"rsi": 88.1,
-"rvol": 10.7,
+"entry": 52.78,
+"stop": 50.28,
+"target1": 60.98,
+"rr": 3.28,
+"rsi": 88.3,
+"rvol": 10.29,
 "atr": 1.669107142857143,
-"beta": 0.712,
+"beta": 1.0,
 "catalyst_tier": "B",
 "news_boost": true,
 "regime": "CHOP",
@@ -42138,7 +42138,7 @@
 "No Divergence": 5,
 "RSI Zone": 5,
 "52wk Prox": 10,
-"Candle": 0,
+"Candle": 5,
 "Supertrend": 8,
 "ADX Trend": 5,
 "Ichimoku": 10,
@@ -42150,9 +42150,9 @@
 "Gap Size": 5,
 "News Catalyst": 10
 },
-"seen": 2,
-"last_ts": "2026-10-26T11:19:36.886492-04:00",
+"seen": 4,
+"last_ts": "2026-10-26T11:33:47.220344-04:00",
 "entry_min": 52.48,
-"entry_max": 52.48
+"entry_max": 52.78
 }
 ]

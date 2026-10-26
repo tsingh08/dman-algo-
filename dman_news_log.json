@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-10-26T09:26:03.436179-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk&#39;s $40 Billion Terrestrial Data Center Pivot Draws Fire From Short Seller Jim Chanos After &#39;Orbital&#39; IPO Hype: &#39;...Pretty Material $500B Question&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:03.439480-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Verizon Earnings Prediction Market Preview: What Will Dan Schulman Say as SpaceX Fears Mount?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:03.442815-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Top Economist Says Trump Admin Hid Behind Elon Musk Over Ukraine Starlink Row, Says Critical Decisions Need to Be Made By Elected Officials, Not Billionaires",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:03.624864-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "IREN, CRWV, NBIS, APLD Stocks Fall Pre-Market as Analyst Echoes Elon Musk\u2019s Neocloud Debt Warning: \u2018Putting GPUs as Collateral Isn\u2019t Enough Anymore&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T09:26:03.628262-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "NBIS Stock Falls Pre-Market as Nebius CEO Echoes Elon Musk&#39;s Neocloud Financing Concerns: &#39;Some of the Capital Sources Are Temporarily Closed&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T09:26:03.848777-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "IREN, CRWV, NBIS, APLD Stocks Fall Pre-Market as Analyst Echoes Elon Musk\u2019s Neocloud Debt Warning: \u2018Putting GPUs as Collateral Isn\u2019t Enough Anymore&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T09:26:04.023821-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Unveils All-New iPad mini With 8.5-Inch OLED Display, A20 Pro Chip, Apple Intelligence",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:04.029157-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple&#39;s $2,000 Foldable iPhone Sparks Buying Frenzy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:04.032461-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apollo&#39;s Torsten Slok Warns AI Gains Are Concentrated in Mag 7 as S&amp;P 493 Sees \u2018No Signs\u2019 of Productivity Boost: &#39;Zero Financial Payoff&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T09:26:04.035815-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple&#39;s Design Team Didn&#39;t Want Touchscreen Macs, But Tim Cook and John Ternus Had Other Ideas: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-26T09:26:04.234846-04:00",
     "symbols": [
       "MSFT"
@@ -4925,6 +4825,106 @@
       "NN"
     ],
     "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T13:19:40.412200-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Nasdaq 100 Rallies on Chip Rebound; Brazil ETF Sinks 21%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T13:19:40.481066-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Nasdaq 100 Rallies on Chip Rebound; Brazil ETF Sinks 21%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T13:19:40.554937-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nasdaq 100 Rallies on Chip Rebound; Brazil ETF Sinks 21%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T13:19:41.025007-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Nasdaq 100 Rallies on Chip Rebound; Brazil ETF Sinks 21%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T13:19:41.097026-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Nasdaq 100 Rallies on Chip Rebound; Brazil ETF Sinks 21%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-26T13:19:46.128495-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Nasdaq 100 Rallies on Chip Rebound; Brazil ETF Sinks 21%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T13:19:46.261038-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Nasdaq 100 Rallies on Chip Rebound; Brazil ETF Sinks 21%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T13:19:47.222640-04:00",
+    "symbols": [
+      "NU"
+    ],
+    "headline": "Nasdaq 100 Rallies on Chip Rebound; Brazil ETF Sinks 21%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-26T13:19:47.647111-04:00",
+    "symbols": [
+      "VIV"
+    ],
+    "headline": "11 Communication Services Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-26T13:19:47.709258-04:00",
+    "symbols": [
+      "ORIC"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

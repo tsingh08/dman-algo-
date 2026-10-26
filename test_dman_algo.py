@@ -162,6 +162,17 @@ def tearDownModule():
     if _wl_isolation is not None:
         _wl_isolation.stop()
 
+def _options_on(tc):
+    """The buy-side options paths are OFF by default since 2026-10-25. Tests of
+    how those paths behave when switched on pin them on, and isolate the
+    persisted /flags file so a real override cannot leak in."""
+    for _p in (patch.object(a, "ENABLE_OPTIONS_TRADING", True),
+               patch.object(a, "ENABLE_MOMENTUM_SPREADS", True),
+               patch.object(a, "ENABLE_STRANGLE_AUTO_EXEC", True),
+               patch.object(a, "_load_flags", return_value={})):
+        _p.start(); tc.addCleanup(_p.stop)
+
+
 class TestArgparseDispatchConsistency(unittest.TestCase):
     """Prevents the exact StockTwits incident from ever recurring: a mode
     dispatched in main() but missing from argparse's choices list errors
@@ -8561,6 +8572,7 @@ class TestWatchlistSectorIntegrity(unittest.TestCase):
         # through to the SHARES path -- which carries a broker stop that can
         # fill the same session and become day trade #4.
         sig = MagicMock(); sig.bias = "LONG"; sig.setup = "Gap & Hold"
+        _options_on(self)
         for t in a.WATCHLIST:
             sig.ticker = t
             self.assertTrue(a._signal_can_use_options(sig), f"{t} not options-eligible")
@@ -8575,6 +8587,9 @@ class TestZeroPdtOptionsOnly(unittest.TestCase):
     bracket, so nothing can fire the same session and turn it into one.
     Equity stays halted because shares DO get a broker-side stop, and a stop
     that fills the same day is day trade #4 -- a real violation."""
+
+    def setUp(self):
+        _options_on(self)
 
     def test_equity_signal_is_not_options_eligible_offlist(self):
         sig = MagicMock(); sig.bias = "LONG"; sig.ticker = "ZZZZ"
@@ -13801,6 +13816,7 @@ class TestSubmitSignalsSizeMult(unittest.TestCase):
     budget rather than just being accepted and silently ignored."""
 
     def setUp(self):
+        _options_on(self)
         # Hermetic 2026-10-08: these drive _submit_signals_to_alpaca() with a
         # "Gap & Hold" signal, and ENABLE_SETUP_KILL reads the LIVE record from
         # dman_live_outcomes. Gap & Hold crossed the kill thresholds on
@@ -15611,6 +15627,7 @@ class TestOptionsUnavailableSkipsInsteadOfSharesFallback(unittest.TestCase):
     skip outright rather than settle for a consolation equity position."""
 
     def setUp(self):
+        _options_on(self)
         # Hermetic 2026-10-08: these drive _submit_signals_to_alpaca() with a
         # "Gap & Hold" signal, and ENABLE_SETUP_KILL reads the LIVE record from
         # dman_live_outcomes. Gap & Hold crossed the kill thresholds on
@@ -17194,6 +17211,9 @@ class TestStrangleAutoExecution(unittest.TestCase):
     """2026-09-16: the advisory only ever sent a message, so both QQQ strangles
     were typed by hand on the Alpaca site."""
 
+    def setUp(self):
+        _options_on(self)
+
     def _result(self):
         return {"ticker": "QQQ", "price": 700.0, "expiration": "2026-09-23", "dte": 7,
                 "call": {"strike": 735.0, "premium": 0.24, "occ": "QQQ260923C00735000"},
@@ -17384,6 +17404,9 @@ class TestBreakoutTopPick(unittest.TestCase):
 class TestStrangleMoveMath(unittest.TestCase):
     """2026-09-17 OPEX: QQQ ~704 with a $745C/$688P at $0.90 total printed
     "needs 0.1% move". The call side needs +5.9%, the put side -2.5%."""
+
+    def setUp(self):
+        _options_on(self)
 
     def _result(self, needed, expected, dte=7):
         return {"ticker": "QQQ", "price": 704.0, "expiration": "2026-09-24", "dte": dte,
@@ -18494,6 +18517,9 @@ class TestMomentumCallSpread(unittest.TestCase):
     a single call on AMD, META or ARM cost more than the whole account. A call
     debit spread for the SAME dollar budget is the instrument that fits."""
 
+    def setUp(self):
+        _options_on(self)
+
     def _sig(self, **kw):
         base = dict(ticker="AMD", bias="LONG", setup="Gap & Hold", entry=600.0,
                     stop=590.0, target1=630.0, target2=660.0, rr=3.0, rsi=60.0,
@@ -18710,6 +18736,9 @@ class TestMomentumSpreadGuardrails(unittest.TestCase):
     """No track record, and a two-year replay against it (-2.15%/trade as
     shares). So: strongest signals only, one at a time, and it ends itself
     if the live record comes back negative."""
+
+    def setUp(self):
+        _options_on(self)
 
     def _sig(self, score=100):
         return a.ProSignal(ticker="AMD", bias="LONG", setup="Gap & Hold", entry=600.0,
@@ -29595,3 +29624,49 @@ class TestShadowReviewScorecard(unittest.TestCase):
             for line in lines:
                 self.assertFalse(line.strip().startswith(("if ", "elif ", "return ", "assert ")))
                 self.assertNotIn("=", line.split("_shadow_review(")[0])
+
+
+class TestBuySideOptionsAreOff(unittest.TestCase):
+    """Decision 2026-10-25: every options path the scanner takes on its own
+    buys premium, and bought premium lost in every dataset studied (976 real
+    earnings events, negative every year). Off by default, and /flags must
+    actually reach the code -- the bare constant made `/flags options` a no-op."""
+
+    def setUp(self):
+        p = patch.object(a, "_load_flags", return_value={})
+        p.start(); self.addCleanup(p.stop)
+
+    def _sig(self, bias, setup):
+        return MagicMock(ticker=a.WATCHLIST[0], bias=bias, setup=setup)
+
+    def test_defaults_are_off(self):
+        self.assertFalse(a.ENABLE_OPTIONS_TRADING)
+        self.assertFalse(a.ENABLE_MOMENTUM_SPREADS)
+        self.assertFalse(a.ENABLE_STRANGLE_AUTO_EXEC)
+        self.assertFalse(a.ENABLE_EARNINGS_SPREADS)
+
+    def test_no_signal_routes_to_calls_or_puts(self):
+        for sig in (self._sig("LONG", "Gap & Hold"), self._sig("SHORT", "Bear Gap Hold")):
+            self.assertFalse(a._signal_can_use_options(sig))
+            with patch.object(a, "_options_earned", return_value=True):
+                self.assertEqual(a._options_route(sig), (False, False))
+
+    def test_the_flag_reaches_both_predicates(self):
+        sig = self._sig("LONG", "Gap & Hold")
+        with patch.object(a, "_load_flags", return_value={"ENABLE_OPTIONS_TRADING": True}), \
+             patch.object(a, "_options_earned", return_value=True):
+            self.assertTrue(a._signal_can_use_options(sig))
+            self.assertEqual(a._options_route(sig), (True, False))
+        with patch.object(a, "ENABLE_OPTIONS_TRADING", True), \
+             patch.object(a, "_load_flags", return_value={"ENABLE_OPTIONS_TRADING": False}), \
+             patch.object(a, "_options_earned", return_value=True):
+            self.assertFalse(a._signal_can_use_options(sig))
+            self.assertEqual(a._options_route(sig), (False, False))
+
+    def test_strangle_advisory_is_silent_when_off(self):
+        with patch.object(a, "send_telegram") as tg, \
+             patch.object(a, "select_strangle_legs") as legs, \
+             contextlib.redirect_stdout(io.StringIO()):
+            a.generate_strangle_advisory("FOMC")
+        tg.assert_not_called()
+        legs.assert_not_called()

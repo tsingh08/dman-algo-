@@ -291,7 +291,12 @@ ENABLE_PREMARKET_SUBMIT = True
 # ── Options trading (large-cap Gap & Hold only) ───────────────────────────────
 # When True, the algo buys calls on WATCHLIST tickers instead of shares.
 # Falls back to equity order if no liquid contract is found.
-ENABLE_OPTIONS_TRADING      = True   # buy options instead of shares on WATCHLIST signals
+# OFF 2026-10-25 by decision: every options path the scanner can take on its own
+# BUYS premium, and buying premium lost in every dataset studied -- long ATM
+# earnings straddles -7.7% mean / -24% median / 32% win over 976 real events,
+# negative every year 2024-2026. Gates calls AND puts; read through flag(), so
+# `/flags options on` restores both without a commit.
+ENABLE_OPTIONS_TRADING      = False  # buy options instead of shares on WATCHLIST signals
 OPTIONS_MAX_POSITION_PCT    = 0.15   # CLAMPED by MAX_TRADE_LOSS_PCT -- see there.
                                        # Target budget per options trade, as a fraction of
                                        # CURRENT equity (2026-08-21 — was a flat $2,000,
@@ -608,7 +613,10 @@ EARNINGS_SPREAD_TAKE_PROFIT_PCT= 0.70    # optional early close at this fraction
 # Geometry differs from earnings spreads on purpose: an earnings spread sits 7%
 # OTM to pay for a binary event; a continuation play has to pay from the first
 # dollar of follow-through, so the long leg sits AT the money.
-ENABLE_MOMENTUM_SPREADS       = True
+# OFF 2026-10-25 with ENABLE_OPTIONS_TRADING (only reached through the calls
+# route anyway): a debit spread is bought premium, and the replay below was
+# already negative.
+ENABLE_MOMENTUM_SPREADS       = False
 MOMENTUM_SPREAD_MIN_PRICE     = 100.0   # below this, a call or shares already fit the budget
 MOMENTUM_SPREAD_LONG_OTM_PCT  = 0.0     # long leg at the money
 MOMENTUM_SPREAD_SHORT_OTM_PCT = 0.03    # start 3% wide, narrow to fit the budget
@@ -752,7 +760,10 @@ RUNNER_MAX_DAY_GAIN_PCT = 100.0
 # Event strangles place themselves. generate_strangle_advisory() only ever sent
 # a Telegram message, so both 2026-09-15/16 QQQ strangles were typed by hand on
 # the Alpaca site -- the one part of the day that actually required a human.
-ENABLE_STRANGLE_AUTO_EXEC = True
+# OFF 2026-10-25: a strangle is bought event volatility, the trade the options
+# study found negative every year. Off also mutes the advisory (log only) -- a
+# message describing a negative-expectancy trade is an invitation to type it.
+ENABLE_STRANGLE_AUTO_EXEC = False
 # A strangle only pays if the underlying can actually reach a breakeven in the
 # time left. Require the nearer breakeven to sit inside this multiple of the
 # 20-day average true range stretched over the holding period; 1.0 means "the
@@ -2829,8 +2840,8 @@ TOGGLEABLE_FLAGS = {
                 "enter promoted dip-in-uptrend candidates at the open on their "
                 "own. Inert until the shadow's limit arm has 30 fills, mean > 0."),
     "strangle":("ENABLE_STRANGLE_AUTO_EXEC",
-                "place event strangles automatically. OFF sends the advisory "
-                "and leaves the order to you."),
+                "event strangles on SPY/QQQ: advisory + automatic order. OFF "
+                "sends neither (bought event vol lost every year studied)."),
     "shadow":  ("ENABLE_SHADOW_REVIEW",
                 "second-opinion reviewer on alerted signals and DMan plays. "
                 "Records a verdict only — never blocks a trade."),
@@ -10599,9 +10610,10 @@ def _signal_can_use_options(sig) -> bool:
     the options pipeline itself; this is the cheap structural half.
     """
     try:
+        if not flag("ENABLE_OPTIONS_TRADING", ENABLE_OPTIONS_TRADING):
+            return False
         if sig.bias == "LONG":
-            return bool(ENABLE_OPTIONS_TRADING
-                        and (sig.ticker in WATCHLIST or sig.setup in OPTIONS_SETUPS))
+            return bool(sig.ticker in WATCHLIST or sig.setup in OPTIONS_SETUPS)
         if sig.bias == "SHORT":
             return bool(OPTIONS_ENABLE_PUTS
                         and (sig.ticker in WATCHLIST or sig.setup == "Bear Gap Hold"))
@@ -22635,6 +22647,9 @@ def generate_strangle_advisory(event: str) -> None:
     """
     if not ENABLE_OPTIONS:
         return
+    if not flag("ENABLE_STRANGLE_AUTO_EXEC", ENABLE_STRANGLE_AUTO_EXEC):
+        print(f"  [options] strangle advisory muted ({event}) — /flags strangle on to restore")
+        return
     print(f"  [options] Generating strangle advisories ({event})...")
     for ticker in STRANGLE_TICKERS:
         price = get_live_price(ticker)
@@ -29703,7 +29718,8 @@ def show_alpaca_account() -> None:
                 print(f"  Options Level  : ⚠️  Level 1 (covered calls only)")
                 print("                   Upgrade to Level 2 to buy long calls with the algo")
             else:
-                _enabled = "✅ ENABLED" if ENABLE_OPTIONS_TRADING else "⏸  set ENABLE_OPTIONS_TRADING=True to activate"
+                _enabled = ("✅ ENABLED" if flag("ENABLE_OPTIONS_TRADING", ENABLE_OPTIONS_TRADING)
+                            else "⏸  off — /flags options on to activate")
                 print(f"  Options Level  : ✅ Level {_approved_int} — {_level_desc.get(_approved_int, 'approved')}")
                 print(f"  Algo Options   : {_enabled}")
         except Exception as _oe:
@@ -31604,10 +31620,13 @@ def _options_earned(setup: str) -> bool:
 def _options_route(sig) -> tuple[bool, bool]:
     """(use_calls, use_puts) for this signal -- the one definition of which
     signals may trade as options. It was inline in the submit loop, which is
-    why a check sitting ABOVE it (shares<=0) could not consult it."""
-    _calls = (ENABLE_OPTIONS_TRADING and sig.bias == "LONG"
+    why a check sitting ABOVE it (shares<=0) could not consult it.
+
+    Read through flag(): the bare constant made `/flags options off` a no-op."""
+    _on = flag("ENABLE_OPTIONS_TRADING", ENABLE_OPTIONS_TRADING)
+    _calls = (_on and sig.bias == "LONG"
               and (sig.ticker in WATCHLIST or sig.setup in OPTIONS_SETUPS))
-    _puts = (OPTIONS_ENABLE_PUTS and sig.bias == "SHORT"
+    _puts = (_on and OPTIONS_ENABLE_PUTS and sig.bias == "SHORT"
              and (sig.ticker in WATCHLIST or sig.setup == "Bear Gap Hold"))
     if (_calls or _puts) and not _options_earned(sig.setup):
         _n, _m = _setup_fill_record(sig.setup)

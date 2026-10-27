@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-26T15:37:36.497692-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;U.S., Canada Working On Deal To Ease U.S. Tariffs On Canadian Steel And Auto Imports&#39; - Reuters Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T15:37:40.849003-04:00",
-    "symbols": [
-      "SGRY"
-    ],
-    "headline": "Range Resources, Xtend AI Robotics, Oruka Therapeutics And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T15:37:40.854120-04:00",
-    "symbols": [
-      "SGRY"
-    ],
-    "headline": "Trading Halt: Halt status updated at 9:45:00 AM ET: Quotation Resumption: News and Resumption Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T15:37:41.257341-04:00",
-    "symbols": [
-      "XNCR"
-    ],
-    "headline": "Range Resources, Xtend AI Robotics, Oruka Therapeutics And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T15:37:41.367365-04:00",
-    "symbols": [
-      "BRAI"
-    ],
-    "headline": "Range Resources, Xtend AI Robotics, Oruka Therapeutics And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T15:37:41.556936-04:00",
-    "symbols": [
-      "SAIQ"
-    ],
-    "headline": "SEALSQ Inks Letter Of Intent To Acquire Satellite Capacity Of 12 WISeSat.Space&#39;s Satellites For ~$15M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-26T15:37:41.791236-04:00",
     "symbols": [
       "RRC"
@@ -4998,5 +4938,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T10:48:19.761111-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia&#39;s Credit Risk Has Tripled This Year \u2014 and Just Passed Meta&#39;s",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T10:48:20.187688-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Nvidia&#39;s Credit Risk Has Tripled This Year \u2014 and Just Passed Meta&#39;s",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T10:48:28.967861-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Caterpillar Challenges UK Anti-Dumping Tariffs on Chinese Excavators",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T10:48:29.688361-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa Earnings Prediction Market Preview: What Will Ryan McInerney Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T10:48:29.856960-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Visa Earnings Prediction Market Preview: What Will Ryan McInerney Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T10:48:31.676783-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Nvidia&#39;s Credit Risk Has Tripled This Year \u2014 and Just Passed Meta&#39;s",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

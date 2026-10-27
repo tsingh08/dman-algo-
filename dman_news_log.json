@@ -1,325 +1,5 @@
 [
   {
-    "ts": "2026-10-26T14:15:24.663165-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Michael Burry Eyes the Exit on Walmart, Alphabet and Valero",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T14:15:24.668290-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;FTC is demanding Anthropic execs testify in expanding AI safety probe&#39; - Axios",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T14:15:24.673089-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Microsoft\u2019s Copilot, Azure Demand Signals Stronger AI Monetization: Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T14:15:24.862745-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#39;FTC is demanding Anthropic execs testify in expanding AI safety probe&#39; - Axios",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T14:15:24.867302-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Microsoft\u2019s Copilot, Azure Demand Signals Stronger AI Monetization: Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T14:15:28.937717-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Allergan Aesthetics Celebrates Eight Years of Partnership with Girls Inc. to Promote STEM Education",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T14:15:29.481643-04:00",
-    "symbols": [
-      "VRTX"
-    ],
-    "headline": "H.C. Wainwright Maintains Buy Rating for Vertex Pharmaceuticals",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T14:15:36.838992-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "&#39;Stripe\u2019s AI Shopping Lead Puts Card Giants On Edge; Stripe Is Emerging As A Powerful Middleman In AI Shopping, Raising Concerns At Visa And MasterCard. Its Virtual Card Technology Could Give Stripe Greater Control Over Payments And More Insight Into Consumers\u2019 Purchases.&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T14:15:37.017966-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "&#39;Stripe\u2019s AI Shopping Lead Puts Card Giants On Edge; Stripe Is Emerging As A Powerful Middleman In AI Shopping, Raising Concerns At Visa And MasterCard. Its Virtual Card Technology Could Give Stripe Greater Control Over Payments And More Insight Into Consumers\u2019 Purchases.&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T14:15:38.647792-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Michael Burry Eyes the Exit on Walmart, Alphabet and Valero",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T14:15:39.009813-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;FTC is demanding Anthropic execs testify in expanding AI safety probe&#39; - Axios",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T14:15:39.014441-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "5 Myths And Misunderstandings About Investing In The Stock Market",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T14:15:42.614165-04:00",
-    "symbols": [
-      "QS"
-    ],
-    "headline": "Evercore Analyst Adjusts QuantumScape Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T14:38:23.961385-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Visa Analyst Sees AI Agents Strengthening its Digital Payments Business",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T14:49:36.648267-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nebius Stock Moves Higher: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T14:49:36.994349-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Siri AI Is Available In More Languages Starting Today; Expanding To More People Around World, With Availability In French, Japanese, Korean, Portuguese, And Spanish Languages; Siri AI Currently Unavailable In EU; Working With EU On Path Forward",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T14:49:49.568907-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "UBS Maintains Neutral on Caterpillar, Lowers Price Target to $750",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T14:49:50.857717-04:00",
-    "symbols": [
-      "SLB"
-    ],
-    "headline": "UBS Maintains Buy on SLB, Lowers Price Target to $70",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T14:49:59.691303-04:00",
-    "symbols": [
-      "CTOR"
-    ],
-    "headline": "Citius Oncology Reports Preliminary Q4 FY2026 LYMPHIR Wholesaler Unit Sales More Than Doubling 120% To 792 Units, With 950 Institutional Vial Orders And 54 Institutions Ordering The CTCL Treatment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T15:01:00.848565-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "On October 25, 2026 Elon Musk Post On X &#34;As of the past few weeks, debt markets have almost entirely shut off access to money for any company that doesn\u2019t have substantial revenue independent of AI data centers.  SpaceX closed $40B of debt for GPUs, but we\u2019re investment grade and have Starlink &amp; launch revenue. That means the 200+ neoclouds are going to see guppy-level death and consolidation. Some will make it through, but not many.&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T15:01:02.774609-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "UBS Maintains Buy on Amazon.com, Raises Price Target to $348",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T15:01:09.222219-04:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "My Arcade Opens Preorders for Gamestation Retro Go at GameStop",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T15:03:08.005039-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Mastercard Partners with MrBeast's Beast Industries for Creator-Focused Financial Tools",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T15:14:40.522750-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Anthropic IPO Filing Reveals AI Boom\u2019s Next Test: 7 ETFs With Pre-Launch Exposure",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T15:14:40.704838-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Anthropic IPO Filing Reveals AI Boom\u2019s Next Test: 7 ETFs With Pre-Launch Exposure",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T15:20:20.545369-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Anthropic IPO Filing Reveals AI Boom\u2019s Next Test: 7 ETFs With Pre-Launch Exposure",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T15:20:20.692307-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Anthropic IPO Filing Reveals AI Boom\u2019s Next Test: 7 ETFs With Pre-Launch Exposure",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T15:20:28.039407-04:00",
-    "symbols": [
-      "XP"
-    ],
-    "headline": "Nasdaq 100 Rallies on Chip Rebound; Brazil ETF Sinks 21%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T15:20:28.045196-04:00",
-    "symbols": [
-      "XP"
-    ],
-    "headline": "Dow Surges Over 200 Points; Verizon Shares Fall Following Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T15:20:29.864055-04:00",
-    "symbols": [
-      "KSA"
-    ],
-    "headline": "&#39;Saudi Aramco Nears Signing of $10 Billion Loan with Global Banks&#39; - Bloomberg Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T15:20:30.122934-04:00",
-    "symbols": [
-      "RDDT"
-    ],
-    "headline": "9 Communication Services Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T15:20:30.127479-04:00",
-    "symbols": [
-      "RDDT"
-    ],
-    "headline": "Why Is Reddit Stock Falling on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-26T15:20:30.218693-04:00",
     "symbols": [
       "GENI"
@@ -4998,5 +4678,325 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T10:14:29.764482-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Pentair, JetBlue Airways, Hawkins And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T10:14:29.768431-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nebius Stock Comes Up for Air After Musk\u2019s &#39;Guppy-Level Death&#39; Warning",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T10:14:30.969683-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "LAZR ETF Raises Anthropic Allocation To 10.5%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T10:14:31.233172-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "LAZR ETF Raises Anthropic Allocation To 10.5%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T10:14:41.909533-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Richmond Manufacturing Shipments For October 0 Vs -5 Prior",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T10:14:41.912710-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Richmond Manufacturing Index For October -2 Vs 0 Est.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T10:14:41.915604-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA New Home Sales (MoM) For September -0.6% Vs 5.1% Prior",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T10:14:41.918328-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA New Home Sales For September 676K Vs 651K Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T10:14:41.921314-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA CB Consumer Confidence For October\u00a091.7 Vs 81.2 Est.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T10:14:44.460453-04:00",
+    "symbols": [
+      "JBLU"
+    ],
+    "headline": "Pentair, JetBlue Airways, Hawkins And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T10:14:47.744390-04:00",
+    "symbols": [
+      "BRAI"
+    ],
+    "headline": "Pentair, JetBlue Airways, Hawkins And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T10:14:48.342741-04:00",
+    "symbols": [
+      "MFIC"
+    ],
+    "headline": "Pentair, JetBlue Airways, Hawkins And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T10:14:48.484660-04:00",
+    "symbols": [
+      "HWKN"
+    ],
+    "headline": "Pentair, JetBlue Airways, Hawkins And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T10:14:48.893468-04:00",
+    "symbols": [
+      "SOFI"
+    ],
+    "headline": "Pentair, JetBlue Airways, Hawkins And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T10:14:48.899589-04:00",
+    "symbols": [
+      "SOFI"
+    ],
+    "headline": "SoFi Boosts Full-Year Outlook As Membership Tops 17 Million",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T10:14:49.202551-04:00",
+    "symbols": [
+      "AEYE"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday's After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T10:14:49.206122-04:00",
+    "symbols": [
+      "AEYE"
+    ],
+    "headline": "AudioEye Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T10:14:49.209215-04:00",
+    "symbols": [
+      "AEYE"
+    ],
+    "headline": "AudioEye FY2026  Adj EPS expected to be more than $1.04 vs $0.98 Est; Narrows FY2026 Sales Guidance from $43.500M-$44.000M to $43.600M-$43.800M vs $43.619M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T10:14:49.212313-04:00",
+    "symbols": [
+      "AEYE"
+    ],
+    "headline": "AudioEye Sees Q4 Adj EPS $0.32-$0.33 vs $0.30 Est; Sees Sales $11.400M-$11.600M vs $11.446M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T10:14:49.215299-04:00",
+    "symbols": [
+      "AEYE"
+    ],
+    "headline": "AudioEye Q3 Adj. EPS $0.30 Beats $0.27 Estimate, Sales $10.963M Beat $10.925M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T10:14:49.533679-04:00",
+    "symbols": [
+      "IPST"
+    ],
+    "headline": "IP Strategy Regains Nasdaq Compliance",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T10:14:50.788507-04:00",
+    "symbols": [
+      "ESQ"
+    ],
+    "headline": "Esquire Financial Q3 Adj. EPS $2.12 Beats $1.89 Estimate, Sales $61.319M Beat $52.159M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T10:14:50.929148-04:00",
+    "symbols": [
+      "GM"
+    ],
+    "headline": "General Motors To Transfer Its Common Stock Listing From The NYSE To The Nasdaq Global Select Market, Effective November 17",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T10:14:50.932267-04:00",
+    "symbols": [
+      "GM"
+    ],
+    "headline": "Tesla Could Go Beyond Robotaxis Into Underground Travel And Electric Aviation \u2014 TSLA Could \u2018Own\u2019 Transportation, ARK Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T10:14:51.214950-04:00",
+    "symbols": [
+      "ACU"
+    ],
+    "headline": "Acme United Q3 EPS $0.80 Beats $0.69 Estimate, Sales $58.013M Beat $56.388M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T10:14:51.352367-04:00",
+    "symbols": [
+      "KNSA"
+    ],
+    "headline": "Pentair, JetBlue Airways, Hawkins And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T10:14:51.486952-04:00",
+    "symbols": [
+      "HRI"
+    ],
+    "headline": "Pentair, JetBlue Airways, Hawkins And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T10:14:51.653070-04:00",
+    "symbols": [
+      "PNR"
+    ],
+    "headline": "Pentair, JetBlue Airways, Hawkins And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T10:14:51.656394-04:00",
+    "symbols": [
+      "PNR"
+    ],
+    "headline": "Pentair Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T10:14:51.818750-04:00",
+    "symbols": [
+      "CLS"
+    ],
+    "headline": "Pentair, JetBlue Airways, Hawkins And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T10:14:51.948923-04:00",
+    "symbols": [
+      "PII"
+    ],
+    "headline": "Polaris Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T10:14:51.952191-04:00",
+    "symbols": [
+      "PII"
+    ],
+    "headline": "Pentair, JetBlue Airways, Hawkins And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

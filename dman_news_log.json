@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-27T12:09:09.745098-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "OneTrust Launches Consent Management App on Snowflake Marketplace",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T12:09:16.151517-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Lockheed Martin Plans To Construct PAC-3 Missile Maintenance Site In Poland",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-27T12:09:16.572926-04:00",
     "symbols": [
       "ETN"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:13:31.725711-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase, Ripple Pour Millions Into Elections: Could Crypto Voters Swing Tight Congressional Races?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T15:13:44.040402-04:00",
+    "symbols": [
+      "UWMC"
+    ],
+    "headline": "Compass Point Downgrades UWM Holdings to Neutral, Announces $1.5 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-26T15:25:40.852521-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Anthropic Says For Year Ended December 31, 2025, Expenses Related To Our Donation Matching Program Were $541M; Our Rent Payments Over The Life Of Leases Under Broadcom Lease Arrangements Equal To Aggregate Of About $161.2B Excluding Interest",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T15:25:46.299666-04:00",
-    "symbols": [
-      "SMR"
-    ],
-    "headline": "SK Hynix ETF Liquidations Raise Delisting Risks for Rival Leveraged Funds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T15:25:47.222204-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Tech Mahindra Collaborates With Mastercard To Upgrade Business To Business Payments For Global Firms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T15:25:49.690743-04:00",
-    "symbols": [
-      "CLRO"
-    ],
-    "headline": "ClearOne Shares Resume Trade Following Circuit Breaker Halt",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T15:25:51.625337-04:00",
-    "symbols": [
-      "SRTM"
-    ],
-    "headline": "Ocean Power Technologies Inks Letter Of Intent With Stratum Holdings For Proposed Partnership To Unveil Offshore Data Center Assets",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-26T15:25:53.259760-04:00",
     "symbols": [
       "FRMM"
@@ -4998,5 +4948,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T10:25:45.523298-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "UBS Maintains Neutral on Caterpillar, Lowers Price Target to $750",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T10:25:46.224700-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa Analyst Sees AI Agents Strengthening its Digital Payments Business",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T10:25:46.374729-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Mastercard Partners with MrBeast's Beast Industries for Creator-Focused Financial Tools",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T10:25:46.933667-04:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "UBS Maintains Buy on SLB, Lowers Price Target to $70",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T10:25:47.068579-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on UnitedHealth Group, Lowers Price Target to $487",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-26T15:20:30.218693-04:00",
-    "symbols": [
-      "GENI"
-    ],
-    "headline": "Genius Sports to Announce Third Quarter 2026 Results on November 5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T15:20:30.291954-04:00",
-    "symbols": [
-      "WHR"
-    ],
-    "headline": "Nasdaq 100 Rallies on Chip Rebound; Brazil ETF Sinks 21%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T15:20:30.296627-04:00",
-    "symbols": [
-      "WHR"
-    ],
-    "headline": "Stifel Maintains Hold on Whirlpool, Lowers Price Target to $30",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T15:20:30.301173-04:00",
-    "symbols": [
-      "WHR"
-    ],
-    "headline": "Whirlpool Earnings Are Imminent; These Most Accurate Analysts Revise Forecasts Ahead Of Earnings Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-26T15:25:40.852521-04:00",
     "symbols": [
       "AVGO"
@@ -4998,5 +4958,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T10:25:36.014540-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Why Is IREN Stock Surging Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T10:25:36.247738-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Why Is IREN Stock Surging Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T10:25:37.296741-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Anthropic IPO Filing Reveals AI Boom\u2019s Next Test: 7 ETFs With Pre-Launch Exposure",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T10:25:38.727479-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "&#39;Biggest Constraint Is Capital&#39;: Broadcom CEO Scrambles to Seal $63 Billion Anthropic Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

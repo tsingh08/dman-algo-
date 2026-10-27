@@ -1,555 +1,5 @@
 [
   {
-    "ts": "2026-10-27T09:26:19.946657-04:00",
-    "symbols": [
-      "JBLU"
-    ],
-    "headline": "JetBlue Airways Q3 Adj. EPS $(0.60) Misses $(0.54) Estimate, Sales $2.812B Miss $2.820B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-27T09:26:20.067592-04:00",
-    "symbols": [
-      "LAES"
-    ],
-    "headline": "WISeSat.Space Holdings, Kaynes Space Technology Private Expand Collaboration To Produce Post-Quantum Security Solutions For Satellites Manufactured In India",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:20.362641-04:00",
-    "symbols": [
-      "MSGY"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:20.525667-04:00",
-    "symbols": [
-      "NAUT"
-    ],
-    "headline": "Nautilus Biotechnology Announces Participation In SEEDS Research Consortium, Which Was Awarded Up To $51.7M By The Advanced Research Projects Agency For Health",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:20.528364-04:00",
-    "symbols": [
-      "NAUT"
-    ],
-    "headline": "Nautilus Biotechnology Q3 EPS $(0.12) Beats $(0.14) Estimate, Sales $200.000K Miss $206.250K Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:20.687147-04:00",
-    "symbols": [
-      "NXH"
-    ],
-    "headline": "Kathy Ireland Launches Christmas Collection at Kirkland's and Bed Bath & Beyond",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:20.850665-04:00",
-    "symbols": [
-      "NXL"
-    ],
-    "headline": "Nexalin Technology Announces Publication Of Fourth Peer-Reviewed Article Reporting Results From Clinical Research On 15 mA DIFS Technology In Alzheimer's Disease",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:21.012145-04:00",
-    "symbols": [
-      "OPEN"
-    ],
-    "headline": "Top 3 Real Estate Stocks Which Could Rescue Your Portfolio This Month",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:21.171309-04:00",
-    "symbols": [
-      "OPK"
-    ],
-    "headline": "OPKO Biologics Doses First Patient In Its Phase 1/2a Clinical Study Of OPK-8801001 To Treat Acromegaly",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:21.321882-04:00",
-    "symbols": [
-      "PFAI"
-    ],
-    "headline": "Pinnacle Food Group Retains Cupola Consulting As Strategic Advisor For M&A Initiatives, Effective November 1",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:21.481738-04:00",
-    "symbols": [
-      "POM"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:21.646474-04:00",
-    "symbols": [
-      "PTLO"
-    ],
-    "headline": "BofA Securities Maintains Hold Rating and Lowers Price Target for Portillo's Inc.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:21.945364-04:00",
-    "symbols": [
-      "SPCE"
-    ],
-    "headline": "Virgin Galactic  Sets October 28 for Lead Delta Class Spaceship\u2019s Arrival at Spaceport America; First Spaceflight Of Lead Spaceship Now Expected In Early Q2 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:22.076443-04:00",
-    "symbols": [
-      "TE"
-    ],
-    "headline": "T1 Energy Announces Third Quarter 2026 Earnings Release and Conference Call Schedule",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:22.198400-04:00",
-    "symbols": [
-      "VNET"
-    ],
-    "headline": "VNET Group Buys Back ~$75.3M Of Its Outstanding 25% 2% Convertible Series Notes Due 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:22.201246-04:00",
-    "symbols": [
-      "VNET"
-    ],
-    "headline": "Macquarie Initiates Coverage On VNET Group with Outperform Rating, Announces Price Target of $5.4",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:22.363604-04:00",
-    "symbols": [
-      "WORX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday's After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:22.511874-04:00",
-    "symbols": [
-      "WVE"
-    ],
-    "headline": "Wave Life Sciences Anticipates $12M Milestone Payment From GSK In Q4",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:22.514623-04:00",
-    "symbols": [
-      "WVE"
-    ],
-    "headline": "WAVE Life Sciences Q3 EPS $(0.30) Beats $(0.33) Estimate, Sales $13.158M Beat $4.317M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:22.831573-04:00",
-    "symbols": [
-      "ZURA"
-    ],
-    "headline": "Zura Bio Q3 EPS $(0.20), Inline",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:22.981427-04:00",
-    "symbols": [
-      "BRAI"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:22.984234-04:00",
-    "symbols": [
-      "BRAI"
-    ],
-    "headline": "Why Celestica Shares Are Trading Higher By Over 16%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:22.986787-04:00",
-    "symbols": [
-      "BRAI"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday's After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:23.139493-04:00",
-    "symbols": [
-      "MFIC"
-    ],
-    "headline": "Ares Capital Confirms It Will Acquire MidCap Financial For $10.88/Share Comprising ~$1.21/Share In Cash And ~$9.67/Share In ARCC Stock At And EV Of ~$2.6B",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:23.142220-04:00",
-    "symbols": [
-      "MFIC"
-    ],
-    "headline": "'Ares Private-Credit Fund to Buy (MidCap Financial) From Apollo; The merger of the two business-development companies will boost Ares Capital Corp. to over $31 billion' - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:23.294912-04:00",
-    "symbols": [
-      "KNSA"
-    ],
-    "headline": "Kiniksa Pharmaceuticals Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:23.297728-04:00",
-    "symbols": [
-      "KNSA"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:23.300299-04:00",
-    "symbols": [
-      "KNSA"
-    ],
-    "headline": "Kiniksa Pharmaceuticals Raises FY2026 Sales Guidance from $980.000M-$995.000M to $1.045B-$1.050B vs $996.102M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:23.302769-04:00",
-    "symbols": [
-      "KNSA"
-    ],
-    "headline": "Kiniksa Pharmaceuticals Q3 EPS $0.56 Beats $0.37 Estimate, Sales $285.970M Beat $260.611M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:23.429060-04:00",
-    "symbols": [
-      "IMSR"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:23.431840-04:00",
-    "symbols": [
-      "IMSR"
-    ],
-    "headline": "Terrestrial Energy Announces $25M Buyback Plan",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:23.593774-04:00",
-    "symbols": [
-      "UPC"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:23.802830-04:00",
-    "symbols": [
-      "HWKN"
-    ],
-    "headline": "Hawkins (HWKN) Shares Rise 12% After-Hours: Here's Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-27T09:26:23.805553-04:00",
-    "symbols": [
-      "HWKN"
-    ],
-    "headline": "12 Materials Stocks Moving In Monday's After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-27T09:26:23.808056-04:00",
-    "symbols": [
-      "HWKN"
-    ],
-    "headline": "Hawkins Q2 EPS $1.34 Beats $1.19 Estimate, Sales $313.817M Beat $302.702M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-27T09:26:23.966506-04:00",
-    "symbols": [
-      "SOFI"
-    ],
-    "headline": "CORRECTION: SoFi Technologies Raises FY2026 Adj EPS Guidance from $0.60 to $0.61 vs $0.59 Est; Raises FY2026 Sales Guidance from $4.750B-$4.850B to $5.040B vs $4.874B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:23.969281-04:00",
-    "symbols": [
-      "SOFI"
-    ],
-    "headline": "SoFi Technologies Sees FY2027 Adj EPS $0.90 vs $0.81 Est; Sees Sales $6.400B vs $5.991B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:23.971885-04:00",
-    "symbols": [
-      "SOFI"
-    ],
-    "headline": "SoFi Technologies Raises FY2026 Adj EPS Guidance from $0.60 to $0.90 vs $0.59 Est; Raises FY2026 Sales Guidance from $4.750B-$4.850B to $5.040B vs $4.874B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:23.974438-04:00",
-    "symbols": [
-      "SOFI"
-    ],
-    "headline": "SoFi Q3 Member Growth +35% To 17.1M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:23.976950-04:00",
-    "symbols": [
-      "SOFI"
-    ],
-    "headline": "SoFi Techs Q3 Adj. EPS $0.18 Beats $0.17 Estimate, Sales $1.371B Beat $1.256B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:24.142095-04:00",
-    "symbols": [
-      "PLUR"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:24.300115-04:00",
-    "symbols": [
-      "HRI"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:24.302871-04:00",
-    "symbols": [
-      "HRI"
-    ],
-    "headline": "Herc Hldgs Q3 Adj. EPS $3.91 Beats $2.90 Estimate, Sales $1.364B Beat $1.345B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:24.440110-04:00",
-    "symbols": [
-      "CLS"
-    ],
-    "headline": "Celestica Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:24.442888-04:00",
-    "symbols": [
-      "CLS"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:24.445505-04:00",
-    "symbols": [
-      "CLS"
-    ],
-    "headline": "Why Celestica Shares Are Trading Higher By Over 16%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:24.447996-04:00",
-    "symbols": [
-      "CLS"
-    ],
-    "headline": "Coca-Cola, Boeing and 3 Stocks to Watch Heading Into Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:24.450578-04:00",
-    "symbols": [
-      "CLS"
-    ],
-    "headline": "Tesla, Celestica, Nu Holdings, XP Inc. and Microsoft: Why These 5 Stocks Are on Investors' Radars Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:24.605932-04:00",
-    "symbols": [
-      "FER"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:24.764143-04:00",
-    "symbols": [
-      "INIO"
-    ],
-    "headline": "Innio Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:24.766984-04:00",
-    "symbols": [
-      "INIO"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:24.769579-04:00",
-    "symbols": [
-      "INIO"
-    ],
-    "headline": "Innio Raises FY2026 Sales Guidance from $3.800B-$3.900B to $3.900B-$4.000B vs $3.874B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:24.772106-04:00",
-    "symbols": [
-      "INIO"
-    ],
-    "headline": "Innio Q3 Adj. EPS $0.15 Beats $0.12 Estimate, Sales $1.168B Beat $1.046B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:24.935637-04:00",
-    "symbols": [
-      "BRUN"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:24.938424-04:00",
-    "symbols": [
-      "BRUN"
-    ],
-    "headline": "Boost Run, Back By $600M+ In Financing, Established Fully Funded Runway To Accelerate Customer Deployments Through Q4",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-27T09:26:25.090980-04:00",
     "symbols": [
       "XHLD"
@@ -4998,5 +4448,555 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T12:54:13.468401-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Anthropic\u2019s $750B Compute Ambition Puts SOXX, SMH and AI Infrastructure ETFs in Focus",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:54:13.654470-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Anthropic\u2019s $750B Compute Ambition Puts SOXX, SMH and AI Infrastructure ETFs in Focus",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:54:13.834252-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Anthropic\u2019s $750B Compute Ambition Puts SOXX, SMH and AI Infrastructure ETFs in Focus",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:54:14.183211-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Anthropic\u2019s $750B Compute Ambition Puts SOXX, SMH and AI Infrastructure ETFs in Focus",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:54:14.423300-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Anthropic\u2019s $750B Compute Ambition Puts SOXX, SMH and AI Infrastructure ETFs in Focus",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:54:15.386193-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Anthropic\u2019s $750B Compute Ambition Puts SOXX, SMH and AI Infrastructure ETFs in Focus",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:54:15.706521-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Anthropic\u2019s $750B Compute Ambition Puts SOXX, SMH and AI Infrastructure ETFs in Focus",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:54:22.586061-04:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "Anthropic\u2019s $750B Compute Ambition Puts SOXX, SMH and AI Infrastructure ETFs in Focus",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:54:23.484263-04:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "Piper Sandler Assumes Occidental Petroleum at Neutral, Announces Price Target of $69",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:24.669943-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Stock Jumps: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:54:25.119981-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Reported October 26, 2026: USDA To Invest $57M To Boost American Meat Processing Capacity And Support U.S. Ranchers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:27.723131-04:00",
+    "symbols": [
+      "JBLU"
+    ],
+    "headline": "Crude Oil Moves Lower; Corning Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T12:54:27.883832-04:00",
+    "symbols": [
+      "LAES"
+    ],
+    "headline": "WISeSat.Space Holdings, Kaynes Space Technology Private Expand Collaboration To Produce Post-Quantum Security Solutions For Satellites Manufactured In India",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:54:28.173153-04:00",
+    "symbols": [
+      "MSGY"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:28.333075-04:00",
+    "symbols": [
+      "NAUT"
+    ],
+    "headline": "Nautilus Biotechnology Announces Participation In SEEDS Research Consortium, Which Was Awarded Up To $51.7M By The Advanced Research Projects Agency For Health",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:54:28.336018-04:00",
+    "symbols": [
+      "NAUT"
+    ],
+    "headline": "Nautilus Biotechnology Q3 EPS $(0.12) Beats $(0.14) Estimate, Sales $200.000K Miss $206.250K Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:54:28.500024-04:00",
+    "symbols": [
+      "NXH"
+    ],
+    "headline": "Kathy Ireland Launches Christmas Collection at Kirkland's and Bed Bath & Beyond",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:28.624422-04:00",
+    "symbols": [
+      "NXL"
+    ],
+    "headline": "Nexalin Technology Announces Publication Of Fourth Peer-Reviewed Article Reporting Results From Clinical Research On 15 mA DIFS Technology In Alzheimer's Disease",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:28.785030-04:00",
+    "symbols": [
+      "OPEN"
+    ],
+    "headline": "Top 3 Real Estate Stocks Which Could Rescue Your Portfolio This Month",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:28.912466-04:00",
+    "symbols": [
+      "OPK"
+    ],
+    "headline": "OPKO Biologics Doses First Patient In Its Phase 1/2a Clinical Study Of OPK-8801001 To Treat Acromegaly",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:29.069603-04:00",
+    "symbols": [
+      "PFAI"
+    ],
+    "headline": "Pinnacle Food Group Retains Cupola Consulting As Strategic Advisor For M&A Initiatives, Effective November 1",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:29.199155-04:00",
+    "symbols": [
+      "POM"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:29.334229-04:00",
+    "symbols": [
+      "PTLO"
+    ],
+    "headline": "BofA Securities Maintains Hold Rating and Lowers Price Target for Portillo's Inc.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:29.634326-04:00",
+    "symbols": [
+      "SPCE"
+    ],
+    "headline": "Virgin Galactic  Sets October 28 for Lead Delta Class Spaceship\u2019s Arrival at Spaceport America; First Spaceflight Of Lead Spaceship Now Expected In Early Q2 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:29.778460-04:00",
+    "symbols": [
+      "TE"
+    ],
+    "headline": "T1 Energy Announces Third Quarter 2026 Earnings Release and Conference Call Schedule",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:29.943365-04:00",
+    "symbols": [
+      "VNET"
+    ],
+    "headline": "VNET Group Buys Back ~$75.3M Of Its Outstanding 25% 2% Convertible Series Notes Due 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:30.069652-04:00",
+    "symbols": [
+      "WORX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday's After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:30.231073-04:00",
+    "symbols": [
+      "WVE"
+    ],
+    "headline": "Wave Life Sciences Anticipates $12M Milestone Payment From GSK In Q4",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:30.234005-04:00",
+    "symbols": [
+      "WVE"
+    ],
+    "headline": "WAVE Life Sciences Q3 EPS $(0.30) Beats $(0.33) Estimate, Sales $13.158M Beat $4.317M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:30.512870-04:00",
+    "symbols": [
+      "ZURA"
+    ],
+    "headline": "Zura Bio Q3 EPS $(0.20), Inline",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:30.668452-04:00",
+    "symbols": [
+      "BRAI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:30.671392-04:00",
+    "symbols": [
+      "BRAI"
+    ],
+    "headline": "Why Celestica Shares Are Trading Higher By Over 16%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:30.674118-04:00",
+    "symbols": [
+      "BRAI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday's After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:31.287425-04:00",
+    "symbols": [
+      "MFIC"
+    ],
+    "headline": "Crude Oil Moves Lower; Corning Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:54:31.291209-04:00",
+    "symbols": [
+      "MFIC"
+    ],
+    "headline": "Ares Capital Confirms It Will Acquire MidCap Financial For $10.88/Share Comprising ~$1.21/Share In Cash And ~$9.67/Share In ARCC Stock At And EV Of ~$2.6B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:54:31.293944-04:00",
+    "symbols": [
+      "MFIC"
+    ],
+    "headline": "'Ares Private-Credit Fund to Buy (MidCap Financial) From Apollo; The merger of the two business-development companies will boost Ares Capital Corp. to over $31 billion' - WSJ Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:54:31.433577-04:00",
+    "symbols": [
+      "KNSA"
+    ],
+    "headline": "Crude Oil Moves Lower; Corning Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:31.436992-04:00",
+    "symbols": [
+      "KNSA"
+    ],
+    "headline": "Kiniksa Pharmaceuticals Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:31.439883-04:00",
+    "symbols": [
+      "KNSA"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:31.442505-04:00",
+    "symbols": [
+      "KNSA"
+    ],
+    "headline": "Kiniksa Pharmaceuticals Raises FY2026 Sales Guidance from $980.000M-$995.000M to $1.045B-$1.050B vs $996.102M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:31.579315-04:00",
+    "symbols": [
+      "HWKN"
+    ],
+    "headline": "Hawkins (HWKN) Shares Rise 12% After-Hours: Here's Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T12:54:31.582378-04:00",
+    "symbols": [
+      "HWKN"
+    ],
+    "headline": "12 Materials Stocks Moving In Monday's After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T12:54:31.747747-04:00",
+    "symbols": [
+      "IMSR"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:31.750898-04:00",
+    "symbols": [
+      "IMSR"
+    ],
+    "headline": "Terrestrial Energy Announces $25M Buyback Plan",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:31.902756-04:00",
+    "symbols": [
+      "SOFI"
+    ],
+    "headline": "CORRECTION: SoFi Technologies Raises FY2026 Adj EPS Guidance from $0.60 to $0.61 vs $0.59 Est; Raises FY2026 Sales Guidance from $4.750B-$4.850B to $5.040B vs $4.874B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:54:31.905775-04:00",
+    "symbols": [
+      "SOFI"
+    ],
+    "headline": "SoFi Technologies Sees FY2027 Adj EPS $0.90 vs $0.81 Est; Sees Sales $6.400B vs $5.991B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:54:32.234323-04:00",
+    "symbols": [
+      "UPC"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:32.868005-04:00",
+    "symbols": [
+      "HRI"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:54:32.870997-04:00",
+    "symbols": [
+      "HRI"
+    ],
+    "headline": "Herc Hldgs Q3 Adj. EPS $3.91 Beats $2.90 Estimate, Sales $1.364B Beat $1.345B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:54:33.396068-04:00",
+    "symbols": [
+      "FER"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:54:33.727218-04:00",
+    "symbols": [
+      "CLS"
+    ],
+    "headline": "Celestica Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:54:33.730253-04:00",
+    "symbols": [
+      "CLS"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:54:33.733264-04:00",
+    "symbols": [
+      "CLS"
+    ],
+    "headline": "Why Celestica Shares Are Trading Higher By Over 16%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:54:33.736175-04:00",
+    "symbols": [
+      "CLS"
+    ],
+    "headline": "Coca-Cola, Boeing and 3 Stocks to Watch Heading Into Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:54:35.444553-04:00",
+    "symbols": [
+      "GLXY"
+    ],
+    "headline": "Galaxy Digital Posts $323M Profit as AI Expansion Gains Steam",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

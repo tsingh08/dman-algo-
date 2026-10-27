@@ -1,245 +1,5 @@
 [
   {
-    "ts": "2026-10-27T12:20:21.145374-04:00",
-    "symbols": [
-      "SLB"
-    ],
-    "headline": "HSBC Adjusts Price Target on SLB to $71 From $68",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T12:20:22.345948-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Partners With OpenAI To Integrate ChatGPT, Codex Into Its Operations",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T12:20:22.349060-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle And Google Partner To Bring Google TPUs To Oracle Cloud Infrastructure",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T12:20:22.351768-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle And Snowflake Partner To Offer Snowflake AI Data Cloud As A Native First-Party Service On Oracle Cloud Infrastructure",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T12:25:31.079096-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Scott Galloway Warns Tesla Is the \u2018Patient\u2019 and SpaceX Its \u2018Organ Donor\u2019 in Elon Musk\u2019s $3.5 Trillion Merger Plan: 'Real Merger With a Fake Premise'",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T12:25:31.083812-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Anthropic Could Defy the AI Spending Curse: Analysts See Early Profit Signs and Massive Cash Cushion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T12:25:31.344552-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Ed Yardeni Says AI Bubble Is Deflating Without Bursting Amid Increasing Funding Scrutiny Around CRWV, NBIS: \u2018The Bond Market Is Going To Regulate'",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-27T12:25:31.633084-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Ed Yardeni Says AI Bubble Is Deflating Without Bursting Amid Increasing Funding Scrutiny Around CRWV, NBIS: \u2018The Bond Market Is Going To Regulate'",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T12:25:31.928612-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Rolls Out New 14-Inch MacBook Pro, iMac With M6,",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T12:25:31.933057-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "PayPal Cuts Thousands of Jobs, Bets on AI and Lifts Profit Outlook",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T12:25:31.937431-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Anthropic Could Defy the AI Spending Curse: Analysts See Early Profit Signs and Massive Cash Cushion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T12:25:31.941782-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "'We're Trading Them Like Baseball Cards': Mark Cuban Warns \u2018Everything\u2019s a Meme Stock\u2019 as AAPL, GOOGL and MU Fuel Market Bubble Fears",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T12:25:32.186055-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Oracle Partners With OpenAI To Integrate ChatGPT, Codex Into Its Operations",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T12:25:32.192582-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Earnings Are Imminent; These Most Accurate Analysts Revise Forecasts Ahead Of Earnings Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T12:25:32.752481-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "AMD Expands Strategic Partnership With Meta To Deploy Its Helios Rackscale Solutions, EPYC Processors And Technologies Providing Day-0 Support For Meta Models; AMD To Invest $1B In The META Equity Offering",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T12:25:32.756982-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Anthropic\u2019s IPO Filing Reveals Over $500 Billion AI Compute Spending Across AMZN, GOOGL, MSFT, AVGO and SPCX: Top Analyst Says It Has \u2018Barely Started\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T12:25:32.761231-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Cathie Wood Buys Joby, Archer Aviation as Air Taxi Bets Grow, Ark Pounces on Nu Holdings Stock After Lula\u2019s Brazil Win",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T12:25:33.342526-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google DeepMind Announces Genie 4: A New World Model, Which Unlocks Unprecedented Realism And Improves Real-Time Interactive Simulation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T12:25:33.347097-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Oracle And Google Partner To Bring Google TPUs To Oracle Cloud Infrastructure",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T12:25:34.446114-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Oracle And Snowflake Partner To Offer Snowflake AI Data Cloud As A Native First-Party Service On Oracle Cloud Infrastructure",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T12:25:39.571647-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "QUICK SPARK: Cybersecurity Stocks Outperform Chipmakers in 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T12:25:39.807614-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "QUICK SPARK: Cybersecurity Stocks Outperform Chipmakers in 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T12:25:41.484632-04:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "QUICK SPARK: Cybersecurity Stocks Outperform Chipmakers in 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T12:25:46.706507-04:00",
-    "symbols": [
-      "SLB"
-    ],
-    "headline": "Goldman Sachs Adjusts Price Target on SLB to $63 From $59",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-27T12:25:46.711103-04:00",
     "symbols": [
       "SLB"
@@ -4998,5 +4758,245 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:42:53.140407-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft, Alphabet On Deck Wednesday As AI Spending, Cloud Growth Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T15:42:53.145090-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Could Swing By $184 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T15:42:53.584149-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google Rolls Out Gemini Robotics Embodied Reasoning 2 For Public Review On Gemini Platform",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:42:53.588665-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Microsoft, Alphabet On Deck Wednesday As AI Spending, Cloud Growth Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:42:53.593019-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Microsoft Could Swing By $184 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:42:54.969377-04:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "Microsoft, Alphabet On Deck Wednesday As AI Spending, Cloud Growth Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:42:54.974067-04:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "Microsoft Could Swing By $184 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:42:57.000976-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Microsoft, Alphabet On Deck Wednesday As AI Spending, Cloud Growth Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:42:57.005730-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Microsoft Could Swing By $184 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:42:58.218638-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "Microsoft, Alphabet On Deck Wednesday As AI Spending, Cloud Growth Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:42:58.223365-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "Microsoft Could Swing By $184 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:42:58.330986-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Lockheed Martin Receives $694M U.S. Air Force Contract To Manufacture Air-Launched Rapid Response Weapon",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:42:59.965754-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Intends To Achieve FedRAMP Class D Certification For Oracle AI Database AWS, Oracle AI Database Azure, Oracle AI Database@Google Cloud",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T15:43:00.192857-04:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "Microsoft, Alphabet On Deck Wednesday As AI Spending, Cloud Growth Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:43:00.277561-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Refiner Stocks Suffer Worst Day Since the Tariff Shock: The Threat Is Not Cheaper Oil",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T15:43:00.595322-04:00",
+    "symbols": [
+      "INOD"
+    ],
+    "headline": "Why Is Innodata Stock Sinking Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T15:43:02.713865-04:00",
+    "symbols": [
+      "PYPL"
+    ],
+    "headline": "Needham Reiterates Hold on PayPal Holdingsto Hold",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:43:02.718561-04:00",
+    "symbols": [
+      "PYPL"
+    ],
+    "headline": "BTIG Reiterates Neutral on PayPal Holdingsto Neutral",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:43:02.723024-04:00",
+    "symbols": [
+      "PYPL"
+    ],
+    "headline": "Michael Burry: Today&#39;s Market Mirrors the Eve of the Dot-Com Crash",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:43:02.727501-04:00",
+    "symbols": [
+      "PYPL"
+    ],
+    "headline": "PayPal Holdings Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:43:02.731829-04:00",
+    "symbols": [
+      "PYPL"
+    ],
+    "headline": "PayPal Cuts Thousands of Jobs, Bets on AI and Lifts Profit Outlook",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:43:02.817003-04:00",
+    "symbols": [
+      "JBS"
+    ],
+    "headline": "Reported October 26, 2026: USDA To Invest $57M To Boost American Meat Processing Capacity And Support U.S. Ranchers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T15:43:02.921770-04:00",
+    "symbols": [
+      "MRP"
+    ],
+    "headline": "Millrose Properties Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T15:43:02.926360-04:00",
+    "symbols": [
+      "MRP"
+    ],
+    "headline": "Millrose Properties Q3 EPS $0.78, Inline, Sales $211.004M Beat $205.901M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-27T12:25:46.711103-04:00",
-    "symbols": [
-      "SLB"
-    ],
-    "headline": "UBS Adjusts Price Target on SLB to $70 From $75",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T12:25:46.715695-04:00",
-    "symbols": [
-      "SLB"
-    ],
-    "headline": "HSBC Adjusts Price Target on SLB to $71 From $68",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T12:25:48.470792-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Partners With OpenAI To Integrate ChatGPT, Codex Into Its Operations",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T12:25:48.475336-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle And Google Partner To Bring Google TPUs To Oracle Cloud Infrastructure",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T12:25:48.479759-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle And Snowflake Partner To Offer Snowflake AI Data Cloud As A Native First-Party Service On Oracle Cloud Infrastructure",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T12:25:51.330158-04:00",
-    "symbols": [
-      "VLRS"
-    ],
-    "headline": "Volaris Reports Third Quarter 2026 Financial Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-27T12:31:40.437054-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Anthropic Could Defy the AI Spending Curse: Analysts See Early Profit Signs and Massive Cash Cushion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T12:31:44.369498-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "QUICK SPARK: Cybersecurity Stocks Outperform Chipmakers in 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-27T12:31:44.546834-04:00",
     "symbols": [
       "PANW"
@@ -4998,5 +4918,85 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T15:47:24.692907-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Ed Yardeni Says AI Bubble Is Deflating Without Bursting Amid Increasing Funding Scrutiny Around CRWV, NBIS: \u2018The Bond Market Is Going To Regulate'",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T15:47:24.923494-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Ed Yardeni Says AI Bubble Is Deflating Without Bursting Amid Increasing Funding Scrutiny Around CRWV, NBIS: \u2018The Bond Market Is Going To Regulate'",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T15:47:25.177725-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Rolls Out New 14-Inch MacBook Pro, iMac With M6,",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T15:47:25.180753-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "PayPal Cuts Thousands of Jobs, Bets on AI and Lifts Profit Outlook",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T15:47:25.349139-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Oracle Partners With OpenAI To Integrate ChatGPT, Codex Into Its Operations",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T15:47:25.775190-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD Expands Strategic Partnership With Meta To Deploy Its Helios Rackscale Solutions, EPYC Processors And Technologies Providing Day-0 Support For Meta Models; AMD To Invest $1B In The META Equity Offering",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T15:47:26.755025-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Oracle And Snowflake Partner To Offer Snowflake AI Data Cloud As A Native First-Party Service On Oracle Cloud Infrastructure",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:47:50.713518-04:00",
+    "symbols": [
+      "XP"
+    ],
+    "headline": "Tesla, Celestica, Nu Holdings, XP Inc. and Microsoft: Why These 5 Stocks Are on Investors' Radars Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

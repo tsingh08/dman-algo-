@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-10-26T15:42:55.256315-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Visa, Coca-Cola On Deck Tuesday As Payments Growth, Global Demand Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T15:42:59.104344-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitmine Adds 10,452 ETH as BMNR Struggles Below $24: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T15:42:59.286340-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "&#39;DoorDash Is In Advanced Talks To Acquire Delivery Rival Instacart; Deal Could Be Completed As Soon As This Week, People Familiar With The Matter Say&#39; - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T15:43:00.829964-04:00",
-    "symbols": [
-      "PDD"
-    ],
-    "headline": "European Union Accepts Temu's Compliance Plan for Digital Services Act",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T15:43:02.743501-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Why Is Xtend AI Robotics Stock Surging Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T15:43:03.391531-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "&#39;Saudi Aramco Nears Signing of $10 Billion Loan with Global Banks&#39; - Bloomberg Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T15:43:03.772212-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Visa, Coca-Cola On Deck Tuesday As Payments Growth, Global Demand Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T15:43:03.775580-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "VISA Could Swing $24.8 Billion In Value After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T15:43:03.779883-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Susquehanna Maintains Positive on Visa, Raises Price Target to $480",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-26T15:43:04.823455-04:00",
     "symbols": [
       "FCX"
@@ -4995,6 +4905,96 @@
       "LECO"
     ],
     "headline": "Lincoln Electric Holdings Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T11:02:08.003871-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Broadcom Releases Security Fixes for TrueSource Spring Enterprise",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T11:02:08.012965-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Codoxo and UnitedHealth Group to Present at NHCAA 2026",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T11:02:08.017101-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD and Meta Expand Strategic Partnership and Announce $1 Billion Investment",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T11:02:08.021068-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Allergan Aesthetics Announces 2026 Grant Recipients for The Confidence Collective",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T11:02:08.024999-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Anavsan APEX Governance Agent Listed on Microsoft Marketplace",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T11:02:08.030316-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Asset Management Joins Envestnet's Custom Model Solutions Program",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T11:02:08.034489-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Qualcomm Named to Dividend Channel's S.A.F.E. 25 List",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T11:02:08.041685-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "IXS Migrates Token to Robinhood Chain",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T11:02:21.811222-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Q3 Preview: Could Record Revenue Help Turn Shares Around?",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"

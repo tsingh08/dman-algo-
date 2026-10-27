@@ -1668,5 +1668,15 @@
 "extension_pct": 23.9,
 "fresh_base": false,
 "weak_band": true
+},
+{
+"ticker": "CRL",
+"date": "2026-10-27",
+"close": 358.84,
+"base_days": 0,
+"above_low_pct": 139.3,
+"extension_pct": 15.8,
+"fresh_base": false,
+"weak_band": false
 }
 ]

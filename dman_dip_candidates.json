@@ -1,26 +1,22 @@
 {
- "bar": "2026-10-26",
+ "bar": "2026-10-27",
  "entered": null,
  "tickers": [
   {
    "ticker": "CRM",
-   "close": 247.61
+   "close": 240.89
   },
   {
-   "ticker": "SMCI",
-   "close": 32.69
+   "ticker": "GME",
+   "close": 23.36
   },
   {
-   "ticker": "AFRM",
-   "close": 69.49
+   "ticker": "ABNB",
+   "close": 168.82
   },
   {
-   "ticker": "MRNA",
-   "close": 198.85
-  },
-  {
-   "ticker": "HIMS",
-   "close": 27.59
+   "ticker": "OXY",
+   "close": 62.73
   }
  ]
 }

@@ -1,215 +1,5 @@
 [
   {
-    "ts": "2026-10-26T19:02:08.732500-04:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "Intuitive Surgical Insider Executes Stock Sale",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T19:02:08.899450-04:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "Eaton Wins Battery Configuration Switch Award at The Battery Awards 2026",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T19:02:09.092376-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "OneTrust Launches Consent Management App on Snowflake Marketplace",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T20:02:08.175163-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Heavenly Hunks Expands Dupe Loops Mini Donuts to Costco",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T20:02:08.356276-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla and Nvidia Reportedly Funding Samsung AI Chip Substrate Production",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-27T09:26:04.355665-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Scott Galloway Warns Tesla Is the \u2018Patient\u2019 and SpaceX Its \u2018Organ Donor\u2019 in Elon Musk\u2019s $3.5 Trillion Merger Plan: 'Real Merger With a Fake Premise'",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:04.358456-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Anthropic Could Defy the AI Spending Curse: Analysts See Early Profit Signs and Massive Cash Cushion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:04.361131-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "'I No Longer Believe That': Satya Nadella Says He Was Wrong About AI Alignment \u2014 Microsoft CEO Warns Keeping Future AI Systems Safe May Be a \u2018Harder, Different Problem\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:04.363625-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Cathie Wood Says \u2018Genius\u2019 Elon Musk is Pushing the World Towards 9% GDP Growth With TSLA, SPCX: \u2018We\u2019ve Never Been Here Before\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:04.366335-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Anthropic\u2019s IPO Filing Reveals Over $500 Billion AI Compute Spending Across AMZN, GOOGL, MSFT, AVGO and SPCX: Top Analyst Says It Has \u2018Barely Started\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:04.577633-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Ed Yardeni Says AI Bubble Is Deflating Without Bursting Amid Increasing Funding Scrutiny Around CRWV, NBIS: \u2018The Bond Market Is Going To Regulate'",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-27T09:26:04.580642-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "CoreWeave Debt Fears Hit a Record \u2014 Some Are Whispering 'Lehman'",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-27T09:26:04.583258-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nebius Stock Moves Higher: What's Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-27T09:26:04.773841-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Ed Yardeni Says AI Bubble Is Deflating Without Bursting Amid Increasing Funding Scrutiny Around CRWV, NBIS: \u2018The Bond Market Is Going To Regulate'",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:04.992335-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Rolls Out New 14-Inch MacBook Pro, iMac With M6,",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:04.995141-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "PayPal Cuts Thousands of Jobs, Bets on AI and Lifts Profit Outlook",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:04.997674-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Anthropic Could Defy the AI Spending Curse: Analysts See Early Profit Signs and Massive Cash Cushion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:05.000132-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "'We're Trading Them Like Baseball Cards': Mark Cuban Warns \u2018Everything\u2019s a Meme Stock\u2019 as AAPL, GOOGL and MU Fuel Market Bubble Fears",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:05.002665-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "\u2018Aware of an Issue\u2019: Apple Offers Replacements for iPhone Duo Display Defects After Users Report Cracks Near Hinge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:05.142594-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Earnings Are Imminent; These Most Accurate Analysts Revise Forecasts Ahead Of Earnings Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:05.145473-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Anthropic Could Defy the AI Spending Curse: Analysts See Early Profit Signs and Massive Cash Cushion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-27T09:26:05.148536-04:00",
     "symbols": [
       "MSFT"
@@ -4998,5 +4788,215 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T12:09:07.464772-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Why Is Cipher Digital Stock Surging on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:09:08.118832-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Oracle Launches AI Security Mesh Powered By OpenAI\u2019s Frontier Cyber Models To Accelerate Vulnerability Detection And Remediation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:09:08.327686-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia, Oracle Intend To Expand Oracle Cloud Infrastructure Superclusters With Nvidia Vera Rubin NVL72 Systems",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:09:09.276117-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Why Is Cipher Digital Stock Surging on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:09:09.745098-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "OneTrust Launches Consent Management App on Snowflake Marketplace",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:09:16.151517-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Lockheed Martin Plans To Construct PAC-3 Missile Maintenance Site In Poland",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:09:16.572926-04:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "Eaton Wins Battery Configuration Switch Award at The Battery Awards 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:09:16.721058-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Chase Reports Change in Major Holding in Vonovia SE",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:09:16.883245-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Expands Wealth Management Advisory Teams in Asia",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:09:18.028112-04:00",
+    "symbols": [
+      "ISRG"
+    ],
+    "headline": "Intuitive Surgical Insider Executes Stock Sale",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:09:18.772049-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Introduces Integrated Platform Oracle Media Fabric For Media Companies, Streaming Providers To Lower Content Production Time, Cost",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:09:18.774908-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Launches AI Security Mesh Powered By OpenAI\u2019s Frontier Cyber Models To Accelerate Vulnerability Detection And Remediation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:09:18.777689-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Expands OCI Acceleron Networking Capabilities To Improve Data Transfer Efficiency, Keep Distributed AI Workloads Running, And Securely Scale Multi-Tenant Clusters",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:09:18.780387-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Announces Expansion Of Oracle Fusion Data Intelligence Tools To Extend AI-Powered Reporting, Dashboard Capabilities",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:09:18.783000-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "ADT Expands AI Adoption With Oracle AI Database@Google Cloud And Oracle Fusion Cloud Applications; ADT\u00a0Estimates It Can Save More Than $3M Over 4-Years And Improve Application Performance By 25% By Migrating Business-critical Applications",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:09:20.442028-04:00",
+    "symbols": [
+      "CLOV"
+    ],
+    "headline": "Clover Health to Participate in Upcoming UBS Global Healthcare Conference",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:09:22.273744-04:00",
+    "symbols": [
+      "LWLG"
+    ],
+    "headline": "Lightwave Logic, Inc. Announces Timing of Third Quarter 2026 Financial Results and Business Update Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:09:23.724338-04:00",
+    "symbols": [
+      "SFIX"
+    ],
+    "headline": "Stitch Fix Announces New Employee Inducement Grant",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:09:24.571873-04:00",
+    "symbols": [
+      "XNDU"
+    ],
+    "headline": "Xanadu Schedules Third Quarter 2026 Financial Results Release",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:09:26.532753-04:00",
+    "symbols": [
+      "SXC"
+    ],
+    "headline": "Pentair, JetBlue Airways, Hawkins And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:09:26.535655-04:00",
+    "symbols": [
+      "SXC"
+    ],
+    "headline": "SunCoke Energy Q3 EPS $0.25 Beats $0.12 Estimate, Sales $485.900M Beat $458.250M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

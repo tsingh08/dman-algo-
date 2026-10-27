@@ -1,245 +1,5 @@
 [
   {
-    "ts": "2026-10-26T16:00:12.613384-04:00",
-    "symbols": [
-      "ABOS"
-    ],
-    "headline": "Acumen Pharmaceuticals Q3 EPS $(0.35) Beats $(0.37) Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T16:00:13.388815-04:00",
-    "symbols": [
-      "SKHX"
-    ],
-    "headline": "SK Hynix ETF Liquidations Raise Delisting Risks for Rival Leveraged Funds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T16:00:48.326935-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "$1000 Invested In Advanced Micro Devices 15 Years Ago Would Be Worth This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T16:00:48.351325-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Growth Leads Sectors In Monday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T16:00:48.432606-04:00",
-    "symbols": [
-      "SLB"
-    ],
-    "headline": "Barclays Maintains Overweight on SLB, Lowers Price Target to $63",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T16:00:48.441806-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Growth Leads Sectors In Monday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T16:00:48.449364-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Growth Leads Sectors In Monday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T16:00:48.462951-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Growth Leads Sectors In Monday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T17:32:08.178519-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Omnicom Named Leader in IDC MarketScape for AI-Enabled Adobe Professional Services",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T17:32:09.075766-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Financial Institutions Form $63 Billion Financing Vehicle for Broadcom AI Infrastructure",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T17:32:09.242962-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs Expands Wealth Management Advisory Teams in Asia",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T17:32:09.378747-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Applied Materials Increases Strategic Investment in BE Semiconductor Industries",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T17:33:08.243793-04:00",
-    "symbols": [
-      "LWLG"
-    ],
-    "headline": "Lightwave Logic, Inc. Announces Timing of Third Quarter 2026 Financial Results and Business Update Call",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T17:33:08.433767-04:00",
-    "symbols": [
-      "XNDU"
-    ],
-    "headline": "Xanadu Schedules Third Quarter 2026 Financial Results Release",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T17:33:08.581661-04:00",
-    "symbols": [
-      "JBLU"
-    ],
-    "headline": "JetBlue Airways Reports Wider Third-Quarter Loss",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T17:33:09.008513-04:00",
-    "symbols": [
-      "SPCE"
-    ],
-    "headline": "Virgin Galactic Enters Multi-Year Partnership with Space for Humanity",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T17:33:09.173335-04:00",
-    "symbols": [
-      "SFIX"
-    ],
-    "headline": "Stitch Fix Announces New Employee Inducement Grant",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T18:02:08.243057-04:00",
-    "symbols": [
-      "NRG"
-    ],
-    "headline": "NRG Energy to Report Third Quarter 2026 Financial Results on November 9, 2026",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T18:03:08.252655-04:00",
-    "symbols": [
-      "CLOV"
-    ],
-    "headline": "Clover Health to Participate in Upcoming UBS Global Healthcare Conference",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T18:03:08.445148-04:00",
-    "symbols": [
-      "CELH"
-    ],
-    "headline": "JPMorgan Maintains Overweight Rating on Celsius Holdings",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T19:02:08.205249-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Business to Host Annual 'Reshape 2026' Conference",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-26T19:02:08.381866-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Semperis Expands Security Collaboration with Microsoft",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T19:02:08.385701-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Verosoft Launches AI Orchestration Platform Built on Microsoft Dynamics 365",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T19:02:08.546293-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Chase Reports Change in Major Holding in Vonovia SE",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-26T19:02:08.732500-04:00",
     "symbols": [
       "ISRG"
@@ -4998,5 +4758,245 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:02:00.059471-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Verizon Analyst Remains On Sidelines Despite Strong Q3 Earnings, Expanded Broadband",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:02:01.047220-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia CEO Jensen Huang Says AI Thinks a Ball That Rolled Off the Table Disappeared \u2014 But Even &#39;Your Dog&#39; Knows Better",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:02:02.697288-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "What Is Going on With Super Micro Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:02:03.828816-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Stock Trends Higher: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:02:07.361269-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "&#39;US Offers Constellation $5 Billion Financing to Spur Nuclear&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:02:10.256454-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Intel And Oracle Announce Multiyear Collaboration To Expand Xeon-Based Computing On Oracle Cloud Infrastructure",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:02:10.261210-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Cerebras Systems And Oracle Partner To Bring High-Speed AI Inference To Oracle Cloud Infrastructure, Targeting AI Labs, Enterprises And Developers Building Interactive AI Applications",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:02:10.265606-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "&#39;Oracle, Intel, IBM Push Back Against Efforts To Tokenize Their Stocks&#39; - WSJ",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:02:10.650465-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says We&#39;re Going To Accept 1 Million Barrels Of Oil; Believe I Will Visit Tanker In Texas With Venezuela Oil; Think Rubio Will Be With Me",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:02:11.090983-04:00",
+    "symbols": [
+      "ARTV"
+    ],
+    "headline": "Wedbush Downgrades Artiva Biotherapeutics to Neutral, Lowers Price Target to $4",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:02:11.095630-04:00",
+    "symbols": [
+      "ARTV"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:02:11.100011-04:00",
+    "symbols": [
+      "ARTV"
+    ],
+    "headline": "Trading Halt: Halt status updated at 7:45:00 AM ET: Quotation Resumption: News and Resumption Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:02:11.104312-04:00",
+    "symbols": [
+      "ARTV"
+    ],
+    "headline": "Artiva Biotherapeutics Cancels ACR Convergence 2026 Data Presentation And November 9 Investor Webcast Following AlloNK Development Discontinuation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:02:11.108636-04:00",
+    "symbols": [
+      "ARTV"
+    ],
+    "headline": "Artiva Biotherapeutics To Reduce Workforce By ~94% Following Discontinuation Of AlloNK Development",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:02:11.661639-04:00",
+    "symbols": [
+      "BA"
+    ],
+    "headline": "Boeing Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:02:11.666371-04:00",
+    "symbols": [
+      "BA"
+    ],
+    "headline": "Boeing CEO Says Still Don&#39;t Have FAA Authorization To Complete 777x Flight Test Certification",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:02:11.670772-04:00",
+    "symbols": [
+      "BA"
+    ],
+    "headline": "Boeing CFO Says 737 Production Won&#39;t Reach 2018 Levels By 2029",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:02:11.675165-04:00",
+    "symbols": [
+      "BA"
+    ],
+    "headline": "Boeing CEO Says First 737-10 Rolled Out Of New Everett Production Line",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:02:11.679535-04:00",
+    "symbols": [
+      "BA"
+    ],
+    "headline": "Boeing CEO Says Currently Producing 777X Airplanes At A Rate Of About One Per Month And Expect To Stay At That Level For Most Of 2027; Expect 777-9 Certification By Mid-2027; 2027 FCF Will Be Lower Due To Legacy Cash Drags",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:02:12.374995-04:00",
+    "symbols": [
+      "XYL"
+    ],
+    "headline": "Xylem Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T12:02:12.379719-04:00",
+    "symbols": [
+      "XYL"
+    ],
+    "headline": "Whirlpool Posts Downbeat Q3 Results, Joins HSBC, Hilton Hotels And Other Big Stocks Moving Lower In Tuesday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T12:02:12.384133-04:00",
+    "symbols": [
+      "XYL"
+    ],
+    "headline": "Xylem To Divest Its Water International And Specialty Flow Control Units; Will Move To Three-Segment Structure From January 1, 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T12:02:12.388479-04:00",
+    "symbols": [
+      "XYL"
+    ],
+    "headline": "Xylem Sees Q4 Adj EPS $1.39-$1.44 vs $1.63 Est; Sees Sales $2.300B vs $2.446B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T12:02:12.392872-04:00",
+    "symbols": [
+      "XYL"
+    ],
+    "headline": "Xylem Q3 Adj. EPS $1.44 Misses $1.45 Estimate, Sales $2.201B Miss $2.276B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

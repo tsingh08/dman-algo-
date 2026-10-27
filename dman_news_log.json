@@ -1,875 +1,5 @@
 [
   {
-    "ts": "2026-10-27T09:26:09.624934-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "AbbVie Submits BLA To FDA For Etentamig, Second-Gen BCMA X CD3 Bispecific Antibody T-Cell Engager Administered Intravenously For Treatment Of Adults With Relapsed Or Refractory Multiple Myeloma",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:09.627857-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Here's How Much $100 Invested In AbbVie 10 Years Ago Would Be Worth Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:09.789807-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Novo Nordisk Loses Court Bid Against Eli Lilly\u2019s Weight-Loss Drug Ads \u2014 Judge Says Sales Impact Was Negligible",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:09.792649-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "U.S. Judge Lets Eli Lilly Continue Weight-Loss Drug Ads, Ruling Against Novo Nordisk",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:10.066152-04:00",
-    "symbols": [
-      "RXRX"
-    ],
-    "headline": "ParaZero Technologies To Provide Earnings Updates And REC-4881 Data As Well As KOL And Patient Panels On Tuesday, November 3, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:10.388525-04:00",
-    "symbols": [
-      "CELH"
-    ],
-    "headline": "Jim Cramer Calls Celsius 'A Second-Rate Monster,' Says Stick With the Original",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:10.534735-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "ExxonMobil, Leidos, eBay and More: CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:10.537492-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Trump's Oil Holdings Could Top $81 Million, New Report Says \u2014 Gavin Newsom Says President Swore \u2018Oath\u2019 to Big Oil",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:10.540074-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Chuck Schumer Says Americans Paid \u2018Billions More for Gas\u2019 as Trump Profited From Oil Stocks; White House Insists Low Prices Are \u2018Priority\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:11.041578-04:00",
-    "symbols": [
-      "ANET"
-    ],
-    "headline": "Tom Lee\u2019s Top 6 Reasons for \u2018Conviction About the AI Trade\u2019: \u2018I\u2019m Buying This AI Dip\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:11.518799-04:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Cloudflare Reports Data Isolation Issue in Workers AI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:11.521469-04:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Cloudflare Releases Emergency WAF Ruleset Update",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:11.836255-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Circle\u2019s AI Opportunity Turns Into a \u2018Marked Risk,\u2019 Mizuho Warns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:11.839211-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Creating 'Net-New' Gold With Alchemy Becoming Real: Coinbase CEO Says You Can't 'Invent Anything' That Raises Bitcoin Supply",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:11.993018-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin, XRP, Dogecoin Gain, but Ethereum Slips Amid Signs of 'Local Bottom': Top Analyst Identifies 'Next Buying Opportunity'",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:12.143972-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "DoorDash Adds Instacart to Its Cart: Reported $17 Billion Deal Talks Ahead of Nov. 4 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:12.146767-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "'DoorDash Is In Advanced Talks To Acquire Delivery Rival Instacart; Deal Could Be Completed As Soon As This Week, People Familiar With The Matter Say' - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:12.334942-04:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "B of A Securities Maintains Buy on Vistra, Lowers Price Target to $194",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:12.781983-04:00",
-    "symbols": [
-      "ONON"
-    ],
-    "headline": "China State Broadcaster Responds Regarding Mbappe Apology; We Noted Public Apology; Hope La Liga, Real Madrid And Mbappe Learn Lesson And Sincerely Apologize And Mend Their Ways",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:12.784862-04:00",
-    "symbols": [
-      "ONON"
-    ],
-    "headline": "Whirlpool Posts Downbeat Q3 Results, Joins HSBC, Hilton Hotels And Other Big Stocks Moving Lower In Tuesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:12.787554-04:00",
-    "symbols": [
-      "ONON"
-    ],
-    "headline": "'French football star Kylian Mbappe dropped by Chinese brands after 'dictator' remark' - Sky News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:13.060373-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Alibaba Secures Partial Legal Win Against Pentagon Lobbying Restrictions",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:13.203923-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Baidu to Report Third Quarter 2026 Financial Results on November 16, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-27T09:26:13.341684-04:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "IonQ Receives $7.5M In Follow-On Funding From Air Force Research Laboratory",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:13.473963-04:00",
-    "symbols": [
-      "ACHR"
-    ],
-    "headline": "Cathie Wood Buys Joby, Archer Aviation as Air Taxi Bets Grow, Ark Pounces on Nu Holdings Stock After Lula\u2019s Brazil Win",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-27T09:26:13.606086-04:00",
-    "symbols": [
-      "JOBY"
-    ],
-    "headline": "Cathie Wood Buys Joby, Archer Aviation as Air Taxi Bets Grow, Ark Pounces on Nu Holdings Stock After Lula\u2019s Brazil Win",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:13.816526-04:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "Barclays Maintains Overweight on Constellation Energy, Raises Price Target to $345",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:13.978618-04:00",
-    "symbols": [
-      "NRG"
-    ],
-    "headline": "Barclays Maintains Overweight on NRG Energy, Lowers Price Target to $163",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:14.128388-04:00",
-    "symbols": [
-      "TLN"
-    ],
-    "headline": "Barclays Adjusts Talen Energy Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:14.288567-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "How to Earn $500 a Month From Phillips 66 Stock Ahead of Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:14.451286-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Lockheed Martin\u2019s 10-Year F-35 Deal With Pentagon Removes \u2018Significant Risk\u2019 From the Stock, Says Top Analyst, Sees Over 30% Upside",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:15.087212-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Asset Management Targets $600 Billion in Asia-Pacific Assets by 2030",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:15.090075-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Chase Discloses Increased Holding in Yellow Cake PLC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:15.390702-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&P 500, Nasdaq 10 Futures Gain as Fed Begins Its Two-Day Meet\u2014 Novartis, HSBC, Welltower in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:15.393541-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Stock Market: Will S&P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:15.518782-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "'Stripe\u2019s AI Shopping Lead Puts Card Giants On Edge; Stripe Is Emerging As A Powerful Middleman In AI Shopping, Raising Concerns At Visa And MasterCard. Its Virtual Card Technology Could Give Stripe Greater Control Over Payments And More Insight Into Consumers\u2019 Purchases.' - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:15.678133-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Chevron's Australian Business Signs Long-Term Natural Gas Deal Starting in 2028",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:15.680794-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Chevron Inks Long-Term Gas Supply Deal With South32 For 55 Petajoules Over Five Years From 2028, Following Horizon Power, Alinta Energy Deals",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:15.683229-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Trump's Oil Holdings Could Top $81 Million, New Report Says \u2014 Gavin Newsom Says President Swore \u2018Oath\u2019 to Big Oil",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:15.685673-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Chuck Schumer Says Americans Paid \u2018Billions More for Gas\u2019 as Trump Profited From Oil Stocks; White House Insists Low Prices Are \u2018Priority\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:15.852812-04:00",
-    "symbols": [
-      "OXY"
-    ],
-    "headline": "Chuck Schumer Says Americans Paid \u2018Billions More for Gas\u2019 as Trump Profited From Oil Stocks; White House Insists Low Prices Are \u2018Priority\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:16.010015-04:00",
-    "symbols": [
-      "SLB"
-    ],
-    "headline": "Freedom Broker Upgrades SLB to Hold, Maintains Price Target to $48",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:16.143868-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "UnitedHealth Group To Rally Over 29%? Here Are 10 Top Analyst Forecasts For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:16.151428-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "Morgan Stanley Maintains Overweight on UnitedHealth Group, Raises Price Target to $531",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:16.315627-04:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "Daiwa Securities Adjusts Price Target on Intuitive Surgical to $490 From $360",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:16.318666-04:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "Intuitive Surgical Insider Sold Shares Worth $9,075,137",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:16.487402-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Novo Nordisk Loses Court Bid Against Eli Lilly\u2019s Weight-Loss Drug Ads \u2014 Judge Says Sales Impact Was Negligible",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:16.490065-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "U.S. Judge Lets Eli Lilly Continue Weight-Loss Drug Ads, Ruling Against Novo Nordisk",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:16.646484-04:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "Freeport-McMoRan Expects 2028 Copper Sales Volume Growth +400M LBS/Year",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:16.649440-04:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "Freeport-McMoRan Expects 2027 Copper Sales Volume Growth +700M LBS/Year",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:16.652182-04:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "Freeport-McMoRan Sees Path To Annual Copper Sales Of 4.5B-5B LBS By 2030",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:16.654672-04:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "Freeport-McMoRan Q3 Adj. EPS $0.88 Beats $0.79 Estimate, Sales $7.546B Beat $7.424B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:16.822494-04:00",
-    "symbols": [
-      "NEM"
-    ],
-    "headline": "Scotiabank Adjusts Newmont Price Target to $148",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:16.976055-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "NationsBenefits Expands Member Access to Health Benefits Across Costco Stores Nationwide",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:17.139387-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Trump Administration Finalizes Health IT Rule Projected to Save $1.5 Billion, Eases Electronic Health Record Certification Requirements",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:17.142152-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Elizabeth Warren Sees 2008-Style Warning Signs in AI Boom \u2014 \u2018Trump\u2019s Regulators Are Choosing to Look the Other Way\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:17.144667-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "CoreWeave Debt Fears Hit a Record \u2014 Some Are Whispering 'Lehman'",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:17.417985-04:00",
-    "symbols": [
-      "FDX"
-    ],
-    "headline": "UPS CEO Estimate Logistics Opportunities Associated With Data Centers Alone At $15B",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:17.420798-04:00",
-    "symbols": [
-      "FDX"
-    ],
-    "headline": "UnitedHealth Group To Rally Over 29%? Here Are 10 Top Analyst Forecasts For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:17.423429-04:00",
-    "symbols": [
-      "FDX"
-    ],
-    "headline": "B of A Securities Maintains Buy on FedEx, Lowers Price Target to $359",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:17.579474-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Tom Lee\u2019s Top 6 Reasons for \u2018Conviction About the AI Trade\u2019: \u2018I\u2019m Buying This AI Dip\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:17.582227-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&P 500, Nasdaq 10 Futures Gain as Fed Begins Its Two-Day Meet\u2014 Novartis, HSBC, Welltower in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:17.584731-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "This Midterm\u2019s Stock-Market Pattern Hasn\u2019t Failed Since 1950, and It Kicks Off This Week",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:17.587232-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Redbook Retail Sales Index For October 2026 Vs October 2025: 9.6% YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:17.589706-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Redbook Retail Sales Index Up 9.3% YoY For Week Ended 10/24/26",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:17.760223-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Tom Lee\u2019s Top 6 Reasons for \u2018Conviction About the AI Trade\u2019: \u2018I\u2019m Buying This AI Dip\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:17.763022-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&P 500, Nasdaq 10 Futures Gain as Fed Begins Its Two-Day Meet\u2014 Novartis, HSBC, Welltower in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:17.765553-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "US 'Flashing the Same Warning Signs,' Wall Street Commentator Warns as China\u2019s AI Stock Crash Wipes Out $480 Billion in Under Four Months",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:17.768067-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market: Will S&P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:17.918374-04:00",
-    "symbols": [
-      "ACRS"
-    ],
-    "headline": "Whirlpool Posts Downbeat Q3 Results, Joins HSBC, Hilton Hotels And Other Big Stocks Moving Lower In Tuesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:17.921238-04:00",
-    "symbols": [
-      "ACRS"
-    ],
-    "headline": "Aclaris Therapeutics Prices $50M Offering Of 7,785,714 Shares And Warrants To Purchase 6.5M Shares At $3.50/Unit",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:17.923790-04:00",
-    "symbols": [
-      "ACRS"
-    ],
-    "headline": "Aclaris Therapeutics Announced Phase 1b Proof-of-Concept Primary Analysis Results For ATI-052 In Atopic Dermatitis, Asthma, Demonstrating Rapid, Durable Skin, Itch Improvement, Improved Lung Function, Airway Inflammation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:18.079594-04:00",
-    "symbols": [
-      "ALT"
-    ],
-    "headline": "Altimmune Appoints Peter Greenleaf and Alex Howarth to Board of Directors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:18.200706-04:00",
-    "symbols": [
-      "AQST"
-    ],
-    "headline": "Aquestive Therapeutics to Report Third Quarter 2026 Financial Results on November 3",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:18.512220-04:00",
-    "symbols": [
-      "BTG"
-    ],
-    "headline": "BTG Consulting PLC Releases Q3 2026 Red Flag Alert Research",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:18.841152-04:00",
-    "symbols": [
-      "CLRO"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:18.997454-04:00",
-    "symbols": [
-      "COTY"
-    ],
-    "headline": "Coty And Brandlight Announce Strategic Partnership To Unleash Potential Of Brand Discovery And Visibility Across AI Assistants And Generative AI Search Platforms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:19.157839-04:00",
-    "symbols": [
-      "DDD"
-    ],
-    "headline": "3D Systems Announces Date of Third Quarter 2026 Financial Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:19.288882-04:00",
-    "symbols": [
-      "DFDV"
-    ],
-    "headline": "DeFi Development Corp. Announces Series C Preferred Stock Reaches Par Value",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:19.407658-04:00",
-    "symbols": [
-      "DKI"
-    ],
-    "headline": "11 Communication Services Stocks Moving In Tuesday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:19.533331-04:00",
-    "symbols": [
-      "FRGT"
-    ],
-    "headline": "Freight Technologies Expands Capabilities Of Its AI-Powered Freight Pricing Platform Zayren",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:19.656683-04:00",
-    "symbols": [
-      "GT"
-    ],
-    "headline": "Goodyear Highlights Wrangler Tyre Options for Ford Everest Drivers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:19.772506-04:00",
-    "symbols": [
-      "IPDN"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday's After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:19.936659-04:00",
-    "symbols": [
-      "JBLU"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-27T09:26:19.939329-04:00",
-    "symbols": [
-      "JBLU"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday's After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-27T09:26:19.941794-04:00",
-    "symbols": [
-      "JBLU"
-    ],
-    "headline": "JetBlue Airways Says Believe Have Liquidity And Financing Options To Create A Strong Bridge To At Least $1 EPS And Positive Free Cash Flow In 2028",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-27T09:26:19.944217-04:00",
-    "symbols": [
-      "JBLU"
-    ],
-    "headline": "Airline Issues Q4 And Full-Year 2026 Outlook; Forecasts FY26 ASM Growth Of 1.5%-2.5% And RASM Growth Of 13.5%-14.5%; Expects Adjusted Operating Margin Of (4.5%) \u2013 (6.5%), Interest Expense Of ~$590M And Capital Expenditures Of $850M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-27T09:26:19.946657-04:00",
     "symbols": [
       "JBLU"
@@ -4998,5 +4128,875 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:42:55.037030-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What Is Going on With Nvidia Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:42:55.403455-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Live On CNBC, Josh Brown Hosts Segment Titled &#34;Josh&#39;s Best Stocks Update: Meta Platforms; Cloudlare&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:42:55.933336-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "What Is Going on With Nvidia Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:42:55.936941-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Scott Galloway Warns Tesla Is the \u2018Patient\u2019 and SpaceX Its \u2018Organ Donor\u2019 in Elon Musk\u2019s $3.5 Trillion Merger Plan: 'Real Merger With a Fake Premise'",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:42:55.939534-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Cathie Wood Says \u2018Genius\u2019 Elon Musk is Pushing the World Towards 9% GDP Growth With TSLA, SPCX: \u2018We\u2019ve Never Been Here Before\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:42:56.307934-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir Stock Within 7% of Its 52-Week High as Earnings and Target Hikes Fuel Buzz",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:42:56.618848-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "This Broadcom Analyst Turns Bullish; Here Are Top 4 Upgrades For Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:42:56.622028-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "DA Davidson Upgrades Broadcom to Buy, Raises Price Target to $400",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:42:56.741908-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Applied Materials Increases Strategic Investment in BE Semiconductor Industries",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:42:56.913205-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Tom Lee\u2019s Top 6 Reasons for \u2018Conviction About the AI Trade\u2019: \u2018I\u2019m Buying This AI Dip\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:42:56.917142-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "'We're Trading Them Like Baseball Cards': Mark Cuban Warns \u2018Everything\u2019s a Meme Stock\u2019 as AAPL, GOOGL and MU Fuel Market Bubble Fears",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:42:56.925502-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Elon Musk Says Robots Will Need More Memory Than 'Everything Else on Earth' \u2014 This Analyst Sees 'Much Bigger Volume Story' for Micron, SK Hynix",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:42:56.928112-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "$100 Invested In Micron Technology 10 Years Ago Would Be Worth This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:42:57.102955-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Elon Musk Says Robots Will Need More Memory Than 'Everything Else on Earth' \u2014 This Analyst Sees 'Much Bigger Volume Story' for Micron, SK Hynix",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:42:57.264752-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "What Is Going on With Nvidia Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T12:42:57.448344-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Anduril And Qualcomm Unveil Bluechip To Rebuild American Computer Manufacturing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T12:42:57.738752-04:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "Tom Lee\u2019s Top 6 Reasons for \u2018Conviction About the AI Trade\u2019: \u2018I\u2019m Buying This AI Dip\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:42:57.902955-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Circle\u2019s AI Opportunity Turns Into a \u2018Marked Risk,\u2019 Mizuho Warns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:42:58.072109-04:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "Volkswagen Considers Software Strategy Shift That May Impact Rivian Partnership",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:42:58.215200-04:00",
+    "symbols": [
+      "ENPH"
+    ],
+    "headline": "Enphase Energy Unveils IQ Solid-State Transformer, Demonstrating 13.8 kV AC To 800 VDC Conversion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T12:42:58.218266-04:00",
+    "symbols": [
+      "ENPH"
+    ],
+    "headline": "GLJ Research Maintains Sell on Enphase Energy, Lowers Price Target to $21.49",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T12:42:58.518548-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "This M&amp;T Bank Analyst Turns Bearish; Here Are Top 5 Downgrades For Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:42:58.524616-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "William Blair Takes a Shot at Moderna Stock: Downgrade to Market Perform After a 545% Run",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:42:58.528085-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "William Blair Downgrades Moderna to Market Perform",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:42:58.659541-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "AbbVie Submits BLA To FDA For Etentamig, Second-Gen BCMA X CD3 Bispecific Antibody T-Cell Engager Administered Intravenously For Treatment Of Adults With Relapsed Or Refractory Multiple Myeloma",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:42:58.662786-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Here's How Much $100 Invested In AbbVie 10 Years Ago Would Be Worth Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:42:58.793861-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Novo Nordisk Loses Court Bid Against Eli Lilly\u2019s Weight-Loss Drug Ads \u2014 Judge Says Sales Impact Was Negligible",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:42:59.133830-04:00",
+    "symbols": [
+      "CELH"
+    ],
+    "headline": "Jim Cramer Calls Celsius 'A Second-Rate Monster,' Says Stick With the Original",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T12:42:59.293211-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "ExxonMobil, Leidos, eBay and More: CNBC\u2019s \u2018Final Trades\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:42:59.296585-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Trump's Oil Holdings Could Top $81 Million, New Report Says \u2014 Gavin Newsom Says President Swore \u2018Oath\u2019 to Big Oil",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:42:59.299239-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Chuck Schumer Says Americans Paid \u2018Billions More for Gas\u2019 as Trump Profited From Oil Stocks; White House Insists Low Prices Are \u2018Priority\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:42:59.442613-04:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "Tom Lee\u2019s Top 6 Reasons for \u2018Conviction About the AI Trade\u2019: \u2018I\u2019m Buying This AI Dip\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:42:59.923704-04:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Live On CNBC, Josh Brown Hosts Segment Titled &#34;Josh&#39;s Best Stocks Update: Meta Platforms; Cloudlare&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:43:00.341158-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Circle\u2019s AI Opportunity Turns Into a \u2018Marked Risk,\u2019 Mizuho Warns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:43:00.344405-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Creating 'Net-New' Gold With Alchemy Becoming Real: Coinbase CEO Says You Can't 'Invent Anything' That Raises Bitcoin Supply",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:43:00.526595-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Bitcoin, XRP, Dogecoin Gain, but Ethereum Slips Amid Signs of 'Local Bottom': Top Analyst Identifies 'Next Buying Opportunity'",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:43:00.690163-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "DoorDash Adds Instacart to Its Cart: Reported $17 Billion Deal Talks Ahead of Nov. 4 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:43:00.839289-04:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "B of A Securities Maintains Buy on Vistra, Lowers Price Target to $194",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:43:01.333246-04:00",
+    "symbols": [
+      "ONON"
+    ],
+    "headline": "China State Broadcaster Responds Regarding Mbappe Apology; We Noted Public Apology; Hope La Liga, Real Madrid And Mbappe Learn Lesson And Sincerely Apologize And Mend Their Ways",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:43:01.336257-04:00",
+    "symbols": [
+      "ONON"
+    ],
+    "headline": "Whirlpool Posts Downbeat Q3 Results, Joins HSBC, Hilton Hotels And Other Big Stocks Moving Lower In Tuesday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:43:01.338839-04:00",
+    "symbols": [
+      "ONON"
+    ],
+    "headline": "'French football star Kylian Mbappe dropped by Chinese brands after 'dictator' remark' - Sky News",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:43:01.739285-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "Alibaba Secures Partial Legal Win Against Pentagon Lobbying Restrictions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:43:01.949567-04:00",
+    "symbols": [
+      "BIDU"
+    ],
+    "headline": "Baidu to Report Third Quarter 2026 Financial Results on November 16, 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T12:43:02.146075-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "IonQ Receives $7.5M In Follow-On Funding From Air Force Research Laboratory",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:43:02.373963-04:00",
+    "symbols": [
+      "ACHR"
+    ],
+    "headline": "Cathie Wood Buys Joby, Archer Aviation as Air Taxi Bets Grow, Ark Pounces on Nu Holdings Stock After Lula\u2019s Brazil Win",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T12:43:02.606176-04:00",
+    "symbols": [
+      "JOBY"
+    ],
+    "headline": "Cathie Wood Buys Joby, Archer Aviation as Air Taxi Bets Grow, Ark Pounces on Nu Holdings Stock After Lula\u2019s Brazil Win",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:43:02.832836-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Barclays Maintains Overweight on Constellation Energy, Raises Price Target to $345",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:43:03.117526-04:00",
+    "symbols": [
+      "NRG"
+    ],
+    "headline": "Barclays Maintains Overweight on NRG Energy, Lowers Price Target to $163",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:43:03.628476-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "How to Earn $500 a Month From Phillips 66 Stock Ahead of Q3 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:43:03.944751-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Lockheed Martin\u2019s 10-Year F-35 Deal With Pentagon Removes \u2018Significant Risk\u2019 From the Stock, Says Top Analyst, Sees Over 30% Upside",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:43:04.871939-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Asset Management Targets $600 Billion in Asia-Pacific Assets by 2030",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:43:04.875159-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Chase Discloses Increased Holding in Yellow Cake PLC",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:43:05.236932-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Stock Market Today: Dow Jones, S&P 500, Nasdaq 10 Futures Gain as Fed Begins Its Two-Day Meet\u2014 Novartis, HSBC, Welltower in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:43:05.240037-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Stock Market: Will S&P 500 Open Up or Down Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:43:05.619634-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Chevron's Australian Business Signs Long-Term Natural Gas Deal Starting in 2028",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:43:05.622654-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Chevron Inks Long-Term Gas Supply Deal With South32 For 55 Petajoules Over Five Years From 2028, Following Horizon Power, Alinta Energy Deals",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:43:05.625260-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Trump's Oil Holdings Could Top $81 Million, New Report Says \u2014 Gavin Newsom Says President Swore \u2018Oath\u2019 to Big Oil",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:43:05.627895-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Chuck Schumer Says Americans Paid \u2018Billions More for Gas\u2019 as Trump Profited From Oil Stocks; White House Insists Low Prices Are \u2018Priority\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:43:05.793957-04:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "Chuck Schumer Says Americans Paid \u2018Billions More for Gas\u2019 as Trump Profited From Oil Stocks; White House Insists Low Prices Are \u2018Priority\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:43:06.137719-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "UnitedHealth Group To Rally Over 29%? Here Are 10 Top Analyst Forecasts For Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:43:06.140960-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on UnitedHealth Group, Raises Price Target to $531",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:43:06.305986-04:00",
+    "symbols": [
+      "ISRG"
+    ],
+    "headline": "Daiwa Securities Adjusts Price Target on Intuitive Surgical to $490 From $360",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:43:06.499942-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Novo Nordisk Loses Court Bid Against Eli Lilly\u2019s Weight-Loss Drug Ads \u2014 Judge Says Sales Impact Was Negligible",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:43:06.692044-04:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "Freeport-McMoRan Expects 2028 Copper Sales Volume Growth +400M LBS/Year",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:43:06.694998-04:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "Freeport-McMoRan Expects 2027 Copper Sales Volume Growth +700M LBS/Year",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:43:06.697963-04:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "Freeport-McMoRan Sees Path To Annual Copper Sales Of 4.5B-5B LBS By 2030",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:43:06.700825-04:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "Freeport-McMoRan Q3 Adj. EPS $0.88 Beats $0.79 Estimate, Sales $7.546B Beat $7.424B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:43:07.435908-04:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "UPS CEO Estimate Logistics Opportunities Associated With Data Centers Alone At $15B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:43:07.438855-04:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "UnitedHealth Group To Rally Over 29%? Here Are 10 Top Analyst Forecasts For Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:43:07.441685-04:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "B of A Securities Maintains Buy on FedEx, Lowers Price Target to $359",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:43:07.759262-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Tom Lee\u2019s Top 6 Reasons for \u2018Conviction About the AI Trade\u2019: \u2018I\u2019m Buying This AI Dip\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:43:07.762161-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Stock Market Today: Dow Jones, S&P 500, Nasdaq 10 Futures Gain as Fed Begins Its Two-Day Meet\u2014 Novartis, HSBC, Welltower in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:43:08.107173-04:00",
+    "symbols": [
+      "ACRS"
+    ],
+    "headline": "Whirlpool Posts Downbeat Q3 Results, Joins HSBC, Hilton Hotels And Other Big Stocks Moving Lower In Tuesday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:43:08.110268-04:00",
+    "symbols": [
+      "ACRS"
+    ],
+    "headline": "Aclaris Therapeutics Prices $50M Offering Of 7,785,714 Shares And Warrants To Purchase 6.5M Shares At $3.50/Unit",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:43:08.113069-04:00",
+    "symbols": [
+      "ACRS"
+    ],
+    "headline": "Aclaris Therapeutics Announced Phase 1b Proof-of-Concept Primary Analysis Results For ATI-052 In Atopic Dermatitis, Asthma, Demonstrating Rapid, Durable Skin, Itch Improvement, Improved Lung Function, Airway Inflammation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:43:08.260859-04:00",
+    "symbols": [
+      "ALT"
+    ],
+    "headline": "Altimmune Appoints Peter Greenleaf and Alex Howarth to Board of Directors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:43:08.573890-04:00",
+    "symbols": [
+      "AQST"
+    ],
+    "headline": "Aquestive Therapeutics to Report Third Quarter 2026 Financial Results on November 3",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:43:08.733934-04:00",
+    "symbols": [
+      "BTG"
+    ],
+    "headline": "BTG Consulting PLC Releases Q3 2026 Red Flag Alert Research",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:43:09.025712-04:00",
+    "symbols": [
+      "CLRO"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:43:09.168798-04:00",
+    "symbols": [
+      "COTY"
+    ],
+    "headline": "Coty And Brandlight Announce Strategic Partnership To Unleash Potential Of Brand Discovery And Visibility Across AI Assistants And Generative AI Search Platforms",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:43:09.306263-04:00",
+    "symbols": [
+      "DDD"
+    ],
+    "headline": "3D Systems Announces Date of Third Quarter 2026 Financial Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:43:09.441629-04:00",
+    "symbols": [
+      "DFDV"
+    ],
+    "headline": "DeFi Development Corp. Announces Series C Preferred Stock Reaches Par Value",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:43:09.603830-04:00",
+    "symbols": [
+      "DKI"
+    ],
+    "headline": "11 Communication Services Stocks Moving In Tuesday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:43:09.734030-04:00",
+    "symbols": [
+      "FRGT"
+    ],
+    "headline": "Freight Technologies Expands Capabilities Of Its AI-Powered Freight Pricing Platform Zayren",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:43:09.871095-04:00",
+    "symbols": [
+      "GT"
+    ],
+    "headline": "Goodyear Highlights Wrangler Tyre Options for Ford Everest Drivers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:43:10.029859-04:00",
+    "symbols": [
+      "IPDN"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday's After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T12:43:10.205427-04:00",
+    "symbols": [
+      "JBLU"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

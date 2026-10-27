@@ -61,18 +61,6 @@
       "timestamp": "2026-10-20T12:58:27.704996-04:00"
     },
     {
-      "ticker": "CSX",
-      "setup": "Gap & Hold",
-      "bias": "LONG",
-      "entry": 51.27,
-      "stop": 49.95,
-      "target1": 57.08,
-      "target2": 60.57,
-      "score": 100,
-      "date": "2026-10-22",
-      "timestamp": "2026-10-22T09:47:08.849921-04:00"
-    },
-    {
       "ticker": "ALLE",
       "setup": "Gap & Hold",
       "bias": "LONG",
@@ -95,30 +83,6 @@
       "score": 100,
       "date": "2026-10-22",
       "timestamp": "2026-10-22T14:19:05.045870-04:00"
-    },
-    {
-      "ticker": "ROP",
-      "setup": "Gap & Hold",
-      "bias": "LONG",
-      "entry": 437.48,
-      "stop": 419.57,
-      "target1": 527.0,
-      "target2": 580.72,
-      "score": 100,
-      "date": "2026-10-22",
-      "timestamp": "2026-10-22T15:07:06.538600-04:00"
-    },
-    {
-      "ticker": "ROP",
-      "setup": "Gap & Hold",
-      "bias": "LONG",
-      "entry": 435.43,
-      "stop": 418.55,
-      "target1": 519.83,
-      "target2": 570.47,
-      "score": 100,
-      "date": "2026-10-22",
-      "timestamp": "2026-10-22T14:53:38.478085-04:00"
     },
     {
       "ticker": "RHI",

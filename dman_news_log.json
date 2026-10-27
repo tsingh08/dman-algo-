@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-26T14:04:27.384591-04:00",
-    "symbols": [
-      "BORR"
-    ],
-    "headline": "Borr Drilling Says 110 Of 115 Personnel Safe And Accounted For After Prospector 5 Incident Offshore Gabon, Search And Rescue For Five Missing Ongoing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T14:04:27.389184-04:00",
-    "symbols": [
-      "BUR"
-    ],
-    "headline": "Burford Capital Announces Date for Release of 3Q26 Financial Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T14:04:27.393650-04:00",
-    "symbols": [
-      "BW"
-    ],
-    "headline": "Babcock & Wilcox Sets Third Quarter 2026 Conference Call and Webcast",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T14:04:27.400342-04:00",
-    "symbols": [
-      "CWH"
-    ],
-    "headline": "Camping World Holdings, Inc. to Announce Third Quarter 2026 Earnings on November 2, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T14:04:27.404853-04:00",
-    "symbols": [
-      "DFDV"
-    ],
-    "headline": "DeFi Development Increase SOL Equivalents By 5,346",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T14:04:27.409968-04:00",
-    "symbols": [
-      "LAES"
-    ],
-    "headline": "SEALSQ Inks Letter Of Intent To Acquire Satellite Capacity Of 12 WISeSat.Space&#39;s Satellites For ~$15M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-26T14:04:27.415119-04:00",
     "symbols": [
       "MSGY"
@@ -4998,5 +4938,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T09:40:07.541117-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "United Parcel Service CEO, On Amazon, Says We Haven&#39;t Seen Any Meaningful Impact To Our Business Since The Announcement They Made In The Summer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T09:40:10.149127-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Earnings Prediction Market Preview: What Will Vlad Tenev Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T09:40:10.152106-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Ripple And Robinhood Partner To Expand RLUSD Adoption Across Retail, Institutional And Settlement Platforms",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T09:40:20.228868-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Michael Burry: Today&#39;s Market Mirrors the Eve of the Dot-Com Crash",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T09:40:20.552738-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Michael Burry: Today&#39;s Market Mirrors the Eve of the Dot-Com Crash",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T09:40:20.698378-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Michael Burry: Today&#39;s Market Mirrors the Eve of the Dot-Com Crash",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

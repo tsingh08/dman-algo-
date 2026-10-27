@@ -1,465 +1,5 @@
 [
   {
-    "ts": "2026-10-27T09:26:28.262418-04:00",
-    "symbols": [
-      "ACCV"
-    ],
-    "headline": "William Blair Initiates Coverage On Accelevation Holdings with Outperform Rating",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:28.424463-04:00",
-    "symbols": [
-      "LECO"
-    ],
-    "headline": "Lincoln Electric Holdings Q3 Adj. EPS $2.98 Beats $2.81 Estimate, Sales $1.221B Beat $1.171B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:28.577198-04:00",
-    "symbols": [
-      "PNR"
-    ],
-    "headline": "Pentair Lowers FY2026 GAAP EPS Guidance from $3.86-$4.06 to $3.76 vs $3.90 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:28.579905-04:00",
-    "symbols": [
-      "PNR"
-    ],
-    "headline": "Pentair Sees Q4 GAAP EPS $1.07 vs $1.10 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:28.582406-04:00",
-    "symbols": [
-      "PNR"
-    ],
-    "headline": "Pentair Sees Q4 Adj EPS $1.15 vs $1.22 Est; Sees Sales $1.092B-$1.113B vs $1.019B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:28.584848-04:00",
-    "symbols": [
-      "PNR"
-    ],
-    "headline": "Pentair Narrows FY2026 Adj EPS Guidance from $4.60-$4.80 to $4.70 vs $4.65 Est; Raises FY2026 Sales Guidance from $3.884B-$4.009B to $4.051B vs $3.949B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:28.587729-04:00",
-    "symbols": [
-      "PNR"
-    ],
-    "headline": "Pentair Q3 Adj. EPS $1.18 Beats $1.08 Estimate, Sales $976.400M Beat $963.608M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:32:08.001627-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Visa Launches 'A Moment to Savour' Dining Programme in Singapore",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:32:08.008553-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Announces 2026 Supplier Award Winners",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:32:08.011915-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Business Announces New AI-Powered Capabilities for Procurement Assistant",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:32:08.015449-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Lockheed Martin Canada Announces $10 Million Contract with Contextere",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:32:08.019145-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Qualcomm and Anduril Partner to Develop US-Made Laptop",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-27T09:32:08.099221-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Updates iMac and 14-inch MacBook Pro with M6 and N1 Chips",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:32:08.107568-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Caltex Singapore Launches 90th Anniversary Fuel Giveaway",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:32:08.110816-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "AbbVie Submits BLA for Etentamig to FDA for Multiple Myeloma",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:32:08.113793-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "NVIDIA Omniverse DSX Blueprint Used in Digital Twin Pilot by Schneider Electric and Partners",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:32:08.116943-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "RTX CFO to Present at the Baird 2026 Global Industrial Conference",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:32:22.687388-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:32:22.690490-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:32:22.694799-04:00",
-    "symbols": [
-      "RIOT"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:32:22.698773-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Coinbase Target Cut to $250, Robinhood to Benefit From Prediction Markets: Bernstein",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:32:22.701580-04:00",
-    "symbols": [
-      "AFRM"
-    ],
-    "headline": "Morgan Stanley Maintains Equal-Weight on Affirm Holdings, Lowers Price Target to $79",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:32:22.711426-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "9 Industrials Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:32:22.714269-04:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "9 Communication Services Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-27T09:32:22.717732-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:32:22.720543-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Blackmail, Deception, Shutdown Resistance: Anthropic Lists AI Risks Ahead of IPO",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:32:22.723452-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Blackmail, Deception, Shutdown Resistance: Anthropic Lists AI Risks Ahead of IPO",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:32:22.727098-04:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Oppenheimer Maintains Outperform on Datadog, Raises Price Target to $330",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:32:22.730781-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase Target Cut to $250, Robinhood to Benefit From Prediction Markets: Bernstein",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:32:22.735533-04:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "Blackmail, Deception, Shutdown Resistance: Anthropic Lists AI Risks Ahead of IPO",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:32:22.738222-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Blackmail, Deception, Shutdown Resistance: Anthropic Lists AI Risks Ahead of IPO",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:32:22.745404-04:00",
-    "symbols": [
-      "TLN"
-    ],
-    "headline": "Barclays Maintains Overweight on Talen Energy, Lowers Price Target to $387",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:32:22.749671-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "9 Industrials Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:32:22.753208-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "9 Industrials Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:32:22.756295-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "9 Industrials Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-27T09:32:22.761226-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Chase and other banks reportedly nearing $10 billion loan deal for Saudi Aramco",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:32:22.776691-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:33:07.999859-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Alliance Announces Official Partnership with Oracle NetSuite",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:33:08.007099-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "IXS Integrates with Robinhood Chain to Launch $10M Pre-IPO Vault",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:33:08.215544-04:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "Gilead Reaches Milestone National Agreement for LYVDELZI\u00ae (seladelpar) in Canada",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:33:08.218949-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "William Blair Initiates and Downgrades Moderna to Market Perform",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:33:09.574470-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Oppenheimer Adjusts Airbnb Price Target to $210 From $190",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:33:09.577804-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Uber and Key Food Stores Co-Op Partner for Grocery Delivery",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:33:09.581244-04:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "UBS Adjusts Price Target on Datadog to $320",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:33:09.584477-04:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "Freeport-McMoRan Reports Q3 2026 Financial Results",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:33:09.587724-04:00",
-    "symbols": [
-      "OXY"
-    ],
-    "headline": "Analyst Actions: Goldman Sachs and Piper Sandler Update Occidental Petroleum Price Targets",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-27T09:33:09.591124-04:00",
     "symbols": [
       "IONQ"
@@ -4998,5 +4538,465 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:09:05.085497-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Nasdaq 100 Climbs on Chip Rally, Boeing Sinks 10%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T13:09:05.312595-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Apple, UnitedHealth Group, Delta Air Lines, American Tower",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:09:05.848907-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What Is Going On With Meta Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T13:09:05.853319-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nasdaq 100 Climbs on Chip Rally, Boeing Sinks 10%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T13:09:05.857064-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Paul Kedrosky Says AI Bubble May Be Hiding in Private Markets as Anthropic IPO Nears",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T13:09:06.080111-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Nasdaq 100 Climbs on Chip Rally, Boeing Sinks 10%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:09:06.400769-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "What Is Going On With Meta Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:09:06.405021-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Nasdaq 100 Climbs on Chip Rally, Boeing Sinks 10%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:09:06.627591-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Alphabet Q3 Earnings Preview: &#39;Bears Have Technical Advantage,&#39; Here&#39;s What Could Help Bulls",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:09:06.631784-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Nasdaq 100 Climbs on Chip Rally, Boeing Sinks 10%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:09:06.635428-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Paul Kedrosky Says AI Bubble May Be Hiding in Private Markets as Anthropic IPO Nears",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:09:06.871244-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Nasdaq 100 Climbs on Chip Rally, Boeing Sinks 10%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T13:09:06.875197-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Paul Kedrosky Says AI Bubble May Be Hiding in Private Markets as Anthropic IPO Nears",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T13:09:07.111655-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Nasdaq 100 Climbs on Chip Rally, Boeing Sinks 10%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:09:09.650200-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "CFTC Sues Utah To Block State Crackdown On Federally Regulated Prediction Markets, Citing Exclusive Federal Jurisdiction Over Commodity Derivatives Exchanges",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:09:14.457263-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "CFTC Sues Utah To Block State Crackdown On Federally Regulated Prediction Markets, Citing Exclusive Federal Jurisdiction Over Commodity Derivatives Exchanges",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:09:18.060799-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Nasdaq 100 Climbs on Chip Rally, Boeing Sinks 10%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:09:19.424922-04:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Apple, UnitedHealth Group, Delta Air Lines, American Tower",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:09:21.413265-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Alphabet Q3 Earnings Preview: &#39;Bears Have Technical Advantage,&#39; Here&#39;s What Could Help Bulls",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T13:09:21.628773-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Alphabet Q3 Earnings Preview: &#39;Bears Have Technical Advantage,&#39; Here&#39;s What Could Help Bulls",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:09:21.632729-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Nasdaq 100 Climbs on Chip Rally, Boeing Sinks 10%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:09:21.853678-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Nasdaq 100 Climbs on Chip Rally, Boeing Sinks 10%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T13:09:22.971181-04:00",
+    "symbols": [
+      "ARRY"
+    ],
+    "headline": "Under the Radar: 3 Small-Cap Stocks Powering the AI Energy Boom",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T13:09:24.769627-04:00",
+    "symbols": [
+      "ENVX"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:09:27.361227-04:00",
+    "symbols": [
+      "PDSB"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T13:09:27.784713-04:00",
+    "symbols": [
+      "POM"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T13:09:28.700503-04:00",
+    "symbols": [
+      "TE"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T13:09:29.347447-04:00",
+    "symbols": [
+      "XLAB"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T13:09:29.798488-04:00",
+    "symbols": [
+      "ZURA"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T13:09:30.019706-04:00",
+    "symbols": [
+      "BRAI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T13:09:31.135101-04:00",
+    "symbols": [
+      "KNSA"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T13:09:31.812758-04:00",
+    "symbols": [
+      "SOFI"
+    ],
+    "headline": "9 Financials Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:09:31.816484-04:00",
+    "symbols": [
+      "SOFI"
+    ],
+    "headline": "Nasdaq 100 Climbs on Chip Rally, Boeing Sinks 10%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:09:32.052600-04:00",
+    "symbols": [
+      "PNR"
+    ],
+    "headline": "Nasdaq 100 Climbs on Chip Rally, Boeing Sinks 10%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:09:32.057283-04:00",
+    "symbols": [
+      "PNR"
+    ],
+    "headline": "Pentair Lowers FY2026 GAAP EPS Guidance from $3.86-$4.06 to $3.76 vs $3.90 Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:09:32.060797-04:00",
+    "symbols": [
+      "PNR"
+    ],
+    "headline": "Pentair Sees Q4 GAAP EPS $1.07 vs $1.10 Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:09:32.333953-04:00",
+    "symbols": [
+      "UPC"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T13:09:32.977713-04:00",
+    "symbols": [
+      "BEX"
+    ],
+    "headline": "New Age Metals Enters Due Diligence for Benton Resources' Abernethy Lake Gold Project",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T13:09:33.193445-04:00",
+    "symbols": [
+      "HRI"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T13:09:33.599087-04:00",
+    "symbols": [
+      "AEYE"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T13:09:34.894013-04:00",
+    "symbols": [
+      "LPTH"
+    ],
+    "headline": "LightPath Technologies Receives Order From Undisclosed Defense Client For More Than 50K Optical Assemblies For Use In Drone Camera Systems",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T13:09:35.168738-04:00",
+    "symbols": [
+      "RCL"
+    ],
+    "headline": "Royal Caribbean Gr Sees Q4 Adj EPS $3.48-$3.58 vs $3.66 Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:09:35.172368-04:00",
+    "symbols": [
+      "RCL"
+    ],
+    "headline": "Royal Caribbean Gr Q3 Adj. EPS $6.57 Beats $6.38 Estimate, Sales $5.591B Miss $5.607B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:09:35.176018-04:00",
+    "symbols": [
+      "RCL"
+    ],
+    "headline": "Royal Caribbean Group Raises FY2026 Adj EPS Guidance from $17.73-$17.87 to $17.85-$17.95 vs $17.83 Est; Raises FY2026 Sales Guidance of $19.549B vs $19.582B Est.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:09:36.105551-04:00",
+    "symbols": [
+      "LECO"
+    ],
+    "headline": "Lincoln Electric Holdings Q3 Adj. EPS $2.98 Beats $2.81 Estimate, Sales $1.221B Beat $1.171B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:09:36.325279-04:00",
+    "symbols": [
+      "HTCO"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

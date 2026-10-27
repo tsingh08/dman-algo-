@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-26T15:59:54.081383-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Barclays Maintains Equal-Weight on Baidu, Lowers Price Target to $80",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-26T15:59:58.148039-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Growth Leads Sectors In Monday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-26T15:59:58.502472-04:00",
     "symbols": [
       "GE"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T11:35:35.951018-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Oppenheimer Maintains Outperform on Airbnb, Raises Price Target to $210",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T11:35:36.452312-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "IonQ Stock Moves Higher: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

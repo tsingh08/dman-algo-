@@ -1,205 +1,5 @@
 [
   {
-    "ts": "2026-10-27T12:09:16.572926-04:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "Eaton Wins Battery Configuration Switch Award at The Battery Awards 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T12:09:16.721058-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Chase Reports Change in Major Holding in Vonovia SE",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T12:09:16.883245-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs Expands Wealth Management Advisory Teams in Asia",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T12:09:18.028112-04:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "Intuitive Surgical Insider Executes Stock Sale",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T12:09:18.772049-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Introduces Integrated Platform Oracle Media Fabric For Media Companies, Streaming Providers To Lower Content Production Time, Cost",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T12:09:18.774908-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Launches AI Security Mesh Powered By OpenAI\u2019s Frontier Cyber Models To Accelerate Vulnerability Detection And Remediation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T12:09:18.777689-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Expands OCI Acceleron Networking Capabilities To Improve Data Transfer Efficiency, Keep Distributed AI Workloads Running, And Securely Scale Multi-Tenant Clusters",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T12:09:18.780387-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Announces Expansion Of Oracle Fusion Data Intelligence Tools To Extend AI-Powered Reporting, Dashboard Capabilities",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T12:09:18.783000-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "ADT Expands AI Adoption With Oracle AI Database@Google Cloud And Oracle Fusion Cloud Applications; ADT\u00a0Estimates It Can Save More Than $3M Over 4-Years And Improve Application Performance By 25% By Migrating Business-critical Applications",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T12:09:20.442028-04:00",
-    "symbols": [
-      "CLOV"
-    ],
-    "headline": "Clover Health to Participate in Upcoming UBS Global Healthcare Conference",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T12:09:22.273744-04:00",
-    "symbols": [
-      "LWLG"
-    ],
-    "headline": "Lightwave Logic, Inc. Announces Timing of Third Quarter 2026 Financial Results and Business Update Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T12:09:23.724338-04:00",
-    "symbols": [
-      "SFIX"
-    ],
-    "headline": "Stitch Fix Announces New Employee Inducement Grant",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T12:09:24.571873-04:00",
-    "symbols": [
-      "XNDU"
-    ],
-    "headline": "Xanadu Schedules Third Quarter 2026 Financial Results Release",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T12:09:26.532753-04:00",
-    "symbols": [
-      "SXC"
-    ],
-    "headline": "Pentair, JetBlue Airways, Hawkins And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T12:09:26.535655-04:00",
-    "symbols": [
-      "SXC"
-    ],
-    "headline": "SunCoke Energy Q3 EPS $0.25 Beats $0.12 Estimate, Sales $485.900M Beat $458.250M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T12:20:10.011988-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Scott Galloway Warns Tesla Is the \u2018Patient\u2019 and SpaceX Its \u2018Organ Donor\u2019 in Elon Musk\u2019s $3.5 Trillion Merger Plan: 'Real Merger With a Fake Premise'",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T12:20:10.014784-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Anthropic Could Defy the AI Spending Curse: Analysts See Early Profit Signs and Massive Cash Cushion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T12:20:10.179810-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Ed Yardeni Says AI Bubble Is Deflating Without Bursting Amid Increasing Funding Scrutiny Around CRWV, NBIS: \u2018The Bond Market Is Going To Regulate'",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-27T12:20:10.348578-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Ed Yardeni Says AI Bubble Is Deflating Without Bursting Amid Increasing Funding Scrutiny Around CRWV, NBIS: \u2018The Bond Market Is Going To Regulate'",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T12:20:10.517995-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Rolls Out New 14-Inch MacBook Pro, iMac With M6,",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-27T12:20:10.520803-04:00",
     "symbols": [
       "AAPL"
@@ -4998,5 +4798,205 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T15:24:46.985860-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Why Is Cipher Digital Stock Surging on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:24:46.988960-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Verizon Analyst Remains On Sidelines Despite Strong Q3 Earnings, Expanded Broadband",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:24:47.638380-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Oracle Launches AI Security Mesh Powered By OpenAI\u2019s Frontier Cyber Models To Accelerate Vulnerability Detection And Remediation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T15:24:49.202489-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "What Is Going on With Super Micro Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T15:24:50.353555-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Stock Trends Higher: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T15:24:53.331298-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "&#39;Washington discusses Russian deals for US oil majors in Ukraine peace talks&#39; - Financial Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:24:55.479904-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Oppenheimer Maintains Outperform on Airbnb, Raises Price Target to $210",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:24:56.061042-04:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "IonQ Stock Moves Higher: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:24:56.780062-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "&#39;US Offers Constellation $5 Billion Financing to Spur Nuclear&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T15:24:57.395372-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Lockheed Martin Plans To Construct PAC-3 Missile Maintenance Site In Poland",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:24:58.914808-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "&#39;Trump To Announce Relaxed Rules On Oil Firms\u2019 Methane Leaks; Oil Executives, Including Some Top Trump Donors, Have Worked To Roll Back Rules They Say Are Overly Costly&#39; - Washington Post",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:24:58.917663-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "&#39;Washington discusses Russian deals for US oil majors in Ukraine peace talks&#39; - Financial Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:24:59.220606-04:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "&#39;Trump To Announce Relaxed Rules On Oil Firms\u2019 Methane Leaks; Oil Executives, Including Some Top Trump Donors, Have Worked To Roll Back Rules They Say Are Overly Costly&#39; - Washington Post",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T15:24:59.865266-04:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "Freeport-McMoRan Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:25:00.927687-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Trump To Announce Relaxed Rules On Oil Firms\u2019 Methane Leaks; Oil Executives, Including Some Top Trump Donors, Have Worked To Roll Back Rules They Say Are Overly Costly&#39; - Washington Post",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T15:25:00.930682-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Washington discusses Russian deals for US oil majors in Ukraine peace talks&#39; - Financial Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T15:25:09.978396-04:00",
+    "symbols": [
+      "SXC"
+    ],
+    "headline": "Pentair, JetBlue Airways, Hawkins And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T15:25:09.981487-04:00",
+    "symbols": [
+      "SXC"
+    ],
+    "headline": "SunCoke Energy Q3 EPS $0.25 Beats $0.12 Estimate, Sales $485.900M Beat $458.250M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T15:25:13.081401-04:00",
+    "symbols": [
+      "CDNS"
+    ],
+    "headline": "JP Morgan Maintains Overweight on Cadence Design Systems, Raises Price Target to $420",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:25:13.258702-04:00",
+    "symbols": [
+      "SSD"
+    ],
+    "headline": "Baird Maintains Outperform on Simpson Manufacturing Co, Raises Price Target to $210",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

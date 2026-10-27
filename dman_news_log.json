@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-26T14:04:27.538198-04:00",
-    "symbols": [
-      "ESLA"
-    ],
-    "headline": "Estrella Immunopharma Appoints Cynthia Pussinen CEO, Chairperson, Effective Oct. 25, Succeeding Cheng Liu",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T14:04:27.548408-04:00",
-    "symbols": [
-      "TNXP"
-    ],
-    "headline": "Canaccord Genuity Initiates Coverage On Tonix Pharmaceuticals with Buy Rating, Announces Price Target of $18",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T14:15:23.078487-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Targeting Sunday, November 1 For A Falcon 9 Launch Of The USSF-432 Mission",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T14:15:23.835404-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "OpenAI Rolls Out GPT-6.1 Terra To All Plus, Pro, Enterprise, And Edu Users In ChatGPT Work, Codex",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T14:15:23.840641-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft\u2019s Copilot, Azure Demand Signals Stronger AI Monetization: Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-26T14:15:24.663165-04:00",
     "symbols": [
       "GOOGL"
@@ -4998,5 +4948,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T10:00:36.863264-04:00",
+    "symbols": [
+      "NAUT"
+    ],
+    "headline": "Nautilus Biotechnology Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T10:00:39.962398-04:00",
+    "symbols": [
+      "BRAI"
+    ],
+    "headline": "Nasdaq Gains Over 150 Points; Coca-Cola Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T10:00:40.171621-04:00",
+    "symbols": [
+      "AIOK"
+    ],
+    "headline": "Nasdaq Gains Over 150 Points; Coca-Cola Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T10:00:40.314616-04:00",
+    "symbols": [
+      "NEXR"
+    ],
+    "headline": "Nasdaq Gains Over 150 Points; Coca-Cola Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T10:03:08.020049-04:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "Security Researchers Report Unusual Behavior in Alibaba's Qwen AI Model",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

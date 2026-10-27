@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-26T14:04:27.415119-04:00",
-    "symbols": [
-      "MSGY"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-26T14:04:27.421202-04:00",
-    "symbols": [
-      "SID"
-    ],
-    "headline": "12 Materials Stocks Moving In Monday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-26T14:04:27.425701-04:00",
     "symbols": [
       "SOC"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T09:40:28.025514-04:00",
+    "symbols": [
+      "HRI"
+    ],
+    "headline": "Herc Holdings Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T09:40:31.809366-04:00",
+    "symbols": [
+      "ORKA"
+    ],
+    "headline": "Guggenheim Reiterates Buy on Oruka Therapeutics, Maintains $200 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

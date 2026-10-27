@@ -1,185 +1,5 @@
 [
   {
-    "ts": "2026-10-27T11:24:26.791102-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "If You Invested $1000 In Alphabet Stock 15 Years Ago, You Would Have This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T11:24:33.587305-04:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "TD Cowen Maintains Buy on Constellation Energy, Raises Price Target to $374",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T11:24:34.236798-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Why Is Xtend AI Robotics Stock Surging Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T11:24:37.340492-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Reported Earlier: USA House Price Index (MoM) For August 0.3% Vs 0.2% Est.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T11:24:37.343255-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Reported Earlier: USA House Price Index For August 444.6 Vs 443.2 Prior",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T11:24:37.345851-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Reported Earlier: S&amp;P/CS HPI Composite - 20 s.a. (MoM) For August 0.3% Vs 0.3% Prior",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T11:24:37.348719-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Reported Earlier: USA House Price Index (YoY) For August 2.4% Vs 2.5% Prior",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T11:24:37.351331-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Reported Earlier: S&amp;P/CS HPI Composite - 20 n.s.a. (YoY) For August 2.7% Vs 2.6% Est.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T11:24:37.518013-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Microsoft Q1 Preview: AI, Cloud Key As Company Eyes 15th Straight Double Beat",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T11:24:46.977264-04:00",
-    "symbols": [
-      "DQ"
-    ],
-    "headline": "Daqo New Energy Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T11:24:46.980209-04:00",
-    "symbols": [
-      "DQ"
-    ],
-    "headline": "Daqo New Energy Q3 Adj. EPS $(0.78) Misses $(0.48) Estimate, Sales $194.153M Beat $61.904M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T11:24:47.972075-04:00",
-    "symbols": [
-      "CDNS"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&P 500, Nasdaq 10 Futures Gain as Fed Begins Its Two-Day Meet\u2014 Novartis, HSBC, Welltower in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T11:24:47.975225-04:00",
-    "symbols": [
-      "CDNS"
-    ],
-    "headline": "UnitedHealth Group To Rally Over 29%? Here Are 10 Top Analyst Forecasts For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T11:24:47.978033-04:00",
-    "symbols": [
-      "CDNS"
-    ],
-    "headline": "Cadence Design Analysts Boost Their Forecasts Following Upbeat Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T11:24:47.980828-04:00",
-    "symbols": [
-      "CDNS"
-    ],
-    "headline": "Baird Maintains Outperform on Cadence Design Systems, Raises Price Target to $440",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T11:24:47.983582-04:00",
-    "symbols": [
-      "CDNS"
-    ],
-    "headline": "Needham Maintains Buy on Cadence Design Systems, Raises Price Target to $430",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T11:24:48.115412-04:00",
-    "symbols": [
-      "SSD"
-    ],
-    "headline": "Baird Maintains Outperform on Simpson Manufacturing Co, Raises Price Target to $210",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T11:24:48.118267-04:00",
-    "symbols": [
-      "SSD"
-    ],
-    "headline": "Simpson Manufacturing Co Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-27T11:24:48.120875-04:00",
     "symbols": [
       "SSD"
@@ -4998,5 +4818,185 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T15:02:08.001097-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Expands AI Infrastructure Partnerships with NVIDIA and AMD",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T15:02:08.007197-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Business Launches Value Intelligence and Enhanced AI Assistant",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:02:08.010621-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Technology Announces Over $67 Million in New Community Investments in Idaho",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:02:08.017160-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Snowflake AI Data Cloud to Launch as Native Service on Oracle Cloud Infrastructure",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:02:08.020185-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle to Integrate Cerebras Fast Inference into OCI",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:02:08.023461-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Launches Oracle Media Fabric for Content Production and Streaming",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:02:08.029764-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Jade Global Launches JadeOrbit OmniLens AI on Snowflake Marketplace",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:02:39.195102-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Q1 Preview: AI, Cloud Key As Company Eyes 15th Straight Double Beat",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T15:02:39.202214-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;Meta AI director Rohit Patel leaves to take on Microsoft Office and Google Workspace&#39; - TechCrunch",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T15:02:39.232539-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "TD Cowen Maintains Buy on Constellation Energy, Raises Price Target to $374",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T15:02:39.258587-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Microsoft Q1 Preview: AI, Cloud Key As Company Eyes 15th Straight Double Beat",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T15:02:39.517437-04:00",
+    "symbols": [
+      "SAIQ"
+    ],
+    "headline": "WISeSat.Space Holdings, Kaynes Space Technology Private Expand Collaboration To Produce Post-Quantum Security Solutions For Satellites Manufactured In India",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:02:39.520413-04:00",
+    "symbols": [
+      "SAIQ"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday's Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:02:39.532453-04:00",
+    "symbols": [
+      "CDNS"
+    ],
+    "headline": "Stock Market Today: Dow Jones, S&P 500, Nasdaq 10 Futures Gain as Fed Begins Its Two-Day Meet\u2014 Novartis, HSBC, Welltower in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:02:39.534990-04:00",
+    "symbols": [
+      "CDNS"
+    ],
+    "headline": "UnitedHealth Group To Rally Over 29%? Here Are 10 Top Analyst Forecasts For Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:02:39.537890-04:00",
+    "symbols": [
+      "CDNS"
+    ],
+    "headline": "Cadence Design Analysts Boost Their Forecasts Following Upbeat Q3 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:02:39.540674-04:00",
+    "symbols": [
+      "CDNS"
+    ],
+    "headline": "Baird Maintains Outperform on Cadence Design Systems, Raises Price Target to $440",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T15:02:39.543437-04:00",
+    "symbols": [
+      "CDNS"
+    ],
+    "headline": "Needham Maintains Buy on Cadence Design Systems, Raises Price Target to $430",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-27T09:26:09.495105-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "William Blair Takes a Shot at Moderna Stock: Downgrade to Market Perform After a 545% Run",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:09.497864-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "William Blair Downgrades Moderna to Market Perform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-27T09:26:09.624934-04:00",
     "symbols": [
       "ABBV"
@@ -4996,6 +4976,26 @@
     ],
     "headline": "SambaNova Collaborates With Oracle To Bring Its AI Chips To Oracle Cloud Infrastructure Data Centers",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:31:59.881013-04:00",
+    "symbols": [
+      "RCL"
+    ],
+    "headline": "Royal Caribbean Sees No Signs of Vacation Fever Cooling As Bookings Soar",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:32:08.030659-04:00",
+    "symbols": [
+      "LAES"
+    ],
+    "headline": "SEALSQ's QS7001 Secure Element Completes Technical Evaluation for EAL5+ Certification",
+    "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"
   }

@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-10-27T10:59:51.600465-04:00",
-    "symbols": [
-      "INOD"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday's Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T10:59:51.798152-04:00",
-    "symbols": [
-      "SCHP"
-    ],
-    "headline": "Bucher Industries Nominates Schindler Manager Patrick Hess for Board of Directors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T10:59:52.011550-04:00",
-    "symbols": [
-      "UNF"
-    ],
-    "headline": "FTC Tells Cintas, Unifirst It Will Sue To Block $5B Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T10:59:54.772376-04:00",
-    "symbols": [
-      "JBLU"
-    ],
-    "headline": "JetBlue Airways Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-27T11:00:03.042663-04:00",
-    "symbols": [
-      "LECO"
-    ],
-    "headline": "Lincoln Electric Holdings Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T11:02:08.003871-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Broadcom Releases Security Fixes for TrueSource Spring Enterprise",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T11:02:08.012965-04:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "Codoxo and UnitedHealth Group to Present at NHCAA 2026",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T11:02:08.017101-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "AMD and Meta Expand Strategic Partnership and Announce $1 Billion Investment",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T11:02:08.021068-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Allergan Aesthetics Announces 2026 Grant Recipients for The Confidence Collective",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-27T11:02:08.024999-04:00",
     "symbols": [
       "SNOW"
@@ -4998,5 +4908,95 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T14:25:37.311903-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Nvidia&#39;s Credit Risk Has Tripled This Year \u2014 and Just Passed Meta&#39;s",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T14:25:37.857502-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Xylem Stock Plunges to 52-Week Low After Slashing 2026 Profit Outlook",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T14:25:40.361057-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Bitcoin Reclaims $80,000 as ETH, XRP, DOGE Hold Steady Ahead of FOMC Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T14:25:40.365885-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Ripple, Robinhood Partner to Expand RLUSD Use for Institutional Settlement",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T14:25:44.269766-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Bitcoin Reclaims $80,000 as ETH, XRP, DOGE Hold Steady Ahead of FOMC Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T14:25:49.886679-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa Earnings Prediction Market Preview: What Will Ryan McInerney Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T14:25:50.141801-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Visa Earnings Prediction Market Preview: What Will Ryan McInerney Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T14:25:57.081740-04:00",
+    "symbols": [
+      "JBLU"
+    ],
+    "headline": "JetBlue Airways Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T14:26:07.966584-04:00",
+    "symbols": [
+      "LECO"
+    ],
+    "headline": "Lincoln Electric Holdings Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

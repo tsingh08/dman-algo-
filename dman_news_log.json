@@ -1,155 +1,5 @@
 [
   {
-    "ts": "2026-10-27T09:33:09.839992-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Analysts Increase Forecasts and Price Targets for Marvell Technology",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:33:09.843607-04:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "Fortinet Expands Unified SASE to Simplify Microbranch Security",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:33:09.846744-04:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "Enphase Energy Successfully Demonstrates IQ Solid-State Transformer Technology",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-27T09:35:19.747772-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "Vadzo Imaging Validates LI-HDR and eDR Modes on Falcon-830CRH Camera Using onsemi Sensor",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:35:19.759373-04:00",
-    "symbols": [
-      "FSLR"
-    ],
-    "headline": "Guggenheim Maintains Buy on First Solar, Raises Price Target to $299",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:35:19.765670-04:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "Biogen Canada Announces Draft Recommendation for Expanded SPINRAZA Reimbursement",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:35:19.769406-04:00",
-    "symbols": [
-      "DUOL"
-    ],
-    "headline": "Duolingo Price Target Raised by Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-27T09:35:19.782576-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "NBA Expands Partnership with DraftKings to Include Prediction Markets",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:35:19.789340-04:00",
-    "symbols": [
-      "TLN"
-    ],
-    "headline": "Jefferies Adjusts Talen Energy Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:35:19.796617-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Chase reports change in major holding in Rotork PLC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:35:19.800709-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs Lowers Kospi Index Forecast by 25%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:35:20.032284-04:00",
-    "symbols": [
-      "AMC"
-    ],
-    "headline": "Robinhood Earnings Prediction Market Preview: What Will Vlad Tenev Say?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:35:20.036213-04:00",
-    "symbols": [
-      "AUR"
-    ],
-    "headline": "Aurora Innovation Signs MOU with Charger Logistics for Up to 500 Autonomous Trucks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:40:07.541117-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "United Parcel Service CEO, On Amazon, Says We Haven&#39;t Seen Any Meaningful Impact To Our Business Since The Announcement They Made In The Summer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:40:10.149127-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Robinhood Earnings Prediction Market Preview: What Will Vlad Tenev Say?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-27T09:40:10.152106-04:00",
     "symbols": [
       "HOOD"
@@ -4995,6 +4845,156 @@
       "GILD"
     ],
     "headline": "Gilead Reaches Milestone National Agreement for LYVDELZI\u00ae (seladelpar) in Canada",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:21:07.673694-04:00",
+    "symbols": [
+      "DDOG"
+    ],
+    "headline": "UBS Adjusts Price Target on Datadog to $320",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T13:21:11.327270-04:00",
+    "symbols": [
+      "TLN"
+    ],
+    "headline": "Barclays Maintains Overweight on Talen Energy, Lowers Price Target to $387",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T13:21:11.988816-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "RTX CFO to Present at the Baird 2026 Global Industrial Conference",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T13:21:16.357340-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Fl\u00e1vio Bolsonaro\u2019s Allies Say He Has Already Left For The U.S.; Flight Expected To Arrive Within Hours&#39; - Folha De S. Paulo",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T13:21:20.307614-04:00",
+    "symbols": [
+      "JBLU"
+    ],
+    "headline": "&#39;JetBlue CEO Says Company Not In Talks With Its Creditors&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T13:21:26.959859-04:00",
+    "symbols": [
+      "CTS"
+    ],
+    "headline": "CTS Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T13:21:26.963542-04:00",
+    "symbols": [
+      "CTS"
+    ],
+    "headline": "CTS Raises FY2026 Adj EPS Guidance from $2.55-$2.70 to $2.78-$2.88 vs $2.65 Est; Raises FY2026 Sales Guidance from $565.000M-$585.000M to $580.000M-$590.000M vs $573.510M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T13:21:26.967015-04:00",
+    "symbols": [
+      "CTS"
+    ],
+    "headline": "CTS Q3 Adj. EPS $0.77 Beats $0.65 Estimate, Sales $149.583M Beat $149.123M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T13:21:31.060583-04:00",
+    "symbols": [
+      "HYFM"
+    ],
+    "headline": "Hydrofarm Cancels $109M Term Loan; Prices $8.3M Offering Of 1,599,400 Shares, 7,611,575 Pre-Funded Warrants And 9,210,975 Common Warrants",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T13:21:32.405911-04:00",
+    "symbols": [
+      "SSD"
+    ],
+    "headline": "Stephens &amp; Co. Maintains Equal-Weight on Simpson Manufacturing Co, Lowers Price Target to $205",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:21:32.409648-04:00",
+    "symbols": [
+      "SSD"
+    ],
+    "headline": "DA Davidson Maintains Neutral on Simpson Manufacturing Co, Lowers Price Target to $203",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:21:32.624804-04:00",
+    "symbols": [
+      "ITRI"
+    ],
+    "headline": "Itron Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:21:32.628512-04:00",
+    "symbols": [
+      "ITRI"
+    ],
+    "headline": "Itron Q3 Adj. EPS $1.94 Beats $1.56 Estimate, Sales $599.333M Beat $595.845M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:21:32.632885-04:00",
+    "symbols": [
+      "ITRI"
+    ],
+    "headline": "Itron Sees Q4 Adj EPS $1.70-$1.80 vs $1.78 Est; Sees Sales $621.000M-$636.000M vs $641.847M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:21:32.636385-04:00",
+    "symbols": [
+      "ITRI"
+    ],
+    "headline": "Itron Raises FY2026 Adj EPS Guidance from $6.30-$6.50 to $6.72-$6.82 vs $6.27 Est; Narrows FY2026 Sales Guidance from $2.370B-$2.410B to $2.370B-$2.385B vs $2.388B Est",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"

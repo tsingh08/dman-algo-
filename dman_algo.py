@@ -2309,7 +2309,9 @@ def _resolve_stock_feed() -> str:
 
 def _fetch_alpaca_daily(ticker: str, period_days: int) -> Optional[pd.DataFrame]:
     """Single-ticker Alpaca SIP daily bars (Algo Trader Plus real-time feed)."""
-    if not ALPACA_AVAILABLE:
+    # Alpaca serves no indices: ^VIX failed twice per call (the retry plus a
+    # 1s sleep) 64 times on 2026-10-26 before reaching yfinance anyway.
+    if not ALPACA_AVAILABLE or str(ticker).startswith("^"):
         return None
     try:
         dc = get_alpaca_data_client()
@@ -7520,7 +7522,11 @@ def _fetch_alpaca_news(tickers: list[str], hours_back: int = 18) -> dict[str, li
         if any(result[t] for t in tickers):
             return result
     except Exception as _exc:
-        _log_swallowed("alpaca news tier (client)", _exc)
+        # The premarket briefing carries no APCA_* secrets, so the client
+        # raised "You must supply a method of authentication" every morning --
+        # a tolerated error that read like an outage. Keyless is not a fault.
+        if ALPACA_API_KEY and ALPACA_SECRET_KEY:
+            _log_swallowed("alpaca news tier (client)", _exc)
 
     # Fallback: yfinance (no API key, last resort)
     for ticker in tickers:
@@ -25722,8 +25728,13 @@ def run_policy_audit(notify: bool = True) -> list[str]:
     def _auto_trades_stayed_on_the_watchlist():
         if not flag("ENABLE_WATCHLIST_ONLY_AUTO", ENABLE_WATCHLIST_ONLY_AUTO):
             return ""
+        # Breakout zones screen their own $5+/$5M-day universe on purpose
+        # (BZONE_MAX_EXPOSURE_PCT caps them), so a zone hold is never a gate
+        # failure. Flagged every night from 10-20 on BTE/FRSH/ARHS -- a
+        # permanent finding trains readers to ignore the audit.
         off = [p.ticker for p in PositionTracker().positions
-               if p.ticker not in set(WATCHLIST) and "Options" not in (p.setup or "")]
+               if p.ticker not in set(WATCHLIST) and "Options" not in (p.setup or "")
+               and not str(p.setup or "").startswith(BZONE_SETUP)]
         return f"held off-watchlist: {', '.join(off)}" if off else ""
 
     def _options_are_mostly_intrinsic():

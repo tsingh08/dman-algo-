@@ -2828,6 +2828,13 @@ class TestBarSetContainsBugFix(unittest.TestCase):
                                  "not silently return None via `ticker in resp`")
         self.assertEqual(len(df), 25)
 
+    def test_fetch_alpaca_daily_skips_index_symbols(self):
+        # Alpaca has no ^VIX: it cost two failed calls + a 1s sleep each time.
+        mock_dc = MagicMock()
+        with patch.object(a, "get_alpaca_data_client", return_value=mock_dc):
+            self.assertIsNone(a._fetch_alpaca_daily("^VIX", 30))
+        mock_dc.get_stock_bars.assert_not_called()
+
     def test_fetch_alpaca_daily_retries_once_then_falls_back(self):
         """10-23: four names fell to yfinance's stale bars with no reason logged."""
         class FakeBarSet:
@@ -16952,6 +16959,28 @@ class TestPolicyAudit(unittest.TestCase):
             pt.return_value.positions = lone
             findings = a.run_policy_audit(notify=False)
         self.assertTrue(any("option quality" in f for f in findings), findings)
+
+    def _watchlist_findings(self, positions):
+        with patch.object(a, "PositionTracker") as pt, \
+             patch.object(a, "get_this_month_loss", return_value=-1.0), \
+             patch.object(a, "is_market_open", return_value=False), \
+             patch.object(a, "flag", side_effect=lambda name, default=None: default), \
+             patch.object(a, "ENABLE_WATCHLIST_ONLY_AUTO", True), \
+             patch.object(a, "send_telegram"):
+            pt.return_value.positions = positions
+            findings = a.run_policy_audit(notify=False)
+        return [f for f in findings if "off-watchlist" in f]
+
+    def test_a_breakout_zone_hold_is_not_a_watchlist_breach(self):
+        # Zones screen their own universe by design (BTE/FRSH/ARHS, 10-20..23).
+        zone = SimpleNamespace(ticker="ZZZZ", entry=5.35, stop=0.01, day_only=False,
+                               setup="Breakout Zone +148% off low")
+        self.assertEqual(self._watchlist_findings([zone]), [])
+
+    def test_an_off_watchlist_share_is_still_flagged(self):
+        share = SimpleNamespace(ticker="ZZZZ", entry=5.35, stop=4.9, day_only=False,
+                                setup="Day 2 Continuation")
+        self.assertTrue(self._watchlist_findings([share]))
 
     def test_exposed_as_a_mode_and_a_command(self):
         self.assertIn('"audit"', inspect.getsource(a.main))

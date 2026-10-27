@@ -1,185 +1,5 @@
 [
   {
-    "ts": "2026-10-27T09:40:10.152106-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Ripple And Robinhood Partner To Expand RLUSD Adoption Across Retail, Institutional And Settlement Platforms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:40:20.228868-04:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Michael Burry: Today&#39;s Market Mirrors the Eve of the Dot-Com Crash",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:40:20.552738-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Michael Burry: Today&#39;s Market Mirrors the Eve of the Dot-Com Crash",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:40:20.698378-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Michael Burry: Today&#39;s Market Mirrors the Eve of the Dot-Com Crash",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:40:28.025514-04:00",
-    "symbols": [
-      "HRI"
-    ],
-    "headline": "Herc Holdings Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:40:31.809366-04:00",
-    "symbols": [
-      "ORKA"
-    ],
-    "headline": "Guggenheim Reiterates Buy on Oruka Therapeutics, Maintains $200 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:49:29.098919-04:00",
-    "symbols": [
-      "NEXR"
-    ],
-    "headline": "T3 Defense To Acquire KeepZone AI From Nexera Technologies For $1M In DFNS Shares Plus Up To $5M Of Future KeepZone Net Profit",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:49:29.101912-04:00",
-    "symbols": [
-      "NEXR"
-    ],
-    "headline": "Nexera Technologies To Sell KeepZone AI Subsidiary To Aerospace And Defense Company For $1M Plus Potential $5M Earn-Out",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:49:29.322503-04:00",
-    "symbols": [
-      "XXII"
-    ],
-    "headline": "Why Celestica Shares Are Trading Higher By Over 16%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:49:29.325573-04:00",
-    "symbols": [
-      "XXII"
-    ],
-    "headline": "22nd Century Group Stock Climbs 21% After-Hours: What's Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:49:29.329704-04:00",
-    "symbols": [
-      "SOFI"
-    ],
-    "headline": "SoFi&#39;s Customer Boom Has a $90 Question for Investors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:49:29.499744-04:00",
-    "symbols": [
-      "TONX"
-    ],
-    "headline": "Kingsway Capital Writes Letter To TON Strategy\u2019s Board Of Directors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:49:29.714810-04:00",
-    "symbols": [
-      "VNRX"
-    ],
-    "headline": "VolitionRx Executes Non-Binding Letter Of Intent With Missionpharma A/S To Develop, Roll Out Volition's Prototype Lateral Flow Technology For NETosis",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:49:29.718151-04:00",
-    "symbols": [
-      "VNRX"
-    ],
-    "headline": "VolitionRx Makes $500K Cash Partial Prepayment Towards Outstanding Principal Balance On Its Senior Secured Convertible Promissory Note",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:49:29.959020-04:00",
-    "symbols": [
-      "CSHR"
-    ],
-    "headline": "CoinShares Board Approves Repurchase Of Up To $40M Of Ordinary Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:49:30.187124-04:00",
-    "symbols": [
-      "VLRS"
-    ],
-    "headline": "Controladora Vuela Q3 EPS $(0.23) Misses $(0.07) Estimate, Sales $1.038B Beat $961.792M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-27T09:49:30.540256-04:00",
-    "symbols": [
-      "NVA"
-    ],
-    "headline": "Nova Minerals Receives Final Antimony Project Approvals From The State Of Alaska; Targeting Production In 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:49:30.884547-04:00",
-    "symbols": [
-      "MBOT"
-    ],
-    "headline": "Microbot Medical Receives Order From ELMNT IR For 12-Month Supply Of Liberty Devices",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-27T10:00:16.826394-04:00",
     "symbols": [
       "NVDA"
@@ -4998,5 +4818,185 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:32:27.674982-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Analysts Increase Forecasts and Price Targets for Marvell Technology",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T13:32:28.162759-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Earnings Prediction Market Preview: What Will Vlad Tenev Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:32:28.166527-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Ripple And Robinhood Partner To Expand RLUSD Adoption Across Retail, Institutional And Settlement Platforms",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:32:28.813271-04:00",
+    "symbols": [
+      "FSLR"
+    ],
+    "headline": "Guggenheim Maintains Buy on First Solar, Raises Price Target to $299",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T13:32:38.979858-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Cerebras Stock Surges on Oracle Cloud Partnership",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T13:32:39.239827-04:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Michael Burry: Today&#39;s Market Mirrors the Eve of the Dot-Com Crash",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T13:32:39.903483-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Michael Burry: Today&#39;s Market Mirrors the Eve of the Dot-Com Crash",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:32:40.742371-04:00",
+    "symbols": [
+      "AMC"
+    ],
+    "headline": "Robinhood Earnings Prediction Market Preview: What Will Vlad Tenev Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T13:32:49.728501-04:00",
+    "symbols": [
+      "NEXR"
+    ],
+    "headline": "T3 Defense To Acquire KeepZone AI From Nexera Technologies For $1M In DFNS Shares Plus Up To $5M Of Future KeepZone Net Profit",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T13:32:49.732192-04:00",
+    "symbols": [
+      "NEXR"
+    ],
+    "headline": "Nexera Technologies To Sell KeepZone AI Subsidiary To Aerospace And Defense Company For $1M Plus Potential $5M Earn-Out",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T13:32:49.962750-04:00",
+    "symbols": [
+      "XXII"
+    ],
+    "headline": "Why Celestica Shares Are Trading Higher By Over 16%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T13:32:49.966515-04:00",
+    "symbols": [
+      "XXII"
+    ],
+    "headline": "22nd Century Group Stock Climbs 21% After-Hours: What's Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T13:32:51.304725-04:00",
+    "symbols": [
+      "SOFI"
+    ],
+    "headline": "SoFi&#39;s Customer Boom Has a $90 Question for Investors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:32:51.535976-04:00",
+    "symbols": [
+      "PNR"
+    ],
+    "headline": "Pentair Eyes Major 2027 Comeback As Taco Deal Opens New Growth Doors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:32:52.596917-04:00",
+    "symbols": [
+      "HRI"
+    ],
+    "headline": "Herc Holdings Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T13:32:53.965203-04:00",
+    "symbols": [
+      "TONX"
+    ],
+    "headline": "Kingsway Capital Writes Letter To TON Strategy\u2019s Board Of Directors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T13:32:55.242405-04:00",
+    "symbols": [
+      "VNRX"
+    ],
+    "headline": "VolitionRx Executes Non-Binding Letter Of Intent With Missionpharma A/S To Develop, Roll Out Volition's Prototype Lateral Flow Technology For NETosis",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T13:32:55.246182-04:00",
+    "symbols": [
+      "VNRX"
+    ],
+    "headline": "VolitionRx Makes $500K Cash Partial Prepayment Towards Outstanding Principal Balance On Its Senior Secured Convertible Promissory Note",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

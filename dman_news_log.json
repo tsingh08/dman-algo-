@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-26T16:00:03.774814-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Nvidia Is Now Cheaper Than the Average S&amp;P 500 Stock: Wall Street Still Sees Record Profits",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-26T16:00:04.870734-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "If This Sector Breaks, \u2018So Does the Market\u2019: Jay Woods Says This Chart is &#39;Most Important in the World&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-26T16:00:05.588315-04:00",
     "symbols": [
       "IWM"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T11:47:02.525531-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says Will Accept Election Results If Elections Are Honest",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T11:47:12.015201-04:00",
+    "symbols": [
+      "GCTS"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday's After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

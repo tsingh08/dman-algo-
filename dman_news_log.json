@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-27T09:33:09.591124-04:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "IonQ Awarded $7.5 Million Follow-on Funding from AFRL for Quantum Networking",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-27T09:33:09.839992-04:00",
     "symbols": [
       "MRVL"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T13:21:06.124911-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Gilead Reaches Milestone National Agreement for LYVDELZI\u00ae (seladelpar) in Canada",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

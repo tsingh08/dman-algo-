@@ -412,7 +412,11 @@ jobs:
           # work across runs. The stock-side file backs the same detection
           # for Algo Trader Plus's SIP feed, added 2026-08-09 after ATP
           # billing voided twice before finally activating.
+          # dman_daily_halt.json: the daily-loss latch. Missing until
+          # 2026-10-27 -- a scan that tripped it threw it away, so the next
+          # run at -2.9% could enter again on the same broken day.
           files: >-
+            dman_daily_halt.json
             dman_last_alerts.json dman_live_signals.json dman_live_outcomes.csv
             dman_signal_features.json dman_orb_shadow.json dman_bzone_shadow.json
             dman_dip_shadow.json

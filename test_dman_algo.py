@@ -17045,6 +17045,19 @@ class TestDailyLossHaltLatches(unittest.TestCase):
         for fn in (a._entry_circuit_breakers_ok, a._submit_signals_to_alpaca):
             self.assertIn("_daily_loss_limit_hit()", _effective_guard_src(fn), fn.__name__)
 
+    def test_scanner_persists_every_daemon_state_file(self):
+        # Each scanner run is a fresh checkout: a file the daemon syncs but
+        # the scanner does not persist is forgotten whenever a scan writes it.
+        # dman_daily_halt.json was that file until 2026-10-27.
+        import pathlib, re
+        wf = pathlib.Path(".github/workflows/dman_scanner.yml").read_text(encoding="utf-8")
+        persisted = set(re.findall(r"dman_[a-z0-9_]+\.(?:json|csv)",
+                                   wf.split("Persist alert cache")[1].split("- name:")[0]))
+        dm = pathlib.Path("dman_daemon.py").read_text(encoding="utf-8")
+        daemon = set(re.findall(r'"(dman_[^"]+)"',
+                                re.search(r"STATE_FILES = \[(.*?)\n\]", dm, re.S).group(1)))
+        self.assertEqual(sorted(daemon - persisted), [])
+
 
 class TestSwingLabelPooledInDrift(unittest.TestCase):
     """Review 2026-09-09: PDT-zero swing conversion records "SWING — <setup>",

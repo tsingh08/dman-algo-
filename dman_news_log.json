@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-27T11:02:08.024999-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Anavsan APEX Governance Agent Listed on Microsoft Marketplace",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T11:02:08.030316-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs Asset Management Joins Envestnet's Custom Model Solutions Program",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T11:02:08.034489-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Qualcomm Named to Dividend Channel's S.A.F.E. 25 List",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-27T11:02:08.041685-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "IXS Migrates Token to Robinhood Chain",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T11:02:21.811222-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Robinhood Q3 Preview: Could Record Revenue Help Turn Shares Around?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T11:13:12.936957-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Growth Leads Sectors In Tuesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T11:13:13.119617-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "\u2018I Hate Being the Bearer of Concerning News\u2019 \u2014 Bill Gates Warns Even the Best Case for AI Means a 20-Year Transition With Winners and Losers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T11:13:14.187251-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Growth Leads Sectors In Tuesday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-27T11:13:14.325403-04:00",
     "symbols": [
       "TSLA"
@@ -4995,6 +4915,86 @@
       "LECO"
     ],
     "headline": "Lincoln Electric Holdings Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T14:47:36.020969-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Reported Earlier: FCC Approves Amazon Leo&#39;s Acquisition Of Globalstar",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T14:47:37.951128-04:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "&#39;A Rivian Commercial Van Wrapped In Walmart+ Branding Was Spotted On A Car Hauler On Tuesday, The Latest In A String Of Sightings Of The Vans In Other Companies\u2019 Colors That Neither Rivian Nor The Brands Involved Have Confirmed&#39; - EV",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T14:47:44.373521-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Asset Management Joins Envestnet's Custom Model Solutions Program",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T14:47:46.660675-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Reuters Reports Hacker Trying To Breach U.S. Election Website, Cites Email From Federal Election Commission Official",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T14:47:51.535122-04:00",
+    "symbols": [
+      "UAMY"
+    ],
+    "headline": "Why Is MP Materials Stock Surging on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-27T14:47:56.184484-04:00",
+    "symbols": [
+      "CTOS"
+    ],
+    "headline": "Pentair, JetBlue Airways, Hawkins And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T14:47:56.187216-04:00",
+    "symbols": [
+      "CTOS"
+    ],
+    "headline": "Custom Truck One Source Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T14:47:56.189684-04:00",
+    "symbols": [
+      "CTOS"
+    ],
+    "headline": "Cantor Fitzgerald Reiterates Overweight on Custom Truck One Source, Maintains $14 Price Target",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"

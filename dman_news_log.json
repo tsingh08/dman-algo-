@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-27T09:26:27.956363-04:00",
-    "symbols": [
-      "RMBS"
-    ],
-    "headline": "Rambus Sees Q4 Adj EPS $0.84-$0.92 vs $0.83 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T09:26:27.958765-04:00",
-    "symbols": [
-      "RMBS"
-    ],
-    "headline": "Rambus Sees Q4 GAAP EPS $0.68-$0.76 vs $0.69 Est; Sees Sales $221.000M-$239.000M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-27T09:26:28.262418-04:00",
     "symbols": [
       "ACCV"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T13:02:09.228458-04:00",
+    "symbols": [
+      "STLA"
+    ],
+    "headline": "Stellantis Announces Mopar '27 Dodge Charger",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T13:02:09.232832-04:00",
+    "symbols": [
+      "STLA"
+    ],
+    "headline": "Stellantis Selects Amperity for Customer Data Transformation",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

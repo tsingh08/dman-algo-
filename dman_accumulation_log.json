@@ -2761,5 +2761,50 @@
   "drift_pct": 0.04,
   "range_ratio": 0.47,
   "near_high": 0.96
+ },
+ {
+  "ts": "2026-10-27T13:01:36.442304-04:00",
+  "ticker": "AFIF",
+  "price": 9.265,
+  "rvol": 2.66,
+  "drift_pct": 0.08,
+  "range_ratio": 0.42,
+  "near_high": 0.982
+ },
+ {
+  "ts": "2026-10-27T13:01:36.442316-04:00",
+  "ticker": "SCHP",
+  "price": 25.64,
+  "rvol": 1.81,
+  "drift_pct": 0.71,
+  "range_ratio": 0.55,
+  "near_high": 0.983
+ },
+ {
+  "ts": "2026-10-27T13:01:36.442320-04:00",
+  "ticker": "IWS",
+  "price": 168.45,
+  "rvol": 3.47,
+  "drift_pct": 0.2,
+  "range_ratio": 0.3,
+  "near_high": 0.971
+ },
+ {
+  "ts": "2026-10-27T13:01:36.442324-04:00",
+  "ticker": "KRAQ",
+  "price": 10.01,
+  "rvol": 7.33,
+  "drift_pct": 0.0,
+  "range_ratio": 0.67,
+  "near_high": 0.995
+ },
+ {
+  "ts": "2026-10-27T13:01:36.442327-04:00",
+  "ticker": "IWR",
+  "price": 110.105,
+  "rvol": 1.81,
+  "drift_pct": 0.06,
+  "range_ratio": 0.47,
+  "near_high": 0.959
  }
 ]

@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-27T09:26:09.007067-04:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "Volkswagen Considers Software Strategy Shift That May Impact Rivian Partnership",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T09:26:09.157914-04:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "Enphase Energy Unveils IQ Solid-State Transformer, Demonstrating 13.8 kV AC To 800 VDC Conversion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-27T09:26:09.160699-04:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "GLJ Research Maintains Sell on Enphase Energy, Lowers Price Target to $21.49",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-27T09:26:09.323720-04:00",
-    "symbols": [
-      "FSLR"
-    ],
-    "headline": "Guggenheim Adjusts Price Target on First Solar to $299 From $282",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T09:26:09.492136-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "This M&amp;T Bank Analyst Turns Bearish; Here Are Top 5 Downgrades For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-27T09:26:09.495105-04:00",
     "symbols": [
       "MRNA"
@@ -4998,5 +4948,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-27T12:31:40.437054-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Anthropic Could Defy the AI Spending Curse: Analysts See Early Profit Signs and Massive Cash Cushion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:31:44.369498-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "QUICK SPARK: Cybersecurity Stocks Outperform Chipmakers in 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:31:44.546834-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "QUICK SPARK: Cybersecurity Stocks Outperform Chipmakers in 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-27T12:31:45.710904-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "QUICK SPARK: Cybersecurity Stocks Outperform Chipmakers in 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-27T12:31:50.413590-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "SambaNova Collaborates With Oracle To Bring Its AI Chips To Oracle Cloud Infrastructure Data Centers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

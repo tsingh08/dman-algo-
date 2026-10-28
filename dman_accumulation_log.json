@@ -2977,5 +2977,14 @@
   "drift_pct": 0.62,
   "range_ratio": 0.56,
   "near_high": 1.0
+ },
+ {
+  "ts": "2026-10-28T13:35:40.847011-04:00",
+  "ticker": "LVHI",
+  "price": 42.94,
+  "rvol": 1.54,
+  "drift_pct": 0.3,
+  "range_ratio": 0.36,
+  "near_high": 0.994
  }
 ]

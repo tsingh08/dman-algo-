@@ -1,295 +1,5 @@
 [
   {
-    "ts": "2026-10-28T11:37:31.868225-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Microsoft And Google Face Monetization Test Amid Expected Fed Pause\u2014 Seagate And Oil Cloud AI Trade",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T11:37:34.100694-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Microsoft And Google Face Monetization Test Amid Expected Fed Pause\u2014 Seagate And Oil Cloud AI Trade",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T11:37:34.861098-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Ripple Expands From Robinhood to Coinbase as RLUSD Gains Ground",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T11:37:35.821854-04:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "Barclays Maintains Equal-Weight on Biogen, Raises Price Target to $230",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T11:37:36.291469-04:00",
-    "symbols": [
-      "HIMS"
-    ],
-    "headline": "U.S. Department Of Health And Human Services Announces Availability Of Enforcement Discretion Policy Regarding 503a Compounding Using Certain Peptide Bulk Drug Substances; Will Not Enforce Against Pharmacies, Federal Facilities Or Physicians Compounding Drugs Using Peptide Bulk Substances Pending Rulemaking; Interim Policy Permits Peptide Compounding Pending Final Rulemaking On 503a Bulk Drug Substances List",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T11:37:39.032827-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Ripple Expands From Robinhood to Coinbase as RLUSD Gains Ground",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T11:37:43.275341-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "&#39;Venezuela Grid Repairs Stalled by Payment Delay, GE Vernova Says&#39; - Bloomberg Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T11:37:43.507992-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Bernstein Adjusts Price Target on Lockheed Martin to $633",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T11:37:43.512565-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Lockheed Martin Opens Dedicated PAC-3 Missile Maintenance Facility in Poland",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T11:37:43.517243-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Lockheed Martin to Establish PAC-3 Missile Maintenance Facility in Poland",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T11:37:43.522547-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Lockheed Martin Awarded $694 Million U.S. Air Force Contract for Hypersonic Weapon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T11:37:43.971058-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Here&#39;s How Much $100 Invested In Caterpillar 15 Years Ago Would Be Worth Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T11:37:47.211822-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Department Of Health And Human Services Announces Availability Of Enforcement Discretion Policy Regarding 503a Compounding Using Certain Peptide Bulk Drug Substances; Will Not Enforce Against Pharmacies, Federal Facilities Or Physicians Compounding Drugs Using Peptide Bulk Substances Pending Rulemaking; Interim Policy Permits Peptide Compounding Pending Final Rulemaking On 503a Bulk Drug Substances List",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T11:37:47.216521-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Microsoft And Google Face Monetization Test Amid Expected Fed Pause\u2014 Seagate And Oil Cloud AI Trade",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T11:37:47.444993-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Microsoft And Google Face Monetization Test Amid Expected Fed Pause\u2014 Seagate And Oil Cloud AI Trade",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T11:38:01.332657-04:00",
-    "symbols": [
-      "PUMP"
-    ],
-    "headline": "ProPetro Holding Q3 EPS $0.09 Beats $(0.00) Estimate, Sales $355.384M Beat $320.765M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T11:38:02.469611-04:00",
-    "symbols": [
-      "EXTR"
-    ],
-    "headline": "Extreme Networks Q1 2027 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T11:38:02.475227-04:00",
-    "symbols": [
-      "EXTR"
-    ],
-    "headline": "Extreme Networks Q1 Adj. EPS $0.33 Beats $0.28 Estimate, Sales $341.100M Beat $336.723M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T11:38:02.480448-04:00",
-    "symbols": [
-      "EXTR"
-    ],
-    "headline": "Extreme Networks Raises FY2027 Adj EPS Guidance from $1.28-$1.33 to $1.35-$1.39 vs $1.30 Est; Raises FY2027 Sales Guidance from $1.380B-$1.400B to $1.402B-$1.412B vs $1.395B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T11:38:02.485020-04:00",
-    "symbols": [
-      "EXTR"
-    ],
-    "headline": "Extreme Networks Raises FY2027 GAAP EPS Guidance from $0.68-$0.74 to $0.77-$0.83",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T11:38:02.490105-04:00",
-    "symbols": [
-      "EXTR"
-    ],
-    "headline": "Extreme Networks Sees Q2 Adj EPS $0.32-$0.34 vs $0.32 Est; Sees Sales $345.800M-$350.800M vs $344.853M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T11:38:03.237855-04:00",
-    "symbols": [
-      "CHE"
-    ],
-    "headline": "Chemed Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T11:38:03.243073-04:00",
-    "symbols": [
-      "CHE"
-    ],
-    "headline": "Chemed FY2026  Adj EPS expected to be more than $25.75 vs $25.49 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T11:38:03.248307-04:00",
-    "symbols": [
-      "CHE"
-    ],
-    "headline": "Chemed Q3 Adj. EPS $6.75 Beats $6.44 Estimate, Sales $690.940M Beat $685.037M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T11:39:24.850773-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX\u2019s Starlink Could Be a &#39;New Customer at Scale&#39; for American Tower",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T11:39:25.358054-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Microsoft And Google Face Monetization Test Amid Expected Fed Pause\u2014 Seagate And Oil Cloud AI Trade",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T11:39:25.617299-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft And Google Face Monetization Test Amid Expected Fed Pause\u2014 Seagate And Oil Cloud AI Trade",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T11:39:25.989005-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Microsoft And Google Face Monetization Test Amid Expected Fed Pause\u2014 Seagate And Oil Cloud AI Trade",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T11:39:25.991869-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "AI Bubble Hedge? 5 ETFs That Could Protect Investors Without Shorting Nvidia",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-28T11:39:25.994523-04:00",
     "symbols": [
       "NVDA"
@@ -4998,5 +4708,295 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T13:09:02.687450-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Tesla, Nutrien, RTX",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T13:09:04.407232-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T13:09:05.377113-04:00",
+    "symbols": [
+      "ENPH"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T13:09:09.721024-04:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "Scotiabank Maintains Sector Outperform on Vistra, Lowers Price Target to $189",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T13:09:11.696874-04:00",
+    "symbols": [
+      "NRG"
+    ],
+    "headline": "Scotiabank Maintains Sector Outperform on NRG Energy, Lowers Price Target to $149",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T13:09:12.799620-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Tesla, Nutrien, RTX",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T13:09:15.504390-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "BZ Analysis: The 6-Month Correlation Between The S&amp;P 500 Energy Sector And The S&amp;P 500 Is Down To -0.38, Near Its Lowest On Record",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T13:09:15.508003-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Iran Foreign Minister Abbas Araghchi, On Social Media, Says While Our Brave Armed Forces Are Fully Prepared To Defend The Homeland, Iran Continues To Give Diplomacy A Chance To Succeed; We Remain In Close And Ongoing Contact With Intermediaries To Review Ideas That Can Ensure Implementation Of Our 7-Day Plan In Even Less Than A Week",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T13:09:16.843344-04:00",
+    "symbols": [
+      "BKYI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T13:09:18.161761-04:00",
+    "symbols": [
+      "FRGT"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T13:09:19.265123-04:00",
+    "symbols": [
+      "IPDN"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T13:09:19.752526-04:00",
+    "symbols": [
+      "KDK"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T13:09:20.812770-04:00",
+    "symbols": [
+      "PACB"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T13:09:21.483634-04:00",
+    "symbols": [
+      "STLA"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T13:09:22.338779-04:00",
+    "symbols": [
+      "ULCC"
+    ],
+    "headline": "Frontier Group CEO says Remain On Track To Delivering $200 Million Of Annual Run Rate Cost Savings By 2027; I See Capacity Growth At About 5% To 7% Next Year; Frontier Group Exec Says Due In Large Part To Our Fleet Right Sizing And Other Strategic Initiatives, Our Leverage Ratio Declined Meaningfully",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T13:09:24.238369-04:00",
+    "symbols": [
+      "AXGN"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T13:09:24.426894-04:00",
+    "symbols": [
+      "LUNG"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T13:09:25.395581-04:00",
+    "symbols": [
+      "WEN"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T13:09:25.873357-04:00",
+    "symbols": [
+      "PUMP"
+    ],
+    "headline": "ProPetro Holding Q3 EPS $0.09 Beats $(0.00) Estimate, Sales $355.384M Beat $320.765M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T13:09:26.986052-04:00",
+    "symbols": [
+      "EXTR"
+    ],
+    "headline": "Extreme Networks Q1 2027 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T13:09:26.990627-04:00",
+    "symbols": [
+      "EXTR"
+    ],
+    "headline": "Extreme Networks Q1 Adj. EPS $0.33 Beats $0.28 Estimate, Sales $341.100M Beat $336.723M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T13:09:26.995567-04:00",
+    "symbols": [
+      "EXTR"
+    ],
+    "headline": "Extreme Networks Raises FY2027 Adj EPS Guidance from $1.28-$1.33 to $1.35-$1.39 vs $1.30 Est; Raises FY2027 Sales Guidance from $1.380B-$1.400B to $1.402B-$1.412B vs $1.395B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T13:09:26.999515-04:00",
+    "symbols": [
+      "EXTR"
+    ],
+    "headline": "Extreme Networks Raises FY2027 GAAP EPS Guidance from $0.68-$0.74 to $0.77-$0.83",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T13:09:27.003239-04:00",
+    "symbols": [
+      "EXTR"
+    ],
+    "headline": "Extreme Networks Sees Q2 Adj EPS $0.32-$0.34 vs $0.32 Est; Sees Sales $345.800M-$350.800M vs $344.853M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T13:09:27.741896-04:00",
+    "symbols": [
+      "MANH"
+    ],
+    "headline": "Truist Securities Reiterates Buy on Manhattan Associates, Raises Price Target to $305",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T13:09:27.913248-04:00",
+    "symbols": [
+      "CHE"
+    ],
+    "headline": "Chemed Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T13:09:28.244798-04:00",
+    "symbols": [
+      "EVMN"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T13:09:28.405555-04:00",
+    "symbols": [
+      "GMAB"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T13:09:29.612462-04:00",
+    "symbols": [
+      "EAT"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

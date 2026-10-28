@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-10-28T10:09:19.849380-04:00",
-    "symbols": [
-      "ADT"
-    ],
-    "headline": "ADT Inc. Expands AI Capabilities Through Oracle Cloud Integration",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T10:09:20.086216-04:00",
-    "symbols": [
-      "NWG"
-    ],
-    "headline": "UK Government Announces Temporary Increase to Bank Corporate Tax Surcharge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T10:09:20.328034-04:00",
-    "symbols": [
-      "BCS"
-    ],
-    "headline": "Major UK Banks Including Barclays Face Complaints Over Crypto Transfer Restrictions",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:09:20.578365-04:00",
-    "symbols": [
-      "HAYW"
-    ],
-    "headline": "Hayward Holdings Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T10:20:29.564818-04:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Cloudflare, Raises Price Target to $400",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T10:20:30.338039-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Scaramucci Calls Elizabeth Warren \u2018the Joke of Jokes,\u2019 Accuses Her of Echoing Bank Lobbyists",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:20:31.044384-04:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "Wells Fargo Adjusts Price Target on Vistra to $198 From $212",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T10:20:31.049240-04:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "Scotiabank Adjusts Price Target on Vistra to $189 From $207",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T10:20:34.136541-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "Jim Cramer Says People Selling This Stock Don&#39;t Have Brains",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-28T10:20:56.550579-04:00",
     "symbols": [
       "JLL"
@@ -4998,5 +4908,95 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:33:08.022047-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Novo Nordisk to Present New Semaglutide Clinical Data at The Liver Meeting 2026",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T12:33:08.044378-04:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "Spotify Launches 'Spotify 360' Premium Experience",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T12:33:27.090237-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Novo Nordisk Loses Court Bid Against Eli Lilly\u2019s Weight-Loss Drug Ads \u2014 Judge Says Sales Impact Was Negligible (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T12:33:27.095930-04:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Freeport-McMoRan, Lowers Price Target to $79",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:33:27.111920-04:00",
+    "symbols": [
+      "ACRS"
+    ],
+    "headline": "Wedbush Maintains Outperform on Aclaris Therapeutics, Lowers Price Target to $8",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:33:27.170181-04:00",
+    "symbols": [
+      "SKHU"
+    ],
+    "headline": "SK Hynix\u2019s 80% Profit Margin Fuels AI Frenzy: Should Investors Bet on 2X ETFs?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T12:33:27.179271-04:00",
+    "symbols": [
+      "VRT"
+    ],
+    "headline": "Stock of the Day: Is the Vertiv Rally Going to Stall?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:33:27.215200-04:00",
+    "symbols": [
+      "GENB"
+    ],
+    "headline": "Anthropic Announces Strategic Partnership with Generate Biomedicines for Autonomous Drug Discovery",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T12:33:27.226085-04:00",
+    "symbols": [
+      "HAYW"
+    ],
+    "headline": "Hayward Holdings Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

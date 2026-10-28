@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-28T12:56:51.001516-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Cyclicals Lead Sectors In Wednesday Trading As Real Estate Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-28T12:56:52.150003-04:00",
     "symbols": [
       "XOM"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T15:04:08.001329-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Hosts 2026 Investor Day to Outline Strategic Growth",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,245 +1,5 @@
 [
   {
-    "ts": "2026-10-27T15:55:04.971688-04:00",
-    "symbols": [
-      "INIO"
-    ],
-    "headline": "Innio Raises FY2026 Sales Guidance from $3.800B-$3.900B to $3.900B-$4.000B vs $3.874B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T15:55:04.975984-04:00",
-    "symbols": [
-      "INIO"
-    ],
-    "headline": "Innio Q3 Adj. EPS $0.15 Beats $0.12 Estimate, Sales $1.168B Beat $1.046B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T15:55:05.179707-04:00",
-    "symbols": [
-      "USAR"
-    ],
-    "headline": "Why Is MP Materials Stock Surging on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T15:55:05.184202-04:00",
-    "symbols": [
-      "USAR"
-    ],
-    "headline": "Pentair, JetBlue Airways, Hawkins And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T15:55:05.189898-04:00",
-    "symbols": [
-      "USAR"
-    ],
-    "headline": "Jim Cramer Calls Celsius 'A Second-Rate Monster,' Says Stick With the Original",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T15:55:05.440563-04:00",
-    "symbols": [
-      "SHLS"
-    ],
-    "headline": "Under the Radar: 3 Small-Cap Stocks Powering the AI Energy Boom",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T15:58:31.743820-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "AI&#39;s Biggest Constraint Could Be Capital Availability\u2014Anthropic, Meta And SpaceX Put Markets To The Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T15:58:31.957987-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "AI&#39;s Biggest Constraint Could Be Capital Availability\u2014Anthropic, Meta And SpaceX Put Markets To The Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T15:58:32.221659-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "AI&#39;s Biggest Constraint Could Be Capital Availability\u2014Anthropic, Meta And SpaceX Put Markets To The Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T15:58:32.654676-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "AI&#39;s Biggest Constraint Could Be Capital Availability\u2014Anthropic, Meta And SpaceX Put Markets To The Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T15:58:33.045119-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "AI&#39;s Biggest Constraint Could Be Capital Availability\u2014Anthropic, Meta And SpaceX Put Markets To The Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T15:58:33.238595-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "AI&#39;s Biggest Constraint Could Be Capital Availability\u2014Anthropic, Meta And SpaceX Put Markets To The Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T15:58:33.674069-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Rosenblatt Maintains Buy on Palantir Technologies, Raises Price Target to $260",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T15:58:37.472701-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "QUICK SPARK: Cybersecurity Stocks Outperform Chipmakers in 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T15:58:37.625398-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "QUICK SPARK: Cybersecurity Stocks Outperform Chipmakers in 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T15:58:38.840085-04:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "QUICK SPARK: Cybersecurity Stocks Outperform Chipmakers in 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T15:58:44.170329-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "SambaNova Collaborates With Oracle To Bring Its AI Chips To Oracle Cloud Infrastructure Data Centers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T15:58:44.633152-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "AI&#39;s Biggest Constraint Could Be Capital Availability\u2014Anthropic, Meta And SpaceX Put Markets To The Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-27T15:58:44.775444-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "AI&#39;s Biggest Constraint Could Be Capital Availability\u2014Anthropic, Meta And SpaceX Put Markets To The Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T15:58:54.946971-04:00",
-    "symbols": [
-      "RCL"
-    ],
-    "headline": "Royal Caribbean Sees No Signs of Vacation Fever Cooling As Bookings Soar",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T15:58:56.528079-04:00",
-    "symbols": [
-      "CDNS"
-    ],
-    "headline": "Rosenblatt Maintains Buy on Cadence Design Systems, Raises Price Target to $425",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T16:05:31.086809-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Live On CNBC, Josh Brown Hosts Segment Titled &#34;Josh&#39;s Best Stocks Update: Meta Platforms; Cloudlare&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-27T16:05:31.096129-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Palantir Stock Within 7% of Its 52-Week High as Earnings and Target Hikes Fuel Buzz",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-27T16:05:31.101593-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Tom Lee\u2019s Top 6 Reasons for \u2018Conviction About the AI Trade\u2019: \u2018I\u2019m Buying This AI Dip\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-27T16:05:31.104205-04:00",
     "symbols": [
       "MU"
@@ -4998,5 +4758,245 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T09:32:08.021291-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Teases Redesigned MacBook Pro Launch",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T09:32:08.032151-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Verisk Integrates Insurance Intelligence into Amazon AI Platforms",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T09:32:08.345465-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Allergan Aesthetics Announces Return of BOTOX Cosmetic Day",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T09:32:08.352286-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Announces Positive Phase 3 Results for Retatrutide in Type 2 Diabetes",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T09:32:08.358123-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Susquehanna Adjusts Price Target on Advanced Micro Devices to $650 From $620",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T09:32:08.365802-04:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "Eaton Mobility Transaction Status Update",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T09:32:08.373088-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Caterpillar Inc. Reports Third Quarter 2026 Financial Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T09:32:08.379099-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft and Dayforce Expand Strategic Collaboration",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T09:32:08.385040-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Chase's New York Headquarters Valued at Estimated $6 Billion",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T09:32:08.664021-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Airbnb Supports Playing for Keeps Foundation Initiative",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T09:33:08.019592-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Bernstein Adjusts Price Target on Lockheed Martin to $633",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T09:33:08.025516-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Joins Equilend's 1Source DLT Platform",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T09:33:08.052031-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase Adds Support for Ripple's RLUSD Stablecoin",
+    "source": "fiscal.ai",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T09:33:08.060915-04:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "Vertex Pharmaceuticals Partners with LA Marathon Organizer for JOURNAVX Awareness",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T09:33:08.074730-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "Collins Aerospace Extends Nacelle Maintenance Agreement with Air Europa",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T09:33:08.081514-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Secures Upsized Compute Renewal with Anthropic",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T09:33:08.382879-04:00",
+    "symbols": [
+      "TLN"
+    ],
+    "headline": "Wells Fargo Adjusts Talen Energy Price Target",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T09:33:08.388906-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Analysts Adjust Robinhood Markets Price Targets Following Q3 Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T09:33:08.773549-04:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "Scotiabank Adjusts Price Target on Vistra to $189 From $207",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T09:33:08.779699-04:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "Wells Fargo Adjusts Price Target on Vistra to $198 From $212",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T09:33:09.054282-04:00",
+    "symbols": [
+      "NRG"
+    ],
+    "headline": "Wells Fargo Adjusts Price Target on NRG Energy",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T09:33:09.059841-04:00",
+    "symbols": [
+      "ENPH"
+    ],
+    "headline": "Analyst Rating and Price Target Adjustments for Enphase Energy",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T09:33:09.065502-04:00",
+    "symbols": [
+      "CLOV"
+    ],
+    "headline": "Needham Initiates Coverage of Clover Health Investments with Buy Rating",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T09:33:09.070981-04:00",
+    "symbols": [
+      "SMR"
+    ],
+    "headline": "B. Riley Adjusts NuScale Power Price Target to $10 From $15",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

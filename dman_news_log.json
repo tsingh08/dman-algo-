@@ -1,185 +1,5 @@
 [
   {
-    "ts": "2026-10-28T10:09:01.106305-04:00",
-    "symbols": [
-      "SLB"
-    ],
-    "headline": "&#39;Trump To Announce Relaxed Rules On Oil Firms\u2019 Methane Leaks; Oil Executives, Including Some Top Trump Donors, Have Worked To Roll Back Rules They Say Are Overly Costly&#39; - Washington Post",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T10:09:01.726048-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Novo Nordisk Loses Court Bid Against Eli Lilly\u2019s Weight-Loss Drug Ads \u2014 Judge Says Sales Impact Was Negligible (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T10:09:02.000641-04:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Freeport-McMoRan, Lowers Price Target to $79",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:09:02.354836-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Intends To Achieve FedRAMP Class D Certification For Oracle AI Database AWS, Oracle AI Database Azure, Oracle AI Database@Google Cloud",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:09:02.625994-04:00",
-    "symbols": [
-      "FDX"
-    ],
-    "headline": "Microsoft, Alphabet On Deck Wednesday As AI Spending, Cloud Growth Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T10:09:03.140176-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "AI&#39;s Biggest Constraint Could Be Capital Availability\u2014Anthropic, Meta And SpaceX Put Markets To The Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:09:03.472365-04:00",
-    "symbols": [
-      "ACRS"
-    ],
-    "headline": "Wedbush Maintains Outperform on Aclaris Therapeutics, Lowers Price Target to $8",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:09:11.927228-04:00",
-    "symbols": [
-      "TE"
-    ],
-    "headline": "T1 Energy Stock Soars as Anthropic&#39;s IPO Ignites AI Optimism",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T10:09:13.374265-04:00",
-    "symbols": [
-      "UWMC"
-    ],
-    "headline": "Compass Point Downgrades UWM Holdings to Neutral, Announces $1.5 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T10:09:16.256755-04:00",
-    "symbols": [
-      "SKHU"
-    ],
-    "headline": "SK Hynix\u2019s 80% Profit Margin Fuels AI Frenzy: Should Investors Bet on 2X ETFs?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T10:09:16.963455-04:00",
-    "symbols": [
-      "VRT"
-    ],
-    "headline": "Stock of the Day: Is the Vertiv Rally Going to Stall?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:09:18.452572-04:00",
-    "symbols": [
-      "STNG"
-    ],
-    "headline": "Scorpio Tankers Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T10:09:18.458049-04:00",
-    "symbols": [
-      "STNG"
-    ],
-    "headline": "Scorpio Tankers Q3 Adj. EPS $2.49 Beats $2.13 Estimate, Sales $266.467M Beat $251.641M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T10:09:19.351818-04:00",
-    "symbols": [
-      "GENB"
-    ],
-    "headline": "Anthropic Announces Strategic Partnership with Generate Biomedicines for Autonomous Drug Discovery",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T10:09:19.609382-04:00",
-    "symbols": [
-      "DB"
-    ],
-    "headline": "Deutsche Bank Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T10:09:19.614203-04:00",
-    "symbols": [
-      "DB"
-    ],
-    "headline": "Deutsche Bank Affirms FY2026 Sales Guidance of $38.643B vs $37.670B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T10:09:19.619067-04:00",
-    "symbols": [
-      "DB"
-    ],
-    "headline": "Deutsche Bank Q3 EPS $1.08 Beats $0.82 Estimate, Sales $9.593B Beat $9.140B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T10:09:19.624310-04:00",
-    "symbols": [
-      "DB"
-    ],
-    "headline": "Microsoft, Alphabet On Deck Wednesday As AI Spending, Cloud Growth Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-28T10:09:19.849380-04:00",
     "symbols": [
       "ADT"
@@ -4888,6 +4708,186 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T12:23:53.471833-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Micron Stock Gains as SK Hynix Reports Record Revenue Above 100 Trillion Won",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:23:54.154128-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce To Purchase 500,000 Methane-Reduction Carbon Credits From Mitti Labs By 2030",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:23:54.633840-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Stock Gains as SK Hynix Reports Record Revenue Above 100 Trillion Won",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:23:55.324858-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Allergan Aesthetics Announces Return of BOTOX Cosmetic Day",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T12:23:55.402958-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Novo Nordisk Loses Court Bid Against Eli Lilly\u2019s Weight-Loss Drug Ads \u2014 Judge Says Sales Impact Was Negligible (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:23:57.024891-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Airbnb Supports Playing for Keeps Foundation Initiative",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:23:58.044571-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "US Stocks Mixed; GE Vernova Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:23:58.435621-04:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "Eaton Mobility Transaction Status Update",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:23:58.577412-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Joins Equilend's 1Source DLT Platform",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T12:23:58.653878-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Evercore ISI Group Maintains In-Line on Visa, Raises Price Target to $405",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T12:24:00.020810-04:00",
+    "symbols": [
+      "LPLA"
+    ],
+    "headline": "Barclays Maintains Overweight on LPL Finl Hldgs, Lowers Price Target to $372",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:24:00.367945-04:00",
+    "symbols": [
+      "BSX"
+    ],
+    "headline": "Boston Scientific Overshadowed by Hackers, Headwinds, and Lower Guidance",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T12:24:00.372792-04:00",
+    "symbols": [
+      "BSX"
+    ],
+    "headline": "Boston Scientific Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T12:24:00.377850-04:00",
+    "symbols": [
+      "BSX"
+    ],
+    "headline": "Boston Scientific Exec Says Expects Top-Line Pressure To Persist Into 2027, Making Revenue, EPS Growth Challenging Excluding Penumbra Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T12:24:00.382413-04:00",
+    "symbols": [
+      "BSX"
+    ],
+    "headline": "Boston Scientific Exec Says Sees 200-300 Bps Q4 Hit From Cyber Incident; Expects Q4 Organic Revenue Decline In The Range Of -1% To -3%; There Will Be Additional Price Headwinds In China In 2027, And The Growth Likely Won&#39;t Be Enough To Offset The Pressure From Ep And Watchman Next Year",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T12:24:00.386937-04:00",
+    "symbols": [
+      "BSX"
+    ],
+    "headline": "Boston Scientific Lowers FY2026 Adj EPS Guidance from $3.28-$3.32 to $3.16-$3.18 vs $3.23 Est; Lowers FY2026 Sales Guidance from $21.178B-$21.379B to $20.927B vs $21.143B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T12:24:01.454189-04:00",
+    "symbols": [
+      "UL"
+    ],
+    "headline": "Unilever Reports Q3 2026 Results and Raises Outlook",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T12:24:01.536265-04:00",
+    "symbols": [
+      "KIDS"
+    ],
+    "headline": "Piper Sandler Reiterates Overweight on OrthoPediatrics, Raises Price Target to $30",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   },
   {
     "ts": "2026-10-28T12:25:15.886371-04:00",

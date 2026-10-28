@@ -2950,5 +2950,14 @@
   "drift_pct": 0.78,
   "range_ratio": 0.35,
   "near_high": 0.966
+ },
+ {
+  "ts": "2026-10-28T12:24:56.779680-04:00",
+  "ticker": "ACAA",
+  "price": 10.02,
+  "rvol": 7.82,
+  "drift_pct": 0.2,
+  "range_ratio": 0.42,
+  "near_high": 0.997
  }
 ]

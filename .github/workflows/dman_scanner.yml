@@ -263,11 +263,33 @@ jobs:
           # dedicated cron. This window only fires if some OTHER scanner cron
           # (e.g. the 7 AM slot) gets delayed into 8:55-9:59 AM, giving a rare
           # incidental backup without a second guaranteed daily trigger.
-          if now.weekday() < 5 and 855 <= t <= 959:
+          #
+          # Skipped once dman_premarket.yml has marked today's briefing sent.
+          # The cloud routine's 9:35 dispatch lands in this window every day,
+          # so without the check it re-sent the briefing instead of scanning
+          # (3 briefings 2026-10-26, 2 on 10-27). Marked -> fall through to
+          # the scan below, which is what that dispatch is for.
+          _briefed = False
+          try:
+              import json as _json
+              with open("dman_briefing_marker.json") as _mf:
+                  _briefed = _json.load(_mf).get("date") == str(today)
+          except Exception:
+              pass
+          if _briefed:
+              print(f"Briefing already sent today ({today}) — not re-sending it.")
+          elif now.weekday() < 5 and 855 <= t <= 959:
               result = subprocess.run(
                   [sys.executable, "dman_algo.py", "--mode", "premarket"],
                   capture_output=False
               )
+              if result.returncode == 0:
+                  try:
+                      import json as _json
+                      with open("dman_briefing_marker.json", "w") as _mf:
+                          _json.dump({"date": str(today)}, _mf)
+                  except Exception:
+                      pass
               sys.exit(result.returncode)
 
           # 4:00 PM ET EOD P&L summary.
@@ -435,7 +457,7 @@ jobs:
             dman_telegram_manual_buy.json dman_news_log.json
             dman_setup_probation.json dman_momentum_pending.json
             dman_milestones.json dman_day_trades.json dman_flags.json
-            dman_premarket_marker.json
+            dman_premarket_marker.json dman_briefing_marker.json
 
       - name: Notify on workflow failure
         if: failure()

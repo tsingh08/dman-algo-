@@ -126,6 +126,17 @@ jobs:
               [sys.executable, "dman_algo.py", "--mode", "premarket"],
               capture_output=False
           )
+          # Tells the scanner's 8:55-9:59 fallback that today's briefing went
+          # out. Without it the 9:35 market-open dispatch re-sent the whole
+          # briefing (and re-ran the strangle decision) instead of scanning --
+          # 3 briefings on 2026-10-26, 2 on 10-27.
+          if result.returncode == 0:
+              import json
+              try:
+                  with open("dman_briefing_marker.json", "w") as _mf:
+                      json.dump({"date": str(now.date())}, _mf)
+              except Exception:
+                  pass   # a missing marker only risks a duplicate, never a miss
           sys.exit(result.returncode)
           EOF
 
@@ -169,7 +180,7 @@ jobs:
         if: always()
         uses: ./.github/actions/persist-state
         with:
-          files: dman_universe_cache.json
+          files: dman_universe_cache.json dman_briefing_marker.json
           commit_message: 'chore: pre-built scan universe for the 9:45 gate [skip ci]'
 
       # This job PUSHES now (see the persist step above) and had no failure

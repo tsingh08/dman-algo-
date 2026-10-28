@@ -2887,5 +2887,59 @@
   "drift_pct": 0.78,
   "range_ratio": 0.35,
   "near_high": 0.966
+ },
+ {
+  "ts": "2026-10-28T09:45:25.240808-04:00",
+  "ticker": "AFIF",
+  "price": 9.265,
+  "rvol": 5.02,
+  "drift_pct": 0.0,
+  "range_ratio": 0.42,
+  "near_high": 0.982
+ },
+ {
+  "ts": "2026-10-28T09:45:25.240829-04:00",
+  "ticker": "AGGH",
+  "price": 19.14,
+  "rvol": 2.71,
+  "drift_pct": 0.42,
+  "range_ratio": 0.32,
+  "near_high": 0.957
+ },
+ {
+  "ts": "2026-10-28T09:45:25.240834-04:00",
+  "ticker": "SCHP",
+  "price": 25.6201,
+  "rvol": 1.8,
+  "drift_pct": 0.08,
+  "range_ratio": 0.29,
+  "near_high": 0.982
+ },
+ {
+  "ts": "2026-10-28T09:45:25.240838-04:00",
+  "ticker": "IWR",
+  "price": 110.15,
+  "rvol": 2.42,
+  "drift_pct": 0.16,
+  "range_ratio": 0.39,
+  "near_high": 0.959
+ },
+ {
+  "ts": "2026-10-28T09:45:25.240842-04:00",
+  "ticker": "IWS",
+  "price": 168.7733,
+  "rvol": 3.39,
+  "drift_pct": 0.26,
+  "range_ratio": 0.27,
+  "near_high": 0.973
+ },
+ {
+  "ts": "2026-10-28T09:45:25.240846-04:00",
+  "ticker": "IBCA",
+  "price": 24.5002,
+  "rvol": 1.56,
+  "drift_pct": 0.08,
+  "range_ratio": 0.6,
+  "near_high": 0.972
  }
 ]

@@ -226,45 +226,45 @@
 "ticker": "AAPL",
 "entry": 339.36,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": 1.81,
 "entry_lim": 339.36,
-"pnl_lim_pct": null
+"pnl_lim_pct": 1.81
 },
 {
 "date": "2026-10-20",
 "ticker": "META",
 "entry": 697.595,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": -11.44,
 "entry_lim": 697.595,
-"pnl_lim_pct": null
+"pnl_lim_pct": -11.44
 },
 {
 "date": "2026-10-20",
 "ticker": "GME",
 "entry": 26.39,
 "rsi2": 7.5,
-"pnl_pct": null,
+"pnl_pct": -12.03,
 "entry_lim": 26.39,
-"pnl_lim_pct": null
+"pnl_lim_pct": -12.03
 },
 {
 "date": "2026-10-20",
 "ticker": "XOM",
 "entry": 177.72,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": 1.66,
 "entry_lim": 177.72,
-"pnl_lim_pct": null
+"pnl_lim_pct": 1.66
 },
 {
 "date": "2026-10-20",
 "ticker": "NEM",
 "entry": 117.34,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": -5.13,
 "entry_lim": 117.34,
-"pnl_lim_pct": null
+"pnl_lim_pct": -5.13
 },
 {
 "date": "2026-10-21",
@@ -687,6 +687,96 @@
 "rsi2": 0.0,
 "pnl_pct": null,
 "entry_lim": 255.1,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-27",
+"ticker": "CRM",
+"entry": 237.52,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 237.52,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-27",
+"ticker": "SPOT",
+"entry": 546.52,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 546.52,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-27",
+"ticker": "GME",
+"entry": 23.24,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 23.24,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-27",
+"ticker": "ABNB",
+"entry": 168.425,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 168.425,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-27",
+"ticker": "V",
+"entry": 395.25,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 395.25,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-27",
+"ticker": "MA",
+"entry": 605.97,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 605.97,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-27",
+"ticker": "CVX",
+"entry": 228.88,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 228.88,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-27",
+"ticker": "OXY",
+"entry": 63.16,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 63.0436,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-27",
+"ticker": "UNH",
+"entry": 407.0,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 407.0,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-27",
+"ticker": "ISRG",
+"entry": 441.425,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 441.425,
 "pnl_lim_pct": null
 }
 ]

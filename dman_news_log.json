@@ -1,315 +1,5 @@
 [
   {
-    "ts": "2026-10-28T09:43:30.931220-04:00",
-    "symbols": [
-      "PPG"
-    ],
-    "headline": "PPG Indus Q3 Adj. EPS $2.25 Beats $2.12 Estimate, Sales $4.353B Beat $4.284B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:43:31.044413-04:00",
-    "symbols": [
-      "JCI"
-    ],
-    "headline": "Evercore ISI Group Maintains In-Line on Johnson Controls Intl, Raises Price Target to $170",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:43:31.049450-04:00",
-    "symbols": [
-      "JCI"
-    ],
-    "headline": "Baird Maintains Neutral on Johnson Controls Intl, Raises Price Target to $172",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:43:31.164216-04:00",
-    "symbols": [
-      "TDAY"
-    ],
-    "headline": "NAVEX Launches Documentary Film on USA TODAY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:43:31.285228-04:00",
-    "symbols": [
-      "RNR"
-    ],
-    "headline": "UPDATE: RenaissanceRe Holdings Q3 Adj. EPS $12.71 Beats $9.29 Estimate, Adj. Sales $2.571B Beat $2.371B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:43:31.290300-04:00",
-    "symbols": [
-      "RNR"
-    ],
-    "headline": "RenaissanceRe Holdings Q3 Adj. EPS $12.71 Beats $9.29 Estimate, Sales $1.691B Miss $2.371B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:43:31.399928-04:00",
-    "symbols": [
-      "SITE"
-    ],
-    "headline": "SiteOne Landscape Supply Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:43:31.404965-04:00",
-    "symbols": [
-      "SITE"
-    ],
-    "headline": "SiteOne Landscape Supply Q3 EPS $1.46 Beats $1.44 Estimate, Sales $1.291B Miss $1.304B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:43:31.592112-04:00",
-    "symbols": [
-      "SPGI"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on S&amp;P Global, Raises Price Target to $545",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:43:31.597114-04:00",
-    "symbols": [
-      "SPGI"
-    ],
-    "headline": "Morgan Stanley Maintains Overweight on S&amp;P Global, Raises Price Target to $515",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:43:31.669699-04:00",
-    "symbols": [
-      "STC"
-    ],
-    "headline": "Sangoma Technologies Secures Deal With a 350-Store Retailer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:43:31.767696-04:00",
-    "symbols": [
-      "ASLE"
-    ],
-    "headline": "B. Riley Securities Maintains Neutral on AerSale, Lowers Price Target to $6",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:43:31.862647-04:00",
-    "symbols": [
-      "KKR"
-    ],
-    "headline": "KIA And KKR Explore Expanded Partnership Across Critical Global Themes, Citing Helix Digital Infrastructure With NVIDIA And Vistra As Founding Investors To Finance AI Infrastructure",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:43:31.867500-04:00",
-    "symbols": [
-      "KKR"
-    ],
-    "headline": "BMO Capital Maintains Outperform on KKR, Lowers Price Target to $109",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:43:32.085432-04:00",
-    "symbols": [
-      "MPC"
-    ],
-    "headline": "What&#39;s Going On With Valero Energy Stock Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:43:32.090486-04:00",
-    "symbols": [
-      "MPC"
-    ],
-    "headline": "Refiner Stocks Suffer Worst Day Since the Tariff Shock: The Threat Is Not Cheaper Oil",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:43:32.243778-04:00",
-    "symbols": [
-      "UMBF"
-    ],
-    "headline": "UMB Financial Agrees To Acquire El Dorado Savings Bank, F.S.B. For ~$506M In Cash, Stock Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:43:32.248876-04:00",
-    "symbols": [
-      "UMBF"
-    ],
-    "headline": "UMB Financial Q3 Adj. EPS $3.56 Beats $3.25 Estimate, Sales $772.388M Beat $743.538M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:43:32.382637-04:00",
-    "symbols": [
-      "LII"
-    ],
-    "headline": "Lennox Intl Q3 Adj. EPS $6.84 Misses $7.36 Estimate, Sales $1.573B Miss $1.578B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:43:32.387559-04:00",
-    "symbols": [
-      "LII"
-    ],
-    "headline": "Lennox International Lowers FY2026 Adj EPS Guidance from $23.00-$24.00 to $21.00-$21.50 vs $23.39 Est; Lowers FY2026 Sales Guidance from $5.611B to $5.507B vs $5.588B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:43:32.486118-04:00",
-    "symbols": [
-      "SNEX"
-    ],
-    "headline": "StoneX Reaffirms 'Buy' Rating on Robinhood Markets",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:43:32.588403-04:00",
-    "symbols": [
-      "OI"
-    ],
-    "headline": "O-I Glass Q3 Adj. EPS $(0.09) Misses $0.18 Estimate, Sales $1.623B Miss $1.637B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T09:43:32.666532-04:00",
-    "symbols": [
-      "SR"
-    ],
-    "headline": "Strategic Resources Inc. Announces Board Resignation and Schedules Annual General Meeting",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:43:32.747782-04:00",
-    "symbols": [
-      "KNF"
-    ],
-    "headline": "Wolfe Research Upgrades Knife River to Outperform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:43:32.912080-04:00",
-    "symbols": [
-      "TNK"
-    ],
-    "headline": "Teekay Group to Announce Third Quarter 2026 Earnings Results on November 11, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:43:32.986487-04:00",
-    "symbols": [
-      "ELPW"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:43:32.991243-04:00",
-    "symbols": [
-      "ELPW"
-    ],
-    "headline": "Why Ultra Clean Shares Are Trading Higher By Around 15%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:43:32.995596-04:00",
-    "symbols": [
-      "ELPW"
-    ],
-    "headline": "Elong Power Subsidiary Enters $25.5M One-Year Omnichannel Cooperation Agreement With Automatic Renewal Clause, Delivers First Batch Worth About $0.84M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:43:33.426157-04:00",
-    "symbols": [
-      "GCTK"
-    ],
-    "headline": "Glucotrack Subsidiary Lokahi Therapeutics Secures First Fee-for-Service Partnership",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:43:33.665778-04:00",
-    "symbols": [
-      "WEN"
-    ],
-    "headline": "Wendy&#39;s Stock Jumps as Peltz Returns With $1.4 Billion Cash Bid",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:43:33.745538-04:00",
-    "symbols": [
-      "DCX"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-28T09:43:33.976089-04:00",
     "symbols": [
       "BENF"
@@ -4920,6 +4610,56 @@
     "sentiment": "positive"
   },
   {
+    "ts": "2026-10-28T11:25:14.585486-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX\u2019s Starlink Could Be a &#39;New Customer at Scale&#39; for American Tower",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:25:15.596131-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "AI Bubble Hedge? 5 ETFs That Could Protect Investors Without Shorting Nvidia",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:25:15.600705-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA Launches Nemotron 3.5 Transcribe And Granary v2 On Hugging Face, Delivering Open-Weight AI For 40-Language Transcription, Translation And Speaker Identification",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:25:16.791556-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;Amazon cuts more jobs, in devices unit, after flurry of product rollouts&#39; - Reuters",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:25:24.832261-04:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Vistra, Lowers Price Target to $198",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
     "ts": "2026-10-28T11:25:25.040273-04:00",
     "symbols": [
       "SPCX"
@@ -4958,6 +4698,266 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:25:27.682179-04:00",
+    "symbols": [
+      "TLN"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Talen Energy, Lowers Price Target to $479",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:25:32.361065-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Mexican President Sheinbaum Says Dialogue Continues On Trade Deal With U.S., Assessing Whether It Is Feasible To Reach An Agreement Before U.S. Midterm Elections",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:25:33.023161-04:00",
+    "symbols": [
+      "ULBI"
+    ],
+    "headline": "Ultralife Stock Soars After EnerSys Agrees to $320M Buyout",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:25:33.027804-04:00",
+    "symbols": [
+      "ULBI"
+    ],
+    "headline": "Vertiv, Evercore, Brinker, GE HealthCare And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:25:33.032256-04:00",
+    "symbols": [
+      "ULBI"
+    ],
+    "headline": "US Stocks Mixed; GE Vernova Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:25:33.036675-04:00",
+    "symbols": [
+      "ULBI"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:25:33.041066-04:00",
+    "symbols": [
+      "ULBI"
+    ],
+    "headline": "Why Ultra Clean Shares Are Trading Higher By Around 15%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:25:33.280480-04:00",
+    "symbols": [
+      "SLS"
+    ],
+    "headline": "SELLAS Life Sciences Stock Stumbles: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:25:33.285187-04:00",
+    "symbols": [
+      "SLS"
+    ],
+    "headline": "SELLAS Life Sciences Announces Its Pivotal Phase 3 Study Of Galinpepimut-S In Acute Myeloid Leukemia Participants Surpasses Pre-Specified 80th Event",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:25:33.500835-04:00",
+    "symbols": [
+      "RAPP"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:25:33.505484-04:00",
+    "symbols": [
+      "RAPP"
+    ],
+    "headline": "Enphase Energy Posts Downbeat Q3 Results, Joins NXP Semiconductors, Seagate And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:25:33.509974-04:00",
+    "symbols": [
+      "RAPP"
+    ],
+    "headline": "Rapport Therapeutics Prices Separate Offerings Of ~$175M Of Stock At  $21.00/Share, Warrants To Purchase Up To ~$25M Of Stock At $20.999 Per Pre-Funded Warrant, And $150M Of 2.25% Convertible Senior Notes Due 2032",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:25:33.514367-04:00",
+    "symbols": [
+      "RAPP"
+    ],
+    "headline": "Why Ultra Clean Shares Are Trading Higher By Around 15%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:25:33.518904-04:00",
+    "symbols": [
+      "RAPP"
+    ],
+    "headline": "Rapport Therapeutics (RAPP) Shares Sink 20% After Hours",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:25:33.755655-04:00",
+    "symbols": [
+      "LPLA"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on LPL Finl Hldgs, Lowers Price Target to $350",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:25:33.760423-04:00",
+    "symbols": [
+      "LPLA"
+    ],
+    "headline": "Enphase Energy Posts Downbeat Q3 Results, Joins NXP Semiconductors, Seagate And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:25:33.765038-04:00",
+    "symbols": [
+      "LPLA"
+    ],
+    "headline": "Truist Securities Maintains Hold on LPL Finl Hldgs, Lowers Price Target to $335",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:25:33.769656-04:00",
+    "symbols": [
+      "LPLA"
+    ],
+    "headline": "LPL Finl Hldgs Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:25:33.774196-04:00",
+    "symbols": [
+      "LPLA"
+    ],
+    "headline": "LPL Finl Hldgs Q3 Adj. EPS $5.97 Beats $5.69 Estimate, Sales $5.344B Miss $5.347B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:25:33.995880-04:00",
+    "symbols": [
+      "OSS"
+    ],
+    "headline": "One Stop Systems Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:25:34.000576-04:00",
+    "symbols": [
+      "OSS"
+    ],
+    "headline": "One Stop Systems Enters ATM Equity Offering Worth Up To $50M With Piper Sandler",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:25:34.005032-04:00",
+    "symbols": [
+      "OSS"
+    ],
+    "headline": "One Stop Systems Q3 Adj. EPS $0.01, Inline, Sales $12.584M Beat $10.939M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:25:34.009580-04:00",
+    "symbols": [
+      "OSS"
+    ],
+    "headline": "One Stop Systems Raises FY2026 Sales Guidance from $40.270M-$41.881M to $45.102M vs $41.079M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:25:34.902594-04:00",
+    "symbols": [
+      "LAZR"
+    ],
+    "headline": "Michael Burry Says Anthropic\u2019s IPO Filing Has a Lot, but \u2018Nothing That Changes\u2019 His View: Big Short Investor Calls Out \u2018Slowing\u2019 Revenue Growth",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:25:34.907402-04:00",
+    "symbols": [
+      "LAZR"
+    ],
+    "headline": "Anthropic IPO Hype Builds as LAZR ETF Expands Exposure to AI\u2019s Private-Market Giant",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:25:35.137339-04:00",
+    "symbols": [
+      "NUWE"
+    ],
+    "headline": "Nuwellis Announces Publication of ULTRA-Peds Registry Study Results in Pediatric Nephrology",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   },
   {
     "ts": "2026-10-28T11:25:35.477044-04:00",

@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-28T09:43:22.317368-04:00",
-    "symbols": [
-      "TEX"
-    ],
-    "headline": "Terex Narrows FY2026 GAAP EPS Guidance from $4.70-$5.10 to $4.80-$5.00 vs $2.58 Est; Raises FY2026 Sales Guidance from $7.900B-$8.200B to $8.000B-$8.200B vs $8.148B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:43:22.321840-04:00",
-    "symbols": [
-      "TEX"
-    ],
-    "headline": "Terex Q3 Adj. EPS $1.50 Beats $1.42 Estimate, Sales $2.197B Beat $2.168B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:43:22.461869-04:00",
-    "symbols": [
-      "RDWR"
-    ],
-    "headline": "Radware Q3 Adj. EPS $0.32 Beats $0.29 Estimate, Sales $84.364M Beat $83.031M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:43:22.597601-04:00",
-    "symbols": [
-      "OSW"
-    ],
-    "headline": "OneSpaWorld Raises Quarterly Dividend From $0.05 To $0.0625 Per Share; Approves New $100M Share Repurchase Program",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:43:22.602640-04:00",
-    "symbols": [
-      "OSW"
-    ],
-    "headline": "OneSpaWorld Hldgs Sees Q4 Sales $248.000M-$253.000M vs $252.853M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-28T09:43:22.607164-04:00",
     "symbols": [
       "OSW"
@@ -4998,5 +4948,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T10:20:29.564818-04:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Cloudflare, Raises Price Target to $400",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T10:20:30.338039-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Scaramucci Calls Elizabeth Warren \u2018the Joke of Jokes,\u2019 Accuses Her of Echoing Bank Lobbyists",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T10:20:31.044384-04:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "Wells Fargo Adjusts Price Target on Vistra to $198 From $212",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T10:20:31.049240-04:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "Scotiabank Adjusts Price Target on Vistra to $189 From $207",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T10:20:34.136541-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "Jim Cramer Says People Selling This Stock Don&#39;t Have Brains",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

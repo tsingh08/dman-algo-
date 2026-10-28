@@ -1,435 +1,5 @@
 [
   {
-    "ts": "2026-10-28T10:20:56.550579-04:00",
-    "symbols": [
-      "JLL"
-    ],
-    "headline": "Jones Lang LaSalle Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:32:33.904301-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Earnings Prediction Market Preview: What Will Satya Nadella Say?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T10:32:34.420966-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Microsoft Earnings Prediction Market Preview: What Will Satya Nadella Say?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:32:42.217560-04:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Datadog, Raises Price Target to $325",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T10:32:47.718630-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Sky News&#39; Mark Kleinman Posts On X &#34;Exclusive: JPMorgan Chase faces paying an additional sum in the region of \u00a3100m-\u00a3150m as a result of chancellor John Healey&#39;s decision to double the corporation tax surcharge on banks, a possible obstacle to the firm proceeding with its new London headquarters...&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T10:32:50.327828-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA Gasoline Inventories 3.870M Barrel Build Vs 1.400M Barrel Draw Est.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T10:32:50.332850-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA Crude Oil Inventories 1.892M Barrel Draw vs 0.100M Barrel Build Est.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T10:32:50.337884-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Adnoc Tells Clients New Hormuz Bypass Pipe to Start Early 2027&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T10:32:51.037412-04:00",
-    "symbols": [
-      "AMC"
-    ],
-    "headline": "AMC Entertainment Q3 Earnings Nov. 4: Can Record Run Continue?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:33:01.826357-04:00",
-    "symbols": [
-      "BRAI"
-    ],
-    "headline": "US Stocks Mixed; GE Vernova Earnings Top Views",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T10:33:01.832253-04:00",
-    "symbols": [
-      "BRAI"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T10:33:01.837641-04:00",
-    "symbols": [
-      "BRAI"
-    ],
-    "headline": "Why Ultra Clean Shares Are Trading Higher By Around 15%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T10:33:01.843138-04:00",
-    "symbols": [
-      "BRAI"
-    ],
-    "headline": "Braiin (BRAI) Stock Jumps 56% After Hours: What\u2019s Behind the Move",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T10:33:01.848788-04:00",
-    "symbols": [
-      "BRAI"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T10:33:04.667684-04:00",
-    "symbols": [
-      "SSP"
-    ],
-    "headline": "E.W. Scripps Eliminates 431 Employees On Tuesday, Bringing Total Number This Year to ~850 Under Its Transformation Plan To Generate $125M - $150M Of Enterprise EBITDA Growth By 2028",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T10:33:04.673480-04:00",
-    "symbols": [
-      "SSP"
-    ],
-    "headline": "E.W. Scripps Raises FY26 Midterm Local Media Political Advertising Revenue Range From $225M- $250M To ~$275M  Reports Q3 Midterm Local Media Political Revenue Of ~$81M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T10:33:05.135816-04:00",
-    "symbols": [
-      "ICLR"
-    ],
-    "headline": "Icon Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T10:33:05.141761-04:00",
-    "symbols": [
-      "ICLR"
-    ],
-    "headline": "Icon Q3 Adj. EPS $2.66 Beats $2.60 Estimate, Sales $2.025B Beat $2.015B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T10:33:05.147208-04:00",
-    "symbols": [
-      "ICLR"
-    ],
-    "headline": "Icon Narrows FY2026 Adj EPS Guidance from $10.00-$11.00 to $10.35-$10.65 vs $10.56 Est; Raises FY2026 Sales Guidance from $7.850B-$8.150B to $8.100B-$8.200B vs $8.139B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T10:33:06.864422-04:00",
-    "symbols": [
-      "ETSY"
-    ],
-    "headline": "Etsy Announces That CFO Lanny Baker To Step Down, Effective March 1, 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T10:33:06.871045-04:00",
-    "symbols": [
-      "ETSY"
-    ],
-    "headline": "Etsy Q3 EPS $1.00 Beats $0.76 Estimate, Sales $692.469M Beat $667.228M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T10:33:08.748890-04:00",
-    "symbols": [
-      "KIDS"
-    ],
-    "headline": "BTIG Maintains Buy on OrthoPediatrics, Raises Price Target to $30",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:33:08.754067-04:00",
-    "symbols": [
-      "KIDS"
-    ],
-    "headline": "OrthoPediatrics Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:33:08.759121-04:00",
-    "symbols": [
-      "KIDS"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:33:08.764740-04:00",
-    "symbols": [
-      "KIDS"
-    ],
-    "headline": "OrthoPediatrics Obtains FDA 510(k) Clearance of PNP | Femur Retrograde Nail System; Co Announces Completion Of The First Procedures Using The System",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:33:08.772337-04:00",
-    "symbols": [
-      "KIDS"
-    ],
-    "headline": "OrthoPediatrics Raises FY2026 Sales Guidance from $265.000M-$269.000M to $270.000M-$273.000M vs $266.983M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:33:08.987833-04:00",
-    "symbols": [
-      "GMAB"
-    ],
-    "headline": "Genmab A/S Announces Data From Its Phase 3 LiGeR-HN1 Study Of Petosemtamab Demonstrates 50% Death Risk Reduction For Treatment Of Head And Neck Squamous Cell Carcinoma",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T10:44:17.380052-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Michael Burry Finds a $537 Billion Hole in Anthropic\u2019s IPO Story",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T10:44:18.135929-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Michael Burry Finds a $537 Billion Hole in Anthropic\u2019s IPO Story",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T10:44:18.709045-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Michael Burry Finds a $537 Billion Hole in Anthropic\u2019s IPO Story",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:44:19.228686-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Michael Burry Finds a $537 Billion Hole in Anthropic\u2019s IPO Story",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T10:44:19.487786-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Michael Burry Finds a $537 Billion Hole in Anthropic\u2019s IPO Story",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T10:44:21.180817-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Michael Burry Finds a $537 Billion Hole in Anthropic\u2019s IPO Story",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:44:25.129074-04:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "RBC Capital Maintains Outperform on AppLovin, Lowers Price Target to $500",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T10:44:29.254187-04:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "Why Is IonQ Stock Falling on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T10:44:32.631863-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Piper Sandler Maintains Overweight on Visa, Raises Price Target to $479",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T10:56:33.580118-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Super Micro Earnings Due Next Week: Here&#39;s What to Watch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:56:34.067850-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Sandisk Stock Jumps 4% As AI Memory Demand Heats Up Ahead of Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:56:34.297410-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Sandisk Stock Jumps 4% As AI Memory Demand Heats Up Ahead of Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:56:34.528165-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Vertiv, Evercore, Brinker, GE HealthCare And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:56:34.533424-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Sandisk Stock Jumps 4% As AI Memory Demand Heats Up Ahead of Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:56:34.761314-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Here's How Much $1000 Invested In Marvell Technology 5 Years Ago Would Be Worth Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T10:56:43.229657-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "GE Vernova Stock Slides After A Blowout Quarter\u2014Is Trench Deal The Real Story?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-28T10:56:54.279654-04:00",
     "symbols": [
       "PACB"
@@ -4998,5 +4568,435 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T12:45:01.285682-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T12:45:01.548798-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Live On CNBC, Bill Baruch Announces Trimmed Nvidia Position; Trimmed Micron Technology; Trimmed Broadcom",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:45:02.704649-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T12:45:05.363600-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Live On CNBC, Bill Baruch Announces Trimmed Nvidia Position; Trimmed Micron Technology; Trimmed Broadcom",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:45:05.667195-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Live On CNBC, Bill Baruch Announces Trimmed Nvidia Position; Trimmed Micron Technology; Trimmed Broadcom",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:45:05.671859-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:45:05.911524-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:45:06.143786-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:45:06.700285-04:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:45:08.718484-04:00",
+    "symbols": [
+      "ENPH"
+    ],
+    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T12:45:12.260740-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Live On CNBC, Bill Baruch Announces Trimmed CrowdStrike Position",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:45:12.737572-04:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Cloudflare, Raises Price Target to $400",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T12:45:12.964159-04:00",
+    "symbols": [
+      "DDOG"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Datadog, Raises Price Target to $325",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T12:45:13.750193-04:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Scaramucci Calls Elizabeth Warren \u2018the Joke of Jokes,\u2019 Accuses Her of Echoing Bank Lobbyists",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:45:17.936226-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "Jim Cramer Says People Selling This Stock Don&#39;t Have Brains",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:45:19.292890-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Sky News&#39; Mark Kleinman Posts On X &#34;Exclusive: JPMorgan Chase faces paying an additional sum in the region of \u00a3100m-\u00a3150m as a result of chancellor John Healey&#39;s decision to double the corporation tax surcharge on banks, a possible obstacle to the firm proceeding with its new London headquarters...&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T12:45:22.189270-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Trump Administration Advancing 2 More Wind Projects In Iowa",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T12:45:22.195007-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Reported Earlier: &#39;U.S. Warns Gulf of Possible Short, Intense Renewal of Iran War After Midterms&#39; - WSJ",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T12:45:22.418266-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T12:45:22.667412-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T12:45:23.142533-04:00",
+    "symbols": [
+      "AMC"
+    ],
+    "headline": "AMC Entertainment Q3 Earnings Nov. 4: Can Record Run Continue?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:45:26.587046-04:00",
+    "symbols": [
+      "GT"
+    ],
+    "headline": "Goodyear Appoints Jerome Rouquet as Chief Financial Officer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T12:45:26.592281-04:00",
+    "symbols": [
+      "GT"
+    ],
+    "headline": "Goodyear Hosts Annual Toys for Tots Drive at Blimp Base",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T12:45:33.729953-04:00",
+    "symbols": [
+      "BRAI"
+    ],
+    "headline": "US Stocks Mixed; GE Vernova Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T12:45:33.735915-04:00",
+    "symbols": [
+      "BRAI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T12:45:33.741148-04:00",
+    "symbols": [
+      "BRAI"
+    ],
+    "headline": "Why Ultra Clean Shares Are Trading Higher By Around 15%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T12:45:33.745628-04:00",
+    "symbols": [
+      "BRAI"
+    ],
+    "headline": "Braiin (BRAI) Stock Jumps 56% After Hours: What\u2019s Behind the Move",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T12:45:34.928164-04:00",
+    "symbols": [
+      "LUNG"
+    ],
+    "headline": "Stifel Maintains Buy on Pulmonx, Raises Price Target to $4",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T12:45:35.863296-04:00",
+    "symbols": [
+      "VRT"
+    ],
+    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:45:36.334382-04:00",
+    "symbols": [
+      "SSP"
+    ],
+    "headline": "E.W. Scripps Eliminates 431 Employees On Tuesday, Bringing Total Number This Year to ~850 Under Its Transformation Plan To Generate $125M - $150M Of Enterprise EBITDA Growth By 2028",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T12:45:36.339601-04:00",
+    "symbols": [
+      "SSP"
+    ],
+    "headline": "E.W. Scripps Raises FY26 Midterm Local Media Political Advertising Revenue Range From $225M- $250M To ~$275M  Reports Q3 Midterm Local Media Political Revenue Of ~$81M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T12:45:37.622948-04:00",
+    "symbols": [
+      "ICLR"
+    ],
+    "headline": "Icon Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T12:45:37.628143-04:00",
+    "symbols": [
+      "ICLR"
+    ],
+    "headline": "Icon Q3 Adj. EPS $2.66 Beats $2.60 Estimate, Sales $2.025B Beat $2.015B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T12:45:38.712619-04:00",
+    "symbols": [
+      "WING"
+    ],
+    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T12:45:39.433008-04:00",
+    "symbols": [
+      "MANH"
+    ],
+    "headline": "Stifel Maintains Buy on Manhattan Associates, Raises Price Target to $300",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:45:40.419675-04:00",
+    "symbols": [
+      "GMAB"
+    ],
+    "headline": "Genmab A/S Announces Data From Its Phase 3 LiGeR-HN1 Study Of Petosemtamab Demonstrates 50% Death Risk Reduction For Treatment Of Head And Neck Squamous Cell Carcinoma",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T12:45:41.652778-04:00",
+    "symbols": [
+      "BEAM"
+    ],
+    "headline": "Wedbush Maintains Outperform on Beam Therapeutics, Lowers Price Target to $28",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T12:45:42.147277-04:00",
+    "symbols": [
+      "JLL"
+    ],
+    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:45:42.152615-04:00",
+    "symbols": [
+      "JLL"
+    ],
+    "headline": "Jones Lang LaSalle Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:45:42.383067-04:00",
+    "symbols": [
+      "HAYW"
+    ],
+    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T12:45:42.619096-04:00",
+    "symbols": [
+      "EVR"
+    ],
+    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T12:45:42.854946-04:00",
+    "symbols": [
+      "ENSG"
+    ],
+    "headline": "The Ensign Group, Inc. Reports Third Quarter 2026 Financial Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T12:45:43.318994-04:00",
+    "symbols": [
+      "GEHC"
+    ],
+    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

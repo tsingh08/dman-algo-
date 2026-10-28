@@ -1,205 +1,5 @@
 [
   {
-    "ts": "2026-10-28T12:45:19.292890-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Sky News&#39; Mark Kleinman Posts On X &#34;Exclusive: JPMorgan Chase faces paying an additional sum in the region of \u00a3100m-\u00a3150m as a result of chancellor John Healey&#39;s decision to double the corporation tax surcharge on banks, a possible obstacle to the firm proceeding with its new London headquarters...&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T12:45:22.189270-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Trump Administration Advancing 2 More Wind Projects In Iowa",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T12:45:22.195007-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Reported Earlier: &#39;U.S. Warns Gulf of Possible Short, Intense Renewal of Iran War After Midterms&#39; - WSJ",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T12:45:22.418266-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T12:45:22.667412-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T12:45:23.142533-04:00",
-    "symbols": [
-      "AMC"
-    ],
-    "headline": "AMC Entertainment Q3 Earnings Nov. 4: Can Record Run Continue?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T12:45:26.587046-04:00",
-    "symbols": [
-      "GT"
-    ],
-    "headline": "Goodyear Appoints Jerome Rouquet as Chief Financial Officer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T12:45:26.592281-04:00",
-    "symbols": [
-      "GT"
-    ],
-    "headline": "Goodyear Hosts Annual Toys for Tots Drive at Blimp Base",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T12:45:33.729953-04:00",
-    "symbols": [
-      "BRAI"
-    ],
-    "headline": "US Stocks Mixed; GE Vernova Earnings Top Views",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T12:45:33.735915-04:00",
-    "symbols": [
-      "BRAI"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T12:45:33.741148-04:00",
-    "symbols": [
-      "BRAI"
-    ],
-    "headline": "Why Ultra Clean Shares Are Trading Higher By Around 15%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T12:45:33.745628-04:00",
-    "symbols": [
-      "BRAI"
-    ],
-    "headline": "Braiin (BRAI) Stock Jumps 56% After Hours: What\u2019s Behind the Move",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T12:45:34.928164-04:00",
-    "symbols": [
-      "LUNG"
-    ],
-    "headline": "Stifel Maintains Buy on Pulmonx, Raises Price Target to $4",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T12:45:35.863296-04:00",
-    "symbols": [
-      "VRT"
-    ],
-    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T12:45:36.334382-04:00",
-    "symbols": [
-      "SSP"
-    ],
-    "headline": "E.W. Scripps Eliminates 431 Employees On Tuesday, Bringing Total Number This Year to ~850 Under Its Transformation Plan To Generate $125M - $150M Of Enterprise EBITDA Growth By 2028",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T12:45:36.339601-04:00",
-    "symbols": [
-      "SSP"
-    ],
-    "headline": "E.W. Scripps Raises FY26 Midterm Local Media Political Advertising Revenue Range From $225M- $250M To ~$275M  Reports Q3 Midterm Local Media Political Revenue Of ~$81M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T12:45:37.622948-04:00",
-    "symbols": [
-      "ICLR"
-    ],
-    "headline": "Icon Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T12:45:37.628143-04:00",
-    "symbols": [
-      "ICLR"
-    ],
-    "headline": "Icon Q3 Adj. EPS $2.66 Beats $2.60 Estimate, Sales $2.025B Beat $2.015B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T12:45:38.712619-04:00",
-    "symbols": [
-      "WING"
-    ],
-    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T12:45:39.433008-04:00",
-    "symbols": [
-      "MANH"
-    ],
-    "headline": "Stifel Maintains Buy on Manhattan Associates, Raises Price Target to $300",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-28T12:45:40.419675-04:00",
     "symbols": [
       "GMAB"
@@ -4998,5 +4798,205 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T14:37:34.747851-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;U.S. DOJ Examining NVIDIA Acquisition Of AI Platform Hugging Face, Two People Say&#39; - Reuters Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T14:37:35.158279-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Platforms Delaying Indefinitely Rollout Of Its New Commercial Terms; Consultation With Publishers&#39; On This Topic Could Extend Beyond November 20, In Which Case Meta Would Delay Implementation Of Updated Terms; Until Then, Meta&#39;s Existing Terms Remain In Place",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T14:37:51.374469-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Targets $30B+ Free Cash Flow In FY29; Reaffirms FY27 Outlook: $90 B+ Revenue, $8.1 Non-Gaap EPS; To Limit Additional Capital Raises To $20B Through FY30; Expects Capital Expenses To Decrease In FY29 Supporting $30B+ Free Cash Flow; To Self-fund Growth Beginning FY29; Net Debt To Adj EBITDA Below 3.5x In FY29",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T14:37:51.378609-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Sets FY30 Outlook: $225B+ Revenue, 40%+ Non-Gaap Operating Margin, $21+ Non-Gaap EPS",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T14:37:51.738443-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Chair Warsh Says Discussed Geopolitics, Technology; Not Surprised By Financial Market Volatility; Not Surprised By Market Volatility Bouts; Real Activity Pointing In Right Direction; Inflation Is Too High; Our Job Is To Ensure That Relative Price Changes In Some Sectors Do Not Broaden; Our Job Is To Ensure That Relative Price Changes Do Not Broaden Out, And That Inflation Expectations Remain Anchored As They Are; Made Clear Our Readiness To Act",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T14:37:51.742064-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Chair Warsh Says Our Responsibility Is To Get Inflation Down; Discussion Focused Mostly On Inflation; Discussion At Fed Focused Mainly On Price Stability Remit; Credit Conditions Have Tightened; Market Participants More Discerning In Capital Allocations; Unwilling And Unable To Call Financial Conditions Tight; Committee Had A Good Discussion; But They Go In Direction Of More Durable Economic Growth, Price Stability",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T14:37:51.745358-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Chair Warsh Says The Committee Believes More Information Will Help Determine Appropriate Policy Stance; Committee Is Looking Out The Window, Has Not Grown Easier; Growth Has Strengthened; Q3 GDP Likely Above 3%; Business Investment Likely Rising By Double Digits; Business Investment Likely Rising At Double-Digit Pace; Payroll Growth Above Last Year&#39;s Pace; Employment Conditions Are Positive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T14:37:51.949285-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Fed Holds Rates, but Two Officials Push for Hike as Polymarket December Odds Hit 82%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T14:37:52.573755-04:00",
+    "symbols": [
+      "AMC"
+    ],
+    "headline": "AMC Entertainment Q3 Earnings Nov. 4: Can Record Run Continue?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T14:37:55.862115-04:00",
+    "symbols": [
+      "GT"
+    ],
+    "headline": "Goodyear Appoints Jerome Rouquet as Chief Financial Officer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T14:37:55.865962-04:00",
+    "symbols": [
+      "GT"
+    ],
+    "headline": "Goodyear Hosts Annual Toys for Tots Drive at Blimp Base",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T14:38:03.638509-04:00",
+    "symbols": [
+      "BRAI"
+    ],
+    "headline": "US Stocks Mixed; GE Vernova Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T14:38:03.642120-04:00",
+    "symbols": [
+      "BRAI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T14:38:03.645588-04:00",
+    "symbols": [
+      "BRAI"
+    ],
+    "headline": "Why Ultra Clean Shares Are Trading Higher By Around 15%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T14:38:03.648824-04:00",
+    "symbols": [
+      "BRAI"
+    ],
+    "headline": "Braiin (BRAI) Stock Jumps 56% After Hours: What\u2019s Behind the Move",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T14:38:05.391269-04:00",
+    "symbols": [
+      "LUNG"
+    ],
+    "headline": "Stifel Maintains Buy on Pulmonx, Raises Price Target to $4",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T14:38:06.839309-04:00",
+    "symbols": [
+      "SSP"
+    ],
+    "headline": "E.W. Scripps Eliminates 431 Employees On Tuesday, Bringing Total Number This Year to ~850 Under Its Transformation Plan To Generate $125M - $150M Of Enterprise EBITDA Growth By 2028",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T14:38:06.844022-04:00",
+    "symbols": [
+      "SSP"
+    ],
+    "headline": "E.W. Scripps Raises FY26 Midterm Local Media Political Advertising Revenue Range From $225M- $250M To ~$275M  Reports Q3 Midterm Local Media Political Revenue Of ~$81M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T14:38:07.935194-04:00",
+    "symbols": [
+      "ICLR"
+    ],
+    "headline": "Icon Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T14:38:09.433522-04:00",
+    "symbols": [
+      "WING"
+    ],
+    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

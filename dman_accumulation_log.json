@@ -2941,5 +2941,14 @@
   "drift_pct": 0.08,
   "range_ratio": 0.6,
   "near_high": 0.972
+ },
+ {
+  "ts": "2026-10-28T12:02:32.205454-04:00",
+  "ticker": "MANH",
+  "price": 233.98,
+  "rvol": 1.55,
+  "drift_pct": 0.78,
+  "range_ratio": 0.35,
+  "near_high": 0.966
  }
 ]

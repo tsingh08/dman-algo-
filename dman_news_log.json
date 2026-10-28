@@ -1,525 +1,5 @@
 [
   {
-    "ts": "2026-10-28T09:46:19.733449-04:00",
-    "symbols": [
-      "ELPW"
-    ],
-    "headline": "Elong Power Subsidiary Enters $25.5M One-Year Omnichannel Cooperation Agreement With Automatic Renewal Clause, Delivers First Batch Worth About $0.84M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:46:21.013986-04:00",
-    "symbols": [
-      "GCTK"
-    ],
-    "headline": "Glucotrack Subsidiary Lokahi Therapeutics Secures First Fee-for-Service Partnership",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:46:21.753455-04:00",
-    "symbols": [
-      "WEN"
-    ],
-    "headline": "Wendy&#39;s Stock Jumps as Peltz Returns With $1.4 Billion Cash Bid",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:46:22.003730-04:00",
-    "symbols": [
-      "DCX"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:46:22.832392-04:00",
-    "symbols": [
-      "BENF"
-    ],
-    "headline": "Beneficient Plans To Eliminate HCLP Debt, Complete Separation From Former CEO Brad Heppner",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:46:23.141921-04:00",
-    "symbols": [
-      "LCII"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:46:23.147762-04:00",
-    "symbols": [
-      "LCII"
-    ],
-    "headline": "LCI Industries Receives Unsolicited, Non-Binding Takeover Proposal From Monomoy Capital Partners For $101/Share In Cash; Existing Merger Agreement With Patrick Remains In Place",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:46:23.487747-04:00",
-    "symbols": [
-      "ELVA"
-    ],
-    "headline": "Electrovaya Announces Strategic Investment in and Expanded Partnership with Janus Electric",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:46:24.035109-04:00",
-    "symbols": [
-      "OSW"
-    ],
-    "headline": "OneSpaWorld Raises Quarterly Dividend From $0.05 To $0.0625 Per Share; Approves New $100M Share Repurchase Program",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:46:24.040480-04:00",
-    "symbols": [
-      "OSW"
-    ],
-    "headline": "OneSpaWorld Hldgs Sees Q4 Sales $248.000M-$253.000M vs $252.853M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:46:24.045502-04:00",
-    "symbols": [
-      "OSW"
-    ],
-    "headline": "OneSpaWorld Holdings Q3 Adj. EPS $0.34 Beats $0.31 Estimate, Sales $276.532M Beat $272.345M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:46:24.050321-04:00",
-    "symbols": [
-      "OSW"
-    ],
-    "headline": "OneSpaWorld Hldgs Raises FY2026 Sales Guidance from $1.018B-$1.038B to $1.033B-$1.038B vs $1.034B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:46:24.606339-04:00",
-    "symbols": [
-      "ENSG"
-    ],
-    "headline": "Ensign Group Q3 Adj. EPS $2.03 Beats $1.97 Estimate, Sales $1.484B Miss $1.506B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T09:46:24.611629-04:00",
-    "symbols": [
-      "ENSG"
-    ],
-    "headline": "Ensign Group Raises FY2026 GAAP EPS Guidance from $7.75-$7.85 to $7.94-$8.02 vs $7.09 Est; Raises FY2026 Sales Guidance from $5.870B-$5.920B to $5.890B-$5.920B vs $5.905B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T09:46:25.388856-04:00",
-    "symbols": [
-      "JLL"
-    ],
-    "headline": "Jones Lang LaSalle Q3 Adj. EPS $6.76 Beats $6.16 Estimate, Sales $7.281B Beat $7.239B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:46:25.624586-04:00",
-    "symbols": [
-      "FTV"
-    ],
-    "headline": "Fortive Raises FY2026 Adj EPS Guidance from $2.95-$3.05 to $3.10-$3.14 vs $3.01 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:46:25.629283-04:00",
-    "symbols": [
-      "FTV"
-    ],
-    "headline": "Fortive Q3 Adj. EPS $0.77 Beats $0.70 Estimate, Sales $1.108B Beat $1.069B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:46:26.127898-04:00",
-    "symbols": [
-      "JMKE"
-    ],
-    "headline": "Jersey Mike&#39;s Subs Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:46:26.133360-04:00",
-    "symbols": [
-      "JMKE"
-    ],
-    "headline": "UPDATE: Jersey Mike\u2019s Subs Q3 Adj. EPS $0.23 Beats $0.15 Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:46:26.138082-04:00",
-    "symbols": [
-      "JMKE"
-    ],
-    "headline": "Jersey Mike\u2019s Q3 Same-store sales +3%, Systemwide Sales +11% Y/Y",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:46:26.143336-04:00",
-    "symbols": [
-      "JMKE"
-    ],
-    "headline": "Jersey Mike\u2019s Subs Announces $100M Share Repurchase Authorization And Special Cash Dividend Of $0.35 Per Share Of Class A Common Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:46:26.147755-04:00",
-    "symbols": [
-      "JMKE"
-    ],
-    "headline": "Jersey Mike\u2019s Subs Q3 EPS $0.23 Beats $0.09 Estimate, Sales $209.000M Beat $208.637M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:46:26.391553-04:00",
-    "symbols": [
-      "TEX"
-    ],
-    "headline": "Terex Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:46:26.397257-04:00",
-    "symbols": [
-      "TEX"
-    ],
-    "headline": "Terex Narrows FY2026 GAAP EPS Guidance from $4.70-$5.10 to $4.80-$5.00 vs $2.58 Est; Raises FY2026 Sales Guidance from $7.900B-$8.200B to $8.000B-$8.200B vs $8.148B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:46:26.402118-04:00",
-    "symbols": [
-      "TEX"
-    ],
-    "headline": "Terex Q3 Adj. EPS $1.50 Beats $1.42 Estimate, Sales $2.197B Beat $2.168B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:46:26.650197-04:00",
-    "symbols": [
-      "GEHC"
-    ],
-    "headline": "GE HealthCare Techs Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:46:26.883014-04:00",
-    "symbols": [
-      "BLCO"
-    ],
-    "headline": "Bausch &amp; Lomb Q3 Adj. EPS $0.34 Beats $0.22 Estimate, Sales $1.375B Beat $1.373B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:46:26.888066-04:00",
-    "symbols": [
-      "BLCO"
-    ],
-    "headline": "Bausch &amp; Lomb Raises FY2026 Sales Guidance from $5.440B-$5.540B to $5.450B-$5.550B vs $5.496B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:56:47.242906-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "\u2018Evil Is Better Than Bad\u2019 \u2014 Peter Thiel&#39;s Unsettling Defense of Elon Musk",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:47.249028-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Robert Reich Fires Back at Elon Musk After SPCX CEO Calls for His Imprisonment Over Starlink Ukraine Row: \u2018I\u2019m Not Going to Be Intimidated\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:47.255077-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk Says SpaceX\u2019s Starbase Louisiana Alone Could Support 10,000 Annual Starship Launches, With Roughly 30 Daily Operations Planned",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:47.534388-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nebius Group Secures Funding for France Data Center",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T09:56:47.776700-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Delta Air, American Tower, Apple And A Health Care: CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:47.782566-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "\u2018Hard to Know If We\u2019re in an AI Bubble\u2019 Jeff Bezos Says, But Should a Retiree Buy AI Stocks? \u2014 \u2018I Would Usually Tell a Retiree to Buy the S&amp;P 500\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:47.787297-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Kevin O&#39;Leary Warns Investors Could Get &#39;Slaughtered&#39; by Ignoring Diversification, Shares His 5% Stock and 20% Sector Rule",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:47.792630-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Korea Media And Communications Commission Orders Google And Apple To Allow External Payments, Improve Commission Structures; Imposes KRW 42.9B (~$32M) Penalty On Google, KRW 20.81B On Apple",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:47.797847-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Jeff Bezos Just Got a New Boost in His Rivalry With Elon Musk \u2014 Amazon Wins FCC Approval for $11.5 Billion Globalstar Deal to Expand Satellite Connectivity",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:48.058204-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Bill Ackman\u2019s Test for a Great Stock: Should Be &#39;Enormously Valuable&#39; Even if Markets Shut for 20 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:48.064118-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Verisk Integrates Amazon Quick, Microsoft Copilot, Claude Into Its Operations",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:48.069335-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "\u2018Hard to Know If We\u2019re in an AI Bubble\u2019 Jeff Bezos Says, But Should a Retiree Buy AI Stocks? \u2014 \u2018I Would Usually Tell a Retiree to Buy the S&amp;P 500\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:48.075075-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Bernie Sanders Slams Microsoft Over 60,000 Workers Facing Buyouts and Trump-Era Tax Breaks Amid Billions in Profits: \u2018A Total Scam\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:48.080123-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Kevin O&#39;Leary Warns Investors Could Get &#39;Slaughtered&#39; by Ignoring Diversification, Shares His 5% Stock and 20% Sector Rule",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:48.316372-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "EXCLUSIVE: SK Hynix Soars 11% on Record Profit, But This Expert Says Samsung Will Lead HBM in 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:48.321056-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "\u2018Hard to Know If We\u2019re in an AI Bubble\u2019 Jeff Bezos Says, But Should a Retiree Buy AI Stocks? \u2014 \u2018I Would Usually Tell a Retiree to Buy the S&amp;P 500\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:48.326260-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Kevin O&#39;Leary Warns Investors Could Get &#39;Slaughtered&#39; by Ignoring Diversification, Shares His 5% Stock and 20% Sector Rule",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:48.331126-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;OpenAI, a Longtime Nvidia Customer, Plans to Buy Google\u2019s AI Chips&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:48.668564-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Susquehanna Maintains Positive on Advanced Micro Devices, Raises Price Target to $650",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:48.673333-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Cathie Wood Extends Archer, Joby Buying Spree; Ark Sells More AMD, Taiwan Semiconductor Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:48.964022-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Bill Ackman\u2019s Test for a Great Stock: Should Be &#39;Enormously Valuable&#39; Even if Markets Shut for 20 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:48.969321-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Reported Earlier, Meta Launches Muse Personal AI Agent In Singapore With Connectors To Shopee, Grab, Singapore Airlines, Agoda, ShopBack, Klook, Trip.com And Lazada",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:48.974137-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "$1000 Invested In Meta Platforms 10 Years Ago Would Be Worth This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:49.237885-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Nasdaq 100 Futures Gain Ahead of Federal Reserve Interest Rate Decision\u2014 SKHY, STX, V, GOOGL in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-28T09:56:49.243252-04:00",
     "symbols": [
       "GOOGL"
@@ -4998,5 +4478,525 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T11:39:24.850773-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX\u2019s Starlink Could Be a &#39;New Customer at Scale&#39; for American Tower",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:39:25.358054-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Microsoft And Google Face Monetization Test Amid Expected Fed Pause\u2014 Seagate And Oil Cloud AI Trade",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:39:25.617299-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft And Google Face Monetization Test Amid Expected Fed Pause\u2014 Seagate And Oil Cloud AI Trade",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:39:25.989005-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Microsoft And Google Face Monetization Test Amid Expected Fed Pause\u2014 Seagate And Oil Cloud AI Trade",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:39:25.991869-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "AI Bubble Hedge? 5 ETFs That Could Protect Investors Without Shorting Nvidia",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:39:25.994523-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA Launches Nemotron 3.5 Transcribe And Granary v2 On Hugging Face, Delivering Open-Weight AI For 40-Language Transcription, Translation And Speaker Identification",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:39:26.519972-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Microsoft And Google Face Monetization Test Amid Expected Fed Pause\u2014 Seagate And Oil Cloud AI Trade",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:39:27.043495-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Microsoft And Google Face Monetization Test Amid Expected Fed Pause\u2014 Seagate And Oil Cloud AI Trade",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:39:27.046417-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;Amazon cuts more jobs, in devices unit, after flurry of product rollouts&#39; - Reuters",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:39:27.293316-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Microsoft And Google Face Monetization Test Amid Expected Fed Pause\u2014 Seagate And Oil Cloud AI Trade",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T11:39:29.436367-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Microsoft And Google Face Monetization Test Amid Expected Fed Pause\u2014 Seagate And Oil Cloud AI Trade",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:39:30.242400-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Ripple Expands From Robinhood to Coinbase as RLUSD Gains Ground",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:39:31.234652-04:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "Barclays Maintains Equal-Weight on Biogen, Raises Price Target to $230",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:39:31.692549-04:00",
+    "symbols": [
+      "HIMS"
+    ],
+    "headline": "U.S. Department Of Health And Human Services Announces Availability Of Enforcement Discretion Policy Regarding 503a Compounding Using Certain Peptide Bulk Drug Substances; Will Not Enforce Against Pharmacies, Federal Facilities Or Physicians Compounding Drugs Using Peptide Bulk Substances Pending Rulemaking; Interim Policy Permits Peptide Compounding Pending Final Rulemaking On 503a Bulk Drug Substances List",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T11:39:34.206019-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Ripple Expands From Robinhood to Coinbase as RLUSD Gains Ground",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:39:35.092911-04:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Vistra, Lowers Price Target to $198",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:39:37.565951-04:00",
+    "symbols": [
+      "TLN"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Talen Energy, Lowers Price Target to $479",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:39:38.221271-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "&#39;Venezuela Grid Repairs Stalled by Payment Delay, GE Vernova Says&#39; - Bloomberg Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:39:38.496747-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Bernstein Adjusts Price Target on Lockheed Martin to $633",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:39:38.499679-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Lockheed Martin Opens Dedicated PAC-3 Missile Maintenance Facility in Poland",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:39:38.502352-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Lockheed Martin to Establish PAC-3 Missile Maintenance Facility in Poland",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:39:38.504999-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Lockheed Martin Awarded $694 Million U.S. Air Force Contract for Hypersonic Weapon",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:39:38.954280-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Here&#39;s How Much $100 Invested In Caterpillar 15 Years Ago Would Be Worth Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:39:42.322602-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Department Of Health And Human Services Announces Availability Of Enforcement Discretion Policy Regarding 503a Compounding Using Certain Peptide Bulk Drug Substances; Will Not Enforce Against Pharmacies, Federal Facilities Or Physicians Compounding Drugs Using Peptide Bulk Substances Pending Rulemaking; Interim Policy Permits Peptide Compounding Pending Final Rulemaking On 503a Bulk Drug Substances List",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:39:42.325644-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Microsoft And Google Face Monetization Test Amid Expected Fed Pause\u2014 Seagate And Oil Cloud AI Trade",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:39:42.330736-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Mexican President Sheinbaum Says Dialogue Continues On Trade Deal With U.S., Assessing Whether It Is Feasible To Reach An Agreement Before U.S. Midterm Elections",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:39:42.555597-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Microsoft And Google Face Monetization Test Amid Expected Fed Pause\u2014 Seagate And Oil Cloud AI Trade",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:39:43.005080-04:00",
+    "symbols": [
+      "ULBI"
+    ],
+    "headline": "Ultralife Stock Soars After EnerSys Agrees to $320M Buyout",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:39:43.007992-04:00",
+    "symbols": [
+      "ULBI"
+    ],
+    "headline": "Vertiv, Evercore, Brinker, GE HealthCare And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:39:43.010642-04:00",
+    "symbols": [
+      "ULBI"
+    ],
+    "headline": "US Stocks Mixed; GE Vernova Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:39:43.013274-04:00",
+    "symbols": [
+      "ULBI"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:39:43.015942-04:00",
+    "symbols": [
+      "ULBI"
+    ],
+    "headline": "Why Ultra Clean Shares Are Trading Higher By Around 15%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:39:43.250551-04:00",
+    "symbols": [
+      "SLS"
+    ],
+    "headline": "SELLAS Life Sciences Stock Stumbles: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:39:43.253435-04:00",
+    "symbols": [
+      "SLS"
+    ],
+    "headline": "SELLAS Life Sciences Announces Its Pivotal Phase 3 Study Of Galinpepimut-S In Acute Myeloid Leukemia Participants Surpasses Pre-Specified 80th Event",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:39:43.465276-04:00",
+    "symbols": [
+      "RAPP"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:39:43.468167-04:00",
+    "symbols": [
+      "RAPP"
+    ],
+    "headline": "Enphase Energy Posts Downbeat Q3 Results, Joins NXP Semiconductors, Seagate And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:39:43.470784-04:00",
+    "symbols": [
+      "RAPP"
+    ],
+    "headline": "Rapport Therapeutics Prices Separate Offerings Of ~$175M Of Stock At  $21.00/Share, Warrants To Purchase Up To ~$25M Of Stock At $20.999 Per Pre-Funded Warrant, And $150M Of 2.25% Convertible Senior Notes Due 2032",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:39:43.473391-04:00",
+    "symbols": [
+      "RAPP"
+    ],
+    "headline": "Why Ultra Clean Shares Are Trading Higher By Around 15%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:39:43.475956-04:00",
+    "symbols": [
+      "RAPP"
+    ],
+    "headline": "Rapport Therapeutics (RAPP) Shares Sink 20% After Hours",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:39:43.706640-04:00",
+    "symbols": [
+      "LPLA"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on LPL Finl Hldgs, Lowers Price Target to $350",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:39:43.709331-04:00",
+    "symbols": [
+      "LPLA"
+    ],
+    "headline": "Enphase Energy Posts Downbeat Q3 Results, Joins NXP Semiconductors, Seagate And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:39:43.711956-04:00",
+    "symbols": [
+      "LPLA"
+    ],
+    "headline": "Truist Securities Maintains Hold on LPL Finl Hldgs, Lowers Price Target to $335",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:39:43.714613-04:00",
+    "symbols": [
+      "LPLA"
+    ],
+    "headline": "LPL Finl Hldgs Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:39:43.717176-04:00",
+    "symbols": [
+      "LPLA"
+    ],
+    "headline": "LPL Finl Hldgs Q3 Adj. EPS $5.97 Beats $5.69 Estimate, Sales $5.344B Miss $5.347B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:39:43.932629-04:00",
+    "symbols": [
+      "OSS"
+    ],
+    "headline": "One Stop Systems Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:39:43.935480-04:00",
+    "symbols": [
+      "OSS"
+    ],
+    "headline": "One Stop Systems Enters ATM Equity Offering Worth Up To $50M With Piper Sandler",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:39:43.938070-04:00",
+    "symbols": [
+      "OSS"
+    ],
+    "headline": "One Stop Systems Q3 Adj. EPS $0.01, Inline, Sales $12.584M Beat $10.939M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:39:43.940623-04:00",
+    "symbols": [
+      "OSS"
+    ],
+    "headline": "One Stop Systems Raises FY2026 Sales Guidance from $40.270M-$41.881M to $45.102M vs $41.079M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:39:44.816523-04:00",
+    "symbols": [
+      "MWYN"
+    ],
+    "headline": "Marwynn Holdings Inks Non-Binding MoU With Grenada National Resort To Explore Development Of NexaCore AI &amp; Renewable Energy Infrastructure Campus In Grenada",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:39:45.034278-04:00",
+    "symbols": [
+      "NUWE"
+    ],
+    "headline": "Nuwellis Announces Publication of ULTRA-Peds Registry Study Results in Pediatric Nephrology",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:39:45.265037-04:00",
+    "symbols": [
+      "LAZR"
+    ],
+    "headline": "Michael Burry Says Anthropic\u2019s IPO Filing Has a Lot, but \u2018Nothing That Changes\u2019 His View: Big Short Investor Calls Out \u2018Slowing\u2019 Revenue Growth",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:39:45.267913-04:00",
+    "symbols": [
+      "LAZR"
+    ],
+    "headline": "Anthropic IPO Hype Builds as LAZR ETF Expands Exposure to AI\u2019s Private-Market Giant",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

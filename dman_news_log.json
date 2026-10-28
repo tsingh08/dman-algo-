@@ -1,155 +1,5 @@
 [
   {
-    "ts": "2026-10-28T14:02:52.479931-04:00",
-    "symbols": [
-      "UCTT"
-    ],
-    "headline": "Needham Maintains Buy on Ultra Clean Hldgs, Lowers Price Target to $80",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:02:52.730555-04:00",
-    "symbols": [
-      "MIR"
-    ],
-    "headline": "Mirion Announces Third Quarter 2026 Financial Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T14:02:52.734857-04:00",
-    "symbols": [
-      "EAT"
-    ],
-    "headline": "Brinker International Q1 2027 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:02:52.738521-04:00",
-    "symbols": [
-      "EAT"
-    ],
-    "headline": "Chili&#39;s Packs in More Diners, Powers Brinker to Stronger Profits and Higher Forecast",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:02:52.748423-04:00",
-    "symbols": [
-      "ENSG"
-    ],
-    "headline": "Ensign Group Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T14:03:08.035892-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Monte Carlo Expands Partnership with Snowflake to Enhance AI Agent Reliability",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:03:08.081638-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "TD Cowen Adjusts Lockheed Martin Price Target to $650",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:03:08.253355-04:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "Analyst Price Target Adjustments for Vistra Corp.",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:03:08.259192-04:00",
-    "symbols": [
-      "OKLO"
-    ],
-    "headline": "B. Riley Adjusts Price Target on Oklo to $61 From $92",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T14:03:08.308316-04:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "Analysts Adjust Price Targets for Enphase Energy",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T14:03:08.570977-04:00",
-    "symbols": [
-      "FRSH"
-    ],
-    "headline": "Freshworks Price Target Raised by Analyst",
-    "source": "fiscal.ai",
-    "tag": "held",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:13:53.787875-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "American Electric Power CEO Sees Once-In-A-Generation Opportunity in Electricity Demand",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T14:13:53.975301-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "American Electric Power CEO Sees Once-In-A-Generation Opportunity in Electricity Demand",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T14:13:54.718969-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce To Purchase 500,000 Methane-Reduction Carbon Credits From Mitti Labs By 2030",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:13:55.554316-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Stock Gains as SK Hynix Reports Record Revenue Above 100 Trillion Won",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-28T14:13:56.938895-04:00",
     "symbols": [
       "ABBV"
@@ -4998,5 +4848,155 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T16:00:45.601618-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Q3 Earnings Preview: All Eyes on AWS After Posting Best Growth in Years in Q2",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T16:00:55.267343-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "GE Vernova CEO Says Gas Turbine Prices Are Up 50% \u2014 And Customers Are Booking into 2032",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T16:00:56.569824-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Beverage Bytes Survey Indicates C-Store Retailer Optimism",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T16:00:56.758388-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Barclays Maintains Overweight on Visa, Raises Price Target to $440",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T16:01:06.782714-04:00",
+    "symbols": [
+      "ULCC"
+    ],
+    "headline": "Frontier Group Holdings Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T16:01:09.747794-04:00",
+    "symbols": [
+      "VRT"
+    ],
+    "headline": "Vertiv Holdings Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T16:01:09.750706-04:00",
+    "symbols": [
+      "VRT"
+    ],
+    "headline": "Vertiv Q3 Orders Surged 100% as Infrastructure Spending Fuels Growth",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T16:01:12.144809-04:00",
+    "symbols": [
+      "WING"
+    ],
+    "headline": "Wingstop Q3 Adj. EPS $1.08 Beats $1.02 Estimate, Sales $185.131M Miss $193.181M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T16:01:13.679158-04:00",
+    "symbols": [
+      "UCTT"
+    ],
+    "headline": "Coca-Cola To Rally Around 13%? Here Are 10 Top Analyst Forecasts For Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T16:01:13.682168-04:00",
+    "symbols": [
+      "UCTT"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T16:01:13.684922-04:00",
+    "symbols": [
+      "UCTT"
+    ],
+    "headline": "Needham Maintains Buy on Ultra Clean Hldgs, Lowers Price Target to $80",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T16:01:14.942360-04:00",
+    "symbols": [
+      "VSAT"
+    ],
+    "headline": "Viasat, Space42, And Terrestar Announce MoU To Link Equatys Direct-To-Device Platform With Terrestar\u2019s Planned Canadian CaStar Satellite Constellation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T16:01:15.331915-04:00",
+    "symbols": [
+      "EAT"
+    ],
+    "headline": "Brinker International Q1 2027 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T16:01:15.335254-04:00",
+    "symbols": [
+      "EAT"
+    ],
+    "headline": "Chili&#39;s Packs in More Diners, Powers Brinker to Stronger Profits and Higher Forecast",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T16:01:15.556145-04:00",
+    "symbols": [
+      "ENSG"
+    ],
+    "headline": "Ensign Group Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

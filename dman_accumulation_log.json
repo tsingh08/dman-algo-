@@ -3004,5 +3004,14 @@
   "drift_pct": 0.21,
   "range_ratio": 0.36,
   "near_high": 0.993
+ },
+ {
+  "ts": "2026-10-28T16:01:48.149721-04:00",
+  "ticker": "ATEC",
+  "price": 11.45,
+  "rvol": 1.71,
+  "drift_pct": 0.79,
+  "range_ratio": 0.51,
+  "near_high": 1.0
  }
 ]

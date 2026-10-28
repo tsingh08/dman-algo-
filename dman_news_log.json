@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-28T14:57:25.014573-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "OpenAI Jumps 32%, Airtable Crashes 56% As Private Market Returns Diverge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:57:25.955283-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Live On CNBC, Bill Baruch Announces Trimmed Nvidia Position; Trimmed Micron Technology; Trimmed Broadcom",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:57:26.192694-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Live On CNBC, Bill Baruch Announces Trimmed Nvidia Position; Trimmed Micron Technology; Trimmed Broadcom",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:57:26.195729-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:57:26.434121-04:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T14:57:26.605564-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:57:27.036898-04:00",
-    "symbols": [
-      "KLAC"
-    ],
-    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:57:27.736102-04:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-28T14:57:30.316894-04:00",
     "symbols": [
       "CRWD"
@@ -4996,6 +4916,86 @@
     ],
     "headline": "Goldman Sachs Joins Equilend's 1Source DLT Platform",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T16:32:08.251451-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Reports Fiscal Year 2027 First-Quarter Financial Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T16:32:08.441076-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA Expands RTX Spark Laptop Ecosystem",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T16:32:08.658106-04:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "KLA Corporation Reports Fiscal 2027 First Quarter Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T16:32:08.862483-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Fortinet Reports Q3 2026 Financial Results and Increases Share Repurchase Authorization",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T16:32:09.044028-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Releases 'The One About Matthew Perry' Docuseries",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T16:32:09.199125-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Launches 'Muse' Personal AI Agent in Singapore",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T16:32:09.452022-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Uber and Hope Air Recognized with Purpose Storytelling Award",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T16:33:08.183334-04:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "FedEx Reports Third-Quarter Financial Results and Raises Full-Year Outlook",
+    "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

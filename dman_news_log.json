@@ -1,245 +1,5 @@
 [
   {
-    "ts": "2026-10-28T12:25:19.028408-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Stock Gains as SK Hynix Reports Record Revenue Above 100 Trillion Won",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T12:25:20.754105-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Allergan Aesthetics Announces Return of BOTOX Cosmetic Day",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T12:25:20.990541-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Novo Nordisk Loses Court Bid Against Eli Lilly\u2019s Weight-Loss Drug Ads \u2014 Judge Says Sales Impact Was Negligible (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T12:25:25.744434-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Airbnb Supports Playing for Keeps Foundation Initiative",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T12:25:28.478096-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "US Stocks Mixed; GE Vernova Earnings Top Views",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T12:25:29.402262-04:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "Eaton Mobility Transaction Status Update",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T12:25:29.856948-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs Joins Equilend's 1Source DLT Platform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T12:25:30.109315-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Evercore ISI Group Maintains In-Line on Visa, Raises Price Target to $405",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T12:25:46.136621-04:00",
-    "symbols": [
-      "VRT"
-    ],
-    "headline": "Vertiv Stock Rallies 14% as Orders More Than Double: Bank of America Still Sees 55% Upside",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T12:33:08.022047-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Novo Nordisk to Present New Semaglutide Clinical Data at The Liver Meeting 2026",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T12:33:08.044378-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "Spotify Launches 'Spotify 360' Premium Experience",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T12:33:27.090237-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Novo Nordisk Loses Court Bid Against Eli Lilly\u2019s Weight-Loss Drug Ads \u2014 Judge Says Sales Impact Was Negligible (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T12:33:27.095930-04:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Freeport-McMoRan, Lowers Price Target to $79",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T12:33:27.111920-04:00",
-    "symbols": [
-      "ACRS"
-    ],
-    "headline": "Wedbush Maintains Outperform on Aclaris Therapeutics, Lowers Price Target to $8",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T12:33:27.170181-04:00",
-    "symbols": [
-      "SKHU"
-    ],
-    "headline": "SK Hynix\u2019s 80% Profit Margin Fuels AI Frenzy: Should Investors Bet on 2X ETFs?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T12:33:27.179271-04:00",
-    "symbols": [
-      "VRT"
-    ],
-    "headline": "Stock of the Day: Is the Vertiv Rally Going to Stall?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T12:33:27.215200-04:00",
-    "symbols": [
-      "GENB"
-    ],
-    "headline": "Anthropic Announces Strategic Partnership with Generate Biomedicines for Autonomous Drug Discovery",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T12:33:27.226085-04:00",
-    "symbols": [
-      "HAYW"
-    ],
-    "headline": "Hayward Holdings Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T12:45:01.285682-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T12:45:01.548798-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Live On CNBC, Bill Baruch Announces Trimmed Nvidia Position; Trimmed Micron Technology; Trimmed Broadcom",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T12:45:02.704649-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T12:45:05.363600-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Live On CNBC, Bill Baruch Announces Trimmed Nvidia Position; Trimmed Micron Technology; Trimmed Broadcom",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T12:45:05.667195-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Live On CNBC, Bill Baruch Announces Trimmed Nvidia Position; Trimmed Micron Technology; Trimmed Broadcom",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T12:45:05.671859-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-28T12:45:05.911524-04:00",
     "symbols": [
       "SNDK"
@@ -4998,5 +4758,245 @@
     "source": "fiscal.ai",
     "tag": "held",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T14:13:53.787875-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "American Electric Power CEO Sees Once-In-A-Generation Opportunity in Electricity Demand",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T14:13:53.975301-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "American Electric Power CEO Sees Once-In-A-Generation Opportunity in Electricity Demand",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T14:13:54.718969-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce To Purchase 500,000 Methane-Reduction Carbon Credits From Mitti Labs By 2030",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T14:13:55.554316-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Stock Gains as SK Hynix Reports Record Revenue Above 100 Trillion Won",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T14:13:56.938895-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Allergan Aesthetics Announces Return of BOTOX Cosmetic Day",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T14:13:57.090449-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Novo Nordisk Loses Court Bid Against Eli Lilly\u2019s Weight-Loss Drug Ads \u2014 Judge Says Sales Impact Was Negligible (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T14:14:00.411981-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Airbnb Supports Playing for Keeps Foundation Initiative",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T14:14:02.519659-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "US Stocks Mixed; GE Vernova Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T14:14:03.219283-04:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "Eaton Mobility Transaction Status Update",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T14:14:03.659588-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Joins Equilend's 1Source DLT Platform",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T14:14:03.879572-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Evercore ISI Group Maintains In-Line on Visa, Raises Price Target to $405",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T14:14:05.649663-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Iran Pressed To Make Nuke Concessions As Massive Post-Midterms Strikes Loom&#39; - Axios",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T14:14:05.652984-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Vote In Favor Of Policy Was 10-2, With Governor Lisa Cook And Cleveland Fed President Beth Hammack Dissenting In Favor Of A 25-Basis-Point Hike",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T14:14:05.656400-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Federal Reserve Leaves Key Overnight Interest Rate Unchanged In 3.75-4.00% Range, Says Accumulation Of More Information Will Help Determine Appropriate Policy Stance; Says Inflation Remains Elevated; Economic Activity Expanding At A &#39;Strong&#39; Pace; Job Gains Have Kept Pace With Workforce, Unemployment Rate Has Changed Little; Productivity Growth Is Strong, Capital Investment Is Robust; Domestic Spending Has Been Resilient Despite Elevated Uncertainty",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T14:14:05.659831-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Federal Reserve Issues FOMC Statement For October 27-28, 2026 (Link In Body)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T14:14:05.662824-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Fed Interest Rate Decision 4.00% Vs 4.00% Est. (Unchanged)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T14:14:06.060344-04:00",
+    "symbols": [
+      "ACRS"
+    ],
+    "headline": "Wedbush Maintains Outperform on Aclaris Therapeutics, Lowers Price Target to $8",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T14:14:08.347461-04:00",
+    "symbols": [
+      "GERN"
+    ],
+    "headline": "Needham Maintains Buy on Geron, Lowers Price Target to $2.5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T14:14:08.351472-04:00",
+    "symbols": [
+      "GERN"
+    ],
+    "headline": "Penny Stock Geron Ends Advanced Cancer Study, Shifts Focus to Commercial Growth",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T14:14:13.879260-04:00",
+    "symbols": [
+      "SKHU"
+    ],
+    "headline": "SK Hynix\u2019s 80% Profit Margin Fuels AI Frenzy: Should Investors Bet on 2X ETFs?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T14:14:14.343108-04:00",
+    "symbols": [
+      "VRT"
+    ],
+    "headline": "Vertiv Stock Rallies 14% as Orders More Than Double: Bank of America Still Sees 55% Upside",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T14:14:17.442638-04:00",
+    "symbols": [
+      "GENB"
+    ],
+    "headline": "Anthropic Announces Strategic Partnership with Generate Biomedicines for Autonomous Drug Discovery",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T14:14:18.969122-04:00",
+    "symbols": [
+      "HAYW"
+    ],
+    "headline": "Hayward Holdings Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T14:14:19.601120-04:00",
+    "symbols": [
+      "ETSY"
+    ],
+    "headline": "BTIG Maintains Buy on Etsy, Raises Price Target to $102",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

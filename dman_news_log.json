@@ -1,145 +1,5 @@
 [
   {
-    "ts": "2026-10-28T14:02:08.017471-04:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "Wells Fargo Adjusts Constellation Energy Price Target",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:02:08.021552-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Visa Increases Quarterly Cash Dividend by 16%",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T14:02:08.047832-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce Enters Carbon Credit Offtake Agreement with Mitti Labs",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:02:08.054088-04:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Macquarie Analyst Highlights Datadog Ahead of Earnings",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T14:02:08.082715-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs Beverage Bytes Survey Indicates C-Store Retailer Optimism",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T14:02:52.058084-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Q3 Earnings Preview: All Eyes on AWS After Posting Best Growth in Years in Q2",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T14:02:52.107311-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "GE Vernova CEO Says Gas Turbine Prices Are Up 50% \u2014 And Customers Are Booking into 2032",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:02:52.120676-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Barclays Maintains Overweight on Visa, Raises Price Target to $440",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T14:02:52.163413-04:00",
-    "symbols": [
-      "ULCC"
-    ],
-    "headline": "Frontier Group Holdings Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T14:02:52.184576-04:00",
-    "symbols": [
-      "VRT"
-    ],
-    "headline": "Vertiv Holdings Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:02:52.188272-04:00",
-    "symbols": [
-      "VRT"
-    ],
-    "headline": "Vertiv Q3 Orders Surged 100% as Infrastructure Spending Fuels Growth",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:02:52.205844-04:00",
-    "symbols": [
-      "WING"
-    ],
-    "headline": "Wingstop Q3 Adj. EPS $1.08 Beats $1.02 Estimate, Sales $185.131M Miss $193.181M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:02:52.473260-04:00",
-    "symbols": [
-      "UCTT"
-    ],
-    "headline": "Coca-Cola To Rally Around 13%? Here Are 10 Top Analyst Forecasts For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:02:52.476891-04:00",
-    "symbols": [
-      "UCTT"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-28T14:02:52.479931-04:00",
     "symbols": [
       "UCTT"
@@ -4998,5 +4858,145 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:48:47.914711-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Could Keep Starship Cost Savings Instead of Cutting Launch Prices, Varda Executive Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T15:48:51.142244-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "SK Hynix Stock Is Undervalued, CFO Says, as AI Memory Profits Surge",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:48:51.630931-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "JP Morgan Maintains Neutral on Robinhood Markets, Lowers Price Target to $114",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:48:51.820876-04:00",
+    "symbols": [
+      "ENPH"
+    ],
+    "headline": "JP Morgan Maintains Neutral on Enphase Energy, Lowers Price Target to $29",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T15:49:00.652008-04:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "JP Morgan Maintains Overweight on Freeport-McMoRan, Lowers Price Target to $90",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:49:04.980157-04:00",
+    "symbols": [
+      "GRAB"
+    ],
+    "headline": "JP Morgan Maintains Overweight on Grab Holdings, Lowers Price Target to $4.8",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T15:49:12.309837-04:00",
+    "symbols": [
+      "LUNG"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T15:49:12.934221-04:00",
+    "symbols": [
+      "SKHL"
+    ],
+    "headline": "SK Hynix\u2019s 80% Profit Margin Fuels AI Frenzy: Should Investors Bet on 2X ETFs?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T15:49:15.300474-04:00",
+    "symbols": [
+      "RCKY"
+    ],
+    "headline": "Baird Maintains Neutral on Rocky Brands, Raises Price Target to $52",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T15:49:15.952601-04:00",
+    "symbols": [
+      "GMAB"
+    ],
+    "headline": "Genmab Stock Hits 52-Week High - Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T15:49:16.447728-04:00",
+    "symbols": [
+      "ADT"
+    ],
+    "headline": "Vertiv, Evercore, Brinker, GE HealthCare And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:49:17.145896-04:00",
+    "symbols": [
+      "GEHC"
+    ],
+    "headline": "BTIG Maintains Buy on GE HealthCare Techs, Raises Price Target to $83",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T15:49:17.600311-04:00",
+    "symbols": [
+      "HAYW"
+    ],
+    "headline": "Hayward Holdings Raises FY2026 Adj EPS Guidance from $0.84-$0.87 to $0.86-$0.88 vs $0.86 Est; Raises FY2026 Sales Guidance from $1.178B to $1.178B-$1.189B vs $1.182B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T15:49:17.603292-04:00",
+    "symbols": [
+      "HAYW"
+    ],
+    "headline": "Hayward Holdings Q3 Adj. EPS $0.18 Beats $0.15 Estimate, Sales $260.100M Beat $252.517M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

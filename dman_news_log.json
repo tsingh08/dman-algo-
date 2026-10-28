@@ -1,615 +1,5 @@
 [
   {
-    "ts": "2026-10-28T14:14:05.662824-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA Fed Interest Rate Decision 4.00% Vs 4.00% Est. (Unchanged)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:14:06.060344-04:00",
-    "symbols": [
-      "ACRS"
-    ],
-    "headline": "Wedbush Maintains Outperform on Aclaris Therapeutics, Lowers Price Target to $8",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:14:08.347461-04:00",
-    "symbols": [
-      "GERN"
-    ],
-    "headline": "Needham Maintains Buy on Geron, Lowers Price Target to $2.5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:14:08.351472-04:00",
-    "symbols": [
-      "GERN"
-    ],
-    "headline": "Penny Stock Geron Ends Advanced Cancer Study, Shifts Focus to Commercial Growth",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:14:13.879260-04:00",
-    "symbols": [
-      "SKHU"
-    ],
-    "headline": "SK Hynix\u2019s 80% Profit Margin Fuels AI Frenzy: Should Investors Bet on 2X ETFs?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:14:14.343108-04:00",
-    "symbols": [
-      "VRT"
-    ],
-    "headline": "Vertiv Stock Rallies 14% as Orders More Than Double: Bank of America Still Sees 55% Upside",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:14:17.442638-04:00",
-    "symbols": [
-      "GENB"
-    ],
-    "headline": "Anthropic Announces Strategic Partnership with Generate Biomedicines for Autonomous Drug Discovery",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:14:18.969122-04:00",
-    "symbols": [
-      "HAYW"
-    ],
-    "headline": "Hayward Holdings Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:14:19.601120-04:00",
-    "symbols": [
-      "ETSY"
-    ],
-    "headline": "BTIG Maintains Buy on Etsy, Raises Price Target to $102",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:21:20.252624-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "Spotify Launches 'Spotify 360' Premium Experience",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:21:20.371879-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Novo Nordisk Loses Court Bid Against Eli Lilly\u2019s Weight-Loss Drug Ads \u2014 Judge Says Sales Impact Was Negligible (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T14:21:20.377256-04:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Freeport-McMoRan, Lowers Price Target to $79",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:26:05.076834-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Robinhood Gets $160 Bernstein Target as \u2018Infrastructure Business\u2019 Shift Offsets Q4 Concerns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:26:05.263979-04:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "BMO Capital Maintains Market Perform on Enphase Energy, Lowers Price Target to $25",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T14:26:08.716675-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "&#39;U.S. Federal Trade Commission Is Demanding Information On Personalized Pricing And Wage Setting Strategies From Walmart, Target, Uber, Lyft, DoorDash, Instacart, Delta, United And JetBlue&#39; - Reuters Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T14:26:12.476873-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "BMO Capital Maintains Outperform on Visa, Raises Price Target to $438",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T14:26:14.187037-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fitch Ratings Says Emerging Threats To AI Capex Boom, Geopolitical Risks In Middle East, Tightened Funding Point To Heightened Risk Environment Into 2027; Material Reassessment Of Long-Term AI Monetization Prospects Could Result In Reduction In Capex, With Implications Across AI Value Chain; If Oil Supplies Through Hormuz Strait Continue To Be Hampered Beyond 1Q27, Then Higher Oil Price Scenario Than Our Base Case Would Materialize",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:26:18.304784-04:00",
-    "symbols": [
-      "JBLU"
-    ],
-    "headline": "&#39;U.S. Federal Trade Commission Is Demanding Information On Personalized Pricing And Wage Setting Strategies From Walmart, Target, Uber, Lyft, DoorDash, Instacart, Delta, United And JetBlue&#39; - Reuters Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T14:37:34.747851-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;U.S. DOJ Examining NVIDIA Acquisition Of AI Platform Hugging Face, Two People Say&#39; - Reuters Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:37:35.158279-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Platforms Delaying Indefinitely Rollout Of Its New Commercial Terms; Consultation With Publishers&#39; On This Topic Could Extend Beyond November 20, In Which Case Meta Would Delay Implementation Of Updated Terms; Until Then, Meta&#39;s Existing Terms Remain In Place",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T14:37:51.374469-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Targets $30B+ Free Cash Flow In FY29; Reaffirms FY27 Outlook: $90 B+ Revenue, $8.1 Non-Gaap EPS; To Limit Additional Capital Raises To $20B Through FY30; Expects Capital Expenses To Decrease In FY29 Supporting $30B+ Free Cash Flow; To Self-fund Growth Beginning FY29; Net Debt To Adj EBITDA Below 3.5x In FY29",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:37:51.378609-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Sets FY30 Outlook: $225B+ Revenue, 40%+ Non-Gaap Operating Margin, $21+ Non-Gaap EPS",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:37:51.738443-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed Chair Warsh Says Discussed Geopolitics, Technology; Not Surprised By Financial Market Volatility; Not Surprised By Market Volatility Bouts; Real Activity Pointing In Right Direction; Inflation Is Too High; Our Job Is To Ensure That Relative Price Changes In Some Sectors Do Not Broaden; Our Job Is To Ensure That Relative Price Changes Do Not Broaden Out, And That Inflation Expectations Remain Anchored As They Are; Made Clear Our Readiness To Act",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:37:51.742064-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed Chair Warsh Says Our Responsibility Is To Get Inflation Down; Discussion Focused Mostly On Inflation; Discussion At Fed Focused Mainly On Price Stability Remit; Credit Conditions Have Tightened; Market Participants More Discerning In Capital Allocations; Unwilling And Unable To Call Financial Conditions Tight; Committee Had A Good Discussion; But They Go In Direction Of More Durable Economic Growth, Price Stability",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:37:51.745358-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed Chair Warsh Says The Committee Believes More Information Will Help Determine Appropriate Policy Stance; Committee Is Looking Out The Window, Has Not Grown Easier; Growth Has Strengthened; Q3 GDP Likely Above 3%; Business Investment Likely Rising By Double Digits; Business Investment Likely Rising At Double-Digit Pace; Payroll Growth Above Last Year&#39;s Pace; Employment Conditions Are Positive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:37:51.949285-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Fed Holds Rates, but Two Officials Push for Hike as Polymarket December Odds Hit 82%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:37:52.573755-04:00",
-    "symbols": [
-      "AMC"
-    ],
-    "headline": "AMC Entertainment Q3 Earnings Nov. 4: Can Record Run Continue?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:37:55.862115-04:00",
-    "symbols": [
-      "GT"
-    ],
-    "headline": "Goodyear Appoints Jerome Rouquet as Chief Financial Officer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T14:37:55.865962-04:00",
-    "symbols": [
-      "GT"
-    ],
-    "headline": "Goodyear Hosts Annual Toys for Tots Drive at Blimp Base",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T14:38:03.638509-04:00",
-    "symbols": [
-      "BRAI"
-    ],
-    "headline": "US Stocks Mixed; GE Vernova Earnings Top Views",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:38:03.642120-04:00",
-    "symbols": [
-      "BRAI"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:38:03.645588-04:00",
-    "symbols": [
-      "BRAI"
-    ],
-    "headline": "Why Ultra Clean Shares Are Trading Higher By Around 15%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:38:03.648824-04:00",
-    "symbols": [
-      "BRAI"
-    ],
-    "headline": "Braiin (BRAI) Stock Jumps 56% After Hours: What\u2019s Behind the Move",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:38:05.391269-04:00",
-    "symbols": [
-      "LUNG"
-    ],
-    "headline": "Stifel Maintains Buy on Pulmonx, Raises Price Target to $4",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T14:38:06.839309-04:00",
-    "symbols": [
-      "SSP"
-    ],
-    "headline": "E.W. Scripps Eliminates 431 Employees On Tuesday, Bringing Total Number This Year to ~850 Under Its Transformation Plan To Generate $125M - $150M Of Enterprise EBITDA Growth By 2028",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:38:06.844022-04:00",
-    "symbols": [
-      "SSP"
-    ],
-    "headline": "E.W. Scripps Raises FY26 Midterm Local Media Political Advertising Revenue Range From $225M- $250M To ~$275M  Reports Q3 Midterm Local Media Political Revenue Of ~$81M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:38:07.935194-04:00",
-    "symbols": [
-      "ICLR"
-    ],
-    "headline": "Icon Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T14:38:09.433522-04:00",
-    "symbols": [
-      "WING"
-    ],
-    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:49:26.502711-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Analyst Signals Favorable Earnings Setup for Mastercard After Visa&#39;s Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T14:49:26.703844-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Analyst Signals Favorable Earnings Setup for Mastercard After Visa&#39;s Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:49:28.353814-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle CFO Says Capital Needs To Complete Current Investment Cycle Have Been Set At $20 Bln, Split Evenly Between Debt And Equity; Says Company May Begin Executing $20B Financing Plan As Early As Calendar 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:49:28.840853-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed Chair Warsh Says I Am Not Some Kind Of All-knowing Person Sending Messages Out; Do Not Anticipate Issuing A Policy Statement At Strategy Meetings; Decision On New Format For FOMC Meetings Is New, Details Are Still To Come, &#34;No Ifs And Or Buts, We Will Deliver Price Stability&#34;; 5 Task Forces Are Hard At Work, Have Done Periodic Check-Ins; Some Of The Task Forces Will Hit Year-End Deadline; What We&#39;ve Done in Monetary Medicine Starting to Work Some, No Firm Conclusion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:49:28.846044-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed Chair Warsh Says Inflation Expectations Have Gone The Right Way; Inflation Expectations, Amid Unsettled World, Have Gone The Right Way; I Feel Good About The Signposts; Period In Front Of Us Is Information Rich; Encouraged By Progress We&#39;ve Made; We&#39;re Working On Delivery Price Stability; The Overwhelming Judgement At The FOMC Is That Monetary Medicine Is Starting To Work; We Decided To Take Stock Of Where We Are, Ask If Period Ahead Will Provide More Clarity, Our Judgement Is That It Would",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:49:28.849693-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed Chair Warsh Says Since Policy Action In September We Have Started To See Changes In Financial, Credit Conditions; Ensuring Price Stability Is Not About A Fixed Date On A Calendar; Ensuring Price Stability, Quashing Inflation, Is Not About An Individual Date, Or An Isolated Data Point; The Fed Has Put In Place &#39;New Monetary Medicine&#39;;  In September We Removed A Dose Of Accommodation; Inflation Compensation As Measured By Swaps Is Going The Right Way",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:49:28.853163-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Warsh Says Information In Coming Period Will Help Us Determine Where We Want Policy To Be; We&#39;ve Decided To Change FOMC Schedule Next Fall; 8 Meetings Is Right Number A Year; One Meeting Will Not Have A Vote On Policy Rate; One Meeting Will Be Focused On Strategy; Expect In 2028 To Have 6 Policy-Setting Meetings; Important To Reserve Time And Space For Strategic Deliberations, Looking Out Over Longer Time Horizons; New Schedule Will Affect Nature, Quality Of Deliberations",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:49:29.055740-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Fed Just Paused, But Prediction Markets Aren&#39;t Buying It\u2014Polymarket Sees 82% December Hike Odds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:49:39.369266-04:00",
-    "symbols": [
-      "WEN"
-    ],
-    "headline": "Wendy&#39;s Confirms Receiving Trian Fund Management&#39;s Proposed $7.35 Per Share Acquisition Offer; No Assurance To Pursue Offer Or Not",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:49:42.438277-04:00",
-    "symbols": [
-      "GMAB"
-    ],
-    "headline": "Genmab A/S Announces Data From Its Phase 3 LiGeR-HN1 Study Of Petosemtamab Demonstrates 50% Death Risk Reduction For Treatment Of Head And Neck Squamous Cell Carcinoma",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:49:43.312747-04:00",
-    "symbols": [
-      "BEAM"
-    ],
-    "headline": "Wedbush Maintains Outperform on Beam Therapeutics, Lowers Price Target to $28",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:49:43.867006-04:00",
-    "symbols": [
-      "GEHC"
-    ],
-    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T14:49:44.281324-04:00",
-    "symbols": [
-      "EVR"
-    ],
-    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T14:49:44.457061-04:00",
-    "symbols": [
-      "HAYW"
-    ],
-    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:49:44.670151-04:00",
-    "symbols": [
-      "JLL"
-    ],
-    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:49:44.674190-04:00",
-    "symbols": [
-      "JLL"
-    ],
-    "headline": "Jones Lang LaSalle Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:57:21.726705-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "OpenAI Jumps 32%, Airtable Crashes 56% As Private Market Returns Diverge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T14:57:22.101910-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "High-Yield ETFs for Retirement: Why JEPI, QQQI Could Come with a Catch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T14:57:22.368808-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "High-Yield ETFs for Retirement: Why JEPI, QQQI Could Come with a Catch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T14:57:22.371970-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T14:57:22.787667-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "High-Yield ETFs for Retirement: Why JEPI, QQQI Could Come with a Catch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:57:22.790505-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Live On CNBC, Bill Baruch Announces Trimmed Nvidia Position; Trimmed Micron Technology; Trimmed Broadcom",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:57:23.112518-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Microsoft Earnings Prediction Market Preview: What Will Satya Nadella Say?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-28T14:57:25.014573-04:00",
     "symbols": [
       "CRM"
@@ -4735,6 +4125,616 @@
       "HAYW"
     ],
     "headline": "Hayward Holdings Q3 Adj. EPS $0.18 Beats $0.15 Estimate, Sales $260.100M Beat $252.517M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T15:55:50.830792-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Could Keep Starship Cost Savings Instead of Cutting Launch Prices, Varda Executive Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T15:55:55.472258-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "SK Hynix Stock Is Undervalued, CFO Says, as AI Memory Profits Surge",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:55:56.194856-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "JP Morgan Maintains Neutral on Robinhood Markets, Lowers Price Target to $114",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:55:56.452330-04:00",
+    "symbols": [
+      "ENPH"
+    ],
+    "headline": "JP Morgan Maintains Neutral on Enphase Energy, Lowers Price Target to $29",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T15:56:09.402043-04:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "JP Morgan Maintains Overweight on Freeport-McMoRan, Lowers Price Target to $90",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:11.026295-04:00",
+    "symbols": [
+      "LPLA"
+    ],
+    "headline": "JP Morgan Maintains Overweight on LPL Finl Hldgs, Lowers Price Target to $413",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:11.030054-04:00",
+    "symbols": [
+      "LPLA"
+    ],
+    "headline": "TD Cowen Maintains Hold on LPL Finl Hldgs, Lowers Price Target to $356",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:11.034609-04:00",
+    "symbols": [
+      "LPLA"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on LPL Finl Hldgs, Lowers Price Target to $350",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:11.276906-04:00",
+    "symbols": [
+      "SLS"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T15:56:11.280639-04:00",
+    "symbols": [
+      "SLS"
+    ],
+    "headline": "SELLAS Life Sciences Stock Stumbles: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T15:56:11.284164-04:00",
+    "symbols": [
+      "SLS"
+    ],
+    "headline": "SELLAS Life Sciences Announces Its Pivotal Phase 3 Study Of Galinpepimut-S In Acute Myeloid Leukemia Participants Surpasses Pre-Specified 80th Event",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T15:56:11.502483-04:00",
+    "symbols": [
+      "RAPP"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T15:56:11.506207-04:00",
+    "symbols": [
+      "RAPP"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T15:56:11.509692-04:00",
+    "symbols": [
+      "RAPP"
+    ],
+    "headline": "Enphase Energy Posts Downbeat Q3 Results, Joins NXP Semiconductors, Seagate And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T15:56:11.758576-04:00",
+    "symbols": [
+      "KIDS"
+    ],
+    "headline": "Truist Securities Maintains Hold on OrthoPediatrics, Raises Price Target to $28",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:11.812978-04:00",
+    "symbols": [
+      "KIDS"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:11.878322-04:00",
+    "symbols": [
+      "KIDS"
+    ],
+    "headline": "TD Cowen Maintains Buy on OrthoPediatrics, Raises Price Target to $28",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:12.169387-04:00",
+    "symbols": [
+      "INBX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T15:56:12.423813-04:00",
+    "symbols": [
+      "OSS"
+    ],
+    "headline": "One Stop Systems Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T15:56:12.427622-04:00",
+    "symbols": [
+      "OSS"
+    ],
+    "headline": "One Stop Systems Enters ATM Equity Offering Worth Up To $50M With Piper Sandler",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T15:56:12.431246-04:00",
+    "symbols": [
+      "OSS"
+    ],
+    "headline": "One Stop Systems Q3 Adj. EPS $0.01, Inline, Sales $12.584M Beat $10.939M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T15:56:12.434833-04:00",
+    "symbols": [
+      "OSS"
+    ],
+    "headline": "One Stop Systems Raises FY2026 Sales Guidance from $40.270M-$41.881M to $45.102M vs $41.079M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T15:56:13.442118-04:00",
+    "symbols": [
+      "LSTR"
+    ],
+    "headline": "JP Morgan Maintains Neutral on Landstar System, Lowers Price Target to $172",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:13.445818-04:00",
+    "symbols": [
+      "LSTR"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:13.449393-04:00",
+    "symbols": [
+      "LSTR"
+    ],
+    "headline": "Truist Securities Maintains Hold on Landstar System, Lowers Price Target to $160",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:14.148081-04:00",
+    "symbols": [
+      "LII"
+    ],
+    "headline": "Lennox Intl Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T15:56:14.837277-04:00",
+    "symbols": [
+      "LAZR"
+    ],
+    "headline": "Michael Burry Says Anthropic\u2019s IPO Filing Has a Lot, but \u2018Nothing That Changes\u2019 His View: Big Short Investor Calls Out \u2018Slowing\u2019 Revenue Growth",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T15:56:15.973880-04:00",
+    "symbols": [
+      "SKHL"
+    ],
+    "headline": "SK Hynix\u2019s 80% Profit Margin Fuels AI Frenzy: Should Investors Bet on 2X ETFs?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T15:56:16.705586-04:00",
+    "symbols": [
+      "SEDG"
+    ],
+    "headline": "Enphase Energy Posts Downbeat Q3 Results, Joins NXP Semiconductors, Seagate And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T15:56:17.451636-04:00",
+    "symbols": [
+      "TRMK"
+    ],
+    "headline": "Trustmark Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:18.887926-04:00",
+    "symbols": [
+      "LH"
+    ],
+    "headline": "Labcorp Targets Margin Growth, Absorbs Policy Headwinds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:18.891631-04:00",
+    "symbols": [
+      "LH"
+    ],
+    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:18.895111-04:00",
+    "symbols": [
+      "LH"
+    ],
+    "headline": "Vertiv, Evercore, Brinker, GE HealthCare And Other Big Stocks Moving Higher On Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:18.898635-04:00",
+    "symbols": [
+      "LH"
+    ],
+    "headline": "Labcorp Hldgs Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:18.902161-04:00",
+    "symbols": [
+      "LH"
+    ],
+    "headline": "Labcorp Holdings Raises FY2026 Adj EPS Guidance from $18.10-$18.55 to $18.30-$18.70 vs $18.36 Est; Raises FY2026 Sales Guidance from $14.710B-$14.827B to $14.779B-$14.887B vs $14.749B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:19.131286-04:00",
+    "symbols": [
+      "OPFI"
+    ],
+    "headline": "OppFi Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T15:56:19.135052-04:00",
+    "symbols": [
+      "OPFI"
+    ],
+    "headline": "OppFi Q3 Adj. EPS $0.37 Beats $0.34 Estimate, Sales $149.230M Miss $152.869M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T15:56:19.138617-04:00",
+    "symbols": [
+      "OPFI"
+    ],
+    "headline": "OppFi Narrows FY2026 Adj EPS Guidance from $1.34-$1.51 to $1.34-$1.40 vs $1.41 Est; Narrows FY2026 Sales Guidance from $600.000M-$625.000M to $600.000M-$610.000M vs $611.358M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T15:56:20.570822-04:00",
+    "symbols": [
+      "PB"
+    ],
+    "headline": "CORRECTION: Prosperity Bancshares Q3 Adj. EPS $1.67 Beats $1.39 Estimate, Sales $497.350M Beat $491.186M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T15:56:20.574533-04:00",
+    "symbols": [
+      "PB"
+    ],
+    "headline": "Prosperity Bancshares Q3 Adj. EPS $1.18 Misses $1.39 Estimate, Sales $497.350M Beat $491.186M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T15:56:20.809763-04:00",
+    "symbols": [
+      "RNR"
+    ],
+    "headline": "RenaissanceRe Holdings Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:21.035681-04:00",
+    "symbols": [
+      "RNST"
+    ],
+    "headline": "Renasant Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T15:56:21.287444-04:00",
+    "symbols": [
+      "INTA"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:21.291171-04:00",
+    "symbols": [
+      "INTA"
+    ],
+    "headline": "Enphase Energy Posts Downbeat Q3 Results, Joins NXP Semiconductors, Seagate And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:21.294615-04:00",
+    "symbols": [
+      "INTA"
+    ],
+    "headline": "Why Ultra Clean Shares Are Trading Higher By Around 15%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:21.765928-04:00",
+    "symbols": [
+      "LOGI"
+    ],
+    "headline": "Morgan Stanley Maintains Underweight on Logitech International, Raises Price Target to $94",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:21.769589-04:00",
+    "symbols": [
+      "LOGI"
+    ],
+    "headline": "Barclays Maintains Equal-Weight on Logitech International, Raises Price Target to $110",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:21.773074-04:00",
+    "symbols": [
+      "LOGI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:21.776497-04:00",
+    "symbols": [
+      "LOGI"
+    ],
+    "headline": "Enphase Energy Posts Downbeat Q3 Results, Joins NXP Semiconductors, Seagate And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:21.779935-04:00",
+    "symbols": [
+      "LOGI"
+    ],
+    "headline": "Why Ultra Clean Shares Are Trading Higher By Around 15%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:22.019922-04:00",
+    "symbols": [
+      "NOV"
+    ],
+    "headline": "NOV Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T15:56:22.236449-04:00",
+    "symbols": [
+      "STX"
+    ],
+    "headline": "Seagate Technology\u2019s Solid Q1 Results Fall Short Of High Expectations; Guidance Reflects \u2018Steep Slowdown\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:22.240186-04:00",
+    "symbols": [
+      "STX"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Seagate Technology Hldgs, Lowers Price Target to $820",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:22.243677-04:00",
+    "symbols": [
+      "STX"
+    ],
+    "headline": "TD Cowen Maintains Buy on Seagate Technology Hldgs, Lowers Price Target to $900",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:22.247136-04:00",
+    "symbols": [
+      "STX"
+    ],
+    "headline": "These Analysts Revise Their Forecasts On Seagate After Q1 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:22.250550-04:00",
+    "symbols": [
+      "STX"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500, Nasdaq 100 Futures Gain Ahead of Federal Reserve Interest Rate Decision\u2014 SKHY, STX, V, GOOGL in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:22.690652-04:00",
+    "symbols": [
+      "TAN"
+    ],
+    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T15:56:22.921650-04:00",
+    "symbols": [
+      "SLDE"
+    ],
+    "headline": "Barclays Maintains Overweight on Slide Insurance Holdings, Raises Price Target to $30",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:22.925362-04:00",
+    "symbols": [
+      "SLDE"
+    ],
+    "headline": "Citizens Maintains Market Outperform on Slide Insurance Holdings, Raises Price Target to $33",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:22.928842-04:00",
+    "symbols": [
+      "SLDE"
+    ],
+    "headline": "Slide Insurance Holdings Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T15:56:23.151888-04:00",
+    "symbols": [
+      "INSE"
+    ],
+    "headline": "Inspired Entertainment to Report Third Quarter 2026 Financial Results on November 5, 2026",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

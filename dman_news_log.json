@@ -1,605 +1,5 @@
 [
   {
-    "ts": "2026-10-28T09:56:49.243252-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Verisk Integrates Amazon Quick, Microsoft Copilot, Claude Into Its Operations",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:49.249043-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "\u2018Hard to Know If We\u2019re in an AI Bubble\u2019 Jeff Bezos Says, But Should a Retiree Buy AI Stocks? \u2014 \u2018I Would Usually Tell a Retiree to Buy the S&amp;P 500\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:49.254474-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "YouTube Is Beating Netflix in the Living Room, but Crypto Bettors Doubt a $12 Billion Ad Quarter for the Alphabet Platform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:49.508640-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Bill Ackman\u2019s Test for a Great Stock: Should Be &#39;Enormously Valuable&#39; Even if Markets Shut for 20 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:49.513632-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Verisk Integrates Amazon Quick, Microsoft Copilot, Claude Into Its Operations",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:49.518170-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "\u2018Hard to Know If We\u2019re in an AI Bubble\u2019 Jeff Bezos Says, But Should a Retiree Buy AI Stocks? \u2014 \u2018I Would Usually Tell a Retiree to Buy the S&amp;P 500\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:49.523362-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Bernie Sanders Slams Microsoft Over 60,000 Workers Facing Buyouts and Trump-Era Tax Breaks Amid Billions in Profits: \u2018A Total Scam\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:49.528145-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Jeff Bezos Just Got a New Boost in His Rivalry With Elon Musk \u2014 Amazon Wins FCC Approval for $11.5 Billion Globalstar Deal to Expand Satellite Connectivity",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:49.848001-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "\u2018Evil Is Better Than Bad\u2019 \u2014 Peter Thiel&#39;s Unsettling Defense of Elon Musk",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T09:56:49.853597-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Jim Farley Says Ford\u2019s Upcoming $30,000 Cybertruck Rival Can Power Owners\u2019 Homes Without a Wall-Mounted Inverter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T09:56:49.858172-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Cathie Wood Predicts Oil Crashing to $30-$35 a Barrel as EVs Take Over Transportation: Says Demand Is &#39;Peaking\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T09:56:49.863200-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Gary Black Has a Warning for Tesla Bulls Betting on Robotaxi Dominance: Same \u2018Delusional Thinking\u2019 That Underestimated Chinese EV Rivals",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T09:56:49.868364-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Elon Musk Says Tesla Robotaxi Expansion to Miami, Tampa Beaches Is \u2018Coming Soon\u2019 After Ron DeSantis\u2019 Call for Expansion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T09:56:50.098891-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Bill Ackman\u2019s Test for a Great Stock: Should Be &#39;Enormously Valuable&#39; Even if Markets Shut for 20 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:50.103532-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "&#39;Top Treasury trade official leaving for Netflix&#39; - Axios",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:50.108091-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "YouTube Is Beating Netflix in the Living Room, but Crypto Bettors Doubt a $12 Billion Ad Quarter for the Alphabet Platform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:50.379079-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce Investments Enters Agreement with Solomei AI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:50.384285-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce Expands Agent Fabric with New Evaluation and Guardrail Tools",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:50.886538-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "\u2018Evil Is Better Than Bad\u2019 \u2014 Peter Thiel&#39;s Unsettling Defense of Elon Musk",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:51.131353-04:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Aramas AI Announces Agent Launchpad Program on Supermicro Infrastructure",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:51.390223-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "D.A. Davidson Upgrades Broadcom to Buy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:51.644804-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "SK Hynix\u2019s 80% Profit Margin Fuels AI Frenzy: Should Investors Bet on 2X ETFs?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:51.650086-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "EXCLUSIVE: SK Hynix Soars 11% on Record Profit, But This Expert Says Samsung Will Lead HBM in 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:51.655160-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Why Is Micron Technology Stock Surging Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:51.660347-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "SK Hynix&#39;s AI Gold Rush Sends Profits Soaring 632% \u2014 but One Analyst Says Buy Micron or Samsung Instead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:51.665039-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "SK Hynix (SKHY) Stock Climbs In Pre-Market: Here\u2019s What You Should Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:51.890467-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "SK Hynix\u2019s 80% Profit Margin Fuels AI Frenzy: Should Investors Bet on 2X ETFs?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:51.895337-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "CORRECTION: SK Hynix Q3 Revenue \u20a9104.62 Trillion Vs \u20a998.34 Trillion Est.; Operating Profit \u20a983.33 Trillion Vs \u20a976.72 Trillion Est.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:51.901516-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "RBC Capital Reiterates Outperform on SK hynix, Maintains $200 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:51.907086-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Nasdaq 100 Futures Gain Ahead of Federal Reserve Interest Rate Decision\u2014 SKHY, STX, V, GOOGL in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:51.913060-04:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "SK hynix Inc. - American Depositary Shares Q3 EPS $3.84 Misses $5.96 Estimate, Sales $73.858B Beat $66.410B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:52.374908-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Here&#39;s How Much $1000 Invested In Marvell Technology 5 Years Ago Would Be Worth Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:52.826841-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "onsemi Nears Acquisition of Ferric for Approximately $1 Billion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:56:53.044184-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Wells Fargo Maintains Equal-Weight on Robinhood Markets, Lowers Price Target to $100",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:53.050200-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Scotiabank Maintains Sector Outperform on Robinhood Markets, Lowers Price Target to $124",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:53.054860-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Robinhood Stock Tumbles Over 6%: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:53.059415-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Citizens Reiterates Market Outperform on Robinhood Markets, Maintains $165 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:53.064808-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Keybanc Maintains Overweight on Robinhood Markets, Lowers Price Target to $135",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:53.309288-04:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "'A Rivian Commercial Van Wrapped In Walmart+ Branding Was Spotted On A Car Hauler On Tuesday, The Latest In A String Of Sightings Of The Vans In Other Companies\u2019 Colors That Neither Rivian Nor The Brands Involved Have Confirmed' - EV",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:53.576083-04:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "This Whirlpool Analyst Turns Bearish; Here Are Top 5 Downgrades For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T09:56:53.581637-04:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "Susquehanna Maintains Neutral on Enphase Energy, Lowers Price Target to $26",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T09:56:53.587257-04:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "GLJ Research Reiterates Sell on Enphase Energy, Maintains $21.49 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T09:56:53.592778-04:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "Coca-Cola To Rally Around 13%? Here Are 10 Top Analyst Forecasts For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T09:56:53.598098-04:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T09:56:54.058857-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "&#39;Trump Administration Backs Down on an Opioid Ban After Kratom Industry Lobbying&#39; - NY Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:54.064499-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly Reports Phase 3 TRANSCEND-T2D-2 Results, With Retatrutide Achieving Greater A1C Reduction And Weight Loss Than Ozempic In Adults With Type 2 Diabetes",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:54.069940-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Top Wall Street Forecasters Revamp Eli Lilly Expectations Ahead Of Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:54.299748-04:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "Biogen Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:54.305312-04:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "Biogen Exec Expects Growth From Apellis Acquisition Even Without The Pipeline",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:54.311350-04:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "Biogen Exec Says Expecting Growth From Apellis Acquisition Even Without The Pipeline; Our Ambition Is Over The Next Few Years To Have At Least 20 Programs In Early Stage Development",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:54.317620-04:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "CORRECTION: Biogen Narrows FY2026 Adj EPS Guidance from $15.85-$16.85 to $15.95-$16.75 vs $12.36 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:54.322827-04:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "Biogen Q3 Adj. EPS $2.62 Beats $1.98 Estimate, Sales $2.804B Beat $2.632B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T09:56:54.577341-04:00",
-    "symbols": [
-      "VRTX"
-    ],
-    "headline": "&#39;Trump Administration Backs Down on an Opioid Ban After Kratom Industry Lobbying&#39; - NY Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:54.808493-04:00",
-    "symbols": [
-      "RBLX"
-    ],
-    "headline": "Coca-Cola To Rally Around 13%? Here Are 10 Top Analyst Forecasts For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:56:54.813221-04:00",
-    "symbols": [
-      "RBLX"
-    ],
-    "headline": "BTIG Maintains Sell on Roblox, Raises Price Target to $42",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:56:55.038473-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "President Capital Management Downgrades Spotify Technology to Neutral From Buy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:56:55.043752-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "Quebec Government to Negotiate French Content Quotas with Spotify",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T09:56:55.268287-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Trump Says Iran Wants a Deal as 1 Million Barrels of Venezuelan Oil Arrive in Texas Ahead of Midterms: &#39;It&#39;s a Question of When Do I Want to End It&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:55.274943-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Trump Could Allow More Russian Diesel Into US to Push Putin Toward Peace \u2014 But Energy Secretary Says There\u2019s a Catch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T09:56:55.505934-04:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Rocket Lab Stock Is Trending As Military Satellite Production Comes Into Focus: \u2018Eight Of 18 Spacecraft Are On The Floor Right Now\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-28T09:56:55.729133-04:00",
     "symbols": [
       "APP"
@@ -4995,6 +4395,606 @@
       "LAZR"
     ],
     "headline": "Anthropic IPO Hype Builds as LAZR ETF Expands Exposure to AI\u2019s Private-Market Giant",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:49:12.555502-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Watching Space Exploration Technologies; Shares Fall To Downside, Traders Circulate Russia&#39;s Putin Calls Elon Musk A \u201cTrue Genius\u201d As Russia Develops Rassvet Satellite Network To Rival SpaceX\u2019s Starlink; He Acknowledged Russia Remains Far Behind SpaceX, Which Has Thousands Of Satellites In Orbit",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:49:12.560895-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Google Earnings Prediction Market Preview: What Will Sundar Pichai Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:49:12.566271-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "\u2018Evil Is Better Than Bad\u2019 \u2014 Peter Thiel&#39;s Unsettling Defense of Elon Musk",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:49:12.818961-04:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nebius Group Secures Funding for France Data Center",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T11:49:13.078303-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Delta Air, American Tower, Apple And A Health Care: CNBC\u2019s \u2018Final Trades\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:49:13.083837-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "\u2018Hard to Know If We\u2019re in an AI Bubble\u2019 Jeff Bezos Says, But Should a Retiree Buy AI Stocks? \u2014 \u2018I Would Usually Tell a Retiree to Buy the S&amp;P 500\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:49:13.088390-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Kevin O&#39;Leary Warns Investors Could Get &#39;Slaughtered&#39; by Ignoring Diversification, Shares His 5% Stock and 20% Sector Rule",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:49:13.093473-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Korea Media And Communications Commission Orders Google And Apple To Allow External Payments, Improve Commission Structures; Imposes KRW 42.9B (~$32M) Penalty On Google, KRW 20.81B On Apple",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:49:13.330654-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Bill Ackman\u2019s Test for a Great Stock: Should Be &#39;Enormously Valuable&#39; Even if Markets Shut for 20 Years",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:49:13.808792-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Susquehanna Maintains Positive on Advanced Micro Devices, Raises Price Target to $650",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:49:14.082361-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Bill Ackman\u2019s Test for a Great Stock: Should Be &#39;Enormously Valuable&#39; Even if Markets Shut for 20 Years",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:49:14.087758-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Reported Earlier, Meta Launches Muse Personal AI Agent In Singapore With Connectors To Shopee, Grab, Singapore Airlines, Agoda, ShopBack, Klook, Trip.com And Lazada",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:49:14.348294-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google Earnings Prediction Market Preview: What Will Sundar Pichai Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:49:14.353606-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500, Nasdaq 100 Futures Gain Ahead of Federal Reserve Interest Rate Decision\u2014 SKHY, STX, V, GOOGL in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:49:14.358513-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Verisk Integrates Amazon Quick, Microsoft Copilot, Claude Into Its Operations",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:49:14.809963-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "\u2018Evil Is Better Than Bad\u2019 \u2014 Peter Thiel&#39;s Unsettling Defense of Elon Musk",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T11:49:14.815598-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Jim Farley Says Ford\u2019s Upcoming $30,000 Cybertruck Rival Can Power Owners\u2019 Homes Without a Wall-Mounted Inverter",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T11:49:14.820257-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Cathie Wood Predicts Oil Crashing to $30-$35 a Barrel as EVs Take Over Transportation: Says Demand Is &#39;Peaking\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T11:49:14.824783-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Gary Black Has a Warning for Tesla Bulls Betting on Robotaxi Dominance: Same \u2018Delusional Thinking\u2019 That Underestimated Chinese EV Rivals",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T11:49:15.075691-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Bill Ackman\u2019s Test for a Great Stock: Should Be &#39;Enormously Valuable&#39; Even if Markets Shut for 20 Years",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:49:15.080839-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "&#39;Top Treasury trade official leaving for Netflix&#39; - Axios",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:49:15.085594-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "YouTube Is Beating Netflix in the Living Room, but Crypto Bettors Doubt a $12 Billion Ad Quarter for the Alphabet Platform",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:49:15.771275-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "\u2018Evil Is Better Than Bad\u2019 \u2014 Peter Thiel&#39;s Unsettling Defense of Elon Musk",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:49:16.593048-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "SK Hynix\u2019s 80% Profit Margin Fuels AI Frenzy: Should Investors Bet on 2X ETFs?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:49:16.598656-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "EXCLUSIVE: SK Hynix Soars 11% on Record Profit, But This Expert Says Samsung Will Lead HBM in 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:49:16.604734-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Why Is Micron Technology Stock Surging Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:49:17.792673-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Markets Posts Record Q3 Revenues, Shares Drop on Soft Start to Q4",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:49:18.467854-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Says Retatrutide Delivers More Than Double Ozempic\u2019s Weight Loss in Late-Stage Diabetes Trial",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:49:20.067662-04:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Google Earnings Prediction Market Preview: What Will Sundar Pichai Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:49:29.080618-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Google Earnings Prediction Market Preview: What Will Sundar Pichai Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:49:29.747013-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Dot-Com Style Rotation? Strategists Warn Improving Market Breadth Could Be A Bull Trap: &#39;Be Careful What You Wish For&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:49:30.896038-04:00",
+    "symbols": [
+      "ARRY"
+    ],
+    "headline": "Guggenheim Maintains Buy on Array Technologies, Lowers Price Target to $6",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T11:49:32.739870-04:00",
+    "symbols": [
+      "DGXX"
+    ],
+    "headline": "Digi Power X to Announce 2026 Q3 Financial Results and Provide Operations Update on November 13th",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:49:37.645103-04:00",
+    "symbols": [
+      "STLA"
+    ],
+    "headline": "Stellantis CEO Says Cost Savings Will &#39;Multiply&#39; As Turnaround Picks up Speed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:49:41.051034-04:00",
+    "symbols": [
+      "ELPW"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:49:41.055661-04:00",
+    "symbols": [
+      "ELPW"
+    ],
+    "headline": "Why Ultra Clean Shares Are Trading Higher By Around 15%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:49:41.060115-04:00",
+    "symbols": [
+      "ELPW"
+    ],
+    "headline": "Elong Power Subsidiary Enters $25.5M One-Year Omnichannel Cooperation Agreement With Automatic Renewal Clause, Delivers First Batch Worth About $0.84M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:49:42.378231-04:00",
+    "symbols": [
+      "GCTK"
+    ],
+    "headline": "Glucotrack Subsidiary Lokahi Therapeutics Secures First Fee-for-Service Partnership",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:49:48.108146-04:00",
+    "symbols": [
+      "WEN"
+    ],
+    "headline": "Wendy&#39;s Stock Jumps as Peltz Returns With $1.4 Billion Cash Bid",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:49:48.548751-04:00",
+    "symbols": [
+      "DCX"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:49:50.977800-04:00",
+    "symbols": [
+      "BENF"
+    ],
+    "headline": "Beneficient Plans To Eliminate HCLP Debt, Complete Separation From Former CEO Brad Heppner",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:49:51.208999-04:00",
+    "symbols": [
+      "GEHC"
+    ],
+    "headline": "GE HealthCare Techs Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T11:49:52.507211-04:00",
+    "symbols": [
+      "LCII"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:49:52.512204-04:00",
+    "symbols": [
+      "LCII"
+    ],
+    "headline": "LCI Industries Receives Unsolicited, Non-Binding Takeover Proposal From Monomoy Capital Partners For $101/Share In Cash; Existing Merger Agreement With Patrick Remains In Place",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:49:52.958339-04:00",
+    "symbols": [
+      "BLCO"
+    ],
+    "headline": "Bausch &amp; Lomb Q3 Adj. EPS $0.34 Beats $0.22 Estimate, Sales $1.375B Beat $1.373B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:49:52.963174-04:00",
+    "symbols": [
+      "BLCO"
+    ],
+    "headline": "Bausch &amp; Lomb Raises FY2026 Sales Guidance from $5.440B-$5.540B to $5.450B-$5.550B vs $5.496B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:49:53.643924-04:00",
+    "symbols": [
+      "JLL"
+    ],
+    "headline": "Jones Lang LaSalle Q3 Adj. EPS $6.76 Beats $6.16 Estimate, Sales $7.281B Beat $7.239B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T11:49:54.080348-04:00",
+    "symbols": [
+      "OSW"
+    ],
+    "headline": "OneSpaWorld Raises Quarterly Dividend From $0.05 To $0.0625 Per Share; Approves New $100M Share Repurchase Program",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:49:54.085441-04:00",
+    "symbols": [
+      "OSW"
+    ],
+    "headline": "OneSpaWorld Hldgs Sees Q4 Sales $248.000M-$253.000M vs $252.853M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:49:54.089974-04:00",
+    "symbols": [
+      "OSW"
+    ],
+    "headline": "OneSpaWorld Holdings Q3 Adj. EPS $0.34 Beats $0.31 Estimate, Sales $276.532M Beat $272.345M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:49:54.314294-04:00",
+    "symbols": [
+      "ENSG"
+    ],
+    "headline": "Ensign Group Q3 Adj. EPS $2.03 Beats $1.97 Estimate, Sales $1.484B Miss $1.506B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T11:49:54.319513-04:00",
+    "symbols": [
+      "ENSG"
+    ],
+    "headline": "Ensign Group Raises FY2026 GAAP EPS Guidance from $7.75-$7.85 to $7.94-$8.02 vs $7.09 Est; Raises FY2026 Sales Guidance from $5.870B-$5.920B to $5.890B-$5.920B vs $5.905B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T11:49:54.757130-04:00",
+    "symbols": [
+      "JMKE"
+    ],
+    "headline": "Jersey Mike&#39;s Subs Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:49:54.762633-04:00",
+    "symbols": [
+      "JMKE"
+    ],
+    "headline": "UPDATE: Jersey Mike\u2019s Subs Q3 Adj. EPS $0.23 Beats $0.15 Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:49:54.767679-04:00",
+    "symbols": [
+      "JMKE"
+    ],
+    "headline": "Jersey Mike\u2019s Q3 Same-store sales +3%, Systemwide Sales +11% Y/Y",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:49:54.772420-04:00",
+    "symbols": [
+      "JMKE"
+    ],
+    "headline": "Jersey Mike\u2019s Subs Announces $100M Share Repurchase Authorization And Special Cash Dividend Of $0.35 Per Share Of Class A Common Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:49:54.776936-04:00",
+    "symbols": [
+      "JMKE"
+    ],
+    "headline": "Jersey Mike\u2019s Subs Q3 EPS $0.23 Beats $0.09 Estimate, Sales $209.000M Beat $208.637M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:49:55.011531-04:00",
+    "symbols": [
+      "TEX"
+    ],
+    "headline": "Terex Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:49:55.016196-04:00",
+    "symbols": [
+      "TEX"
+    ],
+    "headline": "Terex Narrows FY2026 GAAP EPS Guidance from $4.70-$5.10 to $4.80-$5.00 vs $2.58 Est; Raises FY2026 Sales Guidance from $7.900B-$8.200B to $8.000B-$8.200B vs $8.148B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T11:49:55.020822-04:00",
+    "symbols": [
+      "TEX"
+    ],
+    "headline": "Terex Q3 Adj. EPS $1.50 Beats $1.42 Estimate, Sales $2.197B Beat $2.168B Estimate",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

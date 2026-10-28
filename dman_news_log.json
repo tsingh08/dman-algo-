@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-28T12:45:08.718484-04:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T12:45:12.260740-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Live On CNBC, Bill Baruch Announces Trimmed CrowdStrike Position",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T12:45:12.737572-04:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Cloudflare, Raises Price Target to $400",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T12:45:12.964159-04:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Datadog, Raises Price Target to $325",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T12:45:13.750193-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Scaramucci Calls Elizabeth Warren \u2018the Joke of Jokes,\u2019 Accuses Her of Echoing Bank Lobbyists",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T12:45:17.936226-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "Jim Cramer Says People Selling This Stock Don&#39;t Have Brains",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-28T12:45:19.292890-04:00",
     "symbols": [
       "JPM"
@@ -4998,5 +4938,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T14:26:05.076834-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Gets $160 Bernstein Target as \u2018Infrastructure Business\u2019 Shift Offsets Q4 Concerns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T14:26:05.263979-04:00",
+    "symbols": [
+      "ENPH"
+    ],
+    "headline": "BMO Capital Maintains Market Perform on Enphase Energy, Lowers Price Target to $25",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T14:26:08.716675-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "&#39;U.S. Federal Trade Commission Is Demanding Information On Personalized Pricing And Wage Setting Strategies From Walmart, Target, Uber, Lyft, DoorDash, Instacart, Delta, United And JetBlue&#39; - Reuters Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T14:26:12.476873-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "BMO Capital Maintains Outperform on Visa, Raises Price Target to $438",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T14:26:14.187037-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fitch Ratings Says Emerging Threats To AI Capex Boom, Geopolitical Risks In Middle East, Tightened Funding Point To Heightened Risk Environment Into 2027; Material Reassessment Of Long-Term AI Monetization Prospects Could Result In Reduction In Capex, With Implications Across AI Value Chain; If Oil Supplies Through Hormuz Strait Continue To Be Hampered Beyond 1Q27, Then Higher Oil Price Scenario Than Our Base Case Would Materialize",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T14:26:18.304784-04:00",
+    "symbols": [
+      "JBLU"
+    ],
+    "headline": "&#39;U.S. Federal Trade Commission Is Demanding Information On Personalized Pricing And Wage Setting Strategies From Walmart, Target, Uber, Lyft, DoorDash, Instacart, Delta, United And JetBlue&#39; - Reuters Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

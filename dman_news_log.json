@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-10-28T10:08:55.866218-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Airbnb Supports Playing for Keeps Foundation Initiative",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:08:56.973014-04:00",
-    "symbols": [
-      "LUNR"
-    ],
-    "headline": "Why Is Intuitive Machines Stock Surging on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T10:08:57.725697-04:00",
-    "symbols": [
-      "NRG"
-    ],
-    "headline": "Wells Fargo Adjusts Price Target on NRG Energy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T10:08:57.961071-04:00",
-    "symbols": [
-      "TLN"
-    ],
-    "headline": "Wells Fargo Adjusts Talen Energy Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T10:08:58.662934-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "US Stocks Mixed; GE Vernova Earnings Top Views",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:08:58.889947-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Lockheed Martin Receives $694M U.S. Air Force Contract To Manufacture Air-Launched Rapid Response Weapon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:08:59.598345-04:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "Eaton Mobility Transaction Status Update",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:09:00.048144-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs Joins Equilend's 1Source DLT Platform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T10:09:00.312319-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Evercore ISI Group Maintains In-Line on Visa, Raises Price Target to $405",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T10:09:00.852168-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "&#39;Trump To Announce Relaxed Rules On Oil Firms\u2019 Methane Leaks; Oil Executives, Including Some Top Trump Donors, Have Worked To Roll Back Rules They Say Are Overly Costly&#39; - Washington Post",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T10:09:00.857477-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "&#39;Washington discusses Russian deals for US oil majors in Ukraine peace talks&#39; - Financial Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-28T10:09:01.106305-04:00",
     "symbols": [
       "SLB"
@@ -4998,5 +4888,115 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T12:25:15.886371-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Micron Stock Gains as SK Hynix Reports Record Revenue Above 100 Trillion Won",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:25:17.759101-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce To Purchase 500,000 Methane-Reduction Carbon Credits From Mitti Labs By 2030",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:25:19.028408-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Stock Gains as SK Hynix Reports Record Revenue Above 100 Trillion Won",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:25:20.754105-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Allergan Aesthetics Announces Return of BOTOX Cosmetic Day",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T12:25:20.990541-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Novo Nordisk Loses Court Bid Against Eli Lilly\u2019s Weight-Loss Drug Ads \u2014 Judge Says Sales Impact Was Negligible (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:25:25.744434-04:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Airbnb Supports Playing for Keeps Foundation Initiative",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:25:28.478096-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "US Stocks Mixed; GE Vernova Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:25:29.402262-04:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "Eaton Mobility Transaction Status Update",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T12:25:29.856948-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Joins Equilend's 1Source DLT Platform",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T12:25:30.109315-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Evercore ISI Group Maintains In-Line on Visa, Raises Price Target to $405",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T12:25:46.136621-04:00",
+    "symbols": [
+      "VRT"
+    ],
+    "headline": "Vertiv Stock Rallies 14% as Orders More Than Double: Bank of America Still Sees 55% Upside",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

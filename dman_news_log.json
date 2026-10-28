@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-27T16:05:31.104205-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "'We're Trading Them Like Baseball Cards': Mark Cuban Warns \u2018Everything\u2019s a Meme Stock\u2019 as AAPL, GOOGL and MU Fuel Market Bubble Fears",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-27T16:05:31.106738-04:00",
     "symbols": [
       "MU"
@@ -4998,5 +4988,15 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T09:36:10.137679-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "AI&#39;s Biggest Constraint Could Be Capital Availability\u2014Anthropic, Meta And SpaceX Put Markets To The Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

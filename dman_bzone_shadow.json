@@ -1678,5 +1678,75 @@
 "extension_pct": 15.8,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "ULBI",
+"date": "2026-10-28",
+"close": 15.61,
+"base_days": 298,
+"above_low_pct": 209.1,
+"extension_pct": 149.2,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "ICLR",
+"date": "2026-10-28",
+"close": 214.16,
+"base_days": 298,
+"above_low_pct": 167.4,
+"extension_pct": 25.1,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "SG",
+"date": "2026-10-28",
+"close": 11.24,
+"base_days": 298,
+"above_low_pct": 139.1,
+"extension_pct": 15.2,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "FTRE",
+"date": "2026-10-28",
+"close": 25.88,
+"base_days": 4,
+"above_low_pct": 191.8,
+"extension_pct": 18.6,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "CRL",
+"date": "2026-10-28",
+"close": 373.98,
+"base_days": 0,
+"above_low_pct": 149.4,
+"extension_pct": 19.5,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "GMAB",
+"date": "2026-10-28",
+"close": 57.29,
+"base_days": 1,
+"above_low_pct": 140.2,
+"extension_pct": 49.4,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "ETSY",
+"date": "2026-10-28",
+"close": 92.35,
+"base_days": 3,
+"above_low_pct": 109.6,
+"extension_pct": 14.9,
+"fresh_base": false,
+"weak_band": false
 }
 ]

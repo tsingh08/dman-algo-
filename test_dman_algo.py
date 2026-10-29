@@ -22776,8 +22776,22 @@ class TestRetiredSetupSendsNoTradeShapedAlert(unittest.TestCase):
         self.assertTrue(a._setup_retired("Low Float Catalyst"))
 
 
+class TestPremarketHasBrokerKeys(unittest.TestCase):
+    """The event strangle is submitted from dman_premarket.yml. It ran keyless
+    until 2026-10-29, so get_alpaca_client() was None there and no strangle
+    that passed its gates could ever be placed -- hidden until 300b8e79 because
+    the scanner's 8:55 fallback re-ran the whole briefing WITH keys."""
+
+    def test_the_briefing_step_gets_the_alpaca_keys(self):
+        src = io.open(".github/workflows/dman_premarket.yml", encoding="utf-8").read()
+        step = src[src.index("- name: Run Pre-Market Briefing"):src.index("run: |", src.index("- name: Run Pre-Market Briefing"))]
+        for _k in ("APCA_API_KEY_ID:", "APCA_API_SECRET_KEY:", "ACCOUNT_SIZE:"):
+            self.assertIn(_k, step)
+
+
 class TestSessionsSinceWorksWithoutAlpacaKeys(unittest.TestCase):
-    """dman_premarket.yml runs with NO Alpaca keys, by design.
+    """dman_premarket.yml ran with NO Alpaca keys until 2026-10-29; any job
+    can still lose them (an expired secret), so the keyless path must work.
 
     _sessions_since() called data.alpaca.markets and returned -1 on any
     non-200, so in the briefing it could never answer -- which meant the

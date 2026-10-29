@@ -1,18 +1,22 @@
 {
- "bar": "2026-10-28",
+ "bar": "2026-10-29",
  "entered": null,
  "tickers": [
   {
-   "ticker": "GME",
-   "close": 23.33
+   "ticker": "NVDA",
+   "close": 213.601
   },
   {
-   "ticker": "ABNB",
-   "close": 166.045
+   "ticker": "FTNT",
+   "close": 139.1
   },
   {
-   "ticker": "OXY",
-   "close": 62.86
+   "ticker": "ZS",
+   "close": 247.82
+  },
+  {
+   "ticker": "CRM",
+   "close": 230.9
   }
  ]
 }

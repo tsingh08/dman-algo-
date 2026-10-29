@@ -1,1795 +1,5 @@
 [
   {
-    "ts": "2026-10-29T15:28:19.616854-04:00",
-    "symbols": [
-      "LNG"
-    ],
-    "headline": "Cheniere Energy CFO Zach Davis Says Co Expects To Produce Between 56 And 58 Million Metric Tons Of LNG In 2027, 3 Million Tons More Than 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:28:19.620756-04:00",
-    "symbols": [
-      "LNG"
-    ],
-    "headline": "Cheniere Energy CEO Jack Fusco Says Expects To Make Final Investment Decision On Sabine Pass Expansion Project As Soon As It Gets Final Regulator Approvals, Expected By The End Of The Year; Cheniere Energy CCO Antol Feygin Says Europe Will Require An Additional 69 Million Metric Tons Of LNG During This Winter And Must Pull Cargoes From Asia",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:28:19.624980-04:00",
-    "symbols": [
-      "LNG"
-    ],
-    "headline": "QatarEnergy CEO Says Two LNG Trains Damaged In Iranian Attacks Will Take About Three Years To Repair, Qatar To Lose 17% Of LNG Capacity (Two Trains) In Interim, Pearl GTL Expected Back By Q1 2027; Says Cannot Offer Long-Term Customers LNG From New Purchase Agreements As Hormuz Backup, Contracts Are Point-To-Point; Says Has Met Iranian Acting Petroleum Minister Twice In Past Two Weeks, Exploring Post-war Cooperation In Oil And Gas",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:28:19.628893-04:00",
-    "symbols": [
-      "LNG"
-    ],
-    "headline": "QatarEnergy CEO Says Has Ruled Out Pipelines Bypassing Hormuz As Any Infrastructure Anywhere In The Region Can Be Targeted; Says No Cancellation Of Any Announced Project, North Field East, South And West Proceeding, 142 MTPA LNG Expansion Plan In Qatar Unchanged, All Contracts Awarded; Says Can Restart Full LNG Production Within One Week Of A Peace Deal, As Long As Ships Are Available",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:28:19.792283-04:00",
-    "symbols": [
-      "H"
-    ],
-    "headline": "Hyatt Bets on Luxury, Wins Big and Raises 2026 Growth Outlook",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:28:19.796432-04:00",
-    "symbols": [
-      "H"
-    ],
-    "headline": "Hyatt Hotels Q3 Adj. EPS $1.27 Beats $0.77 Estimate, Sales $1.743B Miss $1.747B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:38:41.148418-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "&#39;SpaceX\u2019s Largest, $3 Billion-a-Month \u2018Customer B\u2019 is Anthropic&#39; - Bloomberg Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:38:42.310343-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Citigroup Maintains Buy on Microsoft, Raises Price Target to $680",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:38:43.469381-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Value Stocks Just Sent a 2001 Warning Shot \u2014 Is AI Next?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:38:43.474001-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "RBC Capital Maintains Outperform on Alphabet, Lowers Price Target to $400",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:38:47.099251-04:00",
-    "symbols": [
-      "KLAC"
-    ],
-    "headline": "Citigroup Maintains Buy on KLA, Lowers Price Target to $275",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:38:48.325280-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "ExxonMobil, AbbVie On Deck Friday As Energy, Drug Growth Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:38:48.803009-04:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "RBC Capital Maintains Outperform on Biogen, Raises Price Target to $272",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:38:50.030867-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "ExxonMobil, AbbVie On Deck Friday As Energy, Drug Growth Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:38:55.971154-04:00",
-    "symbols": [
-      "SMR"
-    ],
-    "headline": "NuScale Power Enters Contract With Doosan Enerbility; Korean Engineering Firm To Supply The Company&#39;s Upper Reactor Coolant System",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:38:56.215054-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "Citigroup Maintains Neutral on GE Vernova, Lowers Price Target to $1000",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:38:56.220992-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "Susquehanna Maintains Positive on GE Vernova, Lowers Price Target to $1250",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:38:56.225498-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:38:56.468739-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Bill Ackman\u2019s 20-Year Investing Rule Puts These Cash-Flow and Moat ETFs in Focus",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:38:56.711414-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Tesla, Nutrien and an Industrial Stock on CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:38:57.902899-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs Adjusts Alphabet Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:38:58.642771-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "ExxonMobil, AbbVie On Deck Friday As Energy, Drug Growth Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:38:58.648283-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Top 3 Energy Stocks You May Want To Dump In Q4",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:38:58.652705-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "How to Earn $500 a Month From Chevron Stock Ahead of Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:38:58.657036-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Kevin Warsh Admits Rising Oil Prices Are Fueling Inflation Expectations as Trump&#39;s Energy Holdings Reportedly Soar 3X Amid Iran War",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:38:59.385461-04:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Eli Lilly Shares Trending On Retatrutide Win Ahead Of Earnings: What You Should Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:39:00.140154-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "TD Cowen Reiterates Buy on Oracle, Maintains $240 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:00.144787-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Stock Slides: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:00.634794-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Polymarket Temporarily Halts Trading After Third-Party Provider Impacted",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:00.639498-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Value Stocks Just Sent a 2001 Warning Shot \u2014 Is AI Next?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:00.643898-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Top Admiral Briefs Trump On Iran Attack Options; A Thursday White House Meeting Included A Rare In-Person Briefing By Adm. Cooper As The U.S. Weighs New Combat Operations&#39; - WSJ Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:00.892288-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Value Stocks Just Sent a 2001 Warning Shot \u2014 Is AI Next?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:39:00.898952-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Alphabet Stock Set for Worst Day Since March 2020: Search Slowdown Overshadows Cloud Boom",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:39:01.975536-04:00",
-    "symbols": [
-      "IOVA"
-    ],
-    "headline": "Crude Oil Moves Lower; Caterpillar Shares Fall Following Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:01.981821-04:00",
-    "symbols": [
-      "IOVA"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:01.986440-04:00",
-    "symbols": [
-      "IOVA"
-    ],
-    "headline": "Iovance Biotherapeutics Announced Updated Results From Cohorts 1 And 2 Of Its Phase 2 IOV-LUN-202 Trial; 24.6% Objective Response Rate In 69 Patients With Non-Squamous mNSCLC, Consistent With Previously Reported Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:02.220472-04:00",
-    "symbols": [
-      "ALNY"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:02.225181-04:00",
-    "symbols": [
-      "ALNY"
-    ],
-    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:02.229721-04:00",
-    "symbols": [
-      "ALNY"
-    ],
-    "headline": "Alnylam Pharmaceuticals Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:02.234114-04:00",
-    "symbols": [
-      "ALNY"
-    ],
-    "headline": "Alnylam Pharmaceuticals Q3 Adj. EPS $16.26, Sales $1.458B Beat $1.434B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:02.238604-04:00",
-    "symbols": [
-      "ALNY"
-    ],
-    "headline": "Alnylam Pharmaceuticals Affirms FY2026 Sales Guidance of $5.275B-$5.725B vs $5.471B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:02.505212-04:00",
-    "symbols": [
-      "BHC"
-    ],
-    "headline": "RBC Capital Maintains Sector Perform on Bausch Health Companies, Raises Price Target to $10",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:02.744317-04:00",
-    "symbols": [
-      "SFM"
-    ],
-    "headline": "RBC Capital Downgrades Sprouts Farmers Market to Sector Perform, Lowers Price Target to $49",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:02.749676-04:00",
-    "symbols": [
-      "SFM"
-    ],
-    "headline": "Michael Burry Says This &#39;Mall Dinosaur&#39; Stock Could Double",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:02.754182-04:00",
-    "symbols": [
-      "SFM"
-    ],
-    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:02.758692-04:00",
-    "symbols": [
-      "SFM"
-    ],
-    "headline": "Barclays Maintains Overweight on Sprouts Farmers Market, Lowers Price Target to $65",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:02.763115-04:00",
-    "symbols": [
-      "SFM"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Sprouts Farmers Market, Lowers Price Target to $60",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:03.512878-04:00",
-    "symbols": [
-      "CYH"
-    ],
-    "headline": "Community Health Sys Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:03.517941-04:00",
-    "symbols": [
-      "CYH"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:03.522665-04:00",
-    "symbols": [
-      "CYH"
-    ],
-    "headline": "ServiceNow Posts Downbeat Q3 Earnings, Joins Sprouts Farmers Market, Alphabet And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:04.260906-04:00",
-    "symbols": [
-      "IMCR"
-    ],
-    "headline": "Immunocore To Present Phase 1/2 Trial Data Evaluating Brenetafusp Alone And In Combination With KIMMTRAK In HLA-A*02:01-Positive Patients With Metastatic Uveal Melanoma, At 2026 SITC Annual Meeting",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:04.778879-04:00",
-    "symbols": [
-      "NOW"
-    ],
-    "headline": "Value Stocks Just Sent a 2001 Warning Shot \u2014 Is AI Next?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:39:04.783675-04:00",
-    "symbols": [
-      "NOW"
-    ],
-    "headline": "Citigroup Maintains Buy on ServiceNow, Lowers Price Target to $157",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:39:04.788118-04:00",
-    "symbols": [
-      "NOW"
-    ],
-    "headline": "StoneX Maintains Buy on ServiceNow, Lowers Price Target to $150",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:39:04.792608-04:00",
-    "symbols": [
-      "NOW"
-    ],
-    "headline": "UBS Maintains Neutral on ServiceNow, Lowers Price Target to $140",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:39:05.029251-04:00",
-    "symbols": [
-      "ALKT"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:05.034567-04:00",
-    "symbols": [
-      "ALKT"
-    ],
-    "headline": "Citizens Downgrades Alkami Technology to Market Perform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:05.039066-04:00",
-    "symbols": [
-      "ALKT"
-    ],
-    "headline": "This Lennox International Analyst Is No Longer Bullish; Here Are Top 5 Downgrades For Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:05.043549-04:00",
-    "symbols": [
-      "ALKT"
-    ],
-    "headline": "Keybanc Downgrades Alkami Technology to Sector Weight",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:05.047990-04:00",
-    "symbols": [
-      "ALKT"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:05.874038-04:00",
-    "symbols": [
-      "EG"
-    ],
-    "headline": "Everest Group Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:06.117625-04:00",
-    "symbols": [
-      "SCI"
-    ],
-    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:39:06.349259-04:00",
-    "symbols": [
-      "WNC"
-    ],
-    "headline": "Wabash Reports Third Quarter 2026 Financial Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:06.354416-04:00",
-    "symbols": [
-      "WNC"
-    ],
-    "headline": "Wabash National Sees Q4 Adj EPS $(0.75)-$(0.55) vs $(0.18) Est; Sees Sales $420.000M-$450.000M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:06.358902-04:00",
-    "symbols": [
-      "WNC"
-    ],
-    "headline": "Wabash National Q3 Adj. EPS $(0.63) Misses $(0.46) Estimate, Sales $476.408M Beat $453.750M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:06.596279-04:00",
-    "symbols": [
-      "BBW"
-    ],
-    "headline": "Reported Earlier, &#39;Build-A-Bear (BBW) Part II: The Scion Capital Analyst Template and the All Map&#39; - Dr Michael Burry&#39;s Cassandra Unchained Substack",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:06.601004-04:00",
-    "symbols": [
-      "BBW"
-    ],
-    "headline": "Michael Burry Says This &#39;Mall Dinosaur&#39; Stock Could Double",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:07.099083-04:00",
-    "symbols": [
-      "KPLT"
-    ],
-    "headline": "Katapult Holdings to Announce Third Quarter 2026 Financial Results on November 12, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:07.608879-04:00",
-    "symbols": [
-      "DVA"
-    ],
-    "headline": "DaVita Recognized as a 2026 Freedom-Centered Organization by WorldBlu",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:07.840074-04:00",
-    "symbols": [
-      "DBVT"
-    ],
-    "headline": "Citizens Maintains Market Outperform on DBV Technologies, Lowers Price Target to $47",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:07.844891-04:00",
-    "symbols": [
-      "DBVT"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:07.849353-04:00",
-    "symbols": [
-      "DBVT"
-    ],
-    "headline": "ServiceNow Posts Downbeat Q3 Earnings, Joins Sprouts Farmers Market, Alphabet And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:08.112258-04:00",
-    "symbols": [
-      "RIO"
-    ],
-    "headline": "Rio Tinto Suspends Underground Operations at Oyu Tolgoi Copper Mine",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:08.364996-04:00",
-    "symbols": [
-      "NMR"
-    ],
-    "headline": "Here&#39;s How Much $100 Invested In Nomura Holdings 5 Years Ago Would Be Worth Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:08.841798-04:00",
-    "symbols": [
-      "COAG"
-    ],
-    "headline": "J.P. Morgan and Rodman & Renshaw Initiate Coverage on Hemab Therapeutics Holdings, Inc.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:09.075364-04:00",
-    "symbols": [
-      "PINS"
-    ],
-    "headline": "Amazon Earnings Prediction Market Preview: What Will Andy Jassy Say?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:09.311219-04:00",
-    "symbols": [
-      "MPT"
-    ],
-    "headline": "Medical Properties Trust Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:09.315902-04:00",
-    "symbols": [
-      "MPT"
-    ],
-    "headline": "CORRECTION: Medical Properties Trust Q3 Normalized FFO $0.11 Misses $0.13 Estimate, Sales $250.140M Miss $257.977M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:09.320317-04:00",
-    "symbols": [
-      "MPT"
-    ],
-    "headline": "Medical Properties Trust Q3 FFO $(0.11) Misses $0.13 Estimate, Sales $250.140M Miss $257.977M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:09.324753-04:00",
-    "symbols": [
-      "MPT"
-    ],
-    "headline": "Wall Street&#39;s Most Accurate Analysts Spotlight On 3 Real Estate Stocks With Over 8% Dividend Yields",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:09.796944-04:00",
-    "symbols": [
-      "FBRT"
-    ],
-    "headline": "Franklin BSP Realty Trust Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:10.071382-04:00",
-    "symbols": [
-      "NEXT"
-    ],
-    "headline": "NextDecade Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:10.075997-04:00",
-    "symbols": [
-      "NEXT"
-    ],
-    "headline": "NextDecade Says Uncontracted Rio Grande LNG Margins Projected To Average Over $6/MMBtu, More Than $1 Above Base Case; Expects Train 1 First LNG In Q2 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:10.080530-04:00",
-    "symbols": [
-      "NEXT"
-    ],
-    "headline": "NextDecade Q3 EPS $0.54 Beats $(0.66) Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:10.084950-04:00",
-    "symbols": [
-      "NEXT"
-    ],
-    "headline": "NextDecade Q3 EPS $0.54",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:10.784554-04:00",
-    "symbols": [
-      "NVCR"
-    ],
-    "headline": "NovoCure Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:10.789525-04:00",
-    "symbols": [
-      "NVCR"
-    ],
-    "headline": "NovoCure Q3 EPS $(0.09) Beats $(0.24) Estimate, Sales $193.399M Beat $182.233M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:10.795056-04:00",
-    "symbols": [
-      "NVCR"
-    ],
-    "headline": "NovoCure Raises FY2026 Sales Guidance from $710.000M-$725.000M to $736.000M-$743.000M vs $725.814M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:11.494873-04:00",
-    "symbols": [
-      "ARXS"
-    ],
-    "headline": "Arxis Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:11.737364-04:00",
-    "symbols": [
-      "XPO"
-    ],
-    "headline": "XPO Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:11.742062-04:00",
-    "symbols": [
-      "XPO"
-    ],
-    "headline": "XPO Q3 Adj. EPS $1.70 Beats $1.58 Estimate, Sales $2.373B Inline",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:12.467982-04:00",
-    "symbols": [
-      "WEC"
-    ],
-    "headline": "WEC Energy Group Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:12.472831-04:00",
-    "symbols": [
-      "WEC"
-    ],
-    "headline": "WEC Energy Group Q3 Adj. EPS $1.18 Beats $0.97 Estimate, Sales $2.290B Beat $2.263B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:12.477287-04:00",
-    "symbols": [
-      "WEC"
-    ],
-    "headline": "WEC Energy Group Raises FY2026 GAAP EPS Guidance from $5.51-$5.61 to $5.60-$5.64 vs $5.60 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:12.708962-04:00",
-    "symbols": [
-      "AUR"
-    ],
-    "headline": "Cantor Fitzgerald Maintains Overweight on Aurora Innovation, Lowers Price Target to $11",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:12.713666-04:00",
-    "symbols": [
-      "AUR"
-    ],
-    "headline": "Needham Maintains Buy on Aurora Innovation, Lowers Price Target to $10",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:13.432233-04:00",
-    "symbols": [
-      "MNRO"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:13.436871-04:00",
-    "symbols": [
-      "MNRO"
-    ],
-    "headline": "Monro Q2 2027 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:13.441298-04:00",
-    "symbols": [
-      "MNRO"
-    ],
-    "headline": "11 Consumer Discretionary Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:13.445837-04:00",
-    "symbols": [
-      "MNRO"
-    ],
-    "headline": "Monro Q2 Adj. EPS $(0.01) Misses $0.05 Estimate, Sales $283.380M Miss $284.136M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:13.679606-04:00",
-    "symbols": [
-      "BLCO"
-    ],
-    "headline": "RBC Capital Maintains Outperform on Bausch &amp; Lomb, Raises Price Target to $23",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:13.684223-04:00",
-    "symbols": [
-      "BLCO"
-    ],
-    "headline": "Wells Fargo Maintains Equal-Weight on Bausch &amp; Lomb, Raises Price Target to $19",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:13.916652-04:00",
-    "symbols": [
-      "MYE"
-    ],
-    "headline": "Myers Indus Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:13.921346-04:00",
-    "symbols": [
-      "MYE"
-    ],
-    "headline": "Myers Indus Q3 Adj. EPS $0.32 Misses $0.45 Estimate, Sales $171.340M Beat $163.800M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:14.159107-04:00",
-    "symbols": [
-      "BCBP"
-    ],
-    "headline": "BCB Bancorp Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:14.164156-04:00",
-    "symbols": [
-      "BCBP"
-    ],
-    "headline": "BCB Bancorp Q3 EPS $(6.92) Beats $(7.39) Estimate, Sales $27.771M Beat $72.000K Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:14.399124-04:00",
-    "symbols": [
-      "CRH"
-    ],
-    "headline": "CRH Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:14.403789-04:00",
-    "symbols": [
-      "CRH"
-    ],
-    "headline": "CRH shares are trading lower after the company reported worse-than-expected Q3 financial results and issued FY26 adjusted EPS guidance below estimates.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:14.408164-04:00",
-    "symbols": [
-      "CRH"
-    ],
-    "headline": "CRH Sees FY2026 Adj EPS $5.37-$5.59 vs $5.69 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:14.412661-04:00",
-    "symbols": [
-      "CRH"
-    ],
-    "headline": "UPDATE: CRH Q3 Adj. EPS $2.09 Misses $2.20 Estimate, Sales $11.396B Miss $11.515B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:14.417091-04:00",
-    "symbols": [
-      "CRH"
-    ],
-    "headline": "CRH Lowers FY2026 GAAP EPS Guidance from $5.60-$6.05 to $4.63-$4.85 vs $5.79 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:15.137246-04:00",
-    "symbols": [
-      "AAMI"
-    ],
-    "headline": "Acadian Asset Management Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:39:15.141817-04:00",
-    "symbols": [
-      "AAMI"
-    ],
-    "headline": "Acadian Asset Management Q3 Adj. EPS $1.36 Beats $1.25 Estimate, Sales $189.100M Beat $180.500M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:39:15.378021-04:00",
-    "symbols": [
-      "VMC"
-    ],
-    "headline": "Vulcan Materials Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:39:15.383053-04:00",
-    "symbols": [
-      "VMC"
-    ],
-    "headline": "Vulcan Materials Q3 Adj. EPS $2.83 Misses $2.91 Estimate, Sales $2.185B Miss $2.249B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:39:15.614148-04:00",
-    "symbols": [
-      "WST"
-    ],
-    "headline": "West Pharmaceutical Servs Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:15.618993-04:00",
-    "symbols": [
-      "WST"
-    ],
-    "headline": "West Pharmaceutical Servs Sees Q4 Adj EPS $2.22-$2.32 vs $2.27 Est; Sees Sales $820.000M-$830.000M vs $826.736M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:15.623438-04:00",
-    "symbols": [
-      "WST"
-    ],
-    "headline": "West Pharmaceutical Servs Q3 Adj. EPS $2.66 Beats $2.19 Estimate, Sales $874.500M Beat $825.700M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:15.627845-04:00",
-    "symbols": [
-      "WST"
-    ],
-    "headline": "West Pharmaceutical Servs Raises FY2026 GAAP EPS Guidance from $9.01-$9.26 to $9.31-$9.41 vs $8.47 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:16.370286-04:00",
-    "symbols": [
-      "TYL"
-    ],
-    "headline": "Tyler Technologies Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:16.878855-04:00",
-    "symbols": [
-      "BAX"
-    ],
-    "headline": "Why Is Baxter Stock Trading Lower on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:16.883560-04:00",
-    "symbols": [
-      "BAX"
-    ],
-    "headline": "Baxter Intl Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:16.887984-04:00",
-    "symbols": [
-      "BAX"
-    ],
-    "headline": "Baxter International Raises FY2026 Adj EPS Guidance from $1.95-$2.15 to $2.05-$2.15 vs $2.05 Est; Raises FY2026 Sales Guidance from $11.581B-$11.694B to $11.694B-$11.806B vs $11.619B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:16.892534-04:00",
-    "symbols": [
-      "BAX"
-    ],
-    "headline": "Baxter Intl Q3 Adj. EPS $0.58 Beats $0.52 Estimate, Sales $2.976B Beat $2.908B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:17.142351-04:00",
-    "symbols": [
-      "RSI"
-    ],
-    "headline": "StoneX Maintains Buy on Rush Street Interactive, Lowers Price Target to $20",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:17.147093-04:00",
-    "symbols": [
-      "RSI"
-    ],
-    "headline": "Citizens Maintains Market Outperform on Rush Street Interactive, Lowers Price Target to $24",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:17.151820-04:00",
-    "symbols": [
-      "RSI"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Rush Street Interactive, Lowers Price Target to $26",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:17.156365-04:00",
-    "symbols": [
-      "RSI"
-    ],
-    "headline": "Oppenheimer Maintains Outperform on Rush Street Interactive, Lowers Price Target to $25",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:17.160759-04:00",
-    "symbols": [
-      "RSI"
-    ],
-    "headline": "Stifel Maintains Buy on Rush Street Interactive, Lowers Price Target to $28",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:17.397771-04:00",
-    "symbols": [
-      "RDDT"
-    ],
-    "headline": "Reddit to Discontinue Separate Reporting of Logged-In and Logged-Out Daily Active Users",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:17.630534-04:00",
-    "symbols": [
-      "BXMT"
-    ],
-    "headline": "Blackstone Mortgage Trust Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:17.635168-04:00",
-    "symbols": [
-      "BXMT"
-    ],
-    "headline": "Blackstone Mortgage Trust Q3 Adj. EPS $0.38 Beats $0.26 Estimate, Sales $64.422M Miss $76.967M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:18.128950-04:00",
-    "symbols": [
-      "NEXN"
-    ],
-    "headline": "Nexxen to Announce Third Quarter 2026 Financial Results on November 12, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:18.453251-04:00",
-    "symbols": [
-      "CDZI"
-    ],
-    "headline": "Cadiz Commences ~$21M Offering Of 5M Common Shares At $4.20 Per Share",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:19.261734-04:00",
-    "symbols": [
-      "TAK"
-    ],
-    "headline": "Takeda Beats Earnings Forecasts and Hikes Outlook Despite Generic Overhang",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:19.266720-04:00",
-    "symbols": [
-      "TAK"
-    ],
-    "headline": "Takeda Pharmaceutical Co Q2 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:19.271696-04:00",
-    "symbols": [
-      "TAK"
-    ],
-    "headline": "Takeda Pharmaceutical Co Raises FY2026 Core EPS Guidance from JPY 472 to JPY 482; Raises FY2026 Revenue Guidance from JPY 4,640B to JPY 4,700B",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:19.276104-04:00",
-    "symbols": [
-      "TAK"
-    ],
-    "headline": "Takeda Pharmaceutical Q2 Adj. EPS $0.48 Beats $0.31 Estimate, Sales $7.457B Beat $7.190B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:19.280553-04:00",
-    "symbols": [
-      "TAK"
-    ],
-    "headline": "Takeda Pharmaceutical Co Raises FY2026 GAAP EPS Guidance from JPY 104 to JPY 131",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:19.560261-04:00",
-    "symbols": [
-      "TIPT"
-    ],
-    "headline": "Tiptree Announces Third Quarter 2026 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:19.807475-04:00",
-    "symbols": [
-      "CP"
-    ],
-    "headline": "Barclays Maintains Overweight on Canadian Pacific Kansas, Raises Price Target to $104",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:19.812153-04:00",
-    "symbols": [
-      "CP"
-    ],
-    "headline": "$100 Invested In Canadian Pacific Kansas 20 Years Ago Would Be Worth This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:19.816676-04:00",
-    "symbols": [
-      "CP"
-    ],
-    "headline": "Stephens &amp; Co. Maintains Equal-Weight on Canadian Pacific Kansas, Lowers Price Target to $93",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:20.074437-04:00",
-    "symbols": [
-      "AGCO"
-    ],
-    "headline": "AGCO Gains Despite Sales Miss, Cut Guidance As Management Points To 2027 Recovery",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:39:20.315497-04:00",
-    "symbols": [
-      "OWL"
-    ],
-    "headline": "Blue Owl Is Having a Hoot \u2014 Record Money From Big Investors, 9.3% Returns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:20.320192-04:00",
-    "symbols": [
-      "OWL"
-    ],
-    "headline": "Blue Owl Capital Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:20.324668-04:00",
-    "symbols": [
-      "OWL"
-    ],
-    "headline": "Blue Owl Cap Q3 Adj. EPS $0.24 Beats $0.23 Estimate, Sales $806.531M Beat $710.530M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:20.563460-04:00",
-    "symbols": [
-      "PTEN"
-    ],
-    "headline": "Patterson-UTI Energy Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:20.568178-04:00",
-    "symbols": [
-      "PTEN"
-    ],
-    "headline": "Reported Earlier, Patterson-UTI Energy Q3 EPS $0.07 Beats $0.03 Estimate, Sales $1.342B Beat $1.307B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:20.675347-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "&#39;SpaceX\u2019s Largest, $3 Billion-a-Month \u2018Customer B\u2019 is Anthropic&#39; - Bloomberg Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:20.801001-04:00",
-    "symbols": [
-      "PPH"
-    ],
-    "headline": "PPHE Hotel Group Reports Q3 2026 Trading Update",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:20.805817-04:00",
-    "symbols": [
-      "PPH"
-    ],
-    "headline": "Arena Hospitality Group Publishes Q3 2026 Interim Financial Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:20.890779-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:21.055349-04:00",
-    "symbols": [
-      "PSQL"
-    ],
-    "headline": "Pasqal Announces Third Quarter 2026 Business Update Date and Investor Conference Participation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:21.290719-04:00",
-    "symbols": [
-      "VNDA"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:21.295489-04:00",
-    "symbols": [
-      "VNDA"
-    ],
-    "headline": "Steve Jobs&#39; Son Says GLP-1 Weight Loss Drugs Could Be Among Most Important Medicines Ever, With Potential Impact on Cancer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:21.531722-04:00",
-    "symbols": [
-      "EFOR"
-    ],
-    "headline": "UBS Maintains Sell on Everforth, Raises Price Target to $19",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:39:21.536499-04:00",
-    "symbols": [
-      "EFOR"
-    ],
-    "headline": "Wells Fargo Maintains Equal-Weight on Everforth, Raises Price Target to $38",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:39:21.773031-04:00",
-    "symbols": [
-      "QSR"
-    ],
-    "headline": "Restaurant Brands Exec Says Popeyes&#39; Return To Positive Same-Store Sales In H2 Will Take Longer Than Expected",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:39:21.777757-04:00",
-    "symbols": [
-      "QSR"
-    ],
-    "headline": "Restaurant Brands Exec Says Co Sees Some Impact From Higher Gas Prices, Especially In Drive-Thru And Rural Market",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:39:21.782184-04:00",
-    "symbols": [
-      "QSR"
-    ],
-    "headline": "TD Cowen Reiterates Hold on Restaurant Brands Intl, Maintains $78 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:39:21.786696-04:00",
-    "symbols": [
-      "QSR"
-    ],
-    "headline": "Burger King or Popeyes: Who Is Shining?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:39:21.791121-04:00",
-    "symbols": [
-      "QSR"
-    ],
-    "headline": "Restaurant Brands Intl Q3 Adj. EPS $1.10 Beats $1.08 Estimate, Sales $2.525B Miss $2.541B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:39:22.026074-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Bank of America Signals Shift to Dividend And Quality ETFs As Stock Selling Intensifies: 3 ETFs to Watch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:39:22.029642-04:00",
-    "symbols": [
-      "ALGN"
-    ],
-    "headline": "Morgan Stanley Maintains Equal-Weight on Align Technology, Lowers Price Target to $175",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:22.271283-04:00",
-    "symbols": [
-      "MICC"
-    ],
-    "headline": "Magnum Ice Cream Raises Full Year Organic Sales Growth Outlook To About 5.5% From 3%-5%, Reaffirms 40-60 Basis Point Adjusted EBITDA Margin Improvement",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:22.275999-04:00",
-    "symbols": [
-      "MICC"
-    ],
-    "headline": "Magnum Ice Cream Q3 Revenue Grows 12.1% To \u20ac2.5B, Led By AMEA Organic Growth Of 17.6%, Europe &amp; ANZ 8.9% And Americas 3.9%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:22.466172-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:39:22.470327-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Stock Dips Ahead of Q3 Earnings: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:39:22.512829-04:00",
-    "symbols": [
-      "TOST"
-    ],
-    "headline": "Toast Responds To FTC Lawsuit, Intends To Vigorously Defend Against Claims",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:22.517535-04:00",
-    "symbols": [
-      "TOST"
-    ],
-    "headline": "FTC And States Take Action Against Toast Inc. Over Hidden And Unauthorized Fees, Deceptive Subscription And Cancellation Practices And Other Unlawful Conduct",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:22.607016-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:22.772657-04:00",
-    "symbols": [
-      "TPG"
-    ],
-    "headline": "TPG Q3 Adj. EPS $0.65, Inline, Sales $638.072M Beat $620.126M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T15:39:23.015702-04:00",
-    "symbols": [
-      "XLV"
-    ],
-    "headline": "Value Stocks Just Sent a 2001 Warning Shot \u2014 Is AI Next?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:23.020330-04:00",
-    "symbols": [
-      "XLV"
-    ],
-    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:23.024778-04:00",
-    "symbols": [
-      "XLV"
-    ],
-    "headline": "8 Of 11 Sectors Rise Thursday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T15:39:23.304598-04:00",
-    "symbols": [
-      "INVH"
-    ],
-    "headline": "Invitation Homes Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T15:39:23.540772-04:00",
-    "symbols": [
-      "CLPT"
-    ],
-    "headline": "Stifel Maintains Buy on ClearPoint Neuro, Lowers Price Target to $18",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T15:39:23.775020-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-29T15:39:23.782585-04:00",
     "symbols": [
       "OSW"
@@ -4998,5 +3208,1795 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:41.473968-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Blame SpaceX for Most of Google\u2019s Shocking Earnings Miss \u2014 And Brace for More",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:41.478768-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Alphabet Bulls Dig in After Messy Q3: &#39;AI Stack Keeps Us Bullish&#39; Cantor Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:41.483343-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "FCC Aims To Auction 25 Megahertz Of Prime, Mid-Band Spectrum",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:41.487875-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Bitcoin Drops to $80,000 After Fed Meeting: Is the Bear Thesis Playing Out?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:41.986260-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Alphabet Stock Down 12% As AI Hits Google&#39;s Core Search Business",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:41.990977-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:41.995547-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Stock Heads Toward All-Time High: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:42.248249-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Why Is Micron Stock Falling on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:42.253662-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Stock Slips Despite Strong Azure Growth: Analysts Debate AI Spending",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:42.258014-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Stock Has More Upside: Analyst Says Q1 Validation of \u2018AI-Led Growth Opportunity\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:42.356268-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Alphabet Stock Down 12% As AI Hits Google&#39;s Core Search Business",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:42.360933-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Marvell Stock Dropped 11% on a Deal That Could Make It More Like Broadcom",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:42.365923-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Amazon Earnings Prediction Market Preview: What Will Andy Jassy Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:42.588115-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Hinduja Global Solutions Selects Rackspace Technology for AI Infrastructure Powered by AMD",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:42.865152-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Alphabet Stock Down 12% As AI Hits Google&#39;s Core Search Business",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:42.869747-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:42.876320-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Microsoft Goes Jumbo: $25 Billion Bond Sale in the Works",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:42.979015-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "YouTube&#39;s Living-Room Business Just Made More in One Quarter Than Netflix&#39;s Full-Year Ad Forecast",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:42.983471-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Why Is Micron Stock Falling on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:43.085972-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Alphabet Stock Down 12% As AI Hits Google&#39;s Core Search Business",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:43.090557-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:43.095597-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Rivian Working on Vans for Walmart? Investors Could Get Their Answer Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:43.218010-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Alphabet Stock Down 12% As AI Hits Google&#39;s Core Search Business",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:43.368855-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "YouTube&#39;s Living-Room Business Just Made More in One Quarter Than Netflix&#39;s Full-Year Ad Forecast",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:43.373439-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "8 Of 11 Sectors Rise Thursday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:43.466168-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Why Is Salesforce Stock Falling on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:43.470728-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "ServiceNow Stock Plunges on Worst Day in Company\u2019s History: AI Wins Can\u2019t Hide a Bookings Slowdown",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:43.590921-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Amazon Earnings Prediction Market Preview: What Will Andy Jassy Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:43.730552-04:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir Stock Drops: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:44.147243-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Marvell Stock Dropped 11% on a Deal That Could Make It More Like Broadcom",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:44.151738-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "8 Of 11 Sectors Rise Thursday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:44.258989-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Why Is Micron Stock Falling on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:44.500546-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Tech&#39;s 20 Beaten-Down Stocks Have Sunk up to 65%: Which ETFs Could Ride an AI Rebound?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:44.643400-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Why Is Micron Stock Falling on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:44.892792-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell Stock Dropped 11% on a Deal That Could Make It More Like Broadcom",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:45.005614-04:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on KLA, Lowers Price Target to $210",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:45.103224-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Ripple Eyes $900M Revenue Run Rate as XRP, RLUSD Adoption Expands",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:45.108273-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Tech&#39;s 20 Beaten-Down Stocks Have Sunk up to 65%: Which ETFs Could Ride an AI Rebound?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:45.212478-04:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "Rivian Working on Vans for Walmart? Investors Could Get Their Answer Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:45.438983-04:00",
+    "symbols": [
+      "ENPH"
+    ],
+    "headline": "Barclays Maintains Equal-Weight on Enphase Energy, Lowers Price Target to $26",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-29T15:55:45.619206-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "8 Of 11 Sectors Rise Thursday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:45.721783-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:45.727399-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:45.731981-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "8 Of 11 Sectors Rise Thursday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:45.736444-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Huntington Ingalls, Crocs, Carvana, Insmed And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:45.862800-04:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "UBS Maintains Buy on Biogen, Raises Price Target to $300",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:45.867712-04:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "TD Cowen Maintains Buy on Biogen, Raises Price Target to $260",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:45.872502-04:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "Wedbush Maintains Neutral on Biogen, Raises Price Target to $225",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:45.965226-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:46.240420-04:00",
+    "symbols": [
+      "RXRX"
+    ],
+    "headline": "Recursion Pharmaceuticals Provides Pipeline Updates and Prepares for Q3 2026 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:46.448418-04:00",
+    "symbols": [
+      "RBLX"
+    ],
+    "headline": "KFC UK & Ireland Launches 'Believer Rewards' Experience on Roblox",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:47.012419-04:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "Tech&#39;s 20 Beaten-Down Stocks Have Sunk up to 65%: Which ETFs Could Ride an AI Rebound?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:47.118560-04:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "Tech&#39;s 20 Beaten-Down Stocks Have Sunk up to 65%: Which ETFs Could Ride an AI Rebound?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-29T15:55:47.424425-04:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Cloudflare Executive Dr. Chema Alonso to Keynote APWG eCrime 2026 Conference",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:47.518094-04:00",
+    "symbols": [
+      "DDOG"
+    ],
+    "headline": "Datadog Named a Leader in The Forrester Wave\u2122: AIOps Platforms, Q4 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:47.602482-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Ripple Eyes $900M Revenue Run Rate as XRP, RLUSD Adoption Expands",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:47.607372-04:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Tech&#39;s 20 Beaten-Down Stocks Have Sunk up to 65%: Which ETFs Could Ride an AI Rebound?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:47.994669-04:00",
+    "symbols": [
+      "DECK"
+    ],
+    "headline": "Michael Burry Says This &#39;Mall Dinosaur&#39; Stock Could Double",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:48.148116-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "RBC Capital Maintains Sector Perform on Fortinet, Lowers Price Target to $165",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:48.152911-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:48.157455-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "TD Cowen Maintains Buy on Fortinet, Lowers Price Target to $190",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:48.162097-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:48.166614-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Wedbush Maintains Neutral on Fortinet, Lowers Price Target to $140",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:48.989427-04:00",
+    "symbols": [
+      "PDD"
+    ],
+    "headline": "Deutsche Bank Upgrades PDD Holdings to Buy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:48.994326-04:00",
+    "symbols": [
+      "PDD"
+    ],
+    "headline": "Temu Joins Digital Business Ireland",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:49.112838-04:00",
+    "symbols": [
+      "WOLF"
+    ],
+    "headline": "Wolfspeed Enters Multiyear Silicon Carbide Supply Agreement with BorgWarner",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:49.535615-04:00",
+    "symbols": [
+      "ACHR"
+    ],
+    "headline": "Archer Aviation Stock Moves Higher: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:49.789477-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "CIBC Initiates Coverage on Constellation Energy with Buy Rating",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:50.006516-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "TD Cowen Maintains Buy on GE Vernova, Lowers Price Target to $1125",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:50.104501-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Lockheed Martin Tapped By U.S. Army For $1.08B Future Interceptor Development Program",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:50.597531-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Crude Oil Moves Lower; Caterpillar Shares Fall Following Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:50.602628-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Caterpillar\u2014The Earnings Rundown",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:50.607404-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:50.612085-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Caterpillar Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:50.616734-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "AI&#39;s Power Hunger Sends Caterpillar Orders Soaring \u2014 Tariffs Spoil the Party",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:50.730743-04:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "If You Invested $1000 In Eaton Corp Stock 15 Years Ago, You Would Have This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:50.826790-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Chase Bank Provides Bridge Financing for DoorDash Acquisition of Instacart",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:50.831651-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Chase & Co. Reports Change in Major Holding in Pennon Group PLC",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:50.948887-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Serves as Financial Advisor to Perrigo in Divestiture",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:50.953700-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Serves as Financial Advisor to ADT in $15.3 Billion Acquisition",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:50.958209-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Adjusts Price Target on Flex Ltd.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:51.125891-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "8 Of 11 Sectors Rise Thursday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:51.130766-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Visa, Raises Price Target to $463",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:51.371209-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:51.376040-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Ripple Eyes $900M Revenue Run Rate as XRP, RLUSD Adoption Expands",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:51.380616-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Mastercard CEO Says Consumers Keep Spending Despite Economic Uncertainty",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:51.385129-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "8 Of 11 Sectors Rise Thursday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:51.389561-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Mastercard Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:51.482315-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Reported Earlier, &#39;Venezuelan Leader Commits to Elections Ahead of Machado Speech&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:51.567341-04:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "Reported Earlier, &#39;Venezuelan Leader Commits to Elections Ahead of Machado Speech&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:51.572140-04:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "8 Of 11 Sectors Rise Thursday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:51.663913-04:00",
+    "symbols": [
+      "ISRG"
+    ],
+    "headline": "Apollo Hospitals Adopts Intuitive's Da Vinci 5 Surgical System",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:51.787114-04:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Novo Nordisk to Present New Data on Obesity Portfolio at ObesityWeek 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:51.997880-04:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "Argus Adjusts Price Target on Newmont to $123",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:52.081264-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Bibb County School Board Approves Revenue Bond Agreement for New Costco Location",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:52.369579-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle&#39;s AI Spending Spree May Finally Have an End in Sight",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:52.375414-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Tech&#39;s 20 Beaten-Down Stocks Have Sunk up to 65%: Which ETFs Could Ride an AI Rebound?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:52.868590-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "We Will Not Take Any Steps Before The U.S. Implements Our Conditions Al-Mayadeen Has Clarified, Citing An Informed Iranian Source, Regarding The Correspondence Between JD Vance And Major General Rezaei; Trump&#39;s Claim That Vance&#39;s Letter Was In Response To Iran&#39;s Request For Equipment And Medicine Is Completely False",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:52.873174-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Senior Iranian Security Official Confirms U.S. Vice President Sent Letter To SNSC Secretary Major General Mohsen Rezaee; Tehran Has Not Responded To Vance\u2019s Message",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:52.956220-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Alphabet Stock Down 12% As AI Hits Google&#39;s Core Search Business",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:52.960817-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:52.965246-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "8 Of 11 Sectors Rise Thursday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:53.056458-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:53.061139-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "8 Of 11 Sectors Rise Thursday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:53.158161-04:00",
+    "symbols": [
+      "LENZ"
+    ],
+    "headline": "LENZ Therapeutics Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:53.253099-04:00",
+    "symbols": [
+      "IOVA"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:53.443518-04:00",
+    "symbols": [
+      "PURR"
+    ],
+    "headline": "Elon Musk and Stanley Druckenmiller Walk Into a Crypto Bar \u2014 and These ETFs Walk Out With a Payday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:53.448304-04:00",
+    "symbols": [
+      "PURR"
+    ],
+    "headline": "Bitcoin Could Hit $90,000 by Year-End Amid Bond Market Turmoil: 10x Research",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:53.452670-04:00",
+    "symbols": [
+      "PURR"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:53.457095-04:00",
+    "symbols": [
+      "PURR"
+    ],
+    "headline": "Elon Musk Notes &#39;Interesting&#39; Hyperliquid Deal After Druckenmiller Endorsement",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:53.461560-04:00",
+    "symbols": [
+      "PURR"
+    ],
+    "headline": "Elon Musk Quote Posts &#34;Interesting&#34; American Billionaire Investor Stanley Druckenmiller&#39;s X Post Saying &#34;I am excited to be an investor in trade(xyz) as they partner with ICE to bring 24/7 perpetual futures on Hyperliquid to the United States.   As a market participant, I am looking forward to to using their innovative product to enhance my investment process.&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:53.638328-04:00",
+    "symbols": [
+      "TWI"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:53.643374-04:00",
+    "symbols": [
+      "TWI"
+    ],
+    "headline": "Titan Intl Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:53.648103-04:00",
+    "symbols": [
+      "TWI"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:53.652715-04:00",
+    "symbols": [
+      "TWI"
+    ],
+    "headline": "Titan Intl Narrows FY2026 Sales Guidance from $1.850B-$1.950B to $1.850B-$1.870B vs $1.864B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:53.657287-04:00",
+    "symbols": [
+      "TWI"
+    ],
+    "headline": "Titan Intl Sees Q4 Sales $410.000M-$430.000M vs $425.420M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:53.735728-04:00",
+    "symbols": [
+      "TOYO"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:53.824889-04:00",
+    "symbols": [
+      "QUAD"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-29T15:55:53.998865-04:00",
+    "symbols": [
+      "NOW"
+    ],
+    "headline": "TD Cowen Maintains Buy on ServiceNow, Lowers Price Target to $160",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:54.097806-04:00",
+    "symbols": [
+      "PRCH"
+    ],
+    "headline": "StoneX Maintains Buy on Porch Group, Raises Price Target to $30",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:54.102644-04:00",
+    "symbols": [
+      "PRCH"
+    ],
+    "headline": "Crude Oil Moves Lower; Caterpillar Shares Fall Following Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:54.107264-04:00",
+    "symbols": [
+      "PRCH"
+    ],
+    "headline": "Huntington Ingalls, Crocs, Carvana, Insmed And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:54.191586-04:00",
+    "symbols": [
+      "TDOC"
+    ],
+    "headline": "Crude Oil Moves Lower; Caterpillar Shares Fall Following Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:54.196548-04:00",
+    "symbols": [
+      "TDOC"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:54.201157-04:00",
+    "symbols": [
+      "TDOC"
+    ],
+    "headline": "Huntington Ingalls, Crocs, Carvana, Insmed And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:54.205656-04:00",
+    "symbols": [
+      "TDOC"
+    ],
+    "headline": "Stifel Maintains Hold on Teladoc Health, Raises Price Target to $6.5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:54.210231-04:00",
+    "symbols": [
+      "TDOC"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:54.825202-04:00",
+    "symbols": [
+      "MAX"
+    ],
+    "headline": "Goldman Sachs Maintains Neutral on MediaAlpha, Raises Price Target to $13",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:54.830244-04:00",
+    "symbols": [
+      "MAX"
+    ],
+    "headline": "Huntington Ingalls, Crocs, Carvana, Insmed And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:55.155255-04:00",
+    "symbols": [
+      "NCLH"
+    ],
+    "headline": "Huntington Ingalls, Crocs, Carvana, Insmed And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:55.159963-04:00",
+    "symbols": [
+      "NCLH"
+    ],
+    "headline": "Norwegian Cruise Line Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T15:55:55.385594-04:00",
+    "symbols": [
+      "RIO"
+    ],
+    "headline": "Rio Tinto Opens $1.4 Billion Lithium Projects in Argentina",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:55.694346-04:00",
+    "symbols": [
+      "LAND"
+    ],
+    "headline": "Landis+Gyr Scheduled to Report Quarterly Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:55.699124-04:00",
+    "symbols": [
+      "LAND"
+    ],
+    "headline": "Landsec Completes Acquisition of Metrocentre",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:56.336609-04:00",
+    "symbols": [
+      "STGW"
+    ],
+    "headline": "CORRECTION: Stagwell Raises FY2026 Adj EPS Guidance from $1.03-$1.17 to $1.07-$1.21 vs $1.11 Est; Affirms FY2026 Sales Guidance of $3.142B-$3.258B vs $3.249B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:56.341258-04:00",
+    "symbols": [
+      "STGW"
+    ],
+    "headline": "Stagwell Q3 Adj. EPS $0.34 Beats $0.31 Estimate, Sales $816.027M Beat $813.287M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:56.345733-04:00",
+    "symbols": [
+      "STGW"
+    ],
+    "headline": "Stagwell Raises FY2026 Adj EPS Guidance from $1.03-$1.17 to $1.07-$1.21 vs $1.11 Est; Raises FY2026 Sales Guidance from $2.970B-$3.080B to $3.142B-$3.258B vs $3.249B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:56.434576-04:00",
+    "symbols": [
+      "INDV"
+    ],
+    "headline": "Indivior Pharmaceuticals Affirms FY2026 Sales Guidance of $1.295B-$1.365B vs $1.334B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:56.439298-04:00",
+    "symbols": [
+      "INDV"
+    ],
+    "headline": "Indivior Q3 Adj. EPS $1.32 Beats $1.12 Estimate, Sales $356.000M Beat $329.350M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:56.633489-04:00",
+    "symbols": [
+      "INSM"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:56.638356-04:00",
+    "symbols": [
+      "INSM"
+    ],
+    "headline": "Huntington Ingalls, Crocs, Carvana, Insmed And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:56.642776-04:00",
+    "symbols": [
+      "INSM"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:56.647213-04:00",
+    "symbols": [
+      "INSM"
+    ],
+    "headline": "Insmed Q3 EPS $(0.46) Misses $(0.43) Estimate, Sales $524.428M Beat $501.350M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:56.651530-04:00",
+    "symbols": [
+      "INSM"
+    ],
+    "headline": "Insmed Raises FY2026 Sales Guidance from $1.700B-$1.870B to $1.810B-$1.870B vs $1.801B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:56.740746-04:00",
+    "symbols": [
+      "TXT"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:56.745416-04:00",
+    "symbols": [
+      "TXT"
+    ],
+    "headline": "Bell Textron Receives Order From Global Medical Response For Additional Bell 407GXis To Expand All-Weather Air Ambulance Fleet",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:56.966907-04:00",
+    "symbols": [
+      "SHOE"
+    ],
+    "headline": "10 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:57.153362-04:00",
+    "symbols": [
+      "UPBD"
+    ],
+    "headline": "Upbound Group Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:57.158194-04:00",
+    "symbols": [
+      "UPBD"
+    ],
+    "headline": "Upbound Group Sees Q4 Adj EPS $1.00-$1.10 vs $1.10 Est; Sees Sales $1.150B-$1.250B vs $1.226B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:57.162598-04:00",
+    "symbols": [
+      "UPBD"
+    ],
+    "headline": "Upbound Group Narrows FY2026 Adj EPS Guidance from $4.00-$4.35 to $4.15-$4.30 vs $4.16 Est; Lowers FY2026 Sales Guidance from $4.700B-$4.850B to $4.680B-$4.780B vs $4.733B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:57.167029-04:00",
+    "symbols": [
+      "UPBD"
+    ],
+    "headline": "Upbound Group Q3 Adj. EPS $1.01 Beats $0.91 Estimate, Sales $1.150B Beat $1.124B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:57.536491-04:00",
+    "symbols": [
+      "OSK"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:57.541682-04:00",
+    "symbols": [
+      "OSK"
+    ],
+    "headline": "Oshkosh Lowers FY2026 GAAP EPS Guidance from $10.50 to $8.00-$9.00 vs $10.42 Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:57.546429-04:00",
+    "symbols": [
+      "OSK"
+    ],
+    "headline": "Oshkosh Lowers FY2026 Adj EPS Guidance from $11.00 to $8.50-$9.50 vs $10.63 Est; Lowers FY2026 Sales Guidance from $11.200B to $11.000B vs $11.139B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:57.550942-04:00",
+    "symbols": [
+      "OSK"
+    ],
+    "headline": "Oshkosh Q3 Adj. EPS $2.41 Misses $3.11 Estimate, Sales $2.842B Miss $2.938B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:58.130466-04:00",
+    "symbols": [
+      "PWP"
+    ],
+    "headline": "Perella Weinberg Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:58.135421-04:00",
+    "symbols": [
+      "PWP"
+    ],
+    "headline": "Perella Weinberg Q3 Adj. EPS $0.39 Beats $0.14 Estimate, Sales $251.373M Beat $178.942M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:59.102312-04:00",
+    "symbols": [
+      "SIMO"
+    ],
+    "headline": "Silicon Motion Technology Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:55:59.990189-04:00",
+    "symbols": [
+      "PI"
+    ],
+    "headline": "UBS Maintains Neutral on Impinj, Raises Price Target to $180",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:55:59.995326-04:00",
+    "symbols": [
+      "PI"
+    ],
+    "headline": "Susquehanna Maintains Positive on Impinj, Raises Price Target to $225",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:56:00.000255-04:00",
+    "symbols": [
+      "PI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:56:00.005135-04:00",
+    "symbols": [
+      "PI"
+    ],
+    "headline": "Needham Maintains Buy on Impinj, Raises Price Target to $195",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:56:00.578187-04:00",
+    "symbols": [
+      "STRL"
+    ],
+    "headline": "Cantor Fitzgerald Reiterates Overweight on Sterling Infrastructure, Maintains $742 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:56:02.003362-04:00",
+    "symbols": [
+      "MGM"
+    ],
+    "headline": "Barclays Maintains Equal-Weight on MGM Resorts International, Lowers Price Target to $34",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:56:02.008228-04:00",
+    "symbols": [
+      "MGM"
+    ],
+    "headline": "Truist Securities Maintains Buy on MGM Resorts International, Lowers Price Target to $40",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:56:02.012887-04:00",
+    "symbols": [
+      "MGM"
+    ],
+    "headline": "Stifel Maintains Hold on MGM Resorts International, Lowers Price Target to $35",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:56:02.248746-04:00",
+    "symbols": [
+      "ORLY"
+    ],
+    "headline": "O&#39;Reilly Automotive Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:56:02.253576-04:00",
+    "symbols": [
+      "ORLY"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on O&#39;Reilly Automotive, Raises Price Target to $105",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:56:02.467330-04:00",
+    "symbols": [
+      "MFIC"
+    ],
+    "headline": "This Lennox International Analyst Is No Longer Bullish; Here Are Top 5 Downgrades For Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:56:02.767549-04:00",
+    "symbols": [
+      "SUPN"
+    ],
+    "headline": "Indivior Reports Q3 2026 Results and Confirms Imminent Merger with Supernus",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:56:03.099032-04:00",
+    "symbols": [
+      "SHEL"
+    ],
+    "headline": "Shell Q3 Earnings Reach Highest Level Since 2022 Amid Middle-East Turmoil",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:56:03.103993-04:00",
+    "symbols": [
+      "SHEL"
+    ],
+    "headline": "QatarEnergy CEO Says Two LNG Trains Damaged In Iranian Attacks Will Take About Three Years To Repair, Qatar To Lose 17% Of LNG Capacity (Two Trains) In Interim, Pearl GTL Expected Back By Q1 2027; Says Cannot Offer Long-Term Customers LNG From New Purchase Agreements As Hormuz Backup, Contracts Are Point-To-Point; Says Has Met Iranian Acting Petroleum Minister Twice In Past Two Weeks, Exploring Post-war Cooperation In Oil And Gas",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:56:03.108616-04:00",
+    "symbols": [
+      "SHEL"
+    ],
+    "headline": "QatarEnergy CEO Says Has Ruled Out Pipelines Bypassing Hormuz As Any Infrastructure Anywhere In The Region Can Be Targeted; Says No Cancellation Of Any Announced Project, North Field East, South And West Proceeding, 142 MTPA LNG Expansion Plan In Qatar Unchanged, All Contracts Awarded; Says Can Restart Full LNG Production Within One Week Of A Peace Deal, As Long As Ships Are Available",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:56:03.113322-04:00",
+    "symbols": [
+      "SHEL"
+    ],
+    "headline": "QatarEnergy CEO Says Buying More LNG To Capture Price Spike In Case Of Hormuz Closure, Expects &#34;Reasonable Returns&#34; In Normal Circumstances; Says Expects To Sign More Long-Term LNG Purchase Deals With U.S.\u00a0And Other Suppliers By End-2026, Target &#34;Much Higher&#34; Than 7M Tons Per Annum; Says Talking To &#34;Everybody&#34; Including Venture Global, Will Buy From Whoever Offers Best Commercial Terms",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:56:03.117958-04:00",
+    "symbols": [
+      "SHEL"
+    ],
+    "headline": "QatarEnergy CEO Says Qatar Is Buying U.S. LNG And Talking To Other Suppliers To Create A Trading And Arbitrage Hedge To Make Up For\u00a0Future Hormuz Disruptions; Says U.S. LNG Purchase Deals Are Part Of Long-Term Contingency Plan To Generate Revenue If Hormuz Is Disrupted Again; Says Purchase Deals Require No Capital Spending And Are Much Cheaper Than Building Pipelines Or Extra LNG Trains",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:56:03.338942-04:00",
+    "symbols": [
+      "SAIA"
+    ],
+    "headline": "Saia Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:56:03.343963-04:00",
+    "symbols": [
+      "SAIA"
+    ],
+    "headline": "Saia Q3 EPS $3.41 Beats $3.29 Estimate, Sales $982.454M Beat $963.085M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T15:56:03.499059-04:00",
+    "symbols": [
+      "NNBR"
+    ],
+    "headline": "NN Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T15:56:03.813246-04:00",
+    "symbols": [
+      "IPX"
+    ],
+    "headline": "IperionX Reports Production Of 8.7 Tons Of Titanium HAMR During Quarter Ended Sept. 30",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

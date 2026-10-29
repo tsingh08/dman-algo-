@@ -1,535 +1,5 @@
 [
   {
-    "ts": "2026-10-29T10:39:02.327438-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Steve Eisman Says AI Giants Have &#39;No Moats.&#39; Morningstar&#39;s $57 Billion Math Says Otherwise",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T10:39:02.332113-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Truist Securities Maintains Buy on Alphabet, Lowers Price Target to $410",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T10:39:02.617165-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Steve Eisman Says AI Giants Have &#39;No Moats.&#39; Morningstar&#39;s $57 Billion Math Says Otherwise",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T10:39:07.756989-04:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "Truist Securities Reiterates Buy on Biogen, Raises Price Target to $260",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T10:39:18.476217-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Stock of the Day: Why Did Oracle Rally?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T10:39:18.988069-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA Natural Gas Storage 80B Vs 75B Est.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T10:39:32.161770-04:00",
-    "symbols": [
-      "FVRR"
-    ],
-    "headline": "Fiverr Intl Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T10:39:32.167347-04:00",
-    "symbols": [
-      "FVRR"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T10:39:32.172491-04:00",
-    "symbols": [
-      "FVRR"
-    ],
-    "headline": "Fiverr Intl Raises FY2026 Sales Guidance from $356.000M-$372.000M to $374.000M-$380.000M vs $364.316M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T10:39:32.177228-04:00",
-    "symbols": [
-      "FVRR"
-    ],
-    "headline": "Fiverr Intl Sees Q4 Sales $80.000M-$86.000M vs $77.765M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T10:39:32.182383-04:00",
-    "symbols": [
-      "FVRR"
-    ],
-    "headline": "Fiverr International Q3 Adj. EPS $0.43 Beats $0.34 Estimate, Sales $90.899M Beat $83.764M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T10:39:33.206499-04:00",
-    "symbols": [
-      "PHAT"
-    ],
-    "headline": "Phathom Pharmaceuticals Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T10:39:33.213048-04:00",
-    "symbols": [
-      "PHAT"
-    ],
-    "headline": "Phathom Pharmaceuticals Affirms FY2026 Sales Guidance of $310.000M-$325.000M vs $314.842M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T10:39:33.221140-04:00",
-    "symbols": [
-      "PHAT"
-    ],
-    "headline": "Phathom Pharmaceuticals Q3 Adj. EPS $0.04 Beats $0.02 Estimate, Sales $84.722M Miss $85.096M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T10:39:33.948247-04:00",
-    "symbols": [
-      "FINW"
-    ],
-    "headline": "FinWise Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T10:39:33.954528-04:00",
-    "symbols": [
-      "FINW"
-    ],
-    "headline": "FinWise Q3 EPS $0.73 Beats $0.23 Estimate, Sales $102.743M Beat $46.090M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T10:39:34.206451-04:00",
-    "symbols": [
-      "PI"
-    ],
-    "headline": "Susquehanna Maintains Positive on Impinj, Raises Price Target to $225",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T10:39:34.212704-04:00",
-    "symbols": [
-      "PI"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T10:39:34.218085-04:00",
-    "symbols": [
-      "PI"
-    ],
-    "headline": "Needham Maintains Buy on Impinj, Raises Price Target to $195",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T10:39:34.223084-04:00",
-    "symbols": [
-      "PI"
-    ],
-    "headline": "Impinj Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T10:39:34.227908-04:00",
-    "symbols": [
-      "PI"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T10:39:34.951519-04:00",
-    "symbols": [
-      "CLMB"
-    ],
-    "headline": "Climb Global Solutions Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T10:39:34.958816-04:00",
-    "symbols": [
-      "CLMB"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T10:39:34.964287-04:00",
-    "symbols": [
-      "CLMB"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T10:39:34.969795-04:00",
-    "symbols": [
-      "CLMB"
-    ],
-    "headline": "Climb Global Solutions Q3 Adj. EPS $0.43 Beats $0.38 Estimate, Sales $220.306M Beat $177.943M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T10:39:35.221239-04:00",
-    "symbols": [
-      "EHC"
-    ],
-    "headline": "Encompass Health Raises FY2026 Adj EPS Guidance from $6.02-$6.25 to $6.23-$6.37 vs $6.11 Est; Raises FY2026 Sales Guidance from $6.410B-$6.490B to $6.450B-$6.500B vs $6.460B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T10:39:35.228221-04:00",
-    "symbols": [
-      "EHC"
-    ],
-    "headline": "Encompass Health Q3 Adj. EPS $1.52 Beats $1.36 Estimate, Sales $1.609B Beat $1.601B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T10:39:36.520861-04:00",
-    "symbols": [
-      "BELFA"
-    ],
-    "headline": "Bel Fuse Sees Q4 Sales $220.000M-$240.000M vs $205.735M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T10:39:36.526982-04:00",
-    "symbols": [
-      "BELFA"
-    ],
-    "headline": "Bel Fuse Q3 Adj. EPS $2.92 Beats $2.51 Estimate, Sales $220.510M Beat $207.500M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T10:39:36.763244-04:00",
-    "symbols": [
-      "GATX"
-    ],
-    "headline": "GATX Q3 Adj. EPS $2.92 Beats $2.46 Estimate, Sales $598.000M Beat $592.657M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T10:39:36.769058-04:00",
-    "symbols": [
-      "GATX"
-    ],
-    "headline": "GATX FY2026  GAAP EPS expected to be more than $10.30 vs $10.15 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T10:39:37.021272-04:00",
-    "symbols": [
-      "INDV"
-    ],
-    "headline": "Indivior Pharmaceuticals Affirms FY2026 Sales Guidance of $1.295B-$1.365B vs $1.334B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T10:39:37.027578-04:00",
-    "symbols": [
-      "INDV"
-    ],
-    "headline": "Indivior Q3 Adj. EPS $1.32 Beats $1.12 Estimate, Sales $356.000M Beat $329.350M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T10:39:37.506114-04:00",
-    "symbols": [
-      "LXU"
-    ],
-    "headline": "LSB Industries Q3 EPS $0.22 Misses $0.26 Estimate, Sales $158.602M Miss $167.700M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T10:39:37.982766-04:00",
-    "symbols": [
-      "TXT"
-    ],
-    "headline": "Bell Textron Receives Order From Global Medical Response For Additional Bell 407GXis To Expand All-Weather Air Ambulance Fleet",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T10:39:38.716559-04:00",
-    "symbols": [
-      "ATI"
-    ],
-    "headline": "ATI Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T10:39:38.721674-04:00",
-    "symbols": [
-      "ATI"
-    ],
-    "headline": "ATI Q3 Adj. EPS $1.46 Beats $1.37 Estimate, Sales $1.424B Beat $1.323B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T10:39:38.726445-04:00",
-    "symbols": [
-      "ATI"
-    ],
-    "headline": "ATI Raises FY2026 Adj EPS Guidance from $4.90-$5.18 to $5.17-$5.23 vs $5.14 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T10:39:38.731875-04:00",
-    "symbols": [
-      "ATI"
-    ],
-    "headline": "ATI Sees Q4 Adj EPS $1.51-$1.57 vs $1.54 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T10:39:40.502777-04:00",
-    "symbols": [
-      "PATK"
-    ],
-    "headline": "Patrick Industries Q3 Adj. EPS $1.03 Beats $0.99 Estimate, Sales $975.277M Beat $941.347M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T10:50:47.905941-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Microsoft, Raises Price Target to $750",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T10:50:50.166896-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "ServiceNow Stock Plunges on Worst Day in Company\u2019s History: AI Wins Can\u2019t Hide a Bookings Slowdown",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T10:50:52.871236-04:00",
-    "symbols": [
-      "KLAC"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on KLA, Lowers Price Target to $210",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T10:50:54.494615-04:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "Wedbush Maintains Neutral on Biogen, Raises Price Target to $225",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T10:51:01.549650-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Lockheed Martin Tapped By U.S. Army For $1.08B Future Interceptor Development Program",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T10:51:03.156641-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Visa, Raises Price Target to $463",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T10:51:09.111391-04:00",
-    "symbols": [
-      "GERN"
-    ],
-    "headline": "Wedbush Maintains Outperform on Geron, Lowers Price Target to $5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T10:51:14.633252-04:00",
-    "symbols": [
-      "TE"
-    ],
-    "headline": "Technip Energies Reports 9M 2026 Financial Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T10:51:20.223491-04:00",
-    "symbols": [
-      "PURR"
-    ],
-    "headline": "XRP, Ethereum, Solana Are 3 of the Top 5 Altcoins, Expert Says: And the Other 2?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T11:02:08.310654-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs Serves as Financial Advisor to ADT in $15.3 Billion Acquisition",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T11:02:08.567844-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Mastercard Reports Third Quarter 2026 Financial Results",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T11:02:08.816485-04:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Bibb County School Board Approves Revenue Bond Agreement for New Costco Location",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T11:02:09.150302-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Lockheed Martin Awards Propulsion Contract to Rocketdyne for NOAA's GeoXO Satellites",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-29T11:02:09.448444-04:00",
     "symbols": [
       "NVDA"
@@ -4998,5 +4468,535 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:28:24.589637-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:28:24.595397-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Stock Heads Toward All-Time High: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:28:24.906686-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:28:25.200342-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "QUICK SPARK: Alphabet Stock Eyes Worst Day in Company&#39;s History, Wipes Out $500 Billion in Value",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:28:25.206603-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Steve Eisman Says AI Giants Have &#39;No Moats.&#39; Morningstar&#39;s $57 Billion Math Says Otherwise",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:28:25.778553-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:28:26.068136-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:28:26.360262-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:28:26.367791-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Steve Eisman Says AI Giants Have &#39;No Moats.&#39; Morningstar&#39;s $57 Billion Math Says Otherwise",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:28:31.265167-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:28:31.509731-04:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "UBS Maintains Buy on Biogen, Raises Price Target to $300",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:28:31.516500-04:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "Truist Securities Reiterates Buy on Biogen, Raises Price Target to $260",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:28:31.754295-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:28:34.418529-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:28:38.900313-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:28:39.157709-04:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "If You Invested $1000 In Eaton Corp Stock 15 Years Ago, You Would Have This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:28:40.117299-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:28:42.721771-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Natural Gas Storage 80B Vs 75B Est.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T12:28:42.994334-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:28:43.235847-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:28:53.385200-04:00",
+    "symbols": [
+      "ADT"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:28:54.404627-04:00",
+    "symbols": [
+      "CROX"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:28:55.635303-04:00",
+    "symbols": [
+      "FVRR"
+    ],
+    "headline": "Fiverr Intl Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-29T12:28:55.640938-04:00",
+    "symbols": [
+      "FVRR"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-29T12:28:55.647697-04:00",
+    "symbols": [
+      "FVRR"
+    ],
+    "headline": "Fiverr Intl Raises FY2026 Sales Guidance from $356.000M-$372.000M to $374.000M-$380.000M vs $364.316M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-29T12:28:55.653839-04:00",
+    "symbols": [
+      "FVRR"
+    ],
+    "headline": "Fiverr Intl Sees Q4 Sales $80.000M-$86.000M vs $77.765M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-29T12:28:55.658651-04:00",
+    "symbols": [
+      "FVRR"
+    ],
+    "headline": "Fiverr International Q3 Adj. EPS $0.43 Beats $0.34 Estimate, Sales $90.899M Beat $83.764M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-29T12:28:56.159976-04:00",
+    "symbols": [
+      "INSM"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T12:28:56.428342-04:00",
+    "symbols": [
+      "PURR"
+    ],
+    "headline": "Stan Druckenmiller Lauds Hyperliquid Partnership With Intercontinental Exchange, PURR Jumps 10%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:28:56.671457-04:00",
+    "symbols": [
+      "PHAT"
+    ],
+    "headline": "Phathom Pharmaceuticals Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T12:28:56.677644-04:00",
+    "symbols": [
+      "PHAT"
+    ],
+    "headline": "Phathom Pharmaceuticals Affirms FY2026 Sales Guidance of $310.000M-$325.000M vs $314.842M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T12:28:56.682874-04:00",
+    "symbols": [
+      "PHAT"
+    ],
+    "headline": "Phathom Pharmaceuticals Q3 Adj. EPS $0.04 Beats $0.02 Estimate, Sales $84.722M Miss $85.096M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T12:28:57.730328-04:00",
+    "symbols": [
+      "CVNA"
+    ],
+    "headline": "UBS Maintains Buy on Carvana, Raises Price Target to $84",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-29T12:28:57.737495-04:00",
+    "symbols": [
+      "CVNA"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-29T12:28:58.810672-04:00",
+    "symbols": [
+      "FINW"
+    ],
+    "headline": "FinWise Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T12:28:59.059157-04:00",
+    "symbols": [
+      "PI"
+    ],
+    "headline": "Susquehanna Maintains Positive on Impinj, Raises Price Target to $225",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T12:28:59.064830-04:00",
+    "symbols": [
+      "PI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T12:28:59.069795-04:00",
+    "symbols": [
+      "PI"
+    ],
+    "headline": "Needham Maintains Buy on Impinj, Raises Price Target to $195",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T12:28:59.075285-04:00",
+    "symbols": [
+      "PI"
+    ],
+    "headline": "Impinj Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T12:28:59.080560-04:00",
+    "symbols": [
+      "PI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T12:28:59.804546-04:00",
+    "symbols": [
+      "CLMB"
+    ],
+    "headline": "Climb Global Solutions Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:28:59.809988-04:00",
+    "symbols": [
+      "CLMB"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:28:59.814724-04:00",
+    "symbols": [
+      "CLMB"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:29:00.062448-04:00",
+    "symbols": [
+      "EHC"
+    ],
+    "headline": "Encompass Health Raises FY2026 Adj EPS Guidance from $6.02-$6.25 to $6.23-$6.37 vs $6.11 Est; Raises FY2026 Sales Guidance from $6.410B-$6.490B to $6.450B-$6.500B vs $6.460B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:29:00.329589-04:00",
+    "symbols": [
+      "TXT"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:29:00.335693-04:00",
+    "symbols": [
+      "TXT"
+    ],
+    "headline": "Bell Textron Receives Order From Global Medical Response For Additional Bell 407GXis To Expand All-Weather Air Ambulance Fleet",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:29:00.839463-04:00",
+    "symbols": [
+      "FCN"
+    ],
+    "headline": "FTI Consulting Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T12:29:00.844775-04:00",
+    "symbols": [
+      "FCN"
+    ],
+    "headline": "Huntington Ingalls, Crocs, Carvana, Insmed And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T12:29:03.458549-04:00",
+    "symbols": [
+      "ATI"
+    ],
+    "headline": "ATI Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:29:03.465324-04:00",
+    "symbols": [
+      "ATI"
+    ],
+    "headline": "ATI Q3 Adj. EPS $1.46 Beats $1.37 Estimate, Sales $1.424B Beat $1.323B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:29:03.471360-04:00",
+    "symbols": [
+      "ATI"
+    ],
+    "headline": "ATI Raises FY2026 Adj EPS Guidance from $4.90-$5.18 to $5.17-$5.23 vs $5.14 Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:29:03.477663-04:00",
+    "symbols": [
+      "ATI"
+    ],
+    "headline": "ATI Sees Q4 Adj EPS $1.51-$1.57 vs $1.54 Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:29:04.994350-04:00",
+    "symbols": [
+      "PATK"
+    ],
+    "headline": "Patrick Industries Q3 Adj. EPS $1.03 Beats $0.99 Estimate, Sales $975.277M Beat $941.347M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

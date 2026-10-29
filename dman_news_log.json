@@ -1,215 +1,5 @@
 [
   {
-    "ts": "2026-10-29T11:03:44.020039-04:00",
-    "symbols": [
-      "UPBD"
-    ],
-    "headline": "Upbound Group Sees Q4 Adj EPS $1.00-$1.10 vs $1.10 Est; Sees Sales $1.150B-$1.250B vs $1.226B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T11:03:44.025227-04:00",
-    "symbols": [
-      "UPBD"
-    ],
-    "headline": "Upbound Group Narrows FY2026 Adj EPS Guidance from $4.00-$4.35 to $4.15-$4.30 vs $4.16 Est; Lowers FY2026 Sales Guidance from $4.700B-$4.850B to $4.680B-$4.780B vs $4.733B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T11:03:44.030946-04:00",
-    "symbols": [
-      "UPBD"
-    ],
-    "headline": "Upbound Group Q3 Adj. EPS $1.01 Beats $0.91 Estimate, Sales $1.150B Beat $1.124B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T11:03:44.297758-04:00",
-    "symbols": [
-      "ORBS"
-    ],
-    "headline": "Eightco Says It Repurchased Over 55M Share Since August; Sold Portion Of OpenAI Stake ~40% Above Cost, Plans Proceeds For Buybacks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T11:03:44.544723-04:00",
-    "symbols": [
-      "CMG"
-    ],
-    "headline": "Guggenheim Maintains Neutral on Chipotle Mexican Grill, Lowers Price Target to $32",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T11:03:44.550660-04:00",
-    "symbols": [
-      "CMG"
-    ],
-    "headline": "Huntington Ingalls, Crocs, Carvana, Insmed And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T11:03:44.555302-04:00",
-    "symbols": [
-      "CMG"
-    ],
-    "headline": "Oppenheimer Reiterates Outperform on Chipotle Mexican Grill, Maintains $51 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T11:03:44.559929-04:00",
-    "symbols": [
-      "CMG"
-    ],
-    "headline": "Keybanc Maintains Overweight on Chipotle Mexican Grill, Lowers Price Target to $40",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T11:03:44.566364-04:00",
-    "symbols": [
-      "CMG"
-    ],
-    "headline": "Stephens &amp; Co. Reiterates Equal-Weight on Chipotle Mexican Grill, Maintains $38 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T11:03:44.892178-04:00",
-    "symbols": [
-      "CHDN"
-    ],
-    "headline": "Churchill Downs Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T11:03:44.898947-04:00",
-    "symbols": [
-      "CHDN"
-    ],
-    "headline": "Huntington Ingalls, Crocs, Carvana, Insmed And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T11:03:44.904559-04:00",
-    "symbols": [
-      "CHDN"
-    ],
-    "headline": "Churchill Downs Q3 Adj. EPS $1.23 Beats $1.15 Estimate, Sales $696.000M Miss $696.627M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T11:03:44.910639-04:00",
-    "symbols": [
-      "CHDN"
-    ],
-    "headline": "UPDATED: Churchill Downs Announces $750M Share Repurchase Program; Replaces Previous Repurchase Plan With $306M Remaining",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T11:03:48.253703-04:00",
-    "symbols": [
-      "PHIN"
-    ],
-    "headline": "Phinia Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T11:03:48.258925-04:00",
-    "symbols": [
-      "PHIN"
-    ],
-    "headline": "Phinia Raises FY2026 Sales Guidance from $3.565B-$3.665B to $3.625B-$3.675B vs $3.643B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T11:03:48.263828-04:00",
-    "symbols": [
-      "PHIN"
-    ],
-    "headline": "Phinia Q3 Adj. EPS $1.83 Beats $1.68 Estimate, Sales $912.000M Miss $930.768M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T11:03:48.538553-04:00",
-    "symbols": [
-      "WHD"
-    ],
-    "headline": "Cactus Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T11:03:48.544002-04:00",
-    "symbols": [
-      "WHD"
-    ],
-    "headline": "Huntington Ingalls, Crocs, Carvana, Insmed And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T11:03:48.549203-04:00",
-    "symbols": [
-      "WHD"
-    ],
-    "headline": "Cactus Q3 Adj. EPS $0.96 Beats $0.77 Estimate, Sales $430.888M Miss $436.214M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T11:04:08.023249-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Oppenheimer Adjusts Price Target on Palantir Technologies to $235 From $200",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T11:15:41.192053-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "FCC Aims To Auction 25 Megahertz Of Prime, Mid-Band Spectrum",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-29T11:15:42.819848-04:00",
     "symbols": [
       "AMD"
@@ -4995,6 +4785,216 @@
       "MG"
     ],
     "headline": "MISTRAS Group Announces Expiration of 'Go-Shop' Period",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T12:40:43.244451-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Alphabet Stock Down 12% As AI Hits Google&#39;s Core Search Business",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:40:43.540760-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Alphabet Stock Down 12% As AI Hits Google&#39;s Core Search Business",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:40:43.947368-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Alphabet Stock Down 12% As AI Hits Google&#39;s Core Search Business",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:40:44.466465-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Alphabet Stock Down 12% As AI Hits Google&#39;s Core Search Business",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:40:45.063916-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Alphabet Stock Down 12% As AI Hits Google&#39;s Core Search Business",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:40:45.340545-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Alphabet Stock Down 12% As AI Hits Google&#39;s Core Search Business",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:40:45.861490-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "ServiceNow Stock Plunges on Worst Day in Company\u2019s History: AI Wins Can\u2019t Hide a Bookings Slowdown",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:40:48.390730-04:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on KLA, Lowers Price Target to $210",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:40:50.176994-04:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "Wedbush Maintains Neutral on Biogen, Raises Price Target to $225",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:40:54.656124-04:00",
+    "symbols": [
+      "PDD"
+    ],
+    "headline": "Deutsche Bank Upgrades PDD Holdings to Buy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T12:40:57.102551-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Lockheed Martin Tapped By U.S. Army For $1.08B Future Interceptor Development Program",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:40:58.555874-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Serves as Financial Advisor to ADT in $15.3 Billion Acquisition",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:40:58.810665-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Visa, Raises Price Target to $463",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:41:00.865642-04:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Bibb County School Board Approves Revenue Bond Agreement for New Costco Location",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:41:01.671701-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Alphabet Stock Down 12% As AI Hits Google&#39;s Core Search Business",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T12:41:01.920979-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Alphabet Stock Down 12% As AI Hits Google&#39;s Core Search Business",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:41:04.345662-04:00",
+    "symbols": [
+      "DDD"
+    ],
+    "headline": "3D Systems and Precision Resource Announce Groundbreaking of Two New Additive Manufacturing Facilities",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T12:41:04.829034-04:00",
+    "symbols": [
+      "GERN"
+    ],
+    "headline": "Wedbush Maintains Outperform on Geron, Lowers Price Target to $5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T12:41:09.859192-04:00",
+    "symbols": [
+      "TE"
+    ],
+    "headline": "Technip Energies Reports 9M 2026 Financial Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-29T12:41:15.407909-04:00",
+    "symbols": [
+      "PURR"
+    ],
+    "headline": "XRP, Ethereum, Solana Are 3 of the Top 5 Altcoins, Expert Says: And the Other 2?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:41:19.365479-04:00",
+    "symbols": [
+      "SURG"
+    ],
+    "headline": "SurgePays Inks Agreement With IP Mobile To Bring Rural Broadband Providers Onto GrowthLine",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

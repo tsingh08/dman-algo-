@@ -1,325 +1,5 @@
 [
   {
-    "ts": "2026-10-29T11:02:09.448444-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Eclypsium Partners with NVIDIA to Advance Infrastructure Assurance",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T11:02:09.693690-04:00",
-    "symbols": [
-      "PDD"
-    ],
-    "headline": "Deutsche Bank Upgrades PDD Holdings to Buy",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T11:03:08.300490-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Uber Collaborates with MasterClass on Business Growth Course",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T11:03:08.549198-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Multiple Analysts Adjust Visa Price Targets",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T11:03:08.855252-04:00",
-    "symbols": [
-      "FDX"
-    ],
-    "headline": "Stephens Adjusts FedEx Price Target to $360 From $346",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T11:03:11.015892-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "8 Of 11 Sectors Rise Thursday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T11:03:11.024860-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Amazon Earnings Prediction Market Preview: What Will Andy Jassy Say?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T11:03:11.912703-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "8 Of 11 Sectors Rise Thursday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T11:03:11.918818-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Wedbush Maintains Outperform on Alphabet, Lowers Price Target to $387",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T11:03:11.925561-04:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Barclays Maintains Overweight on Alphabet, Lowers Price Target to $405",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T11:03:12.219280-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Earnings Prediction Market Preview: What Will Andy Jassy Say?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T11:03:12.752877-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "8 Of 11 Sectors Rise Thursday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T11:03:13.246012-04:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Amazon Earnings Prediction Market Preview: What Will Andy Jassy Say?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T11:03:13.999171-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "8 Of 11 Sectors Rise Thursday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T11:03:16.037539-04:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "Barclays Maintains Equal-Weight on Enphase Energy, Lowers Price Target to $26",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T11:03:16.570376-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "8 Of 11 Sectors Rise Thursday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T11:03:16.845501-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "8 Of 11 Sectors Rise Thursday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T11:03:19.834951-04:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "Truist Securities Maintains Buy on Fortinet, Lowers Price Target to $175",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T11:03:24.500030-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "8 Of 11 Sectors Rise Thursday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T11:03:24.507174-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "8 Of 11 Sectors Rise Thursday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T11:03:25.059929-04:00",
-    "symbols": [
-      "SLB"
-    ],
-    "headline": "8 Of 11 Sectors Rise Thursday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T11:03:26.366281-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "8 Of 11 Sectors Rise Thursday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T11:03:26.616105-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "8 Of 11 Sectors Rise Thursday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T11:03:26.877944-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "8 Of 11 Sectors Rise Thursday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T11:03:27.132469-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "8 Of 11 Sectors Rise Thursday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T11:03:41.282912-04:00",
-    "symbols": [
-      "CVNA"
-    ],
-    "headline": "Huntington Ingalls, Crocs, Carvana, Insmed And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T11:03:41.288081-04:00",
-    "symbols": [
-      "CVNA"
-    ],
-    "headline": "US Economy Grew 3.4% in the Third Quarter, Fed&#39;s Favorite Inflation Gauge Matches Forecasts (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T11:03:41.293279-04:00",
-    "symbols": [
-      "CVNA"
-    ],
-    "headline": "Carvana Analysts Slash Their Forecasts Following Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T11:03:41.298307-04:00",
-    "symbols": [
-      "CVNA"
-    ],
-    "headline": "BTIG Maintains Buy on Carvana, Lowers Price Target to $82",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T11:03:41.303339-04:00",
-    "symbols": [
-      "CVNA"
-    ],
-    "headline": "11 Consumer Discretionary Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T11:03:43.257327-04:00",
-    "symbols": [
-      "EHC"
-    ],
-    "headline": "Barclays Maintains Overweight on Encompass Health, Raises Price Target to $151",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T11:03:44.014113-04:00",
-    "symbols": [
-      "UPBD"
-    ],
-    "headline": "Upbound Group Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-29T11:03:44.020039-04:00",
     "symbols": [
       "UPBD"
@@ -4995,6 +4675,326 @@
       "PATK"
     ],
     "headline": "Patrick Industries Q3 Adj. EPS $1.03 Beats $0.99 Estimate, Sales $975.277M Beat $941.347M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T12:31:40.828362-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:31:40.831154-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Stock Heads Toward All-Time High: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:31:41.074507-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:31:41.348090-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "QUICK SPARK: Alphabet Stock Eyes Worst Day in Company&#39;s History, Wipes Out $500 Billion in Value",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:31:41.350733-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Steve Eisman Says AI Giants Have &#39;No Moats.&#39; Morningstar&#39;s $57 Billion Math Says Otherwise",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:31:41.785926-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:31:41.972393-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:31:42.199193-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:31:42.202530-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Steve Eisman Says AI Giants Have &#39;No Moats.&#39; Morningstar&#39;s $57 Billion Math Says Otherwise",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:31:45.643817-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:31:45.818921-04:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "UBS Maintains Buy on Biogen, Raises Price Target to $300",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:31:45.822391-04:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "Truist Securities Reiterates Buy on Biogen, Raises Price Target to $260",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:31:46.024561-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:31:48.032206-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:31:51.132056-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:31:51.267023-04:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "If You Invested $1000 In Eaton Corp Stock 15 Years Ago, You Would Have This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:31:51.936991-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:31:53.511281-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Natural Gas Storage 80B Vs 75B Est.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T12:31:53.727729-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:31:54.192331-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:31:54.707331-04:00",
+    "symbols": [
+      "SFM"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-29T12:31:54.887933-04:00",
+    "symbols": [
+      "PURR"
+    ],
+    "headline": "Stan Druckenmiller Lauds Hyperliquid Partnership With Intercontinental Exchange, PURR Jumps 10%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:31:55.541601-04:00",
+    "symbols": [
+      "NOW"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:31:55.544380-04:00",
+    "symbols": [
+      "NOW"
+    ],
+    "headline": "Why Is HubSpot Stock Falling on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:31:55.546800-04:00",
+    "symbols": [
+      "NOW"
+    ],
+    "headline": "Reported October 28, 2026: Service Now Sees Q4 2026 Subscription Revenue Of $4.245B-$4.255B, Up 22.5%-23% YoY, 21.5% Constant Currency); cRPO Growth Of 18.5%; 32% Operating Margin; Sees FY26 Subscription Revenue Of $15.78B-$15.79B, Up 22.5% YoY, 21% Constant Currency); 81% Subscription Gross Margin, 31.5% Operating Margin, 36% Free Cash Flow Margin",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:31:55.549242-04:00",
+    "symbols": [
+      "NOW"
+    ],
+    "headline": "Why Is Salesforce Stock Falling on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:31:55.551630-04:00",
+    "symbols": [
+      "NOW"
+    ],
+    "headline": "Truist Securities Maintains Buy on ServiceNow, Lowers Price Target to $150",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:31:56.032287-04:00",
+    "symbols": [
+      "SCI"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T12:31:56.340486-04:00",
+    "symbols": [
+      "INSM"
+    ],
+    "headline": "Alphabet Sinks 11.8%, Small Caps Rally on Strong GDP Growth: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T12:31:56.505139-04:00",
+    "symbols": [
+      "KPLT"
+    ],
+    "headline": "Katapult Holdings to Announce Third Quarter 2026 Financial Results on November 12, 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:31:56.694271-04:00",
+    "symbols": [
+      "IMCR"
+    ],
+    "headline": "Immunocore To Present Phase 1/2 Trial Data Evaluating Brenetafusp Alone And In Combination With KIMMTRAK In HLA-A*02:01-Positive Patients With Metastatic Uveal Melanoma, At 2026 SITC Annual Meeting",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T12:31:56.829587-04:00",
+    "symbols": [
+      "MG"
+    ],
+    "headline": "MISTRAS Group Announces Expiration of 'Go-Shop' Period",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

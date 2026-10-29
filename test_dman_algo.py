@@ -22826,6 +22826,88 @@ class TestRetiredSetupSendsNoTradeShapedAlert(unittest.TestCase):
         self.assertTrue(a._setup_retired("Low Float Catalyst"))
 
 
+class TestEventStrangleDecidedOnLiveQuotes(unittest.TestCase):
+    """The event strangle moved from the 8:00 briefing (overnight option book,
+    bid/ask often 0 -- "SPY: no liquid strangle found" on FOMC day 2026-10-28)
+    to run_event_strangle(), called by every scanner run 9:35-12:00 ET and
+    decided once per day."""
+
+    FOMC_DAY = datetime(2026, 10, 28, 9, 40, tzinfo=a.ET)   # a Wednesday, FOMC
+
+    def setUp(self):
+        self.store = {}
+        def dup(key, cooldown_min=a.ALERT_COOLDOWN_MIN):
+            return key in self.store and (self.store[key] >= -cooldown_min)
+        for name, fn in (("_is_duplicate_alert", dup),
+                         ("_save_last_alert", lambda k: self.store.__setitem__(k, 0))):
+            p = patch.object(a, name, side_effect=fn); p.start(); self.addCleanup(p.stop)
+
+    def _run(self, when, decided=1):
+        with patch.object(a, "generate_strangle_advisory", return_value=decided) as gen, \
+             contextlib.redirect_stdout(io.StringIO()):
+            return a.run_event_strangle(when), gen
+
+    def test_decides_once_then_stays_quiet_for_the_day(self):
+        status, gen = self._run(self.FOMC_DAY)
+        self.assertEqual(status, "decided")
+        self.assertIn("FOMC today", gen.call_args[0][0])
+        status, gen = self._run(self.FOMC_DAY.replace(hour=11, minute=30))
+        self.assertEqual(status, "already decided today")
+        gen.assert_not_called()
+
+    def test_unquoted_chain_is_retried_by_the_next_scan(self):
+        status, _ = self._run(self.FOMC_DAY, decided=0)
+        self.assertIn("retrying", status)
+        status, gen = self._run(self.FOMC_DAY.replace(minute=52))
+        self.assertEqual(status, "decided")
+        gen.assert_called_once()
+
+    def test_outside_the_window_nothing_is_priced(self):
+        for when in (self.FOMC_DAY.replace(hour=9, minute=31),     # quotes not settled
+                     self.FOMC_DAY.replace(hour=12, minute=5),     # event drift gone
+                     datetime(2026, 10, 31, 10, 0, tzinfo=a.ET)):  # Saturday
+            status, gen = self._run(when)
+            self.assertEqual(status, "outside window")
+            gen.assert_not_called()
+
+    def test_no_event_day_is_marked_without_pricing_anything(self):
+        status, gen = self._run(datetime(2026, 10, 22, 9, 40, tzinfo=a.ET))
+        self.assertEqual(status, "no event")
+        gen.assert_not_called()
+
+    def test_the_briefing_no_longer_prices_or_places(self):
+        with patch.object(a, "generate_strangle_advisory") as gen, \
+             contextlib.redirect_stdout(io.StringIO()) as out:
+            a._pmb_strangle_advisory(self.FOMC_DAY.replace(hour=8, minute=0))
+        gen.assert_not_called()
+        self.assertIn("decided at 9:35", out.getvalue())
+
+    def test_the_scanner_calls_it_inside_market_hours(self):
+        src = io.open(".github/workflows/dman_scanner.yml", encoding="utf-8").read()
+        gate = src.index('if now.weekday() >= 5 or not (930 <= t <= 1600):')
+        call = src.index('"--mode", "strangle"')
+        scan = src.index('"--mode", "scan",\n               "--universe", universe')
+        self.assertLess(gate, call)
+        self.assertLess(call, scan)
+
+    def test_once_per_day_keys_outlive_the_30_minute_default(self):
+        """Two hours after a strangle went in, the day key must still block."""
+        seen = {}
+        def dup(key, cooldown_min=a.ALERT_COOLDOWN_MIN):
+            seen[key.split(":")[0]] = cooldown_min
+            return False
+        result = {"ticker": "SPY", "expiration": "2026-11-06", "dte": 7,
+                  "move_needed_pct": 9.0, "expected_move_pct": 1.0,
+                  "call": {"premium": 1.0}, "put": {"premium": 1.0}}
+        with patch.object(a, "_is_duplicate_alert", side_effect=dup), \
+             patch.object(a, "flag", return_value=True), \
+             patch.object(a, "_entry_circuit_breakers_ok", return_value=(True, "")), \
+             patch.object(a, "PositionTracker", return_value=MagicMock(positions=[])):
+            a._submit_strangle(result, "FOMC")
+        self.assertGreaterEqual(seen["__STRANGLE_DAY__"], 24 * 60)
+        self.assertGreater(seen["__STRANGLE__"] / (24 * 60), a.STRANGLE_MAX_DTE)
+
+
 class TestPremarketHasBrokerKeys(unittest.TestCase):
     """The event strangle is submitted from dman_premarket.yml. It ran keyless
     until 2026-10-29, so get_alpaca_client() was None there and no strangle

@@ -314,6 +314,16 @@ jobs:
                   [sys.executable, "dman_algo.py", "--mode", "watchlist"],
                   capture_output=False
               )
+          # Event strangle (FOMC/CPI/PPI/PCE/NFP/OPEX eve), decided on LIVE
+          # option quotes. It used to run in the 8:00 briefing off the
+          # overnight book (bid/ask often 0). Once a day via its own key, so
+          # every scan in the window can call it; before the scan so a slow
+          # scan cannot push it out of the window.
+          if 935 <= t <= 1200:
+              subprocess.run(
+                  [sys.executable, "dman_algo.py", "--mode", "strangle"],
+                  capture_output=False
+              )
           # Before 10 AM: curated universe only — fast, catches gap-and-holds at gate open.
           # After 10 AM: full universe for momentum continuation plays.
           universe = "curated" if t < 1000 else "all"

@@ -14901,49 +14901,89 @@ def _pmb_milestones(_pdt_section):
     return _milestone_section, _pdt_section
 
 
+def _strangle_events(_today: date) -> list[str]:
+    """The scheduled events a pre-event strangle is bought for, as of `_today`."""
+    _tomorrow = _today + timedelta(days=1)
+    _nfp      = _nfp_dates()
+    strangle_events = []
+
+    # FOMC: same-day or tomorrow = immediate; 2-3 days out = early premium entry
+    if _today in _FOMC_DATES:
+        strangle_events.append("FOMC today 12 PM MT")
+    if _tomorrow in _FOMC_DATES:
+        strangle_events.append("FOMC tomorrow 12 PM MT")
+    else:
+        for _off in range(2, 4):  # 2 or 3 days out
+            _fd = _today + timedelta(days=_off)
+            if _fd in _FOMC_DATES:
+                strangle_events.append(
+                    f"FOMC in {_off}d ({_fd.strftime('%a %b %d')}) — enter strangle early")
+                break
+
+    # Data releases the next morning
+    if _tomorrow in _CPI_DATES:
+        strangle_events.append("CPI tomorrow 6:30 AM MT")
+    if _tomorrow in _PPI_DATES:
+        strangle_events.append("PPI tomorrow 6:30 AM MT")
+    if _tomorrow in _PCE_DATES:
+        strangle_events.append("PCE tomorrow 6:30 AM MT")
+    if _tomorrow in _nfp:
+        strangle_events.append("NFP tomorrow 6:30 AM MT")
+
+    # OPEX eve: tomorrow is the 3rd Friday — gamma explosion
+    if _tomorrow.weekday() == 4 and _tomorrow == _get_third_friday(_tomorrow.year, _tomorrow.month):
+        strangle_events.append("OPEX tomorrow (3rd Friday) — gamma event; SPY/QQQ strangle")
+    return strangle_events
+
+
 def _pmb_strangle_advisory(now_et):
-    """Extracted verbatim from run_premarket_briefing() on 2026-09-14 (refx).
+    """Announce only. The strangle is priced and placed by run_event_strangle()
+    from the 9:35+ scanner: at 8:00 ET option bid/ask is the overnight book --
+    often zero ("SPY: no liquid strangle found" on FOMC day 2026-10-28) -- and a
+    limit set off it is a guess at the open's price.
     """
     print("  [7/7] Checking for pre-event strangle opportunities...")
     try:
-        _today    = now_et.date()
-        _tomorrow = _today + timedelta(days=1)
-        _nfp      = _nfp_dates()
-        strangle_events = []
-
-        # FOMC: same-day or tomorrow = immediate; 2-3 days out = early premium entry
-        if _today in _FOMC_DATES:
-            strangle_events.append("FOMC today 12 PM MT")
-        if _tomorrow in _FOMC_DATES:
-            strangle_events.append("FOMC tomorrow 12 PM MT")
-        else:
-            for _off in range(2, 4):  # 2 or 3 days out
-                _fd = _today + timedelta(days=_off)
-                if _fd in _FOMC_DATES:
-                    strangle_events.append(
-                        f"FOMC in {_off}d ({_fd.strftime('%a %b %d')}) — enter strangle early")
-                    break
-
-        # Data releases the next morning
-        if _tomorrow in _CPI_DATES:
-            strangle_events.append("CPI tomorrow 6:30 AM MT")
-        if _tomorrow in _PPI_DATES:
-            strangle_events.append("PPI tomorrow 6:30 AM MT")
-        if _tomorrow in _PCE_DATES:
-            strangle_events.append("PCE tomorrow 6:30 AM MT")
-        if _tomorrow in _nfp:
-            strangle_events.append("NFP tomorrow 6:30 AM MT")
-
-        # OPEX eve: tomorrow is the 3rd Friday — gamma explosion
-        if _tomorrow.weekday() == 4 and _tomorrow == _get_third_friday(_tomorrow.year, _tomorrow.month):
-            strangle_events.append("OPEX tomorrow (3rd Friday) — gamma event; SPY/QQQ strangle")
-
-        if strangle_events:
-            generate_strangle_advisory(" | ".join(strangle_events))
+        _ev = _strangle_events(now_et.date())
+        if _ev:
+            print(f"  Strangle event(s): {' | '.join(_ev)} — decided at 9:35 on live quotes.")
         else:
             print("  No catalyst tomorrow — skipping strangle advisory.")
     except Exception as _e:
         print(f"  [strangle] advisory error: {_e}", file=sys.stderr)
+
+
+# Live option quotes settle a few minutes after the bell; past noon an FOMC-day
+# strangle is buying the 2 PM event with most of the pre-event drift gone.
+STRANGLE_DECIDE_START_ET = 935
+STRANGLE_DECIDE_END_ET   = 1200
+# Longer than any strangle's DTE, so an expiry is never bought twice.
+STRANGLE_EXPIRY_COOLDOWN_MIN = (STRANGLE_MAX_DTE + 1) * 24 * 60
+
+
+def run_event_strangle(now_et: Optional[datetime] = None) -> str:
+    """Decide (and, if it passes its gates, place) today's event strangle ONCE.
+
+    Called by every market-hours scanner run; the per-day key makes repeats
+    free. The key is saved only when the decision actually happened -- no
+    event, or at least one underlying quoted -- so a scan that lands while the
+    chain is still unquoted leaves it for the next one inside the window.
+    """
+    now_et = now_et or datetime.now(ET)
+    hhmm = now_et.hour * 100 + now_et.minute
+    if now_et.weekday() >= 5 or not (STRANGLE_DECIDE_START_ET <= hhmm <= STRANGLE_DECIDE_END_ET):
+        return "outside window"
+    _key = f"__STRANGLE_DECIDED__:{now_et.date()}"
+    if _is_duplicate_alert(_key, cooldown_min=24 * 60):
+        return "already decided today"
+    _ev = _strangle_events(now_et.date())
+    if not _ev:
+        _save_last_alert(_key)
+        return "no event"
+    if generate_strangle_advisory(" | ".join(_ev)) > 0:
+        _save_last_alert(_key)
+        return "decided"
+    return "no quotes yet — retrying next scan"
 
 
 
@@ -22723,14 +22763,17 @@ def _submit_strangle(result: dict, event: str) -> str:
     _ok, _why = _entry_circuit_breakers_ok()
     if not _ok:
         return f"⛔ Not executed — {_why}"
+    # Cooldowns match the key's meaning: the default 30 min made "one per
+    # day" and "once per expiry" true for half an hour -- harmless while the
+    # decision ran once at 8:00, not once every scan from 9:35 may call it.
     _dedup = f"__STRANGLE__:{result['ticker']}:{result['expiration']}"
-    if _is_duplicate_alert(_dedup):
+    if _is_duplicate_alert(_dedup, cooldown_min=STRANGLE_EXPIRY_COOLDOWN_MIN):
         return "↩️ Already executed for this expiry — not doubling up."
     # One event strangle a day, full stop. STRANGLE_TICKERS is SPY and QQQ,
     # which move together: buying both is one view at twice the price, and on
     # this account two would be ~30% of equity on a single day's volatility.
     _day_key = f"__STRANGLE_DAY__:{_et_today()}"
-    if _is_duplicate_alert(_day_key):
+    if _is_duplicate_alert(_day_key, cooldown_min=24 * 60):
         return "↩️ One event strangle already placed today — advisory only."
     # And one OPEN at a time. The FOMC trigger also fires 2-3 days early, so a
     # Wednesday FOMC runs this Monday, Tuesday and Wednesday; the per-day and
@@ -22831,17 +22874,20 @@ def _submit_strangle(result: dict, event: str) -> str:
     return _line
 
 
-def generate_strangle_advisory(event: str) -> None:
+def generate_strangle_advisory(event: str) -> int:
     """
     Fire pre-event strangle advisories on STRANGLE_TICKERS (SPY + QQQ by default).
-    Called from premarket briefing on catalyst days (CPI tomorrow, FOMC today/tomorrow).
+    Called by run_event_strangle() on catalyst days (CPI tomorrow, FOMC today/tomorrow).
+    Returns how many underlyings were decided; muted/disabled counts as 1 so the
+    caller does not retry a deliberate no.
     """
     if not ENABLE_OPTIONS:
-        return
+        return 1
     if not flag("ENABLE_STRANGLE_AUTO_EXEC", ENABLE_STRANGLE_AUTO_EXEC):
         print(f"  [options] strangle advisory muted ({event}) — /flags strangle on to restore")
-        return
+        return 1
     print(f"  [options] Generating strangle advisories ({event})...")
+    decided = 0
     for ticker in STRANGLE_TICKERS:
         price = get_live_price(ticker)
         if not price:
@@ -22850,6 +22896,7 @@ def generate_strangle_advisory(event: str) -> None:
         if not result:
             print(f"  [options] {ticker}: no liquid strangle found", file=sys.stderr)
             continue
+        decided += 1
         msg = format_strangle_telegram(result, event)
         _exec_note = _submit_strangle(result, event)
         # Printed as well as sent: on 2026-09-17 the OPEX advisory produced a
@@ -22862,6 +22909,7 @@ def generate_strangle_advisory(event: str) -> None:
               f"exp {result['expiration']} ({result['dte']}d)  "
               f"total ${result['total_premium']*100:.0f}/strangle  "
               f"need {result['move_needed_pct']}%+ move")
+    return decided
 
 
 _STOP_RESTORE_COOLDOWN_KEY_FMT = "{ticker}_STOP_RESTORE_ATTEMPT"
@@ -33234,7 +33282,7 @@ def main():
                  "momentum-watch","watchlist","scan-log","readiness","pnl",
                  "stocktwits","guard","merge-positions","watchdog","earnings-scan",
                  "fallback-guard", "audit", "label", "features", "weekend", "newscheck", "keydrill", "apicheck", "orb", "bzone",
-                 "reconcile", "bzmanage"],
+                 "reconcile", "bzmanage", "strangle"],
         help=("scan         : run pro scanner with all filters\n"
               "backtest     : walk-forward backtest\n"
               "performance  : win rate tracker report\n"
@@ -33501,6 +33549,9 @@ def main():
 
     elif args.mode == "premarket-early":
         run_premarket_early_scan()
+
+    elif args.mode == "strangle":
+        print(f"  [strangle] {run_event_strangle()}")
 
     elif args.mode == "momentum-watch":
         run_momentum_watch()

@@ -3088,11 +3088,18 @@ def _simulate_trade_outcome(ticker: str, entry: float, stop: float,
         # backtest (+727%) while going 0-for-10 for -78.3% live, and why it
         # kept being traded.
         df = yf.download(ticker, start=start, end=end, progress=False, auto_adjust=False)
+        _raw_bars = False
         if df is None or len(df) < 2:
-            return None
+            # yfinance drops a delisted name's history: WBD (acquired, last
+            # traded 2026-10-05) came back as ONE bar, so its 2026-09-21
+            # signal sat in pending for five weeks. Alpaca still serves it.
+            df = _alpaca_raw_daily_since(ticker, start)
+            if df is None or len(df) < 2:
+                return None
+            _raw_bars = True
         # Undo yfinance's split back-adjustment so the bars are in the same
         # units as entry/stop/target1/target2, which were recorded raw.
-        _unadj = _split_unadjust_factor(ticker, start)
+        _unadj = 1.0 if _raw_bars else _split_unadjust_factor(ticker, start)
         if _unadj != 1.0:
             for _c in ("Open", "High", "Low", "Close"):
                 if _c in df.columns:
@@ -3194,7 +3201,58 @@ def _simulate_trade_outcome(ticker: str, entry: float, stop: float,
                     "outcome": _classify_outcome(pnl_pct),
                     "pnl_pct": round(pnl_pct, 2), "hold_bars": hold}
 
+    # Bars that stop a week short of today mean the stock stopped trading
+    # (acquired, delisted) -- or a stale feed, which is why the broker must
+    # confirm it before the position is closed out at its last real close.
+    if hold and (datetime.now(ET).date() - df.index[-1].date()).days >= 7 \
+            and _asset_delisted(ticker):
+        pnl_pct = ((C - entry) / entry * 100) if is_long else ((entry - C) / entry * 100)
+        return {"exit_date": exit_bar_date, "exit_px": round(C, 2),
+                "exit_reason": "DELISTED",
+                "outcome": _classify_outcome(pnl_pct),
+                "pnl_pct": round(pnl_pct, 2), "hold_bars": hold}
+
     return None  # still open
+
+
+def _alpaca_raw_daily_since(ticker: str, start: date) -> Optional[pd.DataFrame]:
+    """Unadjusted daily OHLC from `start`, in _simulate_trade_outcome's shape.
+    RAW, not SPLIT: the levels it is compared against were recorded raw."""
+    try:
+        dc = get_alpaca_data_client()
+        if dc is None:
+            return None
+        from datetime import timezone as _tz
+        from alpaca.data.enums import Adjustment as _Adjustment
+        bars = dc.get_stock_bars(StockBarsRequest(
+            symbol_or_symbols=ticker, timeframe=TimeFrame.Day,
+            adjustment=_Adjustment.RAW,
+            start=datetime(start.year, start.month, start.day, tzinfo=_tz.utc),
+            feed=DataFeed(_resolve_stock_feed()))).df
+        if bars is None or bars.empty:
+            return None
+        if isinstance(bars.index, pd.MultiIndex):
+            bars = bars.xs(ticker, level=0)
+        bars.index = pd.to_datetime([t.astimezone(ET).date() for t in bars.index])
+        return bars.rename(columns={"open": "Open", "high": "High", "low": "Low",
+                                    "close": "Close", "volume": "Volume"})
+    except Exception as exc:
+        _log_swallowed("alpaca raw daily", exc)
+        return None
+
+
+def _asset_delisted(ticker: str) -> bool:
+    """True only when the broker says the symbol is inactive. Fails closed
+    (False): an unanswered lookup must not close out a live signal."""
+    try:
+        client = get_alpaca_client()
+        if client is None:
+            return False
+        status = client.get_asset(ticker).status
+        return str(getattr(status, "value", status)).lower() == "inactive"
+    except Exception as exc:
+        _log_swallowed("asset status", exc)
+        return False
 
 
 def _logged_outcome_keys() -> set[tuple[str, str]]:

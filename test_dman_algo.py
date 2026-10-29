@@ -277,6 +277,56 @@ class TestYfinanceMultiIndexDefense(unittest.TestCase):
         a._cache.clear()
 
 
+class TestSimulateTradeOutcomeDelisted(unittest.TestCase):
+    """WBD's 2026-09-21 signal sat in pending for five weeks: Warner Bros was
+    acquired and last traded 2026-10-05, yfinance returned ONE bar, and the
+    simulator gave up every cycle. Alpaca still has the bars and knows the
+    asset is inactive."""
+
+    def _raw(self, closes, start="2026-09-22"):
+        import pandas as pd
+        idx = pd.date_range(start, periods=len(closes), freq="B")
+        return pd.DataFrame({"Open": closes, "High": [c + 0.05 for c in closes],
+                             "Low": [c - 0.05 for c in closes], "Close": closes,
+                             "Volume": [1e6] * len(closes)}, index=idx)
+
+    def _run(self, delisted):
+        import pandas as pd
+        one_bar = self._raw([30.95], start="2026-10-05")
+        with patch.object(a.yf, "download", return_value=one_bar), \
+             patch.object(a, "_alpaca_raw_daily_since",
+                          return_value=self._raw([30.83, 30.76, 30.84, 30.86, 30.9, 30.95])), \
+             patch.object(a, "_asset_delisted", return_value=delisted):
+            return a._simulate_trade_outcome(
+                ticker="WBD", entry=29.75, stop=29.07, target1=32.68, target2=34.0,
+                bias="LONG", start_date="2026-09-21")
+
+    def test_a_delisted_name_closes_at_its_last_real_close(self):
+        r = self._run(delisted=True)
+        self.assertEqual(r["exit_reason"], "DELISTED")
+        self.assertEqual(r["exit_px"], 30.95)
+        self.assertAlmostEqual(r["pnl_pct"], 4.03, places=2)
+
+    def test_stale_bars_on_a_live_name_stay_open(self):
+        """A stale feed looks exactly like a delisting; only the broker can
+        tell them apart, and an unanswered lookup must keep it open."""
+        self.assertIsNone(self._run(delisted=False))
+
+    def test_fallback_bars_are_not_split_unadjusted(self):
+        """Alpaca RAW is already in entry units; applying yfinance's
+        unadjust factor on top would rescale them."""
+        with patch.object(a, "_split_unadjust_factor",
+                          side_effect=AssertionError("RAW bars must skip it")):
+            self.assertEqual(self._run(delisted=True)["exit_reason"], "DELISTED")
+
+    def test_asset_lookup_fails_closed(self):
+        with patch.object(a, "get_alpaca_client", side_effect=RuntimeError("down")), \
+             patch.object(a, "_log_swallowed"):
+            self.assertFalse(a._asset_delisted("WBD"))
+        with patch.object(a, "get_alpaca_client", return_value=None):
+            self.assertFalse(a._asset_delisted("WBD"))
+
+
 class TestSimulateTradeOutcomeStopCheckOrdering(unittest.TestCase):
     """Found in the 2026-08-16 review: within one daily bar,
     _simulate_trade_outcome() used to check the BE@1R trigger (did High

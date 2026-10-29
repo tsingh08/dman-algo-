@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-29T09:41:04.539006-04:00",
-    "symbols": [
-      "H"
-    ],
-    "headline": "Hyatt Hotels Q3 Adj. EPS $1.27 Beats $0.77 Estimate, Sales $1.743B Miss $1.747B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T09:41:04.800910-04:00",
-    "symbols": [
-      "BLDR"
-    ],
-    "headline": "Builders FirstSource Narrows FY2026 Sales Guidance from $14.000B-$14.800B to $14.200B-$14.600B vs $14.305B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:41:04.804567-04:00",
-    "symbols": [
-      "BLDR"
-    ],
-    "headline": "Builders FirstSource Q3 Adj. EPS $1.51 Beats $1.04 Estimate, Sales $3.854B Beat $3.770B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:41:05.085129-04:00",
-    "symbols": [
-      "TPG"
-    ],
-    "headline": "TPG Q3 Adj. EPS $0.65, Inline, Sales $638.072M Beat $620.126M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:41:05.340294-04:00",
-    "symbols": [
-      "MRK"
-    ],
-    "headline": "Merck Exec Says It Expects Moderate Top-Line Growth In 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T09:41:05.343927-04:00",
-    "symbols": [
-      "MRK"
-    ],
-    "headline": "Merck Expects Underlying Operating Expenses To Increase Mid- To High-Single Digits Next Year; For Keytruda Expecting Moderating Growth As We Approach Peak Revenues For Certain Approved Indications; For Keytruda, Expecting German Market To Be Impacted By Policy Dynamics; Expecting Keytruda &amp; Winrevair Benefit To Fully Unwind In Q4; Majority Of Vaccines Benefit, Primarily Gardasil, To Unwind In 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T09:41:05.347371-04:00",
-    "symbols": [
-      "MRK"
-    ],
-    "headline": "Merck &amp; Co Raises FY2026 Adj EPS Guidance from $2.66-$2.76 to $2.77-$2.82 vs $2.65 Est; Raises FY2026 Sales Guidance from $66.300B-$67.300B to $66.800B-$67.300B vs $67.052B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T09:41:05.350751-04:00",
-    "symbols": [
-      "MRK"
-    ],
-    "headline": "Merck Q3 KEYTRUDA/KEYTRUDA QLEX Sales $8.60B (+6% Y/Y)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-29T09:41:05.354133-04:00",
     "symbols": [
       "MRK"
@@ -4998,5 +4918,85 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T11:15:41.192053-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "FCC Aims To Auction 25 Megahertz Of Prime, Mid-Band Spectrum",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T11:15:42.819848-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Hinduja Global Solutions Selects Rackspace Technology for AI Infrastructure Powered by AMD",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T11:15:43.422741-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Alphabet\u2019s Jaw-Dropping Number: Up to $1.08 Trillion Commitments Vs. $561 Billion Orders",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T11:15:43.720092-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Rivian Working on Vans for Walmart? Investors Could Get Their Answer Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T11:15:47.468324-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "JP Morgan Maintains Neutral on Robinhood Markets, Lowers Price Target to $114",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T11:15:47.714053-04:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "Rivian Working on Vans for Walmart? Investors Could Get Their Answer Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T11:15:52.094973-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Wedbush Maintains Neutral on Fortinet, Lowers Price Target to $140",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T11:15:58.228986-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Mastercard CEO Says Consumers Keep Spending Despite Economic Uncertainty",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

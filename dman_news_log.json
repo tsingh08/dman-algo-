@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-29T09:40:50.803788-04:00",
-    "symbols": [
-      "MGM"
-    ],
-    "headline": "Stifel Maintains Hold on MGM Resorts International, Lowers Price Target to $35",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T09:40:50.807371-04:00",
-    "symbols": [
-      "MGM"
-    ],
-    "headline": "MGM Resorts International Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T09:40:50.810895-04:00",
-    "symbols": [
-      "MGM"
-    ],
-    "headline": "MGM Resorts Nears 52-Week Low After Q3 Loss, Revenue Miss",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T09:40:50.846831-04:00",
-    "symbols": [
-      "MGM"
-    ],
-    "headline": "MGM Resorts Intl Q3 Adj. EPS $(0.11) Misses $0.11 Estimate, Sales $4.212B Miss $4.226B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-29T09:40:51.086374-04:00",
     "symbols": [
       "SAN"
@@ -4998,5 +4958,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:50:47.905941-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Microsoft, Raises Price Target to $750",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T10:50:50.166896-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "ServiceNow Stock Plunges on Worst Day in Company\u2019s History: AI Wins Can\u2019t Hide a Bookings Slowdown",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T10:50:52.871236-04:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on KLA, Lowers Price Target to $210",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T10:50:54.494615-04:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "Wedbush Maintains Neutral on Biogen, Raises Price Target to $225",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

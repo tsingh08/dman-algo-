@@ -1748,5 +1748,145 @@
 "extension_pct": 14.9,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "ABSI",
+"date": "2026-10-29",
+"close": 12.1,
+"base_days": 88,
+"above_low_pct": 426.1,
+"extension_pct": 24.3,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "STGW",
+"date": "2026-10-29",
+"close": 9.95,
+"base_days": 60,
+"above_low_pct": 126.1,
+"extension_pct": 13.1,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "W",
+"date": "2026-10-29",
+"close": 120.12,
+"base_days": 199,
+"above_low_pct": 109.3,
+"extension_pct": 10.6,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "CROX",
+"date": "2026-10-29",
+"close": 150.26,
+"base_days": 60,
+"above_low_pct": 104.7,
+"extension_pct": 26.2,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "BHC",
+"date": "2026-10-29",
+"close": 8.91,
+"base_days": 298,
+"above_low_pct": 101.1,
+"extension_pct": 44.1,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "REPL",
+"date": "2026-10-29",
+"close": 17.39,
+"base_days": 45,
+"above_low_pct": 922.9,
+"extension_pct": 38.6,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "PRCH",
+"date": "2026-10-29",
+"close": 20.89,
+"base_days": 5,
+"above_low_pct": 226.4,
+"extension_pct": 19.8,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "TENB",
+"date": "2026-10-29",
+"close": 51.78,
+"base_days": 1,
+"above_low_pct": 222.8,
+"extension_pct": 26.6,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "GKOS",
+"date": "2026-10-29",
+"close": 242.48,
+"base_days": 53,
+"above_low_pct": 214.5,
+"extension_pct": 42.8,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "FIGS",
+"date": "2026-10-29",
+"close": 21.56,
+"base_days": 4,
+"above_low_pct": 192.1,
+"extension_pct": 21.4,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "LFST",
+"date": "2026-10-29",
+"close": 13.63,
+"base_days": 32,
+"above_low_pct": 183.5,
+"extension_pct": 10.2,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "ICLR",
+"date": "2026-10-29",
+"close": 215.48,
+"base_days": 0,
+"above_low_pct": 169.1,
+"extension_pct": 24.2,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "NIQ",
+"date": "2026-10-29",
+"close": 20.37,
+"base_days": 3,
+"above_low_pct": 155.6,
+"extension_pct": 10.1,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "ARHS",
+"date": "2026-10-29",
+"close": 12.71,
+"base_days": 3,
+"above_low_pct": 121.0,
+"extension_pct": 22.3,
+"fresh_base": false,
+"weak_band": false
 }
 ]

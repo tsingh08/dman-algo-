@@ -43155,7 +43155,7 @@
 "catalyst_tier": "",
 "news_boost": false,
 "regime": "CHOP",
-"regime_score": 17,
+"regime_score": 13,
 "mtf_ok": false,
 "regime_ok": true,
 "earnings_ok": true,
@@ -43164,7 +43164,7 @@
 "breakdown": {
 "Regime": 8,
 "MTF": 6,
-"Rel Strength": 5,
+"Rel Strength": 10,
 "Sector": 6,
 "Sector ETF": 0,
 "AI Theme": 0,
@@ -43190,8 +43190,8 @@
 "Gap Size": 0,
 "News Catalyst": 0
 },
-"seen": 22,
-"last_ts": "2026-10-29T10:39:56.376163-04:00",
+"seen": 24,
+"last_ts": "2026-10-29T10:51:45.807942-04:00",
 "entry_min": 4.68,
 "entry_max": 4.68
 },
@@ -43686,8 +43686,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 3,
-"last_ts": "2026-10-29T10:39:57.639023-04:00",
+"seen": 4,
+"last_ts": "2026-10-29T10:51:46.410330-04:00",
 "entry_min": 398.01,
 "entry_max": 398.01
 },
@@ -43713,15 +43713,15 @@
 "catalyst_tier": "",
 "news_boost": false,
 "regime": "CHOP",
-"regime_score": 17,
+"regime_score": 13,
 "mtf_ok": false,
 "regime_ok": false,
 "earnings_ok": false,
 "macro_ok": true,
 "divergence_free": true,
 "breakdown": {},
-"seen": 3,
-"last_ts": "2026-10-29T10:40:00.190060-04:00",
+"seen": 4,
+"last_ts": "2026-10-29T10:51:47.668667-04:00",
 "entry_min": 7.7855,
 "entry_max": 7.7855
 }

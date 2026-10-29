@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-29T09:40:51.086374-04:00",
-    "symbols": [
-      "SAN"
-    ],
-    "headline": "Santander Bank Opens Flagship Work Caf\u00e9 in New York City",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:51.090034-04:00",
-    "symbols": [
-      "SAN"
-    ],
-    "headline": "BofA Securities Initiates Coverage on Banco Santander with Hold Rating",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:51.093440-04:00",
-    "symbols": [
-      "SAN"
-    ],
-    "headline": "Banco Santander Concludes EUR1.8 Billion Share Buyback Plan",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:51.096894-04:00",
-    "symbols": [
-      "SAN"
-    ],
-    "headline": "EIB Group and Santander Partner on \u20ac183 Million Green Financing in Portugal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:51.399696-04:00",
-    "symbols": [
-      "PGY"
-    ],
-    "headline": "Pagaya Technologies Narrows FY2026 Sales Guidance from $1.425B-$1.525B to $1.450B-$1.500B vs $1.464B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-29T09:40:51.403266-04:00",
     "symbols": [
       "PGY"
@@ -4998,5 +4948,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T10:51:01.549650-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Lockheed Martin Tapped By U.S. Army For $1.08B Future Interceptor Development Program",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T10:51:03.156641-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Visa, Raises Price Target to $463",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T10:51:09.111391-04:00",
+    "symbols": [
+      "GERN"
+    ],
+    "headline": "Wedbush Maintains Outperform on Geron, Lowers Price Target to $5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:51:14.633252-04:00",
+    "symbols": [
+      "TE"
+    ],
+    "headline": "Technip Energies Reports 9M 2026 Financial Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-29T10:51:20.223491-04:00",
+    "symbols": [
+      "PURR"
+    ],
+    "headline": "XRP, Ethereum, Solana Are 3 of the Top 5 Altcoins, Expert Says: And the Other 2?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

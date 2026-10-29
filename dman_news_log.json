@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-29T09:40:42.739587-04:00",
-    "symbols": [
-      "NXT"
-    ],
-    "headline": "Nextpower Raises FY2027 Adj EPS Guidance from $4.42-$4.73 to $4.61-$4.87 vs $4.63 Est; Raises FY2027 Sales Guidance from $4.100B-$4.400B to $4.200B-$4.450B vs $4.317B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T09:40:43.016644-04:00",
-    "symbols": [
-      "ORLY"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on O&#39;Reilly Automotive, Raises Price Target to $105",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T09:40:43.020253-04:00",
-    "symbols": [
-      "ORLY"
-    ],
-    "headline": "O&#39;Reilly Automotive Raises FY2026 GAAP EPS Guidance from $3.20-$3.30 to $3.25-$3.35 vs $3.27 Est; Raises FY2026 Sales Guidance from $18.900B-$19.200B to $19.000B-$19.300B vs $19.136B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T09:40:43.023718-04:00",
-    "symbols": [
-      "ORLY"
-    ],
-    "headline": "O&#39;Reilly Automotive Q3 EPS $0.97 Beats $0.92 Estimate, Sales $5.121B Beat $5.012B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T09:40:43.253449-04:00",
-    "symbols": [
-      "TEL"
-    ],
-    "headline": "Truist Securities Adjusts Price Target on TE Connectivity to $235 From $215",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T09:40:43.481782-04:00",
-    "symbols": [
-      "OI"
-    ],
-    "headline": "Truist Securities Adjusts Price Target on O-I Glass to $7 From $8, Keeps Buy Rating",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-29T09:40:43.485379-04:00",
     "symbols": [
       "OI"
@@ -4995,6 +4935,66 @@
       "GVA"
     ],
     "headline": "Granite Construction Q3 Adj. EPS $3.81 Beats $3.33 Estimate, Sales $1.766B Beat $1.721B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:26:43.723442-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Stock Heads Toward All-Time High: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T10:26:44.006859-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Guggenheim Maintains Buy on Microsoft, Raises Price Target to $595",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T10:26:45.224534-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Guggenheim Reiterates Buy on Alphabet, Maintains $450 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T10:26:58.567395-04:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "If You Invested $1000 In Eaton Corp Stock 15 Years Ago, You Would Have This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T10:27:16.473932-04:00",
+    "symbols": [
+      "PURR"
+    ],
+    "headline": "Stan Druckenmiller Lauds Hyperliquid Partnership With Intercontinental Exchange, PURR Jumps 10%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T10:27:21.723570-04:00",
+    "symbols": [
+      "FCN"
+    ],
+    "headline": "FTI Consulting Q3 2026 Earnings Call Transcript",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

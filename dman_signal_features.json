@@ -43844,8 +43844,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 13,
-"last_ts": "2026-10-29T15:02:58.942373-04:00",
+"seen": 14,
+"last_ts": "2026-10-29T15:04:52.270043-04:00",
 "entry_min": 11.88,
 "entry_max": 12.08
 },
@@ -43906,9 +43906,9 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 6,
-"last_ts": "2026-10-29T14:38:07.503578-04:00",
-"entry_min": 18.23,
+"seen": 7,
+"last_ts": "2026-10-29T15:04:53.970076-04:00",
+"entry_min": 18.22,
 "entry_max": 18.27
 },
 {
@@ -43968,8 +43968,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 26,
-"last_ts": "2026-10-29T15:02:56.724390-04:00",
+"seen": 28,
+"last_ts": "2026-10-29T15:04:52.080762-04:00",
 "entry_min": 109.32,
 "entry_max": 112.22
 },
@@ -44030,8 +44030,8 @@
 "Gap Size": 5,
 "News Catalyst": 10
 },
-"seen": 24,
-"last_ts": "2026-10-29T15:02:54.356256-04:00",
+"seen": 26,
+"last_ts": "2026-10-29T15:04:49.683287-04:00",
 "entry_min": 9.91,
 "entry_max": 9.91
 },
@@ -44046,12 +44046,12 @@
 "score": 100,
 "final_score": 100.0,
 "ai_scored": false,
-"entry": 150.44,
-"stop": 141.22,
-"target1": 181.79,
-"rr": 3.4,
+"entry": 150.39,
+"stop": 141.17,
+"target1": 181.61,
+"rr": 3.39,
 "rsi": 82.4,
-"rvol": 4.36,
+"rvol": 4.07,
 "atr": 6.146785714285712,
 "beta": 1.557,
 "catalyst_tier": "C",
@@ -44065,7 +44065,7 @@
 "divergence_free": true,
 "breakdown": {
 "Regime": 8,
-"MTF": 14,
+"MTF": 20,
 "Rel Strength": 15,
 "Sector": 6,
 "Sector ETF": 0,
@@ -44092,9 +44092,9 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 6,
-"last_ts": "2026-10-29T14:38:03.505988-04:00",
-"entry_min": 150.44,
+"seen": 8,
+"last_ts": "2026-10-29T15:04:51.816171-04:00",
+"entry_min": 150.39,
 "entry_max": 150.44
 },
 {
@@ -44154,9 +44154,9 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 5,
-"last_ts": "2026-10-29T14:38:08.649480-04:00",
-"entry_min": 89.51,
+"seen": 6,
+"last_ts": "2026-10-29T15:04:55.947784-04:00",
+"entry_min": 86.92,
 "entry_max": 89.51
 },
 {
@@ -44216,9 +44216,9 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 5,
-"last_ts": "2026-10-29T14:38:10.208100-04:00",
-"entry_min": 177.37,
+"seen": 6,
+"last_ts": "2026-10-29T15:04:57.973730-04:00",
+"entry_min": 177.34,
 "entry_max": 177.37
 }
 ]

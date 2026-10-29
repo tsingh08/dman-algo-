@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-29T11:37:22.393567-04:00",
-    "symbols": [
-      "NOW"
-    ],
-    "headline": "Barclays Maintains Overweight on ServiceNow, Lowers Price Target to $152",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T11:37:22.398748-04:00",
-    "symbols": [
-      "NOW"
-    ],
-    "headline": "Tech&#39;s 20 Beaten-Down Stocks Have Sunk up to 65%: Which ETFs Could Ride an AI Rebound?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T11:37:22.403437-04:00",
-    "symbols": [
-      "NOW"
-    ],
-    "headline": "ServiceNow Stock Plunges on Worst Day in Company\u2019s History: AI Wins Can\u2019t Hide a Bookings Slowdown",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T11:37:22.408109-04:00",
-    "symbols": [
-      "NOW"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on ServiceNow, Lowers Price Target to $175",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-29T11:37:22.412701-04:00",
     "symbols": [
       "NOW"
@@ -4998,5 +4958,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T13:02:08.284020-04:00",
+    "symbols": [
+      "STLA"
+    ],
+    "headline": "Stellantis Updates 2027 Fiat Topolino for U.S. Market",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T13:02:08.287137-04:00",
+    "symbols": [
+      "STLA"
+    ],
+    "headline": "Stellantis Chief Design Officer Ralph Gilles Launches Podcast",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T13:02:08.290161-04:00",
+    "symbols": [
+      "STLA"
+    ],
+    "headline": "Stellantis Extends Partnership with Radford Racing School for Dodge Owners",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T13:02:08.460383-04:00",
+    "symbols": [
+      "BBD"
+    ],
+    "headline": "JPMorgan Downgrades Banco Bradesco S.A. to Neutral From Overweight",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

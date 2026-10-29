@@ -43141,8 +43141,8 @@
 "bias": "LONG",
 "taken": false,
 "reject": "mtf: weekly disagrees",
-"score": 96,
-"final_score": 96.0,
+"score": 100,
+"final_score": 100.0,
 "ai_scored": false,
 "entry": 4.68,
 "stop": 4.4,
@@ -43159,7 +43159,7 @@
 "mtf_ok": false,
 "regime_ok": true,
 "earnings_ok": true,
-"macro_ok": false,
+"macro_ok": true,
 "divergence_free": true,
 "breakdown": {
 "Regime": 8,
@@ -43170,7 +43170,7 @@
 "AI Theme": 0,
 "Insider": 0,
 "Earnings": 5,
-"Macro": 0,
+"Macro": 5,
 "Earn React": 0,
 "Fibonacci": 10,
 "VWAP": 8,
@@ -43190,8 +43190,8 @@
 "Gap Size": 0,
 "News Catalyst": 0
 },
-"seen": 12,
-"last_ts": "2026-10-29T09:50:31.925348-04:00",
+"seen": 14,
+"last_ts": "2026-10-29T10:02:32.380665-04:00",
 "entry_min": 4.68,
 "entry_max": 4.68
 },
@@ -43574,7 +43574,7 @@
 "setup": "Gap & Hold",
 "bias": "LONG",
 "taken": false,
-"reject": "macro blackout",
+"reject": "divergence",
 "score": 100,
 "final_score": 100.0,
 "ai_scored": false,
@@ -43593,7 +43593,7 @@
 "mtf_ok": true,
 "regime_ok": true,
 "earnings_ok": true,
-"macro_ok": false,
+"macro_ok": true,
 "divergence_free": false,
 "breakdown": {
 "Regime": 8,
@@ -43604,7 +43604,7 @@
 "AI Theme": 0,
 "Insider": 0,
 "Earnings": 5,
-"Macro": 0,
+"Macro": 5,
 "Earn React": 0,
 "Fibonacci": 7,
 "VWAP": 8,
@@ -43624,8 +43624,8 @@
 "Gap Size": 3,
 "News Catalyst": 0
 },
-"seen": 2,
-"last_ts": "2026-10-29T09:50:33.849370-04:00",
+"seen": 4,
+"last_ts": "2026-10-29T10:02:33.146262-04:00",
 "entry_min": 169.3,
 "entry_max": 169.3
 }

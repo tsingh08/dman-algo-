@@ -1,265 +1,5 @@
 [
   {
-    "ts": "2026-10-28T14:57:30.316894-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Live On CNBC, Bill Baruch Announces Trimmed CrowdStrike Position",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:57:30.791747-04:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Cloudflare, Raises Price Target to $400",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T14:57:30.999397-04:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Datadog, Raises Price Target to $325",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T14:57:31.389228-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Scaramucci Calls Elizabeth Warren \u2018the Joke of Jokes,\u2019 Accuses Her of Echoing Bank Lobbyists",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:57:34.545411-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "Jim Cramer Says People Selling This Stock Don&#39;t Have Brains",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:57:35.669071-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Sky News&#39; Mark Kleinman Posts On X &#34;Exclusive: JPMorgan Chase faces paying an additional sum in the region of \u00a3100m-\u00a3150m as a result of chancellor John Healey&#39;s decision to double the corporation tax surcharge on banks, a possible obstacle to the firm proceeding with its new London headquarters...&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T14:57:38.076324-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Warsh Says There&#39;s A Stable Correlation Between Oil Prices Rising And Market-set Interest Rates, Until Recently; Been A Stable Correlation Between Oil Price And Market Interest Rates Until Recently; Interest Rates Have Rolled Over To The Downside; I Take Note That Oil Futures Prices Have Moved Up; I Was Skeptical That Interest Rates Would Not Have An Effect On AI, Rates Affect Almost Everything",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:57:38.079310-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed Chair Warsh Says Task Force Conclusion Unlikely To Find Their Way Into This Policy Juncture; Will Attend Nov 16 Field Hearing From Productivity Task Force; Plan On Attending Task Force Field Hearing Next Month; There Is No Soft Inflation Target; Price Stability Target Is 2% Measured By PCE;  Inflation Expectations Have Gone Up In Near-term, But Longer-Term Measures Show Households And Businesses Have Confidence That Fed Will Deliver Price Stability",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:57:38.082070-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed Chair Warsh, Asked About Trump Comment On Fed Board: Says He Won&#39;t Respond; Asked About Trump&#39;s Criticisms Of The Fed, Says Will Not Respond To Quotes By Public Officials; Asked About Trump Comment On Fed Board Says FOMC Had A Family Fight, Came To Right Policy Decision For This Moment; Asked About Trump Comment On Fed Board Says Honored To Be A Part Of This Group, And Its Chairman",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:57:38.281540-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:57:38.426018-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:57:44.981671-04:00",
-    "symbols": [
-      "TE"
-    ],
-    "headline": "T1 Energy Stock Extends Rally: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T14:57:49.078640-04:00",
-    "symbols": [
-      "VRT"
-    ],
-    "headline": "SK Hynix, Vertiv Rescue AI Trade As Oil Tops $102 Before Fed: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T14:57:54.162469-04:00",
-    "symbols": [
-      "SDGR"
-    ],
-    "headline": "10 Health Care Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-28T15:02:08.003896-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Increases Equity Offering to $97.5 Billion for AI Infrastructure",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T15:02:08.010313-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "BMO Asset Management Launches Autocallable Income Tesla ETF",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-28T15:02:08.013637-04:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Reports Detail Palantir's Integration into Healthcare Systems",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T15:02:08.017085-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Reindeer Joins Microsoft for Startups Pegasus Program",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T15:02:08.019975-04:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "The Goldman Sachs Group, Inc. Discloses New Position in ASOS PLC",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T15:02:08.022811-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "BofA Securities Notes Uber's Position Ahead of Q3 Results",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T15:02:08.026233-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Analysts Adjust Price Targets for Visa Following Earnings Report",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T15:02:21.035807-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Michael Burry Finds a $537 Billion Hole in Anthropic\u2019s IPO Story",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T15:02:21.043451-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Earnings Top Item to Watch for AI Stocks: Dan Ives Says &#39;Most Important Print of the Week&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T15:02:21.048793-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Michael Burry Finds a $537 Billion Hole in Anthropic\u2019s IPO Story",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-28T15:02:21.053219-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Cyclicals Lead Sectors In Wednesday Trading As Real Estate Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-28T15:02:21.063012-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Cyclicals Lead Sectors In Wednesday Trading As Real Estate Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-28T15:02:21.068544-04:00",
     "symbols": [
       "SNOW"
@@ -4995,6 +4735,266 @@
       "FDX"
     ],
     "headline": "FedEx Reports Third-Quarter Financial Results and Raises Full-Year Outlook",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T17:32:08.148590-04:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "XREAL Launches AURA Smart Glasses Powered by Android XR and Qualcomm Snapdragon",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-28T17:32:08.238493-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "GE Vernova Reports Q3 2026 Results and Increases Share Repurchase Authorization",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T17:32:08.329725-04:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Mercado Libre Announces Partnership with Netflix",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T17:32:08.402959-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Expands AI Capabilities with New Fusion Cloud Tools and Infrastructure Partnerships",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T17:32:08.488516-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "The Goldman Sachs Group, Inc. Discloses Change in Voting Rights in ThyssenKrupp AG",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T17:32:08.493429-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Executive Comments on AI Market Sentiment",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T17:33:08.181135-04:00",
+    "symbols": [
+      "OPEN"
+    ],
+    "headline": "UBS Adjusts Opendoor Technologies Price Target to $2 From $4.50",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T17:33:08.319786-04:00",
+    "symbols": [
+      "UA"
+    ],
+    "headline": "UBS Adjusts Under Armour Price Target Ahead of Q2 Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T17:33:08.456403-04:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "Analysts Adjust Price Targets for Freeport-McMoRan Following Recent Quarterly Reporting",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T17:33:08.519026-04:00",
+    "symbols": [
+      "KOPN"
+    ],
+    "headline": "Kopin Corporation Receives Two Major Honors at 2026 Massachusetts Manufacturing Mash-Up",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T17:33:08.591167-04:00",
+    "symbols": [
+      "GERN"
+    ],
+    "headline": "Wedbush Adjusts Price Target on Geron to $5 From $6",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T17:33:08.655094-04:00",
+    "symbols": [
+      "WVE"
+    ],
+    "headline": "Oppenheimer Adjusts Price Target on Wave Life Sciences to $29",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T17:33:08.794001-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "US Department of Justice Investigating NVIDIA's Acquisition of Hugging Face",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T17:33:08.887750-04:00",
+    "symbols": [
+      "SPCE"
+    ],
+    "headline": "Virgin Galactic Announces Name of New Spaceship as 'Apeiron'",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T17:33:08.956883-04:00",
+    "symbols": [
+      "NNBR"
+    ],
+    "headline": "NN, Inc. Reports Third Quarter 2026 Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T17:34:08.125314-04:00",
+    "symbols": [
+      "DDD"
+    ],
+    "headline": "3D Systems and Precision Resource Announce Groundbreaking of Two New Additive Manufacturing Facilities",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-28T18:02:08.111828-04:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "Barclays Raises Biogen Price Target to $230",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T19:02:08.090756-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Expands 'Shop Direct' Catalog to Retain Site Traffic",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T19:02:08.197976-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa Increases Quarterly Dividend and Authorizes New Share Buyback",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T19:02:08.290127-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike Releases 2026 Legal Threat Landscape Report",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T19:02:08.394096-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA Schedules Third-Quarter Fiscal 2027 Earnings Conference Call",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T19:02:08.461062-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "FTC Demands Data from Uber and Others Regarding Personalized Pricing and Wage Setting",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T19:02:08.528617-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Updates AI Service Products for California Customer Handoff Compliance",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-28T19:02:08.603435-04:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "V Ten Metals Provides Update on Tanami Property Exploration Joint Venture with Newmont",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T19:02:08.733446-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell in Advanced Talks to Acquire Lumentum",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-28T20:02:08.128165-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Full Self-Driving V14 Software Update",
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "neutral"

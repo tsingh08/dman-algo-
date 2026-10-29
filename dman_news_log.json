@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-29T09:41:05.354133-04:00",
-    "symbols": [
-      "MRK"
-    ],
-    "headline": "Merck &amp; Co Q3 Adj. EPS $2.49 Beats $2.08 Estimate, Sales $18.085B Beat $17.313B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T09:41:05.808999-04:00",
-    "symbols": [
-      "APG"
-    ],
-    "headline": "APi Gr Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:41:05.812583-04:00",
-    "symbols": [
-      "APG"
-    ],
-    "headline": "APi Group Sees Q4 Sales $2.410B-$2.460B vs $2.356B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-29T09:41:05.815968-04:00",
     "symbols": [
       "APG"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T11:16:15.255597-04:00",
+    "symbols": [
+      "GKOS"
+    ],
+    "headline": "Truist Securities Maintains Buy on Glaukos, Raises Price Target to $255",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T11:16:19.354703-04:00",
+    "symbols": [
+      "EHC"
+    ],
+    "headline": "Encompass Health Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T11:16:24.886949-04:00",
+    "symbols": [
+      "PATK"
+    ],
+    "headline": "Patrick Industries Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

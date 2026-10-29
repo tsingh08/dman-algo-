@@ -4320,7 +4320,23 @@ def _tg_cmd_status():
     _prob_on, _prob_mult = is_on_probation()
     if _prob_on:
         _h += f"  |  🟡 PROBATION ×{_prob_mult:.2f}"
-    _setup_prob = _load_setup_probation()
+    # Passive age filter, honoring the same window _setup_probation_bonus()
+    # enforces — expiry is lazy (it only fires when that setup is next
+    # scored), so a setup that stops being scored keeps its entry forever:
+    # "Earnings Spread" entered probation 2026-10-08, was retired outright,
+    # and /status still called it restricted 21 days later. Read-only here
+    # (no deletion, no Telegram), same pattern as the earnings-offer
+    # surfacing that reads this file. An unparseable start date keeps the
+    # entry visible — fail toward showing a restriction, not hiding one.
+    _setup_prob = {}
+    for _k, _v in _load_setup_probation().items():
+        try:
+            _started = datetime.fromisoformat(_v.get("started", ""))
+            if (datetime.now(_started.tzinfo) - _started).days >= SETUP_PROBATION_MAX_DAYS:
+                continue
+        except (ValueError, TypeError):
+            pass
+        _setup_prob[_k] = _v
     if _setup_prob:
         _h += f"  |  🟡 {len(_setup_prob)} setup(s) restricted: {', '.join(_setup_prob.keys())}"
     try:

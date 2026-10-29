@@ -1,455 +1,5 @@
 [
   {
-    "ts": "2026-10-29T09:40:43.485379-04:00",
-    "symbols": [
-      "OI"
-    ],
-    "headline": "Baird Cuts Target Price on O-I Glass to $8 From $13",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T09:40:43.936531-04:00",
-    "symbols": [
-      "AMP"
-    ],
-    "headline": "Ameriprise Finl Q3 Adj. EPS $12.07 Beats $11.70 Estimate, Sales $5.117B Beat $5.047B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:44.200611-04:00",
-    "symbols": [
-      "TYL"
-    ],
-    "headline": "Tyler Technologies Affirms FY2026 Adj EPS Guidance of $12.95-$13.20 vs $13.10 Est; Narrows FY2026 Sales Guidance from $2.535B-$2.575B to $2.535B-$2.565B vs $2.554B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T09:40:44.204153-04:00",
-    "symbols": [
-      "TYL"
-    ],
-    "headline": "Tyler Technologies Q3 Adj. EPS $3.52 Beats $3.48 Estimate, Sales $647.566M Miss $651.637M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T09:40:44.436869-04:00",
-    "symbols": [
-      "RSI"
-    ],
-    "headline": "Oppenheimer Maintains Outperform on Rush Street Interactive, Lowers Price Target to $25",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T09:40:44.440450-04:00",
-    "symbols": [
-      "RSI"
-    ],
-    "headline": "Stifel Maintains Buy on Rush Street Interactive, Lowers Price Target to $28",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T09:40:44.454585-04:00",
-    "symbols": [
-      "RSI"
-    ],
-    "headline": "Freedom Capital Markets Maintains Buy on Rush Street Interactive, Lowers Price Target to $20",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T09:40:44.458041-04:00",
-    "symbols": [
-      "RSI"
-    ],
-    "headline": "Needham Maintains Buy on Rush Street Interactive, Lowers Price Target to $25",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T09:40:44.461544-04:00",
-    "symbols": [
-      "RSI"
-    ],
-    "headline": "Rush Street Interactive Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T09:40:44.725555-04:00",
-    "symbols": [
-      "ST"
-    ],
-    "headline": "UBS Maintains Buy on Sensata Technologies, Lowers Price Target to $51",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T09:40:44.957963-04:00",
-    "symbols": [
-      "RDWR"
-    ],
-    "headline": "Radware Insider Executes Share Sale",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T09:40:45.213258-04:00",
-    "symbols": [
-      "NSP"
-    ],
-    "headline": "Insperity Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:45.216969-04:00",
-    "symbols": [
-      "NSP"
-    ],
-    "headline": "Insperity Narrows FY2026 GAAP EPS Guidance from $0.76-$1.31 to $0.81-$1.16 vs $1.06 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:45.220423-04:00",
-    "symbols": [
-      "NSP"
-    ],
-    "headline": "Insperity Q3 Adj. EPS $0.22 Beats $0.21 Estimate, Sales $1.651B Beat $1.636B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:45.223828-04:00",
-    "symbols": [
-      "NSP"
-    ],
-    "headline": "Insperity Sees Q4 GAAP EPS $(0.14)-$0.21 vs $0.09 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:45.227200-04:00",
-    "symbols": [
-      "NSP"
-    ],
-    "headline": "Insperity Narrows FY2026 Adj EPS Guidance from $1.88-$2.43 to $1.93-$2.28 vs $2.11 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:45.482414-04:00",
-    "symbols": [
-      "SBET"
-    ],
-    "headline": "Sharplink Named on MSCI Watch List for Potential Index Exclusion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:45.710917-04:00",
-    "symbols": [
-      "STX"
-    ],
-    "headline": "UBS Maintains Neutral on Seagate Technology Hldgs, Lowers Price Target to $750",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T09:40:45.714527-04:00",
-    "symbols": [
-      "STX"
-    ],
-    "headline": "Citigroup Maintains Buy on Seagate Technology Hldgs, Lowers Price Target to $1050",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T09:40:46.018308-04:00",
-    "symbols": [
-      "PNR"
-    ],
-    "headline": "Citigroup Maintains Buy on Pentair, Raises Price Target to $74",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T09:40:46.271646-04:00",
-    "symbols": [
-      "SAH"
-    ],
-    "headline": "Sonic Automotive Q3 Adj. EPS $1.30 Misses $1.67 Estimate, Sales $3.988B Miss $4.027B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:46.501927-04:00",
-    "symbols": [
-      "ALMR"
-    ],
-    "headline": "Alamar Biosciences Says Emory Study Using Its NULISA Platform Found Blood Protein Signature Identifying ALS With 98.3% Balanced Accuracy, Not A Clinical Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:46.755195-04:00",
-    "symbols": [
-      "TBLA"
-    ],
-    "headline": "Taboola Partners with Motorola to Integrate DeeperDive on moto g Smartphones",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T09:40:46.971419-04:00",
-    "symbols": [
-      "LILA"
-    ],
-    "headline": "Liberty Latin America Schedules Investor Call for Third Quarter 2026 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:47.331684-04:00",
-    "symbols": [
-      "MYRG"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:47.335239-04:00",
-    "symbols": [
-      "MYRG"
-    ],
-    "headline": "MYR Group Announces $100M Buyback Plan",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:47.338658-04:00",
-    "symbols": [
-      "MYRG"
-    ],
-    "headline": "MYR Group Q3 EPS $3.82 Beats $2.89 Estimate, Sales $1.260B Beat $1.160B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:47.598475-04:00",
-    "symbols": [
-      "UPBD"
-    ],
-    "headline": "Upbound Group Sees Q4 Adj EPS $1.00-$1.10 vs $1.10 Est; Sees Sales $1.150B-$1.250B vs $1.226B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:47.602057-04:00",
-    "symbols": [
-      "UPBD"
-    ],
-    "headline": "Upbound Group Narrows FY2026 Adj EPS Guidance from $4.00-$4.35 to $4.15-$4.30 vs $4.16 Est; Lowers FY2026 Sales Guidance from $4.700B-$4.850B to $4.680B-$4.780B vs $4.733B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:47.605509-04:00",
-    "symbols": [
-      "UPBD"
-    ],
-    "headline": "Upbound Group Q3 Adj. EPS $1.01 Beats $0.91 Estimate, Sales $1.150B Beat $1.124B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:47.873981-04:00",
-    "symbols": [
-      "TT"
-    ],
-    "headline": "Trane Technologies Affirms FY2026 GAAP EPS Guidance of $15.00-$15.10 vs $15.14 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:47.877591-04:00",
-    "symbols": [
-      "TT"
-    ],
-    "headline": "Trane Technologies Affirms FY2026 Adj EPS Guidance of $15.20-$15.30 vs $15.29 Est; Raises FY2026 Sales Guidance from $23.774B to $24.200B vs $23.788B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:47.927446-04:00",
-    "symbols": [
-      "TT"
-    ],
-    "headline": "Trane Technologies Q3 Adj. EPS $4.86 Beats $4.74 Estimate, Sales $6.760B Beat $6.500B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:47.931014-04:00",
-    "symbols": [
-      "TT"
-    ],
-    "headline": "Amazon, Eli Lilly On Deck Thursday As AWS Growth, Drug Demand Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:48.177892-04:00",
-    "symbols": [
-      "WEX"
-    ],
-    "headline": "WEX Sees Q4 Adj EPS $5.67-$5.87 vs $5.00 Est; Sees Sales $760.000M-$780.000M vs $713.711M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T09:40:48.181494-04:00",
-    "symbols": [
-      "WEX"
-    ],
-    "headline": "WEX Affirms FY2026 Adj EPS Guidance of $19.68-$20.08 vs $20.14 Est; Raises FY2026 Sales Guidance from $2.860B-$2.900B to $2.970B-$2.990B vs $2.890B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T09:40:48.184968-04:00",
-    "symbols": [
-      "WEX"
-    ],
-    "headline": "WEX Q3 Adj. EPS $6.13 Beats $5.65 Estimate, Sales $780.100M Beat $746.012M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T09:40:48.438436-04:00",
-    "symbols": [
-      "QTRX"
-    ],
-    "headline": "Quanterix Announces Third Quarter 2026 Earnings Conference Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:49.792714-04:00",
-    "symbols": [
-      "NVCR"
-    ],
-    "headline": "NovoCure Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:49.796306-04:00",
-    "symbols": [
-      "NVCR"
-    ],
-    "headline": "NovoCure Q3 EPS $(0.09) Beats $(0.24) Estimate, Sales $193.399M Beat $182.233M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:49.799754-04:00",
-    "symbols": [
-      "NVCR"
-    ],
-    "headline": "NovoCure Raises FY2026 Sales Guidance from $710.000M-$725.000M to $736.000M-$743.000M vs $725.814M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:50.018850-04:00",
-    "symbols": [
-      "SITE"
-    ],
-    "headline": "SiteOne Landscape Supply Announces Third Quarter 2026 Earnings and Share Repurchase Authorization Increase",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T09:40:50.264657-04:00",
-    "symbols": [
-      "AOS"
-    ],
-    "headline": "A.O. Smith Q3 Adj. EPS $0.93 Beats $0.90 Estimate, Sales $940.500M Miss $960.234M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:50.268249-04:00",
-    "symbols": [
-      "AOS"
-    ],
-    "headline": "A.O. Smith Lowers FY2026 Adj EPS Guidance from $3.70-$3.85 to $3.42-$3.52 vs $3.72 Est; Sees Net sales growth, excluding China, of approximately 4%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T09:40:50.521693-04:00",
-    "symbols": [
-      "AGIO"
-    ],
-    "headline": "HC Wainwright &amp; Co. Assumes Agios Pharmaceuticals at Buy, Announces Price Target of $55",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-29T09:40:50.803788-04:00",
     "symbols": [
       "MGM"
@@ -4995,6 +4545,456 @@
       "FCN"
     ],
     "headline": "FTI Consulting Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:39:01.128617-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Steve Eisman Says AI Giants Have &#39;No Moats.&#39; Morningstar&#39;s $57 Billion Math Says Otherwise",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T10:39:01.134384-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "StoneX Maintains Buy on Microsoft, Raises Price Target to $630",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T10:39:01.475648-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "QUICK SPARK: Alphabet Stock Eyes Worst Day in Company&#39;s History, Wipes Out $500 Billion in Value",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T10:39:01.481158-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Steve Eisman Says AI Giants Have &#39;No Moats.&#39; Morningstar&#39;s $57 Billion Math Says Otherwise",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T10:39:02.321603-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "QUICK SPARK: Alphabet Stock Eyes Worst Day in Company&#39;s History, Wipes Out $500 Billion in Value",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T10:39:02.327438-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Steve Eisman Says AI Giants Have &#39;No Moats.&#39; Morningstar&#39;s $57 Billion Math Says Otherwise",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T10:39:02.332113-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Truist Securities Maintains Buy on Alphabet, Lowers Price Target to $410",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T10:39:02.617165-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Steve Eisman Says AI Giants Have &#39;No Moats.&#39; Morningstar&#39;s $57 Billion Math Says Otherwise",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T10:39:07.756989-04:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "Truist Securities Reiterates Buy on Biogen, Raises Price Target to $260",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T10:39:18.476217-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Stock of the Day: Why Did Oracle Rally?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T10:39:18.988069-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Natural Gas Storage 80B Vs 75B Est.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:39:32.161770-04:00",
+    "symbols": [
+      "FVRR"
+    ],
+    "headline": "Fiverr Intl Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:39:32.167347-04:00",
+    "symbols": [
+      "FVRR"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:39:32.172491-04:00",
+    "symbols": [
+      "FVRR"
+    ],
+    "headline": "Fiverr Intl Raises FY2026 Sales Guidance from $356.000M-$372.000M to $374.000M-$380.000M vs $364.316M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:39:32.177228-04:00",
+    "symbols": [
+      "FVRR"
+    ],
+    "headline": "Fiverr Intl Sees Q4 Sales $80.000M-$86.000M vs $77.765M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:39:32.182383-04:00",
+    "symbols": [
+      "FVRR"
+    ],
+    "headline": "Fiverr International Q3 Adj. EPS $0.43 Beats $0.34 Estimate, Sales $90.899M Beat $83.764M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:39:33.206499-04:00",
+    "symbols": [
+      "PHAT"
+    ],
+    "headline": "Phathom Pharmaceuticals Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:39:33.213048-04:00",
+    "symbols": [
+      "PHAT"
+    ],
+    "headline": "Phathom Pharmaceuticals Affirms FY2026 Sales Guidance of $310.000M-$325.000M vs $314.842M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:39:33.221140-04:00",
+    "symbols": [
+      "PHAT"
+    ],
+    "headline": "Phathom Pharmaceuticals Q3 Adj. EPS $0.04 Beats $0.02 Estimate, Sales $84.722M Miss $85.096M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:39:33.948247-04:00",
+    "symbols": [
+      "FINW"
+    ],
+    "headline": "FinWise Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:39:33.954528-04:00",
+    "symbols": [
+      "FINW"
+    ],
+    "headline": "FinWise Q3 EPS $0.73 Beats $0.23 Estimate, Sales $102.743M Beat $46.090M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:39:34.206451-04:00",
+    "symbols": [
+      "PI"
+    ],
+    "headline": "Susquehanna Maintains Positive on Impinj, Raises Price Target to $225",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:39:34.212704-04:00",
+    "symbols": [
+      "PI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:39:34.218085-04:00",
+    "symbols": [
+      "PI"
+    ],
+    "headline": "Needham Maintains Buy on Impinj, Raises Price Target to $195",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:39:34.223084-04:00",
+    "symbols": [
+      "PI"
+    ],
+    "headline": "Impinj Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:39:34.227908-04:00",
+    "symbols": [
+      "PI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:39:34.951519-04:00",
+    "symbols": [
+      "CLMB"
+    ],
+    "headline": "Climb Global Solutions Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T10:39:34.958816-04:00",
+    "symbols": [
+      "CLMB"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T10:39:34.964287-04:00",
+    "symbols": [
+      "CLMB"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T10:39:34.969795-04:00",
+    "symbols": [
+      "CLMB"
+    ],
+    "headline": "Climb Global Solutions Q3 Adj. EPS $0.43 Beats $0.38 Estimate, Sales $220.306M Beat $177.943M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T10:39:35.221239-04:00",
+    "symbols": [
+      "EHC"
+    ],
+    "headline": "Encompass Health Raises FY2026 Adj EPS Guidance from $6.02-$6.25 to $6.23-$6.37 vs $6.11 Est; Raises FY2026 Sales Guidance from $6.410B-$6.490B to $6.450B-$6.500B vs $6.460B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T10:39:35.228221-04:00",
+    "symbols": [
+      "EHC"
+    ],
+    "headline": "Encompass Health Q3 Adj. EPS $1.52 Beats $1.36 Estimate, Sales $1.609B Beat $1.601B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T10:39:36.520861-04:00",
+    "symbols": [
+      "BELFA"
+    ],
+    "headline": "Bel Fuse Sees Q4 Sales $220.000M-$240.000M vs $205.735M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:39:36.526982-04:00",
+    "symbols": [
+      "BELFA"
+    ],
+    "headline": "Bel Fuse Q3 Adj. EPS $2.92 Beats $2.51 Estimate, Sales $220.510M Beat $207.500M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:39:36.763244-04:00",
+    "symbols": [
+      "GATX"
+    ],
+    "headline": "GATX Q3 Adj. EPS $2.92 Beats $2.46 Estimate, Sales $598.000M Beat $592.657M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:39:36.769058-04:00",
+    "symbols": [
+      "GATX"
+    ],
+    "headline": "GATX FY2026  GAAP EPS expected to be more than $10.30 vs $10.15 Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:39:37.021272-04:00",
+    "symbols": [
+      "INDV"
+    ],
+    "headline": "Indivior Pharmaceuticals Affirms FY2026 Sales Guidance of $1.295B-$1.365B vs $1.334B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:39:37.027578-04:00",
+    "symbols": [
+      "INDV"
+    ],
+    "headline": "Indivior Q3 Adj. EPS $1.32 Beats $1.12 Estimate, Sales $356.000M Beat $329.350M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:39:37.506114-04:00",
+    "symbols": [
+      "LXU"
+    ],
+    "headline": "LSB Industries Q3 EPS $0.22 Misses $0.26 Estimate, Sales $158.602M Miss $167.700M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-29T10:39:37.982766-04:00",
+    "symbols": [
+      "TXT"
+    ],
+    "headline": "Bell Textron Receives Order From Global Medical Response For Additional Bell 407GXis To Expand All-Weather Air Ambulance Fleet",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-29T10:39:38.716559-04:00",
+    "symbols": [
+      "ATI"
+    ],
+    "headline": "ATI Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T10:39:38.721674-04:00",
+    "symbols": [
+      "ATI"
+    ],
+    "headline": "ATI Q3 Adj. EPS $1.46 Beats $1.37 Estimate, Sales $1.424B Beat $1.323B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T10:39:38.726445-04:00",
+    "symbols": [
+      "ATI"
+    ],
+    "headline": "ATI Raises FY2026 Adj EPS Guidance from $4.90-$5.18 to $5.17-$5.23 vs $5.14 Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T10:39:38.731875-04:00",
+    "symbols": [
+      "ATI"
+    ],
+    "headline": "ATI Sees Q4 Adj EPS $1.51-$1.57 vs $1.54 Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-29T10:39:40.502777-04:00",
+    "symbols": [
+      "PATK"
+    ],
+    "headline": "Patrick Industries Q3 Adj. EPS $1.03 Beats $0.99 Estimate, Sales $975.277M Beat $941.347M Estimate",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

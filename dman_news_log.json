@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-30T09:39:13.354179-04:00",
-    "symbols": [
-      "MAX"
-    ],
-    "headline": "Canaccord Genuity Maintains Buy on MediaAlpha, Raises Price Target to $18",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T09:39:13.357508-04:00",
-    "symbols": [
-      "MAX"
-    ],
-    "headline": "JP Morgan Maintains Neutral on MediaAlpha, Raises Price Target to $16",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T09:39:13.360552-04:00",
-    "symbols": [
-      "MAX"
-    ],
-    "headline": "RBC Capital Maintains Outperform on MediaAlpha, Raises Price Target to $17",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T09:39:13.826660-04:00",
-    "symbols": [
-      "NEXT"
-    ],
-    "headline": "NextDecade Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T09:39:14.121589-04:00",
-    "symbols": [
-      "NVCR"
-    ],
-    "headline": "Evercore ISI Group Maintains Outperform on NovoCure, Lowers Price Target to $20",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-30T09:39:14.451843-04:00",
     "symbols": [
       "RDDT"
@@ -4998,5 +4948,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T10:14:53.310007-04:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "B. Riley Securities Maintains Buy on Riot Platforms, Lowers Price Target to $25",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T10:14:53.314226-04:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "Rivian Stock Undervalued by 67%: Dan Ives Says AI &amp; Autonomy \u2018Creating Value Beyond the Vehicle\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T10:14:53.327420-04:00",
+    "symbols": [
+      "RBLX"
+    ],
+    "headline": "StoneX Maintains Sell on Roblox, Lowers Price Target to $32",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T10:14:53.344051-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Rivian Stock Undervalued by 67%: Dan Ives Says AI &amp; Autonomy \u2018Creating Value Beyond the Vehicle\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T10:14:53.360892-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Chevron Stock Hits 52-Week High As Refining Windfall Nearly Triples Profit",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

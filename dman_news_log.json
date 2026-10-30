@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-10-30T09:39:35.507385-04:00",
-    "symbols": [
-      "FDXF"
-    ],
-    "headline": "Evercore ISI Group Maintains Outperform on FedEx Freight Hldg Co, Raises Price Target to $139",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T09:39:35.510749-04:00",
-    "symbols": [
-      "FDXF"
-    ],
-    "headline": "FedEx Freight Hldg Co Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T09:39:35.513786-04:00",
-    "symbols": [
-      "FDXF"
-    ],
-    "headline": "FedEx Freight CFO Says Some New Customers Are Bringing Many Of Their Suppliers Over To FedEx Freight",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T09:39:35.516805-04:00",
-    "symbols": [
-      "FDXF"
-    ],
-    "headline": "FedEx Freight CFO Says Co&#39;s Free Cash Flow Has Put It On A Path To Begin Deleveraging Sooner Than Anticipated; Expect Q4 Adjusted Operating Margin Of About 8.4% At The Midpoint, Significantly Above Our Expectations Provided In June; Expect 2027 Revenue Growth, Adjusted Operating Margins To Remain Broadly In-Line With Medium-Term Framework Shared In April",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T09:39:35.519787-04:00",
-    "symbols": [
-      "FDXF"
-    ],
-    "headline": "FedEx Freight Hldg Co Q3 Adj. EPS $1.49 Beats $1.36 Estimate, Sales $2.442B Beat $2.372B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T09:39:35.865293-04:00",
-    "symbols": [
-      "VLTO"
-    ],
-    "headline": "Veralto Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T09:39:35.868691-04:00",
-    "symbols": [
-      "VLTO"
-    ],
-    "headline": "Veralto Raises FY2026 Adj EPS Guidance from $4.35-$4.43 to $4.49-$4.52 vs $4.40 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T09:39:35.871852-04:00",
-    "symbols": [
-      "VLTO"
-    ],
-    "headline": "Veralto Sees Q4 Adj EPS $1.13-$1.16 vs $1.13 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-30T09:39:35.875147-04:00",
     "symbols": [
       "VLTO"
@@ -4995,6 +4915,86 @@
       "MHK"
     ],
     "headline": "Mohawk Industries Q3 Adj. EPS $2.72 Beats $2.58 Estimate, Sales $2.786B Miss $2.824B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T12:25:38.563613-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Intel Stock Rout Wipes $12 Billion Off Uncle Sam\u2019s Stake",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T12:25:39.181791-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Intel Stock Rout Wipes $12 Billion Off Uncle Sam\u2019s Stake",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-30T12:25:39.537010-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Intel Stock Rout Wipes $12 Billion Off Uncle Sam\u2019s Stake",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-30T12:25:41.331060-04:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "SK Hynix, Samsung Tumble in South Korea as Wall Street's AI Sell-Off Rattles Asian Markets \u2014 KOSPI Triggers Rare Sell-Side Trading Halt",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T12:25:43.890467-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "RBC Capital Maintains Sector Perform on Gilead Sciences, Raises Price Target to $131",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T12:25:47.233200-04:00",
+    "symbols": [
+      "WOLF"
+    ],
+    "headline": "Wolfspeed Commercially Introduces Transparent Silicon Carbide (TSiC\u2122) Technology",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T12:25:51.788726-04:00",
+    "symbols": [
+      "BBD"
+    ],
+    "headline": "Citigroup Downgrades Banco Bradesco S.A. to Neutral",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T12:26:03.291436-04:00",
+    "symbols": [
+      "MHK"
+    ],
+    "headline": "Mohawk Industries Q3 2026 Earnings Call Transcript",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"

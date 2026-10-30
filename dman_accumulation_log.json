@@ -3103,5 +3103,32 @@
   "drift_pct": 0.05,
   "range_ratio": 0.33,
   "near_high": 1.0
+ },
+ {
+  "ts": "2026-10-30T15:03:22.695826-04:00",
+  "ticker": "TONT",
+  "price": 10.96,
+  "rvol": 5.6,
+  "drift_pct": 0.09,
+  "range_ratio": 0.33,
+  "near_high": 1.0
+ },
+ {
+  "ts": "2026-10-30T15:03:22.695836-04:00",
+  "ticker": "OSEA",
+  "price": 29.68,
+  "rvol": 4.15,
+  "drift_pct": 0.24,
+  "range_ratio": 0.38,
+  "near_high": 0.956
+ },
+ {
+  "ts": "2026-10-30T15:03:22.695839-04:00",
+  "ticker": "TSLY",
+  "price": 22.345,
+  "rvol": 1.82,
+  "drift_pct": 0.47,
+  "range_ratio": 0.54,
+  "near_high": 0.963
  }
 ]

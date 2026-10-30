@@ -3067,5 +3067,23 @@
   "drift_pct": 1.3,
   "range_ratio": 0.25,
   "near_high": 1.0
+ },
+ {
+  "ts": "2026-10-30T09:42:34.317628-04:00",
+  "ticker": "TCAF",
+  "price": 43.15,
+  "rvol": 1.87,
+  "drift_pct": 0.37,
+  "range_ratio": 0.5,
+  "near_high": 0.984
+ },
+ {
+  "ts": "2026-10-30T09:42:34.317639-04:00",
+  "ticker": "OSEA",
+  "price": 29.91,
+  "rvol": 3.03,
+  "drift_pct": 1.01,
+  "range_ratio": 0.38,
+  "near_high": 0.964
  }
 ]

@@ -1666,5 +1666,17 @@
     "pnl_pct": 0.0,
     "score": 0,
     "is_live": true
+  },
+  {
+    "ticker": "ARHS",
+    "date": "2026-10-30",
+    "bias": "LONG",
+    "setup": "Breakout Zone +100% off low",
+    "entry": 11.54,
+    "exit": 12.47,
+    "outcome": "WIN",
+    "pnl_pct": 8.05,
+    "score": 10,
+    "is_live": true
   }
 ]

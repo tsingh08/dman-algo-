@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-10-29T16:01:42.743976-04:00",
-    "symbols": [
-      "LUNR"
-    ],
-    "headline": "NASA Selects IX Joint Venture for Fission Surface Power System Design",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T16:01:42.968084-04:00",
-    "symbols": [
-      "ACHR"
-    ],
-    "headline": "Archer Aviation Announces Partnership With ITA Airways For Air Taxi Network In Italy, Subject To Definitive Agreements",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T16:01:42.972014-04:00",
-    "symbols": [
-      "ACHR"
-    ],
-    "headline": "Cathie Wood Piles Into Archer, Joby for Third Straight Day as Ark Dumps AMD, TSMC Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T16:01:43.171727-04:00",
-    "symbols": [
-      "JOBY"
-    ],
-    "headline": "Cathie Wood Piles Into Archer, Joby for Third Straight Day as Ark Dumps AMD, TSMC Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T16:01:43.531229-04:00",
-    "symbols": [
-      "SMR"
-    ],
-    "headline": "NuScale Power Enters Contract With Doosan Enerbility; Korean Engineering Firm To Supply The Company&#39;s Upper Reactor Coolant System",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T16:01:43.706279-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "RBC Capital Maintains Outperform on GE Vernova, Raises Price Target to $1230",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T16:01:43.710243-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "Citigroup Maintains Neutral on GE Vernova, Lowers Price Target to $1000",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T16:01:43.715321-04:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "Susquehanna Maintains Positive on GE Vernova, Lowers Price Target to $1250",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T16:01:43.960846-04:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Bill Ackman\u2019s 20-Year Investing Rule Puts These Cash-Flow and Moat ETFs in Focus",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-29T16:01:44.154800-04:00",
     "symbols": [
       "RTX"
@@ -4995,6 +4905,96 @@
       "APG"
     ],
     "headline": "Truist Securities Adjusts Price Target on APi Group to $58 From $55",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T09:37:47.391524-04:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "B. Riley Securities Maintains Buy on Riot Platforms, Lowers Price Target to $25",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T09:37:48.107303-04:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "Rivian Stock Undervalued by 67%: Dan Ives Says AI &amp; Autonomy \u2018Creating Value Beyond the Vehicle\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T09:37:49.994878-04:00",
+    "symbols": [
+      "RBLX"
+    ],
+    "headline": "StoneX Maintains Sell on Roblox, Lowers Price Target to $32",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T09:37:52.927300-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Rivian Stock Undervalued by 67%: Dan Ives Says AI &amp; Autonomy \u2018Creating Value Beyond the Vehicle\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T09:37:56.980297-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Chevron Stock Hits 52-Week High As Refining Windfall Nearly Triples Profit",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T09:38:02.510234-04:00",
+    "symbols": [
+      "NUAI"
+    ],
+    "headline": "B. Riley Securities Maintains Buy on New Era Energy &amp; Digital, Lowers Price Target to $10",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T09:38:07.178087-04:00",
+    "symbols": [
+      "OSPN"
+    ],
+    "headline": "B. Riley Securities Maintains Buy on OneSpan, Raises Price Target to $32",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T09:38:12.185639-04:00",
+    "symbols": [
+      "OSW"
+    ],
+    "headline": "TD Cowen Raises OneSpaWorld Price Target to $32.00",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T09:38:12.188577-04:00",
+    "symbols": [
+      "OSW"
+    ],
+    "headline": "OneSpaWorld Increases Quarterly Dividend by 25%",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

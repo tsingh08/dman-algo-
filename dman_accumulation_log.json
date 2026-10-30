@@ -3085,5 +3085,14 @@
   "drift_pct": 1.01,
   "range_ratio": 0.38,
   "near_high": 0.964
+ },
+ {
+  "ts": "2026-10-30T12:52:00.213341-04:00",
+  "ticker": "TONT",
+  "price": 10.955,
+  "rvol": 5.6,
+  "drift_pct": 0.05,
+  "range_ratio": 0.33,
+  "near_high": 1.0
  }
 ]

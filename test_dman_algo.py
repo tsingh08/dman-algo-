@@ -30054,8 +30054,8 @@ class TestOptionsFlagsAndThePltrSpread(unittest.TestCase):
         cl.assert_not_called()
 
     # --- the exit: profit, not value ---------------------------------------
-    def _monitor(self, long_bid, short_ask, pdt=None):
-        pos = {"ticker": "PLTR", "entry": 200.0, "max_gain": 300.0, "spread_qty": 1,
+    def _monitor(self, long_bid, short_ask, pdt=None, setup="Earnings Call Spread"):
+        pos = {"ticker": "PLTR", "entry": 200.0, "max_gain": 300.0, "spread_qty": 1, "setup": setup,
                "earn_date": "2026-10-08", "entry_date": "2026-10-08",
                "legs": ["PLTR261016C00200000", "PLTR261016C00205000"]}
         snaps = {"PLTR261016C00200000": {"bid": long_bid, "ask": long_bid + 0.05},
@@ -30080,6 +30080,17 @@ class TestOptionsFlagsAndThePltrSpread(unittest.TestCase):
         r, close = self._monitor(9.40, 5.20)
         close.assert_called_once()
         self.assertIn("take-profit", close.call_args[0][1])
+
+    def test_momentum_spread_takes_profit_at_half_the_debit(self):
+        # value $310, profit $110: past +50% of the $200 debit, short of 70% of max gain
+        r, close = self._monitor(5.10, 2.00, setup="Momentum Call Spread — Day 2 Continuation")
+        close.assert_called_once()
+        r, close = self._monitor(5.10, 2.00)
+        close.assert_not_called()
+
+    def test_momentum_spread_below_half_the_debit_holds(self):
+        r, close = self._monitor(4.80, 2.00, setup="Momentum Call Spread — Day 2 Continuation")
+        close.assert_not_called()
 
     def test_same_day_take_profit_waits_at_zero_day_trades(self):
         r, close = self._monitor(9.40, 5.20, pdt="opened today and PDT budget is 3/3 used with 0 remaining")

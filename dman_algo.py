@@ -639,8 +639,8 @@ EARNINGS_SPREAD_TAKE_PROFIT_PCT= 0.70    # optional early close at this fraction
 # dollar of follow-through, so the long leg sits AT the money.
 # The PLTR trade (2026-10-08, Gap & Hold score 100): buy 200C / sell 205C on a
 # $199.83 stock, 8 DTE, $2.00 debit = max loss, closed next day at $4.04
-# (+102%) -- about 70% of max gain, which is EARNINGS_SPREAD_TAKE_PROFIT_PCT,
-# the exit the monitor applies. Back ON 2026-10-26 with ENABLE_OPTIONS_TRADING;
+# (+102%). The monitor takes profit at MOMENTUM_SPREAD_TAKE_PROFIT_DEBIT_PCT
+# of the debit (or 70% of max gain if sooner). Back ON 2026-10-26 with ENABLE_OPTIONS_TRADING;
 # does NOT need _options_earned() (operator's choice), but still needs a setup
 # the kill switch has not disabled. `/flags mspread off` stops it.
 ENABLE_MOMENTUM_SPREADS       = True
@@ -658,6 +658,15 @@ MOMENTUM_SPREAD_WIDTH_STEP    = 0.005   # 1% steps are $6 on a $600 stock: too c
 MOMENTUM_SPREAD_MIN_SCORE     = 95
 MOMENTUM_SPREAD_MAX_OPEN      = 1
 MOMENTUM_SPREAD_REVIEW_N      = 12      # closed live spreads before the verdict
+# Take profit at +50% of the DEBIT, or 70% of max gain if that comes first.
+# Replayed 2026-10-30 on real hourly option bars (16 trades: the 15 Day 2
+# Continuation $100+ point-in-time signals with a spread that fit, plus PLTR):
+# the 70%-of-max-gain exit alone made +6.5% of debit mean, median -60%, 6/15
+# wins; +50% of debit made +24.6% mean, median +48%, 11/15. PLTR at a 10:00
+# fill ($2.33) never reached 70% of max gain and expired worthless (-72%);
+# +50% of debit took +47%, which is what the manual $4.04 sale captured.
+# n is small (se ~17 pts) -- the MOMENTUM_SPREAD_REVIEW_N verdict still rules.
+MOMENTUM_SPREAD_TAKE_PROFIT_DEBIT_PCT = 0.50
 EARNINGS_SPREAD_POST_EVENT_EXIT_PCT = 0.5   # close once the earnings event has passed AND
                                               # value has decayed below this fraction of the
                                               # debit paid — added 2026-08-21 (session review
@@ -12146,7 +12155,14 @@ def _monitor_earnings_spread_position(pos: dict) -> Optional[str]:
     # worth $210 -- +5%. The PLTR spread was sold by hand at $404, +102%; under
     # the old test the algo would have taken +5% the moment it turned green.
     _profit = cur_value - float(pos.get("entry", 0) or 0)
-    if got_quotes and max_gain > 0 and _profit >= max_gain * EARNINGS_SPREAD_TAKE_PROFIT_PCT:
+    _tp_at = max_gain * EARNINGS_SPREAD_TAKE_PROFIT_PCT
+    _tp_why = f"{EARNINGS_SPREAD_TAKE_PROFIT_PCT*100:.0f}% of max gain ${max_gain:.0f}"
+    if str(pos.get("setup", "")).startswith("Momentum Call Spread"):
+        _debit_tp = float(pos.get("entry", 0) or 0) * MOMENTUM_SPREAD_TAKE_PROFIT_DEBIT_PCT
+        if 0 < _debit_tp < _tp_at:
+            _tp_at = _debit_tp
+            _tp_why = f"+{MOMENTUM_SPREAD_TAKE_PROFIT_DEBIT_PCT*100:.0f}% of the ${float(pos.get('entry', 0)):.0f} debit"
+    if got_quotes and max_gain > 0 and _profit >= _tp_at:
         _pdt_block = _spread_close_would_violate_pdt(pos)
         if _pdt_block:
             _pdk = f"{t}_EARNSPREAD_TP_PDT_{_tod}"
@@ -12159,7 +12175,7 @@ def _monitor_earnings_spread_position(pos: dict) -> Optional[str]:
         st, oid = _close_earnings_spread(pos, f"{t} earnings spread take-profit")
         if st == "submitted":
             action, msg = "🚀 TAKE-PROFIT — AUTO-CLOSED", \
-                f"Profit ${_profit:.0f} (value ${cur_value:.0f}) >= {EARNINGS_SPREAD_TAKE_PROFIT_PCT*100:.0f}% of max gain ${max_gain:.0f}. id {(oid or '')[:8]}…"
+                f"Profit ${_profit:.0f} (value ${cur_value:.0f}) >= {_tp_why}. id {(oid or '')[:8]}…"
         elif st == "pending":
             action, msg = "🚀 TAKE-PROFIT — close order working", "Close order already open — awaiting fill"
         elif st == "already_closed":

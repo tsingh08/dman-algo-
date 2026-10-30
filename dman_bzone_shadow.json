@@ -1888,5 +1888,55 @@
 "extension_pct": 22.3,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "GDYN",
+"date": "2026-10-30",
+"close": 13.36,
+"base_days": 298,
+"above_low_pct": 156.4,
+"extension_pct": 63.1,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "MAX",
+"date": "2026-10-30",
+"close": 14.75,
+"base_days": 82,
+"above_low_pct": 105.7,
+"extension_pct": 32.8,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "OSPN",
+"date": "2026-10-30",
+"close": 25.66,
+"base_days": 4,
+"above_low_pct": 157.6,
+"extension_pct": 37.5,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "STGW",
+"date": "2026-10-30",
+"close": 10.47,
+"base_days": 0,
+"above_low_pct": 138.0,
+"extension_pct": 18.0,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "ACCO",
+"date": "2026-10-30",
+"close": 5.5,
+"base_days": 5,
+"above_low_pct": 101.1,
+"extension_pct": 22.7,
+"fresh_base": false,
+"weak_band": false
 }
 ]

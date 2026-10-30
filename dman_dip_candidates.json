@@ -1,22 +1,26 @@
 {
- "bar": "2026-10-29",
+ "bar": "2026-10-30",
  "entered": null,
  "tickers": [
   {
    "ticker": "NVDA",
-   "close": 213.601
-  },
-  {
-   "ticker": "FTNT",
-   "close": 139.1
-  },
-  {
-   "ticker": "ZS",
-   "close": 247.82
+   "close": 204.64
   },
   {
    "ticker": "CRM",
-   "close": 230.9
+   "close": 229.17
+  },
+  {
+   "ticker": "MRVL",
+   "close": 196.4
+  },
+  {
+   "ticker": "RXRX",
+   "close": 4.03
+  },
+  {
+   "ticker": "CRWD",
+   "close": 250.43
   }
  ]
 }

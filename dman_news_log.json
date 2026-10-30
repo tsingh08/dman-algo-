@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-30T10:01:03.228219-04:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "Needham Maintains Buy on Gilead Sciences, Raises Price Target to $200",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-30T10:01:03.440395-04:00",
     "symbols": [
       "VRTX"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T13:03:20.624713-04:00",
+    "symbols": [
+      "STLA"
+    ],
+    "headline": "Dodge Direct Connection Grudge Match Finals Scheduled for Las Vegas",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

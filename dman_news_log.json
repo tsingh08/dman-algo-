@@ -1,195 +1,5 @@
 [
   {
-    "ts": "2026-10-30T12:50:35.254547-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Intel\u2019s Agentic AI Overshadowed By Weak PC Sales; Soft Retail Overshadows Amazon AI; Record Crypto Heist",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:50:35.438720-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#34;Meta Settles With Social Media Addiction Plaintiff Ahead Of Trial; After This Development, The Only Defendant Remaining In The Trial Is Snap Inc.&#34; - Bloomberg Law",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:50:35.443385-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Intel\u2019s Agentic AI Overshadowed By Weak PC Sales; Soft Retail Overshadows Amazon AI; Record Crypto Heist",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:50:35.651139-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Intel\u2019s Agentic AI Overshadowed By Weak PC Sales; Soft Retail Overshadows Amazon AI; Record Crypto Heist",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-30T12:50:35.655773-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#39;Amazon Taps $80 Billion Supplier Loan Facility To Help Fund AI&#39; - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-30T12:50:35.774591-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Intel\u2019s Agentic AI Overshadowed By Weak PC Sales; Soft Retail Overshadows Amazon AI; Record Crypto Heist",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:50:36.259869-04:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Black Friday Came Early for Chipmakers: Intel and 10 Other Stocks Are More Than 20% Off This Month",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T12:50:36.732041-04:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Black Friday Came Early for Chipmakers: Intel and 10 Other Stocks Are More Than 20% Off This Month",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:50:37.820355-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Eli Lilly, Raises Price Target to $1500",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T12:50:37.973471-04:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Gilead Sciences, Raises Price Target to $190",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:50:38.503170-04:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "Black Friday Came Early for Chipmakers: Intel and 10 Other Stocks Are More Than 20% Off This Month",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:50:39.266894-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Uber Partners With HSBC, Franklin Templeton to Earn Extra Yield Through Blockchain Pilot",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T12:50:41.221574-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Intel\u2019s Agentic AI Overshadowed By Weak PC Sales; Soft Retail Overshadows Amazon AI; Record Crypto Heist",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:50:41.226244-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed\u2019s Musalem Says Overall Financial Conditions Remain Accommodative; Best Thing Fed Can Do Now Is Restore Price Stability; Financial Conditions Tighter But Not By Much; Broader Economy And Job Market Strong; Risks Still Skewed Toward Higher Inflation; Inflation Expectations Have Been Anchored",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:50:41.230659-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed\u2019s Musalem Says Moving Sooner With Rate Hikes Lessens Risk Of Hit To Broader Economy; U.S. Central Bank Will Need To Raise Interest Rates Again &#39;Soon&#39;; Incremental Changes In Rates Better Than Abrupt Changes; Higher Long-Term Bond Yields Driven By Expected Higher Policy Rates; Inflation Still Too High, Unlikely To Ease Without Fed Actions; Monetary Policy Is Accommodative Right Now",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:50:41.312462-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Intel\u2019s Agentic AI Overshadowed By Weak PC Sales; Soft Retail Overshadows Amazon AI; Record Crypto Heist",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:50:41.889727-04:00",
-    "symbols": [
-      "ATEC"
-    ],
-    "headline": "Crude Oil Gains 2%; ExxonMobil Posts Upbeat Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-30T12:50:42.265012-04:00",
-    "symbols": [
-      "REGN"
-    ],
-    "headline": "Regeneron Eyes One of Its Strongest Years Ever, Stock Jumps",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T12:50:42.270383-04:00",
-    "symbols": [
-      "REGN"
-    ],
-    "headline": "Regeneron Pharmaceuticals Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-30T12:50:42.274852-04:00",
     "symbols": [
       "REGN"
@@ -4995,6 +4805,196 @@
       "MHK"
     ],
     "headline": "Mohawk Industries Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T13:59:06.081366-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX&#39;s $28 Billion Spectrum Deals May Not Be Enough: Expert Sees Another $130 Billion to Rival T-Mobile",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-30T13:59:06.902940-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Intel\u2019s Agentic AI Overshadowed By Weak PC Sales; Soft Retail Overshadows Amazon AI; Record Crypto Heist",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T13:59:07.194841-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Why Is IREN Stock Falling on Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T13:59:07.201539-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Intel\u2019s Agentic AI Overshadowed By Weak PC Sales; Soft Retail Overshadows Amazon AI; Record Crypto Heist",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T13:59:07.540151-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Intel\u2019s Agentic AI Overshadowed By Weak PC Sales; Soft Retail Overshadows Amazon AI; Record Crypto Heist",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T13:59:08.117455-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#34;Meta Settles With Social Media Addiction Plaintiff Ahead Of Trial; After This Development, The Only Defendant Remaining In The Trial Is Snap Inc.&#34; - Bloomberg Law",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T13:59:08.122831-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Intel\u2019s Agentic AI Overshadowed By Weak PC Sales; Soft Retail Overshadows Amazon AI; Record Crypto Heist",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T13:59:08.413387-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Why Is IREN Stock Falling on Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T13:59:08.667825-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Why Is IREN Stock Falling on Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T13:59:08.908772-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Intel\u2019s Agentic AI Overshadowed By Weak PC Sales; Soft Retail Overshadows Amazon AI; Record Crypto Heist",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T13:59:10.113606-04:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Black Friday Came Early for Chipmakers: Intel and 10 Other Stocks Are More Than 20% Off This Month",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T13:59:11.444612-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Black Friday Came Early for Chipmakers: Intel and 10 Other Stocks Are More Than 20% Off This Month",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T13:59:13.644176-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "AbbVie Raises 2026 Outlook, Boosts Dividend",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T13:59:13.890909-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Eli Lilly, Raises Price Target to $1500",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T13:59:14.379691-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Gilead Sciences, Raises Price Target to $190",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T13:59:15.992748-04:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "Black Friday Came Early for Chipmakers: Intel and 10 Other Stocks Are More Than 20% Off This Month",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T13:59:18.394657-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Uber Partners With HSBC, Franklin Templeton to Earn Extra Yield Through Blockchain Pilot",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T13:59:21.372318-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Morgan Stanley Maintains Equal-Weight on Caterpillar, Lowers Price Target to $675",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T13:59:24.257850-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Intel\u2019s Agentic AI Overshadowed By Weak PC Sales; Soft Retail Overshadows Amazon AI; Record Crypto Heist",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"

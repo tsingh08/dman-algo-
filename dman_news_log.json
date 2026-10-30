@@ -1,195 +1,5 @@
 [
   {
-    "ts": "2026-10-30T12:50:42.274852-04:00",
-    "symbols": [
-      "REGN"
-    ],
-    "headline": "Regeneron Pharmaceuticals Q3 Adj. EPS $20.07 Beats $16.19 Estimate, Sales $5.116B Beat $4.542B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T12:50:42.279283-04:00",
-    "symbols": [
-      "REGN"
-    ],
-    "headline": "Top Wall Street Forecasters Revamp Regeneron Pharmaceuticals Expectations Ahead Of Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T12:50:42.508731-04:00",
-    "symbols": [
-      "RDDT"
-    ],
-    "headline": "Reddit Analysts Cut Price Targets After Q3 Print, October Search Referrals Down Over 1 Million Per Week",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:50:42.583467-04:00",
-    "symbols": [
-      "SNY"
-    ],
-    "headline": "Regeneron Eyes One of Its Strongest Years Ever, Stock Jumps",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:50:42.588909-04:00",
-    "symbols": [
-      "SNY"
-    ],
-    "headline": "Sanofi CEO Belen Garijo Says Beyond 2030, Expect Total Revenues To Be Impacted Only Moderately By Dupixent&#39;s Loss Of Exclusivity",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:50:42.593480-04:00",
-    "symbols": [
-      "SNY"
-    ],
-    "headline": "Sanofi Q3 Adj. EPS $2.04 Beats $1.63 Estimate, Sales $16.623B Beat $15.230B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:50:42.597989-04:00",
-    "symbols": [
-      "SNY"
-    ],
-    "headline": "Sanofi Q3 Dupixent Sales \u20ac5.7B, Up 34.8%; Vaccines Sales \u20ac3.2B, Down 6.6%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:50:42.927422-04:00",
-    "symbols": [
-      "APPS"
-    ],
-    "headline": "Digital Turbine Delays Fiscal Q2 Results Release To November 9",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T12:50:42.996434-04:00",
-    "symbols": [
-      "TFII"
-    ],
-    "headline": "TFI International Announces 2026 Third Quarter Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-30T12:50:43.255395-04:00",
-    "symbols": [
-      "AGIO"
-    ],
-    "headline": "Agios Pharmaceuticals Says FDA Extends Mitapivat PDUFA Date For Sickle Cell Disease To February 1, 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T12:50:43.332313-04:00",
-    "symbols": [
-      "SPXC"
-    ],
-    "headline": "SPX Technologies Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T12:50:43.410388-04:00",
-    "symbols": [
-      "TWLO"
-    ],
-    "headline": "Live On CNBC, Joe Terranova Announces Stopped Out Of Twilio Position",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T12:50:43.414995-04:00",
-    "symbols": [
-      "TWLO"
-    ],
-    "headline": "Twilio&#39;s Biggest Business Is Slowing, and That&#39;s a Problem for Its Growth Story",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T12:50:43.419479-04:00",
-    "symbols": [
-      "TWLO"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T12:50:43.423863-04:00",
-    "symbols": [
-      "TWLO"
-    ],
-    "headline": "Pinterest Posts Downbeat Q3 Results, Joins Intel, Roblox, Twilio And Other Big Stocks Moving Lower In Friday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T12:50:43.428289-04:00",
-    "symbols": [
-      "TWLO"
-    ],
-    "headline": "Needham Maintains Buy on Twilio, Lowers Price Target to $240",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T12:57:12.724971-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Andy Jassy Says West Is &#39;Very Hungry&#39; For More Western Open Source AI Models as Amazon Adds China&#39;s Kimi and GLM to Bedrock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-30T12:57:12.729546-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Binance Founder CZ Tells Elon Musk \u2018Bad Time to Troll\u2019 as Hack Draws FTX Comparison",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-30T12:57:12.734587-04:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Hits Back at T-Mobile\u2019s \u2018Misplaced Desire\u2019 to Harm Starlink by Opposing \u2018Modernized\u2019 Spectrum Rules",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-30T12:57:12.975450-04:00",
     "symbols": [
       "NBIS"
@@ -4998,5 +4808,195 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T14:02:20.549791-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Trial Date Set for Apple's Trade Secret Lawsuit Against OpenAI",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T14:02:20.555837-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Acquires Data-Management Startup Ascend.io",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T14:02:20.561647-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Launches AI Fashion App 'Style Sketch' in Southeast Asia",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T14:02:20.567849-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD Shares Decline Amid Market Reaction to Intel Earnings",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T14:02:20.592237-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Analysts Adjust Price Targets for Gilead Sciences Following Q3 Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T14:03:20.818885-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Constellation Energy Corporation Declares Quarterly Dividend",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T14:03:21.078127-04:00",
+    "symbols": [
+      "TLN"
+    ],
+    "headline": "Morgan Stanley Maintains Buy Rating and Raises Price Target for Talen Energy",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T14:03:21.083392-04:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "Morgan Stanley Maintains Buy Rating on Vistra Corp.",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T14:03:21.088674-04:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "Vistra Corp. Completes Acquisition of Cogentrix Energy",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T14:03:21.359195-04:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "ZoomInfo Launches New MCP Connector and API on Snowflake",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T14:03:21.365277-04:00",
+    "symbols": [
+      "FSLR"
+    ],
+    "headline": "First Solar Reports Q3 2026 Results and Lowers Full-Year Guidance",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-30T14:03:21.370972-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Analysts Raise Price Targets for Eli Lilly Following Q3 Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T14:03:21.380570-04:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "Jefferies Upgrades Rivian Automotive to 'Buy'",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T14:03:21.385716-04:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "Vadzo Imaging Introduces Innowave-1335CRA Camera Built on onsemi Sensor",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T14:03:21.391368-04:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "Vadzo Imaging Announces ISP Validation for Falcon-521CRS Camera",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T14:03:21.396521-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Analysts Adjust Price Targets for SanDisk Following Q1 Earnings Report",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T14:03:21.401231-04:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "B. Riley Securities Adjusts Price Target on Riot Platforms to $25",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T14:03:21.406035-04:00",
+    "symbols": [
+      "RBLX"
+    ],
+    "headline": "UBS Adjusts Price Target on Roblox",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T14:03:27.531415-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on Constellation Energy, Raises Price Target to $391",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

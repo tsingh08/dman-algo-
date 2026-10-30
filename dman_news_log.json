@@ -1,175 +1,5 @@
 [
   {
-    "ts": "2026-10-29T16:01:37.567593-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly and Company Reports $303M In Q3 2026 Special Charges, Bringing 9-Month Total To $1.3B, Primarily Driven By Intangible Asset Impairment, Acquisition Costs And Litigation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T16:01:37.764604-04:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "RBC Capital Maintains Outperform on Biogen, Raises Price Target to $272",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T16:01:37.768435-04:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "Morgan Stanley Maintains Equal-Weight on Biogen, Raises Price Target to $238",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T16:01:38.712756-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Top 3 Energy Stocks You May Want To Dump In Q4",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T16:01:39.546741-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Why Is Fortinet Stock Falling Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T16:01:39.550411-04:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Microsoft Has a Tool That &#39;Governs and Contains Agents,&#39; Says Satya Nadella \u2014 Meta&#39;s Muse, OpenAI, Anthropic Are Lining Up",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T16:01:39.690550-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Fortinet Plummets 25%: Jim Cramer Says the &#39;Hardware Business&#39; Is &#39;Getting Killed&#39; by Palo Alto",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T16:01:39.694356-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Why Is Fortinet Stock Falling Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T16:01:39.866013-04:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Cloudflare Releases Q3 2026 DDoS Threat Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-29T16:01:40.490080-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin, Ethereum, Dogecoin Gain, but XRP Falls as Kevin Warsh-Led Fed Holds Rates Steady: Analyst Puts $95,000 Bitcoin on the Table for Q4",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T16:01:40.747721-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "DoorDash Confirms To Acquire Instacart At $65.00 Per Share At Valuation Of ~$17B, With Deal To Be At Least 75% Cash",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T16:01:41.285631-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "ServiceNow Posts Downbeat Q3 Earnings, Joins Sprouts Farmers Market, Alphabet And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T16:01:41.289352-04:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Why Is Fortinet Stock Falling Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-29T16:01:41.478589-04:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Airbnb Announces New Funding Model for Airbnb.org",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T16:01:41.685021-04:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "BTIG Maintains Buy on DraftKings, Raises Price Target to $26",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T16:01:41.934369-04:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Nvidia CEO Jensen Huang Was Target of Suspected Chinese Intelligence Asset, Raising Questions Over Potential AI Chip Diversion: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-29T16:01:42.071944-04:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Baidu Confirms Departure of Vice President Wu Tian",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-29T16:01:42.743976-04:00",
     "symbols": [
       "LUNR"
@@ -4995,6 +4825,176 @@
       "KLAC"
     ],
     "headline": "UBS Maintains Neutral on KLA, Lowers Price Target to $180",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T09:32:20.526184-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Mastercard and Interswitch Enable Google Pay in Nigeria",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T09:32:20.529911-04:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto Networks Recommends Stockholders Reject Mini-Tender Offer by Tutanota LLC",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T09:32:20.562190-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "AbbVie Reports Third-Quarter 2026 Financial Results and Increases Dividend",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T09:32:20.565408-04:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "Freeport-McMoRan Cuts 2026 Production Target for Grasberg Mine",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T09:33:20.838001-04:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "VyOS Networks Opens Waitlist for Pre-Validated Supermicro Routing System",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T09:33:20.844499-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Crypto Joins Arbitrum Mentorship Program",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T09:33:20.848262-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Citigroup Adjusts Price Target on Caterpillar to $800 From $950",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T09:33:20.851826-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "ExxonMobil Increases Stake in Mozambique LNG Project to 50%",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T09:33:20.855124-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "RBC Capital Markets Raises Price Target on Gilead Sciences",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T09:33:20.858447-04:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "B. Riley Adjusts Applied Digital Price Target to $51",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-30T09:33:21.110260-04:00",
+    "symbols": [
+      "LUMN"
+    ],
+    "headline": "MoffettNathanson Upgrades Lumen Technologies to Neutral From Sell",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T09:33:21.113975-04:00",
+    "symbols": [
+      "CLSK"
+    ],
+    "headline": "B. Riley Adjusts CleanSpark Price Target to $21 From $26, Maintains Buy Rating",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T09:33:21.117466-04:00",
+    "symbols": [
+      "CLSK"
+    ],
+    "headline": "CleanSpark Shares Decline Amid Market Reaction to Binance Security Breach",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T09:33:50.361024-04:00",
+    "symbols": [
+      "NUAI"
+    ],
+    "headline": "B. Riley Securities Maintains Buy on New Era Energy & Digital, Lowers Price Target to $10",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T09:33:50.650854-04:00",
+    "symbols": [
+      "NCLH"
+    ],
+    "headline": "Deutsche Bank Adjusts Norwegian Cruise Line Price Target to $17 From $15",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T09:33:50.879481-04:00",
+    "symbols": [
+      "FLS"
+    ],
+    "headline": "RBC Raises Price Target on Flowserve to $98 From $88, Keeps Outperform Rating",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T09:33:51.085745-04:00",
+    "symbols": [
+      "APG"
+    ],
+    "headline": "Truist Securities Adjusts Price Target on APi Group to $58 From $55",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

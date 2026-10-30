@@ -1,285 +1,5 @@
 [
   {
-    "ts": "2026-10-30T09:39:20.152754-04:00",
-    "symbols": [
-      "SIBN"
-    ],
-    "headline": "SI-BONE to Participate in UBS Global Healthcare Conference",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T09:39:20.365916-04:00",
-    "symbols": [
-      "MTZ"
-    ],
-    "headline": "MasTec Lowers FY2026 GAAP EPS Guidance from $6.20 to $5.69-$6.01 vs $6.17 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-30T09:39:20.369261-04:00",
-    "symbols": [
-      "MTZ"
-    ],
-    "headline": "MasTec Widens FY2026 Adj EPS Guidance from $9.30 to $8.92-$9.30 vs $9.27 Est; Raises FY2026 Sales Guidance from $18.200B to $18.300B vs $18.192B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-30T09:39:20.372299-04:00",
-    "symbols": [
-      "MTZ"
-    ],
-    "headline": "MasTec Q3 Adj. EPS $2.96 Beats $2.95 Estimate, Sales $5.152B Beat $4.940B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-30T09:39:20.784073-04:00",
-    "symbols": [
-      "SNEX"
-    ],
-    "headline": "StoneX Forecasts 2026/27 Cocoa Market Deficit Due to El Ni\u00f1o",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T09:39:20.970515-04:00",
-    "symbols": [
-      "TRS"
-    ],
-    "headline": "TriMas Reports Third-Quarter 2026 Financial Results and Agreement to Sell Rapak Business",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T09:39:21.167612-04:00",
-    "symbols": [
-      "AGCO"
-    ],
-    "headline": "AGCO Gains Despite Sales Miss, Cut Guidance As Management Points To 2027 Recovery",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T09:39:21.368912-04:00",
-    "symbols": [
-      "LSTR"
-    ],
-    "headline": "Levi & Korsinsky Commences Investigation into Landstar System, Inc.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T09:39:21.564079-04:00",
-    "symbols": [
-      "LHX"
-    ],
-    "headline": "BNP Paribas Adjusts Price Target on L3Harris Technologies to $300",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T09:39:21.567517-04:00",
-    "symbols": [
-      "LHX"
-    ],
-    "headline": "RBC Raises Price Target on L3Harris Technologies to $295",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T09:39:21.744300-04:00",
-    "symbols": [
-      "LNG"
-    ],
-    "headline": "Incyte To Rally More Than 23%? Here Are 10 Top Analyst Forecasts For Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T09:39:21.747804-04:00",
-    "symbols": [
-      "LNG"
-    ],
-    "headline": "Bernstein Maintains Outperform on Cheniere Energy, Raises Price Target to $312",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T09:39:21.751104-04:00",
-    "symbols": [
-      "LNG"
-    ],
-    "headline": "Here\u2019s How Much You Would Have Made Owning Cheniere Energy Stock In The Last 15 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T09:39:21.969073-04:00",
-    "symbols": [
-      "OSW"
-    ],
-    "headline": "TD Cowen Raises OneSpaWorld Price Target to $32.00",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T09:39:21.972400-04:00",
-    "symbols": [
-      "OSW"
-    ],
-    "headline": "OneSpaWorld Increases Quarterly Dividend by 25%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T09:39:22.158816-04:00",
-    "symbols": [
-      "TOST"
-    ],
-    "headline": "Toast Responds To FTC Lawsuit, Intends To Vigorously Defend Against Claims",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T09:39:22.351461-04:00",
-    "symbols": [
-      "TT"
-    ],
-    "headline": "Evercore ISI Group Maintains Outperform on Trane Technologies, Lowers Price Target to $560",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T09:39:22.594138-04:00",
-    "symbols": [
-      "MO"
-    ],
-    "headline": "Deutsche Bank Adjusts Altria Group Price Target to $73 From $66",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T09:39:22.813108-04:00",
-    "symbols": [
-      "TAK"
-    ],
-    "headline": "Takeda Beats Earnings Forecasts and Hikes Outlook Despite Generic Overhang",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T09:39:23.004282-04:00",
-    "symbols": [
-      "TFII"
-    ],
-    "headline": "TFI International Sees Q4 Adj EPS $1.30-$1.40 vs $1.67 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-30T09:39:23.007514-04:00",
-    "symbols": [
-      "TFII"
-    ],
-    "headline": "TFI International Q3 Adj. EPS $1.67 Misses $1.76 Estimate, Sales $2.232B Beat $2.210B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-30T09:39:23.187799-04:00",
-    "symbols": [
-      "TXNM"
-    ],
-    "headline": "TXNM Energy Q3 Adj. EPS $1.62 Beats $1.52 Estimate, Sales $733.290M Beat $730.133M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T09:39:23.471714-04:00",
-    "symbols": [
-      "MGM"
-    ],
-    "headline": "Macquarie Maintains Outperform on MGM Resorts International, Lowers Price Target to $46",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-30T09:39:23.475232-04:00",
-    "symbols": [
-      "MGM"
-    ],
-    "headline": "JP Morgan Maintains Overweight on MGM Resorts International, Lowers Price Target to $39",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-30T09:39:23.640300-04:00",
-    "symbols": [
-      "MGPI"
-    ],
-    "headline": "Wells Fargo Maintains Overweight Rating and Raises Price Target for MGP Ingredients",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T09:39:23.814795-04:00",
-    "symbols": [
-      "XLV"
-    ],
-    "headline": "Value Stocks Just Sent a 2001 Warning Shot \u2014 Is AI Next?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T09:39:24.060702-04:00",
-    "symbols": [
-      "MDLN"
-    ],
-    "headline": "Medline to Remove or Correct All Branded Beds and Accessories Over Safety Risks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T09:39:24.244002-04:00",
-    "symbols": [
-      "STM"
-    ],
-    "headline": "Goldman Sachs Adjusts STMicroelectronics Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-30T09:39:24.433887-04:00",
     "symbols": [
       "KRG"
@@ -4998,5 +4718,285 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T11:01:21.068547-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "This House of Representative Just Bought Up To $75K In AT&amp;T Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T11:01:21.299876-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Defensives Lead Sectors In Friday Trading As Growth Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T11:01:22.119599-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Defensives Lead Sectors In Friday Trading As Growth Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-30T11:01:22.327558-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Defensives Lead Sectors In Friday Trading As Growth Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T11:01:23.300819-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Defensives Lead Sectors In Friday Trading As Growth Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T11:01:23.724727-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Sandisk Just Revealed Where Almost 90% of Its New Revenue Came From",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T11:01:26.174397-04:00",
+    "symbols": [
+      "FSLR"
+    ],
+    "headline": "GLJ Research Downgrades First Solar to Hold, Announces $161 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T11:01:26.353537-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Defensives Lead Sectors In Friday Trading As Growth Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T11:01:26.540130-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Defensives Lead Sectors In Friday Trading As Growth Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T11:01:32.289578-04:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "Defensives Lead Sectors In Friday Trading As Growth Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T11:01:32.486057-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Defensives Lead Sectors In Friday Trading As Growth Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T11:01:33.578878-04:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Defensives Lead Sectors In Friday Trading As Growth Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T11:01:34.346909-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Defensives Lead Sectors In Friday Trading As Growth Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T11:01:34.802682-04:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Defensives Lead Sectors In Friday Trading As Growth Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T11:01:34.984773-04:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Defensives Lead Sectors In Friday Trading As Growth Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T11:01:35.336100-04:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Defensives Lead Sectors In Friday Trading As Growth Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T11:01:45.239689-04:00",
+    "symbols": [
+      "GDYN"
+    ],
+    "headline": "AutoNation, Regeneron Pharmaceuticals, AstraZeneca And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-30T11:01:45.243662-04:00",
+    "symbols": [
+      "GDYN"
+    ],
+    "headline": "Needham Maintains Buy on Grid Dynamics Holdings, Raises Price Target to $15",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-30T11:01:45.247083-04:00",
+    "symbols": [
+      "GDYN"
+    ],
+    "headline": "Grid Dynamics Holdings Sees Q4 Sales $113.500M-$115.500M vs $113.026M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-30T11:01:45.249864-04:00",
+    "symbols": [
+      "GDYN"
+    ],
+    "headline": "Grid Dynamics Holdings Q3 Adj. EPS $0.18 Beats $0.13 Estimate, Sales $114.294M Beat $112.774M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-30T11:01:45.453597-04:00",
+    "symbols": [
+      "SMP"
+    ],
+    "headline": "AutoNation, Regeneron Pharmaceuticals, AstraZeneca And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T11:01:45.457146-04:00",
+    "symbols": [
+      "SMP"
+    ],
+    "headline": "Standard Motor Products Q3 Adj. EPS $1.54 Beats $1.41 Estimate, Sales $507.791M Miss $514.987M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T11:01:48.280170-04:00",
+    "symbols": [
+      "BBIO"
+    ],
+    "headline": "BridgeBio Pharma Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T11:01:48.283340-04:00",
+    "symbols": [
+      "BBIO"
+    ],
+    "headline": "BridgeBio Pharma Q3 EPS $(0.42) Beats $(0.58) Estimate, Sales $353.171M Beat $285.497M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T11:02:20.575269-04:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Investigating Potential Data Leak at AU Small Finance Bank",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T11:03:20.552467-04:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "BofA Securities Adjusts Price Target on FedEx to $137 From $140",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T11:03:20.556085-04:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "Citigroup Adjusts Price Target on FedEx to $374 From $373",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T11:03:20.576054-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "UBS Adjusts Gilead Sciences Price Target to $195 From $175, Maintains Buy Rating",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

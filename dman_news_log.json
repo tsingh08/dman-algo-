@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-30T12:57:18.351635-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "Vadzo Imaging Launches Armor-821CRS Camera Module Featuring onsemi AR0821 Sensor",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T12:57:18.356724-04:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "Vadzo Imaging Positions Bolt-1335MRS Camera for Diagnostic Imaging Using onsemi AR1335 Sensor",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-30T12:57:18.844435-04:00",
     "symbols": [
       "HOOD"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T14:55:31.103075-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Wells Fargo Maintains Equal-Weight on SanDisk, Lowers Price Target to $1300",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T14:55:59.813697-04:00",
+    "symbols": [
+      "EXEL"
+    ],
+    "headline": "TD Cowen Maintains Buy on Exelixis, Raises Price Target to $76",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

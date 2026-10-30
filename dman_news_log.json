@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-30T12:57:14.562719-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "California GOP Candidate Steve Hilton Slams Mark Zuckerberg for $1 Million Donation to Democrat Xavier Becerra: \u2018Protection Money\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:57:15.093454-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Chip Stocks Wipe Out $1 Trillion in Friday Bloodbath: 5 Stocks Alone Account for 60% of the Damage",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-30T12:57:15.617620-04:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix &#39;Can&#39;t Lift,&#39; Jim Cramer Says: It Lost Its Biggest Selling Point",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:57:15.872290-04:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce to Acquire Defense Tech Firm Rune Technologies",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-30T12:57:16.344560-04:00",
     "symbols": [
       "AVGO"
@@ -4995,6 +4955,46 @@
       "EXEL"
     ],
     "headline": "Morgan Stanley Maintains Equal-Weight on Exelixis, Raises Price Target to $60",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T14:28:59.486171-04:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Alphabet, Lowers Price Target to $371",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T14:28:59.752287-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Amazon.com, Lowers Price Target to $326",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T14:29:05.521111-04:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Merck One of Top Large-Cap Biopharma Picks-Analyst",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T14:29:31.651291-04:00",
+    "symbols": [
+      "COLM"
+    ],
+    "headline": "BTIG Maintains Buy on Columbia Sportswear, Raises Price Target to $83",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"

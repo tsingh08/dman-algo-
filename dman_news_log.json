@@ -1,125 +1,5 @@
 [
   {
-    "ts": "2026-10-30T12:57:18.844435-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Truist Securities Maintains Buy on Robinhood Markets, Lowers Price Target to $123",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:57:18.849617-04:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Robinhood Stock Falls as Record $6.3 Billion Binance Hack Rattles Crypto",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:57:19.118987-04:00",
-    "symbols": [
-      "AFRM"
-    ],
-    "headline": "Affirm Partners with Sur la table to Offer Flexible Payment Options",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:57:19.363025-04:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "Jefferies Upgrades Rivian Automotive to Buy, Maintains Price Target to $17",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:57:19.602037-04:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "Enphase Energy Faces Analyst Downgrades Following Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T12:57:19.835128-04:00",
-    "symbols": [
-      "FSLR"
-    ],
-    "headline": "First Solar Analysts Cut Their Forecasts After Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T12:57:19.839589-04:00",
-    "symbols": [
-      "FSLR"
-    ],
-    "headline": "Evercore ISI Group Maintains In-Line on First Solar, Lowers Price Target to $189",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T12:57:20.338948-04:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Argus Research Maintains Buy on Eli Lilly, Raises Price Target to $1550",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T12:57:20.581120-04:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "Incyte To Rally More Than 23%? Here Are 10 Top Analyst Forecasts For Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T12:57:20.829808-04:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "Gilead CEO Takes Aim at Medicare Pricing: &#39;Pill Penalty&#39; Threatens Drug Innovation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:57:20.834625-04:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "Incyte To Rally More Than 23%? Here Are 10 Top Analyst Forecasts For Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:57:30.400731-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Musalem Says It&#39;s Really Important For Public To Understand How Central Bank Thinks And Acts; Monetary Policy More Effective When Public Understands It; Communications Is Not Necessarily The Same As Forward Guidance; Policy Rules Are Useful For Monetary Policy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-30T13:03:20.624713-04:00",
     "symbols": [
       "STLA"
@@ -4995,6 +4875,126 @@
       "EXEL"
     ],
     "headline": "TD Cowen Maintains Buy on Exelixis, Raises Price Target to $76",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T15:02:20.558024-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Intel Earnings Commentary Highlights Memory Chip Shortage Impact on Micron",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T15:02:20.564119-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Rivian CEO Confirms Progress Toward Uber Autonomy Milestone",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T15:03:20.546226-04:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Guggenheim Maintains Sell Rating on Cloudflare",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T15:03:20.552665-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Loses Legal Challenge Against UK Ofcom Information Requests",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T15:03:20.558002-04:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "GLJ Research Maintains Sell Rating on GE Vernova, Raises Price Target",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T15:03:20.569609-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Caterpillar Expands Role in Off-Grid Data Center Power Solutions",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T15:03:20.578408-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Wall Street Analysts Update Ratings and Price Targets for Fortinet",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T15:03:20.584802-04:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "Wall Street Analysts Update Ratings and Price Targets for KLA Corporation",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T15:03:20.590393-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft and The Est\u00e9e Lauder Companies Announce Strategic AI Partnership",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T15:03:27.018367-04:00",
+    "symbols": [
+      "RKT"
+    ],
+    "headline": "RBC Capital Maintains Sector Perform on Rocket Companies, Lowers Price Target to $14",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-30T15:03:27.568348-04:00",
+    "symbols": [
+      "IMO"
+    ],
+    "headline": "Imperial Oil Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T15:03:27.573110-04:00",
+    "symbols": [
+      "IMO"
+    ],
+    "headline": "Imperial Oil Q3 Adj. EPS $5.11 Beats $4.70 Estimate, Sales $16.205B Miss $19.059B Estimate",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"

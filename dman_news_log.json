@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-30T09:39:17.736309-04:00",
-    "symbols": [
-      "WST"
-    ],
-    "headline": "Evercore ISI Group Maintains Outperform on West Pharmaceutical Servs, Raises Price Target to $480",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T09:39:17.916412-04:00",
-    "symbols": [
-      "OSK"
-    ],
-    "headline": "Truist Securities Adjusts Price Target on Oshkosh to $161 From $174",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T09:39:18.096183-04:00",
-    "symbols": [
-      "AGI"
-    ],
-    "headline": "Alvar Financial Services Ltd Acquires Holding in Potentially AI PLC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-30T09:39:18.275765-04:00",
     "symbols": [
       "OPFI"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T10:49:05.928642-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Stock Declines Following Samsung Earnings Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T10:49:10.278471-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Exxon Mobil Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T10:49:15.148583-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Barclays Maintains Overweight on Mastercard, Raises Price Target to $700",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

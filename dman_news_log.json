@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-30T13:05:53.114708-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Musalem Says It&#39;s Really Important For Public To Understand How Central Bank Thinks And Acts; Monetary Policy More Effective When Public Understands It; Communications Is Not Necessarily The Same As Forward Guidance; Policy Rules Are Useful For Monetary Policy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T13:05:53.262670-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Nasdaq Tumbles Over 3%, Chip Stocks Sink: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T13:05:53.423009-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Nasdaq Tumbles Over 3%, Chip Stocks Sink: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T13:05:54.523848-04:00",
-    "symbols": [
-      "BFAM"
-    ],
-    "headline": "Nasdaq Tumbles Over 3%, Chip Stocks Sink: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-30T13:05:54.684434-04:00",
     "symbols": [
       "ATEC"
@@ -4998,5 +4958,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T15:39:50.527608-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "TD Cowen Maintains Buy on Gilead Sciences, Raises Price Target to $175",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T15:39:58.270938-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa Strikes MoU With Senegal To Enhance Its Digital Transformation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T15:40:09.405895-04:00",
+    "symbols": [
+      "OSPN"
+    ],
+    "headline": "DA Davidson Maintains Neutral on OneSpan, Raises Price Target to $22",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T15:40:13.317723-04:00",
+    "symbols": [
+      "GDYN"
+    ],
+    "headline": "TD Cowen Maintains Buy on Grid Dynamics Holdings, Raises Price Target to $13",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

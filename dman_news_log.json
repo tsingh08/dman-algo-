@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-30T12:57:12.975450-04:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nebius Group Announces Date for Third Quarter 2026 Financial Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T12:57:13.229589-04:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "B. Riley Securities Maintains Buy on Applied Digital, Lowers Price Target to $51",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-30T12:57:13.477616-04:00",
     "symbols": [
       "AAPL"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T14:04:20.618062-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "JPMorgan Adjusts Price Target on Caterpillar to $1,000 From $1,100",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T14:04:20.648746-04:00",
+    "symbols": [
+      "JOBY"
+    ],
+    "headline": "Joby Aviation Launches Piloted Electric Air Taxi Flights in Florida",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

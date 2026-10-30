@@ -4432,7 +4432,25 @@ def _tg_cmd_positions():
         send_telegram("📭 No tracked positions.")
     else:
         _lines = []
+        # A zone's tracker row carries placeholders (stop $0.01, T1 $1e9 -- no
+        # stop by design); its real protection is the broker GTC stop that
+        # the trail ratchets. /positions printed the placeholders on 10-29
+        # while ARHS's broker stop had been trailed to $12.29.
+        _broker_stops: dict[str, float] = {}
+        try:
+            for _o in _alpaca_client_or_raise().get_orders(
+                    filter=GetOrdersRequest(status=QueryOrderStatus.OPEN, limit=100)):
+                if getattr(_o, "stop_price", None) and "sell" in str(_o.side).lower():
+                    _broker_stops[str(_o.symbol)] = float(_o.stop_price)
+        except Exception:
+            pass
         for _p in _pt.positions:
+            if _is_bzone_position(_p):
+                _bs = _broker_stops.get(_p.ticker)
+                _lines.append(f"<b>{_p.ticker}</b> [ZONE] entry ${_p.entry}  "
+                              + (f"broker stop ${_bs:.2f}" if _bs else "⚠️ no broker stop found")
+                              + f"  since {_p.entry_date}")
+                continue
             if _is_spread_setup(_p.setup):
                 _lines.append(f"<b>{_p.ticker}</b> [SPREAD] {_p.setup}  "
                               f"cost ${_p.entry:.0f}  max loss ${_p.max_loss:.0f}  "

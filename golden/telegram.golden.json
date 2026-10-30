@@ -12,6 +12,7 @@
   "_handle_buy_command",
   "_handle_options_command",
   "_interpret_plain_english",
+  "_is_bzone_position",
   "_is_option_position",
   "_is_spread_setup",
   "_load_earnings_state",
@@ -669,6 +670,11 @@
    "calls": [
     [
      "PositionTracker",
+     "()",
+     "[]"
+    ],
+    [
+     "_alpaca_client_or_raise",
      "()",
      "[]"
     ],

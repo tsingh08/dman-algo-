@@ -39,7 +39,9 @@ concurrency:
 jobs:
   open-check:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    # 12 -> 60: a dispatch that lands before 9:45 ET now waits for it (see
+    # the guard below), up to 45 minutes.
+    timeout-minutes: 60
     permissions:
       contents: read
 
@@ -63,9 +65,28 @@ jobs:
           TELEGRAM_TOKEN:      ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID:    ${{ secrets.TELEGRAM_CHAT_ID }}
           PYTHONIOENCODING:    utf-8
+          EVENT_NAME:          ${{ github.event_name }}
         run: |
           hhmm=$(TZ=America/New_York date +%H%M)
-          if [ "$hhmm" -lt 0945 ] || [ "$hhmm" -ge 1030 ]; then
+          # The cloud routine's DISPATCH is the run that actually lands (the
+          # crons arrive 5-6 hours late), and it fires at 14:05 UTC: 10:05 ET
+          # in summer but 9:05 in winter, which the 9:45 floor would skip
+          # every day from Nov 2. Its runner also started at 10:38 and 10:41
+          # ET on 10-29 and 10-27, past 10:30, so no open check ran either
+          # day. A dispatch therefore waits for 9:45 and is accepted until
+          # noon; the two crons keep the narrow window that de-duplicates them.
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            if [ "$hhmm" -ge 0900 ] && [ "$hhmm" -lt 0945 ]; then
+              wait_s=$(( ( (9*60+45) - (10#${hhmm:0:2}*60 + 10#${hhmm:2:2}) ) * 60 ))
+              echo "Dispatched at $hhmm ET — waiting ${wait_s}s for 9:45."
+              sleep "$wait_s"
+              hhmm=$(TZ=America/New_York date +%H%M)
+            fi
+            if [ "$hhmm" -lt 0945 ] || [ "$hhmm" -ge 1200 ]; then
+              echo "$hhmm ET is outside the 9:45-12:00 dispatch window."
+              exit 0
+            fi
+          elif [ "$hhmm" -lt 0945 ] || [ "$hhmm" -ge 1030 ]; then
             echo "$hhmm ET is outside the 9:45-10:30 window — the other cron covers this clock."
             exit 0
           fi

@@ -19048,6 +19048,57 @@ class TestLongTelegramsStillParse(unittest.TestCase):
         self.assertIn("FETCH_HEAD:dman_briefing_marker.json", wf)
 
 
+class TestPositionsShowsTheZoneBrokerStop(unittest.TestCase):
+    """10-29: /positions printed 'stop $0.01 T1 $1000000000.0' for every zone
+    while ARHS's real broker stop had been trailed to $12.29."""
+
+    def test_zone_row_shows_broker_stop_not_placeholders(self):
+        pos = MagicMock(ticker="ARHS", setup="Breakout Zone +100% off low", entry=11.545,
+                        stop=0.01, target1=1e9, entry_date="2026-10-23")
+        order = MagicMock(symbol="ARHS", side="OrderSide.SELL", stop_price="12.29")
+        client = MagicMock()
+        client.get_orders.return_value = [order]
+        sent = []
+        with patch.object(a, "PositionTracker", return_value=MagicMock(positions=[pos])), \
+             patch.object(a, "_is_bzone_position", return_value=True), \
+             patch.object(a, "_alpaca_client_or_raise", return_value=client), \
+             patch.object(a, "send_telegram", side_effect=sent.append):
+            a._tg_cmd_positions()
+        self.assertIn("broker stop $12.29", sent[0])
+        self.assertNotIn("1000000000", sent[0])
+
+    def test_a_zone_without_a_broker_stop_is_flagged(self):
+        pos = MagicMock(ticker="BTE", setup="Breakout Zone", entry=5.35, entry_date="2026-10-20")
+        sent = []
+        with patch.object(a, "PositionTracker", return_value=MagicMock(positions=[pos])), \
+             patch.object(a, "_is_bzone_position", return_value=True), \
+             patch.object(a, "_alpaca_client_or_raise", side_effect=RuntimeError("down")), \
+             patch.object(a, "send_telegram", side_effect=sent.append):
+            a._tg_cmd_positions()
+        self.assertIn("no broker stop found", sent[0])
+
+
+class TestOpenCheckDispatchWaitsForTheWindow(unittest.TestCase):
+    """10-27 and 10-29: the dispatched open check started at 10:41 / 10:38 ET
+    and skipped itself (window 9:45-10:30); from Nov 2 the routine's 14:05 UTC
+    dispatch lands at 9:05 EST and would skip every day."""
+
+    def _wf(self):
+        with open(os.path.join(os.path.dirname(os.path.abspath(a.__file__)), ".github",
+                               "workflows", "dman_open_check.yml"), encoding="utf-8") as f:
+            return f.read()
+
+    def test_a_dispatch_waits_for_945_and_runs_until_noon(self):
+        wf = self._wf()
+        self.assertIn('if [ "$EVENT_NAME" = "workflow_dispatch" ]', wf)
+        self.assertIn('sleep "$wait_s"', wf)
+        self.assertIn('-ge 1200', wf)
+
+    def test_the_job_timeout_covers_the_wait(self):
+        m = re.search(r"timeout-minutes:\s*(\d+)", self._wf())
+        self.assertGreaterEqual(int(m.group(1)), 55)
+
+
 class TestLiftedFomcIsNotCalledABlackout(unittest.TestCase):
     """10-29: the scan heartbeat said "FOMC blackout" while the lifted meeting
     had check_macro_safe() open for entries."""

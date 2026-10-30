@@ -44562,7 +44562,7 @@
 "setup": "Gap & Hold",
 "bias": "LONG",
 "taken": false,
-"reject": "pre-9:45 gate",
+"reject": "setup disabled: 10W/46L over 56 live trades (18% WR, -122.3%",
 "score": 100,
 "final_score": 88.0,
 "ai_scored": true,
@@ -44612,9 +44612,9 @@
 "Gap Size": 3,
 "News Catalyst": 5
 },
-"seen": 2,
-"last_ts": "2026-10-30T09:40:17.053250-04:00",
-"entry_min": 1434.49,
+"seen": 3,
+"last_ts": "2026-10-30T10:45:38.055637-04:00",
+"entry_min": 1431.91,
 "entry_max": 1434.49
 },
 {

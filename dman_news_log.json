@@ -1,135 +1,5 @@
 [
   {
-    "ts": "2026-10-30T09:39:18.275765-04:00",
-    "symbols": [
-      "OPFI"
-    ],
-    "headline": "BNCCORP, INC. Reports Third Quarter 2026 Results Amid Pending Acquisition by OppFi Inc.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T09:39:18.412967-04:00",
-    "symbols": [
-      "LION"
-    ],
-    "headline": "Early Critical Reception for 'The Hunger Games: Sunrise on the Reaping'",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T09:39:18.598983-04:00",
-    "symbols": [
-      "PTEN"
-    ],
-    "headline": "Susquehanna Maintains Positive on Patterson-UTI Energy, Raises Price Target to $15",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T09:39:18.813980-04:00",
-    "symbols": [
-      "NEWT"
-    ],
-    "headline": "Piper Sandler Adjusts NewtekOne Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-30T09:39:19.195013-04:00",
-    "symbols": [
-      "TYL"
-    ],
-    "headline": "BTIG Maintains Buy on Tyler Technologies, Raises Price Target to $430",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T09:39:19.374633-04:00",
-    "symbols": [
-      "PSQL"
-    ],
-    "headline": "Cantor Fitzgerald Initiates Coverage On Pasqal Holding with Overweight Rating, Announces Price Target of $12",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T09:39:19.522607-04:00",
-    "symbols": [
-      "MHK"
-    ],
-    "headline": "Mohawk Industries&#39; Board Approve  New Share Repurchase Program Authorizing The Company To Repurchase Up To $500M Of Its Common Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T09:39:19.525847-04:00",
-    "symbols": [
-      "MHK"
-    ],
-    "headline": "Mohawk Industries Sees Q4 Adj EPS $1.35-$1.45 vs $1.66 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T09:39:19.528901-04:00",
-    "symbols": [
-      "MHK"
-    ],
-    "headline": "Mohawk Industries Q3 Adj. EPS $2.72 Beats $2.58 Estimate, Sales $2.786B Miss $2.824B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T09:39:19.692847-04:00",
-    "symbols": [
-      "WMG"
-    ],
-    "headline": "Rocstar and Warner Music Group's ada Division Partner with Al Wordlaw",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T09:39:19.696059-04:00",
-    "symbols": [
-      "WMG"
-    ],
-    "headline": "Warner Music Group in Ongoing Negotiations with Spotify Regarding AI Remix Platform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T09:39:19.947661-04:00",
-    "symbols": [
-      "PI"
-    ],
-    "headline": "Jefferies Maintains Buy on Impinj, Raises Price Target to $220",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T09:39:19.951145-04:00",
-    "symbols": [
-      "PI"
-    ],
-    "headline": "UBS Maintains Neutral on Impinj, Raises Price Target to $180",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-30T09:39:20.152754-04:00",
     "symbols": [
       "SIBN"
@@ -4965,6 +4835,136 @@
       "DXCM"
     ],
     "headline": "Barclays Maintains Overweight on DexCom, Raises Price Target to $120",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T10:45:00.505957-04:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "T-Mobile Says No to Elon Musk&#39;s Disruption Bid on Verizon, AT&amp;T",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-30T10:45:02.713704-04:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "QUICK SPARK: Intel Stock Drops 28%, Eyes Worst Day Since July 1974",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T10:45:05.761352-04:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Stock Declines Following Samsung Earnings Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T10:45:07.819994-04:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "This Monolithic Power Analyst Turns Bullish; Here Are Top 4 Upgrades For Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T10:45:08.589824-04:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "AbbVie Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T10:45:11.187148-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Exxon Mobil Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T10:45:11.191810-04:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "ExxonMobil Says Says UAE Production Has Returned To Levels Consistent With Historical Output; Says UAE Production Is Being Booked, But Sales Realization Is Delayed By Constraints",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T10:45:16.351489-04:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Keefe, Bruyette &amp; Woods Maintains Outperform on Mastercard, Raises Price Target to $750",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T10:45:18.667098-04:00",
+    "symbols": [
+      "NPKI"
+    ],
+    "headline": "11 Industrials Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T10:45:18.671641-04:00",
+    "symbols": [
+      "NPKI"
+    ],
+    "headline": "9 Industrials Stocks Moving In Thursday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T10:45:18.676027-04:00",
+    "symbols": [
+      "NPKI"
+    ],
+    "headline": "NPK International Lowers FY2026 Sales Guidance from $313.000M-$323.000M to $300.000M-$305.000M vs $319.324M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T10:45:18.680414-04:00",
+    "symbols": [
+      "NPKI"
+    ],
+    "headline": "NPK International Q3 Adj. EPS $0.09 Misses $0.12 Estimate, Sales $76.276M Miss $76.610M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T10:45:18.982979-04:00",
+    "symbols": [
+      "RAMP"
+    ],
+    "headline": "Ramp Metals Completes Rottenstone SW Camp and Reports Final 2026 Drill Assays",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

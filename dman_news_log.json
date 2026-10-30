@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-10-30T12:57:13.477616-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Tech Bonds Are &#39;Diamonds in the Rough&#39;: Bank of America&#39;s Hartnett Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:57:13.482966-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Dell, HP Stocks Tumble As Intel Flags Deepening PC Slump, Memory Shortages",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:57:13.487869-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple, Samsung Dodge Worst of Smartphone Chip Meltdown",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:57:14.027657-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Chip Stocks Wipe Out $1 Trillion in Friday Bloodbath: 5 Stocks Alone Account for 60% of the Damage",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T12:57:14.311823-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Chip Stocks Wipe Out $1 Trillion in Friday Bloodbath: 5 Stocks Alone Account for 60% of the Damage",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T12:57:14.317436-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Intel Stock Eyes One of Its Worst Days Since 1974: &#39;Houston, We Have a Problem,&#39; Analyst Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T12:57:14.557842-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Tech Bonds Are &#39;Diamonds in the Rough&#39;: Bank of America&#39;s Hartnett Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-30T12:57:14.562719-04:00",
     "symbols": [
       "META"
@@ -4996,6 +4926,76 @@
     ],
     "headline": "Joby Aviation Launches Piloted Electric Air Taxi Flights in Florida",
     "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T14:16:17.245388-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "TD Cowen Maintains Buy on Amazon.com, Lowers Price Target to $340",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T14:16:22.327395-04:00",
+    "symbols": [
+      "FSLR"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on First Solar, Lowers Price Target to $307",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-30T14:16:22.837735-04:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on Eli Lilly, Raises Price Target to $1596",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T14:16:23.392624-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on Gilead Sciences, Raises Price Target to $183",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T14:16:30.168517-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Caterpillar, Lowers Price Target to $805",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T14:16:41.202208-04:00",
+    "symbols": [
+      "WVE"
+    ],
+    "headline": "Canaccord Genuity Maintains Buy Rating and Raises Price Target for Wave Life Sciences",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T14:16:48.169954-04:00",
+    "symbols": [
+      "EXEL"
+    ],
+    "headline": "Morgan Stanley Maintains Equal-Weight on Exelixis, Raises Price Target to $60",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

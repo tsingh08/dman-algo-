@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-30T13:05:53.109527-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Baker Hughes Oil Rig Count +2 To 462; U.S. Baker Hughes NatGas Rig Count -2 To 130; U.S. Baker Hughes Total Rig Count 603 Vs 603 Prior",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-10-30T13:05:53.114708-04:00",
     "symbols": [
       "SPY"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T15:28:21.110558-04:00",
+    "symbols": [
+      "DFIN"
+    ],
+    "headline": "Needham Maintains Buy on Donnelley Financial Solns, Raises Price Target to $72",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

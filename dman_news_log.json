@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-30T09:39:24.433887-04:00",
-    "symbols": [
-      "KRG"
-    ],
-    "headline": "Kite Realty Gr Trust Q3 FFO $0.53 Beats $0.52 Estimate, Sales $190.275M Miss $190.557M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T09:39:24.437818-04:00",
-    "symbols": [
-      "KRG"
-    ],
-    "headline": "Kite Realty Group Trust Raises FY2026 FFO Guidance from $2.06-$2.12 to $2.08-$2.12 vs $2.09 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T09:39:24.643915-04:00",
-    "symbols": [
-      "SAIA"
-    ],
-    "headline": "Evercore ISI Group Maintains Outperform on Saia, Raises Price Target to $400",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T09:39:24.827523-04:00",
-    "symbols": [
-      "MGA"
-    ],
-    "headline": "Magna Unveils Massive Stock Buyback Covering 10% of Public Float",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-30T09:39:24.830646-04:00",
     "symbols": [
       "MGA"
@@ -4996,6 +4956,46 @@
     ],
     "headline": "UBS Adjusts Gilead Sciences Price Target to $195 From $175, Maintains Buy Rating",
     "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T11:14:22.695184-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "RBC Capital Reiterates Outperform on Amazon.com, Maintains $330 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-10-30T11:14:24.331482-04:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Sandisk Stock Split Makes Shares Cheaper Just as JPMorgan Sees 69% Upside",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T11:14:41.217886-04:00",
+    "symbols": [
+      "WTI"
+    ],
+    "headline": "W&amp;T Offshore Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T11:14:45.660195-04:00",
+    "symbols": [
+      "SNY"
+    ],
+    "headline": "Dupixent Is Still Booming. Sanofi\u2019s CEO Is Already Planning for Life Without It",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

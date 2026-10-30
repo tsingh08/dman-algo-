@@ -612,7 +612,7 @@
     ],
     [
      "send_telegram",
-     "('📊 <b>DMan status</b> — 🛑 HALTED  |  🟡 PROBATION ×0.50  |  🟡 0 setup(s) restricted: \\nAlpaca unreachable\\nTracked positions: 0\\nToday P&L: +123.45%  Month: -2.",
+     "('📊 <b>DMan status</b> — 🛑 HALTED  |  🟡 PROBATION ×0.50\\nAlpaca unreachable\\nTracked positions: 0\\nToday P&L: +123.45%  Month: -2.50%',)",
      "[]"
     ]
    ],
@@ -1189,7 +1189,7 @@
     ],
     [
      "send_telegram",
-     "('📊 <b>DMan status</b> — 🛑 HALTED  |  🟡 PROBATION ×0.50  |  🟡 0 setup(s) restricted: \\nAlpaca unreachable\\nTracked positions: 0\\nToday P&L: +123.45%  Month: -2.",
+     "('📊 <b>DMan status</b> — 🛑 HALTED  |  🟡 PROBATION ×0.50\\nAlpaca unreachable\\nTracked positions: 0\\nToday P&L: +123.45%  Month: -2.50%',)",
      "[]"
     ]
    ],

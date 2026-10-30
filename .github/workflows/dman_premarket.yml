@@ -9,6 +9,11 @@ on:
     # EST (Nov–Mar): 12:10 UTC = 7:10 AM ET / 5:10 AM MST  ← acceptable early
     - cron: '10 12 * * 1-5'
   workflow_dispatch:   # manual trigger for testing
+    inputs:
+      force:
+        description: 'Send the briefing even if today''s already ran'
+        type: boolean
+        default: false
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -79,6 +84,7 @@ jobs:
           MASSIVE_BACKUP_API_KEY:   ${{ secrets.MASSIVE_BACKUP_API_KEY }}
           PYTHONIOENCODING:  utf-8
           EVENT_NAME:        ${{ github.event_name }}
+          FORCE_BRIEFING:    ${{ inputs.force }}
         run: |
           python - <<'EOF'
           from datetime import datetime, timedelta
@@ -88,6 +94,22 @@ jobs:
           if now.weekday() >= 5:
               print(f"Weekend ({now.strftime('%a')}) — skipping briefing.")
               sys.exit(0)
+          # Two dispatches 3 minutes apart (12:20 + 12:23 UTC on 2026-10-26
+          # and 10-29) both ran the full briefing: the concurrency group only
+          # QUEUES the second, and its checkout is the commit from dispatch
+          # time, so it never sees the marker the first one pushed. Read the
+          # marker from origin/main instead. A forced dispatch always runs.
+          import json, os
+          if os.environ.get("FORCE_BRIEFING") != "true":
+              try:
+                  subprocess.run(["git", "fetch", "-q", "origin", "main"], timeout=60)
+                  _m = subprocess.run(["git", "show", "FETCH_HEAD:dman_briefing_marker.json"],
+                                      capture_output=True, text=True, timeout=30)
+                  if _m.returncode == 0 and json.loads(_m.stdout).get("date") == str(now.date()):
+                      print("Today's briefing already ran (marker on origin/main) — skipping this duplicate.")
+                      sys.exit(0)
+              except Exception as _e:
+                  print(f"Marker check failed ({_e}) — running the briefing anyway.")
           # If this ran early (before 8:00 AM ET) it waits for 8:00, capped at
           # 45 min (see the cap below). A SCHEDULED run still before 7:30 AM ET
           # is skipped outright — GitHub started it far too early.

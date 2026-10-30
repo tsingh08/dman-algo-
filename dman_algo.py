@@ -2583,23 +2583,72 @@ def _telegram_worth_sending(message: str) -> bool:
     return any(k in low for k in _TELEGRAM_KEEP)
 
 
-def send_telegram(message: str) -> bool:
-    """Send a message via Telegram Bot API. Returns True on success."""
-    if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
-        return False
-    if not _telegram_worth_sending(message):
-        _TELEGRAM_SUPPRESSED[0] += 1
-        print(f"  [Telegram quiet] suppressed: {(message or '')[:70]}")
-        return True
-    # Telegram hard limit is 4096 chars per message. Truncate rather than drop silently.
-    if len(message) > 4000:
-        message = message[:3970] + "\n… <i>[truncated]</i>"
+_TG_TAG_RE = re.compile(r"<(/?)(b|i|u|s|code|pre|a)(\s[^>]*)?>", re.IGNORECASE)
+TELEGRAM_CHUNK_LIMIT = 4000   # Telegram's hard limit is 4096
+TELEGRAM_MAX_CHUNKS  = 3      # a runaway message still cannot flood the chat
+
+
+def _telegram_chunks(message: str, limit: int = TELEGRAM_CHUNK_LIMIT) -> list[str]:
+    """Split an HTML message into parts Telegram will parse, at line breaks.
+
+    The old cut at char 3,970 could land between <b> and </b>, and Telegram
+    rejects the WHOLE message with "can't find end tag" -- the pre-market
+    briefing never arrived on 2026-10-23 or 10-29, the two longest (earnings-
+    heavy) mornings, and the run log called it "Telegram not configured".
+    Tags still open at a split are closed at the end of that part and
+    reopened at the start of the next, so each part parses on its own.
+    """
+    if len(message) <= limit:
+        return [message]
+    lines: list[str] = []
+    for line in message.split("\n"):
+        while len(line) > limit - 200:   # one huge line: cut it at a space
+            cut = line.rfind(" ", 0, limit - 200)
+            cut = cut if cut > 0 else limit - 200
+            lines.append(line[:cut])
+            line = line[cut:].lstrip()
+        lines.append(line)
+    chunks: list[str] = []
+    open_tags: list[tuple[str, str]] = []   # (name, full opening tag)
+    cur, fresh = "", True   # fresh: holds only reopened tags, no text yet
+    for line in lines:
+        closers = "".join(f"</{n}>" for n, _ in reversed(open_tags))
+        if not fresh and len(cur) + 1 + len(line) + len(closers) > limit:
+            chunks.append(cur + closers)
+            cur, fresh = "".join(t for _, t in open_tags), True
+        cur = cur + line if fresh else f"{cur}\n{line}"
+        fresh = False
+        for m in _TG_TAG_RE.finditer(line):
+            name = m.group(2).lower()
+            if m.group(1):
+                for i in range(len(open_tags) - 1, -1, -1):
+                    if open_tags[i][0] == name:
+                        del open_tags[i]
+                        break
+            else:
+                open_tags.append((name, m.group(0)))
+    if not fresh:
+        chunks.append(cur)
+    if len(chunks) > TELEGRAM_MAX_CHUNKS:
+        chunks = chunks[:TELEGRAM_MAX_CHUNKS]
+        chunks[-1] += "\n… <i>[truncated]</i>"
+    return chunks
+
+
+def _telegram_plain(message: str) -> str:
+    """The same text with the formatting tags removed, for a no-parse resend."""
+    return html.unescape(_TG_TAG_RE.sub("", message))
+
+
+def _telegram_post(message: str) -> bool:
+    """POST one part. On an HTML parse error, resend it once as plain text --
+    a formatting slip must never cost the message itself."""
+    payload = {"chat_id": TELEGRAM_CHAT_ID, "text": message, "parse_mode": "HTML"}
     for attempt in range(2):
         try:
             resp = requests.post(
                 f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage",
-                json={"chat_id": TELEGRAM_CHAT_ID, "text": message, "parse_mode": "HTML"},
-                timeout=10,
+                json=payload, timeout=10,
             )
             if resp.status_code == 200:
                 # One line per delivered message. Suppressed and failed sends
@@ -2608,7 +2657,12 @@ def send_telegram(message: str) -> bool:
                 print(f"  [Telegram] sent: {' '.join((message or '').split())[:110]}")
                 return True
             # Non-200 — log so GitHub Actions captures it
-            print(f"  [Telegram] HTTP {resp.status_code}: {resp.text[:120]}", file=sys.stderr)
+            print(f"  [Telegram] HTTP {resp.status_code}: {resp.text[:200]}", file=sys.stderr)
+            if (resp.status_code == 400 and "parse" in (resp.text or "").lower()
+                    and "parse_mode" in payload):
+                payload = {"chat_id": TELEGRAM_CHAT_ID, "text": _telegram_plain(message)}
+                print("  [Telegram] resending as plain text", file=sys.stderr)
+                continue
             if attempt == 0:
                 time.sleep(3)   # brief pause before retry
         except Exception as exc:
@@ -2616,6 +2670,20 @@ def send_telegram(message: str) -> bool:
             if attempt == 0:
                 time.sleep(3)
     return False
+
+
+def send_telegram(message: str) -> bool:
+    """Send a message via Telegram Bot API. Returns True on success."""
+    if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
+        return False
+    if not _telegram_worth_sending(message):
+        _TELEGRAM_SUPPRESSED[0] += 1
+        print(f"  [Telegram quiet] suppressed: {(message or '')[:70]}")
+        return True
+    ok = True
+    for part in _telegram_chunks(message or ""):
+        ok = _telegram_post(part) and ok
+    return ok
 
 
 # The full command list, kept in exactly one place — the unknown-command
@@ -4329,7 +4397,7 @@ def _tg_cmd_status():
     # surfacing that reads this file. An unparseable start date keeps the
     # entry visible — fail toward showing a restriction, not hiding one.
     _setup_prob = {}
-    for _k, _v in _load_setup_probation().items():
+    for _k, _v in (_load_setup_probation() or {}).items():
         try:
             _started = datetime.fromisoformat(_v.get("started", ""))
             if (datetime.now(_started.tzinfo) - _started).days >= SETUP_PROBATION_MAX_DAYS:
@@ -13310,7 +13378,7 @@ def _pmb_macro_calendar(now_et):
                 elif offset == 1:
                     events_lines.append(f"⛔ Major macro event tomorrow — full-day blackout; avoid new entries today")
                 else:
-                    events_lines.append(f"⛔ Major macro event {day_lbl} — approaching; see code comment for details")
+                    events_lines.append(f"⛔ Major macro event {day_lbl} — approaching; full-day blackout from the day before")
             # OPEX markers
             if d.weekday() == 4 and d == _get_third_friday(d.year, d.month):
                 if offset == 0:
@@ -15521,8 +15589,12 @@ def run_premarket_briefing() -> None:
     sent = send_telegram(msg)
     if sent:
         print("  ✅ Telegram briefing sent.")
-    else:
+    elif not (TELEGRAM_TOKEN and TELEGRAM_CHAT_ID):
         print("  ⚠️  Telegram not configured — briefing printed above only.")
+    else:
+        # Not "not configured": on 2026-10-23 and 10-29 Telegram REJECTED the
+        # briefing and this line said the opposite of what happened.
+        print(f"  ❌ Telegram briefing FAILED to send ({len(msg)} chars) — see the HTTP lines above.")
 
     # ── Pre-event strangle advisory ───────────────────────────────────
     # Triggers (buy before IV crush, catch the move):
@@ -33265,14 +33337,17 @@ def _main_mode_scan(args, tickers):
             f"Regime: {_hb_r} ({_hb_rs}/19)"
         )
     else:
-        _fomc_bkout = any(abs((ev - _et_today()).days) <= MACRO_BLACKOUT
-                          for ev in _FOMC_DATES)
+        _fomc_near = [ev for ev in _FOMC_DATES
+                      if abs((ev - _et_today()).days) <= MACRO_BLACKOUT]
+        _fomc_bkout = bool(_fomc_near)
         _hb_hhmm = datetime.now(ET).hour * 100 + datetime.now(ET).minute
         if _fomc_bkout and 1425 <= _hb_hhmm <= 1500:
             # Post-FOMC 2:30 PM reaction wrap — fires once, covers the window right
             # after the 2 PM ET announcement when initial reaction has settled
             _scan_mode_fomc_breakout_window(t_str)
-        elif _fomc_bkout:
+        elif _fomc_bkout and not all(_fomc_blackout_lifted(ev) for ev in _fomc_near):
+            # A lifted meeting is not a blackout -- 10-29 still said "FOMC
+            # blackout" while check_macro_safe() had entries open.
             send_telegram(
                 f"🔒 <b>DMan</b> {t_str} — FOMC blackout\n"
                 f"Regime: {_hb_r} ({_hb_rs}/19) | {_hb_counts}"

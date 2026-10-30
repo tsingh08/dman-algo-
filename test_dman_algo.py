@@ -18980,6 +18980,82 @@ class TestDeliveredTelegramsAreLogged(unittest.TestCase):
         self.assertIn("[Telegram] sent: <b>FILL</b> RXRX BUY x1", buf.getvalue())
 
 
+class TestLongTelegramsStillParse(unittest.TestCase):
+    """2026-10-23 and 10-29: the pre-market briefing ran past 4,000 chars, the
+    cut at 3,970 split a <b>...</b>, and Telegram rejected the whole message
+    ("can't find end tag") -- no briefing either morning."""
+
+    @staticmethod
+    def _balanced(part):
+        stack = []
+        for m in a._TG_TAG_RE.finditer(part):
+            name = m.group(2).lower()
+            if m.group(1):
+                if not stack or stack[-1] != name:
+                    return False
+                stack.pop()
+            else:
+                stack.append(name)
+        return not stack
+
+    def _long(self):
+        body = "\n".join(f"  TICK{i:03d} — Thu Oct 29 (today) 🚫 BLACKOUT" for i in range(160))
+        return ("🌅 <b>DMan PRO Pre-Market Briefing</b>\n<b>EARNINGS</b>\n<i>" + body
+                + "</i>\n💰 <b>MONTHLY P&amp;L</b>\nDown 2.8%")
+
+    def test_a_short_message_is_untouched(self):
+        self.assertEqual(a._telegram_chunks("<b>hi</b>\nthere"), ["<b>hi</b>\nthere"])
+
+    def test_every_part_fits_and_parses_on_its_own(self):
+        msg = self._long()
+        self.assertGreater(len(msg), 4000)
+        parts = a._telegram_chunks(msg)
+        self.assertGreater(len(parts), 1)
+        for p in parts:
+            self.assertLessEqual(len(p), 4096)
+            self.assertTrue(self._balanced(p), p[-80:])
+
+    def test_no_line_is_lost(self):
+        msg = self._long()
+        joined = "\n".join(a._telegram_plain(p) for p in a._telegram_chunks(msg))
+        for line in a._telegram_plain(msg).split("\n"):
+            self.assertIn(line, joined)
+
+    def test_the_old_cut_point_inside_bold_is_safe(self):
+        msg = "x" * 3960 + "\n<b>" + "y" * 40 + "</b>\nend"
+        for p in a._telegram_chunks(msg):
+            self.assertTrue(self._balanced(p))
+
+    def test_a_parse_error_is_resent_as_plain_text(self):
+        bad = MagicMock(status_code=400, text='{"ok":false,"description":"Bad Request: can\'t parse entities"}')
+        ok = MagicMock(status_code=200)
+        with patch.object(a, "TELEGRAM_TOKEN", "t"), patch.object(a, "TELEGRAM_CHAT_ID", "c"), \
+             patch.object(a, "_telegram_worth_sending", return_value=True), \
+             patch.object(a.requests, "post", side_effect=[bad, ok]) as post, \
+             contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+            self.assertTrue(a.send_telegram("<b>P&amp;L</b> <b>broken"))
+        second = post.call_args_list[1].kwargs["json"]
+        self.assertNotIn("parse_mode", second)
+        self.assertEqual(second["text"], "P&L broken")
+
+    def test_the_briefing_says_failed_not_unconfigured(self):
+        src = inspect.getsource(a.run_premarket_briefing)
+        self.assertIn("Telegram briefing FAILED", src)
+
+    def test_a_queued_duplicate_briefing_reads_the_marker_from_origin(self):
+        wf = open(os.path.join(os.path.dirname(os.path.abspath(a.__file__)), ".github",
+                               "workflows", "dman_premarket.yml"), encoding="utf-8").read()
+        self.assertIn("FETCH_HEAD:dman_briefing_marker.json", wf)
+
+
+class TestLiftedFomcIsNotCalledABlackout(unittest.TestCase):
+    """10-29: the scan heartbeat said "FOMC blackout" while the lifted meeting
+    had check_macro_safe() open for entries."""
+
+    def test_the_heartbeat_checks_the_lift(self):
+        self.assertIn("_fomc_blackout_lifted", inspect.getsource(a._main_mode_scan))
+
+
 class TestCiAlertIsSeverityAware(unittest.TestCase):
     """The CI alert said 'dman_algo.py is broken ... all trading jobs will
     fail' for EVERY failure, including a stale golden on 2026-09-22."""

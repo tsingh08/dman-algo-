@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-10-29T16:01:36.354632-04:00",
-    "symbols": [
-      "KLAC"
-    ],
-    "headline": "Stifel Maintains Buy on KLA, Lowers Price Target to $230",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T16:01:37.164598-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Moderna CEO Discusses Potential 2028 Launch for Skin Cancer Vaccine in Europe",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-29T16:01:37.168539-04:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Law Firm Announces Investigation into Moderna, Inc. Following Clinical Trial Data Leak",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-29T16:01:37.567593-04:00",
     "symbols": [
       "LLY"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T09:30:56.164994-04:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell Stock Tumbles Amid Lumentum Bid Talks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T09:30:56.168181-04:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "Citigroup Maintains Buy on KLA, Lowers Price Target to $275",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T09:30:56.171024-04:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "UBS Maintains Neutral on KLA, Lowers Price Target to $180",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

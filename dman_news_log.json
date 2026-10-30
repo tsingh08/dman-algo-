@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-10-30T13:34:36.908047-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Barclays Maintains Underweight on Coinbase Global, Lowers Price Target to $120",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-30T13:34:38.205930-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Binance&#39;s $6.3B Hack Sends Bitcoin ETF Tumbling 5%, but This ETF Is Up 21%: What&#39;s Driving the Divergence?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T13:34:38.694715-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "&#39;Uber Joins HSBC, Franklin Templeton in Blockchain Investing Test&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T13:34:38.699802-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Rivian Stock Undervalued by 67%: Dan Ives Says AI &amp; Autonomy \u2018Creating Value Beyond the Vehicle\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T13:34:41.088273-04:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "Defensives Lead Sectors In Friday Trading As Growth Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-30T13:34:41.386342-04:00",
     "symbols": [
       "CAT"
@@ -4998,5 +4948,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T16:32:20.781827-04:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA Customer AM Intelligence Seeks $3 Billion Financing for Processor Order",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T16:32:21.061706-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Discloses Prime Video Profitability and Revenue Scale",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T16:33:20.852153-04:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Chase Faces Potential Additional Regulatory Costs",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T16:33:21.133460-04:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Reaches Settlement in Social Media Addiction Trial",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T16:33:21.368179-04:00",
+    "symbols": [
+      "SID"
+    ],
+    "headline": "CSN Enters Exclusivity Agreement for Sale of Cement Unit",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

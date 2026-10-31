@@ -14,6 +14,12 @@ round trip, and every trade is measured against SPY over the same window.
 VERDICT (all required): mean excess > 0, date-clustered t >= 2, BOTH halves
 > 0, EVERY calendar year > 0. Anything less is not an edge -- do not ship it.
 
+RESULTS 2026-10-31 (2023-06..2026-10, 0.10% round trip):
+  zone  n=3,910 over 566 days: mean +0.04% vs SPY, MEDIAN -2.44%, beats SPY
+        45%, clustered t 0.06; halves +0.51/-0.26; 2024 +2.16 2025 +1.89
+        2026 -3.68  -> FAIL (no edge; research size is right)
+  dip   n=164k: mean -0.15% vs SPY, t -4.43, every year negative -> FAIL
+
 Usage:
   py -3 tools/pit_harness.py zone            # the live breakout-zone rule
   py -3 tools/pit_harness.py dip             # the dip-in-uptrend rule
@@ -121,7 +127,7 @@ def rule_zone(open_, close, dv):
     lo = close.rolling(252, min_periods=240).min()
     ma20 = close.shift(1).rolling(20).mean()
     return ((close >= hi) & (close / lo - 1 >= 1.0) & (close / ma20 - 1 >= 0.10)
-            & close.between(5, 15) & (_adv(dv) >= 5e6))
+            & (close >= 5) & (close <= 15) & (_adv(dv) >= 5e6))
 
 
 def rule_dip(open_, close, dv):

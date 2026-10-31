@@ -78,3 +78,5 @@ Thumbs.db
 # Frozen harness inputs are local-only by design -- see backtest_harness.py:
 # "The frozen data (golden/fixtures/backtest_bars.pkl) is local only"
 /golden/fixtures/
+/pit_bars.pkl
+/univ_bars.pkl

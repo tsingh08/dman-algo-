@@ -247,7 +247,7 @@
    {
     "type": "submit_alpaca_trade",
     "symbol": "NVDA",
-    "qty": "2",
+    "qty": "1",
     "no_stop_entry": "False",
     "swing": "False"
    }
@@ -255,8 +255,7 @@
   "telegram": [
    "⚠️ <b>DMan LIVE mode</b>: ACCOUNT_SIZE secret not set — sizing uses $25,000 default. Set the real value in GitHub secrets → ACCOUNT_SIZE.",
    "\nPosition sizes <b>reduced 65%</b> (mult 0.35x)",
-   "🔥 <b>DMan HOT STREAK</b> — 4 consecutive wins\nSizing boosted to 0.44× to press the edge.",
-   "✅ <b>Order placed</b> [LIVE] — NVDA LONG\nLimit $10.01  Stop $9.01  T1 $12.01\nShares: 2  Score: 100/100  ID: alp-1…"
+   "✅ <b>Order placed</b> [LIVE] — NVDA LONG\nLimit $10.01  Stop $9.01  T1 $12.01\nShares: 1  Score: 100/100  ID: alp-1…"
   ],
   "opens": [
    {
@@ -265,7 +264,7 @@
     "entry": "10.01",
     "stop": "9.01",
     "target1": "12.01",
-    "shares": "2",
+    "shares": "1",
     "day_only": "False"
    }
   ],
@@ -273,8 +272,7 @@
    "  ⚠️  LIVE: ACCOUNT_SIZE not set — defaulting to $25,000",
    "  🌍 Fetching global context for adaptive sizing...",
    "  🌍 RISK-OFF  score=-4  → sizing 0.35x",
-   "  🔥 HOT STREAK: 4 wins in a row — sizing ×0.44",
-   "  🟡 Probation sizing: ×0.50 → net ×0.22",
+   "  🟡 Probation sizing: ×0.50 → net ×0.17",
    "  ────────────────────────────────────────────────────────────────────",
    "  [LIVE] Validating 1 signal(s) for Alpaca submission…",
    "  🔒 NVDA: options locked for Gap & Hold (live n=0, mean +0.0%; needs 8+ and > 0) -- shares, or a call spread",

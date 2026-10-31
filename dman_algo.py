@@ -3970,8 +3970,97 @@ def _setup_probation_bonus(setup: str) -> int:
         return 0
 
 
+# ---- Benchmark: a strategy must beat SPY, not just zero ---------------------
+# Added 2026-10-31. The broker tear sheet (tools/performance_attribution.py)
+# put the account at -48.6% against SPY -0.8% over 2026-07-09..10-30, alpha
+# t -3.1. In a rising tape a setup can show a profit and still lose to simply
+# holding SPY over the same days; that is market exposure, not an edge.
+# Verdicts now take the WORSE of raw and excess-over-SPY, which can only
+# disable more -- it can never re-enable a setup the raw record already killed.
+_SPY_OHLC: dict = {}
+
+
+def _spy_ohlc_map() -> dict:
+    """{iso date: (open, close)} for SPY, fetched once per process; {} if unknown."""
+    if _SPY_OHLC or not ALPACA_API_KEY:
+        return _SPY_OHLC
+    try:
+        _df = fetch_df("SPY", period_days=800)
+        if _df is not None:
+            for _ts, _row in _df.iterrows():
+                _SPY_OHLC[str(_ts)[:10]] = (float(_row["Open"]), float(_row["Close"]))
+    except Exception as exc:
+        _log_swallowed("spy benchmark", exc)
+    return _SPY_OHLC
+
+
+def _spy_return_pct(entry_date, exit_date) -> Optional[float]:
+    """SPY from the entry day's open to the exit day's close, in %; None if unknown."""
+    _m = _spy_ohlc_map()
+    _a, _b = _m.get(str(entry_date or "")[:10]), _m.get(str(exit_date or "")[:10])
+    if not _a or not _b or _a[0] <= 0:
+        return None
+    return round((_b[1] / _a[0] - 1) * 100, 3)
+
+
+def _judged_pct(pnl_pct: float, bias: str, spy_pct: Optional[float]) -> float:
+    """The number a verdict should see: the worse of raw P&L and P&L over SPY.
+
+    A short profits when SPY falls, so its benchmark is the inverse. Unknown
+    SPY falls back to raw, which is exactly the old behaviour."""
+    if spy_pct is None:
+        return pnl_pct
+    _xs = pnl_pct + spy_pct if str(bias).upper() == "SHORT" else pnl_pct - spy_pct
+    return min(pnl_pct, _xs)
+
+
+def _record_judged_pct(r) -> float:
+    """_judged_pct() for a TradeRecord, deriving SPY from its dates if unstored."""
+    _spy = getattr(r, "spy_pct", None)
+    if _spy is None and getattr(r, "entry_date", ""):
+        _spy = _spy_return_pct(r.entry_date, r.date)
+    return _judged_pct(float(r.pnl_pct), getattr(r, "bias", "LONG"), _spy)
+
+
+# ---- Evidence-weighted size for fixed-dollar strategies ----------------------
+# A desk gives an unproven strategy a RESEARCH allocation and scales it only
+# once the live record shows alpha. Nothing here has: the point-in-time study
+# (2026-10-24) measured the zone rule at -0.80%/trade vs SPY, and earnings /
+# event options lost ~$305 on 11 live round trips. Until a family has
+# STRATEGY_PROVEN_MIN_N live trades whose judged mean is positive with
+# t >= STRATEGY_PROVEN_MIN_T, its fixed-dollar budget is multiplied by
+# RESEARCH_SIZE_MULT. Share setups are not touched: probation sizing already
+# governs them.
+RESEARCH_SIZE_MULT      = 0.5
+STRATEGY_PROVEN_MIN_N   = 20
+STRATEGY_PROVEN_MIN_T   = 1.5
+
+
+def _strategy_size_mult(match) -> float:
+    """1.0 if the live record of setups where match(setup) is true proves an
+    edge over SPY, else RESEARCH_SIZE_MULT. Fails to research size."""
+    try:
+        _xs = [_record_judged_pct(r) for r in WinRateTracker().records
+               if r.is_live and match(str(r.setup))]
+        if len(_xs) >= STRATEGY_PROVEN_MIN_N:
+            _m = sum(_xs) / len(_xs)
+            _sd = (sum((x - _m) ** 2 for x in _xs) / (len(_xs) - 1)) ** 0.5
+            if _m > 0 and _sd > 0 and _m / (_sd / len(_xs) ** 0.5) >= STRATEGY_PROVEN_MIN_T:
+                return 1.0
+    except Exception as exc:
+        _log_swallowed("strategy size mult", exc)
+    return RESEARCH_SIZE_MULT
+
+
+def _is_event_option_setup(setup: str) -> bool:
+    return "Strangle" in setup or setup.startswith("Earnings")
+
+
 def _setup_live_record() -> dict:
-    """{setup: {n, wins, cum_pct}} per setup from LIVE_OUTCOMES_FILE.
+    """{setup: {n, wins, cum_pct, cum_judged}} per setup from LIVE_OUTCOMES_FILE.
+
+    cum_judged sums _judged_pct() per row (the worse of raw and over-SPY), so
+    the kill switch asks "did this beat zero AND the market", not just zero.
 
     NOT the realised trade log, despite what this docstring used to claim
     (corrected 2026-09-17 review). LIVE_OUTCOMES_FILE holds the outcome of
@@ -4007,9 +4096,13 @@ def _setup_live_record() -> dict:
                     _pnl = _float_strict(_row.get("pnl_pct"))
                 except (TypeError, ValueError):
                     continue
-                _e = _rec.setdefault(_setup, {"n": 0, "wins": 0, "cum_pct": 0.0})
+                _e = _rec.setdefault(_setup, {"n": 0, "wins": 0, "cum_pct": 0.0,
+                                              "cum_judged": 0.0})
                 _e["n"] += 1
                 _e["cum_pct"] += _pnl
+                _e["cum_judged"] += _judged_pct(
+                    _pnl, _row.get("bias") or "LONG",
+                    _spy_return_pct(_row.get("entry_date"), _row.get("exit_date")))
                 if _pnl > 0:
                     _e["wins"] += 1
     except FileNotFoundError:
@@ -4192,15 +4285,20 @@ def _setup_is_disabled(setup: str) -> tuple[bool, str]:
     if not _e or _e["n"] < SETUP_KILL_HARD_MIN_TRADES:
         return False, ""
     _wr = _e["wins"] / _e["n"]
+    # Judged = the worse of raw and over-SPY (see _judged_pct). A record built
+    # without it (older callers, tests) reads as raw.
+    _cum = min(_e["cum_pct"], _e.get("cum_judged", _e["cum_pct"]))
     _reason = (f"{_e['wins']}W/{_e['n'] - _e['wins']}L over {_e['n']} live "
-               f"trades ({_wr*100:.0f}% WR, {_e['cum_pct']:+.1f}% cumulative)")
+               f"trades ({_wr*100:.0f}% WR, {_e['cum_pct']:+.1f}% cumulative"
+               + (f", {_cum:+.1f}% judged vs SPY" if _cum < _e["cum_pct"] else "")
+               + ")")
     # Drawdown bar first: it is a fact about money already lost, so it does
     # not wait for the sample size that judging a win rate requires.
-    if _e["cum_pct"] <= SETUP_KILL_CUM_HARD_PCT:
+    if _cum <= SETUP_KILL_CUM_HARD_PCT:
         return True, _reason
     if _e["n"] < SETUP_KILL_MIN_TRADES:
         return False, ""
-    if _wr <= SETUP_KILL_MAX_WR and _e["cum_pct"] <= SETUP_KILL_MAX_CUM_PCT:
+    if _wr <= SETUP_KILL_MAX_WR and _cum <= SETUP_KILL_MAX_CUM_PCT:
         return True, _reason
     return False, ""
 
@@ -14631,12 +14729,24 @@ def _bzone_record(since: Optional[str] = None) -> tuple[int, float]:
         return 0, 0.0
 
 
+def _bzone_judged_mean() -> float:
+    """Mean _record_judged_pct() over every closed live zone: the worse of raw
+    and over-SPY per trade. The verdict needs BOTH above zero (2026-10-31)."""
+    try:
+        rs = [r for r in WinRateTracker().records
+              if r.is_live and str(r.setup).startswith(BZONE_SETUP)]
+        return sum(_record_judged_pct(r) for r in rs) / len(rs) if rs else 0.0
+    except Exception:
+        return 0.0
+
+
 def _bzone_record_lines() -> list:
     """The zone record, all-time and since the exit changed. Reporting only."""
     _n, _avg = _bzone_record()
     if not _n:
         return []
     _out = [f"  zone record: {_n}/{BZONE_TRADE_REVIEW_N} closed, mean {_avg:+.2f}%"
+            f" (judged vs SPY {_bzone_judged_mean():+.2f}%)"
             f" \u2014 verdict at {BZONE_TRADE_REVIEW_N}"]
     # What the remaining trades have to average for the verdict to survive.
     # Stating the record alone hides how far away it is: at n=4 and -3.44% the
@@ -14693,12 +14803,17 @@ def run_breakout_zone_manage(notify: bool = True) -> dict:
     _n, _avg = _bzone_record()
     for _ln in _bzone_record_lines():
         print(_ln)
-    if _n >= BZONE_TRADE_REVIEW_N and _avg <= 0:
-        out["skipped"] = f"record {_n} trades, mean {_avg:+.1f}% — entries off"
+    # Must beat zero AND SPY: a zone book that only rode the market up is
+    # market exposure with extra risk, not a strategy (2026-10-31).
+    _judged = _bzone_judged_mean() if _n >= BZONE_TRADE_REVIEW_N else _avg
+    if _n >= BZONE_TRADE_REVIEW_N and min(_avg, _judged) <= 0:
+        out["skipped"] = (f"record {_n} trades, mean {_avg:+.1f}% "
+                          f"(judged vs SPY {_judged:+.1f}%) — entries off")
         if not _is_duplicate_alert("__BZONE_OFF__", cooldown_min=7 * 24 * 60):
             _save_last_alert("__BZONE_OFF__")
             send_telegram(f"⏹️ <b>Breakout zones switched themselves off</b> — {_n} closed live, "
-                          f"mean {_avg:+.1f}%. The setup is not paying; review before re-enabling.")
+                          f"mean {_avg:+.1f}%, judged vs SPY {_judged:+.1f}%. The setup is not "
+                          f"beating the market; review before re-enabling.")
         return out
     # The same four breakers every other real-order path enforces. Zones
     # checked none of them, so a /halt or a tripped daily/monthly loss limit
@@ -14744,7 +14859,8 @@ def run_breakout_zone_manage(notify: bool = True) -> dict:
             continue
         if _is_duplicate_alert(f"__BZONE_ENTRY__:{_t}", cooldown_min=24 * 60):
             continue          # already acted on this name today
-        _qty = int(BZONE_TRADE_DOLLARS // max(_px, 0.01))
+        _qty = int(BZONE_TRADE_DOLLARS * _strategy_size_mult(
+            lambda s: s.startswith(BZONE_SETUP)) // max(_px, 0.01))
         if _qty < 1:
             continue
         # Exposure is the real cap; asked here so a pure exit pass never needs
@@ -14773,8 +14889,9 @@ def run_breakout_zone_manage(notify: bool = True) -> dict:
                     f"📈 <b>{_t} breakout zone entered</b> — {_qty} shares near ${_px:.2f}\n"
                     f"+{_row.get('above_low_pct', 0):.0f}% off its 52-week low, "
                     f"{_row.get('extension_pct', 0):+.0f}% vs its 20-day average.\n"
-                    f"<i>Held {BZONE_HOLD_SESSIONS} sessions, no TRADING stop — the "
-                    f"tested rule (+3.3% median, 3y). A catastrophe floor rests "
+                    f"<i>Held {BZONE_HOLD_SESSIONS} sessions, no TRADING stop. Research "
+                    f"size: unbiased testing measured this rule at -0.80%/trade vs SPY, "
+                    f"so it trades small until its live record beats SPY. A catastrophe floor rests "
                     f"{_bzone_floor_pct(_t):.0%} below fill "
                     f"({BZONE_CATASTROPHE_STOP_ATR:.1f} ATR on this name), far "
                     f"outside noise, so an unattended collapse cannot take the "
@@ -14844,9 +14961,9 @@ def _pmb_breakout_zone_section() -> str:
     _more = f"\n  …and {len(rows) - BZONE_MAX_LINES} more" if len(rows) > BZONE_MAX_LINES else ""
     return ("\n\n🏔 <b>BREAKOUT ZONES</b> — new 52-week highs in stocks already running\n"
             + "\n".join(lines) + _more
-            + "\n<i>Tested over 3y, all sectors: +0.8% median over SPY on a 20-session hold "
-              "(n=5,447); \u2b50 fresh-base names +3.2% (n=401). Tracked, not traded — "
-              "the exits here are built for 1-5 day holds.</i>")
+            + "\n<i>Survivor-only 3y test: +0.8% median over SPY (n=5,447); the "
+              "point-in-time retest (2026-10-24) measured -0.80%/trade vs SPY. "
+              "$5-15 names trade at research size until the live record beats SPY.</i>")
 
 
 def _pmb_overseas_section() -> str:
@@ -17660,7 +17777,8 @@ def run_earnings_spread_scan() -> None:
                         f"of it — CRWD did, exactly.")
                 continue
             _committed = _earnings_spread_committed_risk(pending)
-            _cap = get_effective_account() * EARNINGS_SPREAD_MAX_AGGREGATE_RISK_PCT
+            _cap = (get_effective_account() * EARNINGS_SPREAD_MAX_AGGREGATE_RISK_PCT
+                    * _strategy_size_mult(_is_event_option_setup))
             if _committed + plan["max_loss"] > _cap:
                 print(f"  ⏭️  {c['ticker']} earnings spread skipped — aggregate risk cap "
                       f"(${_committed:.0f} committed + ${plan['max_loss']:.0f} this offer > "
@@ -19971,6 +20089,13 @@ class TradeRecord:
                                # only exists here because of manual --mode record calls.
                                # Defaults False so old records without this field (all
                                # backtest-era) classify correctly on load.
+    # Added 2026-10-31 so a trade can be judged in dollars and against SPY
+    # over its own hold, not only as a percent against zero. Old records load
+    # with the defaults; a missing spy_pct means "judge on raw P&L".
+    entry_date: str = ""
+    shares:     float = 0.0
+    pnl_usd:    Optional[float] = None
+    spy_pct:    Optional[float] = None   # SPY over the same hold, in %
 
 
 class WinRateTracker:
@@ -22824,10 +22949,13 @@ def strangle_budget() -> float:
     try:
         _eq = float(get_effective_account())
         if _eq > 0:
-            return round(min(OPTIONS_CONTRACT_BUDGET_MAX, _eq * MAX_TRADE_LOSS_PCT), 2)
+            # Research size until event options prove an edge over SPY:
+            # 11 live round trips lost ~$305 (tear sheet, 2026-10-31).
+            return round(min(OPTIONS_CONTRACT_BUDGET_MAX, _eq * MAX_TRADE_LOSS_PCT)
+                         * _strategy_size_mult(_is_event_option_setup), 2)
     except Exception:
         pass
-    return OPTIONS_CONTRACT_BUDGET_MAX
+    return round(OPTIONS_CONTRACT_BUDGET_MAX * RESEARCH_SIZE_MULT, 2)
 
 
 def format_strangle_telegram(result: dict, event: str) -> str:
@@ -29690,6 +29818,12 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
                 pnl_pct = round(pnl_pct, 2),
                 score   = getattr(pos, "score", 0),
                 is_live = True,   # a real Alpaca fill, not a simulation
+                entry_date = str(getattr(pos, "entry_date", "") or "")[:10],
+                shares  = float(getattr(pos, "shares", 0) or 0),
+                pnl_usd = round((fill_px - float(pos.entry))
+                                * float(getattr(pos, "shares", 0) or 0)
+                                * (-1 if str(pos.bias).upper() == "SHORT" else 1), 2),
+                spy_pct = _spy_return_pct(getattr(pos, "entry_date", ""), fill_date),
             ))
             # Consumes a PDT day trade only if this was a same-day round
             # trip -- the helper enforces that, so call it unconditionally.
@@ -29982,6 +30116,8 @@ def sync_earnings_spread_fills(tracker: WinRateTracker, recorded_ids: set[str]) 
             ticker=pos.ticker, date=fill_date, bias=pos.bias, setup=pos.setup,
             entry=round(debit_paid, 2), exit=round(credit_received, 2),
             outcome=outcome, pnl_pct=round(pnl_pct, 2), score=pos.score, is_live=True,
+            entry_date=str(getattr(pos, "entry_date", "") or "")[:10],
+            spy_pct=_spy_return_pct(getattr(pos, "entry_date", ""), fill_date),
         ))
         _record_day_trade(pos.ticker, getattr(pos, "entry_date", ""), fill_date)
         # Same cross-checkout dedup identity as sync_alpaca_fills() — leg
@@ -32155,7 +32291,9 @@ def _submission_risk_multiplier(size_mult: float) -> float:
     """
     print("  🌍 Fetching global context for adaptive sizing...", flush=True)
     _ctx = _fetch_global_context()
-    _risk_off_mult = _ctx["risk_mult"]
+    # Never ABOVE 1.0. A desk does not lever up an unproven book because the
+    # overnight tape looks friendly (2026-10-31); risk-off cuts still apply.
+    _risk_off_mult = min(1.0, _ctx["risk_mult"])
     _ctx_tone = _ctx["tone"]
     # Once per ET day per tone+multiplier. This runs on EVERY submission pass
     # -- every few minutes in the daemon -- and on 2026-09-21 it re-sent the
@@ -32177,16 +32315,10 @@ def _submission_risk_multiplier(size_mult: float) -> float:
     _streak_stats_live = WinRateTracker().rolling_stats()
     _consec_wins_live  = _streak_stats_live.get("consec_wins", 0)
     _consec_loss_live  = _streak_stats_live.get("consec_losses", 0)
-    if _consec_wins_live >= 3:
-        _risk_off_mult = min(1.50, _risk_off_mult * 1.25)
-        print(f"  🔥 HOT STREAK: {_consec_wins_live} wins in a row — sizing ×{_risk_off_mult:.2f}")
-        if not _is_duplicate_alert("__HOT_STREAK__"):
-            send_telegram(
-                f"🔥 <b>DMan HOT STREAK</b> — {_consec_wins_live} consecutive wins\n"
-                f"Sizing boosted to {_risk_off_mult:.2f}× to press the edge."
-            )
-            _save_last_alert("__HOT_STREAK__")
-    elif _consec_loss_live == 1:
+    # The 3-win "HOT STREAK" x1.25 boost was removed 2026-10-31: sizing up on
+    # a streak bets that wins cluster, and nothing here has shown they do --
+    # live win rate is 39% and the account's alpha t is -3.1.
+    if _consec_loss_live == 1:
         _risk_off_mult = min(_risk_off_mult, 0.85)
         print(f"  ⚠️  1 consecutive loss — early caution, sizing →0.85×")
 

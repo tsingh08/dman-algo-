@@ -7511,6 +7511,8 @@ class TestLineByLineAuditFixes(unittest.TestCase):
     # ── strangle advisory ──────────────────────────────────────────────────
     def test_strangle_sizer_exists_and_fits_the_budget(self):
         self.assertTrue(callable(getattr(a, "size_strangle_trade", None)))
+        _m = patch.object(a, "_strategy_size_mult", return_value=1.0)
+        _m.start(); self.addCleanup(_m.stop)
         with patch.object(a, "get_effective_account", return_value=10_000.0):
             self.assertEqual(a.size_strangle_trade(1.50), int(a.OPTIONS_CONTRACT_BUDGET_MAX // 150))
         with patch.object(a, "get_effective_account", return_value=2_542.0):
@@ -19377,7 +19379,7 @@ class TestBreakoutZones(unittest.TestCase):
             out = a._pmb_breakout_zone_section()
         self.assertLess(out.index("A</b>"), out.index("B</b>"))
         self.assertIn("off its low", out)
-        self.assertIn("not traded", out)
+        self.assertIn("research size", out)
 
     def test_the_log_does_not_duplicate_a_ticker_date(self):
         d = tempfile.mkdtemp(); f = os.path.join(d, "bz.json")
@@ -19506,7 +19508,11 @@ class TestBreakoutZoneTrading(unittest.TestCase):
 
     def _run(self, zones=(), open_pos=(), held=0, record=(0, 0.0), cash_ok=True, market=True,
              broker=frozenset(), breakers=(True, "")):
-        with patch.object(a, "is_market_open", return_value=market), \
+        # Mechanics, not sizing: full size, and the SPY-judged mean equal to
+        # the raw one (TestJudgedAgainstSpy covers both separately).
+        with patch.object(a, "_strategy_size_mult", return_value=1.0), \
+             patch.object(a, "_bzone_judged_mean", return_value=record[1]), \
+             patch.object(a, "is_market_open", return_value=market), \
              patch.object(a, "_entry_circuit_breakers_ok", return_value=breakers), \
              patch.object(a, "_broker_committed_symbols", return_value=set(broker)), \
              patch.object(a, "_recent_logged_zones", return_value=list(zones)), \
@@ -20420,6 +20426,8 @@ class TestStrangleIsOnePositionWithTwoLegs(unittest.TestCase):
     def setUp(self):
         p = patch.object(a, "get_effective_account", return_value=10_000.0)
         p.start(); self.addCleanup(p.stop)
+        m = patch.object(a, "_strategy_size_mult", return_value=1.0)   # mechanics only
+        m.start(); self.addCleanup(m.stop)
 
     def _result(self):
         return {"ticker": "SPY", "expiration": "2026-10-16", "dte": 7,
@@ -28654,7 +28662,7 @@ class TestTwoCapsGovernedTheSameRisk(unittest.TestCase):
         per-trade ceiling is the harder rule so it should speak first."""
         src = inspect.getsource(a)
         _pt = src.index("_per_trade_cap = get_effective_account()")
-        _agg = src.index("_cap = get_effective_account() * EARNINGS_SPREAD_MAX_AGGREGATE_RISK_PCT")
+        _agg = src.index("_cap = (get_effective_account() * EARNINGS_SPREAD_MAX_AGGREGATE_RISK_PCT")
         self.assertLess(_pt, _agg)
 
     def test_it_compares_max_loss_not_premium_paid(self):
@@ -30193,3 +30201,116 @@ class TestFomcBlackoutLiftIsPerMeeting(unittest.TestCase):
         lift = {"FOMC_BLACKOUT_LIFTED_2026-10-28": True}
         self.assertFalse(self._safe(date(2026, 11, 4), lift))      # midterms, major macro
         self.assertFalse(self._safe(date(2026, 11, 10), lift, hour=9))   # CPI morning
+
+
+class TestJudgedAgainstSpy(unittest.TestCase):
+    """2026-10-31: verdicts take the worse of raw P&L and P&L over SPY, and
+    fixed-dollar strategies trade at research size until they prove alpha."""
+
+    def test_judged_is_the_worse_of_raw_and_excess(self):
+        self.assertEqual(a._judged_pct(5.0, "LONG", 8.0), -3.0)    # lagged a rally
+        self.assertEqual(a._judged_pct(5.0, "LONG", -2.0), 5.0)    # raw is worse
+        self.assertEqual(a._judged_pct(-1.0, "SHORT", -4.0), -5.0) # short vs a falling SPY
+        self.assertEqual(a._judged_pct(4.0, "LONG", None), 4.0)    # unknown -> raw
+
+    def test_spy_return_uses_entry_open_and_exit_close(self):
+        with patch.object(a, "_spy_ohlc_map",
+                          return_value={"2026-10-01": (100.0, 101.0), "2026-10-05": (102.0, 110.0)}):
+            self.assertEqual(a._spy_return_pct("2026-10-01", "2026-10-05"), 10.0)
+            self.assertIsNone(a._spy_return_pct("2026-10-01", "2026-10-09"))
+
+    def _rec(self, setup, n, pnl):
+        return {setup: {"n": n, "wins": 0, "cum_pct": pnl, "cum_judged": pnl}}
+
+    def test_kill_switch_fires_on_the_judged_number(self):
+        rec = {"S": {"n": 5, "wins": 2, "cum_pct": -10.0, "cum_judged": -45.0}}
+        with patch.object(a, "_setup_live_record", return_value=rec), \
+             patch.object(a, "flag", return_value=True):
+            off, why = a._setup_is_disabled("S")
+        self.assertTrue(off)
+        self.assertIn("judged vs SPY", why)
+
+    def test_judging_can_never_re_enable(self):
+        """A record whose excess looks better than raw is still judged on raw."""
+        rec = {"S": {"n": 5, "wins": 2, "cum_pct": -45.0, "cum_judged": -10.0}}
+        with patch.object(a, "_setup_live_record", return_value=rec), \
+             patch.object(a, "flag", return_value=True):
+            self.assertTrue(a._setup_is_disabled("S")[0])
+
+    def _tracker(self, pnls, setup="Breakout Zone +100% off low"):
+        recs = [a.TradeRecord(ticker="X", date="2026-10-01", bias="LONG", setup=setup,
+                              entry=10, exit=10, outcome="WIN", pnl_pct=p, score=0,
+                              is_live=True) for p in pnls]
+        return SimpleNamespace(records=recs)
+
+    def test_unproven_strategy_trades_at_research_size(self):
+        with patch.object(a, "WinRateTracker", return_value=self._tracker([5.0] * 5)):
+            self.assertEqual(a._strategy_size_mult(lambda s: s.startswith("Breakout")),
+                             a.RESEARCH_SIZE_MULT)
+
+    def test_proven_strategy_gets_full_size(self):
+        pnls = [3.0, 1.0, 2.0, 4.0] * 6
+        with patch.object(a, "WinRateTracker", return_value=self._tracker(pnls)):
+            self.assertEqual(a._strategy_size_mult(lambda s: s.startswith("Breakout")), 1.0)
+
+    def test_strangle_budget_is_research_size_until_proven(self):
+        with patch.object(a, "get_effective_account", return_value=2_542.0), \
+             patch.object(a, "WinRateTracker", return_value=self._tracker([], "x")):
+            self.assertEqual(a.strangle_budget(), round(254.2 * a.RESEARCH_SIZE_MULT, 2))
+
+    def test_no_hot_streak_or_context_upsizing(self):
+        src = inspect.getsource(a._submission_risk_multiplier)
+        self.assertNotIn("_risk_off_mult * 1.25", src)
+        self.assertIn('min(1.0, _ctx["risk_mult"])', src)
+
+    def test_old_ledger_rows_still_load(self):
+        r = a.TradeRecord(**{"ticker": "A", "date": "2026-10-01", "bias": "LONG", "setup": "s",
+                             "entry": 1, "exit": 1, "outcome": "BE", "pnl_pct": 0.0,
+                             "score": 0, "is_live": True})
+        self.assertIsNone(r.spy_pct)
+        self.assertEqual(r.entry_date, "")
+
+
+class TestPitHarness(unittest.TestCase):
+    """tools/pit_harness.py: excess vs SPY on the same window, and a verdict
+    that needs the whole bar (mean, clustered t, both halves, every year)."""
+
+    @classmethod
+    def setUpClass(cls):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location(
+            "pit_harness", os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                        "tools", "pit_harness.py"))
+        cls.h = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(cls.h)
+
+    def _frames(self, stock_drift, days=600):
+        import numpy as np, pandas as pd
+        idx = pd.bdate_range("2023-01-02", periods=days).date
+        rng = np.random.default_rng(0)
+        spy = 100 * np.cumprod(1 + 0.0004 + rng.normal(0, 0.002, days))
+        stk = 100 * np.cumprod(1 + 0.0004 + stock_drift + rng.normal(0, 0.002, days))
+        c = pd.DataFrame({"SPY": spy, "X": stk}, index=idx)
+        ent = pd.DataFrame(False, index=idx, columns=c.columns)
+        ent.iloc[::5, 1] = True
+        return ent, c.copy(), c
+
+    def test_a_stock_that_only_tracks_spy_has_no_edge(self):
+        ent, o, c = self._frames(0.0)
+        s = self.h.evaluate(ent, o, c, hold=5, cost=0.0)
+        self.assertLess(abs(s["mean"]), 0.3)
+        self.assertFalse(self.h.verdict(s)[0])
+
+    def test_a_real_edge_passes_and_costs_are_charged(self):
+        ent, o, c = self._frames(0.003)
+        s = self.h.evaluate(ent, o, c, hold=5, cost=0.0)
+        self.assertTrue(self.h.verdict(s)[0], s)
+        s2 = self.h.evaluate(ent, o, c, hold=5, cost=0.05)
+        self.assertFalse(self.h.verdict(s2)[0])
+
+    def test_a_losing_year_fails_the_bar(self):
+        s = {"n": 100, "mean": 1.0, "t_clustered": 3.0, "half1": 1.0, "half2": 1.0,
+             "years": {"2024": 2.0, "2025": -0.1}}
+        ok, why = self.h.verdict(s)
+        self.assertFalse(ok)
+        self.assertIn("2025", why)

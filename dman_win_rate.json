@@ -1005,7 +1005,11 @@
     "outcome": "LOSS",
     "pnl_pct": -4.41,
     "score": 0,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-08-03",
+    "shares": 5.0,
+    "pnl_usd": -60.2,
+    "spy_pct": 2.551
   },
   {
     "ticker": "FERG",
@@ -1017,7 +1021,11 @@
     "outcome": "WIN",
     "pnl_pct": 0.74,
     "score": 0,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-08-03",
+    "shares": 13.0,
+    "pnl_usd": 26.88,
+    "spy_pct": 2.551
   },
   {
     "ticker": "W",
@@ -1029,7 +1037,11 @@
     "outcome": "LOSS",
     "pnl_pct": -9.03,
     "score": 0,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-08-04",
+    "shares": 3.0,
+    "pnl_usd": -31.5,
+    "spy_pct": 1.043
   },
   {
     "ticker": "IOTR",
@@ -1041,7 +1053,11 @@
     "outcome": "LOSS",
     "pnl_pct": -8.72,
     "score": 0,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-07-08",
+    "shares": 7.0,
+    "pnl_usd": -2.15,
+    "spy_pct": 1.568
   },
   {
     "ticker": "ARTL",
@@ -1053,7 +1069,11 @@
     "outcome": "BE",
     "pnl_pct": 0.0,
     "score": 0,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-07-15",
+    "shares": 95.0,
+    "pnl_usd": 0.0,
+    "spy_pct": -1.611
   },
   {
     "ticker": "CLRO",
@@ -1077,7 +1097,11 @@
     "outcome": "LOSS",
     "pnl_pct": -94.69,
     "score": 0,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-08-10",
+    "shares": 500.0,
+    "pnl_usd": 121.0,
+    "spy_pct": -0.014
   },
   {
     "ticker": "SMCI",
@@ -1089,7 +1113,11 @@
     "outcome": "WIN",
     "pnl_pct": 80.3,
     "score": 0,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-08-10",
+    "shares": 500.0,
+    "pnl_usd": 121.0,
+    "spy_pct": -0.014
   },
   {
     "ticker": "SMCI",
@@ -1101,7 +1129,11 @@
     "outcome": "WIN",
     "pnl_pct": 93.18,
     "score": 0,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-08-10",
+    "shares": 500.0,
+    "pnl_usd": 121.0,
+    "spy_pct": -0.014
   },
   {
     "ticker": "CELZ",
@@ -1113,7 +1145,11 @@
     "outcome": "BE",
     "pnl_pct": 0.0,
     "score": 85,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-08-06",
+    "shares": 284.0,
+    "pnl_usd": 8.58,
+    "spy_pct": 0.296
   },
   {
     "ticker": "FGL",
@@ -1125,7 +1161,11 @@
     "outcome": "LOSS",
     "pnl_pct": -37.89,
     "score": 100,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-08-12",
+    "shares": 511.0,
+    "pnl_usd": -154.88,
+    "spy_pct": 0.409
   },
   {
     "ticker": "ARTL",
@@ -1137,7 +1177,11 @@
     "outcome": "WIN",
     "pnl_pct": 6.06,
     "score": 65,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-08-12",
+    "shares": 448.0,
+    "pnl_usd": 19.62,
+    "spy_pct": 0.21
   },
   {
     "ticker": "UMAC",
@@ -1149,7 +1193,11 @@
     "outcome": "LOSS",
     "pnl_pct": -42.52,
     "score": 100,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-08-14",
+    "shares": 200.0,
+    "pnl_usd": -780.0,
+    "spy_pct": -1.424
   },
   {
     "ticker": "LITX",
@@ -1161,7 +1209,11 @@
     "outcome": "LOSS",
     "pnl_pct": -16.83,
     "score": 100,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-08-12",
+    "shares": 47.0,
+    "pnl_usd": -283.57,
+    "spy_pct": -0.937
   },
   {
     "ticker": "ARTL",
@@ -1173,7 +1225,11 @@
     "outcome": "LOSS",
     "pnl_pct": -5.08,
     "score": 0,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-08-17",
+    "shares": 1485.0,
+    "pnl_usd": -57.31,
+    "spy_pct": -1.125
   },
   {
     "ticker": "BABA",
@@ -1185,7 +1241,11 @@
     "outcome": "LOSS",
     "pnl_pct": -59.38,
     "score": 0,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-08-19",
+    "shares": 200.0,
+    "pnl_usd": -95.0,
+    "spy_pct": -0.602
   },
   {
     "ticker": "ARTL",
@@ -1197,7 +1257,11 @@
     "outcome": "LOSS",
     "pnl_pct": -6.45,
     "score": 47,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-08-20",
+    "shares": 316.0,
+    "pnl_usd": -14.75,
+    "spy_pct": -0.325
   },
   {
     "ticker": "PURR",
@@ -1209,7 +1273,11 @@
     "outcome": "WIN",
     "pnl_pct": 29.53,
     "score": 100,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-08-20",
+    "shares": 200.0,
+    "pnl_usd": 90.0,
+    "spy_pct": -0.325
   },
   {
     "ticker": "PURR",
@@ -1221,7 +1289,11 @@
     "outcome": "WIN",
     "pnl_pct": 37.58,
     "score": 100,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-08-20",
+    "shares": 200.0,
+    "pnl_usd": 114.0,
+    "spy_pct": -0.031
   },
   {
     "ticker": "NDSN",
@@ -1233,7 +1305,11 @@
     "outcome": "LOSS",
     "pnl_pct": -0.71,
     "score": 100,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-08-20",
+    "shares": 1.0,
+    "pnl_usd": -2.04,
+    "spy_pct": 0.671
   },
   {
     "ticker": "CRWD",
@@ -1245,7 +1321,11 @@
     "outcome": "LOSS",
     "pnl_pct": -100.0,
     "score": 0,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-08-25",
+    "shares": 100.0,
+    "pnl_usd": -160.0,
+    "spy_pct": 0.645
   },
   {
     "ticker": "NVDA",
@@ -1257,7 +1337,11 @@
     "outcome": "WIN",
     "pnl_pct": 2.53,
     "score": 0,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-08-26",
+    "shares": 200.0,
+    "pnl_usd": 64.0,
+    "spy_pct": 0.604
   },
   {
     "ticker": "MRVL",
@@ -1269,7 +1353,11 @@
     "outcome": "LOSS",
     "pnl_pct": -95.67,
     "score": 0,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-08-27",
+    "shares": 100.0,
+    "pnl_usd": -113.59,
+    "spy_pct": 0.111
   },
   {
     "ticker": "CAST",
@@ -1281,7 +1369,11 @@
     "outcome": "LOSS",
     "pnl_pct": -3.52,
     "score": 100,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-02",
+    "shares": 295.0,
+    "pnl_usd": -9.13,
+    "spy_pct": 0.355
   },
   {
     "ticker": "ONCO",
@@ -1293,7 +1385,11 @@
     "outcome": "WIN",
     "pnl_pct": 3.47,
     "score": 100,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-02",
+    "shares": 193.0,
+    "pnl_usd": 4.42,
+    "spy_pct": 1.406
   },
   {
     "ticker": "CPHI",
@@ -1305,7 +1401,11 @@
     "outcome": "WIN",
     "pnl_pct": 0.6,
     "score": 100,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-02",
+    "shares": 294.0,
+    "pnl_usd": 2.2,
+    "spy_pct": 1.406
   },
   {
     "ticker": "SPCX",
@@ -1317,7 +1417,11 @@
     "outcome": "WIN",
     "pnl_pct": 2.8,
     "score": 100,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-02",
+    "shares": 1.0,
+    "pnl_usd": 4.06,
+    "spy_pct": 1.406
   },
   {
     "ticker": "ELAB",
@@ -1329,7 +1433,11 @@
     "outcome": "WIN",
     "pnl_pct": 2.33,
     "score": 100,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-02",
+    "shares": 35.0,
+    "pnl_usd": 4.2,
+    "spy_pct": 1.406
   },
   {
     "ticker": "IMPP",
@@ -1341,7 +1449,11 @@
     "outcome": "WIN",
     "pnl_pct": 0.96,
     "score": 100,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-02",
+    "shares": 49.0,
+    "pnl_usd": 3.06,
+    "spy_pct": 1.406
   },
   {
     "ticker": "APVO",
@@ -1353,7 +1465,11 @@
     "outcome": "LOSS",
     "pnl_pct": -6.55,
     "score": 100,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-03",
+    "shares": 504.0,
+    "pnl_usd": -66.4,
+    "spy_pct": 0.686
   },
   {
     "ticker": "YHC",
@@ -1365,7 +1481,11 @@
     "outcome": "LOSS",
     "pnl_pct": -3.04,
     "score": 0,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-03",
+    "shares": 1166.0,
+    "pnl_usd": -52.47,
+    "spy_pct": 0.298
   },
   {
     "ticker": "APVO",
@@ -1377,7 +1497,11 @@
     "outcome": "LOSS",
     "pnl_pct": -2.33,
     "score": 100,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-04",
+    "shares": 143.0,
+    "pnl_usd": -5.69,
+    "spy_pct": -0.236
   },
   {
     "ticker": "APVO",
@@ -1389,7 +1513,11 @@
     "outcome": "WIN",
     "pnl_pct": 9.2,
     "score": 100,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-03",
+    "shares": 504.0,
+    "pnl_usd": -66.4,
+    "spy_pct": 0.686
   },
   {
     "ticker": "ARTL",
@@ -1401,7 +1529,11 @@
     "outcome": "LOSS",
     "pnl_pct": -3.9,
     "score": 100,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-04",
+    "shares": 29.0,
+    "pnl_usd": -6.96,
+    "spy_pct": -0.236
   },
   {
     "ticker": "CAST",
@@ -1413,7 +1545,11 @@
     "outcome": "LOSS",
     "pnl_pct": -0.36,
     "score": 100,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-04",
+    "shares": 166.0,
+    "pnl_usd": -0.8,
+    "spy_pct": -0.236
   },
   {
     "ticker": "CAST",
@@ -1425,7 +1561,11 @@
     "outcome": "LOSS",
     "pnl_pct": -1.81,
     "score": 100,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-02",
+    "shares": 295.0,
+    "pnl_usd": -9.13,
+    "spy_pct": 0.355
   },
   {
     "ticker": "CAST",
@@ -1437,7 +1577,11 @@
     "outcome": "LOSS",
     "pnl_pct": -0.72,
     "score": 100,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-02",
+    "shares": 295.0,
+    "pnl_usd": -9.13,
+    "spy_pct": 0.355
   },
   {
     "ticker": "TRVI",
@@ -1449,7 +1593,11 @@
     "outcome": "WIN",
     "pnl_pct": 2.21,
     "score": 100,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-04",
+    "shares": 18.0,
+    "pnl_usd": 6.98,
+    "spy_pct": -0.236
   },
   {
     "ticker": "LABT",
@@ -1461,7 +1609,11 @@
     "outcome": "WIN",
     "pnl_pct": 0.26,
     "score": 100,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-04",
+    "shares": 132.0,
+    "pnl_usd": 1.97,
+    "spy_pct": -0.236
   },
   {
     "ticker": "DFNS",
@@ -1473,7 +1625,11 @@
     "outcome": "LOSS",
     "pnl_pct": -3.61,
     "score": 100,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-10",
+    "shares": 83.0,
+    "pnl_usd": -29.88,
+    "spy_pct": 0.826
   },
   {
     "ticker": "TE",
@@ -1485,7 +1641,11 @@
     "outcome": "LOSS",
     "pnl_pct": -14.43,
     "score": 100,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-10",
+    "shares": 600.0,
+    "pnl_usd": -71.0,
+    "spy_pct": 0.826
   },
   {
     "ticker": "APLD",
@@ -1497,7 +1657,11 @@
     "outcome": "LOSS",
     "pnl_pct": -52.14,
     "score": 100,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-10",
+    "shares": 100.0,
+    "pnl_usd": -122.0,
+    "spy_pct": 0.376
   },
   {
     "ticker": "QQQ",
@@ -1509,7 +1673,11 @@
     "outcome": "WIN",
     "pnl_pct": 97.22,
     "score": 0,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-15",
+    "shares": 400.0,
+    "pnl_usd": -33.0,
+    "spy_pct": -0.798
   },
   {
     "ticker": "QQQ",
@@ -1521,7 +1689,11 @@
     "outcome": "LOSS",
     "pnl_pct": -49.3,
     "score": 0,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-15",
+    "shares": 400.0,
+    "pnl_usd": -33.0,
+    "spy_pct": -0.798
   },
   {
     "ticker": "QQQ",
@@ -1533,7 +1705,11 @@
     "outcome": "WIN",
     "pnl_pct": 4.17,
     "score": 0,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-15",
+    "shares": 400.0,
+    "pnl_usd": -33.0,
+    "spy_pct": -0.798
   },
   {
     "ticker": "QQQ",
@@ -1545,7 +1721,11 @@
     "outcome": "WIN",
     "pnl_pct": 0.73,
     "score": 0,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-15",
+    "shares": 400.0,
+    "pnl_usd": -33.0,
+    "spy_pct": -0.798
   },
   {
     "ticker": "RXRX",
@@ -1557,7 +1737,11 @@
     "outcome": "LOSS",
     "pnl_pct": -8.0,
     "score": 100,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-21",
+    "shares": 100.0,
+    "pnl_usd": -24.0,
+    "spy_pct": 0.203
   },
   {
     "ticker": "SECZ",
@@ -1569,7 +1753,11 @@
     "outcome": "LOSS",
     "pnl_pct": -8.04,
     "score": 16,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-24",
+    "shares": 17.0,
+    "pnl_usd": -21.83,
+    "spy_pct": 0.408
   },
   {
     "ticker": "PLTR",
@@ -1581,7 +1769,11 @@
     "outcome": "WIN",
     "pnl_pct": 102.0,
     "score": 0,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-10-08",
+    "shares": 100.0,
+    "pnl_usd": 204.0,
+    "spy_pct": 0.479
   },
   {
     "ticker": "RSKD",
@@ -1593,7 +1785,11 @@
     "outcome": "WIN",
     "pnl_pct": 2.55,
     "score": 0,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-25",
+    "shares": 31.0,
+    "pnl_usd": 6.35,
+    "spy_pct": 0.107
   },
   {
     "ticker": "PGEN",
@@ -1605,7 +1801,11 @@
     "outcome": "LOSS",
     "pnl_pct": -12.76,
     "score": 17,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-10-01",
+    "shares": 29.0,
+    "pnl_usd": -31.77,
+    "spy_pct": 0.972
   },
   {
     "ticker": "AMPL",
@@ -1617,7 +1817,11 @@
     "outcome": "WIN",
     "pnl_pct": 4.49,
     "score": 16,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-10-06",
+    "shares": 16.0,
+    "pnl_usd": 10.75,
+    "spy_pct": -0.817
   },
   {
     "ticker": "IOVA",
@@ -1629,7 +1833,11 @@
     "outcome": "LOSS",
     "pnl_pct": -0.47,
     "score": 69,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-09-30",
+    "shares": 17.0,
+    "pnl_usd": -1.13,
+    "spy_pct": 0.339
   },
   {
     "ticker": "NFLX",
@@ -1641,7 +1849,11 @@
     "outcome": "LOSS",
     "pnl_pct": -90.45,
     "score": 0,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-10-20",
+    "shares": 200.0,
+    "pnl_usd": -267.0,
+    "spy_pct": 0.944
   },
   {
     "ticker": "NFLX",
@@ -1653,7 +1865,11 @@
     "outcome": "LOSS",
     "pnl_pct": -71.62,
     "score": 0,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-10-20",
+    "shares": 200.0,
+    "pnl_usd": -267.0,
+    "spy_pct": 0.944
   },
   {
     "ticker": "NVDA",
@@ -1665,7 +1881,11 @@
     "outcome": "BE",
     "pnl_pct": 0.0,
     "score": 0,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-10-19",
+    "shares": 1.0,
+    "pnl_usd": 0.0,
+    "spy_pct": -0.426
   },
   {
     "ticker": "ARHS",
@@ -1677,6 +1897,10 @@
     "outcome": "WIN",
     "pnl_pct": 8.05,
     "score": 10,
-    "is_live": true
+    "is_live": true,
+    "entry_date": "2026-10-23",
+    "shares": 21.0,
+    "pnl_usd": 19.53,
+    "spy_pct": -0.55
   }
 ]

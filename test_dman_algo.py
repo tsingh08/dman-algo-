@@ -30314,3 +30314,30 @@ class TestPitHarness(unittest.TestCase):
         ok, why = self.h.verdict(s)
         self.assertFalse(ok)
         self.assertIn("2025", why)
+
+    def test_an_unadjusted_reverse_split_is_not_a_return(self):
+        import pandas as pd
+        idx = pd.bdate_range("2017-11-28", periods=4)
+        c = pd.DataFrame({"BIL": [45.70, 45.71, 91.44, 91.45]}, index=idx)
+        r = self.h._unsplit(c)["BIL"].pct_change().dropna()
+        self.assertLess(r.abs().max(), 0.001)
+
+    def test_a_signal_is_traded_one_day_late(self):
+        import pandas as pd
+        idx = pd.bdate_range("2024-01-01", periods=6)
+        c = pd.DataFrame({"SPY": [100, 100, 110, 121, 121, 121.0]}, index=idx)
+        w = pd.DataFrame({"SPY": [1.0]}, index=idx[:1])
+        r = self.h.run_portfolio(w, c, cost=0.0)
+        self.assertNotIn(idx[1], r.index)            # decided day 0, held from day 1's close
+        self.assertAlmostEqual(r[idx[2]], 0.10)      # so the day-1 close-to-day-2 move counts
+        self.assertAlmostEqual(r[idx[3]], 0.10)
+
+    def test_the_drawdown_bar_needs_both_halves_and_a_smaller_hole(self):
+        spy = {"max_dd": -33.8, "sharpe_h1": 0.93, "sharpe_h2": 0.52}
+        ref = {"max_dd": -21.0, "sharpe_h1": 1.09, "sharpe_h2": 0.30}
+        good = {"max_dd": -15.0, "sharpe_h1": 1.10, "sharpe_h2": 0.60}
+        self.assertTrue(self.h.portfolio_verdict(good, spy, ref)[0])
+        ok, why = self.h.portfolio_verdict({**good, "sharpe_h1": 0.91}, spy, ref)
+        self.assertFalse(ok)
+        self.assertIn("h1", why)
+        self.assertFalse(self.h.portfolio_verdict({**good, "max_dd": -29.2}, spy, ref)[0])

@@ -79,4 +79,5 @@ Thumbs.db
 # "The frozen data (golden/fixtures/backtest_bars.pkl) is local only"
 /golden/fixtures/
 /pit_bars.pkl
+/pit_etf.pkl
 /univ_bars.pkl

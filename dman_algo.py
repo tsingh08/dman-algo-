@@ -29123,8 +29123,13 @@ def run_position_reconciliation(notify: bool = True) -> dict:
             _has_stop = _key in _stops
             # A zone SHOULD carry a catastrophe floor now. Only a TIGHT stop on
             # one is the SECZ bug -- distinguished by distance, not presence.
+            # A stop at or above entry is the armed trail that
+            # _zone_trail_ratchet_stop() placed, not a repair guess: it cannot
+            # turn a hold into a loss. ARHS's $12.29 trail on an $11.54 entry
+            # was reported as this bug on 2026-10-30 and exited +8.05% on it.
             if (_is_no_stop_by_design(getattr(_p, "setup", ""),
                                       getattr(_p, "ticker", "")) and _has_stop
+                    and _stops[_key] < float(getattr(_p, "entry", 0) or 0)
                     and not _is_catastrophe_stop(getattr(_p, "entry", 0),
                                                  _stops[_key],
                                                  getattr(_p, "ticker", ""))):

@@ -21155,6 +21155,15 @@ class TestReconciliationCatchesThisWeeksDefects(unittest.TestCase):
         out, _ = self._run(tracked, [self._pos("RSKD", 31, 8.0367)], orders)
         self.assertFalse(any("too tight" in i for i in out["issues"]), out["issues"])
 
+    def test_an_armed_trail_above_entry_is_not_flagged(self):
+        """ARHS 2026-10-30: _zone_trail_ratchet_stop() raised the stop to $12.29
+        on an $11.54 entry and the briefing called it the SECZ bug."""
+        tracked = [SimpleNamespace(ticker="ARHS", setup="Breakout Zone +100% off low",
+                                   entry=11.54, shares=21, stop=0.01)]
+        orders = [self._order("ARHS", "sell", "stop", 12.29)]
+        out, _ = self._run(tracked, [self._pos("ARHS", 21, 11.54)], orders)
+        self.assertFalse(any("too tight" in i for i in out["issues"]), out["issues"])
+
     def test_ddog_duplicate_working_entries(self):
         tracked = [SimpleNamespace(ticker="DDOG", setup="Gap & Hold",
                                    entry=263.24, shares=1, stop=257.98)]

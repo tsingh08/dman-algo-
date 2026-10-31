@@ -3309,7 +3309,7 @@ def _alpaca_raw_daily_since(ticker: str, start: date) -> Optional[pd.DataFrame]:
         if bars is None or bars.empty:
             return None
         if isinstance(bars.index, pd.MultiIndex):
-            bars = bars.xs(ticker, level=0)
+            bars = cast(pd.DataFrame, bars.xs(ticker, level=0))
         bars.index = pd.to_datetime([t.astimezone(ET).date() for t in bars.index])
         return bars.rename(columns={"open": "Open", "high": "High", "low": "Low",
                                     "close": "Close", "volume": "Volume"})
@@ -4547,8 +4547,9 @@ def _tg_cmd_positions():
         try:
             for _o in _alpaca_client_or_raise().get_orders(
                     filter=GetOrdersRequest(status=QueryOrderStatus.OPEN, limit=100)):
-                if getattr(_o, "stop_price", None) and "sell" in str(_o.side).lower():
-                    _broker_stops[str(_o.symbol)] = float(_o.stop_price)
+                _sp = getattr(_o, "stop_price", None)
+                if _sp and "sell" in str(_o.side).lower():
+                    _broker_stops[str(_o.symbol)] = float(_sp)
         except Exception:
             pass
         for _p in _pt.positions:

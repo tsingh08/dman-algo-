@@ -1,305 +1,5 @@
 [
   {
-    "ts": "2026-10-30T13:34:41.386342-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Truist Securities Reiterates Buy on Caterpillar, Lowers Price Target to $1027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T13:34:41.391187-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "RBC Capital Maintains Sector Perform on Caterpillar, Lowers Price Target to $722",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T13:34:41.396102-04:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Defensives Lead Sectors In Friday Trading As Growth Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T13:34:42.369761-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Mastercard&#39;s Prudent Outlook Offers &#39;Favorable Jumping Off Point for 2027,&#39; Analyst Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T13:34:42.375668-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Barclays Maintains Overweight on Mastercard, Raises Price Target to $700",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T13:34:42.380729-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Keefe, Bruyette &amp; Woods Maintains Outperform on Mastercard, Raises Price Target to $750",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T13:34:42.386602-04:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Argus Research Maintains Buy on Mastercard, Raises Price Target to $694",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T13:34:42.634584-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Chevron CFO Says Project Kilby Is On Track To Achieve First Power In 2028; Chevron Vice Chairman Says Refining Margins Will Eventually Moderate As Sector Recovers, But Will Take Time; Co Expects Logistics Advantage From Pre-conflict Shipping Contracts To Persist Until Conflicts Are Resolved",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T13:34:42.639702-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Chevron CEO Says Negotiations To Extend TCO Contract In Kazakhstan Has Narrowed To The &#34;Fundamental Core Issues&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T13:34:42.644438-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Defensives Lead Sectors In Friday Trading As Growth Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T13:34:43.700676-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "&#39;Banks Have Gotten Drunk&#39; on AI Megadeals, USD.AI Co-Founder Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T13:34:43.705554-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Defensives Lead Sectors In Friday Trading As Growth Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T13:34:43.942645-04:00",
-    "symbols": [
-      "FDX"
-    ],
-    "headline": "Citigroup Adjusts Price Target on FedEx to $374 From $373",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T13:34:43.947549-04:00",
-    "symbols": [
-      "FDX"
-    ],
-    "headline": "BofA Securities Adjusts Price Target on FedEx to $137 From $140",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T13:34:44.201750-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Logan Says Long-Term Rates Have Risen, But Don&#39;t Represent As Much As A Drag On Economy As Might Be Expected; Economic Growth Is Strong, Consumer Spending Solid; Labor Market Is Balanced, Perhaps Tightening A Bit",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T13:34:44.206535-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Logan Says &#39;Unacceptable&#39; That Inflation Is Not Headed Back To Fed&#39;s 2% Target; After 50 BPs Of Rate Hikes, A Pause Would Make Sense To Determine What Further Action Is Appropriate; Financial Conditions Are Providing A Tailwind To The Economy; Higher Market Rates A Message That Investors Believe Monetary Policy Has Work To Do",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T13:34:44.211487-04:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Logan Says Fed Needs At Least Two More Quarter-Point Rate Hikes; Skipping A Meeting Doesn&#39;t Change Policy Destination; Adjusting Policy Gradually Can Reduce Risks Of Sharp Economic Deterioration; Gradual Policy Adjustment Helps Households, Businesses, Investors Adapt To Higher Rates;  End Goal Is To Make Policy Modestly Restrictive; Making Policy Rate Destination Clear Helps Economy Adapt, Obtain Benefits Of A Skip",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T13:34:44.474483-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Defensives Lead Sectors In Friday Trading As Growth Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T13:34:44.719137-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Defensives Lead Sectors In Friday Trading As Growth Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T13:34:46.140678-04:00",
-    "symbols": [
-      "CLOV"
-    ],
-    "headline": "This Kazia Therapeutics Analyst Begins Coverage On A Bullish Note; Here Are Top 4 Initiations For Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T13:34:48.268034-04:00",
-    "symbols": [
-      "NUAI"
-    ],
-    "headline": "B. Riley Securities Maintains Buy on New Era Energy &amp; Digital, Lowers Price Target to $10",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T13:34:50.640313-04:00",
-    "symbols": [
-      "WTI"
-    ],
-    "headline": "W&amp;T Offshore Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T13:34:51.569687-04:00",
-    "symbols": [
-      "OSPN"
-    ],
-    "headline": "Crude Oil Gains 2%; ExxonMobil Posts Upbeat Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T13:34:52.047194-04:00",
-    "symbols": [
-      "RMNI"
-    ],
-    "headline": "Crude Oil Gains 2%; ExxonMobil Posts Upbeat Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T13:34:52.982255-04:00",
-    "symbols": [
-      "MSTZ"
-    ],
-    "headline": "Binance&#39;s $6.3B Hack Sends Bitcoin ETF Tumbling 5%, but This ETF Is Up 21%: What&#39;s Driving the Divergence?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T13:34:54.193853-04:00",
-    "symbols": [
-      "STRZ"
-    ],
-    "headline": "8 Communication Services Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-30T13:34:54.199222-04:00",
-    "symbols": [
-      "STRZ"
-    ],
-    "headline": "Starz Entertainment Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-30T13:34:54.203691-04:00",
-    "symbols": [
-      "STRZ"
-    ],
-    "headline": "CORRECTION: Starz Entertainment Q3 EPS $(2.02) Beats $(2.58) Estimate, Sales $322.400M Beat $320.438M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-30T13:34:54.448429-04:00",
-    "symbols": [
-      "FMC"
-    ],
-    "headline": "AutoNation, Regeneron Pharmaceuticals, AstraZeneca And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-30T13:34:54.453721-04:00",
-    "symbols": [
-      "FMC"
-    ],
-    "headline": "FMC Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-30T13:34:54.915519-04:00",
     "symbols": [
       "CPRI"
@@ -4998,5 +4698,305 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T17:32:20.652015-04:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Plans $25 Billion Investment-Grade Bond Sale",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T17:32:20.813077-04:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "William Blair Downgrades Broadcom to Market Perform",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T17:32:20.890434-04:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Pharmacy Reports Significant Growth in Customers and Delivery Reach",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T17:32:21.004297-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa Signs Memorandum of Understanding with Senegal for Digital Transformation",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T17:32:21.009829-04:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa Releases 2026 Holiday Spending Shift Survey Findings",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T17:32:21.087274-04:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Bank of America Highlights Regulatory Challenges for Potential Tesla-SpaceX Merger",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T17:32:21.212718-04:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "Collins Aerospace Expands Collaboration with Lufthansa Systems",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T17:32:21.285220-04:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Sets $20 Billion Ceiling on Additional Capital Raises Through Fiscal 2030",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T17:33:20.592957-04:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Morgan Stanley Raises Constellation Energy Price Target",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T17:33:20.761845-04:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Uber Launches Blockchain-Based Corporate Treasury Pilot",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T17:33:20.894094-04:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Truist Securities Maintains Buy Rating on Robinhood Markets, Adjusts Price Target",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T17:33:20.961781-04:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Multiple Analysts Adjust Price Targets for Caterpillar Inc.",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T17:33:21.036303-04:00",
+    "symbols": [
+      "GTM"
+    ],
+    "headline": "ZoomInfo Launches Integration with Snowflake AI Data Cloud",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T17:33:21.187828-04:00",
+    "symbols": [
+      "KEEL"
+    ],
+    "headline": "B. Riley Securities Maintains Buy Rating on Keel Infrastructure, Lowers Price Target to $5",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T17:33:21.256154-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Raises Price Target on Altria Group",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T17:33:21.261900-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Lowers Price Target on Coinbase Global",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T17:33:21.267163-04:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Adjusts Price Target on Intercontinental Exchange",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T17:33:21.339622-04:00",
+    "symbols": [
+      "JBLU"
+    ],
+    "headline": "Susquehanna Maintains Neutral Rating on JetBlue Airways, Lowers Price Target",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T17:33:21.437938-04:00",
+    "symbols": [
+      "EOSE"
+    ],
+    "headline": "Eos Energy Enterprises, Inc. Schedules Q3 2026 Earnings Announcement",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T17:34:20.613916-04:00",
+    "symbols": [
+      "ULCC"
+    ],
+    "headline": "UBS Raises Price Target on Frontier Group Holdings to $7 From $6",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T17:34:20.749360-04:00",
+    "symbols": [
+      "NUAI"
+    ],
+    "headline": "B. Riley Adjusts Price Target on New Era Energy & Digital",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-10-30T18:03:20.658382-04:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "DraftKings Secures Election Night Sponsorship Deal with CBS Local Stations",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T18:03:20.790490-04:00",
+    "symbols": [
+      "STGW"
+    ],
+    "headline": "Analysts Raise Price Targets on Stagwell Following Q3 Earnings",
+    "source": "fiscal.ai",
+    "tag": "held",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T19:02:20.668569-04:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Gilead Sciences Announces Participation in Upcoming Investor Conferences",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T19:02:20.757186-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "AstroRad Radiation Protection Vest Developed with Lockheed Martin to be Displayed at Smithsonian",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T19:02:20.909300-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Wells Fargo Maintains Underweight Rating on Fortinet and Lowers Price Target",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T19:02:20.914868-04:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Susquehanna Maintains Neutral Rating on Fortinet and Lowers Price Target",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-10-30T19:03:20.674639-04:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike Highlights Partner Ecosystem at Fal.Con Europe 2026",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T20:02:20.613448-04:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Bank of America Lowers Fiscal 2027 iPhone Forecast for Apple",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-10-30T20:02:20.685607-04:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "U.S. State Department Approves $2.1B Patriot Missile Sale to Ukraine",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

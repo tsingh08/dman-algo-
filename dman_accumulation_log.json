@@ -3220,5 +3220,14 @@
   "drift_pct": 0.28,
   "range_ratio": 0.41,
   "near_high": 0.99
+ },
+ {
+  "ts": "2026-11-02T10:47:45.282460-05:00",
+  "ticker": "BSMC",
+  "price": 39.905,
+  "rvol": 1.5,
+  "drift_pct": 0.52,
+  "range_ratio": 0.67,
+  "near_high": 0.975
  }
 ]

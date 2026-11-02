@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-30T16:00:47.439871-04:00",
-    "symbols": [
-      "PTHS"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T16:00:47.445208-04:00",
-    "symbols": [
-      "CDNA"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:00:47.452607-04:00",
-    "symbols": [
-      "CVCO"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T16:00:47.459585-04:00",
-    "symbols": [
-      "ULH"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T16:00:47.465292-04:00",
-    "symbols": [
-      "CPRI"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T16:00:47.472537-04:00",
-    "symbols": [
-      "GDYN"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-30T16:00:47.479462-04:00",
     "symbols": [
       "ONEG"
@@ -4995,6 +4935,66 @@
       "ABOS"
     ],
     "headline": "BTIG Maintains Buy on Acumen Pharmaceuticals, Lowers Price Target to $1",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T10:47:07.260366-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Nvidia and AMD Are Backing a $6 Billion AI Startup Taking on Grok",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T10:47:08.050704-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia and AMD Are Backing a $6 Billion AI Startup Taking on Grok",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T10:47:08.241902-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Nvidia and AMD Are Backing a $6 Billion AI Startup Taking on Grok",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T10:47:09.449568-05:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Nvidia and AMD Are Backing a $6 Billion AI Startup Taking on Grok",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T10:47:10.920313-05:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Nvidia and AMD Are Backing a $6 Billion AI Startup Taking on Grok",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T10:47:26.732904-05:00",
+    "symbols": [
+      "IDXX"
+    ],
+    "headline": "If You Invested $100 In IDEXX Laboratories Stock 15 Years Ago, You Would Have This Much Today",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

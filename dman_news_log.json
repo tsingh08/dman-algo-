@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-30T16:03:06.104533-04:00",
-    "symbols": [
-      "ABR"
-    ],
-    "headline": "Crude Oil Gains 2%; ExxonMobil Posts Upbeat Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-30T16:03:06.109206-04:00",
-    "symbols": [
-      "ABR"
-    ],
-    "headline": "CORRECTION: Arbor Realty Trust reported worse-than-expected Q3 financial results.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-10-30T16:03:06.113821-04:00",
     "symbols": [
       "ABR"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T12:22:39.908315-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "CrowdStrike, Dell Introduce Integrated Security Tool For Dell AI Factory For Clients To Use CrowdStrike Falcon Platform Alongside Dell AI Infrastructure, Nvidia Accelerated Computing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T12:22:47.524706-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike, Dell Introduce Integrated Security Tool For Dell AI Factory For Clients To Use CrowdStrike Falcon Platform Alongside Dell AI Infrastructure, Nvidia Accelerated Computing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

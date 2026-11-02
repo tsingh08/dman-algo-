@@ -1,145 +1,5 @@
 [
   {
-    "ts": "2026-10-30T16:03:06.113821-04:00",
-    "symbols": [
-      "ABR"
-    ],
-    "headline": "Arbor Realty Suspends Quarterly Common Dividend",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-30T16:03:06.118483-04:00",
-    "symbols": [
-      "ABR"
-    ],
-    "headline": "Arbor Realty Trust Q3 Adj. EPS $(0.04) Misses $0.07 Estimate, Sales $37.672M Miss $47.943M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-30T16:03:06.371486-04:00",
-    "symbols": [
-      "WT"
-    ],
-    "headline": "WisdomTree Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T16:03:06.376040-04:00",
-    "symbols": [
-      "WT"
-    ],
-    "headline": "WisdomTree Q3 Adj. EPS $0.32 Beats $0.30 Estimate, Sales $179.375M Miss $179.544M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T16:03:06.918755-04:00",
-    "symbols": [
-      "BBW"
-    ],
-    "headline": "Investor Michael Burry Initiates Position in Build-A-Bear Workshop",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T16:03:07.169825-04:00",
-    "symbols": [
-      "PEP"
-    ],
-    "headline": "Defensives Lead Sectors In Friday Trading As Growth Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T16:03:07.410526-04:00",
-    "symbols": [
-      "PMT"
-    ],
-    "headline": "PennyMac Mortgage Investment Trust Announces CFO Transition",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-30T16:03:07.668785-04:00",
-    "symbols": [
-      "NWL"
-    ],
-    "headline": "Newell Brands Sees Sales Recovery Gaining Steam, But Inflation And Debt Remain Challenges",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T16:03:07.673409-04:00",
-    "symbols": [
-      "NWL"
-    ],
-    "headline": "Newell Brands Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T16:03:07.677832-04:00",
-    "symbols": [
-      "NWL"
-    ],
-    "headline": "Newell Brands Narrows FY2026 Adj EPS Guidance from $0.73-$0.77 to $0.74-$0.76 vs $0.76 Est; Raises FY2026 Sales Guidance from $7.276B-$7.348B to $7.348B-$7.420B vs $7.332B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T16:03:07.682185-04:00",
-    "symbols": [
-      "NWL"
-    ],
-    "headline": "Newell Brands Q3 Adj. EPS $0.20, Inline, Sales $1.900B Beat $1.856B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T16:03:07.686607-04:00",
-    "symbols": [
-      "NWL"
-    ],
-    "headline": "Newell Brands Sees Q4 Adj EPS $0.17-$0.19 vs $0.19 Est; Sees Sales $1.916B-$1.954B vs $1.934B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T16:03:07.930198-04:00",
-    "symbols": [
-      "XLY"
-    ],
-    "headline": "Defensives Lead Sectors In Friday Trading As Growth Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:03:08.182111-04:00",
-    "symbols": [
-      "COHR"
-    ],
-    "headline": "Morgan Stanley Maintains Equal-Weight on Coherent, Lowers Price Target to $325",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-30T16:03:08.186718-04:00",
     "symbols": [
       "COHR"
@@ -4998,5 +4858,145 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T12:25:29.688707-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Is Big Tech&#39;s Safe Haven \u2014 but Has Its Price Tag Become Too Steep?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T12:25:30.271981-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "CrowdStrike, Dell Introduce Integrated Security Tool For Dell AI Factory For Clients To Use CrowdStrike Falcon Platform Alongside Dell AI Infrastructure, Nvidia Accelerated Computing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T12:25:30.799115-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Apple Is Big Tech&#39;s Safe Haven \u2014 but Has Its Price Tag Become Too Steep?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T12:25:31.114642-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Apple Is Big Tech&#39;s Safe Haven \u2014 but Has Its Price Tag Become Too Steep?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T12:25:40.242621-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike, Dell Introduce Integrated Security Tool For Dell AI Factory For Clients To Use CrowdStrike Falcon Platform Alongside Dell AI Infrastructure, Nvidia Accelerated Computing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T12:25:52.818595-05:00",
+    "symbols": [
+      "OFRM"
+    ],
+    "headline": "Crude Oil Tumbles 7%; ISM Manufacturing PMI Rises In October",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T12:25:53.517728-05:00",
+    "symbols": [
+      "NSSC"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T12:25:53.522322-05:00",
+    "symbols": [
+      "NSSC"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T12:25:53.526762-05:00",
+    "symbols": [
+      "NSSC"
+    ],
+    "headline": "NAPCO Security Techs Q1 Adj. EPS $0.34 Misses $0.38 Estimate, Sales $49.980M Miss $52.072M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T12:25:53.758680-05:00",
+    "symbols": [
+      "XMAX"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T12:25:53.763200-05:00",
+    "symbols": [
+      "XMAX"
+    ],
+    "headline": "Reported Earlier: XMAX Says AI Infrastructure Project In Korea And The Anticipated Commercialization Progress Of Its NeoCloud And AI Token Factory Platforms, Co Expects The Related Businesses Supported By This Project To Generate More Than $100M In Cumulative Revenue Over The Next 5-Years",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T12:25:53.767534-05:00",
+    "symbols": [
+      "XMAX"
+    ],
+    "headline": "XMax Enters 5-Yr AI Infrastructure Services Agreement With DSH HYPER For High-Performance Computing Capacity",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T12:25:54.251408-05:00",
+    "symbols": [
+      "UPST"
+    ],
+    "headline": "BofA Securities Adjusts Price Target on Upstart Holdings to $30 From $37",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T12:25:54.540983-05:00",
+    "symbols": [
+      "AFYA"
+    ],
+    "headline": "Kosmos Energy Posts Downbeat Q3 Results, Joins Once Upon A Farm And Other Big Stocks Moving Lower In Monday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

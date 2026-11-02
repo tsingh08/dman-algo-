@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-11-02T09:26:18.272307-05:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "Law Firm Announces Investigation into Fortinet, Inc. Regarding Securities Laws",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:18.442258-05:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "Massimo Merlo Appointed Area Vice President of UK & Ireland at MongoDB",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T09:26:18.612359-05:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "Needham Maintains Buy on DraftKings, Lowers Price Target to $30",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T09:26:18.776513-05:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Alibaba to Power Dakar 2026 Youth Olympic Games with Cloud and AI Technology",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T09:26:18.964163-05:00",
-    "symbols": [
-      "PDD"
-    ],
-    "headline": "Temu Joins Global Alliance of Geographical Indications Network (oriGIn)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T09:26:19.135435-05:00",
-    "symbols": [
-      "LUNR"
-    ],
-    "headline": "Keybanc Maintains Overweight on Intuitive Machines, Lowers Price Target to $30",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T09:26:19.306999-05:00",
-    "symbols": [
-      "ACHR"
-    ],
-    "headline": "Jim Cramer Calls Industrial Stock \u2018Pure Spec,&#39; Forgent Power A \u2018Really Really Good\u2019 Company",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T09:26:19.477529-05:00",
-    "symbols": [
-      "RCAT"
-    ],
-    "headline": "Steyr Motors AG Boards Recommend Acceptance of Red Cat's Acquisition Offer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T09:26:19.647736-05:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "Guggenheim Maintains Buy on GE Vernova, Lowers Price Target to $1400",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-02T09:26:19.819491-05:00",
     "symbols": [
       "LMT"
@@ -4995,6 +4905,96 @@
       "AHRT"
     ],
     "headline": "AH Realty Trust Completes Multiple Dispositions and Financing Transactions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T14:57:56.434170-05:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Super Micro Stock Slips: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T14:57:59.751864-05:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Jefferies Maintains Hold on Cloudflare, Lowers Price Target to $320",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T14:58:00.266491-05:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Traders Are Pricing a 12% Swing in Shopify Ahead of Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T14:58:00.371548-05:00",
+    "symbols": [
+      "ELF"
+    ],
+    "headline": "e.l.f. Beauty Launches First-Ever Holiday Campaign, \u201ce.l.f. Made to Stand Out\u201d",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T14:58:00.804387-05:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "Massimo Merlo Appointed Area Vice President of UK & Ireland at MongoDB",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T14:58:00.880474-05:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "Needham Maintains Buy on DraftKings, Lowers Price Target to $30",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T14:58:01.355453-05:00",
+    "symbols": [
+      "LUNR"
+    ],
+    "headline": "Keybanc Maintains Overweight on Intuitive Machines, Lowers Price Target to $30",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T14:58:01.529866-05:00",
+    "symbols": [
+      "ACHR"
+    ],
+    "headline": "Jim Cramer Calls Industrial Stock \u2018Pure Spec,&#39; Forgent Power A \u2018Really Really Good\u2019 Company",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T14:58:04.005403-05:00",
+    "symbols": [
+      "AMC"
+    ],
+    "headline": "AMC Entertainment 13G Filing Shows Peconic Partners Reports 6.32% Stake In Co As Of September 30, 2026",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-10-30T16:02:58.710443-04:00",
-    "symbols": [
-      "MMSI"
-    ],
-    "headline": "Needham Maintains Buy on Merit Medical Systems, Raises Price Target to $106",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:02:58.714731-04:00",
-    "symbols": [
-      "MMSI"
-    ],
-    "headline": "BTIG Maintains Buy on Merit Medical Systems, Raises Price Target to $110",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:02:58.950476-04:00",
-    "symbols": [
-      "RBC"
-    ],
-    "headline": "RBC Bearings Q2 2027 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T16:02:58.955025-04:00",
-    "symbols": [
-      "RBC"
-    ],
-    "headline": "RBC Bearings Sees Q3 Sales $520.000M-$525.000M vs $521.111M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T16:02:58.959390-04:00",
-    "symbols": [
-      "RBC"
-    ],
-    "headline": "RBC Bearings Q2 Adj. EPS $3.74 Beats $3.53 Estimate, Sales $524.600M Beat $514.830M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T16:02:59.201923-04:00",
-    "symbols": [
-      "NEE"
-    ],
-    "headline": "Dominion\u2019s Contracted Data-Center Capacity Climbs to Nearly 55 GW as Q3 Beats",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-30T16:02:59.434521-04:00",
     "symbols": [
       "CRDO"
@@ -4996,6 +4936,66 @@
     ],
     "headline": "SEALSQ to Sponsor World Quantum Cannes Festival and Host 'Quantum Days' Event",
     "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T11:36:48.256501-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Reported Earlier: &#34;Elon Musk Says Grok Bot Was Throttled Because Costs Were &#39;Unsustainably High&#39;&#34; - TechRadar",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T11:36:52.039614-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "QUICK SPARK: Marvell Stock Eyes Worst 3-Day Drop Since September 2001",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T11:36:52.661539-05:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "&#39;Big Short&#39; Investor Steve Eisman Faces Viewer Backlash Over Kalshi Ad: &#39;You&#39;re Better Than That&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T11:36:56.696170-05:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "&#39;Big Short&#39; Investor Steve Eisman Faces Viewer Backlash Over Kalshi Ad: &#39;You&#39;re Better Than That&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T11:36:59.089906-05:00",
+    "symbols": [
+      "JD"
+    ],
+    "headline": "QUICK SPARK: Michael Burry Adds to JD, BYD as Hong Kong Stocks Languish",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T11:37:10.926949-05:00",
+    "symbols": [
+      "QURE"
+    ],
+    "headline": "uniQure Announces FDA Acceptance and Priority Review of BLA for Huntington's Disease Gene Therapy",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

@@ -1,215 +1,5 @@
 [
   {
-    "ts": "2026-10-30T16:03:08.186718-04:00",
-    "symbols": [
-      "COHR"
-    ],
-    "headline": "Marvell Rumored to Buy Lumentum in Major Challenge to Broadcom: Counterpoint",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:03:08.191149-04:00",
-    "symbols": [
-      "COHR"
-    ],
-    "headline": "B. Riley Securities Maintains Neutral on Coherent, Lowers Price Target to $262",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:03:08.195687-04:00",
-    "symbols": [
-      "COHR"
-    ],
-    "headline": "Trump Administration Moves to Block Chinese Telecom Firms From Accessing US Phone Numbers Amid Robocall Threats: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:03:08.491215-04:00",
-    "symbols": [
-      "ALAB"
-    ],
-    "headline": "Black Friday Came Early for Chipmakers: Intel and 10 Other Stocks Are More Than 20% Off This Month",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T16:03:08.495816-04:00",
-    "symbols": [
-      "ALAB"
-    ],
-    "headline": "AMD Shares Feel the Heat as Intel Drags Chip Stocks Lower: What\u2019s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T16:03:08.737969-04:00",
-    "symbols": [
-      "PEB"
-    ],
-    "headline": "Pebblebrook Hotel Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:32:20.781827-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "NVIDIA Customer AM Intelligence Seeks $3 Billion Financing for Processor Order",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:32:21.061706-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Discloses Prime Video Profitability and Revenue Scale",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:33:20.852153-04:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Chase Faces Potential Additional Regulatory Costs",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:33:21.133460-04:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Reaches Settlement in Social Media Addiction Trial",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T16:33:21.368179-04:00",
-    "symbols": [
-      "SID"
-    ],
-    "headline": "CSN Enters Exclusivity Agreement for Sale of Cement Unit",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T17:32:20.652015-04:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Plans $25 Billion Investment-Grade Bond Sale",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T17:32:20.813077-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "William Blair Downgrades Broadcom to Market Perform",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T17:32:20.890434-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Pharmacy Reports Significant Growth in Customers and Delivery Reach",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T17:32:21.004297-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Visa Signs Memorandum of Understanding with Senegal for Digital Transformation",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T17:32:21.009829-04:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Visa Releases 2026 Holiday Spending Shift Survey Findings",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T17:32:21.087274-04:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Bank of America Highlights Regulatory Challenges for Potential Tesla-SpaceX Merger",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T17:32:21.212718-04:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Collins Aerospace Expands Collaboration with Lufthansa Systems",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T17:32:21.285220-04:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Sets $20 Billion Ceiling on Additional Capital Raises Through Fiscal 2030",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T17:33:20.592957-04:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "Morgan Stanley Raises Constellation Energy Price Target",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T17:33:20.761845-04:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Uber Launches Blockchain-Based Corporate Treasury Pilot",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-30T17:33:20.894094-04:00",
     "symbols": [
       "HOOD"
@@ -4995,6 +4785,216 @@
       "AFYA"
     ],
     "headline": "Kosmos Energy Posts Downbeat Q3 Results, Joins Once Upon A Farm And Other Big Stocks Moving Lower In Monday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T12:34:02.161046-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Dow Rises 1%, Oil Sinks 7% on Iran Peace Hopes: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T12:34:02.757667-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Morgan Stanley Maintains Equal-Weight on Advanced Micro Devices, Raises Price Target to $510",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T12:34:03.402137-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Dow Rises 1%, Oil Sinks 7% on Iran Peace Hopes: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T12:34:03.404983-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Stock Rises: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T12:34:03.654155-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Dow Rises 1%, Oil Sinks 7% on Iran Peace Hopes: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T12:34:04.557914-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Dow Rises 1%, Oil Sinks 7% on Iran Peace Hopes: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T12:34:05.908937-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Dow Rises 1%, Oil Sinks 7% on Iran Peace Hopes: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T12:34:06.157462-05:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "Dow Rises 1%, Oil Sinks 7% on Iran Peace Hopes: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T12:34:07.297520-05:00",
+    "symbols": [
+      "ENPH"
+    ],
+    "headline": "Dow Rises 1%, Oil Sinks 7% on Iran Peace Hopes: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-02T12:34:07.644331-05:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on AbbVie, Raises Price Target to $346",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T12:34:09.273294-05:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "Dow Rises 1%, Oil Sinks 7% on Iran Peace Hopes: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T12:34:10.188701-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Dow Rises 1%, Oil Sinks 7% on Iran Peace Hopes: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T12:34:16.572663-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on Chevron, Raises Price Target to $230",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T12:34:18.171385-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Dow Rises 1%, Oil Sinks 7% on Iran Peace Hopes: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T12:34:18.174417-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Ed Yardeni&#39;s Midterms Prediction: Democratic Sweep Could Be a &#39;Cold Shower&#39; for Stock Market",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T12:34:18.349872-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Dow Rises 1%, Oil Sinks 7% on Iran Peace Hopes: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T12:34:18.527142-05:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Dow Rises 1%, Oil Sinks 7% on Iran Peace Hopes: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T12:34:20.289136-05:00",
+    "symbols": [
+      "FRMI"
+    ],
+    "headline": "Dow Rises 1%, Oil Sinks 7% on Iran Peace Hopes: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T12:34:24.805696-05:00",
+    "symbols": [
+      "IDXX"
+    ],
+    "headline": "Dow Rises 1%, Oil Sinks 7% on Iran Peace Hopes: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T12:34:26.334187-05:00",
+    "symbols": [
+      "NXT"
+    ],
+    "headline": "Dow Rises 1%, Oil Sinks 7% on Iran Peace Hopes: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T12:34:27.232595-05:00",
+    "symbols": [
+      "TEM"
+    ],
+    "headline": "Dow Rises 1%, Oil Sinks 7% on Iran Peace Hopes: Stock Market Today",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

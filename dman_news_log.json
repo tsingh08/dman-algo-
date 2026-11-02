@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-11-02T09:26:11.044277-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "AMD, Micron Selloff Is &#39;Just the Beginning,&#39; Tom Sosnoff Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:11.046763-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Earnings Prediction Market Preview: What Will John Ternus Say?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-02T09:26:11.049331-05:00",
     "symbols": [
       "AAPL"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T13:18:54.530146-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Palantir Earnings Prediction Market Preview: What Will Alex Karp Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T13:18:55.072943-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google Says Demand Will Swallow Every Data Center It Builds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1938,5 +1938,45 @@
 "extension_pct": 22.7,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "REPL",
+"date": "2026-11-02",
+"close": 19.49,
+"base_days": 1,
+"above_low_pct": 1046.5,
+"extension_pct": 50.2,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "GDYN",
+"date": "2026-11-02",
+"close": 13.69,
+"base_days": 0,
+"above_low_pct": 162.8,
+"extension_pct": 61.9,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "SN",
+"date": "2026-11-02",
+"close": 213.22,
+"base_days": 1,
+"above_low_pct": 152.1,
+"extension_pct": 10.5,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "STGW",
+"date": "2026-11-02",
+"close": 10.77,
+"base_days": 0,
+"above_low_pct": 144.8,
+"extension_pct": 20.0,
+"fresh_base": false,
+"weak_band": false
 }
 ]

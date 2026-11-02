@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-10-30T16:00:47.394862-04:00",
-    "symbols": [
-      "SLGB"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T16:00:47.403750-04:00",
-    "symbols": [
-      "OSPN"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-30T16:00:47.410735-04:00",
     "symbols": [
       "ASUR"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T10:35:40.756366-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "What Is Going On With Meta Platforms Stock on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T10:35:42.117978-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir Stock Trends Higher Ahead of Earnings: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

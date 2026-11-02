@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-10-30T16:02:55.740555-04:00",
-    "symbols": [
-      "TSM"
-    ],
-    "headline": "Why Is Intel Stock Sinking Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:02:56.287735-04:00",
-    "symbols": [
-      "SMH"
-    ],
-    "headline": "Nasdaq Tumbles Over 3%, Chip Stocks Sink: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:02:56.292233-04:00",
-    "symbols": [
-      "SMH"
-    ],
-    "headline": "QUICK SPARK: Intel Stock Drops 28%, Eyes Worst Day Since July 1974",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:02:56.296622-04:00",
-    "symbols": [
-      "SMH"
-    ],
-    "headline": "Tech Bonds Are &#39;Diamonds in the Rough&#39;: Bank of America&#39;s Hartnett Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:02:56.300975-04:00",
-    "symbols": [
-      "SMH"
-    ],
-    "headline": "Intel Stock Eyes One of Its Worst Days Since 1974: &#39;Houston, We Have a Problem,&#39; Analyst Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:02:56.542980-04:00",
-    "symbols": [
-      "AAON"
-    ],
-    "headline": "AAON, Inc. Announces Third Quarter 2026 Conference Call and Webcast",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:02:56.779227-04:00",
-    "symbols": [
-      "ARKG"
-    ],
-    "headline": "Watching ARK Genomic Revolution; Hearing Investor Business Daily SwingTrader Sells Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T16:02:57.960295-04:00",
-    "symbols": [
-      "TSEM"
-    ],
-    "headline": "Black Friday Came Early for Chipmakers: Intel and 10 Other Stocks Are More Than 20% Off This Month",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T16:02:58.205725-04:00",
-    "symbols": [
-      "RSI"
-    ],
-    "headline": "Barclays Maintains Overweight on Rush Street Interactive, Lowers Price Target to $23",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T16:02:58.701581-04:00",
-    "symbols": [
-      "MMSI"
-    ],
-    "headline": "Wells Fargo Maintains Equal-Weight on Merit Medical Systems, Raises Price Target to $92",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-30T16:02:58.706093-04:00",
     "symbols": [
       "MMSI"
@@ -4995,6 +4895,106 @@
       "ALK"
     ],
     "headline": "IDEXX Laboratories, Perion Network, TAT Technologies And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T11:25:12.555970-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Elon Musk&#39;s SpaceX Plan Swallows Nvidia&#39;s Entire $300 Billion Growth Forecast \u2014 And Then Some",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T11:25:13.479396-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Elon Musk&#39;s SpaceX Plan Swallows Nvidia&#39;s Entire $300 Billion Growth Forecast \u2014 And Then Some",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T11:25:14.475569-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Automakers Urge U.S. Lawmakers Quickly Pass Permanent Ban On Chinese Vehicles When They Return For Post-Election Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T11:25:17.596720-05:00",
+    "symbols": [
+      "NIO"
+    ],
+    "headline": "Automakers Urge U.S. Lawmakers Quickly Pass Permanent Ban On Chinese Vehicles When They Return For Post-Election Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T11:25:18.221267-05:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "AbbVie Analysts Raise Price Target After Q3 Print, Expect Growth To Reaccelerate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T11:25:18.749511-05:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Here&#39;s How Much $1000 Invested In Gilead Sciences 20 Years Ago Would Be Worth Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T11:25:19.145954-05:00",
+    "symbols": [
+      "RBLX"
+    ],
+    "headline": "DA Davidson Maintains Neutral on Roblox, Lowers Price Target to $48",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T11:25:20.597800-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike&#39;s AI Opportunity May Be Bigger Than Wall Street Thinks, Analyst Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T11:25:32.336952-05:00",
+    "symbols": [
+      "STLA"
+    ],
+    "headline": "Automakers Urge U.S. Lawmakers Quickly Pass Permanent Ban On Chinese Vehicles When They Return For Post-Election Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T11:25:34.983592-05:00",
+    "symbols": [
+      "XPEV"
+    ],
+    "headline": "Automakers Urge U.S. Lawmakers Quickly Pass Permanent Ban On Chinese Vehicles When They Return For Post-Election Session",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

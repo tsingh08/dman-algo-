@@ -45377,10 +45377,10 @@
 "divergence_free": true,
 "breakdown": {
 "Regime": 8,
-"MTF": 10,
+"MTF": 20,
 "Rel Strength": 15,
 "Sector": 10,
-"Sector ETF": 4,
+"Sector ETF": 0,
 "AI Theme": 0,
 "Insider": 0,
 "Earnings": 0,
@@ -45404,8 +45404,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 2,
-"last_ts": "2026-11-02T09:26:37.988233-05:00",
+"seen": 8,
+"last_ts": "2026-11-02T09:34:58.091228-05:00",
 "entry_min": 558.88,
 "entry_max": 558.88
 },
@@ -45416,7 +45416,7 @@
 "setup": "Gap & Hold",
 "bias": "LONG",
 "taken": false,
-"reject": "pre-9:45 gate",
+"reject": "mtf: weekly disagrees",
 "score": 100,
 "final_score": 100.0,
 "ai_scored": false,
@@ -45432,14 +45432,14 @@
 "news_boost": false,
 "regime": "CHOP",
 "regime_score": 9,
-"mtf_ok": true,
+"mtf_ok": false,
 "regime_ok": true,
 "earnings_ok": true,
 "macro_ok": true,
 "divergence_free": true,
 "breakdown": {
 "Regime": 8,
-"MTF": 10,
+"MTF": 12,
 "Rel Strength": 15,
 "Sector": 6,
 "Sector ETF": 0,
@@ -45466,8 +45466,8 @@
 "Gap Size": 0,
 "News Catalyst": 0
 },
-"seen": 2,
-"last_ts": "2026-11-02T09:26:42.513103-05:00",
+"seen": 8,
+"last_ts": "2026-11-02T09:34:59.028723-05:00",
 "entry_min": 88.49,
 "entry_max": 88.49
 }

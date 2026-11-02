@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-02T09:26:11.049331-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100 Futures Rise Ahead of Apple, Palantir Earnings; RYAAY, USLM, INO in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:11.052007-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Is the &#39;Only Mag 7 Stock&#39; Beating S&amp;P 500 by Avoiding the AI &#39;Spending Binge,&#39; Says Market Strategist",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:11.219142-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Lumen Technologies And Microsoft Announce Expanded Co-Selling Collaboration, Lumen Plans To Bring Full Cloud Networking Suite To Azure",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:11.222081-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Sam Altman During ADIPEC 2026 Opening Ceremony Said We Will See Economic Transformation; 10,000 Agents Of AI Model That Proved First Millennium Prize Problem Will Be Released As Next GPT Soon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:11.224633-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Earlier Sam Altman During ADIPEC 2026 Opening Ceremony Said AI Will &#34;Transform The Abundance And Efficiency Of Energy Of The World,&#34; And Models That Are Few Months Old Are Now Are Capable Of This",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:11.227173-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Earlier Sam Altman During ADIPEC 2026 Opening Ceremony Said World Will Need More Energy; AI Will Help Enable Energy Industry; AI Technology Will Apply To Every Field Of Science And Will Apply To Complex Problems [Energy Producers] Face For Production And Delivery",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-02T09:26:11.229680-05:00",
     "symbols": [
       "MSFT"
@@ -4998,5 +4938,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T13:29:45.586664-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "What&#39;s Going on With Taiwan Semiconductor Stock on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T13:29:45.949664-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Amazon&#39;s $2 Billion Data Center Faces Election Day Threat as Voters Weigh 41 AI Infrastructure Measures",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T13:29:46.384453-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Amazon&#39;s $2 Billion Data Center Faces Election Day Threat as Voters Weigh 41 AI Infrastructure Measures",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T13:29:46.474987-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon&#39;s $2 Billion Data Center Faces Election Day Threat as Voters Weigh 41 AI Infrastructure Measures",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T13:29:46.556728-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "What&#39;s Going on With Taiwan Semiconductor Stock on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T13:29:49.654996-05:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "Arm and ECARX Sign Memorandum of Understanding for AI Computing Platforms",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

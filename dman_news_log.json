@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-10-30T16:02:58.706093-04:00",
-    "symbols": [
-      "MMSI"
-    ],
-    "headline": "These Analysts Boost Their Forecasts On Merit Medical Systems After Strong Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-30T16:02:58.710443-04:00",
     "symbols": [
       "MMSI"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T11:32:20.804234-05:00",
+    "symbols": [
+      "LAES"
+    ],
+    "headline": "SEALSQ to Sponsor World Quantum Cannes Festival and Host 'Quantum Days' Event",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,225 +1,5 @@
 [
   {
-    "ts": "2026-11-02T09:32:20.604512-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Ark Invest Trims Eli Lilly Holdings",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-02T09:33:20.810417-05:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce Reports Fiscal 2027 Second-Quarter Results and Announces M&A Activity",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T09:33:20.813448-05:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Evercore ISI Group Raises Datadog Price Target",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T09:33:20.816356-05:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "Guggenheim Adjusts GE Vernova Price Target to $1,400 From $1,450",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T09:33:20.819196-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Uber Expands Autonomous Vehicle Partnerships and Robotaxi Deployment Plans",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T09:33:20.822148-05:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Wells Fargo Raises Lockheed Martin Price Target",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:33:21.027165-05:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Snowflake to Announce Third Quarter Fiscal 2027 Financial Results on December 2, 2026",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-02T09:33:21.030268-05:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "TalentNeuron Brings Labor Market Intelligence to Snowflake Marketplace",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-02T09:33:21.262017-05:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "Seaport Global Adjusts Price Target on Vistra to $202 From $226",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:33:21.265227-05:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "StoneX Initiates Coverage on GameStop with Buy Rating",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T09:33:21.268266-05:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "Analyst Upgrades for Rivian Automotive, Inc.",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:33:21.359487-05:00",
-    "symbols": [
-      "LUMN"
-    ],
-    "headline": "Lumen and Microsoft Expand Co-Selling Partnership for Enterprise AI",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T09:33:21.681099-05:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Rocket Lab Conducts 'The Sea God Surveys' Launch Mission",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:33:21.684260-05:00",
-    "symbols": [
-      "LUMN"
-    ],
-    "headline": "Lumen Participates in Coordinated Takedown of Global X.CPE Botnet",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T09:33:21.875963-05:00",
-    "symbols": [
-      "JOBY"
-    ],
-    "headline": "Ark Invest Increases Stake in Joby Aviation",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T09:33:22.118000-05:00",
-    "symbols": [
-      "RIOT"
-    ],
-    "headline": "Keefe Bruyette Trims Price Targets for Bitcoin Miners Including Riot Platforms",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T09:33:22.294916-05:00",
-    "symbols": [
-      "MARA"
-    ],
-    "headline": "MARA Schedules Conference Call for Third Quarter 2026 Financial Results",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T09:34:20.796708-05:00",
-    "symbols": [
-      "AFRM"
-    ],
-    "headline": "BMO Capital Markets Raises Price Target on Affirm Holdings",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T09:34:20.802728-05:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Multiple Financial Institutions Adjust Chevron Price Targets",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-02T09:34:20.805767-05:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Chevron Appoints Siva Barnwell Adams as Corporate Secretary and Chief Governance Officer",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-02T09:38:58.019279-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Live On CNBC, Marvell CEO Matt Murphy On Deal With Lumentum, Says &#39;This Is A Double Down On Supporting NVIDIA&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:38:58.022272-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia, AMD, Marvell Targets Cut: Melius Pulls Back on AI Stocks as Big Tech Lines Up to Raise Cash",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-02T09:38:58.218217-05:00",
     "symbols": [
       "AMD"
@@ -4815,6 +4595,226 @@
       "FLOC"
     ],
     "headline": "Flowco Announces $150M Increase To Buyback Program, Bringing Total Authorization To $200M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T15:31:45.606610-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD, Shopify On Deck Tuesday As AI Spending, Merchant Growth Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T15:31:45.609459-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD Could Swing $90.7 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T15:31:47.312650-05:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "AMD, Shopify On Deck Tuesday As AI Spending, Merchant Growth Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T15:31:47.903609-05:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Watching Sandisk; Zacks Technical Analysis &amp; Zacks Rank Newsletter Mentions Stock As A Buy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T15:31:50.537992-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Berenberg Adjusts Price Target on Eli Lilly and Company to $1,570",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T15:31:50.540828-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Cantor Fitzgerald Adjusts Price Target on Eli Lilly to $1,600",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T15:31:52.552382-05:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "AMD, Shopify On Deck Tuesday As AI Spending, Merchant Growth Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T15:31:52.555253-05:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "AMD Could Swing $90.7 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T15:31:55.264463-05:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Airbnb&#39;s New Rule Rattles Sentiment Ahead of Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T15:31:57.969560-05:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "AMD, Shopify On Deck Tuesday As AI Spending, Merchant Growth Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T15:31:57.972416-05:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "AMD Could Swing $90.7 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T15:32:02.113281-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Bitcoin, Gold Have \u2018Blown Their Tops,\u2019 Bloomberg&#39;s McGlone Warns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T15:32:02.116213-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. VP JD Vance On Iran, Says We&#39;ve Made Some Progress, Will See If Can Make Some More; Have Not Set Deadlines To Resume Strikes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T15:32:07.134408-05:00",
+    "symbols": [
+      "ALVO"
+    ],
+    "headline": "Alvotech Announces Management Participation in November Investor Conferences",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T15:32:07.316960-05:00",
+    "symbols": [
+      "XOP"
+    ],
+    "headline": "Dow Rises 1%, Oil Sinks 7% on Iran Peace Hopes: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T15:32:07.320467-05:00",
+    "symbols": [
+      "XOP"
+    ],
+    "headline": "\u2018Old Economy\u2019 Comes Back As Conflict and AI Spark a Global Resource Crunch",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T15:32:07.684615-05:00",
+    "symbols": [
+      "TSEM"
+    ],
+    "headline": "Tower Semiconductor Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T15:32:07.687539-05:00",
+    "symbols": [
+      "TSEM"
+    ],
+    "headline": "Tower Semiconductor CEO Says the Company&#39;s Biggest Growth Phase Has Arrived",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T15:32:07.690122-05:00",
+    "symbols": [
+      "TSEM"
+    ],
+    "headline": "Tower Semiconductor Q3 Operating Cash Flow $185M; Capex $191M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T15:32:07.692686-05:00",
+    "symbols": [
+      "TSEM"
+    ],
+    "headline": "Tower Semiconductor Customer Advances Up $305M In First Nine Months",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T15:32:07.695267-05:00",
+    "symbols": [
+      "TSEM"
+    ],
+    "headline": "Tower Semiconductor Aims To Avoid Typical Q1 Seasonal Dip In 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T15:32:07.903519-05:00",
+    "symbols": [
+      "WSE"
+    ],
+    "headline": "Wise Group plc Announces Total Voting Rights",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

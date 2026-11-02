@@ -1,185 +1,5 @@
 [
   {
-    "ts": "2026-11-02T09:26:27.941782-05:00",
-    "symbols": [
-      "ACH"
-    ],
-    "headline": "Accendra Health Extends $150M Receivables Purchase Agreement To October 2029 With Its Size Unchanged",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T09:26:28.102940-05:00",
-    "symbols": [
-      "CVEO"
-    ],
-    "headline": "Civeo Reports Q3 2026 Financial Results and Contract Win",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T09:26:28.281224-05:00",
-    "symbols": [
-      "STGW"
-    ],
-    "headline": "Top Wall Street Forecasters Revamp Palantir Expectations Ahead Of Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:28.451926-05:00",
-    "symbols": [
-      "MAR"
-    ],
-    "headline": "Marriott Intl Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T09:26:28.454657-05:00",
-    "symbols": [
-      "MAR"
-    ],
-    "headline": "Marriott CFO Says Expecting Strong Demand Trends That We Saw In Q3 Across Chain Scales And Customer Segments To Continue In Q4; In EMEA, Continued Strength In Europe Is Anticipated To Be More Than Offset By Declines In The Middle East",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T09:26:28.457330-05:00",
-    "symbols": [
-      "MAR"
-    ],
-    "headline": "Marriott Q3 Incentive Management Fees $181M, Up 22% Y/Y",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T09:26:28.460129-05:00",
-    "symbols": [
-      "MAR"
-    ],
-    "headline": "Marriott Q3 Middle East &amp; Africa RevPAR Down 5.3%; Asia Pacific Ex-China Up 9.3%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T09:26:28.462883-05:00",
-    "symbols": [
-      "MAR"
-    ],
-    "headline": "Marriott Pipeline Hits Record 634,000+ Rooms; Net Rooms Up 4.6% Y/Y",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T09:32:20.529762-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Uber Partners with NVIDIA for Robotaxi Deployment",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:32:20.536574-05:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "Freedom Broker Adjusts Freeport-McMoRan Price Target",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:32:20.540688-05:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Wells Fargo, RBC Capital, Canaccord Genuity, and Cantor Fitzgerald Update Price Targets for AbbVie",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:32:20.544067-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Lumen Technologies and Microsoft Expand Collaboration on Cloud and AI Infrastructure",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:32:20.548064-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Clarivate Integrates CompuMark Trademark Data into Microsoft Copilot",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:32:20.556984-05:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Trading Technologies Integrates Bitstamp by Robinhood for Institutional Clients",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-02T09:32:20.577856-05:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "Gilead Sciences to Present Clinical Data at HIV Glasgow 2026",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:32:20.585461-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Black Kite Integrates Third-Party Risk Intelligence with CrowdStrike Falcon Next-Gen SIEM",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:32:20.588654-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "CrowdStrike Appoints Roland Stritt as Vice President, Europe Alliances",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:32:20.595784-05:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "HC Wainwright & Co. Maintains Biogen at Buy, Raises Price Target to $270",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-02T09:32:20.604512-05:00",
     "symbols": [
       "LLY"
@@ -4995,6 +4815,186 @@
       "FLOC"
     ],
     "headline": "Flowco Announces $150M Increase To Buyback Program, Bringing Total Authorization To $200M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T15:36:07.503948-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD, Shopify On Deck Tuesday As AI Spending, Merchant Growth Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T15:36:07.651717-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD Could Swing $90.7 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T15:36:08.586897-05:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "AMD, Shopify On Deck Tuesday As AI Spending, Merchant Growth Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T15:36:10.030050-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Berenberg Adjusts Price Target on Eli Lilly and Company to $1,570",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T15:36:10.035124-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Cantor Fitzgerald Adjusts Price Target on Eli Lilly to $1,600",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T15:36:11.271728-05:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "AMD, Shopify On Deck Tuesday As AI Spending, Merchant Growth Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T15:36:11.276240-05:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "AMD Could Swing $90.7 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T15:36:12.649793-05:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Airbnb&#39;s New Rule Rattles Sentiment Ahead of Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T15:36:14.229299-05:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "AMD, Shopify On Deck Tuesday As AI Spending, Merchant Growth Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T15:36:14.234124-05:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "AMD Could Swing $90.7 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T15:36:14.720168-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Barclays Maintains Equal-Weight on Chevron, Raises Price Target to $244",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T15:36:15.625646-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Bitcoin, Gold Have \u2018Blown Their Tops,\u2019 Bloomberg&#39;s McGlone Warns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T15:36:15.629992-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. VP JD Vance On Iran, Says We&#39;ve Made Some Progress, Will See If Can Make Some More; Have Not Set Deadlines To Resume Strikes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T15:36:20.019053-05:00",
+    "symbols": [
+      "MAR"
+    ],
+    "headline": "Marriott Intl Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T15:36:20.024486-05:00",
+    "symbols": [
+      "MAR"
+    ],
+    "headline": "Marriott CFO Says Expecting Strong Demand Trends That We Saw In Q3 Across Chain Scales And Customer Segments To Continue In Q4; In EMEA, Continued Strength In Europe Is Anticipated To Be More Than Offset By Declines In The Middle East",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T15:36:20.029250-05:00",
+    "symbols": [
+      "MAR"
+    ],
+    "headline": "Marriott Q3 Incentive Management Fees $181M, Up 22% Y/Y",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T15:36:20.208913-05:00",
+    "symbols": [
+      "MIST"
+    ],
+    "headline": "Milestone Pharmaceuticals Says CARDAMYST Restored Normal Heart Rhythm In 66.7% vs. 20.0% On Placebo In Phase 3 Subgroup Of 11 Post-Ablation Patients",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T15:36:20.526840-05:00",
+    "symbols": [
+      "ACH"
+    ],
+    "headline": "Accendra Health Extends $150M Receivables Purchase Agreement To October 2029 With Its Size Unchanged",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

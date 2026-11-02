@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-11-02T10:35:59.522293-05:00",
-    "symbols": [
-      "NXT"
-    ],
-    "headline": "IDEXX Laboratories, Perion Network, TAT Technologies And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T10:36:00.578177-05:00",
-    "symbols": [
-      "ABOS"
-    ],
-    "headline": "Regeneron Pharmaceuticals To Rally Around 11%? Here Are 10 Top Analyst Forecasts For Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T10:36:00.581097-05:00",
-    "symbols": [
-      "ABOS"
-    ],
-    "headline": "BTIG Maintains Buy on Acumen Pharmaceuticals, Lowers Price Target to $1",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T10:47:07.260366-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Nvidia and AMD Are Backing a $6 Billion AI Startup Taking on Grok",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T10:47:08.050704-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia and AMD Are Backing a $6 Billion AI Startup Taking on Grok",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-02T10:47:08.241902-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Nvidia and AMD Are Backing a $6 Billion AI Startup Taking on Grok",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-02T10:47:09.449568-05:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Nvidia and AMD Are Backing a $6 Billion AI Startup Taking on Grok",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-02T10:47:10.920313-05:00",
     "symbols": [
       "QCOM"
@@ -4998,5 +4928,75 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T16:01:12.123933-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir Stock Trends Higher Ahead of Earnings: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T16:01:12.144074-05:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "Why Is Rivian Stock Surging on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T16:01:12.244139-05:00",
+    "symbols": [
+      "TLRY"
+    ],
+    "headline": "Tilray Stock Rises As Cannabis Giant Raises EBITDA Outlook, Targets Restructuring Across Canada",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T16:01:12.261824-05:00",
+    "symbols": [
+      "IDXX"
+    ],
+    "headline": "IDEXX Laboratories, Perion Network, TAT Technologies And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T16:01:12.276793-05:00",
+    "symbols": [
+      "ABOS"
+    ],
+    "headline": "Regeneron Pharmaceuticals To Rally Around 11%? Here Are 10 Top Analyst Forecasts For Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T16:01:12.280992-05:00",
+    "symbols": [
+      "ABOS"
+    ],
+    "headline": "BTIG Maintains Buy on Acumen Pharmaceuticals, Lowers Price Target to $1",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T16:01:12.289610-05:00",
+    "symbols": [
+      "NXT"
+    ],
+    "headline": "IDEXX Laboratories, Perion Network, TAT Technologies And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

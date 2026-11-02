@@ -3175,5 +3175,14 @@
   "drift_pct": 0.28,
   "range_ratio": 0.41,
   "near_high": 0.99
+ },
+ {
+  "ts": "2026-11-02T09:51:18.872288-05:00",
+  "ticker": "LITL",
+  "price": 34.49,
+  "rvol": 3.83,
+  "drift_pct": 1.17,
+  "range_ratio": 0.68,
+  "near_high": 0.98
  }
 ]

@@ -1,175 +1,5 @@
 [
   {
-    "ts": "2026-10-30T15:46:27.032302-04:00",
-    "symbols": [
-      "XLV"
-    ],
-    "headline": "Nasdaq Tumbles Over 3%, Chip Stocks Sink: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T15:46:27.036942-04:00",
-    "symbols": [
-      "XLV"
-    ],
-    "headline": "Defensives Lead Sectors In Friday Trading As Growth Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T15:46:27.272133-04:00",
-    "symbols": [
-      "VG"
-    ],
-    "headline": "Bears Load Up on Ondas, Dutch Bros and 8 More Stocks \u2014 Is a Squeeze Brewing?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T15:52:34.122749-04:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Scotiabank Maintains Sector Outperform on Amazon.com, Lowers Price Target to $300",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T15:53:06.370259-04:00",
-    "symbols": [
-      "HUBC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T15:53:06.375207-04:00",
-    "symbols": [
-      "HUBC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T15:53:06.380305-04:00",
-    "symbols": [
-      "HUBC"
-    ],
-    "headline": "Why Civeo Shares Are Trading Higher By 20%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T15:53:08.648490-04:00",
-    "symbols": [
-      "STGW"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Stagwell, Raises Price Target to $12",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T15:53:08.653191-04:00",
-    "symbols": [
-      "STGW"
-    ],
-    "headline": "B. Riley Securities Reiterates Buy on Stagwell, Raises Price Target to $12",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T15:53:08.658378-04:00",
-    "symbols": [
-      "STGW"
-    ],
-    "headline": "Needham Maintains Buy on Stagwell, Raises Price Target to $12",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T15:53:09.260203-04:00",
-    "symbols": [
-      "BBIO"
-    ],
-    "headline": "TD Cowen Maintains Buy on BridgeBio Pharma, Lowers Price Target to $100",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T15:53:09.266242-04:00",
-    "symbols": [
-      "BBIO"
-    ],
-    "headline": "Morgan Stanley Maintains Overweight on BridgeBio Pharma, Raises Price Target to $88",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T16:00:47.147739-04:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Nasdaq Tumbles Over 3%, Chip Stocks Sink: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T16:00:47.160581-04:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nasdaq Tumbles Over 3%, Chip Stocks Sink: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:00:47.168186-04:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Nasdaq Tumbles Over 3%, Chip Stocks Sink: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:00:47.191329-04:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Nasdaq Tumbles Over 3%, Chip Stocks Sink: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:00:47.200103-04:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Nasdaq Tumbles Over 3%, Chip Stocks Sink: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-30T16:00:47.209458-04:00",
     "symbols": [
       "QCOM"
@@ -4995,6 +4825,176 @@
       "SPY"
     ],
     "headline": "ISM Manufacturing PMI  For October 55.5 Vs 54.5 Est.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T10:12:48.619361-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Launch Customer Varda Says a Single Flight Could Help Make Medicine for Millions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T10:12:49.238530-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI Rolls Out Grid Protectors Program",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T10:12:53.692576-05:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "IDEXX Laboratories, Perion Network, TAT Technologies And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T10:12:54.124932-05:00",
+    "symbols": [
+      "ENPH"
+    ],
+    "headline": "IDEXX Laboratories, Perion Network, TAT Technologies And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T10:12:59.123850-05:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "Alibaba, JD.com, PDD Stocks Climb Monday After Brutal October for Chinese Stocks: What\u2019s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T10:12:59.302342-05:00",
+    "symbols": [
+      "PDD"
+    ],
+    "headline": "Alibaba, JD.com, PDD Stocks Climb Monday After Brutal October for Chinese Stocks: What\u2019s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T10:12:59.479707-05:00",
+    "symbols": [
+      "JD"
+    ],
+    "headline": "Alibaba, JD.com, PDD Stocks Climb Monday After Brutal October for Chinese Stocks: What\u2019s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T10:13:05.905852-05:00",
+    "symbols": [
+      "JBLU"
+    ],
+    "headline": "IDEXX Laboratories, Perion Network, TAT Technologies And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T10:13:08.854187-05:00",
+    "symbols": [
+      "RBNE"
+    ],
+    "headline": "Trading Halt: Halt status updated at 9:45:00 AM ET: Quotation Resumption: News and Resumption Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T10:13:08.857066-05:00",
+    "symbols": [
+      "RBNE"
+    ],
+    "headline": "Robin Energy Declares One-Time Special Cash Dividend Of $0.10 per Common Share",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T10:13:08.859997-05:00",
+    "symbols": [
+      "RBNE"
+    ],
+    "headline": "Trading Halt: Halted at 9:00:00 a.m. ET - Trading Halt: Halt News Pending",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T10:13:09.255232-05:00",
+    "symbols": [
+      "PERI"
+    ],
+    "headline": "IDEXX Laboratories, Perion Network, TAT Technologies And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T10:13:09.646735-05:00",
+    "symbols": [
+      "TATT"
+    ],
+    "headline": "IDEXX Laboratories, Perion Network, TAT Technologies And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T10:13:10.027331-05:00",
+    "symbols": [
+      "XPEV"
+    ],
+    "headline": "XPeng Smashes October Delivery Record As Overseas Sales Skyrocket 166%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T10:13:10.030805-05:00",
+    "symbols": [
+      "XPEV"
+    ],
+    "headline": "Reported Saturday, XPENG Delivers 50,237 Vehicles In October 2026, Up 22% MoM And 20% YoY; Overseas Deliveries Hit All-Time High Of 13,326 Units",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T10:13:10.033430-05:00",
+    "symbols": [
+      "XPEV"
+    ],
+    "headline": "China EV Stocks Tumble: XPeng, Li Auto, BYD and Polestar Hit as Price War Bites",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T10:13:11.026566-05:00",
+    "symbols": [
+      "BLNK"
+    ],
+    "headline": "Blink Charging Hellas Expands Strategic Partnership with AVIS",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

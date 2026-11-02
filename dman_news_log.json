@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-30T16:00:47.352284-04:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Nasdaq Tumbles Over 3%, Chip Stocks Sink: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T16:00:47.359696-04:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Nasdaq Tumbles Over 3%, Chip Stocks Sink: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:00:47.368763-04:00",
-    "symbols": [
-      "CLRO"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T16:00:47.379191-04:00",
-    "symbols": [
-      "POM"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-30T16:00:47.394862-04:00",
     "symbols": [
       "SLGB"
@@ -4998,5 +4958,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T10:24:11.457884-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Tesla&#39;s 128% Robotaxi Surge Puts It Just 15 Cars Behind Waymo",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T10:24:11.851250-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla&#39;s 128% Robotaxi Surge Puts It Just 15 Cars Behind Waymo",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T10:24:14.579232-05:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "Why Is Rivian Stock Surging on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T10:24:27.556172-05:00",
+    "symbols": [
+      "TLRY"
+    ],
+    "headline": "Tilray Stock Rises As Cannabis Giant Raises EBITDA Outlook, Targets Restructuring Across Canada",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -43691,7 +43691,13 @@
 "seen": 2,
 "last_ts": "2026-10-29T09:41:41.876240-04:00",
 "entry_min": 346.77,
-"entry_max": 346.77
+"entry_max": 346.77,
+"label_fill": 344.51,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 3.01,
+"label_outcome": "WIN",
+"label_mfe_pct": 5.28,
+"label_mae_pct": -1.07
 },
 {
 "ts": "2026-10-29T09:50:33.796023-04:00",
@@ -43753,7 +43759,13 @@
 "seen": 10,
 "last_ts": "2026-10-29T10:27:39.802509-04:00",
 "entry_min": 169.3,
-"entry_max": 169.3
+"entry_max": 169.3,
+"label_fill": 170.2,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.29,
+"label_outcome": "LOSS",
+"label_mfe_pct": 0.05,
+"label_mae_pct": -4.35
 },
 {
 "ts": "2026-10-29T10:15:51.565486-04:00",
@@ -43815,7 +43827,13 @@
 "seen": 9,
 "last_ts": "2026-10-29T11:40:59.575057-04:00",
 "entry_min": 398.01,
-"entry_max": 398.01
+"entry_max": 398.01,
+"label_fill": 405.0,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 3.14,
+"label_outcome": "WIN",
+"label_mfe_pct": 3.85,
+"label_mae_pct": 0.0
 },
 {
 "ts": "2026-10-29T10:15:55.245049-04:00",
@@ -43849,7 +43867,13 @@
 "seen": 12,
 "last_ts": "2026-10-29T12:53:35.097687-04:00",
 "entry_min": 7.7855,
-"entry_max": 7.7855
+"entry_max": 7.7855,
+"label_fill": 9.9,
+"label_exit_reason": "stop",
+"label_pnl_pct": -20.0,
+"label_outcome": "LOSS",
+"label_mfe_pct": 3.54,
+"label_mae_pct": -23.23
 },
 {
 "ts": "2026-10-29T11:41:01.349574-04:00",
@@ -43911,7 +43935,13 @@
 "seen": 6,
 "last_ts": "2026-10-29T13:33:28.791159-04:00",
 "entry_min": 430.88,
-"entry_max": 436.56
+"entry_max": 436.56,
+"label_fill": 419.06,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -2.67,
+"label_outcome": "LOSS",
+"label_mfe_pct": 0.72,
+"label_mae_pct": -2.84
 },
 {
 "ts": "2026-10-29T12:32:12.663352-04:00",
@@ -43973,7 +44003,13 @@
 "seen": 20,
 "last_ts": "2026-10-29T16:05:19.918778-04:00",
 "entry_min": 11.88,
-"entry_max": 12.08
+"entry_max": 12.08,
+"label_fill": 11.525,
+"label_exit_reason": "stop",
+"label_pnl_pct": -10.43,
+"label_outcome": "LOSS",
+"label_mfe_pct": 0.48,
+"label_mae_pct": -16.01
 },
 {
 "ts": "2026-10-29T12:32:15.478843-04:00",
@@ -44035,7 +44071,13 @@
 "seen": 11,
 "last_ts": "2026-10-29T16:05:20.113046-04:00",
 "entry_min": 18.22,
-"entry_max": 18.27
+"entry_max": 18.27,
+"label_fill": 17.91,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 0.17,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 2.82,
+"label_mae_pct": -3.34
 },
 {
 "ts": "2026-10-29T12:32:18.787284-04:00",
@@ -44097,7 +44139,13 @@
 "seen": 40,
 "last_ts": "2026-10-29T16:05:19.727938-04:00",
 "entry_min": 109.32,
-"entry_max": 112.22
+"entry_max": 112.22,
+"label_fill": 113.6,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -3.78,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.44,
+"label_mae_pct": -3.86
 },
 {
 "ts": "2026-10-29T12:57:37.034663-04:00",
@@ -45644,8 +45692,8 @@
 "Gap Size": 0,
 "News Catalyst": 0
 },
-"seen": 16,
-"last_ts": "2026-11-02T16:01:34.475627-05:00",
+"seen": 18,
+"last_ts": "2026-11-02T16:05:35.704646-05:00",
 "entry_min": 42.69,
 "entry_max": 42.83
 }

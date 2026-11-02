@@ -1,275 +1,5 @@
 [
   {
-    "ts": "2026-11-02T10:47:10.920313-05:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Nvidia and AMD Are Backing a $6 Billion AI Startup Taking on Grok",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T10:47:26.732904-05:00",
-    "symbols": [
-      "IDXX"
-    ],
-    "headline": "If You Invested $100 In IDEXX Laboratories Stock 15 Years Ago, You Would Have This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T10:58:52.977047-05:00",
-    "symbols": [
-      "DECK"
-    ],
-    "headline": "Michael Burry Says Global Payments Buyout Math Means Fiserv Stock Could Hit $100",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T10:58:53.710641-05:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "DraftKings Earnings This Week: Here\u2019s What Investors Need to Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T10:59:03.952240-05:00",
-    "symbols": [
-      "CAPR"
-    ],
-    "headline": "Why Inovio Pharmaceuticals Shares Are Trading Higher By Over 230%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T11:02:20.529761-05:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "AbbVie Enters Global License Agreement with Brise Pharmaceuticals for Migraine Therapies",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T11:02:20.536289-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Change Agents Corporation Joins Meta's Muse Developer Program",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-02T11:02:20.540858-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Guardz Integrates Palo Alto Networks Prisma Browser for Business",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T11:02:20.547268-05:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Caterpillar Inc. Acquires John Fabick Tractor Company",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T11:02:20.554380-05:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs Increases Stake in Brazilian Retailer C&A Modas",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T11:02:20.773222-05:00",
-    "symbols": [
-      "ANET"
-    ],
-    "headline": "Securitize Expands Onchain U.S. Stock Offering to Include Arista Networks",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T11:02:20.776412-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Syndigo Announces Multi-Year Strategic Partnership with Microsoft",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-02T11:02:20.779290-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Partners with CarbiCrete for Cement-Free Concrete",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-02T11:02:20.782587-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Wrongful Death Lawsuit Filed Against Amazon",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-02T11:02:20.785389-05:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Mastercard Enters Strategic Partnership with OpenAI",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T11:02:20.788279-05:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "FDA Grants Tentative Approval for Generic Lenacapavir for HIV Prevention in Global Markets",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T11:03:20.528000-05:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Mastercard Partners with Export Development Bank of Egypt",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T11:03:20.531265-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "CrowdStrike Announces Strategic Partnerships with CoreWeave and Dynatrace",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T11:03:20.534928-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "UBS Adjusts Price Target on Uber Technologies",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T11:03:20.749094-05:00",
-    "symbols": [
-      "ICL"
-    ],
-    "headline": "Barclays Analyst Maintains Hold Rating on ICL Group Ltd.",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T11:03:20.752979-05:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "Freeport-McMoRan Plans Q4 2026 Investment Decision for Bagdad Mine Expansion",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T11:03:21.055565-05:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Korean Skincare Brand re:nk Launches Cell to Cell Cream at Costco",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T11:03:21.058600-05:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Costco Declines Participation in New Blockchain-Based Stock Marketplace",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T11:03:21.061844-05:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Ancient Crunch Expands MASA Tortilla Chips into Costco",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T11:03:21.064576-05:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Bernstein Adjusts Price Target on Qualcomm to $155 From $165",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T11:03:21.067857-05:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "UBS Adjusts JPMorgan Chase Price Target to $400",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-02T11:13:55.229805-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nebius Stock Drops: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-02T11:13:55.432860-05:00",
     "symbols": [
       "AAPL"
@@ -4998,5 +4728,275 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T16:02:20.524227-05:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "Spotify Expands Artist-First Strategy in India",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-02T16:05:18.923250-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Nvidia and AMD Are Backing a $6 Billion AI Startup Taking on Grok",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T16:05:18.940101-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Nvidia and AMD Are Backing a $6 Billion AI Startup Taking on Grok",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T16:05:18.959301-05:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Nvidia and AMD Are Backing a $6 Billion AI Startup Taking on Grok",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T16:05:18.974405-05:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Nvidia and AMD Are Backing a $6 Billion AI Startup Taking on Grok",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T16:05:19.023797-05:00",
+    "symbols": [
+      "DECK"
+    ],
+    "headline": "Michael Burry Says Global Payments Buyout Math Means Fiserv Stock Could Hit $100",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T16:05:19.029865-05:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "DraftKings Earnings This Week: Here\u2019s What Investors Need to Know",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T16:05:19.092490-05:00",
+    "symbols": [
+      "EVGO"
+    ],
+    "headline": "EVgo Confirms Receipt Of $2/Share Cash Buyout Proposal From Majority Shareholder Ls Power; Board Launches Review",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-02T16:05:19.106612-05:00",
+    "symbols": [
+      "IDXX"
+    ],
+    "headline": "If You Invested $100 In IDEXX Laboratories Stock 15 Years Ago, You Would Have This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T16:05:19.115988-05:00",
+    "symbols": [
+      "CAPR"
+    ],
+    "headline": "Why Inovio Pharmaceuticals Shares Are Trading Higher By Over 230%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T16:05:19.523313-05:00",
+    "symbols": [
+      "HGV"
+    ],
+    "headline": "Barclays Maintains Equal-Weight on Hilton Grand Vacations, Lowers Price Target to $39",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T16:05:19.603506-05:00",
+    "symbols": [
+      "KDP"
+    ],
+    "headline": "AMD, Shopify On Deck Tuesday As AI Spending, Merchant Growth Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T16:05:19.607468-05:00",
+    "symbols": [
+      "KDP"
+    ],
+    "headline": "From Tech Stocks to Staples: October Delivers Wall Street&#39;s Biggest Sector Rotation Since Dot-Com Bubble Burst",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T16:05:19.611312-05:00",
+    "symbols": [
+      "ULCC"
+    ],
+    "headline": "Frontier Airlines Appoints Michael Delehant COO, Effective Nov. 30",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T16:05:19.691954-05:00",
+    "symbols": [
+      "CPRI"
+    ],
+    "headline": "Barclays Maintains Overweight on Capri Holdings, Raises Price Target to $24",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T16:05:19.696002-05:00",
+    "symbols": [
+      "CPRI"
+    ],
+    "headline": "Goldman Sachs Maintains Neutral on Capri Holdings, Raises Price Target to $20",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T16:05:19.700088-05:00",
+    "symbols": [
+      "CPRI"
+    ],
+    "headline": "Wells Fargo Maintains Equal-Weight on Capri Holdings, Raises Price Target to $18",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T16:05:19.772806-05:00",
+    "symbols": [
+      "BAM"
+    ],
+    "headline": "Brookfield Sees AI Boom Creating Unexpected Winners Beyond Data Centers and Chipmakers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T16:05:19.776550-05:00",
+    "symbols": [
+      "BAM"
+    ],
+    "headline": "Brookfield And CPP Investments Complete $5.2B Acquisition Of LXP Industrial Trust",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T16:05:19.946240-05:00",
+    "symbols": [
+      "SFM"
+    ],
+    "headline": "QUICK SPARK: Michael Burry Adds to JD, BYD as Hong Kong Stocks Languish",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T16:05:19.950149-05:00",
+    "symbols": [
+      "SFM"
+    ],
+    "headline": "Michael Burry Says Global Payments Buyout Math Means Fiserv Stock Could Hit $100",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T16:05:19.953836-05:00",
+    "symbols": [
+      "SFM"
+    ],
+    "headline": "Top 3 Defensive Stocks That May Explode In November",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T16:05:20.019600-05:00",
+    "symbols": [
+      "AEIS"
+    ],
+    "headline": "Advanced Energy Indus Sees Q4 GAAP EPS $3.00-$3.60 vs $2.84 Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T16:05:20.024110-05:00",
+    "symbols": [
+      "AEIS"
+    ],
+    "headline": "Advanced Energy Indus Sees Q4 Adj EPS $3.60-$4.20 vs $3.42 Est; Sees Sales $710.000M-$760.000M vs $693.567M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T16:05:20.027941-05:00",
+    "symbols": [
+      "AEIS"
+    ],
+    "headline": "Advanced Energy Indus Q3 Adj. EPS $3.65 Beats $3.04 Estimate, Sales $595.400M Miss $644.857M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T16:05:20.108378-05:00",
+    "symbols": [
+      "LSCC"
+    ],
+    "headline": "Lattice Semiconductor Sees Q4 Adj EPS $0.82-$0.86 vs $0.64 Est; Sees Sales $325.000M-$345.000M vs $293.026M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T16:05:20.112587-05:00",
+    "symbols": [
+      "LSCC"
+    ],
+    "headline": "Lattice Semiconductor Q3 Adj. EPS $0.72 Beats $0.55 Estimate, Sales $291.035M Beat $255.540M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

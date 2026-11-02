@@ -1,175 +1,5 @@
 [
   {
-    "ts": "2026-11-02T09:26:14.119204-05:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "Apple, Palantir On Deck Monday As AI Demand, iPhone Growth Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T09:26:14.284641-05:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Binance Discloses Net Platform Outflows Of $4.7B Since Sunday, November 1",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-02T09:26:14.454035-05:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "UBS Upgrades Rivian Automotive to Buy, Maintains Price Target to $17",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:14.456906-05:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "Gary Black Says Tesla Is Losing EV Share to \u2018No-Name\u2019 Rivals Despite \u2018Huge First-Mover Advantage\u2019\u2014Warns TSLA Needs Better Marketing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:14.634169-05:00",
-    "symbols": [
-      "NIO"
-    ],
-    "headline": "XPeng Smashes October Delivery Record As Overseas Sales Skyrocket 166%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:14.637431-05:00",
-    "symbols": [
-      "NIO"
-    ],
-    "headline": "Tesla Rival NIO&#39;s October Deliveries Sink 15%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:14.640090-05:00",
-    "symbols": [
-      "NIO"
-    ],
-    "headline": "Reported Sunday, NIO Delivers 34,246 Vehicles In October 2026; Year-To-Date Deliveries Reach 334,547, Up 38.5% YoY, Cumulative Deliveries Hit 1,332,139",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:14.642669-05:00",
-    "symbols": [
-      "NIO"
-    ],
-    "headline": "China EV Stocks Tumble: XPeng, Li Auto, BYD and Polestar Hit as Price War Bites",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:14.809331-05:00",
-    "symbols": [
-      "FSLR"
-    ],
-    "headline": "Guggenheim Maintains Buy on First Solar, Lowers Price Target to $297",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:14.812183-05:00",
-    "symbols": [
-      "FSLR"
-    ],
-    "headline": "Baird Maintains Outperform on First Solar, Lowers Price Target to $266",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:14.999038-05:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Tempus AI Earnings Ahead: Is TEM Set Up To Pop or Drop?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:15.164069-05:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Guggenheim Maintains Buy on AbbVie, Raises Price Target to $322",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:15.166877-05:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Brise Pharmaceuticals Announces Its 2024 License Deal Value With AbbVie Could Reach Up To $775M For Two Of Brise&#39;s Preclinical Migraine Programs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:15.169479-05:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on AbbVie, Raises Price Target to $340",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:15.172085-05:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "These Analysts Increase Their Forecasts On AbbVie After Strong Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:15.174660-05:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "RBC Capital Maintains Outperform on AbbVie, Raises Price Target to $330",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:15.416934-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Cantor Fitzgerald Maintains Overweight on Eli Lilly, Raises Price Target to $1600",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-02T09:26:15.594082-05:00",
     "symbols": [
       "BIIB"
@@ -4998,5 +4828,175 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T14:13:54.496596-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Stock Moves Higher: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T14:13:54.979750-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Trump&#39;s $350 Billion Defense Gamble Has a $290 Billion Problem",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T14:13:55.115905-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Semiconductor Stocks Are Cheaper Than the S&amp;P 500: Is It Time to Buy SOXX and SMH ETFs?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T14:13:55.119923-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "AMD, Micron Selloff Is &#39;Just the Beginning,&#39; Tom Sosnoff Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T14:13:55.189641-05:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Fox Advisors Downgrades SanDisk to Equal-Weight",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T14:13:55.254378-05:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Elon Musk Pushes Back Against Sam Altman\u2019s View That Personal Computers Waste DRAM: \u2018The People Deserve to Have Their RAM Too!\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T14:13:55.388122-05:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Traders Are Pricing a 12% Swing in Shopify Ahead of Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T14:13:55.517202-05:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "ON Semiconductor Earnings Are Imminent; These Most Accurate Analysts Revise Forecasts Ahead Of Earnings Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T14:13:55.855381-05:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "UBS Upgrades Rivian Automotive to Buy, Maintains Price Target to $17",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T14:13:55.929071-05:00",
+    "symbols": [
+      "NIO"
+    ],
+    "headline": "XPeng Smashes October Delivery Record As Overseas Sales Skyrocket 166%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T14:13:55.932828-05:00",
+    "symbols": [
+      "NIO"
+    ],
+    "headline": "Tesla Rival NIO&#39;s October Deliveries Sink 15%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T14:13:56.133459-05:00",
+    "symbols": [
+      "FSLR"
+    ],
+    "headline": "Guggenheim Maintains Buy on First Solar, Lowers Price Target to $297",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T14:13:56.137505-05:00",
+    "symbols": [
+      "FSLR"
+    ],
+    "headline": "Baird Maintains Outperform on First Solar, Lowers Price Target to $266",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T14:13:56.210393-05:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Guggenheim Maintains Buy on AbbVie, Raises Price Target to $322",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T14:13:56.214277-05:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Brise Pharmaceuticals Announces Its 2024 License Deal Value With AbbVie Could Reach Up To $775M For Two Of Brise&#39;s Preclinical Migraine Programs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T14:13:58.962755-05:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Trump&#39;s $350 Billion Defense Gamble Has a $290 Billion Problem",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T14:13:59.040590-05:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "Trump&#39;s $350 Billion Defense Gamble Has a $290 Billion Problem",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

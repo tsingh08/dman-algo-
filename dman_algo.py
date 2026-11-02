@@ -21182,14 +21182,58 @@ def sync_news_log_with_remote() -> None:
     )
 
 
+# The TradeRecord fields that identify a trade. Everything outside this set
+# is either machine-sampled or schema-evolution noise — see _win_rate_merge_key().
+_WIN_RATE_IDENTITY_FIELDS = (
+    "ticker", "date", "bias", "setup", "entry", "exit",
+    "outcome", "pnl_pct", "score", "is_live",
+)
+
+
+def _win_rate_merge_key(rec):
+    """
+    Merge identity for one win-rate record: its core trade fields only,
+    not raw byte content. Two confirmed ways the same real close arrives
+    from two sides with different bytes, each of which byte identity
+    double-counted into rolling_stats()/setup_stats()/setup probation:
+
+    1. spy_pct is sampled from live SPY data at record time, so when the
+       daemon and the cron scanner both record the same close before
+       either's push propagates — the exact race _pnl_entry_merge_key()
+       already handles for daily/monthly P&L — the two records differ
+       ONLY in spy_pct. Confirmed live 2026-11-02: STGW's single close
+       landed twice, spy_pct -0.936 vs -0.495.
+    2. Records written before the 2026-10-31 schema change lack the
+       entry_date/shares/pnl_usd/spy_pct KEYS entirely on disk, while a
+       side that has round-tripped the file through WinRateTracker._save()
+       carries them (asdict() fills defaults). The old-format bytes then
+       look "new" to the merge and the record is re-appended. Confirmed
+       live 2026-11-02: CLRO's 2026-08-06 close reappeared at the END of
+       the file, in the old format, months after the original.
+
+    Collapsing on core fields cannot drop a genuinely distinct trade the
+    system would otherwise have kept: sync_alpaca_fills()'s own ledger
+    dupe guard already refuses to record a second close matching the same
+    ticker+setup+exit within a 2-day window, so no legitimate pair of
+    records ever agrees on all of these fields.
+    """
+    if isinstance(rec, dict):
+        return json.dumps({k: rec.get(k) for k in _WIN_RATE_IDENTITY_FIELDS},
+                          sort_keys=True)
+    return rec
+
+
 def sync_win_rate_with_remote() -> None:
     """dman_win_rate.json — flat list, capped at 500 most recent (see
-    WinRateTracker._save())."""
+    WinRateTracker._save()). Union by _win_rate_merge_key(), not raw
+    content — spy_pct is machine-sampled and breaks byte identity for the
+    same-close-two-writers race."""
     _sync_json_file_via_merge(
         WIN_RATE_FILE,
         extract=lambda d: (d, None),
         rebuild=lambda merged, _le, _re: merged[-500:],
         label="dman_win_rate.json",
+        key_fn=_win_rate_merge_key,
     )
 
 

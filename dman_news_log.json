@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-10-30T16:00:47.410735-04:00",
-    "symbols": [
-      "ASUR"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T16:00:47.416255-04:00",
-    "symbols": [
-      "RMNI"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T16:00:47.426206-04:00",
-    "symbols": [
-      "WKHS"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T16:00:47.432681-04:00",
-    "symbols": [
-      "ACCO"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-10-30T16:00:47.439871-04:00",
     "symbols": [
       "PTHS"
@@ -4998,5 +4958,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T10:35:58.668793-05:00",
+    "symbols": [
+      "IDXX"
+    ],
+    "headline": "IDEXX Laboratories, Perion Network, TAT Technologies And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T10:35:59.522293-05:00",
+    "symbols": [
+      "NXT"
+    ],
+    "headline": "IDEXX Laboratories, Perion Network, TAT Technologies And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T10:36:00.578177-05:00",
+    "symbols": [
+      "ABOS"
+    ],
+    "headline": "Regeneron Pharmaceuticals To Rally Around 11%? Here Are 10 Top Analyst Forecasts For Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T10:36:00.581097-05:00",
+    "symbols": [
+      "ABOS"
+    ],
+    "headline": "BTIG Maintains Buy on Acumen Pharmaceuticals, Lowers Price Target to $1",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

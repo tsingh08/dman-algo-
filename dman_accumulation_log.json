@@ -3247,5 +3247,14 @@
   "drift_pct": 0.52,
   "range_ratio": 0.67,
   "near_high": 0.975
+ },
+ {
+  "ts": "2026-11-02T11:48:44.441823-05:00",
+  "ticker": "LMT",
+  "price": 636.95,
+  "rvol": 1.62,
+  "drift_pct": 0.28,
+  "range_ratio": 0.41,
+  "near_high": 0.99
  }
 ]

@@ -1,155 +1,5 @@
 [
   {
-    "ts": "2026-10-30T16:00:47.209458-04:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Nasdaq Tumbles Over 3%, Chip Stocks Sink: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T16:00:47.228419-04:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: eBay, FTAI Aviation, AbbVie, Goldman Sachs Nasdaq-100 Premium Income ETF",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:00:47.243228-04:00",
-    "symbols": [
-      "RBLX"
-    ],
-    "headline": "Nasdaq Tumbles Over 3%, Chip Stocks Sink: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T16:00:47.249036-04:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "Spotify Plans to Launch AI-Powered Music Remixing Service in 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:00:47.254405-04:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Nasdaq Tumbles Over 3%, Chip Stocks Sink: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:00:47.263353-04:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Palo Alto Networks Does Not Endors Tutanota;s &#34;Mini-Tender&#34; OfferTo Acquire Up To $250,000 Shares At $450/Share.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T16:00:47.272079-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Binance&#39;s $6.3 Billion Hack Could Be Coinbase&#39;s Chance to Win Over Crypto Investors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-30T16:00:47.276879-04:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Needham Maintains Buy on Coinbase Global, Lowers Price Target to $197",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-10-30T16:00:47.282058-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Binance\u2019s Teng Says \u2018Your Assets Are Safe,\u2019 Targets Withdrawals Within 40 Hours",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:00:47.287376-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Strategy Stock Pulls Back Following Revenue Miss, CFO Transition",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:00:47.292324-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "BTIG Reiterates Buy on Strategy, Maintains $250 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:00:47.297644-04:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Binance Hack Drives Bitcoin Below $77,000, Ethereum, XRP, Dogecoin Also in the Red: Top Analyst Identifies Where to Buy the &#39;Dip&#39; in the \u2018Bloodbath&#39; (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-10-30T16:00:47.303029-04:00",
-    "symbols": [
-      "CLSK"
-    ],
-    "headline": "B. Riley Securities Maintains Buy on Cleanspark, Lowers Price Target to $21",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-10-30T16:00:47.317522-04:00",
-    "symbols": [
-      "JOBY"
-    ],
-    "headline": "Joby Aviation Begins Week-Long Florida Electric Air Taxi Flight Campaign Under White House-Backed eIPP Program",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-10-30T16:00:47.336327-04:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Nasdaq Tumbles Over 3%, Chip Stocks Sink: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-10-30T16:00:47.352284-04:00",
     "symbols": [
       "QQQ"
@@ -4995,6 +4845,156 @@
       "BLNK"
     ],
     "headline": "Blink Charging Hellas Expands Strategic Partnership with AVIS",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T10:21:58.068978-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Launch Customer Varda Says a Single Flight Could Help Make Medicine for Millions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T10:21:58.408599-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI Rolls Out Grid Protectors Program",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T10:21:58.884479-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Tesla&#39;s 128% Robotaxi Surge Puts It Just 15 Cars Behind Waymo",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T10:21:59.063460-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla&#39;s 128% Robotaxi Surge Puts It Just 15 Cars Behind Waymo",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T10:22:00.537759-05:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "Why Is Rivian Stock Surging on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T10:22:00.542374-05:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "IDEXX Laboratories, Perion Network, TAT Technologies And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T10:22:00.923583-05:00",
+    "symbols": [
+      "ENPH"
+    ],
+    "headline": "IDEXX Laboratories, Perion Network, TAT Technologies And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T10:22:03.883292-05:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "Alibaba, JD.com, PDD Stocks Climb Monday After Brutal October for Chinese Stocks: What\u2019s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T10:22:04.000480-05:00",
+    "symbols": [
+      "PDD"
+    ],
+    "headline": "Alibaba, JD.com, PDD Stocks Climb Monday After Brutal October for Chinese Stocks: What\u2019s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T10:22:04.096388-05:00",
+    "symbols": [
+      "JD"
+    ],
+    "headline": "Alibaba, JD.com, PDD Stocks Climb Monday After Brutal October for Chinese Stocks: What\u2019s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T10:22:06.031342-05:00",
+    "symbols": [
+      "PERI"
+    ],
+    "headline": "IDEXX Laboratories, Perion Network, TAT Technologies And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T10:22:06.255639-05:00",
+    "symbols": [
+      "OFRM"
+    ],
+    "headline": "Once Upon A Farm Reports $106M Of Cash And Cash Equivalents, $95M Of Borrowing Capacity As Of Sept. 30",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T10:22:06.260719-05:00",
+    "symbols": [
+      "OFRM"
+    ],
+    "headline": "Kosmos Energy Posts Downbeat Q3 Results, Joins Once Upon A Farm And Other Big Stocks Moving Lower In Monday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T10:22:06.265321-05:00",
+    "symbols": [
+      "OFRM"
+    ],
+    "headline": "Why Inovio Pharmaceuticals Shares Are Trading Higher By Over 230%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T10:22:06.409497-05:00",
+    "symbols": [
+      "SUPN"
+    ],
+    "headline": "Supernus Pharmaceuticals Completes Merger with Indivior Pharmaceuticals",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

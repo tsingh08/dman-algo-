@@ -406,16 +406,16 @@
 "ticker": "XBI",
 "entry": 150.42,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": 2.94,
 "entry_lim": 150.2877,
-"pnl_lim_pct": null
+"pnl_lim_pct": 3.03
 },
 {
 "date": "2026-10-23",
 "ticker": "NVDA",
 "entry": 213.105,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": -1.62,
 "entry_lim": null,
 "pnl_lim_pct": null
 },
@@ -424,126 +424,126 @@
 "ticker": "META",
 "entry": 638.355,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": -3.01,
 "entry_lim": 638.355,
-"pnl_lim_pct": null
+"pnl_lim_pct": -3.01
 },
 {
 "date": "2026-10-23",
 "ticker": "AMZN",
 "entry": 249.47,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": 1.09,
 "entry_lim": 249.24,
-"pnl_lim_pct": null
+"pnl_lim_pct": 1.18
 },
 {
 "date": "2026-10-23",
 "ticker": "PLTR",
 "entry": 197.9,
 "rsi2": 9.2,
-"pnl_pct": null,
+"pnl_pct": -5.51,
 "entry_lim": 197.7337,
-"pnl_lim_pct": null
+"pnl_lim_pct": -5.43
 },
 {
 "date": "2026-10-23",
 "ticker": "SMCI",
 "entry": 33.07,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": 0.91,
 "entry_lim": 33.07,
-"pnl_lim_pct": null
+"pnl_lim_pct": 0.91
 },
 {
 "date": "2026-10-23",
 "ticker": "SNDK",
 "entry": 1251.88,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": -9.02,
 "entry_lim": 1244.2201,
-"pnl_lim_pct": null
+"pnl_lim_pct": -8.46
 },
 {
 "date": "2026-10-23",
 "ticker": "HOOD",
 "entry": 94.21,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": -8.15,
 "entry_lim": 94.21,
-"pnl_lim_pct": null
+"pnl_lim_pct": -8.15
 },
 {
 "date": "2026-10-23",
 "ticker": "AFRM",
 "entry": 70.08,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": 10.87,
 "entry_lim": 70.08,
-"pnl_lim_pct": null
+"pnl_lim_pct": 10.87
 },
 {
 "date": "2026-10-23",
 "ticker": "MRNA",
 "entry": 186.904,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": 20.12,
 "entry_lim": 186.904,
-"pnl_lim_pct": null
+"pnl_lim_pct": 20.12
 },
 {
 "date": "2026-10-23",
 "ticker": "HIMS",
 "entry": 27.51,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": 2.42,
 "entry_lim": 27.51,
-"pnl_lim_pct": null
+"pnl_lim_pct": 2.42
 },
 {
 "date": "2026-10-23",
 "ticker": "GME",
 "entry": 24.82,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": -2.7,
 "entry_lim": 24.82,
-"pnl_lim_pct": null
+"pnl_lim_pct": -2.7
 },
 {
 "date": "2026-10-23",
 "ticker": "ANET",
 "entry": 174.21,
 "rsi2": 8.9,
-"pnl_pct": null,
+"pnl_pct": -3.06,
 "entry_lim": 173.2318,
-"pnl_lim_pct": null
+"pnl_lim_pct": -2.52
 },
 {
 "date": "2026-10-23",
 "ticker": "MSTR",
 "entry": 141.665,
 "rsi2": 2.7,
-"pnl_pct": null,
+"pnl_pct": -4.25,
 "entry_lim": 141.665,
-"pnl_lim_pct": null
+"pnl_lim_pct": -4.25
 },
 {
 "date": "2026-10-23",
 "ticker": "SPY",
 "entry": 762.25,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": 0.16,
 "entry_lim": 762.25,
-"pnl_lim_pct": null
+"pnl_lim_pct": 0.16
 },
 {
 "date": "2026-10-23",
 "ticker": "QQQ",
 "entry": 707.06,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": -1.19,
 "entry_lim": 707.06,
-"pnl_lim_pct": null
+"pnl_lim_pct": -1.19
 },
 {
 "date": "2026-10-26",
@@ -1020,6 +1020,204 @@
 "rsi2": 0.0,
 "pnl_pct": null,
 "entry_lim": 244.245,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-30",
+"ticker": "MSFT",
+"entry": 524.015,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 524.015,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-30",
+"ticker": "NVDA",
+"entry": 207.53,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": null,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-30",
+"ticker": "AMD",
+"entry": 510.705,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 507.324,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-30",
+"ticker": "TSLA",
+"entry": 404.66,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 401.809,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-30",
+"ticker": "CRM",
+"entry": 229.75,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 229.75,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-30",
+"ticker": "SNOW",
+"entry": 306.0,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 306.0,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-30",
+"ticker": "PLTR",
+"entry": 186.52,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 185.0306,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-30",
+"ticker": "SMCI",
+"entry": 33.45,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 33.1148,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-30",
+"ticker": "MU",
+"entry": 890.535,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 889.1637,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-30",
+"ticker": "MRVL",
+"entry": 191.555,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 191.555,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-30",
+"ticker": "RXRX",
+"entry": 4.11,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 4.0501,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-30",
+"ticker": "ANET",
+"entry": 170.6,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 169.7043,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-30",
+"ticker": "CRWD",
+"entry": 253.0,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 251.6821,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-30",
+"ticker": "PANW",
+"entry": 368.07,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 367.6993,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-30",
+"ticker": "NET",
+"entry": 282.27,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 282.1035,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-30",
+"ticker": "DDOG",
+"entry": 235.51,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 235.51,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-30",
+"ticker": "ELF",
+"entry": 114.37,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 112.2484,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-30",
+"ticker": "FTNT",
+"entry": 135.875,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 135.875,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-30",
+"ticker": "ZS",
+"entry": 238.72,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 238.72,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-30",
+"ticker": "MDB",
+"entry": 351.55,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 351.55,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-30",
+"ticker": "SPY",
+"entry": 759.45,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 759.45,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-10-30",
+"ticker": "QQQ",
+"entry": 695.315,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 693.9424,
 "pnl_lim_pct": null
 }
 ]

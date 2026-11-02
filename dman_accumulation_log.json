@@ -3301,5 +3301,23 @@
   "drift_pct": 0.22,
   "range_ratio": 0.37,
   "near_high": 0.996
+ },
+ {
+  "ts": "2026-11-02T14:56:23.788338-05:00",
+  "ticker": "SCCR",
+  "price": 24.69,
+  "rvol": 2.13,
+  "drift_pct": 0.04,
+  "range_ratio": 0.28,
+  "near_high": 0.977
+ },
+ {
+  "ts": "2026-11-02T14:56:23.788356-05:00",
+  "ticker": "USDU",
+  "price": 27.1399,
+  "rvol": 2.04,
+  "drift_pct": 0.11,
+  "range_ratio": 0.37,
+  "near_high": 0.997
  }
 ]

@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-11-02T09:26:19.819491-05:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Wells Fargo Maintains Equal-Weight on Lockheed Martin, Raises Price Target to $700",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:19.988515-05:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Caterpillar Acquires John Fabick Tractor; Financial Terms Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:19.991410-05:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Freedom Broker Maintains Buy on Caterpillar, Lowers Price Target to $800",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:19.994029-05:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "DA Davidson Maintains Neutral on Caterpillar, Lowers Price Target to $685",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:20.164196-05:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Private Bank Opens New Branch in Dubai Financial Centre",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-02T09:26:20.344054-05:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "&#39;Goldman Restricts Traders and Bankers From Using Some AI Tools&#39; - Bloomberg Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-02T09:26:20.346993-05:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "China EV Stocks Tumble: XPeng, Li Auto, BYD and Polestar Hit as Price War Bites",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-02T09:26:20.514048-05:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Verdera Energy Corp. Receives TSX Venture Exchange Approval for New Normal Course Issuer Bid",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:20.516970-05:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Visa and HKSTP Announce Strategic Partnership to Advance Fintech in Hong Kong",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T09:26:20.683344-05:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Mastercard and TenPay Global Sign MOU for Cross-Border Payment Collaboration",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-02T09:26:20.686176-05:00",
     "symbols": [
       "MA"
@@ -4905,6 +4805,106 @@
       "AHRT"
     ],
     "headline": "AH Realty Trust Completes Multiple Dispositions and Financing Transactions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T14:54:28.901523-05:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Super Micro Stock Slips: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T14:54:36.549623-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Strategy Buys $65.5 Million in Bitcoin as Michael Saylor Adds 811 BTC",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T14:54:36.554520-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Strategy Acquires 811 Bitcoin From Oct. 26 To Nov. 1 For $65.50M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T14:54:36.558688-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Bitwise Puts Bitcoin&#39;s &#39;Fair Value&#39; at $197,000, Cites 3 Catalysts for Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T14:54:37.033140-05:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Traders Are Pricing a 12% Swing in Shopify Ahead of Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T14:54:37.294606-05:00",
+    "symbols": [
+      "ELF"
+    ],
+    "headline": "e.l.f. Beauty Launches First-Ever Holiday Campaign, \u201ce.l.f. Made to Stand Out\u201d",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T14:54:46.644149-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says He Is No Rush To Decide Whether To Resume Fighting In Iran, Axios Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T14:54:49.397722-05:00",
+    "symbols": [
+      "SUPN"
+    ],
+    "headline": "Supernus Secures $650 Million Senior Secured Term Loan",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T14:54:50.714784-05:00",
+    "symbols": [
+      "SPMO"
+    ],
+    "headline": "Apple Is Big Tech&#39;s Safe Haven \u2014 but Has Its Price Tag Become Too Steep?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T14:54:50.719185-05:00",
+    "symbols": [
+      "SPMO"
+    ],
+    "headline": "What&#39;s Going On With Micron Technology Stock Monday?",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

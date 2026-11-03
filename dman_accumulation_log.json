@@ -3346,5 +3346,68 @@
   "drift_pct": 0.64,
   "range_ratio": 0.48,
   "near_high": 0.964
+ },
+ {
+  "ts": "2026-11-03T09:42:40.484193-05:00",
+  "ticker": "CGCV",
+  "price": 33.515,
+  "rvol": 4.17,
+  "drift_pct": 0.34,
+  "range_ratio": 0.41,
+  "near_high": 0.992
+ },
+ {
+  "ts": "2026-11-03T09:42:40.484208-05:00",
+  "ticker": "CRUX",
+  "price": 28.9998,
+  "rvol": 2.74,
+  "drift_pct": 0.14,
+  "range_ratio": 0.3,
+  "near_high": 0.979
+ },
+ {
+  "ts": "2026-11-03T09:42:40.484212-05:00",
+  "ticker": "SCCR",
+  "price": 24.6651,
+  "rvol": 2.09,
+  "drift_pct": 0.06,
+  "range_ratio": 0.28,
+  "near_high": 0.976
+ },
+ {
+  "ts": "2026-11-03T09:42:40.484216-05:00",
+  "ticker": "USDU",
+  "price": 27.15,
+  "rvol": 2.36,
+  "drift_pct": 0.22,
+  "range_ratio": 0.37,
+  "near_high": 0.998
+ },
+ {
+  "ts": "2026-11-03T09:42:40.484219-05:00",
+  "ticker": "BSJQ",
+  "price": 22.815,
+  "rvol": 1.9,
+  "drift_pct": 0.0,
+  "range_ratio": 0.58,
+  "near_high": 0.994
+ },
+ {
+  "ts": "2026-11-03T09:42:40.484223-05:00",
+  "ticker": "NXUS",
+  "price": 24.42,
+  "rvol": 11.11,
+  "drift_pct": 0.02,
+  "range_ratio": 0.41,
+  "near_high": 0.986
+ },
+ {
+  "ts": "2026-11-03T09:42:40.484226-05:00",
+  "ticker": "OSEA",
+  "price": 29.87,
+  "rvol": 4.31,
+  "drift_pct": 0.61,
+  "range_ratio": 0.47,
+  "near_high": 0.964
  }
 ]

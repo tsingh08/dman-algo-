@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-11-03T13:25:53.102774-05:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Marvell Stock Takes Two Hits in One Morning: Both Blame the Lumentum Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T13:25:53.204868-05:00",
-    "symbols": [
-      "KLAC"
-    ],
-    "headline": "Jim Cramer Likes This Industrial Stock: \u2018It\u2019s Come Down A Great Deal\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T13:25:53.266786-05:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "Truist Securities Maintains Hold on ON Semiconductor, Raises Price Target to $76",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T13:25:53.337960-05:00",
-    "symbols": [
-      "RIOT"
-    ],
-    "headline": "RIOT, COIN, MSTR Jump up to 16%: What Is Going On With Crypto Stocks?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T13:25:53.480372-05:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "RIOT, COIN, MSTR Jump up to 16%: What Is Going On With Crypto Stocks?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T13:25:53.485120-05:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "EXCLUSIVE: Top 12 Most-Searched Tickers in October on Benzinga Pro \u2013 SpaceX Soars, Micron Rises, Nvidia Falls, CoreWeave and Microsoft Join List",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T13:25:53.555608-05:00",
-    "symbols": [
-      "AFRM"
-    ],
-    "headline": "Affirm CEO Max Levchin Comments on California Tax Proposal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T13:25:53.560315-05:00",
-    "symbols": [
-      "AFRM"
-    ],
-    "headline": "California Could Raise $100 Billion From Billionaires \u2014 But There's a $38.9 Billion Problem",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T13:25:53.564742-05:00",
-    "symbols": [
-      "AFRM"
-    ],
-    "headline": "BofA Securities Highlights Affirm in Consumer Resiliency Note",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-03T13:25:53.633832-05:00",
     "symbols": [
       "ENPH"
@@ -4995,6 +4905,96 @@
       "GPRO"
     ],
     "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T14:59:08.336214-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Marvell Stock Takes Two Hits in One Morning: Both Blame the Lumentum Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T14:59:08.638782-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "EXCLUSIVE: Top 12 Most-Searched Tickers in October on Benzinga Pro \u2013 SpaceX Soars, Micron Rises, Nvidia Falls, CoreWeave and Microsoft Join List",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T14:59:08.870886-05:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Penguin Solutions 13D Filing Shows SK hynix Acquired $377.2M In Convertible Preferred Stock, Securing 9.1% Beneficial Ownership",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T14:59:09.108110-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell Stock Takes Two Hits in One Morning: Both Blame the Lumentum Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T14:59:09.214462-05:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "Jim Cramer Likes This Industrial Stock: \u2018It\u2019s Come Down A Great Deal\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T14:59:09.350961-05:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "Truist Securities Maintains Hold on ON Semiconductor, Raises Price Target to $76",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T14:59:09.561753-05:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "EXCLUSIVE: Top 12 Most-Searched Tickers in October on Benzinga Pro \u2013 SpaceX Soars, Micron Rises, Nvidia Falls, CoreWeave and Microsoft Join List",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T14:59:09.731733-05:00",
+    "symbols": [
+      "AFRM"
+    ],
+    "headline": "Affirm CEO Max Levchin Comments on California Tax Proposal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T14:59:09.736888-05:00",
+    "symbols": [
+      "AFRM"
+    ],
+    "headline": "California Could Raise $100 Billion From Billionaires \u2014 But There's a $38.9 Billion Problem",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

@@ -45431,7 +45431,13 @@
 "seen": 36,
 "last_ts": "2026-10-30T16:01:34.490658-04:00",
 "entry_min": 18.54,
-"entry_max": 18.56
+"entry_max": 18.56,
+"label_fill": 18.935,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 5.94,
+"label_outcome": "WIN",
+"label_mfe_pct": 8.61,
+"label_mae_pct": 0.0
 },
 {
 "ts": "2026-10-30T13:11:07.440623-04:00",
@@ -45493,7 +45499,13 @@
 "seen": 10,
 "last_ts": "2026-10-30T14:17:31.870176-04:00",
 "entry_min": 65.52,
-"entry_max": 65.52
+"entry_max": 65.52,
+"label_fill": 67.5,
+"label_exit_reason": "stop",
+"label_pnl_pct": -2.93,
+"label_outcome": "LOSS",
+"label_mfe_pct": 0.56,
+"label_mae_pct": -3.84
 },
 {
 "ts": "2026-10-30T13:11:09.430054-04:00",
@@ -45555,7 +45567,13 @@
 "seen": 5,
 "last_ts": "2026-10-30T14:17:33.077588-04:00",
 "entry_min": 187.61,
-"entry_max": 187.61
+"entry_max": 187.61,
+"label_fill": 184.59,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.38,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 1.81,
+"label_mae_pct": -0.9
 },
 {
 "ts": "2026-11-02T09:26:37.961360-05:00",
@@ -46234,8 +46252,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 32,
-"last_ts": "2026-11-03T15:48:19.087583-05:00",
+"seen": 36,
+"last_ts": "2026-11-03T16:01:34.837996-05:00",
 "entry_min": 11.08,
 "entry_max": 11.08
 },
@@ -46296,8 +46314,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 14,
-"last_ts": "2026-11-03T15:48:19.983767-05:00",
+"seen": 16,
+"last_ts": "2026-11-03T16:01:35.351593-05:00",
 "entry_min": 58.23,
 "entry_max": 58.87
 },

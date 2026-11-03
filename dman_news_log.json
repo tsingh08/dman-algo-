@@ -1,225 +1,5 @@
 [
   {
-    "ts": "2026-11-02T15:36:14.234124-05:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "AMD Could Swing $90.7 Billion After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T15:36:14.720168-05:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Barclays Maintains Equal-Weight on Chevron, Raises Price Target to $244",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T15:36:15.625646-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Bitcoin, Gold Have \u2018Blown Their Tops,\u2019 Bloomberg&#39;s McGlone Warns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-02T15:36:15.629992-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. VP JD Vance On Iran, Says We&#39;ve Made Some Progress, Will See If Can Make Some More; Have Not Set Deadlines To Resume Strikes",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-02T15:36:20.019053-05:00",
-    "symbols": [
-      "MAR"
-    ],
-    "headline": "Marriott Intl Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T15:36:20.024486-05:00",
-    "symbols": [
-      "MAR"
-    ],
-    "headline": "Marriott CFO Says Expecting Strong Demand Trends That We Saw In Q3 Across Chain Scales And Customer Segments To Continue In Q4; In EMEA, Continued Strength In Europe Is Anticipated To Be More Than Offset By Declines In The Middle East",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T15:36:20.029250-05:00",
-    "symbols": [
-      "MAR"
-    ],
-    "headline": "Marriott Q3 Incentive Management Fees $181M, Up 22% Y/Y",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T15:36:20.208913-05:00",
-    "symbols": [
-      "MIST"
-    ],
-    "headline": "Milestone Pharmaceuticals Says CARDAMYST Restored Normal Heart Rhythm In 66.7% vs. 20.0% On Placebo In Phase 3 Subgroup Of 11 Post-Ablation Patients",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T15:36:20.526840-05:00",
-    "symbols": [
-      "ACH"
-    ],
-    "headline": "Accendra Health Extends $150M Receivables Purchase Agreement To October 2029 With Its Size Unchanged",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T15:47:25.344347-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "QUICK SPARK: CoreWeave Stock Hits New All-Time Low",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-02T15:47:25.866768-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "QUICK SPARK: CoreWeave Stock Hits New All-Time Low",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-02T15:47:26.434915-05:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "TalentNeuron Brings Labor Market Intelligence to Snowflake Marketplace",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-02T15:47:26.439589-05:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Snowflake to Announce Third Quarter Fiscal 2027 Financial Results on December 2, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-02T15:47:26.724080-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Nvidia, AMD, Marvell Targets Cut: Melius Pulls Back on AI Stocks as Big Tech Lines Up to Raise Cash",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T15:47:27.287094-05:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Nvidia, AMD, Marvell Targets Cut: Melius Pulls Back on AI Stocks as Big Tech Lines Up to Raise Cash",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-02T15:47:27.850596-05:00",
-    "symbols": [
-      "AFRM"
-    ],
-    "headline": "BMO Capital Markets Raises Price Target on Affirm Holdings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T15:47:28.181017-05:00",
-    "symbols": [
-      "FSLR"
-    ],
-    "headline": "Barclays Maintains Overweight on First Solar, Lowers Price Target to $230",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T15:47:28.518199-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Ark Invest Trims Eli Lilly Holdings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T15:47:28.674110-05:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "Guggenheim Maintains Buy on Biogen, Raises Price Target to $300",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T15:47:29.474744-05:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Rocket Lab Conducts 'The Sea God Surveys' Launch Mission",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T15:47:29.774943-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "QUICK SPARK: CoreWeave Stock Hits New All-Time Low",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T15:47:30.207222-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitmine Adds 8,573 ETH as Tom Lee Cites 6 Bullish Factors for ETH",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-02T15:47:30.338581-05:00",
     "symbols": [
       "MARA"
@@ -4998,5 +4778,225 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T09:31:23.069982-05:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "AMD, Shopify On Deck Tuesday As AI Spending, Merchant Growth Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T09:31:23.075092-05:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "AMD Could Swing $90.7 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T09:31:23.121643-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Barclays Maintains Equal-Weight on Chevron, Raises Price Target to $244",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T09:32:20.739389-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Beam Therapeutics Reports Milestone Payment from Eli Lilly",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T09:32:20.744883-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Bio-K+ Expands Professional-Grade Pro Line to Costco.ca",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T09:32:20.750636-05:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Cloudflare Introduces Zero Wire Vulnerability Intelligence Feed",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T09:32:20.756331-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Samsung Reportedly Secures AMD Orders for New Texas Chip Plant",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T09:32:20.976637-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto Networks to Announce Fiscal First Quarter 2027 Financial Results on November 18, 2026",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T09:32:20.982472-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Research Solutions Integrates Scite and Article Galaxy with Microsoft Copilot",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T09:32:20.988688-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Snowflake Announces Autonomous Data Engineering and AI Agent Innovations at Snowflake Expedition 2026",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T09:32:20.993914-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Releases Analysis of 383,000 Security Vulnerabilities",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T09:32:20.999307-05:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Cantor Fitzgerald Maintains Buy Rating on Robinhood Markets",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T09:33:20.531748-05:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "HSBC Upgrades GE Vernova to Buy; Argus Research Adjusts Price Target",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T09:33:20.540497-05:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "Raytheon Awarded DARPA Contract for PICASSO Program",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T09:33:20.571323-05:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "ARK Invest Purchases Coinbase Shares",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T09:33:20.576699-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Evercore ISI Adjusts Price Target on Chevron to $250 From $225",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T09:33:20.581955-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Iraq Reaches Agreement with Chevron on West Qurna-2 Oilfield",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T09:33:20.587603-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "The Goldman Sachs Group, Inc. Files Major Holdings Notification for ASOS PLC",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T09:33:20.595384-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Reportedly Launches 5-Part US Dollar Bond Offering",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T09:33:20.786201-05:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Adobe Introduces New Program for Startups",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T09:33:20.791840-05:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "Financial Institutions Adjust Price Targets for ON Semiconductor Following Q3 Earnings",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T09:34:20.879393-05:00",
+    "symbols": [
+      "ELF"
+    ],
+    "headline": "Rhode Announces $5 Million Commitment to Foundation for Women's Health",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

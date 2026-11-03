@@ -157,6 +157,13 @@ def setUpModule():
         _p = patch.object(a, _const, _tmp)
         _p.start()
         _state_write_isolation.append(_p)
+    # sync_alpaca_fills() asks origin whether another checkout already
+    # recorded a close (2026-11-02). In the suite that would be a real
+    # `git fetch` per recorded close against the live repo; the function is
+    # covered directly in TestCloseKeyOnOrigin.
+    _p = patch.object(a, "_close_key_on_origin", lambda _k: False)
+    _p.start()
+    _state_write_isolation.append(_p)
 
 
 def tearDownModule():
@@ -1499,6 +1506,45 @@ class TestSyncWinRateWithRemote(unittest.TestCase):
     def test_distinct_trades_are_kept(self):
         other = dict(self.OLD, date="2026-08-07")
         self.assertEqual(len(self._sync([self.OLD], [other])), 2)
+
+
+_REAL_CLOSE_KEY_ON_ORIGIN = a._close_key_on_origin   # before setUpModule's patch
+
+
+class TestCloseKeyOnOrigin(unittest.TestCase):
+    """2026-11-02: the scanner re-recorded STGW's close 6.5 min after the
+    daemon had pushed it — a second Telegram and ledger row."""
+
+    def setUp(self):
+        a._ORIGIN_CLOSE_KEYS.update(at=0.0, keys=None)
+
+    def tearDown(self):
+        a._ORIGIN_CLOSE_KEYS.update(at=0.0, keys=None)
+
+    def _git(self, show_stdout, show_rc=0):
+        def run(cmd, **_kw):
+            if cmd[:2] == ["git", "show"]:
+                return MagicMock(returncode=show_rc, stdout=show_stdout)
+            return MagicMock(returncode=0, stdout="")
+        return patch("subprocess.run", side_effect=run)
+
+    def test_a_close_pushed_by_another_checkout_is_found(self):
+        pnl = {"entries": [{"ts": "x", "pnl_pct": 0.85, "key": "oid-1|9.8684"}]}
+        with self._git(json.dumps(pnl)) as run:
+            self.assertTrue(_REAL_CLOSE_KEY_ON_ORIGIN("oid-1|9.8684"))
+            self.assertFalse(_REAL_CLOSE_KEY_ON_ORIGIN("oid-2|5.0"))
+        self.assertEqual(run.call_count, 2, "one fetch + one show, then cached")
+
+    def test_git_failure_fails_open(self):
+        with self._git("", show_rc=128):
+            self.assertFalse(_REAL_CLOSE_KEY_ON_ORIGIN("oid-1|9.8684"))
+        with patch("subprocess.run", side_effect=OSError("no git")), \
+             patch.object(a, "_log_swallowed"):
+            self.assertFalse(_REAL_CLOSE_KEY_ON_ORIGIN("oid-1|9.8684"))
+
+    def test_sync_checks_origin_before_recording(self):
+        src = inspect.getsource(a.sync_alpaca_fills)
+        self.assertLess(src.index("_close_key_on_origin("), src.index("tracker.record(TradeRecord("))
 
 
 class TestSyncAlpacaSyncStateWithRemote(unittest.TestCase):
@@ -19543,6 +19589,21 @@ class TestBreakoutZones(unittest.TestCase):
             self.assertEqual(a._recent_logged_zones(), [])          # too old to show
         import shutil as _sh; _sh.rmtree(d, True)
 
+    def test_fridays_zones_are_fresh_on_monday_in_sessions(self):
+        """2026-11-02: max_age_days=2 made Friday's log 3 days old on Monday,
+        so the entry path saw no candidates. Friday -> Monday is 1 session."""
+        d = tempfile.mkdtemp(); f = os.path.join(d, "bz.json")
+        json.dump([{"ticker": "GDYN", "date": "2026-10-30"}], open(f, "w"))
+        with patch.object(a, "BZONE_SHADOW_FILE", f), \
+             patch.object(a, "_et_today", return_value=date(2026, 11, 2)):
+            self.assertEqual(a._recent_logged_zones(max_age_days=2), [])
+            self.assertEqual([r["ticker"] for r in a._recent_logged_zones(max_sessions=2)],
+                             ["GDYN"])
+        with patch.object(a, "BZONE_SHADOW_FILE", f), \
+             patch.object(a, "_et_today", return_value=date(2026, 11, 4)):
+            self.assertEqual(a._recent_logged_zones(max_sessions=2), [])   # 3 sessions
+        import shutil as _sh; _sh.rmtree(d, True)
+
     def test_the_scanner_mode_exists(self):
         self.assertIn('"bzone"', inspect.getsource(a.main))
         self.assertIn("dman_bzone_shadow.json", open(os.path.join(
@@ -23406,6 +23467,17 @@ class TestZonesGetAFloorAndExposureNotHeadcount(unittest.TestCase):
             room, why = a._bzone_exposure_room()
         self.assertEqual(room, 0.0)
         self.assertIn("exposure used", why)
+
+    def test_room_is_counted_at_research_size(self):
+        """$200 of room fits a $125 research-size entry; measuring against the
+        full $250 used to refuse it."""
+        with patch.object(a, "get_effective_account", return_value=2500.0), \
+             patch.object(a, "_bzone_exposure", return_value=800.0), \
+             patch.object(a, "_strategy_size_mult", return_value=0.5):
+            room, why = a._bzone_exposure_room()
+            self.assertEqual(a._bzone_trade_dollars(), a.BZONE_TRADE_DOLLARS * 0.5)
+        self.assertEqual(room, 200.0)
+        self.assertEqual(why, "")
 
     def test_unknown_equity_refuses_to_size(self):
         """Fails CLOSED: adding stopless exposure on an unknown denominator is

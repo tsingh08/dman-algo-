@@ -14674,6 +14674,15 @@ def _bzone_exposure() -> float:
         return 0.0
 
 
+def _bzone_trade_dollars() -> float:
+    """Dollars one zone entry actually commits: BZONE_TRADE_DOLLARS at the
+    strategy's current research-size multiplier. The exposure cap must count
+    in this unit -- measuring room against the full $250 while entries go in
+    at $125 refused an entry with $125-$249 of room and admitted half as many
+    zones as the dollar cap allows."""
+    return BZONE_TRADE_DOLLARS * _strategy_size_mult(lambda s: s.startswith(BZONE_SETUP))
+
+
 def _bzone_exposure_room() -> tuple:
     """(dollars_available, why). How much more zone exposure may be opened.
 
@@ -14687,10 +14696,11 @@ def _bzone_exposure_room() -> tuple:
         _cap = _eq * BZONE_MAX_EXPOSURE_PCT
         _now = _bzone_exposure()
         _room = _cap - _now
-        if _room < BZONE_TRADE_DOLLARS:
+        _per = _bzone_trade_dollars()
+        if _room < _per:
             return 0.0, (f"${_now:,.0f} of ${_cap:,.0f} zone exposure used "
                          f"({BZONE_MAX_EXPOSURE_PCT:.0%} of ${_eq:,.0f}) — "
-                         f"no room for another ${BZONE_TRADE_DOLLARS:,.0f}")
+                         f"no room for another ${_per:,.0f}")
         return _room, ""
     except Exception as exc:
         _log_swallowed("bzone exposure room", exc)
@@ -14862,14 +14872,15 @@ def run_breakout_zone_manage(notify: bool = True) -> dict:
         nonlocal _exposure_checked, _room
         _d, _w = _bzone_exposure_room()
         _exposure_checked = True
-        _by_dollars = int(_d // BZONE_TRADE_DOLLARS) if _d > 0 else 0
+        _by_dollars = int(_d // _per_trade) if _d > 0 else 0
         _room = min(_room, _by_dollars)
         return (_room > 0), _w
     _held_tickers = {str(p.ticker).upper() for p in _open} | _broker_committed_symbols()
     if "*" in _held_tickers:
         out["skipped"] = "broker holdings unreadable — no zone entries this pass"
         return out
-    for _row in _recent_logged_zones(max_age_days=2):
+    _per_trade = _bzone_trade_dollars()
+    for _row in _recent_logged_zones(max_sessions=2):
         if _room <= 0:
             break
         _t, _px = _row.get("ticker", ""), float(_row.get("close", 0) or 0)
@@ -14879,8 +14890,7 @@ def run_breakout_zone_manage(notify: bool = True) -> dict:
             continue
         if _is_duplicate_alert(f"__BZONE_ENTRY__:{_t}", cooldown_min=24 * 60):
             continue          # already acted on this name today
-        _qty = int(BZONE_TRADE_DOLLARS * _strategy_size_mult(
-            lambda s: s.startswith(BZONE_SETUP)) // max(_px, 0.01))
+        _qty = int(_per_trade // max(_px, 0.01))
         if _qty < 1:
             continue
         # Exposure is the real cap; asked here so a pure exit pass never needs
@@ -14924,8 +14934,16 @@ def run_breakout_zone_manage(notify: bool = True) -> dict:
     return out
 
 
-def _recent_logged_zones(max_age_days: int = 4) -> list[dict]:
-    """The newest day's zones from the shadow log, if that day is recent."""
+def _recent_logged_zones(max_age_days: int = 4,
+                         max_sessions: Optional[int] = None) -> list[dict]:
+    """The newest day's zones from the shadow log, if that day is recent.
+
+    max_sessions, when given, measures age in trading sessions instead of
+    calendar days. The entry path used max_age_days=2, and the log is written
+    after each close, so on a Monday the newest rows are Friday's -- 3 calendar
+    days -- and the manager saw no candidates at all: none of the first 9
+    live zone trades entered on a Monday, and 2026-11-02 skipped Friday's
+    GDYN/MAX/OSPN/ACCO. Friday -> Monday is 1 session."""
     try:
         with open(BZONE_SHADOW_FILE) as f:
             log = json.load(f)
@@ -14934,7 +14952,11 @@ def _recent_logged_zones(max_age_days: int = 4) -> list[dict]:
         newest = max(str(r.get("date", "")) for r in log)
         if not newest:
             return []
-        if (_et_today() - date.fromisoformat(newest)).days > max_age_days:
+        _d = date.fromisoformat(newest)
+        if max_sessions is not None:
+            if _sessions_between(_d, _et_today()) > max_sessions:
+                return []
+        elif (_et_today() - _d).days > max_age_days:
             return []
         return [r for r in log if str(r.get("date", "")) == newest]
     except (FileNotFoundError, json.JSONDecodeError, ValueError, TypeError):
@@ -29609,6 +29631,40 @@ def _orphan_entry_date(symbol: str, orders: list) -> str:
     return (datetime.now(ET).date() - timedelta(days=1)).isoformat()
 
 
+_ORIGIN_CLOSE_KEYS: dict = {"at": 0.0, "keys": None}
+_ORIGIN_CLOSE_KEYS_TTL_SEC = 60
+
+
+def _close_key_on_origin(pnl_key: str) -> bool:
+    """True when origin/main's dman_daily_pnl.json already holds this close's
+    P&L key, i.e. another checkout recorded and pushed it after this one was
+    checked out. recorded_ids and the ledger dupe guard only see this
+    checkout's files. Confirmed live 2026-11-02: the scanner checked out at
+    14:45:54 ET, the daemon recorded STGW's close at 14:46 and pushed it at
+    14:47:30, and the scanner recorded it again at 14:54 -- a second
+    "Trade Closed" Telegram and a second ledger row. Fetched only when a close
+    is about to be recorded, cached 60s; any git error answers False (the
+    keyed merges still collapse the duplicate, so failing open is safe)."""
+    import subprocess
+    try:
+        if (_ORIGIN_CLOSE_KEYS["keys"] is None
+                or time.time() - _ORIGIN_CLOSE_KEYS["at"] > _ORIGIN_CLOSE_KEYS_TTL_SEC):
+            subprocess.run(["git", "fetch", "--quiet", "origin", "main"],
+                           capture_output=True, timeout=20)
+            raw = subprocess.run(["git", "show", f"origin/main:{DAILY_PNL_FILE}"],
+                                 capture_output=True, text=True, timeout=15)
+            if raw.returncode != 0 or not raw.stdout.strip():
+                return False
+            _entries = (json.loads(raw.stdout) or {}).get("entries", [])
+            _ORIGIN_CLOSE_KEYS["keys"] = {e.get("key") for e in _entries
+                                          if isinstance(e, dict) and e.get("key")}
+            _ORIGIN_CLOSE_KEYS["at"] = time.time()
+        return pnl_key in _ORIGIN_CLOSE_KEYS["keys"]
+    except Exception as exc:
+        _log_swallowed("origin close check", exc)
+        return False
+
+
 def sync_alpaca_fills(tracker: WinRateTracker) -> int:
     """
     Detect positions that closed in Alpaca since the last sync.
@@ -29696,7 +29752,11 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
             if _recheck is not None and abs(float(_recheck.qty)) > 0:
                 continue   # false negative — genuinely still open, leave tracking untouched
         except Exception as _swallowed:
-            _log_swallowed("sync_alpaca_fills", _swallowed)   # genuinely not found (404) — proceed below
+            # A 404 is the expected answer (the position really is gone) and
+            # used to print as a "tolerated error" on every close, which the
+            # after-close review then flagged. Anything else is still logged.
+            if "position does not exist" not in str(_swallowed):
+                _log_swallowed("sync_alpaca_fills", _swallowed)
 
         # Position is gone from Alpaca — find the exit fill(s)
         try:
@@ -29883,6 +29943,11 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
                 print(f"  ⏭️  Skipped duplicate close record: {ticker} "
                       f"${pos.entry}→${fill_px:.2f} already in win-rate history")
                 continue   # keep scanning — a different order in this batch may be a real, distinct tranche
+            if _close_key_on_origin(f"{oid}|{round(pos.entry, 4)}"):
+                recorded_ids.add(oid)
+                print(f"  ⏭️  Skipped close already recorded on origin by another checkout: "
+                      f"{ticker} ${pos.entry}→${fill_px:.2f}")
+                continue
 
             tracker.record(TradeRecord(
                 ticker  = ticker,

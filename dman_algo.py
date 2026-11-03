@@ -3978,14 +3978,28 @@ def _setup_probation_bonus(setup: str) -> int:
 # Verdicts now take the WORSE of raw and excess-over-SPY, which can only
 # disable more -- it can never re-enable a setup the raw record already killed.
 _SPY_OHLC: dict = {}
+_SPY_OHLC_REFRESHED_AT = [0.0]
+_SPY_OHLC_REFRESH_SEC = 300
 
 
-def _spy_ohlc_map() -> dict:
-    """{iso date: (open, close)} for SPY, fetched once per process; {} if unknown."""
-    if _SPY_OHLC or not ALPACA_API_KEY:
+def _spy_ohlc_map(refresh: bool = False) -> dict:
+    """{iso date: (open, close)} for SPY; {} if unknown. Fetched once per
+    process, and again (at most every _SPY_OHLC_REFRESH_SEC) on refresh —
+    the daemon starts before the open, so its first map has no bar for the
+    day it records closes on. Confirmed live 2026-11-02: BTE and ABSI closed
+    in the daemon with spy_pct None (judged on raw P&L) while the scanner's
+    STGW got one."""
+    if not ALPACA_API_KEY:
         return _SPY_OHLC
+    if _SPY_OHLC and not refresh:
+        return _SPY_OHLC
+    if refresh and time.time() - _SPY_OHLC_REFRESHED_AT[0] < _SPY_OHLC_REFRESH_SEC:
+        return _SPY_OHLC
+    _SPY_OHLC_REFRESHED_AT[0] = time.time()
     try:
-        _df = fetch_df("SPY", period_days=800)
+        # refresh bypasses fetch_df's per-process cache, which would hand
+        # back the same pre-open frame.
+        _df = _fetch_alpaca_daily("SPY", 800) if refresh else fetch_df("SPY", period_days=800)
         if _df is not None:
             for _ts, _row in _df.iterrows():
                 _SPY_OHLC[str(_ts)[:10]] = (float(_row["Open"]), float(_row["Close"]))
@@ -3995,9 +4009,14 @@ def _spy_ohlc_map() -> dict:
 
 
 def _spy_return_pct(entry_date, exit_date) -> Optional[float]:
-    """SPY from the entry day's open to the exit day's close, in %; None if unknown."""
+    """SPY from the entry day's open to the exit day's close, in %; None if
+    unknown. A same-day exit re-reads today's still-forming bar, so its
+    "close" is SPY near the exit, not a stale pre-open snapshot."""
+    _ex = str(exit_date or "")[:10]
     _m = _spy_ohlc_map()
-    _a, _b = _m.get(str(entry_date or "")[:10]), _m.get(str(exit_date or "")[:10])
+    if _ex and (_ex not in _m or _ex == _et_today().isoformat()):
+        _m = _spy_ohlc_map(refresh=True)
+    _a, _b = _m.get(str(entry_date or "")[:10]), _m.get(_ex)
     if not _a or not _b or _a[0] <= 0:
         return None
     return round((_b[1] / _a[0] - 1) * 100, 3)
@@ -21071,7 +21090,7 @@ def merge_json_lists(local_list: list, remote_list: list, key_fn=None,
 
 
 def _sync_json_file_via_merge(filepath: str, extract, rebuild, label: str,
-                              key_fn=None) -> None:
+                              key_fn=None, collapse_duplicates: bool = False) -> None:
     """
     Shared plumbing for sync_scan_log_with_remote() / sync_win_rate_with_remote()
     / etc: fetch origin's copy, merge with the local copy via the caller-
@@ -21085,6 +21104,11 @@ def _sync_json_file_via_merge(filepath: str, extract, rebuild, label: str,
     decide which remote entries are "new" — needed when the same logical
     event can be written by two machines with fields that legitimately
     differ (see _pnl_entry_merge_key()).
+
+    collapse_duplicates=True also drops repeats of a key already present
+    (first occurrence wins), on BOTH sides — so a copy that was polluted
+    before key_fn existed heals on its next sync instead of keeping its
+    duplicates forever under merge_json_lists()'s local-is-base rule.
     """
     import subprocess
     try:
@@ -21114,6 +21138,15 @@ def _sync_json_file_via_merge(filepath: str, extract, rebuild, label: str,
         key_fn = (lambda x: json.dumps(x, sort_keys=True)
                   if isinstance(x, (dict, list)) else x)
     merged_list = merge_json_lists(local_list, remote_list, key_fn=key_fn)
+    if collapse_duplicates:
+        _seen = set()
+        _unique = []
+        for item in merged_list:
+            k = key_fn(item)
+            if k not in _seen:
+                _seen.add(k)
+                _unique.append(item)
+        merged_list = _unique
     if len(merged_list) == len(local_list) and local_extra == remote_extra:
         return   # nothing new from remote and no extra-field change — avoid a needless rewrite
     rebuilt = rebuild(merged_list, local_extra, remote_extra)
@@ -21182,14 +21215,57 @@ def sync_news_log_with_remote() -> None:
     )
 
 
+# The TradeRecord fields that identify a trade. Everything outside this set
+# is machine-sampled (spy_pct) or schema-evolution noise — see
+# _win_rate_merge_key().
+_WIN_RATE_IDENTITY_FIELDS = (
+    "ticker", "date", "bias", "setup", "entry", "exit",
+    "outcome", "pnl_pct", "score", "is_live",
+)
+
+
+def _win_rate_merge_key(rec):
+    """
+    Merge identity for one win-rate record: its core trade fields, not its
+    raw bytes. Byte identity re-appended the same close in two confirmed
+    ways (2026-11-02):
+
+    1. Rows written before the 2026-10-31 schema change lack the
+       entry_date/shares/pnl_usd/spy_pct KEYS on disk, while a side that
+       has round-tripped the file through WinRateTracker._save() carries
+       them (asdict() fills defaults). Every old-format row then looked
+       new, and each cross-side sync appended all 84 again: the ledger
+       went 141 -> 225 -> 310 -> 395 rows in one day, CLRO's -28.06% live
+       loss 4x, and merged[-500:] (positional, unlike _save()'s live-exempt
+       trim) was two more syncs from evicting real live rows.
+    2. spy_pct is sampled from live SPY data at record time, so when the
+       daemon and the cron scanner both record the same close before
+       either's push propagates (the race _pnl_entry_merge_key() handles
+       for P&L), the copies differ only in spy_pct — STGW's single +8.63%
+       zone close landed twice (spy_pct -0.936 vs -0.495).
+
+    Collapsing on these fields cannot merge two genuinely distinct live
+    trades: sync_alpaca_fills()'s dupe guard already refuses a second close
+    with the same ticker+setup+exit within 2 days.
+    """
+    if isinstance(rec, dict):
+        return json.dumps({k: rec.get(k) for k in _WIN_RATE_IDENTITY_FIELDS},
+                          sort_keys=True)
+    return rec
+
+
 def sync_win_rate_with_remote() -> None:
     """dman_win_rate.json — flat list, capped at 500 most recent (see
-    WinRateTracker._save())."""
+    WinRateTracker._save()). Unioned by _win_rate_merge_key() with
+    duplicates collapsed, so a checkout polluted by the old byte-identity
+    merge heals on its next sync."""
     _sync_json_file_via_merge(
         WIN_RATE_FILE,
         extract=lambda d: (d, None),
         rebuild=lambda merged, _le, _re: merged[-500:],
         label="dman_win_rate.json",
+        key_fn=_win_rate_merge_key,
+        collapse_duplicates=True,
     )
 
 

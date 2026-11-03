@@ -81,6 +81,15 @@ with open(_SRC_PATH, encoding="utf-8") as _f:
     _SOURCE = _f.read()
 
 
+def _today_bar_ts() -> str:
+    """Alpaca stamps a daily bar at midnight ET in UTC: 04:00Z under EDT,
+    05:00Z under EST. A hard-coded T04:00:00Z reads as 23:00 the PREVIOUS
+    ET day once daylight saving ends (5 market-wide screen tests went red
+    on 2026-11-02, the first EST session)."""
+    _mid = datetime.combine(a._et_today(), datetime.min.time(), tzinfo=a.ET)
+    return _mid.astimezone(_dt_timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
 
 _flags_isolation = None
 _wl_isolation = None
@@ -1440,6 +1449,56 @@ class TestSyncScanLogWithRemote(unittest.TestCase):
         self.assertEqual(result[-1]["ts"], "2026-08-11T21:00:00-04:00",
                           "newest entry must remain last (ascending order), "
                           "matching print_scan_log()'s reversed() convention")
+
+
+class TestSyncWinRateWithRemote(unittest.TestCase):
+    """Confirmed live 2026-11-02: byte-identity merging grew the ledger
+    141 -> 395 rows in one day. Old-format rows (no spy_pct/shares/... keys
+    on disk) never byte-matched their asdict()-normalized copies, so every
+    cross-side sync re-appended them; and the daemon + scanner recorded
+    STGW's one close twice with different sampled spy_pct."""
+
+    OLD = {"ticker": "CLRO", "date": "2026-08-06", "bias": "LONG",
+           "setup": "Low Float Catalyst", "entry": 1.0, "exit": 0.72,
+           "outcome": "LOSS", "pnl_pct": -28.06, "score": 100, "is_live": True}
+
+    def setUp(self):
+        self._tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
+        self._tmp.close()
+        self._patch = patch.object(a, "WIN_RATE_FILE", self._tmp.name)
+        self._patch.start()
+
+    def tearDown(self):
+        self._patch.stop()
+        os.unlink(self._tmp.name)
+
+    def _sync(self, local, remote):
+        with open(self._tmp.name, "w") as f:
+            json.dump(local, f)
+        with patch("subprocess.run") as mock_run:
+            mock_run.return_value = MagicMock(returncode=0, stdout=json.dumps(remote))
+            a.sync_win_rate_with_remote()
+        with open(self._tmp.name) as f:
+            return json.load(f)
+
+    def test_old_format_row_is_not_reappended(self):
+        normalized = dict(self.OLD, entry_date=None, shares=None,
+                          pnl_usd=None, spy_pct=None)
+        self.assertEqual(self._sync([normalized], [self.OLD]), [normalized])
+
+    def test_same_close_with_different_spy_pct_counts_once(self):
+        mine = dict(self.OLD, ticker="STGW", pnl_pct=8.63, spy_pct=-0.936)
+        theirs = dict(mine, spy_pct=-0.495)
+        self.assertEqual(self._sync([mine], [theirs]), [mine])
+
+    def test_polluted_local_copy_heals_and_new_remote_row_lands(self):
+        other = dict(self.OLD, ticker="STGW", pnl_pct=8.63)
+        result = self._sync([self.OLD, self.OLD, self.OLD], [self.OLD, other])
+        self.assertEqual(result, [self.OLD, other])
+
+    def test_distinct_trades_are_kept(self):
+        other = dict(self.OLD, date="2026-08-07")
+        self.assertEqual(len(self._sync([self.OLD], [other])), 2)
 
 
 class TestSyncAlpacaSyncStateWithRemote(unittest.TestCase):
@@ -6434,7 +6493,7 @@ class TestMarketWideScreen(unittest.TestCase):
         # the o-vs-pc gap means. Undated bars were ambiguous about which
         # session they described, and before the open the same formula
         # reported the PREVIOUS session's gap -- see _snapshot_gap().
-        return {"dailyBar": {"t": f"{a._et_today()}T04:00:00Z", "o": o, "c": c, "v": v},
+        return {"dailyBar": {"t": _today_bar_ts(), "o": o, "c": c, "v": v},
                 "prevDailyBar": {"c": pc}}
 
     def _run(self, snaps):
@@ -6477,18 +6536,18 @@ class TestMarketWideScreen(unittest.TestCase):
 
     def test_a_real_gap_with_volume_expansion_survives(self):
         # AOUT's actual Friday shape: gapped and volume expanded.
-        snaps = {"AOUT": {"dailyBar": {"t": f"{a._et_today()}T04:00:00Z", "o": 14.0, "c": 14.5, "v": 4_000_000},
+        snaps = {"AOUT": {"dailyBar": {"t": _today_bar_ts(), "o": 14.0, "c": 14.5, "v": 4_000_000},
                           "prevDailyBar": {"c": 11.0, "v": 900_000}}}
         self.assertIn("AOUT", self._run(snaps))
 
     def test_absurd_gap_is_rejected_outright(self):
-        snaps = {"XXXX": {"dailyBar": {"t": f"{a._et_today()}T04:00:00Z", "o": 50.0, "c": 50.0, "v": 9_000_000},
+        snaps = {"XXXX": {"dailyBar": {"t": _today_bar_ts(), "o": 50.0, "c": 50.0, "v": 9_000_000},
                           "prevDailyBar": {"c": 1.0, "v": 1_000_000}}}
         self.assertEqual(self._run(snaps), [])
 
     def test_missing_prior_volume_does_not_reject_a_gapper(self):
         # No prior-volume figure is not evidence of a split.
-        snaps = {"AAA": {"dailyBar": {"t": f"{a._et_today()}T04:00:00Z", "o": 11.0, "c": 11.5, "v": 500_000},
+        snaps = {"AAA": {"dailyBar": {"t": _today_bar_ts(), "o": 11.0, "c": 11.5, "v": 500_000},
                          "prevDailyBar": {"c": 10.0}}}
         self.assertIn("AAA", self._run(snaps))
 
@@ -18769,7 +18828,7 @@ class TestMarketWideScreenSeesHighPricedGappers(unittest.TestCase):
     on the watchlist and a hard-coded $100 cap removed it from the screen."""
 
     def test_a_high_priced_gapper_survives_the_screen(self):
-        snaps = {"INTC": {"dailyBar": {"t": f"{a._et_today()}T04:00:00Z", "o": 116.5,
+        snaps = {"INTC": {"dailyBar": {"t": _today_bar_ts(), "o": 116.5,
                                        "c": 121.8, "v": 90_000_000},
                           "prevDailyBar": {"c": 108.6}}}
         r = MagicMock(); r.status_code = 200; r.json.return_value = snaps
@@ -30218,6 +30277,20 @@ class TestJudgedAgainstSpy(unittest.TestCase):
                           return_value={"2026-10-01": (100.0, 101.0), "2026-10-05": (102.0, 110.0)}):
             self.assertEqual(a._spy_return_pct("2026-10-01", "2026-10-05"), 10.0)
             self.assertIsNone(a._spy_return_pct("2026-10-01", "2026-10-09"))
+
+    def test_missing_exit_day_refetches_once(self):
+        # 2026-11-02: the daemon's pre-open map had no bar for the exit day,
+        # so BTE and ABSI recorded spy_pct None.
+        stale = {"2026-10-30": (100.0, 101.0)}
+        fresh = a.pd.DataFrame({"Open": [100.0, 103.0], "Close": [101.0, 99.0]},
+                             index=a.pd.to_datetime(["2026-10-30", "2026-11-02"]))
+        with patch.object(a, "_SPY_OHLC", dict(stale)), \
+             patch.object(a, "_SPY_OHLC_REFRESHED_AT", [0.0]), \
+             patch.object(a, "ALPACA_API_KEY", "k"), \
+             patch.object(a, "_fetch_alpaca_daily", return_value=fresh) as f:
+            self.assertEqual(a._spy_return_pct("2026-10-30", "2026-11-02"), -1.0)
+            a._spy_return_pct("2026-10-30", "2026-11-02")
+        self.assertEqual(f.call_count, 1, "refresh is throttled")
 
     def _rec(self, setup, n, pnl):
         return {setup: {"n": n, "wins": 0, "cum_pct": pnl, "cum_judged": pnl}}

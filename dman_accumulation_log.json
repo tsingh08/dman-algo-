@@ -3454,5 +3454,23 @@
   "drift_pct": 1.06,
   "range_ratio": 0.37,
   "near_high": 0.996
+ },
+ {
+  "ts": "2026-11-03T15:20:17.710944-05:00",
+  "ticker": "SPSB",
+  "price": 29.64,
+  "rvol": 1.65,
+  "drift_pct": 0.17,
+  "range_ratio": 0.67,
+  "near_high": 0.989
+ },
+ {
+  "ts": "2026-11-03T15:20:17.710958-05:00",
+  "ticker": "PTLE",
+  "price": 9.51,
+  "rvol": 3.02,
+  "drift_pct": 0.42,
+  "range_ratio": 0.37,
+  "near_high": 0.99
  }
 ]

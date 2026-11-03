@@ -1,125 +1,5 @@
 [
   {
-    "ts": "2026-11-03T09:39:57.922156-05:00",
-    "symbols": [
-      "PODD"
-    ],
-    "headline": "Insulet Corporation to Present at 2026 Jefferies Global Healthcare Conference",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:39:58.167782-05:00",
-    "symbols": [
-      "ABM"
-    ],
-    "headline": "ABM Announces Joint Venture Awarded Army Corps Of Engineers Contract To Build Microgrid At White Sands Missile Range; Terms Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:39:58.403385-05:00",
-    "symbols": [
-      "FOX"
-    ],
-    "headline": "Roku Q3 Highlights: Double Beat, Advertising Revenue up 23%, No Guidance Ahead of Fox Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:39:58.634975-05:00",
-    "symbols": [
-      "XENE"
-    ],
-    "headline": "Xenon Pharmaceuticals to Report Third Quarter 2026 Financial Results on November 9, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:39:58.878518-05:00",
-    "symbols": [
-      "CSCO"
-    ],
-    "headline": "EXCLUSIVE: AI Bubble Risk Is Low, but SMH Faces a Bigger Threat Than QQQ, Expert Warns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T09:39:59.128675-05:00",
-    "symbols": [
-      "CF"
-    ],
-    "headline": "Live On Fox News, President Trump Says &#34;Close To Fertilizer Deal From Canada&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:39:59.634108-05:00",
-    "symbols": [
-      "APTV"
-    ],
-    "headline": "Aptiv Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:39:59.638642-05:00",
-    "symbols": [
-      "APTV"
-    ],
-    "headline": "Aptiv Q3 Includes $56M Non-Cash Intangible Asset Impairment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:39:59.642973-05:00",
-    "symbols": [
-      "APTV"
-    ],
-    "headline": "Aptiv Repurchased 4.7M Shares For $233M In Q3; $1.6B Remaining Authorisation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:39:59.647483-05:00",
-    "symbols": [
-      "APTV"
-    ],
-    "headline": "Aptiv Q3 Free Cash Flow $194M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:39:59.651826-05:00",
-    "symbols": [
-      "APTV"
-    ],
-    "headline": "Aptiv Q3 Adjusted Revenue Up 2%; North America Up 5%, Asia Pacific Up 5%, EMEA Down 5%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:39:59.903414-05:00",
-    "symbols": [
-      "ELAN"
-    ],
-    "headline": "Elanco to Participate in UBS Global Healthcare Conference",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-03T09:40:00.186398-05:00",
     "symbols": [
       "PFS"
@@ -4998,5 +4878,125 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T11:02:20.516802-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Provides Update on Foundayo Development",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T11:02:20.528069-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Goodal Skincare Brand to Launch at Costco",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T11:02:20.535483-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Hyland Launches Integration for Microsoft Teams",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T11:02:20.540771-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Ontinue Launches MXDR Essentials for Microsoft Integrated Security Operations Center",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T11:02:20.545840-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "HiBob Announces New Integrations with Microsoft Entra",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T11:02:20.551128-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Deloitte and Oracle Form Dedicated Business Group",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T11:02:20.563248-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "USA Cycling Selects Snowflake as Official AI Data Cloud & Collaboration Partner",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T11:03:20.527918-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Tutanota LLC Extends Tender Offer for Palo Alto Networks Shares",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T11:03:20.533482-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Adjusts Palantir Technologies Price Target to $235 From $230",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T11:03:20.542552-05:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "UBS Adjusts Price Target on Airbnb to $181",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T11:03:20.552380-05:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "UBS Adjusts Price Target on Vertex Pharmaceuticals to $640 From $615",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T11:03:20.558019-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Analysts Adjust Ratings and Price Targets for Marvell Technology",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

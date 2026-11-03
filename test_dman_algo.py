@@ -6612,6 +6612,24 @@ class TestMoversCache(unittest.TestCase):
         a._movers_cache["tickers"] = None
         a._movers_cache["ts"] = 0.0
         self.addCleanup(lambda: a._movers_cache.update({"tickers": None, "ts": 0.0}))
+        _p = patch.object(a, "_all_tradable_us_equities", return_value=[])
+        self.mock_universe = _p.start()
+        self.addCleanup(_p.stop)
+
+    def test_unlisted_discoveries_are_dropped(self):
+        # KYOCY (OTC ADR) came in from a Yahoo screener on 2026-11-02 and
+        # failed three fetches per scan. The base universe is not filtered.
+        self.mock_universe.return_value = ["AAA", "BBB"]
+        with patch.object(a, "fetch_dman_dynamic_tickers", return_value=["AAA", "KYOCY"]), \
+             patch.object(a, "fetch_earnings_mover_tickers", return_value=["BBB"]):
+            out = a.augment_universe_with_movers(["ZZZ"], verbose=False)
+        self.assertEqual(out, ["ZZZ", "AAA", "BBB"])
+
+    def test_empty_universe_fails_open(self):
+        with patch.object(a, "fetch_dman_dynamic_tickers", return_value=["KYOCY"]), \
+             patch.object(a, "fetch_earnings_mover_tickers", return_value=[]):
+            out = a.augment_universe_with_movers(["ZZZ"], verbose=False)
+        self.assertEqual(out, ["ZZZ", "KYOCY"])
 
     def test_second_call_does_not_refetch(self):
         with patch.object(a, "fetch_dman_dynamic_tickers", return_value=["AAA"]) as m1, \
@@ -7575,6 +7593,37 @@ class TestMonthlyHaltLift(unittest.TestCase):
             src = inspect.getsource(fn)
             if "MONTHLY_LOSS_LIMIT * 100" in src:
                 self.assertIn("_monthly_halt_lifted()", src, fn.__name__)
+
+    # ── The lift's own floor (bot review PR 28, ported 2026-11-03) ───────
+    # September's lift was granted at -4.97%; the boolean then kept the
+    # breaker off all the way to -11.2%.
+
+    def _lifted_with_month_at(self, month_loss, dup=True):
+        with patch.object(a, "_monthly_halt_flag_name",
+                          return_value="MONTHLY_HALT_LIFTED_TEST"),              patch.object(a, "_load_flags",
+                          return_value={"MONTHLY_HALT_LIFTED_TEST": True}),              patch.object(a, "get_this_month_loss", return_value=month_loss),              patch.object(a, "_is_duplicate_alert", return_value=dup),              patch.object(a, "_save_last_alert") as save,              patch.object(a, "send_telegram", return_value=True) as tg:
+            return a._monthly_halt_lifted(), save, tg
+
+    def test_lift_holds_above_the_floor(self):
+        self.assertTrue(self._lifted_with_month_at(-4.97)[0])
+
+    def test_lift_voids_past_the_floor(self):
+        floor = -(a.MONTHLY_LOSS_LIMIT * 100 * a.MONTHLY_HALT_LIFT_FLOOR_MULT)
+        self.assertFalse(self._lifted_with_month_at(floor)[0])     # at the line
+        self.assertFalse(self._lifted_with_month_at(-11.2)[0])     # the live case
+
+    def test_floor_alert_fires_once_per_day(self):
+        lifted, save, tg = self._lifted_with_month_at(-11.2, dup=False)
+        self.assertFalse(lifted)
+        tg.assert_called_once()
+        save.assert_called_once_with("__MONTHLY_LIFT_FLOOR__")
+
+    def test_unreadable_pnl_honours_the_human_lift(self):
+        with patch.object(a, "_monthly_halt_flag_name",
+                          return_value="MONTHLY_HALT_LIFTED_TEST"),              patch.object(a, "_load_flags",
+                          return_value={"MONTHLY_HALT_LIFTED_TEST": True}),              patch.object(a, "get_this_month_loss",
+                          side_effect=OSError("pnl file unreadable")):
+            self.assertTrue(a._monthly_halt_lifted())
 
 
 class TestLineByLineAuditFixes(unittest.TestCase):
@@ -13983,6 +14032,12 @@ class TestSubmitSignalsSizeMult(unittest.TestCase):
     budget rather than just being accepted and silently ignored."""
 
     def setUp(self):
+        # Hermetic 2026-11-03: the macro gates read the real date, and the
+        # Nov 3-5 midterm blackout blocked every submission these assert on.
+        for _macro in (patch.object(a, "check_macro_safe", return_value=(True, 0)),
+                       patch.object(a, "_MAJOR_MACRO_EVENT_DATES", ())):
+            _macro.start()
+            self.addCleanup(_macro.stop)
         _options_on(self)
         # Hermetic 2026-10-08: these drive _submit_signals_to_alpaca() with a
         # "Gap & Hold" signal, and ENABLE_SETUP_KILL reads the LIVE record from
@@ -15644,6 +15699,12 @@ class TestReanchorPreservesTargetRatio(unittest.TestCase):
     the signal's OWN target ratio to the live entry, not a fixed multiplier."""
 
     def setUp(self):
+        # Hermetic 2026-11-03: the macro gates read the real date, and the
+        # Nov 3-5 midterm blackout blocked every submission these assert on.
+        for _macro in (patch.object(a, "check_macro_safe", return_value=(True, 0)),
+                       patch.object(a, "_MAJOR_MACRO_EVENT_DATES", ())):
+            _macro.start()
+            self.addCleanup(_macro.stop)
         # Hermetic 2026-10-08: these drive _submit_signals_to_alpaca() with a
         # "Gap & Hold" signal, and ENABLE_SETUP_KILL reads the LIVE record from
         # dman_live_outcomes. Gap & Hold crossed the kill thresholds on
@@ -15702,6 +15763,12 @@ class TestSubmitSignalsSkipsZeroShareSizing(unittest.TestCase):
     attempt to submit a qty=0 order."""
 
     def setUp(self):
+        # Hermetic 2026-11-03: the macro gates read the real date, and the
+        # Nov 3-5 midterm blackout blocked every submission these assert on.
+        for _macro in (patch.object(a, "check_macro_safe", return_value=(True, 0)),
+                       patch.object(a, "_MAJOR_MACRO_EVENT_DATES", ())):
+            _macro.start()
+            self.addCleanup(_macro.stop)
         # Hermetic 2026-10-08: these drive _submit_signals_to_alpaca() with a
         # "Gap & Hold" signal, and ENABLE_SETUP_KILL reads the LIVE record from
         # dman_live_outcomes. Gap & Hold crossed the kill thresholds on
@@ -15796,6 +15863,12 @@ class TestOptionsUnavailableSkipsInsteadOfSharesFallback(unittest.TestCase):
     skip outright rather than settle for a consolation equity position."""
 
     def setUp(self):
+        # Hermetic 2026-11-03: the macro gates read the real date, and the
+        # Nov 3-5 midterm blackout blocked every submission these assert on.
+        for _macro in (patch.object(a, "check_macro_safe", return_value=(True, 0)),
+                       patch.object(a, "_MAJOR_MACRO_EVENT_DATES", ())):
+            _macro.start()
+            self.addCleanup(_macro.stop)
         _options_on(self)
         # Hermetic 2026-10-08: these drive _submit_signals_to_alpaca() with a
         # "Gap & Hold" signal, and ENABLE_SETUP_KILL reads the LIVE record from
@@ -15861,6 +15934,12 @@ class TestSubmitSignalsRespectsMaxPositionsBeforeSubmission(unittest.TestCase):
     submitted, not after."""
 
     def setUp(self):
+        # Hermetic 2026-11-03: the macro gates read the real date, and the
+        # Nov 3-5 midterm blackout blocked every submission these assert on.
+        for _macro in (patch.object(a, "check_macro_safe", return_value=(True, 0)),
+                       patch.object(a, "_MAJOR_MACRO_EVENT_DATES", ())):
+            _macro.start()
+            self.addCleanup(_macro.stop)
         # Hermetic 2026-10-08: these drive _submit_signals_to_alpaca() with a
         # "Gap & Hold" signal, and ENABLE_SETUP_KILL reads the LIVE record from
         # dman_live_outcomes. Gap & Hold crossed the kill thresholds on
@@ -15947,6 +16026,12 @@ class TestSubmitSignalsProbationSizing(unittest.TestCase):
     macro/hot-streak/cold-streak sizing."""
 
     def setUp(self):
+        # Hermetic 2026-11-03: the macro gates read the real date, and the
+        # Nov 3-5 midterm blackout blocked every submission these assert on.
+        for _macro in (patch.object(a, "check_macro_safe", return_value=(True, 0)),
+                       patch.object(a, "_MAJOR_MACRO_EVENT_DATES", ())):
+            _macro.start()
+            self.addCleanup(_macro.stop)
         # Hermetic 2026-10-08: these drive _submit_signals_to_alpaca() with a
         # "Gap & Hold" signal, and ENABLE_SETUP_KILL reads the LIVE record from
         # dman_live_outcomes. Gap & Hold crossed the kill thresholds on
@@ -19661,6 +19746,12 @@ class TestBreakoutZoneTrading(unittest.TestCase):
     def test_an_unknown_hold_length_never_forces_an_exit(self):
         _, close, _, _ = self._run(open_pos=[self._pos()], held=-1)
         close.assert_not_called()
+
+    def test_an_unknown_hold_length_is_reported(self):
+        # It used to skip silently (bot review PR 29).
+        _, _, _, tg = self._run(open_pos=[self._pos()], held=-1)
+        self.assertTrue(any("session count unavailable" in c[0][0]
+                            for c in tg.call_args_list))
 
     def test_a_name_the_broker_holds_is_not_bought_again(self):
         """ARHS 2026-10-23: a sync conflict rolled the tracker back past the

@@ -2992,6 +2992,11 @@ def _monthly_halt_flag_name(when: Optional[datetime] = None) -> str:
     return f"MONTHLY_HALT_LIFTED_{(when or datetime.now(ET)).strftime('%Y-%m')}"
 
 
+# A manual lift is consent to trade past MONTHLY_LOSS_LIMIT, not to unlimited
+# losses: past this multiple of the limit the lift stops counting.
+MONTHLY_HALT_LIFT_FLOOR_MULT = 2.0
+
+
 def _monthly_halt_lifted() -> bool:
     """True if the MONTHLY_LOSS_LIMIT halt was deliberately lifted for the
     CURRENT calendar month.
@@ -3003,10 +3008,37 @@ def _monthly_halt_lifted() -> bool:
     October reads a different flag that defaults to False, so the protection
     re-arms itself on the 1st without anyone having to remember.
 
+    The floor (from bot review PR 28, 2026-09-29, ported 2026-11-03): the
+    September lift was granted at -4.97%, and because the flag was a plain
+    boolean the breaker then stayed OFF however far the month fell -- -9.5%
+    the first trading day after the lift, -11.2% by 9/24. The flag is set by
+    hand, so the level at lift time is unknown; a fixed second floor at
+    MONTHLY_HALT_LIFT_FLOOR_MULT x the limit gives one more limit's worth of
+    room and then makes the human decide again on current numbers.
+
     Persisted through flag()/dman_flags.json, which the daemon and the cron
     scanner both carry, so the decision reaches every process.
     """
-    return flag(_monthly_halt_flag_name(), False)
+    if not flag(_monthly_halt_flag_name(), False):
+        return False
+    try:
+        month = get_this_month_loss()
+    except Exception as _exc:
+        # A P&L file error the human never saw must not override their lift.
+        _log_swallowed("monthly halt lift floor", _exc)
+        return True
+    floor = -(MONTHLY_LOSS_LIMIT * 100 * MONTHLY_HALT_LIFT_FLOOR_MULT)
+    if month <= floor:
+        if not _is_duplicate_alert("__MONTHLY_LIFT_FLOOR__", cooldown_min=24 * 60):
+            _save_last_alert("__MONTHLY_LIFT_FLOOR__")
+            send_telegram(
+                f"🛑 <b>Monthly halt re-armed</b> — month at {month:.1f}%, past "
+                f"{floor:.0f}% ({MONTHLY_HALT_LIFT_FLOOR_MULT:.0f}x the "
+                f"{MONTHLY_LOSS_LIMIT*100:.0f}% limit). The manual lift no longer "
+                f"applies; entries are halted for the month. Re-lift only after "
+                f"reviewing the current drawdown.")
+        return False
+    return True
 
 
 def set_flag(name: str, value: bool) -> None:
@@ -14820,7 +14852,21 @@ def run_breakout_zone_manage(notify: bool = True) -> dict:
         except Exception:
             continue
         _held = _sessions_since(_entry_date)
-        if _held < 0 or _held < BZONE_HOLD_SESSIONS:
+        if _held < 0:
+            # Both session sources failed, so the time exit cannot run. It
+            # used to skip silently (bot review PR 29); the catastrophe floor
+            # still rests at the broker, but a stuck exit should be visible.
+            if notify and not _is_duplicate_alert("__BZONE_HELD_UNKNOWN__",
+                                                  cooldown_min=24 * 60):
+                _save_last_alert("__BZONE_HELD_UNKNOWN__")
+                send_telegram(
+                    f"⚠️ <b>Breakout zone session count unavailable</b> — "
+                    f"{_pos.ticker} (entered {_pos.entry_date}). The "
+                    f"{BZONE_HOLD_SESSIONS}-session time exit cannot run until "
+                    f"the session data recovers; the catastrophe floor stays "
+                    f"at the broker meanwhile.")
+            continue
+        if _held < BZONE_HOLD_SESSIONS:
             continue
         _st, _ = _close_position_at_market(
             _pos, f"{BZONE_SETUP} {BZONE_HOLD_SESSIONS}-session exit")
@@ -26641,6 +26687,13 @@ def augment_universe_with_movers(tickers: list[str], verbose: bool = True) -> li
             pass
 
     _discovered = list(dict.fromkeys(_discovered))
+    # Screener pages are not limited to listed stocks: KYOCY (an OTC ADR from
+    # the Yahoo mover feed) cost three failed fetches per scan on 2026-11-02
+    # and no setup here can trade it. Same listed-common universe the
+    # market-wide screen uses (cached per day); fail open if it is empty.
+    _tradable = set(_all_tradable_us_equities())
+    if _tradable:
+        _discovered = [s for s in _discovered if s in _tradable]
     # Cache even an EMPTY result: a quiet tape (or a screener outage) should
     # not mean re-polling every feed on every 10-minute scan for the rest of
     # the session.

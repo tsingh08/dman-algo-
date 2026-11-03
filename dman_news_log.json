@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-02T15:47:30.338581-05:00",
-    "symbols": [
-      "MARA"
-    ],
-    "headline": "MARA Schedules Conference Call for Third Quarter 2026 Financial Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T15:47:30.713246-05:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "Seaport Global Adjusts Price Target on Vistra to $202 From $226",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T15:47:31.655882-05:00",
-    "symbols": [
-      "JOBY"
-    ],
-    "headline": "Ark Invest Increases Stake in Joby Aviation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T15:47:31.740808-05:00",
-    "symbols": [
-      "RCAT"
-    ],
-    "headline": "Red Cat Holdings Collaborates With Sine Engineering To Combine Sine&#39;s Technologies Into Red Cat&#39;s Autonomous Platforms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T15:47:34.639597-05:00",
-    "symbols": [
-      "CLRO"
-    ],
-    "headline": "Dow Jumps Over 400 Points; Marriott Posts Upbeat Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T15:47:35.527833-05:00",
-    "symbols": [
-      "JAGX"
-    ],
-    "headline": "Dow Jumps Over 400 Points; Marriott Posts Upbeat Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-02T15:47:37.663961-05:00",
     "symbols": [
       "EVGO"
@@ -4998,5 +4938,65 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T09:37:32.023069-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Has 40% Upside, Joseph Carlson Says: &#39;One of the Best Opportunities&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T09:37:41.858646-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Iran&#39;s Security Chief Mohsen Rezaei, On Social Media, Says America&#39;s Response To Iran&#39;s Rights And Demands Was Not Convincing, And They Must Fully And Explicitly Address Iran&#39;s Seven Conditions And Act Upon Them; Only In This Case Will The Strait Of Hormuz Be Reopened",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T09:37:47.537406-05:00",
+    "symbols": [
+      "SRAD"
+    ],
+    "headline": "Sportradar Gr Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T09:37:48.232229-05:00",
+    "symbols": [
+      "BETA"
+    ],
+    "headline": "BETA Technologies Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T09:37:49.801704-05:00",
+    "symbols": [
+      "AHRT"
+    ],
+    "headline": "AH Realty Trust Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T09:37:51.478634-05:00",
+    "symbols": [
+      "PHG"
+    ],
+    "headline": "Philips Reports Strong Customer Demand, Improved Profitability",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

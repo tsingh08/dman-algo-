@@ -1,185 +1,5 @@
 [
   {
-    "ts": "2026-11-03T13:25:50.992466-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "JP Morgan Maintains Overweight on Apple, Lowers Price Target to $355",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T13:25:51.470233-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Reported Earlier: &#39;Google Will Turn Off Search For Schools That Reject A.I.; Google Is Making It Easier To Restrict Its A.I. Tools For Students. But Schools That Block A.I. Entirely Will Lose Student Access To Google\u2019s Search Engine&#39; - NY Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T13:25:51.709475-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#39;Amazon, Tesla and SpaceX join OKX\u2013ICE tokenized stock objections as deadline looms&#39; - CoinDesk",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T13:25:51.812924-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "&#39;Amazon, Tesla and SpaceX join OKX\u2013ICE tokenized stock objections as deadline looms&#39; - CoinDesk",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T13:25:51.818939-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "EXCLUSIVE: Top 12 Most-Searched Tickers in October on Benzinga Pro \u2013 SpaceX Soars, Micron Rises, Nvidia Falls, CoreWeave and Microsoft Join List",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T13:25:51.889948-05:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "&#39;Amazon, Tesla and SpaceX join OKX\u2013ICE tokenized stock objections as deadline looms&#39; - CoinDesk",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T13:25:51.894506-05:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Disney Targets Thousands of Jobs in Fresh Cost-Cutting Blitz: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T13:25:51.996804-05:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Dan Ives Calls Tech Selloff a &#39;Gut Check&#39; \u2014 Names His Top Stocks to Own for the Next 5 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T13:25:52.337005-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Palantir Stock Splits Wall Street as Bookings Cool and Revenue Soars",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T13:25:52.341518-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Truist Securities Reiterates Buy on Palantir Technologies, Raises Price Target to $250",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T13:25:52.345970-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Palantir Is &#39;Priced to Perfection,&#39; but Sovereign AI Could Fuel Its Next Rally: Direxion Sees ETF Opportunity",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T13:25:52.350391-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "RBC Capital Maintains Underperform on Palantir Technologies, Raises Price Target to $130",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T13:25:52.438204-05:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "What&#39;s Going On With Super Micro Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T13:25:52.442867-05:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "SambaNova Signing Partnership With Supermicro For 10K SN50 RDU Chips",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T13:25:52.447329-05:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Super Micro Computer Likely To Report Higher Q1 Earnings; These Most Accurate Analysts Revise Forecasts Ahead Of Earnings Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T13:25:52.554244-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Marvell Stock Takes Two Hits in One Morning: Both Blame the Lumentum Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T13:25:52.702571-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "EXCLUSIVE: Top 12 Most-Searched Tickers in October on Benzinga Pro \u2013 SpaceX Soars, Micron Rises, Nvidia Falls, CoreWeave and Microsoft Join List",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T13:25:52.950525-05:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Penguin Solutions 13D Filing Shows SK hynix Acquired $377.2M In Convertible Preferred Stock, Securing 9.1% Beneficial Ownership",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-03T13:25:53.102774-05:00",
     "symbols": [
       "MRVL"
@@ -4998,5 +4818,185 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T14:47:57.055759-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "&#39;Amazon, Tesla and SpaceX join OKX\u2013ICE tokenized stock objections as deadline looms&#39; - CoinDesk",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T14:47:57.180899-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Jim Cramer Likes This Industrial Stock: \u2018It\u2019s Come Down A Great Deal\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T14:47:57.421372-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "JP Morgan Maintains Overweight on Apple, Lowers Price Target to $355",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T14:47:57.665620-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Stock Climbs Amid Oil Price Drop",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T14:47:58.023412-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Reported Earlier: &#39;Google Will Turn Off Search For Schools That Reject A.I.; Google Is Making It Easier To Restrict Its A.I. Tools For Students. But Schools That Block A.I. Entirely Will Lose Student Access To Google\u2019s Search Engine&#39; - NY Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T14:47:58.199924-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "&#39;Amazon, Tesla and SpaceX join OKX\u2013ICE tokenized stock objections as deadline looms&#39; - CoinDesk",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T14:47:58.351678-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "&#39;Amazon, Tesla and SpaceX join OKX\u2013ICE tokenized stock objections as deadline looms&#39; - CoinDesk",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T14:47:58.357548-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "EXCLUSIVE: Top 12 Most-Searched Tickers in October on Benzinga Pro \u2013 SpaceX Soars, Micron Rises, Nvidia Falls, CoreWeave and Microsoft Join List",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T14:47:58.467097-05:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "&#39;Amazon, Tesla and SpaceX join OKX\u2013ICE tokenized stock objections as deadline looms&#39; - CoinDesk",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T14:47:58.472204-05:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Disney Targets Thousands of Jobs in Fresh Cost-Cutting Blitz: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T14:47:58.588824-05:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Dan Ives Calls Tech Selloff a &#39;Gut Check&#39; \u2014 Names His Top Stocks to Own for the Next 5 Years",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T14:47:58.857517-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir Stock Splits Wall Street as Bookings Cool and Revenue Soars",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T14:47:58.862650-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Truist Securities Reiterates Buy on Palantir Technologies, Raises Price Target to $250",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T14:47:58.972928-05:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "What&#39;s Going On With Super Micro Stock Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T14:47:58.978209-05:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "SambaNova Signing Partnership With Supermicro For 10K SN50 RDU Chips",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T14:48:12.863051-05:00",
+    "symbols": [
+      "XTND"
+    ],
+    "headline": "Fabrinet, EverQuote, Lattice Semiconductor, Fiserv And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T14:48:12.867990-05:00",
+    "symbols": [
+      "XTND"
+    ],
+    "headline": "Xtend AI Robotics Shares Halted On Circuit Breaker To The Downside, Stock Now Up 17.69%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T14:48:13.387773-05:00",
+    "symbols": [
+      "GPRO"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

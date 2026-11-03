@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-11-03T09:39:48.427025-05:00",
-    "symbols": [
-      "YUM"
-    ],
-    "headline": "Yum Brands Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:39:48.431645-05:00",
-    "symbols": [
-      "YUM"
-    ],
-    "headline": "Yum! Brands CEO Says Excluding China, Quarterly Same Store Sales In KFC International Rose 4%; KFC China Same Store Sales Declined In Q3; Taco Bell Same-Store Sales Up About 1% Quarter To Date",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-03T09:39:48.435983-05:00",
     "symbols": [
       "YUM"
@@ -4995,6 +4975,26 @@
       "ALSN"
     ],
     "headline": "Allison Transmission Q3 EPS $2.90 Beats $2.23 Estimate, Sales $1.534B Beat $1.473B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T10:20:37.099053-05:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "RBC Capital Maintains Outperform on Vertex Pharmaceuticals, Raises Price Target to $600",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T10:20:46.287076-05:00",
+    "symbols": [
+      "BLZE"
+    ],
+    "headline": "Backblaze Stock Jumps 12% on Earnings, Revenue Beat and Strong Outlook",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"

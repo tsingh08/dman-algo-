@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-11-03T15:47:38.724794-05:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "This Midterm Nightmare Scenario Puts S&amp;P 500 Down 10% by Year-End, Evercore Warns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:47:39.203278-05:00",
-    "symbols": [
-      "ANET"
-    ],
-    "headline": "Nasdaq 100 Gets a Lift As Nvidia Overtakes Apple: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-03T15:47:39.374831-05:00",
     "symbols": [
       "CRWD"
@@ -4995,6 +4975,26 @@
       "ABEV"
     ],
     "headline": "Ambev Partners with Smart Fit to Promote Non-Alcoholic Beer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T16:05:22.534246-05:00",
+    "symbols": [
+      "AQST"
+    ],
+    "headline": "Aquestive Therapeutics Affirms FY2026 Sales Guidance of $46.000M-$50.000M vs $51.040M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T16:05:22.537063-05:00",
+    "symbols": [
+      "AQST"
+    ],
+    "headline": "Aquestive Therapeutics Q3 EPS $(0.13) Misses $(0.11) Estimate, Sales $7.557M Miss $11.017M Estimate",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

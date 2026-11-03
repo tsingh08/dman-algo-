@@ -1,695 +1,5 @@
 [
   {
-    "ts": "2026-11-03T10:55:34.983235-05:00",
-    "symbols": [
-      "VOYA"
-    ],
-    "headline": "Voya Financial Raises Quarterly Dividend From $0.47 To $0.57 Per Share; Announces $500M Increase To Buyback Plan",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T10:55:34.988418-05:00",
-    "symbols": [
-      "VOYA"
-    ],
-    "headline": "Voya Financial Q3 Adj. EPS $2.60 Beats $2.59 Estimate, Sales $2.025B Beat $1.930B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T11:02:20.516802-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly Provides Update on Foundayo Development",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T11:02:20.528069-05:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Goodal Skincare Brand to Launch at Costco",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T11:02:20.535483-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Hyland Launches Integration for Microsoft Teams",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T11:02:20.540771-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Ontinue Launches MXDR Essentials for Microsoft Integrated Security Operations Center",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T11:02:20.545840-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "HiBob Announces New Integrations with Microsoft Entra",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T11:02:20.551128-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Deloitte and Oracle Form Dedicated Business Group",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T11:02:20.563248-05:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "USA Cycling Selects Snowflake as Official AI Data Cloud & Collaboration Partner",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T11:03:20.527918-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Tutanota LLC Extends Tender Offer for Palo Alto Networks Shares",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T11:03:20.533482-05:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs Adjusts Palantir Technologies Price Target to $235 From $230",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T11:03:20.542552-05:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "UBS Adjusts Price Target on Airbnb to $181",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T11:03:20.552380-05:00",
-    "symbols": [
-      "VRTX"
-    ],
-    "headline": "UBS Adjusts Price Target on Vertex Pharmaceuticals to $640 From $615",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T11:03:20.558019-05:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Analysts Adjust Ratings and Price Targets for Marvell Technology",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T11:13:44.692221-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple&#39;s Margin Problem Is Micron&#39;s Pricing Power: Why Memory Stocks Are Bouncing Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T11:13:46.543658-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Apple&#39;s Margin Problem Is Micron&#39;s Pricing Power: Why Memory Stocks Are Bouncing Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T11:13:46.681783-05:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Apple&#39;s Margin Problem Is Micron&#39;s Pricing Power: Why Memory Stocks Are Bouncing Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T11:13:46.773652-05:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Apple&#39;s Margin Problem Is Micron&#39;s Pricing Power: Why Memory Stocks Are Bouncing Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T11:13:46.939562-05:00",
-    "symbols": [
-      "KLAC"
-    ],
-    "headline": "What Is Going On With KLA Stock on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T11:13:47.026108-05:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "TD Cowen Reiterates Hold on ON Semiconductor, Maintains $75 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T11:13:47.778873-05:00",
-    "symbols": [
-      "VRTX"
-    ],
-    "headline": "TD Cowen Maintains Buy on Vertex Pharmaceuticals, Raises Price Target to $575",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T11:13:48.449693-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "CrowdStrike Is Preparing for an AI Threat That Could Already Be Inside the Company",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T11:13:51.162880-05:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "Here\u2019s How Much You Would Have Made Owning UnitedHealth Group Stock In The Last 20 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T11:13:51.795182-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Will Devote 65% Of Its $10B Stock Sale To Ten Investors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T11:13:51.967001-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "There Is No Deadline For Exchanging Messages With Washington Through Mediators Or Reviewing Responses",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T11:13:55.852848-05:00",
-    "symbols": [
-      "CMCO"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T11:13:55.858765-05:00",
-    "symbols": [
-      "CMCO"
-    ],
-    "headline": "Columbus McKinnon Q2 Adj. EPS $0.61 Beats $0.38 Estimate, Sales $539.285M Beat $518.563M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T11:13:55.863421-05:00",
-    "symbols": [
-      "CMCO"
-    ],
-    "headline": "Columbus McKinnon Raises FY2027 Adj EPS Guidance from $1.90-$2.10 to $2.00-$2.15 vs $2.01 Est; Raises FY2027 Sales Guidance from $2.090B-$2.150B to $2.130B-$2.170B vs $2.101B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T11:13:56.023922-05:00",
-    "symbols": [
-      "GPK"
-    ],
-    "headline": "Graphic Packaging Holding Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T11:13:56.029677-05:00",
-    "symbols": [
-      "GPK"
-    ],
-    "headline": "Graphic Packaging Holding Q3 Adj. EPS $0.23 Beats $0.22 Estimate, Sales $2.192B Beat $2.171B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T11:13:56.034536-05:00",
-    "symbols": [
-      "GPK"
-    ],
-    "headline": "Graphic Packaging Holding Narrows FY2026 Adj EPS Guidance from $0.65-$0.90 to $0.65 vs $0.68 Est; Affirms FY2026 Sales Guidance of $8.600B vs $8.631B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T11:13:56.461658-05:00",
-    "symbols": [
-      "EVER"
-    ],
-    "headline": "B. Riley Securities Reiterates Buy on EverQuote, Raises Price Target to $35",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T11:13:56.466929-05:00",
-    "symbols": [
-      "EVER"
-    ],
-    "headline": "Needham Maintains Buy on EverQuote, Raises Price Target to $35",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T11:13:56.471887-05:00",
-    "symbols": [
-      "EVER"
-    ],
-    "headline": "Canaccord Genuity Maintains Buy on EverQuote, Raises Price Target to $32",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T11:13:56.477828-05:00",
-    "symbols": [
-      "EVER"
-    ],
-    "headline": "EverQuote Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T11:13:56.482886-05:00",
-    "symbols": [
-      "EVER"
-    ],
-    "headline": "EverQuote Sees Q4 Sales $213.000M-$223.000M vs $211.958M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T11:13:57.052972-05:00",
-    "symbols": [
-      "HLF"
-    ],
-    "headline": "Herbalife Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T11:13:57.057722-05:00",
-    "symbols": [
-      "HLF"
-    ],
-    "headline": "Herbalife Sees Q4 Sales $1.289B-$1.341B vs $1.304B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T11:13:57.063020-05:00",
-    "symbols": [
-      "HLF"
-    ],
-    "headline": "Herbalife Raises FY2026 Sales Guidance from $5.164B-$5.315B to $5.285B-$5.335B vs $5.255B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T11:13:57.067632-05:00",
-    "symbols": [
-      "HLF"
-    ],
-    "headline": "Herbalife Q3 Adj. EPS $0.64 Beats $0.62 Estimate, Sales $1.350B Beat $1.307B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T11:13:57.339356-05:00",
-    "symbols": [
-      "BIVI"
-    ],
-    "headline": "BioVie Selected for Late-Breaking Oral Presentation of Bezisterim Long COVID Data",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T11:13:57.730579-05:00",
-    "symbols": [
-      "FN"
-    ],
-    "headline": "B. Riley Securities Maintains Neutral on Fabrinet, Lowers Price Target to $364",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T11:13:57.902527-05:00",
-    "symbols": [
-      "RRX"
-    ],
-    "headline": "Regal Rexnord Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T11:21:07.205072-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "US Stocks Mixed; Apple Shares Slide After Q4 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T11:21:07.209602-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple&#39;s Margin Problem Is Micron&#39;s Pricing Power: Why Memory Stocks Are Bouncing Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T11:21:09.369759-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;Google Parent Plans $1.5 Billion Prepaid Energy Deal Via Goldman&#39; - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T11:21:11.804476-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Apple&#39;s Margin Problem Is Micron&#39;s Pricing Power: Why Memory Stocks Are Bouncing Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T11:21:12.043578-05:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Apple&#39;s Margin Problem Is Micron&#39;s Pricing Power: Why Memory Stocks Are Bouncing Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T11:21:12.288801-05:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Apple&#39;s Margin Problem Is Micron&#39;s Pricing Power: Why Memory Stocks Are Bouncing Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T11:21:12.566194-05:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "B. Riley Securities Maintains Buy on Marvell Technology, Lowers Price Target to $275",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T11:21:12.812653-05:00",
-    "symbols": [
-      "KLAC"
-    ],
-    "headline": "What Is Going On With KLA Stock on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T11:21:13.056975-05:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "TD Cowen Reiterates Hold on ON Semiconductor, Maintains $75 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T11:21:15.024346-05:00",
-    "symbols": [
-      "VRTX"
-    ],
-    "headline": "UBS Maintains Buy on Vertex Pharmaceuticals, Raises Price Target to $640",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T11:21:15.028946-05:00",
-    "symbols": [
-      "VRTX"
-    ],
-    "headline": "TD Cowen Maintains Buy on Vertex Pharmaceuticals, Raises Price Target to $575",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T11:21:16.955284-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "CrowdStrike Is Preparing for an AI Threat That Could Already Be Inside the Company",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T11:21:24.510814-05:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "Here\u2019s How Much You Would Have Made Owning UnitedHealth Group Stock In The Last 20 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T11:21:26.079101-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Will Devote 65% Of Its $10B Stock Sale To Ten Investors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T11:21:26.623466-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "There Is No Deadline For Exchanging Messages With Washington Through Mediators Or Reviewing Responses",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T11:21:27.478246-05:00",
-    "symbols": [
-      "PARA"
-    ],
-    "headline": "US Stocks Mixed; Apple Shares Slide After Q4 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T11:21:27.482854-05:00",
-    "symbols": [
-      "PARA"
-    ],
-    "headline": "Parabolic Technologies Shares Resume Trade",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T11:21:27.487446-05:00",
-    "symbols": [
-      "PARA"
-    ],
-    "headline": "Parabolic Technologies Shares Halted On Circuit Breaker To The Upside, Stock Now Up 350.89%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T11:21:27.491818-05:00",
-    "symbols": [
-      "PARA"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T11:21:27.496172-05:00",
-    "symbols": [
-      "PARA"
-    ],
-    "headline": "Why Aehr Test Systems Shares Are Trading Higher By Over 15%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T11:21:27.977116-05:00",
-    "symbols": [
-      "STVN"
-    ],
-    "headline": "Stevanato Group Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T11:21:27.981777-05:00",
-    "symbols": [
-      "STVN"
-    ],
-    "headline": "Stevanato Group continues to expect revenue in the range of \u20ac1.260 billion to \u20ac1.280 billion, adjusted EBITDA of \u20ac335.0 million to \u20ac345.2 million, and adjusted diluted EPS of \u20ac0.60 to \u20ac0.62.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T11:21:27.986419-05:00",
-    "symbols": [
-      "STVN"
-    ],
-    "headline": "Stevanato Gr Q3 Adj. EPS $0.18 Beats $0.17 Estimate, Sales $375.303M Beat $363.840M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T11:21:28.287495-05:00",
-    "symbols": [
-      "RYTM"
-    ],
-    "headline": "Rhythm Pharmaceuticals Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T11:21:28.292045-05:00",
-    "symbols": [
-      "RYTM"
-    ],
-    "headline": "Rhythm Pharmaceuticals Q3 EPS $(0.61) Beats $(0.72) Estimate, Sales $92.128M Beat $84.349M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T11:21:28.296479-05:00",
-    "symbols": [
-      "RYTM"
-    ],
-    "headline": "Reported Earlier, Rhythm Revises Bivamelagon Royalty To 1% On MC4R Net Sales, Agrees $350M LG Chem Payments, Obtains $750M Loan Led By HealthCare Royalty",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-03T11:21:28.586616-05:00",
     "symbols": [
       "SOPH"
@@ -4998,5 +4308,695 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T12:42:45.126131-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "QUICK SPARK: Elon Musk Says &#39;Vote Red&#39; \u2014 SpaceX And Tesla Have Much To Gain",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:42:45.131635-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Amazon, Google and Microsoft Are &#39;Absolute Jokes&#39; Compared With SpaceX, Says Sequoia&#39;s Shaun Maguire",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:42:45.423412-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Chinese Tape Maker Soars 787% in Market Debut as Beijing Moves to Halt New IPO Filings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:42:45.431665-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "UBS Maintains Neutral on Apple, Raises Price Target to $340",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:42:45.547457-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:42:45.556408-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Amazon, Google and Microsoft Are &#39;Absolute Jokes&#39; Compared With SpaceX, Says Sequoia&#39;s Shaun Maguire",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:42:45.654059-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What&#39;s Going on with Intel Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:42:45.660451-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Micron Tech Gains as Tech Giants Scramble to Lock in Multiyear Supply",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:42:45.751261-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "What&#39;s Going on with Intel Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:42:45.757004-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Micron Tech Gains as Tech Giants Scramble to Lock in Multiyear Supply",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:42:45.848117-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "3 Communication Services Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T12:42:45.946548-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Amazon, Google and Microsoft Are &#39;Absolute Jokes&#39; Compared With SpaceX, Says Sequoia&#39;s Shaun Maguire",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:42:46.049889-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon, Google and Microsoft Are &#39;Absolute Jokes&#39; Compared With SpaceX, Says Sequoia&#39;s Shaun Maguire",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:46.146105-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Chinese Tape Maker Soars 787% in Market Debut as Beijing Moves to Halt New IPO Filings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:42:46.151476-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "QUICK SPARK: Elon Musk Says &#39;Vote Red&#39; \u2014 SpaceX And Tesla Have Much To Gain",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:42:46.402912-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:42:46.593490-05:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:42:46.795480-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "What Is Going on With Lam Research Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:46.879115-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "What&#39;s Going on with Intel Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:42:46.886397-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Tech Gains as Tech Giants Scramble to Lock in Multiyear Supply",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:42:46.971721-05:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Micron Tech Gains as Tech Giants Scramble to Lock in Multiyear Supply",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:47.062329-05:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Micron Tech Gains as Tech Giants Scramble to Lock in Multiyear Supply",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:47.166604-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Marvell Technology, Lowers Price Target to $285",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:47.171307-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "TD Cowen Downgrades Marvell Technology to Hold, Lowers Price Target to $175",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:47.332681-05:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "What Is Going on With Lam Research Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T12:42:47.421725-05:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "Evercore ISI Group Maintains Outperform on ON Semiconductor, Lowers Price Target to $90",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T12:42:47.426423-05:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on ON Semiconductor, Lowers Price Target to $90",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T12:42:48.007192-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Provides Update on Foundayo Development",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:48.090506-05:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "Scotiabank Maintains Sector Outperform on Vertex Pharmaceuticals, Raises Price Target to $660",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:42:48.096531-05:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Vertex Pharmaceuticals, Raises Price Target to $650",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:42:48.101468-05:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "RBC Capital Maintains Outperform on Vertex Pharmaceuticals, Raises Price Target to $600",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:42:48.767387-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Tutanota LLC Extends Tender Offer for Palo Alto Networks Shares",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:49.683559-05:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "UBS Maintains Neutral on Airbnb, Raises Price Target to $181",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:42:51.636015-05:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "Live On CNBC, Josh Brown Hosts Segment Titled &#34;Josh&#39;s Best Stocks In The Market: ConocoPhillips, Devon Energy, Occidental Petroleum&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:51.966435-05:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Novo Nordisk Provides Update on Share Repurchase Programme",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:52.147072-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Goodal Skincare Brand to Launch at Costco",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:52.237169-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T12:42:55.028013-05:00",
+    "symbols": [
+      "QS"
+    ],
+    "headline": "4 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:42:56.271975-05:00",
+    "symbols": [
+      "IBTA"
+    ],
+    "headline": "Nasdaq Surges 1%; Pfizer Posts Upbeat Q3 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:56.277470-05:00",
+    "symbols": [
+      "IBTA"
+    ],
+    "headline": "Wells Fargo Maintains Equal-Weight on Ibotta, Raises Price Target to $49",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:56.451488-05:00",
+    "symbols": [
+      "CMCO"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:56.456536-05:00",
+    "symbols": [
+      "CMCO"
+    ],
+    "headline": "Columbus McKinnon Q2 Adj. EPS $0.61 Beats $0.38 Estimate, Sales $539.285M Beat $518.563M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:56.461459-05:00",
+    "symbols": [
+      "CMCO"
+    ],
+    "headline": "Columbus McKinnon Raises FY2027 Adj EPS Guidance from $1.90-$2.10 to $2.00-$2.15 vs $2.01 Est; Raises FY2027 Sales Guidance from $2.090B-$2.150B to $2.130B-$2.170B vs $2.101B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:56.698926-05:00",
+    "symbols": [
+      "GPK"
+    ],
+    "headline": "Nasdaq Surges 1%; Pfizer Posts Upbeat Q3 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T12:42:56.706110-05:00",
+    "symbols": [
+      "GPK"
+    ],
+    "headline": "Graphic Packaging Holding Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T12:42:56.710758-05:00",
+    "symbols": [
+      "GPK"
+    ],
+    "headline": "Graphic Packaging Holding Q3 Adj. EPS $0.23 Beats $0.22 Estimate, Sales $2.192B Beat $2.171B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T12:42:56.877729-05:00",
+    "symbols": [
+      "ACB"
+    ],
+    "headline": "Aurora Cannabis Stock Surges on Organigram Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T12:42:56.966257-05:00",
+    "symbols": [
+      "SQNS"
+    ],
+    "headline": "Sequans Communications Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T12:42:56.971167-05:00",
+    "symbols": [
+      "SQNS"
+    ],
+    "headline": "Conference call:\nSequans Communications Sees Q4 Sales $9.500M-$11.000M vs $12.880M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T12:42:56.976547-05:00",
+    "symbols": [
+      "SQNS"
+    ],
+    "headline": "Sequans Communications Q3 Adj. EPADS $(0.04) Beats $(0.54) Estimate, Sales $9.090M Beat $8.968M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T12:42:57.061589-05:00",
+    "symbols": [
+      "AEHR"
+    ],
+    "headline": "Nasdaq Surges 1%; Pfizer Posts Upbeat Q3 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:57.147334-05:00",
+    "symbols": [
+      "EVER"
+    ],
+    "headline": "B. Riley Securities Reiterates Buy on EverQuote, Raises Price Target to $35",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:57.152073-05:00",
+    "symbols": [
+      "EVER"
+    ],
+    "headline": "Needham Maintains Buy on EverQuote, Raises Price Target to $35",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:57.157116-05:00",
+    "symbols": [
+      "EVER"
+    ],
+    "headline": "Canaccord Genuity Maintains Buy on EverQuote, Raises Price Target to $32",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:57.161911-05:00",
+    "symbols": [
+      "EVER"
+    ],
+    "headline": "EverQuote Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:57.422333-05:00",
+    "symbols": [
+      "NBIX"
+    ],
+    "headline": "Morgan Stanley Maintains Equal-Weight on Neurocrine Biosciences, Raises Price Target to $185",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:57.845100-05:00",
+    "symbols": [
+      "SOXL"
+    ],
+    "headline": "AI Trade Isn&#39;t Dead Yet: Investors Pour $10.6 Billion Into Chip ETFs in October While Dumping Memory",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T12:42:57.999393-05:00",
+    "symbols": [
+      "RVTY"
+    ],
+    "headline": "Revvity Stock Hits 52-Week High - Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:58.260739-05:00",
+    "symbols": [
+      "HLF"
+    ],
+    "headline": "Herbalife Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T12:42:58.594018-05:00",
+    "symbols": [
+      "UPWK"
+    ],
+    "headline": "UBS Maintains Neutral on Upwork, Raises Price Target to $10",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:58.775102-05:00",
+    "symbols": [
+      "UPWK"
+    ],
+    "headline": "Upwork Posts Q3 Beat, AI Likely To Pressure Growth Through 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:58.784656-05:00",
+    "symbols": [
+      "UPWK"
+    ],
+    "headline": "Scotiabank Maintains Sector Perform on Upwork, Raises Price Target to $10",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:58.790175-05:00",
+    "symbols": [
+      "UPWK"
+    ],
+    "headline": "RBC Capital Reiterates Sector Perform on Upwork, Maintains $8 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:58.795044-05:00",
+    "symbols": [
+      "UPWK"
+    ],
+    "headline": "Apple To $350? Here Are 10 Top Analyst Forecasts For Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:58.881377-05:00",
+    "symbols": [
+      "FN"
+    ],
+    "headline": "B. Riley Securities Maintains Neutral on Fabrinet, Lowers Price Target to $364",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:42:59.063905-05:00",
+    "symbols": [
+      "RRX"
+    ],
+    "headline": "Regal Rexnord Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T12:42:59.275200-05:00",
+    "symbols": [
+      "DD"
+    ],
+    "headline": "DuPont de Nemours Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:59.280186-05:00",
+    "symbols": [
+      "DD"
+    ],
+    "headline": "DuPont Sees 2027 End-Market Conditions Broadly In Line With 2026; Expects Slight Improvement In Automotive Market Conditions In 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:42:59.521023-05:00",
+    "symbols": [
+      "TAC"
+    ],
+    "headline": "TransAlta Q3 Adj. EPS $0.13 Beats $0.05 Estimate, Sales $383.026M Down From $439.479M YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

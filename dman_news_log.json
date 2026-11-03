@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-03T13:25:53.633832-05:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "Enphase Energy Insider Purchases Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T13:25:53.707555-05:00",
-    "symbols": [
-      "FSLR"
-    ],
-    "headline": "Citigroup Maintains First Solar at Buy, Lowers Price Target to $283",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T13:25:53.795108-05:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "BNP Paribas Adjusts Price Target on AbbVie to $269",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-03T13:25:53.799722-05:00",
     "symbols": [
       "ABBV"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T15:04:20.545604-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Beam Therapeutics Receives Milestone Payment from Eli Lilly and Company",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:05:20.520103-05:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Uber President Jill Hazelbaker Joining OpenAI as Chief Corporate Affairs Officer",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:05:20.558957-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Citigroup Raises ExxonMobil Price Target to $175",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

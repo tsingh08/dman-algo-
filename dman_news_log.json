@@ -1,145 +1,5 @@
 [
   {
-    "ts": "2026-11-03T13:25:53.799722-05:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "AbbVie Director Jennifer L. Davis Resigns from Board",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T13:25:54.006842-05:00",
-    "symbols": [
-      "HIMS"
-    ],
-    "headline": "Lead Plaintiff Deadline for Hims & Hers Securities Class Action Lawsuit",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T13:25:54.150028-05:00",
-    "symbols": [
-      "RXRX"
-    ],
-    "headline": "Recursion Announces Positive Phase 2 Data for REC-4881 in TUPELO Trial",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T13:25:54.154992-05:00",
-    "symbols": [
-      "RXRX"
-    ],
-    "headline": "Recursion Reports Third Quarter 2026 Financial Results and Business Updates",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T13:25:54.159448-05:00",
-    "symbols": [
-      "RXRX"
-    ],
-    "headline": "Recursion Appoints Fred Hassan as Chair of the Board",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T13:25:54.241970-05:00",
-    "symbols": [
-      "RBLX"
-    ],
-    "headline": "Citigroup Maintains Buy Rating on Roblox, Lowers Price Target to $55",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T13:25:54.326490-05:00",
-    "symbols": [
-      "ANET"
-    ],
-    "headline": "Stock Market: Will S&P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T13:25:54.426331-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "CrowdStrike Wants to Stop AI Gone Rogue \u2014 and It&#39;s Buying Two Companies to Do It",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T13:25:54.431689-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "CrowdStrike Signs Definitive Agreement To Acquire Dreadnode, Adding Automated AI Security Testing To Falcon Platform; Terms Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T13:25:54.436048-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "CrowdStrike Signs Definitive Agreement To Acquire Fiddler AI, Adding Agent Observability And Explainability To Falcon Platform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T13:25:54.440443-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Tech Selloff Doesn\u2019t Spook Dan Ives for Halloween: Here Are His 6 AI Stock Picks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T13:25:54.601029-05:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "This Twilio Analyst Is No Longer Bearish; Here Are Top 5 Upgrades For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T13:25:54.605743-05:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "JP Morgan Upgrades Cloudflare to Overweight, Maintains Price Target to $350",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T13:25:54.689696-05:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "RIOT, COIN, MSTR Jump up to 16%: What Is Going On With Crypto Stocks?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-03T13:25:54.698688-05:00",
     "symbols": [
       "COIN"
@@ -4998,5 +4858,145 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:11:32.763334-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Growth And Cyclical Lead Sectors Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:11:33.050459-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Growth And Cyclical Lead Sectors Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T15:11:33.723263-05:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Growth And Cyclical Lead Sectors Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:11:34.971704-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Growth And Cyclical Lead Sectors Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:11:37.219776-05:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "BNP Paribas Adjusts Price Target on AbbVie to $269",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:11:42.124990-05:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "Growth And Cyclical Lead Sectors Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:11:42.282048-05:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "Growth And Cyclical Lead Sectors Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:11:42.440273-05:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Growth And Cyclical Lead Sectors Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:11:44.623678-05:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "Growth And Cyclical Lead Sectors Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T15:11:44.770928-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Growth And Cyclical Lead Sectors Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:11:44.925079-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Growth And Cyclical Lead Sectors Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T15:11:45.226520-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Growth And Cyclical Lead Sectors Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:11:45.346768-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Growth And Cyclical Lead Sectors Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:11:45.482658-05:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Growth And Cyclical Lead Sectors Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

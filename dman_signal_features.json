@@ -44207,7 +44207,13 @@
 "seen": 38,
 "last_ts": "2026-10-29T16:05:19.266278-04:00",
 "entry_min": 9.91,
-"entry_max": 9.91
+"entry_max": 9.91,
+"label_fill": 9.87,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.41,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.2,
+"label_mae_pct": -0.41
 },
 {
 "ts": "2026-10-29T13:09:51.031803-04:00",
@@ -44269,7 +44275,13 @@
 "seen": 16,
 "last_ts": "2026-10-29T16:05:19.468108-04:00",
 "entry_min": 150.39,
-"entry_max": 150.44
+"entry_max": 150.44,
+"label_fill": 151.73,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 0.92,
+"label_outcome": "WIN",
+"label_mfe_pct": 3.28,
+"label_mae_pct": -1.8
 },
 {
 "ts": "2026-10-29T13:09:55.288984-04:00",
@@ -44331,7 +44343,13 @@
 "seen": 10,
 "last_ts": "2026-10-29T16:05:20.307995-04:00",
 "entry_min": 86.92,
-"entry_max": 89.51
+"entry_max": 89.51,
+"label_fill": 87.22,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 1.5,
+"label_outcome": "WIN",
+"label_mfe_pct": 2.16,
+"label_mae_pct": -2.52
 },
 {
 "ts": "2026-10-29T13:09:57.622372-04:00",
@@ -44393,7 +44411,13 @@
 "seen": 10,
 "last_ts": "2026-10-29T16:05:21.044007-04:00",
 "entry_min": 177.34,
-"entry_max": 177.37
+"entry_max": 177.37,
+"label_fill": 184.86,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 3.74,
+"label_outcome": "WIN",
+"label_mfe_pct": 5.21,
+"label_mae_pct": -2.0
 },
 {
 "ts": "2026-10-30T09:27:11.021374-04:00",
@@ -44455,7 +44479,13 @@
 "seen": 10,
 "last_ts": "2026-10-30T09:38:56.228003-04:00",
 "entry_min": 9.87,
-"entry_max": 9.87
+"entry_max": 9.87,
+"label_fill": 9.87,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.41,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.2,
+"label_mae_pct": -0.41
 },
 {
 "ts": "2026-10-30T09:27:12.781696-04:00",
@@ -44517,7 +44547,13 @@
 "seen": 5,
 "last_ts": "2026-10-30T09:38:56.533721-04:00",
 "entry_min": 12.29,
-"entry_max": 12.29
+"entry_max": 12.29,
+"label_fill": 10.8,
+"label_exit_reason": "stop",
+"label_pnl_pct": -10.25,
+"label_outcome": "LOSS",
+"label_mfe_pct": 1.62,
+"label_mae_pct": -10.37
 },
 {
 "ts": "2026-10-30T09:27:14.318675-04:00",
@@ -44579,7 +44615,13 @@
 "seen": 10,
 "last_ts": "2026-10-30T09:38:56.791273-04:00",
 "entry_min": 18.22,
-"entry_max": 18.22
+"entry_max": 18.22,
+"label_fill": 18.2,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -1.43,
+"label_outcome": "LOSS",
+"label_mfe_pct": 1.18,
+"label_mae_pct": -2.2
 },
 {
 "ts": "2026-10-30T09:27:16.024025-04:00",
@@ -44641,7 +44683,13 @@
 "seen": 10,
 "last_ts": "2026-10-30T09:38:57.095883-04:00",
 "entry_min": 87.46,
-"entry_max": 87.46
+"entry_max": 87.46,
+"label_fill": 86.33,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 2.55,
+"label_outcome": "WIN",
+"label_mfe_pct": 2.57,
+"label_mae_pct": -0.25
 },
 {
 "ts": "2026-10-30T09:27:17.850402-04:00",
@@ -44703,7 +44751,13 @@
 "seen": 10,
 "last_ts": "2026-10-30T09:38:57.398752-04:00",
 "entry_min": 74.36,
-"entry_max": 74.36
+"entry_max": 74.36,
+"label_fill": 76.25,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 3.67,
+"label_outcome": "WIN",
+"label_mfe_pct": 4.73,
+"label_mae_pct": -0.34
 },
 {
 "ts": "2026-10-30T09:40:15.602814-04:00",
@@ -44765,7 +44819,13 @@
 "seen": 5,
 "last_ts": "2026-10-30T12:50:59.817608-04:00",
 "entry_min": 1424.09,
-"entry_max": 1434.49
+"entry_max": 1434.49,
+"label_fill": 1393.15,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 1.28,
+"label_outcome": "WIN",
+"label_mfe_pct": 2.07,
+"label_mae_pct": -0.8
 },
 {
 "ts": "2026-10-30T09:40:18.973011-04:00",
@@ -44827,7 +44887,13 @@
 "seen": 2,
 "last_ts": "2026-10-30T09:40:19.728477-04:00",
 "entry_min": 172.61,
-"entry_max": 172.61
+"entry_max": 172.61,
+"label_fill": 169.85,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 0.28,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 1.62,
+"label_mae_pct": -2.04
 },
 {
 "ts": "2026-10-30T09:40:22.066389-04:00",
@@ -44889,7 +44955,13 @@
 "seen": 2,
 "last_ts": "2026-10-30T09:40:22.097467-04:00",
 "entry_min": 559.9,
-"entry_max": 559.9
+"entry_max": 559.9,
+"label_fill": 560.875,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -1.38,
+"label_outcome": "LOSS",
+"label_mfe_pct": 1.39,
+"label_mae_pct": -2.99
 },
 {
 "ts": "2026-10-30T09:40:26.122265-04:00",
@@ -44951,7 +45023,13 @@
 "seen": 2,
 "last_ts": "2026-10-30T09:40:26.150814-04:00",
 "entry_min": 78.55,
-"entry_max": 78.55
+"entry_max": 78.55,
+"label_fill": 78.43,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -1.61,
+"label_outcome": "LOSS",
+"label_mfe_pct": 0.0,
+"label_mae_pct": -1.94
 },
 {
 "ts": "2026-10-30T09:40:28.253855-04:00",
@@ -45013,7 +45091,13 @@
 "seen": 2,
 "last_ts": "2026-10-30T09:40:28.281034-04:00",
 "entry_min": 21.16,
-"entry_max": 21.16
+"entry_max": 21.16,
+"label_fill": 20.88,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.05,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 1.39,
+"label_mae_pct": -0.48
 },
 {
 "ts": "2026-10-30T10:02:11.045254-04:00",
@@ -45075,7 +45159,13 @@
 "seen": 6,
 "last_ts": "2026-10-30T10:49:54.971616-04:00",
 "entry_min": 17.77,
-"entry_max": 17.77
+"entry_max": 17.77,
+"label_fill": 17.89,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 3.02,
+"label_outcome": "WIN",
+"label_mfe_pct": 3.69,
+"label_mae_pct": -3.52
 },
 {
 "ts": "2026-10-30T10:02:13.812586-04:00",
@@ -45137,7 +45227,13 @@
 "seen": 14,
 "last_ts": "2026-10-30T12:51:04.369224-04:00",
 "entry_min": 44.62,
-"entry_max": 44.8
+"entry_max": 44.8,
+"label_fill": 44.5,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 2.36,
+"label_outcome": "WIN",
+"label_mfe_pct": 2.45,
+"label_mae_pct": 0.0
 },
 {
 "ts": "2026-10-30T11:02:30.526910-04:00",
@@ -45199,7 +45295,13 @@
 "seen": 14,
 "last_ts": "2026-10-30T12:02:56.591897-04:00",
 "entry_min": 40.97,
-"entry_max": 40.97
+"entry_max": 40.97,
+"label_fill": 40.99,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 6.25,
+"label_outcome": "WIN",
+"label_mfe_pct": 6.61,
+"label_mae_pct": -1.83
 },
 {
 "ts": "2026-10-30T12:58:17.117118-04:00",
@@ -45261,7 +45363,13 @@
 "seen": 10,
 "last_ts": "2026-10-30T14:29:57.212569-04:00",
 "entry_min": 612.61,
-"entry_max": 612.61
+"entry_max": 612.61,
+"label_fill": 644.67,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 2.83,
+"label_outcome": "WIN",
+"label_mfe_pct": 3.58,
+"label_mae_pct": -0.24
 },
 {
 "ts": "2026-10-30T12:58:20.374121-04:00",
@@ -45696,5 +45804,67 @@
 "last_ts": "2026-11-02T16:05:35.704646-05:00",
 "entry_min": 42.69,
 "entry_max": 42.83
+},
+{
+"ts": "2026-11-03T09:26:30.303772-05:00",
+"date": "2026-11-03",
+"ticker": "TAP",
+"setup": "Gap & Hold",
+"bias": "LONG",
+"taken": false,
+"reject": "mtf: weekly disagrees",
+"score": 100,
+"final_score": 100.0,
+"ai_scored": false,
+"entry": 43.23,
+"stop": 41.42,
+"target1": 50.65,
+"rr": 4.1,
+"rsi": 70.5,
+"rvol": 2.3,
+"atr": 1.2087142857142876,
+"beta": 0.452,
+"catalyst_tier": "C",
+"news_boost": false,
+"regime": "CHOP",
+"regime_score": 8,
+"mtf_ok": false,
+"regime_ok": true,
+"earnings_ok": false,
+"macro_ok": false,
+"divergence_free": false,
+"breakdown": {
+"Regime": 8,
+"MTF": 12,
+"Rel Strength": 15,
+"Sector": 6,
+"Sector ETF": 0,
+"AI Theme": 0,
+"Insider": 0,
+"Earnings": 0,
+"Macro": 0,
+"Earn React": 0,
+"Fibonacci": 0,
+"VWAP": 8,
+"POC": 7,
+"No Divergence": 0,
+"RSI Zone": 0,
+"52wk Prox": 0,
+"Candle": 5,
+"Supertrend": 8,
+"ADX Trend": 5,
+"Ichimoku": 10,
+"Anchored VWAP": 8,
+"ATR Pctile": 0,
+"RegimeSetup": 3,
+"Float/Short": 5,
+"RVOL Tier": 3,
+"Gap Size": 0,
+"News Catalyst": 5
+},
+"seen": 4,
+"last_ts": "2026-11-03T09:28:56.307238-05:00",
+"entry_min": 43.23,
+"entry_max": 43.23
 }
 ]

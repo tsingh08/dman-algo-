@@ -3472,5 +3472,14 @@
   "drift_pct": 0.42,
   "range_ratio": 0.37,
   "near_high": 0.99
+ },
+ {
+  "ts": "2026-11-03T15:45:37.787139-05:00",
+  "ticker": "BKAG",
+  "price": 40.59,
+  "rvol": 1.52,
+  "drift_pct": 0.07,
+  "range_ratio": 0.3,
+  "near_high": 0.977
  }
 ]

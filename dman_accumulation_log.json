@@ -3427,5 +3427,14 @@
   "drift_pct": 1.37,
   "range_ratio": 0.37,
   "near_high": 0.999
+ },
+ {
+  "ts": "2026-11-03T13:02:27.692476-05:00",
+  "ticker": "PTLE",
+  "price": 9.56,
+  "rvol": 2.92,
+  "drift_pct": 0.95,
+  "range_ratio": 0.37,
+  "near_high": 0.995
  }
 ]

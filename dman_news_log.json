@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-11-02T11:14:10.763613-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Iran threatens US bases in Europe if Trump orders new strikes&#39; - The Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T11:14:10.766076-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Bitcoin Bulls Say \u2018Bottom&#39;s in\u2019 but Bears Eye $73,000 Ahead of Midterms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T11:14:10.954135-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "What If China\u2019s AI Crash Was A Feature, Not A Bug?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T11:14:10.959505-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Growth And Cyclical Sectors Lead Monday Trading",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T11:14:11.149399-05:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Growth And Cyclical Sectors Lead Monday Trading",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T11:14:17.999695-05:00",
-    "symbols": [
-      "ECHO"
-    ],
-    "headline": "SpaceX Pursues Wireless Back Door After Verizon, T-Mobile, AT&amp;T Reportedly Said No",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T11:14:18.002659-05:00",
-    "symbols": [
-      "ECHO"
-    ],
-    "headline": "&#39;SpaceX is in talks to buy Boost Mobile or use its network, giving Musk a potential backdoor into the $235 billion cellphone market&#39; - Washington Post Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-02T11:14:18.180326-05:00",
-    "symbols": [
-      "ALK"
-    ],
-    "headline": "IDEXX Laboratories, Perion Network, TAT Technologies And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-02T11:25:12.555970-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk&#39;s SpaceX Plan Swallows Nvidia&#39;s Entire $300 Billion Growth Forecast \u2014 And Then Some",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-02T11:25:13.479396-05:00",
     "symbols": [
       "NVDA"
@@ -4998,5 +4908,95 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T19:02:20.704594-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Reports Record Fiscal Fourth-Quarter Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T19:02:20.886131-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "XMax Signs Five-Year AI Infrastructure Agreement Involving NVIDIA GPUs",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T19:02:20.889505-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA Begins Shipping Vera Rubin Platform",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T19:02:21.040354-05:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Mastercard-Powered OKX Card Launches in the United States",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T19:02:21.285665-05:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "AbbVie Director Jennifer L. Davis Resigns from Board",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-02T20:02:20.686212-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Powerwall 3 Updated to Integrate with Heat Pumps",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-02T20:03:20.761481-05:00",
+    "symbols": [
+      "VNET"
+    ],
+    "headline": "VNET Group, Inc. Stock 12-Month Price Target Adjusted by Analysts",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T20:03:21.053538-05:00",
+    "symbols": [
+      "POM"
+    ],
+    "headline": "Pomdoctor Limited Receives Nasdaq Deficiency Notifications",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-02T20:03:21.206869-05:00",
+    "symbols": [
+      "YMAT"
+    ],
+    "headline": "J-Star Holding Co., Ltd. Receives Shareholder Approval for Capital Restructuring",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

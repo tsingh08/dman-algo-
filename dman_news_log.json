@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-11-03T09:40:07.153458-05:00",
-    "symbols": [
-      "FTS"
-    ],
-    "headline": "Fortis Raises Quarterly Dividend 4% To C$0.665/Share",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:07.490861-05:00",
-    "symbols": [
-      "ARES"
-    ],
-    "headline": "Billionaire Investor Bets on Ares Management as It Eyes AI Data Center, Power Financing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:07.816230-05:00",
-    "symbols": [
-      "OIS"
-    ],
-    "headline": "Susquehanna Adjusts Oil States International Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:08.142700-05:00",
-    "symbols": [
-      "AMG"
-    ],
-    "headline": "AMG Announces Date for Third Quarter 2026 Financial Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:08.465918-05:00",
-    "symbols": [
-      "PAYC"
-    ],
-    "headline": "Paycom Software, Inc. Declares Quarterly Cash Dividend",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-03T09:40:08.799016-05:00",
     "symbols": [
       "FOXA"
@@ -4998,5 +4948,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T11:24:45.873743-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "US Stocks Mixed; Apple Shares Slide After Q4 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T11:24:46.413394-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Google Parent Plans $1.5 Billion Prepaid Energy Deal Via Goldman&#39; - Bloomberg News",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T11:24:47.744972-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "B. Riley Securities Maintains Buy on Marvell Technology, Lowers Price Target to $275",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T11:24:48.733455-05:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "UBS Maintains Buy on Vertex Pharmaceuticals, Raises Price Target to $640",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T11:24:56.109257-05:00",
+    "symbols": [
+      "MERC"
+    ],
+    "headline": "US Stocks Mixed; Apple Shares Slide After Q4 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,445 +1,5 @@
 [
   {
-    "ts": "2026-11-03T09:40:08.799016-05:00",
-    "symbols": [
-      "FOXA"
-    ],
-    "headline": "Roku Q3 Highlights: Double Beat, Advertising Revenue up 23%, No Guidance Ahead of Fox Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:40:09.119581-05:00",
-    "symbols": [
-      "THO"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Monday's After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:09.469662-05:00",
-    "symbols": [
-      "ERO"
-    ],
-    "headline": "Ero Copper Q3 Adj. EPS $1.22 Beats $1.15 Estimate, Sales $348.000M Beat $346.150M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:09.804854-05:00",
-    "symbols": [
-      "SBRA"
-    ],
-    "headline": "Sabra Health Care REIT Raises FY2026 FFO Guidance from $1.53-$1.55 to $1.54-$1.55 vs $1.55 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T09:40:09.809427-05:00",
-    "symbols": [
-      "SBRA"
-    ],
-    "headline": "Sabra Health Care REIT Q3 FFO $0.39, Inline, Sales $249.565M Beat $232.392M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T09:40:10.142645-05:00",
-    "symbols": [
-      "ELE"
-    ],
-    "headline": "Elemental Royalty to Release Q3 2026 Results on November 10, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:10.147180-05:00",
-    "symbols": [
-      "ELE"
-    ],
-    "headline": "Endesa Restores Power to Over 40% of Customers in La Palma Following Blackout",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:10.519908-05:00",
-    "symbols": [
-      "GNTX"
-    ],
-    "headline": "Gentex Corporation to Showcase Latest Automotive Technology at SEMA 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:10.935259-05:00",
-    "symbols": [
-      "BAC"
-    ],
-    "headline": "UBS Maintains Buy on Bank of America, Lowers Price Target to $62",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:40:11.569364-05:00",
-    "symbols": [
-      "DFH"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Monday's After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:11.908216-05:00",
-    "symbols": [
-      "PFE"
-    ],
-    "headline": "Pfizer Q3 Prevnar Family Revenue Down 10% Operationally On Lower Vaccination Rates",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:40:11.912751-05:00",
-    "symbols": [
-      "PFE"
-    ],
-    "headline": "Pfizer Q3 Eliquis Revenue Up 25% Operationally; Padcev Up 55%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:40:11.917026-05:00",
-    "symbols": [
-      "PFE"
-    ],
-    "headline": "Pfizer Q3 Paxlovid Revenue Down 63% Operationally; Comirnaty Down 29%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:40:11.921370-05:00",
-    "symbols": [
-      "PFE"
-    ],
-    "headline": "Pfizer Q3 Launched &amp; Acquired Products Revenue Up 32% Operationally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:40:11.925658-05:00",
-    "symbols": [
-      "PFE"
-    ],
-    "headline": "Pfizer Q3 Revenue Ex-Comirnaty &amp; Paxlovid Up 7% Operationally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:40:12.268984-05:00",
-    "symbols": [
-      "BLSH"
-    ],
-    "headline": "Cathie Wood Sells $2.3 Million Of Peter Thiel-Backed Bullish Shares, Ark Adds Crypto Names Coinbase, Circle, Robinhood",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:12.737086-05:00",
-    "symbols": [
-      "EBC"
-    ],
-    "headline": "Barclays Maintains Equal-Weight on Eastern Bankshares, Raises Price Target to $24",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:13.104253-05:00",
-    "symbols": [
-      "CPRI"
-    ],
-    "headline": "Barclays Maintains Overweight on Capri Holdings, Raises Price Target to $24",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:40:13.989777-05:00",
-    "symbols": [
-      "RSP"
-    ],
-    "headline": "UnitedHealth, Cleveland-Cliffs, Regeneron Pharmaceuticals And More: CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:40:13.994293-05:00",
-    "symbols": [
-      "RSP"
-    ],
-    "headline": "EXCLUSIVE: AI Bubble Risk Is Low, but SMH Faces a Bigger Threat Than QQQ, Expert Warns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:40:14.395295-05:00",
-    "symbols": [
-      "TRI"
-    ],
-    "headline": "Thomson Reuters Declares $0.655/Share Quarterly Dividend",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:14.399803-05:00",
-    "symbols": [
-      "TRI"
-    ],
-    "headline": "Thomson Reuters Issued ~$2.0B Of Notes In September",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:14.404269-05:00",
-    "symbols": [
-      "TRI"
-    ],
-    "headline": "Thomson Reuters Completes $600M Share Buyback Programme",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:14.408666-05:00",
-    "symbols": [
-      "TRI"
-    ],
-    "headline": "Thomson Reuters Completes Sale Of 51% Stake In Global Print Business To KKR For ~$500M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:14.412980-05:00",
-    "symbols": [
-      "TRI"
-    ],
-    "headline": "Thomson Reuters Q3 Adj. EBITDA Margin 35.5% Vs 35.8%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:14.832270-05:00",
-    "symbols": [
-      "CVEO"
-    ],
-    "headline": "Stifel Maintains Buy on Civeo, Raises Price Target to $42",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:15.195112-05:00",
-    "symbols": [
-      "PENN"
-    ],
-    "headline": "PENN Entertainment Leads Gains in Sports Betting Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:15.590148-05:00",
-    "symbols": [
-      "AMRX"
-    ],
-    "headline": "Amneal Pharmaceuticals Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:40:15.594776-05:00",
-    "symbols": [
-      "AMRX"
-    ],
-    "headline": "Amneal Pharmaceuticals Raises FY2026 Adj EPS Guidance from $0.96-$1.06 to $1.04-$1.08 vs $1.03 Est; Raises FY2026 Sales Guidance from $3.100B-$3.200B to $3.150B-$3.250B vs $3.159B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:40:15.599175-05:00",
-    "symbols": [
-      "AMRX"
-    ],
-    "headline": "Amneal Pharmaceuticals Q3 Adj. EPS $0.26 Beats $0.23 Estimate, Sales $862.684M Beat $816.058M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:40:15.918845-05:00",
-    "symbols": [
-      "WT"
-    ],
-    "headline": "London Stock Exchange Admission of WisdomTree Securities",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:16.234169-05:00",
-    "symbols": [
-      "BIP"
-    ],
-    "headline": "Brookfield Infrastructure Partners Announces AI Infrastructure Strategy Partnership",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:16.853093-05:00",
-    "symbols": [
-      "HUBC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:16.857576-05:00",
-    "symbols": [
-      "HUBC"
-    ],
-    "headline": "Why Aehr Test Systems Shares Are Trading Higher By Over 15%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:16.861860-05:00",
-    "symbols": [
-      "HUBC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday's After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:17.210334-05:00",
-    "symbols": [
-      "EHGO"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:17.214841-05:00",
-    "symbols": [
-      "EHGO"
-    ],
-    "headline": "Why Aehr Test Systems Shares Are Trading Higher By Over 15%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:17.530521-05:00",
-    "symbols": [
-      "BRAI"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday's After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:17.863684-05:00",
-    "symbols": [
-      "PEW"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T09:40:18.687666-05:00",
-    "symbols": [
-      "DAIC"
-    ],
-    "headline": "Envoy Announces Expansion Into Southwest Florida With Launch Of On-Site EV Car Sharing At $100M Midtown Redevelopment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:18.993096-05:00",
-    "symbols": [
-      "PUL"
-    ],
-    "headline": "Pulse Oil Corp. Announces Proposed Share Consolidation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:19.296464-05:00",
-    "symbols": [
-      "RKTO"
-    ],
-    "headline": "Rocket One&#39;s Hoth Therapeutics Subsidiary Plans To End Its Phase 2a Clinical Study Of HT-001 After Interim Efficacy Data; Intends To Seek FDA Feedback For Conducting HT-001 Into Potential Phase 3 Clinical Program",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:19.612680-05:00",
-    "symbols": [
-      "SURG"
-    ],
-    "headline": "UPDATE: SurgePays Signs Prepaid Wireless Agreement With Etime System For Minimum $48M In Annual Airtime And Refill Purchases, Including $4M Monthly Commitment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:40:19.617252-05:00",
-    "symbols": [
-      "SURG"
-    ],
-    "headline": "SurgePays Inks Prepaid Wireless Purchase Commitment With Zulie Venture For Its Brand To Acquire At Least $4M In Prepaid Wireless Airtime Transactions",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-03T09:40:19.911400-05:00",
     "symbols": [
       "ICU"
@@ -4948,6 +4508,446 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T11:21:07.205072-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "US Stocks Mixed; Apple Shares Slide After Q4 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T11:21:07.209602-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple&#39;s Margin Problem Is Micron&#39;s Pricing Power: Why Memory Stocks Are Bouncing Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T11:21:09.369759-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Google Parent Plans $1.5 Billion Prepaid Energy Deal Via Goldman&#39; - Bloomberg News",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T11:21:11.804476-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Apple&#39;s Margin Problem Is Micron&#39;s Pricing Power: Why Memory Stocks Are Bouncing Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T11:21:12.043578-05:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Apple&#39;s Margin Problem Is Micron&#39;s Pricing Power: Why Memory Stocks Are Bouncing Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T11:21:12.288801-05:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Apple&#39;s Margin Problem Is Micron&#39;s Pricing Power: Why Memory Stocks Are Bouncing Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T11:21:12.566194-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "B. Riley Securities Maintains Buy on Marvell Technology, Lowers Price Target to $275",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T11:21:12.812653-05:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "What Is Going On With KLA Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T11:21:13.056975-05:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "TD Cowen Reiterates Hold on ON Semiconductor, Maintains $75 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T11:21:15.024346-05:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "UBS Maintains Buy on Vertex Pharmaceuticals, Raises Price Target to $640",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T11:21:15.028946-05:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "TD Cowen Maintains Buy on Vertex Pharmaceuticals, Raises Price Target to $575",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T11:21:16.955284-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike Is Preparing for an AI Threat That Could Already Be Inside the Company",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T11:21:24.510814-05:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning UnitedHealth Group Stock In The Last 20 Years",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T11:21:26.079101-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Will Devote 65% Of Its $10B Stock Sale To Ten Investors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T11:21:26.623466-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "There Is No Deadline For Exchanging Messages With Washington Through Mediators Or Reviewing Responses",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T11:21:27.478246-05:00",
+    "symbols": [
+      "PARA"
+    ],
+    "headline": "US Stocks Mixed; Apple Shares Slide After Q4 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T11:21:27.482854-05:00",
+    "symbols": [
+      "PARA"
+    ],
+    "headline": "Parabolic Technologies Shares Resume Trade",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T11:21:27.487446-05:00",
+    "symbols": [
+      "PARA"
+    ],
+    "headline": "Parabolic Technologies Shares Halted On Circuit Breaker To The Upside, Stock Now Up 350.89%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T11:21:27.491818-05:00",
+    "symbols": [
+      "PARA"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T11:21:27.496172-05:00",
+    "symbols": [
+      "PARA"
+    ],
+    "headline": "Why Aehr Test Systems Shares Are Trading Higher By Over 15%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T11:21:27.977116-05:00",
+    "symbols": [
+      "STVN"
+    ],
+    "headline": "Stevanato Group Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T11:21:27.981777-05:00",
+    "symbols": [
+      "STVN"
+    ],
+    "headline": "Stevanato Group continues to expect revenue in the range of \u20ac1.260 billion to \u20ac1.280 billion, adjusted EBITDA of \u20ac335.0 million to \u20ac345.2 million, and adjusted diluted EPS of \u20ac0.60 to \u20ac0.62.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T11:21:27.986419-05:00",
+    "symbols": [
+      "STVN"
+    ],
+    "headline": "Stevanato Gr Q3 Adj. EPS $0.18 Beats $0.17 Estimate, Sales $375.303M Beat $363.840M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T11:21:28.287495-05:00",
+    "symbols": [
+      "RYTM"
+    ],
+    "headline": "Rhythm Pharmaceuticals Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T11:21:28.292045-05:00",
+    "symbols": [
+      "RYTM"
+    ],
+    "headline": "Rhythm Pharmaceuticals Q3 EPS $(0.61) Beats $(0.72) Estimate, Sales $92.128M Beat $84.349M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T11:21:28.296479-05:00",
+    "symbols": [
+      "RYTM"
+    ],
+    "headline": "Reported Earlier, Rhythm Revises Bivamelagon Royalty To 1% On MC4R Net Sales, Agrees $350M LG Chem Payments, Obtains $750M Loan Led By HealthCare Royalty",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T11:21:28.586616-05:00",
+    "symbols": [
+      "SOPH"
+    ],
+    "headline": "Sophia Genetics Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T11:21:28.592349-05:00",
+    "symbols": [
+      "SOPH"
+    ],
+    "headline": "Sophia Genetics Raises FY2026 Sales Guidance from $94.000M-$96.000M to $96.000M vs $95.252M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T11:21:28.596761-05:00",
+    "symbols": [
+      "SOPH"
+    ],
+    "headline": "Sophia Genetics Q3 EPS $(0.24) Misses $(0.18) Estimate, Sales $24.267M Beat $24.035M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T11:21:29.092378-05:00",
+    "symbols": [
+      "XIFR"
+    ],
+    "headline": "XPLR Infr Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T11:21:29.096985-05:00",
+    "symbols": [
+      "XIFR"
+    ],
+    "headline": "XPLR Infr Q3 EPS $0.54 Beats $0.48 Estimate, Sales $332.000M Miss $362.214M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T11:21:29.595407-05:00",
+    "symbols": [
+      "TVTX"
+    ],
+    "headline": "Travere Therapeutics Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T11:21:29.600019-05:00",
+    "symbols": [
+      "TVTX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday's After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T11:21:29.604460-05:00",
+    "symbols": [
+      "TVTX"
+    ],
+    "headline": "Travere Therapeutics Q3 Adj. EPS $(0.31) Misses $(0.06) Estimate, Sales $224.563M Beat $195.292M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T11:21:30.187656-05:00",
+    "symbols": [
+      "SHOP"
+    ],
+    "headline": "Shopify Repurchased $562M Of Shares In Q3; $2.52B Remaining Of $5B Authorisation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T11:21:30.192447-05:00",
+    "symbols": [
+      "SHOP"
+    ],
+    "headline": "Shopify Q3 Payments Penetration 68% Vs 65%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T11:21:30.196847-05:00",
+    "symbols": [
+      "SHOP"
+    ],
+    "headline": "Shopify Q3 Monthly Recurring Revenue Up 19% To $230M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T11:21:30.201202-05:00",
+    "symbols": [
+      "SHOP"
+    ],
+    "headline": "Shopify Q3 Operating Income Up 66% To $568M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T11:21:30.205614-05:00",
+    "symbols": [
+      "SHOP"
+    ],
+    "headline": "Shopify Q3 Gross Profit Up 28% To $1.78B; Merchant Solutions Revenue Up 35%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T11:21:30.487750-05:00",
+    "symbols": [
+      "BVS"
+    ],
+    "headline": "Canaccord Genuity Maintains Buy on Bioventus, Lowers Price Target to $18",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T11:21:30.492432-05:00",
+    "symbols": [
+      "BVS"
+    ],
+    "headline": "Adeia Posts Downbeat Q3 Earnings, Joins Bioventus, Apple And Other Big Stocks Moving Lower In Tuesday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T11:21:30.496719-05:00",
+    "symbols": [
+      "BVS"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T11:21:30.501020-05:00",
+    "symbols": [
+      "BVS"
+    ],
+    "headline": "Why Aehr Test Systems Shares Are Trading Higher By Over 15%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T11:21:30.505323-05:00",
+    "symbols": [
+      "BVS"
+    ],
+    "headline": "Bioventus Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   },
   {
     "ts": "2026-11-03T11:24:45.873743-05:00",

@@ -1,255 +1,5 @@
 [
   {
-    "ts": "2026-11-03T10:09:41.658073-05:00",
-    "symbols": [
-      "MDGL"
-    ],
-    "headline": "Madrigal Plans Second Phase 3 Outcomes Trial (MAESTRO-CSPH) In MASH Cirrhosis; Start Expected 1H27",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T10:09:41.663106-05:00",
-    "symbols": [
-      "MDGL"
-    ],
-    "headline": "Madrigal Rezdiffra YTD Net Sales $1.1B",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T10:09:41.839419-05:00",
-    "symbols": [
-      "DTST"
-    ],
-    "headline": "Data Storage Corp Shares Resume Trade Following Circuit Breaker Halt, Stock Now Up ~28%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T10:09:41.934787-05:00",
-    "symbols": [
-      "RACE"
-    ],
-    "headline": "Ferrari Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T10:09:42.038707-05:00",
-    "symbols": [
-      "SNDL"
-    ],
-    "headline": "Adeia Posts Downbeat Q3 Earnings, Joins Bioventus, Apple And Other Big Stocks Moving Lower In Tuesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T10:09:42.726237-05:00",
-    "symbols": [
-      "ALSN"
-    ],
-    "headline": "Allison Transmission Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T10:09:42.731063-05:00",
-    "symbols": [
-      "ALSN"
-    ],
-    "headline": "Allison Transmission Raises FY2026 Sales Guidance from $5.800B-$6.000B to $5.975B-$6.075B vs $5.933B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T10:09:42.736262-05:00",
-    "symbols": [
-      "ALSN"
-    ],
-    "headline": "Allison Transmission CEO Says Medium-Duty, Class 8 Vocational Truck Demand Accelerated; Industrial, Agriculture Demand Subdued On Geopolitical Developments",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T10:09:42.741226-05:00",
-    "symbols": [
-      "ALSN"
-    ],
-    "headline": "Allison Transmission Q3 EPS $2.90 Beats $2.23 Estimate, Sales $1.534B Beat $1.473B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T10:20:37.099053-05:00",
-    "symbols": [
-      "VRTX"
-    ],
-    "headline": "RBC Capital Maintains Outperform on Vertex Pharmaceuticals, Raises Price Target to $600",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T10:20:46.287076-05:00",
-    "symbols": [
-      "BLZE"
-    ],
-    "headline": "Backblaze Stock Jumps 12% on Earnings, Revenue Beat and Strong Outlook",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T10:32:01.508478-05:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "TD Cowen Downgrades Marvell Technology to Hold, Lowers Price Target to $175",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T10:32:02.909412-05:00",
-    "symbols": [
-      "VRTX"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Vertex Pharmaceuticals, Raises Price Target to $650",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T10:32:14.769183-05:00",
-    "symbols": [
-      "LSCC"
-    ],
-    "headline": "These Analysts Boost Their Forecasts On Lattice Semiconductor After Upbeat Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T10:32:14.774247-05:00",
-    "symbols": [
-      "LSCC"
-    ],
-    "headline": "Stifel Maintains Buy on Lattice Semiconductor, Raises Price Target to $175",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T10:32:14.779136-05:00",
-    "symbols": [
-      "LSCC"
-    ],
-    "headline": "Rosenblatt Maintains Buy on Lattice Semiconductor, Raises Price Target to $200",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T10:32:14.783953-05:00",
-    "symbols": [
-      "LSCC"
-    ],
-    "headline": "Lattice Semiconductor Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T10:32:14.788606-05:00",
-    "symbols": [
-      "LSCC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday's After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T10:32:15.677883-05:00",
-    "symbols": [
-      "AHCO"
-    ],
-    "headline": "AdaptHealth Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T10:32:15.683411-05:00",
-    "symbols": [
-      "AHCO"
-    ],
-    "headline": "AdaptHealth Raises FY2026 Sales Guidance from $2.850B-$2.890B to $2.880B-$2.900B vs $2.955B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T10:32:15.688373-05:00",
-    "symbols": [
-      "AHCO"
-    ],
-    "headline": "AdaptHealth Q3 Sales $745.648M Miss $746.446M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T10:32:15.788956-05:00",
-    "symbols": [
-      "PTCT"
-    ],
-    "headline": "PTC Therapeutics Board Authorizes $500M Share Repurchase Program",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T10:32:15.882787-05:00",
-    "symbols": [
-      "TBBB"
-    ],
-    "headline": "BBB Foods Q3 EPS $0.01 Beats $(0.15) Estimate, Sales $1.648B Beat $1.610B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T10:32:16.385697-05:00",
-    "symbols": [
-      "DBVT"
-    ],
-    "headline": "DBV Technologies to Participate in Upcoming November Investor Conferences",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T10:32:16.493500-05:00",
-    "symbols": [
-      "CNL"
-    ],
-    "headline": "Collective Mining Reports High-Grade Gold Intercepts at Guayabales Project",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-03T10:32:16.865482-05:00",
     "symbols": [
       "NXXT"
@@ -4998,5 +4748,255 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:31:33.927721-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Nasdaq 100 Gets a Lift As Nvidia Overtakes Apple: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:31:34.238244-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Wall Street&#39;s Growth Stocks Have a New Problem: Value Stocks Are Getting More Expensive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:31:34.393602-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nasdaq 100 Gets a Lift As Nvidia Overtakes Apple: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:31:34.490580-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Nasdaq 100 Gets a Lift As Nvidia Overtakes Apple: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:31:34.584977-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Wall Street&#39;s Growth Stocks Have a New Problem: Value Stocks Are Getting More Expensive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T12:31:34.712837-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Wall Street&#39;s Growth Stocks Have a New Problem: Value Stocks Are Getting More Expensive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:31:34.850649-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Wall Street&#39;s Growth Stocks Have a New Problem: Value Stocks Are Getting More Expensive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:31:35.635220-05:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Nasdaq 100 Gets a Lift As Nvidia Overtakes Apple: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:31:36.739315-05:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "Riot Platforms Stock Flies Ahead of Earnings: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T12:31:37.993545-05:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "Nasdaq 100 Gets a Lift As Nvidia Overtakes Apple: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:31:38.527338-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Peter Schiff Challenges Saylor After Strategy Spends $2.25B on Buybacks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:31:40.635622-05:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "SLB Insider Executes Stock Sale",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T12:31:41.598186-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Nasdaq 100 Gets a Lift As Nvidia Overtakes Apple: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:31:41.695306-05:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Nasdaq 100 Gets a Lift As Nvidia Overtakes Apple: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T12:31:45.009762-05:00",
+    "symbols": [
+      "BLZE"
+    ],
+    "headline": "Backblaze Stock Jumps 12% on Earnings, Revenue Beat and Strong Outlook",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T12:31:45.608025-05:00",
+    "symbols": [
+      "GPK"
+    ],
+    "headline": "Nasdaq 100 Gets a Lift As Nvidia Overtakes Apple: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T12:31:45.699139-05:00",
+    "symbols": [
+      "LSCC"
+    ],
+    "headline": "Nasdaq 100 Gets a Lift As Nvidia Overtakes Apple: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:31:45.704747-05:00",
+    "symbols": [
+      "LSCC"
+    ],
+    "headline": "These Analysts Boost Their Forecasts On Lattice Semiconductor After Upbeat Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:31:45.709246-05:00",
+    "symbols": [
+      "LSCC"
+    ],
+    "headline": "Stifel Maintains Buy on Lattice Semiconductor, Raises Price Target to $175",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:31:45.714562-05:00",
+    "symbols": [
+      "LSCC"
+    ],
+    "headline": "Rosenblatt Maintains Buy on Lattice Semiconductor, Raises Price Target to $200",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:31:46.307612-05:00",
+    "symbols": [
+      "NBIX"
+    ],
+    "headline": "Nasdaq 100 Gets a Lift As Nvidia Overtakes Apple: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:31:46.549451-05:00",
+    "symbols": [
+      "FISV"
+    ],
+    "headline": "Nasdaq 100 Gets a Lift As Nvidia Overtakes Apple: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T12:31:47.470507-05:00",
+    "symbols": [
+      "FN"
+    ],
+    "headline": "Nasdaq 100 Gets a Lift As Nvidia Overtakes Apple: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T12:31:47.828900-05:00",
+    "symbols": [
+      "ALSN"
+    ],
+    "headline": "Allison Transmission Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T12:31:47.834094-05:00",
+    "symbols": [
+      "ALSN"
+    ],
+    "headline": "Allison Transmission Raises FY2026 Sales Guidance from $5.800B-$6.000B to $5.975B-$6.075B vs $5.933B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

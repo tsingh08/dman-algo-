@@ -1,195 +1,5 @@
 [
   {
-    "ts": "2026-11-03T12:42:48.767387-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Tutanota LLC Extends Tender Offer for Palo Alto Networks Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T12:42:49.683559-05:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "UBS Maintains Neutral on Airbnb, Raises Price Target to $181",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T12:42:51.636015-05:00",
-    "symbols": [
-      "OXY"
-    ],
-    "headline": "Live On CNBC, Josh Brown Hosts Segment Titled &#34;Josh&#39;s Best Stocks In The Market: ConocoPhillips, Devon Energy, Occidental Petroleum&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T12:42:51.966435-05:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Novo Nordisk Provides Update on Share Repurchase Programme",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T12:42:52.147072-05:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Goodal Skincare Brand to Launch at Costco",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T12:42:52.237169-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T12:42:55.028013-05:00",
-    "symbols": [
-      "QS"
-    ],
-    "headline": "4 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T12:42:56.271975-05:00",
-    "symbols": [
-      "IBTA"
-    ],
-    "headline": "Nasdaq Surges 1%; Pfizer Posts Upbeat Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T12:42:56.277470-05:00",
-    "symbols": [
-      "IBTA"
-    ],
-    "headline": "Wells Fargo Maintains Equal-Weight on Ibotta, Raises Price Target to $49",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T12:42:56.451488-05:00",
-    "symbols": [
-      "CMCO"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T12:42:56.456536-05:00",
-    "symbols": [
-      "CMCO"
-    ],
-    "headline": "Columbus McKinnon Q2 Adj. EPS $0.61 Beats $0.38 Estimate, Sales $539.285M Beat $518.563M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T12:42:56.461459-05:00",
-    "symbols": [
-      "CMCO"
-    ],
-    "headline": "Columbus McKinnon Raises FY2027 Adj EPS Guidance from $1.90-$2.10 to $2.00-$2.15 vs $2.01 Est; Raises FY2027 Sales Guidance from $2.090B-$2.150B to $2.130B-$2.170B vs $2.101B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T12:42:56.698926-05:00",
-    "symbols": [
-      "GPK"
-    ],
-    "headline": "Nasdaq Surges 1%; Pfizer Posts Upbeat Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T12:42:56.706110-05:00",
-    "symbols": [
-      "GPK"
-    ],
-    "headline": "Graphic Packaging Holding Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T12:42:56.710758-05:00",
-    "symbols": [
-      "GPK"
-    ],
-    "headline": "Graphic Packaging Holding Q3 Adj. EPS $0.23 Beats $0.22 Estimate, Sales $2.192B Beat $2.171B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T12:42:56.877729-05:00",
-    "symbols": [
-      "ACB"
-    ],
-    "headline": "Aurora Cannabis Stock Surges on Organigram Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T12:42:56.966257-05:00",
-    "symbols": [
-      "SQNS"
-    ],
-    "headline": "Sequans Communications Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T12:42:56.971167-05:00",
-    "symbols": [
-      "SQNS"
-    ],
-    "headline": "Conference call:\nSequans Communications Sees Q4 Sales $9.500M-$11.000M vs $12.880M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T12:42:56.976547-05:00",
-    "symbols": [
-      "SQNS"
-    ],
-    "headline": "Sequans Communications Q3 Adj. EPADS $(0.04) Beats $(0.54) Estimate, Sales $9.090M Beat $8.968M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-03T12:42:57.061589-05:00",
     "symbols": [
       "AEHR"
@@ -4998,5 +4808,195 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T13:31:24.083682-05:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "RIOT, COIN, MSTR Jump up to 16%: What Is Going On With Crypto Stocks?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T13:31:24.201795-05:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "RIOT, COIN, MSTR Jump up to 16%: What Is Going On With Crypto Stocks?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T13:31:26.347026-05:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "RIOT, COIN, MSTR Jump up to 16%: What Is Going On With Crypto Stocks?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T13:31:26.611681-05:00",
+    "symbols": [
+      "CLSK"
+    ],
+    "headline": "Why Is CleanSpark Stock Surging on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T13:31:34.469007-05:00",
+    "symbols": [
+      "POM"
+    ],
+    "headline": "Pomdoctor Limited Receives Nasdaq Deficiency Notifications",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T13:31:36.639825-05:00",
+    "symbols": [
+      "IBTA"
+    ],
+    "headline": "Evercore ISI Group Maintains In-Line on Ibotta, Raises Price Target to $58",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T13:31:36.644439-05:00",
+    "symbols": [
+      "IBTA"
+    ],
+    "headline": "Needham Maintains Buy on Ibotta, Raises Price Target to $65",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T13:31:36.970078-05:00",
+    "symbols": [
+      "HLIT"
+    ],
+    "headline": "Barclays Maintains Equal-Weight on Harmonic, Lowers Price Target to $14",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T13:31:36.976407-05:00",
+    "symbols": [
+      "HLIT"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T13:31:36.981640-05:00",
+    "symbols": [
+      "HLIT"
+    ],
+    "headline": "Why Aehr Test Systems Shares Are Trading Higher By Over 15%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T13:31:36.986710-05:00",
+    "symbols": [
+      "HLIT"
+    ],
+    "headline": "Harmonic Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T13:31:37.114647-05:00",
+    "symbols": [
+      "SRAD"
+    ],
+    "headline": "Fabrinet, EverQuote, Lattice Semiconductor, Fiserv And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T13:31:37.119546-05:00",
+    "symbols": [
+      "SRAD"
+    ],
+    "headline": "Sportradar Gr Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T13:31:37.125727-05:00",
+    "symbols": [
+      "SRAD"
+    ],
+    "headline": "Sportradar Gr Sees Revenue Growth of 19%-21% on a Constant Currency Basis; Expects Revenue of \u20ac1.518B-\u20ac1.533B at Current FX Rates",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T13:31:37.130948-05:00",
+    "symbols": [
+      "SRAD"
+    ],
+    "headline": "Sportradar Gr Q3 EPS $0.10 Beats $0.09 Estimate, Sales $417.213M Beat $403.900M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T13:31:38.209650-05:00",
+    "symbols": [
+      "NBIX"
+    ],
+    "headline": "RBC Capital Maintains Outperform on Neurocrine Biosciences, Raises Price Target to $190",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T13:31:39.299666-05:00",
+    "symbols": [
+      "CVGI"
+    ],
+    "headline": "Commercial Vehicle Group Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T13:31:39.977911-05:00",
+    "symbols": [
+      "AEIS"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on Advanced Energy Indus, Lowers Price Target to $368",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T13:31:41.023923-05:00",
+    "symbols": [
+      "DD"
+    ],
+    "headline": "Fermium Research Maintains Buy on DuPont de Nemours, Raises Price Target to $160",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

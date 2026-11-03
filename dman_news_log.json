@@ -1,475 +1,5 @@
 [
   {
-    "ts": "2026-11-03T09:39:41.774730-05:00",
-    "symbols": [
-      "VVX"
-    ],
-    "headline": "V2X Q3 Adj. EPS $1.64 Beats $1.50 Estimate, Sales $1.272B Beat $1.217B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:39:42.023928-05:00",
-    "symbols": [
-      "FLUT"
-    ],
-    "headline": "'FanDuel Set to Name Interim CEO as Its Permanent Leader'- Front Office Sports",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T09:39:42.285265-05:00",
-    "symbols": [
-      "EL"
-    ],
-    "headline": "Analysts Adjust Price Targets for The Est\u00e9e Lauder Companies",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:39:42.549821-05:00",
-    "symbols": [
-      "CERS"
-    ],
-    "headline": "Adeia Posts Downbeat Q3 Earnings, Joins Bioventus, Apple And Other Big Stocks Moving Lower In Tuesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:39:42.554446-05:00",
-    "symbols": [
-      "CERS"
-    ],
-    "headline": "Why Aehr Test Systems Shares Are Trading Higher By Over 15%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:39:42.558697-05:00",
-    "symbols": [
-      "CERS"
-    ],
-    "headline": "Cerus Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:39:42.563251-05:00",
-    "symbols": [
-      "CERS"
-    ],
-    "headline": "Cerus Files Prospectus To Offer And Sell Up To $150M Of Securities From Time To Time",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:39:42.567568-05:00",
-    "symbols": [
-      "CERS"
-    ],
-    "headline": "Cerus Affirms FY2026 Sales Guidance of $229.000M-$231.000M vs $248.850M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:39:42.804321-05:00",
-    "symbols": [
-      "CNA"
-    ],
-    "headline": "Jefferies Upgrades Centrica to Buy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T09:39:43.318934-05:00",
-    "symbols": [
-      "FWRG"
-    ],
-    "headline": "First Watch Restaurant Gr Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:39:43.323796-05:00",
-    "symbols": [
-      "FWRG"
-    ],
-    "headline": "First Watch Restaurant Gr Narrows FY2026 Sales Guidance from $1.375B-$1.394B to $1.388B vs $1.388B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:39:43.328188-05:00",
-    "symbols": [
-      "FWRG"
-    ],
-    "headline": "First Watch Restaurant Gr Q3 EPS $0.08 Beats $0.04 Estimate, Sales $349.900M Beat $348.814M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:39:43.571314-05:00",
-    "symbols": [
-      "SYF"
-    ],
-    "headline": "UBS Maintains Neutral on Synchrony Financial, Lowers Price Target to $80",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:39:43.817583-05:00",
-    "symbols": [
-      "SBAC"
-    ],
-    "headline": "SBA Comms Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T09:39:43.822086-05:00",
-    "symbols": [
-      "SBAC"
-    ],
-    "headline": "SBA Communications Lowers FY2026 Sales Guidance from $2.841B-$2.886B to $2.833B-$2.858B vs $2.864B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T09:39:43.826457-05:00",
-    "symbols": [
-      "SBAC"
-    ],
-    "headline": "SBA Comms Q3 EPS $2.19 Beats $2.11 Estimate, Sales $713.924M Miss $724.650M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T09:39:44.069740-05:00",
-    "symbols": [
-      "AME"
-    ],
-    "headline": "AMETEK Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:39:44.074347-05:00",
-    "symbols": [
-      "AME"
-    ],
-    "headline": "AMETEK Completes Acquisition Of Indicor Instrumentation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:39:44.078679-05:00",
-    "symbols": [
-      "AME"
-    ],
-    "headline": "AMETEK Q3 Electronic Instruments Group Sales Up 16% To Record $1.44B",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:39:44.082989-05:00",
-    "symbols": [
-      "AME"
-    ],
-    "headline": "AMETEK Q3 Electromechanical Group Sales Up 20% To $778M; Adj. Operating Income Up 29%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:39:44.087250-05:00",
-    "symbols": [
-      "AME"
-    ],
-    "headline": "AMETEK Q3 Operating Cash Flow Up 27% To Record $560.6M; Free Cash Flow Conversion 124%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:39:44.332110-05:00",
-    "symbols": [
-      "FBIN"
-    ],
-    "headline": "Fortune Brands Innovations Names Morgan Fox Executive Vice President, Chief Legal Officer & Corporate Secretary",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:39:44.569558-05:00",
-    "symbols": [
-      "PHG"
-    ],
-    "headline": "Philips Reports Strong Customer Demand, Improved Profitability",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:39:44.837898-05:00",
-    "symbols": [
-      "SYY"
-    ],
-    "headline": "Sysco Q1 Earnings: Sales Miss Estimates, Full-Year EPS Outlook Unchanged",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:39:44.842464-05:00",
-    "symbols": [
-      "SYY"
-    ],
-    "headline": "Sysco Affirms FY2027 Adj EPS Guidance of $5.02-$5.12 vs $5.05 Est; Narrows FY2027 Sales Guidance from $89.626B-$90.472B to $89.626B vs $89.879B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:39:44.846771-05:00",
-    "symbols": [
-      "SYY"
-    ],
-    "headline": "Sysco Q1 Includes $234M Gain On Rate Locks Tied To Jetro Restaurant Depot Acquisition Financing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:39:44.851109-05:00",
-    "symbols": [
-      "SYY"
-    ],
-    "headline": "Sysco Returned $264M To Shareholders Via Dividends In Q1",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:39:44.855448-05:00",
-    "symbols": [
-      "SYY"
-    ],
-    "headline": "Sysco Q1 Free Cash Flow $230M Vs $(50)M YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:39:45.229098-05:00",
-    "symbols": [
-      "CALX"
-    ],
-    "headline": "Calix Lowers FY2026 Sales Guidance from $1.200B to $1.190B vs $1.191B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T09:39:45.233639-05:00",
-    "symbols": [
-      "CALX"
-    ],
-    "headline": "Calix Sees Q4 GAAP EPS $0.17-$0.25 vs $0.26 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T09:39:45.238199-05:00",
-    "symbols": [
-      "CALX"
-    ],
-    "headline": "Calix Sees Q4 Adj EPS $0.41-$0.49 vs $0.45 Est; Sees Sales $311.000M-$317.000M vs $314.186M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T09:39:45.242567-05:00",
-    "symbols": [
-      "CALX"
-    ],
-    "headline": "Calix Q3 Adj. EPS $0.44 Beats $0.41 Estimate, Sales $301.712M Miss $304.101M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T09:39:45.497259-05:00",
-    "symbols": [
-      "TEVA"
-    ],
-    "headline": "Teva Acquires BXCL-501 From BioXcel Therapeutics; Under FDA Review For At-Home Treatment Of Agitation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:39:45.501767-05:00",
-    "symbols": [
-      "TEVA"
-    ],
-    "headline": "Teva Q3 Adj. Gross Margin 58.7%, Up 345 Bps YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:39:45.506151-05:00",
-    "symbols": [
-      "TEVA"
-    ],
-    "headline": "Teva Pharmaceutical Indus Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:39:45.510478-05:00",
-    "symbols": [
-      "TEVA"
-    ],
-    "headline": "Teva Q3 Austedo Revenue $751M, Up 21% YoY In Local Currency; Ajovy $269M, Up 61%; Uzedy $85M, Up 96%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:39:45.514798-05:00",
-    "symbols": [
-      "TEVA"
-    ],
-    "headline": "Teva Raises FY26 Uzedy Revenue Outlook To $290M-$310M From $270M-$290M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:39:46.075013-05:00",
-    "symbols": [
-      "TOL"
-    ],
-    "headline": "Homebuilders, Miners and Regional Banks Soar as Oil Drops 8%: Has the Hormuz Peace Trade Begun?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:39:46.371981-05:00",
-    "symbols": [
-      "DOC"
-    ],
-    "headline": "Healthpeak Properties Raises FY2026 FFO Guidance from $1.73-$1.77 to $1.76-$1.78 vs $1.76 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T09:39:46.376479-05:00",
-    "symbols": [
-      "DOC"
-    ],
-    "headline": "Healthpeak Properties Q3 Adj. FFO $0.44 Beats $0.43 Estimate, Sales $820.892M Beat $736.787M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T09:39:46.630669-05:00",
-    "symbols": [
-      "CNK"
-    ],
-    "headline": "Cinemark Holdings Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:39:46.635237-05:00",
-    "symbols": [
-      "CNK"
-    ],
-    "headline": "Cinemark Hldgs Q3 EPS $1.04 Beats $0.89 Estimate, Sales $1.059B Beat $1.020B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T09:39:46.872769-05:00",
-    "symbols": [
-      "SITM"
-    ],
-    "headline": "Rosenblatt Maintains Buy on SiTime, Raises Price Target to $900",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:39:47.656148-05:00",
-    "symbols": [
-      "PWP"
-    ],
-    "headline": "Perella Weinberg Partners LP Acts as Financial Advisor for Vantive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:39:47.660708-05:00",
-    "symbols": [
-      "PWP"
-    ],
-    "headline": "Adnan Choudhury Departs Perella Weinberg Partners for Houlihan Lokey",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:39:47.910740-05:00",
-    "symbols": [
-      "OC"
-    ],
-    "headline": "Don Rettig Departs Owens Corning to Join FirstEnergy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T09:39:48.177448-05:00",
-    "symbols": [
-      "TFII"
-    ],
-    "headline": "CIBC Maintains Outperformer on TFI International, Lowers Price Target to $120",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-03T09:39:48.427025-05:00",
     "symbols": [
       "YUM"
@@ -4998,5 +4528,475 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T10:09:29.105414-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "CNMC Initiates Sanction Proceedings Against Apple, Amazon; Companies Failed To Comply With Cease-And-Desist Order Imposed On Them In Sanctioning Resolution Of July 2023; Imposed Fines On Both Companies For Including Anti-Competitive Clauses In Contracts Governing The Terms And Conditions Of Amazon\u2019s Role As An Apple Distributor",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T10:09:29.220857-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "AMD Earnings Prediction Market Preview: What Will Lisa Su Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T10:09:29.343036-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "AMD Earnings Prediction Market Preview: What Will Lisa Su Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T10:09:29.439340-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD Earnings Prediction Market Preview: What Will Lisa Su Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T10:09:29.597769-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "AMD Earnings Prediction Market Preview: What Will Lisa Su Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T10:09:29.808712-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "CNMC Initiates Sanction Proceedings Against Apple, Amazon; Companies Failed To Comply With Cease-And-Desist Order Imposed On Them In Sanctioning Resolution Of July 2023; Imposed Fines On Both Companies For Including Anti-Competitive Clauses In Contracts Governing The Terms And Conditions Of Amazon\u2019s Role As An Apple Distributor",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T10:09:29.813984-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Web Services Signs Strategic Collaboration Agreement With Great Ormond Street Hospital To Advance AI, Cloud Computing And Digital Healthcare Innovation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T10:09:32.938353-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Analyst Actions: Morgan Stanley, UBS, and JPMorgan Adjust ExxonMobil Price Targets",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T10:09:32.943566-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Evercore ISI Group Maintains Outperform Rating and Raises ExxonMobil Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T10:09:35.628478-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Venezuela&#39;s Oil Exports Almost Unchanged At 1.08M Barrels/Day In Oct; Venezuela&#39;s Oil Exports To U.S. Fell To 449,000 Barrels/Day In Oct; Venezuela&#39;s Oil Exports To Europe Increased To Some 235,000 Barrels/Day In Oct; Chevron&#39;s Exports Of Venezuelan Crude Up To Some 303,000 Barrels/Day, Traders Exported 506,000 Barrels/Day",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T10:09:36.462233-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "AMD Earnings Prediction Market Preview: What Will Lisa Su Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T10:09:36.636336-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Durables Excluding Defense (MoM) For September 2.3% Vs 2.2% Est.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T10:09:36.641235-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA JOLTS Job Openings For September 7.523M Vs 7.150M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T10:09:36.645975-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Factory Orders (MoM) For September\u00a0 1.8% Vs 1.2% Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T10:09:40.687709-05:00",
+    "symbols": [
+      "IBTA"
+    ],
+    "headline": "Evercore ISI Group Maintains In-Line on Ibotta, Raises Price Target to $58",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T10:09:40.692795-05:00",
+    "symbols": [
+      "IBTA"
+    ],
+    "headline": "Needham Maintains Buy on Ibotta, Raises Price Target to $65",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T10:09:40.698813-05:00",
+    "symbols": [
+      "IBTA"
+    ],
+    "headline": "Why Aehr Test Systems Shares Are Trading Higher By Over 15%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T10:09:40.704379-05:00",
+    "symbols": [
+      "IBTA"
+    ],
+    "headline": "Ibotta Q3 Adj. EPS $0.62 Beats $0.38 Estimate, Sales $97.825M Beat $88.563M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T10:09:40.709674-05:00",
+    "symbols": [
+      "IBTA"
+    ],
+    "headline": "Ibotta Sees Q4 Sales $94.000M-$98.000M vs $93.377M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T10:09:40.801405-05:00",
+    "symbols": [
+      "HLIT"
+    ],
+    "headline": "Barclays Maintains Equal-Weight on Harmonic, Lowers Price Target to $14",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T10:09:40.806614-05:00",
+    "symbols": [
+      "HLIT"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T10:09:40.811515-05:00",
+    "symbols": [
+      "HLIT"
+    ],
+    "headline": "Why Aehr Test Systems Shares Are Trading Higher By Over 15%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T10:09:40.816615-05:00",
+    "symbols": [
+      "HLIT"
+    ],
+    "headline": "Harmonic Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T10:09:40.821194-05:00",
+    "symbols": [
+      "HLIT"
+    ],
+    "headline": "Harmonic Raises FY2026 GAAP EPS Guidance from $0.44-$0.53 to $0.54-$0.57 vs $0.50 Est; Raises FY2026 Sales Guidance from $505.000M-$525.000M to $545.000M-$555.000M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T10:09:41.008847-05:00",
+    "symbols": [
+      "AEHR"
+    ],
+    "headline": "Aehr Stock Surges As CEO Says AI Chip Complexity Is Accelerating Burn-In Demand",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T10:09:41.014386-05:00",
+    "symbols": [
+      "AEHR"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T10:09:41.019663-05:00",
+    "symbols": [
+      "AEHR"
+    ],
+    "headline": "Why Aehr Test Systems Shares Are Trading Higher By Over 15%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T10:09:41.024876-05:00",
+    "symbols": [
+      "AEHR"
+    ],
+    "headline": "Apple, Palantir, Marvell Technology, Oracle and Aehr Test Systems: Why These 5 Stocks Are on Investors' Radars Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T10:09:41.029763-05:00",
+    "symbols": [
+      "AEHR"
+    ],
+    "headline": "Aehr Test System Q1 2027 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T10:09:41.128454-05:00",
+    "symbols": [
+      "NBIX"
+    ],
+    "headline": "RBC Capital Maintains Outperform on Neurocrine Biosciences, Raises Price Target to $190",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T10:09:41.233393-05:00",
+    "symbols": [
+      "CVGI"
+    ],
+    "headline": "Commercial Vehicle Group Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T10:09:41.239902-05:00",
+    "symbols": [
+      "CVGI"
+    ],
+    "headline": "CVG Says Net Leverage Cut To About 2.7x; Targets About 2x",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T10:09:41.244502-05:00",
+    "symbols": [
+      "CVGI"
+    ],
+    "headline": "CVG Q3 Net Income Includes $4.1M Warrant Liability Revaluation Benefit, $3.1M Gain On Asset Sale",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T10:09:41.249914-05:00",
+    "symbols": [
+      "CVGI"
+    ],
+    "headline": "CVG Q3 Trim Systems Revenue Up 72%; Electrical Systems Up 30%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T10:09:41.255388-05:00",
+    "symbols": [
+      "CVGI"
+    ],
+    "headline": "CVG Q3 Adj. EBITDA $8.5M vs $4.6M Y/Y; Margin 4.1% vs 3.0%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T10:09:41.641943-05:00",
+    "symbols": [
+      "MDGL"
+    ],
+    "headline": "Madrigal Q3-End Cash, Equivalents, Restricted Cash &amp; Marketable Securities $961.8M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T10:09:41.647918-05:00",
+    "symbols": [
+      "MDGL"
+    ],
+    "headline": "Madrigal: MAESTRO-NASH OUTCOMES On Track, Data Expected Late 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T10:09:41.652486-05:00",
+    "symbols": [
+      "MDGL"
+    ],
+    "headline": "Madrigal Pharmaceuticals Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T10:09:41.658073-05:00",
+    "symbols": [
+      "MDGL"
+    ],
+    "headline": "Madrigal Plans Second Phase 3 Outcomes Trial (MAESTRO-CSPH) In MASH Cirrhosis; Start Expected 1H27",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T10:09:41.663106-05:00",
+    "symbols": [
+      "MDGL"
+    ],
+    "headline": "Madrigal Rezdiffra YTD Net Sales $1.1B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T10:09:41.839419-05:00",
+    "symbols": [
+      "DTST"
+    ],
+    "headline": "Data Storage Corp Shares Resume Trade Following Circuit Breaker Halt, Stock Now Up ~28%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T10:09:41.934787-05:00",
+    "symbols": [
+      "RACE"
+    ],
+    "headline": "Ferrari Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T10:09:42.038707-05:00",
+    "symbols": [
+      "SNDL"
+    ],
+    "headline": "Adeia Posts Downbeat Q3 Earnings, Joins Bioventus, Apple And Other Big Stocks Moving Lower In Tuesday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T10:09:42.726237-05:00",
+    "symbols": [
+      "ALSN"
+    ],
+    "headline": "Allison Transmission Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T10:09:42.731063-05:00",
+    "symbols": [
+      "ALSN"
+    ],
+    "headline": "Allison Transmission Raises FY2026 Sales Guidance from $5.800B-$6.000B to $5.975B-$6.075B vs $5.933B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T10:09:42.736262-05:00",
+    "symbols": [
+      "ALSN"
+    ],
+    "headline": "Allison Transmission CEO Says Medium-Duty, Class 8 Vocational Truck Demand Accelerated; Industrial, Agriculture Demand Subdued On Geopolitical Developments",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T10:09:42.741226-05:00",
+    "symbols": [
+      "ALSN"
+    ],
+    "headline": "Allison Transmission Q3 EPS $2.90 Beats $2.23 Estimate, Sales $1.534B Beat $1.473B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

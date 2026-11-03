@@ -1,1205 +1,5 @@
 [
   {
-    "ts": "2026-11-03T14:03:20.688883-05:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Caterpillar Director Purchases $620,390 in Company Stock",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:03:20.694125-05:00",
-    "symbols": [
-      "KLAC"
-    ],
-    "headline": "KLA Corporation Upgraded to Buy by Analyst",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:03:20.807785-05:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Qualcomm Reports Successful Testing of High Bandwidth Compute Silicon",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T14:03:20.813257-05:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Supermicro to Build AI Inference Racks with SambaNova Chips",
-    "source": "fiscal.ai",
-    "tag": "held",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T14:03:21.289058-05:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "Bernstein Maintains DraftKings at Outperform, Lowers Price Target",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T14:03:21.431280-05:00",
-    "symbols": [
-      "DECK"
-    ],
-    "headline": "Deckers Outdoor Corporation Raises Fiscal 2027 EPS Guidance",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:03:21.567961-05:00",
-    "symbols": [
-      "LUMN"
-    ],
-    "headline": "Lumen Technologies Recognized in 2026 U.S. Wholesale Service Provider Excellence Awards",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:03:21.572893-05:00",
-    "symbols": [
-      "VRTX"
-    ],
-    "headline": "Scotiabank Adjusts Price Target on Vertex Pharmaceuticals to $660",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T14:03:21.578628-05:00",
-    "symbols": [
-      "VRTX"
-    ],
-    "headline": "RBC Capital Markets Raises Price Target on Vertex Pharmaceuticals to $600",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T14:13:47.493998-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Stock at \u2018Extreme Overvaluation\u2019: Analysts See Slowing Revenue Growth",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T14:13:49.169206-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Citigroup Maintains Buy on Palantir Technologies, Raises Price Target to $265",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:13:49.890158-05:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Reuters Reported US Officials Have Held Up Approval For American Chipmaking Equipment Needed By SK Hynix To Expand Production In China",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:13:51.330620-05:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "This Midterm Nightmare Scenario Puts S&amp;P 500 Down 10% by Year-End, Evercore Warns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:13:55.087727-05:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "This Midterm Nightmare Scenario Puts S&amp;P 500 Down 10% by Year-End, Evercore Warns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:13:56.208194-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Reuters Reported US Officials Have Held Up Approval For American Chipmaking Equipment Needed By SK Hynix To Expand Production In China",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T14:13:56.212877-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "This Midterm Nightmare Scenario Puts S&amp;P 500 Down 10% by Year-End, Evercore Warns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T14:13:56.322372-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "This Midterm Nightmare Scenario Puts S&amp;P 500 Down 10% by Year-End, Evercore Warns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:13:56.438669-05:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "SPY Vs. IWM: Why 3.4% GDP Growth Leaves Two Different Tests For Investors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T14:13:56.562799-05:00",
-    "symbols": [
-      "ALLO"
-    ],
-    "headline": "Allogene To Present Kidney Cancer CAR T Clinical Experience, Preclinical Small Cell Lung Cancer Data At SITC Meeting",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:13:56.670485-05:00",
-    "symbols": [
-      "ARDX"
-    ],
-    "headline": "Ardelyx Completes Enrollment In Phase 3 ACCEL Clinical Trial Of IBSRELA",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T14:13:56.777524-05:00",
-    "symbols": [
-      "ASPI"
-    ],
-    "headline": "ASP Isotopes Provides Operational Updates on Silicon-28 and Ytterbium-176 Production",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:13:56.884415-05:00",
-    "symbols": [
-      "BKYI"
-    ],
-    "headline": "Cipher And BIO-key Partner To Converge Cybersecurity, Identity Management And Access Governance, Introducing Integrated Offering In Portugal And Exploring Additional Markets Where Cipher Operates",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:13:56.987769-05:00",
-    "symbols": [
-      "BRAI"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:13:57.100166-05:00",
-    "symbols": [
-      "CCCC"
-    ],
-    "headline": "C4 Therapeutics Announces Participation in Upcoming November Investor Conferences",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:13:57.104929-05:00",
-    "symbols": [
-      "CCCC"
-    ],
-    "headline": "C4 Therapeutics Grants Inducement Stock Options to New Employee",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:13:57.212700-05:00",
-    "symbols": [
-      "CLRO"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:13:57.318312-05:00",
-    "symbols": [
-      "FRMI"
-    ],
-    "headline": "Fermi Announces TensorWave Data Center Lease Closing Missed October 31 Deadline As Both Parties Continue Working To Satisfy Conditions; CEO Says Both Fermi And TensorWave Remain Committed To This Lease",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:13:57.489083-05:00",
-    "symbols": [
-      "GIXI"
-    ],
-    "headline": "Gix Internet Portfolio Company Quantum X Labs Completes First Demonstration Of Its Qatacomb Quantum Encryption Scheme On Commercial Hardware; Intended Recipient Reconstructed An Encrypted Image",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:13:57.612482-05:00",
-    "symbols": [
-      "GLND"
-    ],
-    "headline": "LMR Partners LLP Files Form 8.3 Disclosure Regarding Greenland Energy Company",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:13:57.720612-05:00",
-    "symbols": [
-      "GRAB"
-    ],
-    "headline": "Fabrinet, EverQuote, Lattice Semiconductor, Fiserv And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T14:13:57.725697-05:00",
-    "symbols": [
-      "GRAB"
-    ],
-    "headline": "Stock Market Today: S&amp;P 500, Nasdaq 100, Dow Jones Futures Mixed as Trump Touts Iran Settlement Hopes \u2014 AAPL, PLTR, AMD in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T14:13:57.730102-05:00",
-    "symbols": [
-      "GRAB"
-    ],
-    "headline": "Uber&#39;s Asia Rival Grab Reports First-Ever Profitability Across All Three Core Segments",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T14:13:57.734410-05:00",
-    "symbols": [
-      "GRAB"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T14:13:57.940278-05:00",
-    "symbols": [
-      "GTM"
-    ],
-    "headline": "ZoomInfo Launches MCP Integration With Notion Through GTM.AI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T14:25:13.069286-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Partners With Air Tahiti Nui To Equip Entire Fleet With Free Starlink Wi-Fi",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T14:25:13.661761-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;Jill Hazelbaker Jumps To OpenAI As Chief Corporate Affairs Officer&#39; - Axios",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T14:25:14.042588-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#39;Meta Draws $58 Billion Demand for US Leg of Cross-Border Bond&#39; - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T14:25:14.938248-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Palantir CEO Alex Karp Wants \u2018The Whole Thing\u2019 After First $2 Billion Quarter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:25:21.496865-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "S&amp;P 500 Could Win No Matter Who Wins the Midterms: 5 ETFs to Watch Under JPMorgan&#39;s 4 Scenarios",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T14:25:21.611412-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "S&amp;P 500 Could Win No Matter Who Wins the Midterms: 5 ETFs to Watch Under JPMorgan&#39;s 4 Scenarios",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:25:23.264943-05:00",
-    "symbols": [
-      "HTZ"
-    ],
-    "headline": "Barclays Maintains Sell Rating on Hertz Global Holdings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:25:23.373438-05:00",
-    "symbols": [
-      "JAGX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:25:23.378621-05:00",
-    "symbols": [
-      "JAGX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:25:23.382956-05:00",
-    "symbols": [
-      "JAGX"
-    ],
-    "headline": "Why Aehr Test Systems Shares Are Trading Higher By Over 15%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:25:23.508198-05:00",
-    "symbols": [
-      "JBLU"
-    ],
-    "headline": "JetBlue Chairman Peter Boneparth Purchases 100,000 Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:25:23.611230-05:00",
-    "symbols": [
-      "KDK"
-    ],
-    "headline": "Kodiak AI Appoints Lorie Boyd as Chief People Officer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:25:23.727448-05:00",
-    "symbols": [
-      "KEEL"
-    ],
-    "headline": "Keefe Bruyette Adjusts Price Targets for AI Infrastructure Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T14:25:23.849374-05:00",
-    "symbols": [
-      "LCID"
-    ],
-    "headline": "Lucid Private Offices Opens First Austin Location",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T14:25:24.081053-05:00",
-    "symbols": [
-      "NNBR"
-    ],
-    "headline": "Adeia Posts Downbeat Q3 Earnings, Joins Bioventus, Apple And Other Big Stocks Moving Lower In Tuesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:25:24.185299-05:00",
-    "symbols": [
-      "NXH"
-    ],
-    "headline": "Neighborhood Intelligence, Inc. Enters Support Agreement for tZERO Business Combination",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:25:24.296664-05:00",
-    "symbols": [
-      "ONEG"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:25:24.397391-05:00",
-    "symbols": [
-      "PFAI"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:25:24.609392-05:00",
-    "symbols": [
-      "PONY"
-    ],
-    "headline": "This X-Energy Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:25:24.615045-05:00",
-    "symbols": [
-      "PONY"
-    ],
-    "headline": "Morgan Stanley Initiates Coverage On Pony AI with Overweight Rating, Announces Price Target of $10",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:25:24.846736-05:00",
-    "symbols": [
-      "SBS"
-    ],
-    "headline": "Berenberg Raises STRATEC Price Target to 39 Euro",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:25:24.947583-05:00",
-    "symbols": [
-      "SKYA"
-    ],
-    "headline": "SkyAI, Inc. Amends and Extends Cash Tender Offer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:25:25.054113-05:00",
-    "symbols": [
-      "STAK"
-    ],
-    "headline": "STAK Appoints Xiaofei Han CFO, Effective Nov. 1",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:25:25.164266-05:00",
-    "symbols": [
-      "STLA"
-    ],
-    "headline": "Trump Just Gave Automakers a Major Fuel-Economy Break \u2014 GM, Toyota and Volkswagen Are Siding With Him, But California Is Fighting Back in Court",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:25:25.169393-05:00",
-    "symbols": [
-      "STLA"
-    ],
-    "headline": "Tesla Registrations Explode Across Europe as Iran War Sends Fuel Prices Soaring \u2014 But BYD and Chinese EV Rivals Are Gaining Fast",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:25:25.173920-05:00",
-    "symbols": [
-      "STLA"
-    ],
-    "headline": "Reported Earlier, Stellantis\u2019 SRT Reimagines Jeep CJ-8 Scrambler Into Wrangler-Based Concept With First Independent Front Suspension For Wrangler",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:25:25.276680-05:00",
-    "symbols": [
-      "TE"
-    ],
-    "headline": "Reju Expands Textile Recycling Network with A. Sampaio Partnership",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:25:25.379928-05:00",
-    "symbols": [
-      "TLRY"
-    ],
-    "headline": "Tilray Brands Announces Strategy to Strengthen Canadian Cannabis Operations and Raise Fiscal 2027 EBITDA Guidance",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:25:25.479394-05:00",
-    "symbols": [
-      "VNET"
-    ],
-    "headline": "VNET Group, Inc. Stock 12-Month Price Target Adjusted by Analysts",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:25:25.581891-05:00",
-    "symbols": [
-      "VRRM"
-    ],
-    "headline": "JP Morgan Downgrades Verra Mobility to Underweight",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:25:25.795663-05:00",
-    "symbols": [
-      "MERC"
-    ],
-    "headline": "Why Aehr Test Systems Shares Are Trading Higher By Over 15%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T14:25:25.800210-05:00",
-    "symbols": [
-      "MERC"
-    ],
-    "headline": "Reported Earlier, Mercer Reaches Recapitalization Deal Exchanging About $1.1B Senior Notes For Equity, Cutting Senior Note Debt About 88%, Adds $400M Backstopped New Money",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T14:25:25.804613-05:00",
-    "symbols": [
-      "MERC"
-    ],
-    "headline": "Mercer International (MERC) Shares Skyrocket 126% After-Hours: Here\u2019s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T14:25:25.910616-05:00",
-    "symbols": [
-      "HUBC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:25:26.014839-05:00",
-    "symbols": [
-      "BLZE"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T14:25:26.019641-05:00",
-    "symbols": [
-      "BLZE"
-    ],
-    "headline": "Needham Maintains Buy on Backblaze, Lowers Price Target to $15",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T14:25:26.024452-05:00",
-    "symbols": [
-      "BLZE"
-    ],
-    "headline": "Why Aehr Test Systems Shares Are Trading Higher By Over 15%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T14:25:26.138918-05:00",
-    "symbols": [
-      "EHGO"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:25:26.254047-05:00",
-    "symbols": [
-      "IBTA"
-    ],
-    "headline": "Fabrinet, EverQuote, Lattice Semiconductor, Fiserv And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:25:26.364166-05:00",
-    "symbols": [
-      "LIFE"
-    ],
-    "headline": "Barclays Maintains Overweight on Ethos Technologies, Raises Price Target to $44",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:25:26.369053-05:00",
-    "symbols": [
-      "LIFE"
-    ],
-    "headline": "Ethos Technologies Analysts Boost Their Forecasts After Upbeat Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:25:26.373867-05:00",
-    "symbols": [
-      "LIFE"
-    ],
-    "headline": "Citizens Maintains Market Outperform on Ethos Technologies, Raises Price Target to $55",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:25:26.378606-05:00",
-    "symbols": [
-      "LIFE"
-    ],
-    "headline": "Baird Maintains Outperform on Ethos Technologies, Raises Price Target to $55",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:25:26.483489-05:00",
-    "symbols": [
-      "CMCO"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:25:26.822187-05:00",
-    "symbols": [
-      "GPK"
-    ],
-    "headline": "Fabrinet, EverQuote, Lattice Semiconductor, Fiserv And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T14:25:26.950586-05:00",
-    "symbols": [
-      "LSCC"
-    ],
-    "headline": "Fabrinet, EverQuote, Lattice Semiconductor, Fiserv And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:25:27.060833-05:00",
-    "symbols": [
-      "ACB"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:25:28.347217-05:00",
-    "symbols": [
-      "SRTA"
-    ],
-    "headline": "Strata Critical Medical Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:25:28.352232-05:00",
-    "symbols": [
-      "SRTA"
-    ],
-    "headline": "Strata Critical Medical Affirms FY2026 Sales Guidance of $285.000M-$295.000M vs $290.804M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:25:28.357291-05:00",
-    "symbols": [
-      "SRTA"
-    ],
-    "headline": "Strata Critical Medical Q3 EPS $(0.09) Misses $(0.01) Estimate, Sales $74.081M Beat $72.669M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:25:29.416794-05:00",
-    "symbols": [
-      "CLVT"
-    ],
-    "headline": "Clarivate Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T14:25:29.421954-05:00",
-    "symbols": [
-      "CLVT"
-    ],
-    "headline": "Adeia Posts Downbeat Q3 Earnings, Joins Bioventus, Apple And Other Big Stocks Moving Lower In Tuesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T14:25:29.426324-05:00",
-    "symbols": [
-      "CLVT"
-    ],
-    "headline": "Clarivate Lowers FY2026 GAAP EPS Guidance from $(0.64)-$(0.54) to $(0.65)-$(0.62) vs $(0.46) Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T14:25:29.431063-05:00",
-    "symbols": [
-      "CLVT"
-    ],
-    "headline": "Clarivate Sees Q4 Adj EPS $0.14-$0.18 vs $0.19 Est; Sees Sales $490.000M-$510.000M vs $562.824M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T14:25:29.435392-05:00",
-    "symbols": [
-      "CLVT"
-    ],
-    "headline": "Clarivate Narrows FY2026 Adj EPS Guidance from $0.70-$0.80 to $0.73-$0.77 vs $0.74 Est; Lowers FY2026 Sales Guidance from $2.300B-$2.420B to $1.965B-$1.985B vs $2.304B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T14:25:30.307821-05:00",
-    "symbols": [
-      "CE"
-    ],
-    "headline": "Celanese Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:36:42.572337-05:00",
-    "symbols": [
-      "SQNS"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:36:42.578269-05:00",
-    "symbols": [
-      "SQNS"
-    ],
-    "headline": "Fabrinet, EverQuote, Lattice Semiconductor, Fiserv And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:36:42.693809-05:00",
-    "symbols": [
-      "AEHR"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:36:42.698947-05:00",
-    "symbols": [
-      "AEHR"
-    ],
-    "headline": "Fabrinet, EverQuote, Lattice Semiconductor, Fiserv And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:36:42.817056-05:00",
-    "symbols": [
-      "EVER"
-    ],
-    "headline": "Fabrinet, EverQuote, Lattice Semiconductor, Fiserv And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:36:42.981870-05:00",
-    "symbols": [
-      "BETA"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T14:36:42.987217-05:00",
-    "symbols": [
-      "BETA"
-    ],
-    "headline": "Fabrinet, EverQuote, Lattice Semiconductor, Fiserv And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T14:36:42.992532-05:00",
-    "symbols": [
-      "BETA"
-    ],
-    "headline": "BETA Technologies Reports Strongest Revenue Since Inception",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T14:36:42.996928-05:00",
-    "symbols": [
-      "BETA"
-    ],
-    "headline": "BETA Technologies Says Charging Network Expanded To 168 Sites",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T14:36:43.243263-05:00",
-    "symbols": [
-      "NBIX"
-    ],
-    "headline": "Fabrinet, EverQuote, Lattice Semiconductor, Fiserv And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:36:43.248796-05:00",
-    "symbols": [
-      "NBIX"
-    ],
-    "headline": "Canaccord Genuity Maintains Buy on Neurocrine Biosciences, Raises Price Target to $220",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:36:43.356800-05:00",
-    "symbols": [
-      "PSHG"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:36:43.470958-05:00",
-    "symbols": [
-      "CRIS"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:36:43.575004-05:00",
-    "symbols": [
-      "FISV"
-    ],
-    "headline": "12 Financials Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:36:43.579816-05:00",
-    "symbols": [
-      "FISV"
-    ],
-    "headline": "Fabrinet, EverQuote, Lattice Semiconductor, Fiserv And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:36:43.584535-05:00",
-    "symbols": [
-      "FISV"
-    ],
-    "headline": "Fiserv Doubles Down on Cost Cuts, Renews Focus on Buybacks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:36:43.589321-05:00",
-    "symbols": [
-      "FISV"
-    ],
-    "headline": "Fiserv Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:36:43.694999-05:00",
-    "symbols": [
-      "CVGI"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T14:36:44.043420-05:00",
-    "symbols": [
-      "RMTI"
-    ],
-    "headline": "Rockwell Medical To Acquire Majority Of Vantive's Hemodialysis Business; Terms Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:36:44.261855-05:00",
-    "symbols": [
-      "RVTY"
-    ],
-    "headline": "Fabrinet, EverQuote, Lattice Semiconductor, Fiserv And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:36:44.266945-05:00",
-    "symbols": [
-      "RVTY"
-    ],
-    "headline": "Revvity Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:36:44.271300-05:00",
-    "symbols": [
-      "RVTY"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:36:44.275733-05:00",
-    "symbols": [
-      "RVTY"
-    ],
-    "headline": "Revvity To Hold Investor Day 13 Nov",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:36:44.461698-05:00",
-    "symbols": [
-      "BE"
-    ],
-    "headline": "Fabrinet, EverQuote, Lattice Semiconductor, Fiserv And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:36:44.572487-05:00",
-    "symbols": [
-      "NMRA"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T14:36:44.813708-05:00",
-    "symbols": [
-      "CMPS"
-    ],
-    "headline": "BTIG Reiterates Buy on Compass Pathways, Maintains $25 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:36:44.819235-05:00",
-    "symbols": [
-      "CMPS"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:36:44.824718-05:00",
-    "symbols": [
-      "CMPS"
-    ],
-    "headline": "Compass Pathways Q3 EPS $(0.31) Beats $(0.43) Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:36:45.033129-05:00",
-    "symbols": [
-      "XMTR"
-    ],
-    "headline": "Xometry Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T14:36:45.038412-05:00",
-    "symbols": [
-      "XMTR"
-    ],
-    "headline": "Xometry Q3 Adj. EPS $0.28 Beats $0.18 Estimate, Sales $252.430M Beat $235.561M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-03T14:36:45.043264-05:00",
     "symbols": [
       "XMTR"
@@ -4998,5 +3798,1205 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:33.002415-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "&#39;U.S. Senate Commerce Committee To Hold Nov. 10 Confirmation Hearing For Federal Communications Commissioner Nominee Thumann&#39; - Reuters News",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:33.006219-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Could Be Biggest Loser From Successful Anthropic IPO, Finance Professor Warns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:33.008912-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "What&#39;s Going On With AST SpaceMobile Stock On Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:33.225750-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Why Is Nebius Stock Surging on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:33.414462-05:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Applied Digital Stock Jumps: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:33.629018-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Announces Redesigned Health App Expands Language Support",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:33.632486-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "AMD Earnings To Test Whether PC Weakness Is Intel-Specific, Apple\u2019s AI Agent Problem",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:33.635213-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "What&#39;s Going on with Microsoft Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:33.833515-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "SpaceX Could Be Biggest Loser From Successful Anthropic IPO, Finance Professor Warns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:33.836344-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;Hollywood backs NYT in AI copyright battle versus OpenAI, Microsoft&#39; - Axios",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:33.838872-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "What Is Going on With Meta Platforms Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:34.011465-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "SpaceX Could Be Biggest Loser From Successful Anthropic IPO, Finance Professor Warns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:34.014339-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "AMD Earnings To Test Whether PC Weakness Is Intel-Specific, Apple\u2019s AI Agent Problem",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:34.017545-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What&#39;s Going on with Microsoft Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:34.246619-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD Earnings To Test Whether PC Weakness Is Intel-Specific, Apple\u2019s AI Agent Problem",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:34.249727-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "What&#39;s Going on with Intel Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:34.252472-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Nasdaq 100 Gets a Lift As Nvidia Overtakes Apple: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:34.255037-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Micron Tech Gains as Tech Giants Scramble to Lock in Multiyear Supply",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:34.257723-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD Earnings Prediction Market Preview: What Will Lisa Su Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:34.448778-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "What Is Going on With Meta Platforms Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T15:47:34.451610-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "AMD Earnings To Test Whether PC Weakness Is Intel-Specific, Apple\u2019s AI Agent Problem",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T15:47:34.454025-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "What&#39;s Going on with Microsoft Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T15:47:34.588679-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "SpaceX Could Be Biggest Loser From Successful Anthropic IPO, Finance Professor Warns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:34.591632-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Wall Street&#39;s Growth Stocks Have a New Problem: Value Stocks Are Getting More Expensive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:34.594639-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Google Parent Plans $1.5 Billion Prepaid Energy Deal Via Goldman&#39; - Bloomberg News",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:34.597110-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Amazon, Google and Microsoft Are &#39;Absolute Jokes&#39; Compared With SpaceX, Says Sequoia&#39;s Shaun Maguire",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:34.784670-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: BlackRock, Eaton, Pfizer, Amazon",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:34.787526-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "SpaceX Could Be Biggest Loser From Successful Anthropic IPO, Finance Professor Warns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:34.789992-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "AMD Earnings To Test Whether PC Weakness Is Intel-Specific, Apple\u2019s AI Agent Problem",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:34.792436-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Wall Street&#39;s Growth Stocks Have a New Problem: Value Stocks Are Getting More Expensive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:34.950514-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "AMD Earnings To Test Whether PC Weakness Is Intel-Specific, Apple\u2019s AI Agent Problem",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:34.953304-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Chinese Tape Maker Soars 787% in Market Debut as Beijing Moves to Halt New IPO Filings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:34.956547-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "QUICK SPARK: Elon Musk Says &#39;Vote Red&#39; \u2014 SpaceX And Tesla Have Much To Gain",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:35.475897-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:35.642184-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Citigroup Maintains Buy on Palantir Technologies, Raises Price Target to $265",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:35.645163-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "What&#39;s Going on with Microsoft Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:35.845302-05:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:35.848477-05:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Nasdaq 100 Gets a Lift As Nvidia Overtakes Apple: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:36.202955-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Morgan Stanley Maintains Equal-Weight on Applied Materials, Lowers Price Target to $538",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:36.205777-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "What Is Going on With Lam Research Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:36.351350-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "What&#39;s Going on with Intel Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:36.354524-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "What Is Going on With SanDisk Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:36.357457-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Apple&#39;s Margin Problem Is Micron&#39;s Pricing Power: Why Memory Stocks Are Bouncing Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:36.359977-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Tech Gains as Tech Giants Scramble to Lock in Multiyear Supply",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:36.516021-05:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "What Is Going on With SanDisk Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:36.518977-05:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Apple&#39;s Margin Problem Is Micron&#39;s Pricing Power: Why Memory Stocks Are Bouncing Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:36.521565-05:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Micron Tech Gains as Tech Giants Scramble to Lock in Multiyear Supply",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:36.699911-05:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Reuters Reported US Officials Have Held Up Approval For American Chipmaking Equipment Needed By SK Hynix To Expand Production In China",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:36.702805-05:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "What Is Going on With SanDisk Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:36.705431-05:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Apple&#39;s Margin Problem Is Micron&#39;s Pricing Power: Why Memory Stocks Are Bouncing Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:36.707988-05:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Micron Tech Gains as Tech Giants Scramble to Lock in Multiyear Supply",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:37.092320-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Stock of the Day: Is this the Bottom for Marvel Technology?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:37.098259-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "B. Riley Securities Maintains Buy on Marvell Technology, Lowers Price Target to $275",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:37.101021-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Marvell Technology, Lowers Price Target to $285",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:37.244015-05:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "What Is Going On With KLA Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T15:47:37.246888-05:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "What Is Going on With Lam Research Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T15:47:37.396827-05:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "B. Riley Securities Maintains Buy on ON Semiconductor, Lowers Price Target to $97",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T15:47:37.399911-05:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "TD Cowen Reiterates Hold on ON Semiconductor, Maintains $75 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T15:47:37.402564-05:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "Evercore ISI Group Maintains Outperform on ON Semiconductor, Lowers Price Target to $90",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T15:47:37.405286-05:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on ON Semiconductor, Lowers Price Target to $90",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T15:47:37.560595-05:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "Riot Platforms Stock Flies Ahead of Earnings: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T15:47:38.010209-05:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Allergan Aesthetics to Present New Data at 2026 ASDS Annual Meeting",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:38.539053-05:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "Goldman Sachs Maintains Buy on Vertex Pharmaceuticals, Raises Price Target to $725",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:38.541865-05:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on Vertex Pharmaceuticals, Lowers Price Target to $660",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:38.544350-05:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "Scotiabank Maintains Sector Outperform on Vertex Pharmaceuticals, Raises Price Target to $660",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:38.546755-05:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "UBS Maintains Buy on Vertex Pharmaceuticals, Raises Price Target to $640",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:38.549326-05:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "TD Cowen Maintains Buy on Vertex Pharmaceuticals, Raises Price Target to $575",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:38.724794-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "This Midterm Nightmare Scenario Puts S&amp;P 500 Down 10% by Year-End, Evercore Warns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:39.203278-05:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "Nasdaq 100 Gets a Lift As Nvidia Overtakes Apple: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:39.374831-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike Is Preparing for an AI Threat That Could Already Be Inside the Company",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:39.508670-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Tutanota LLC Extends Tender Offer for Palo Alto Networks Shares",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:39.511502-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto Networks to Announce Fiscal First Quarter 2027 Financial Results on November 18, 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:39.943149-05:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase Stock Pops: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:40.118361-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Peter Schiff Challenges Saylor After Strategy Spends $2.25B on Buybacks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:40.121478-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "B. Riley Securities Maintains Buy on Strategy, Lowers Price Target to $180",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:40.603837-05:00",
+    "symbols": [
+      "ELF"
+    ],
+    "headline": "Rhode Announces $5 Million Commitment to Foundation for Women's Health",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:40.770605-05:00",
+    "symbols": [
+      "DECK"
+    ],
+    "headline": "Deckers Outdoor Corporation Raises Fiscal 2027 EPS Guidance",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:41.122099-05:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "UBS Maintains Neutral on Airbnb, Raises Price Target to $181",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:41.320129-05:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "Bernstein Maintains Outperform on DraftKings, Lowers Price Target to $27",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:41.891891-05:00",
+    "symbols": [
+      "LUNR"
+    ],
+    "headline": "Intuitive Machines Stock Climbs Tuesday: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T15:47:43.243314-05:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: BlackRock, Eaton, Pfizer, Amazon",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:43.246138-05:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "Eaton Reports Record Orders As Data Center Demand Drives Growth",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:43.248738-05:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "Eaton Corp Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:43.685072-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Expensify Enters Referral Agreement with Visa",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:43.851743-05:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Mastercard Launches SME Academy: Cybersecurity in Europe",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:44.028542-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "This Midterm Nightmare Scenario Puts S&amp;P 500 Down 10% by Year-End, Evercore Warns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:44.031389-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Venezuela&#39;s Oil Exports Almost Unchanged At 1.08M Barrels/Day In Oct; Venezuela&#39;s Oil Exports To U.S. Fell To 449,000 Barrels/Day In Oct; Venezuela&#39;s Oil Exports To Europe Increased To Some 235,000 Barrels/Day In Oct; Chevron&#39;s Exports Of Venezuelan Crude Up To Some 303,000 Barrels/Day, Traders Exported 506,000 Barrels/Day",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:44.169776-05:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "Live On CNBC, Josh Brown Hosts Segment Titled &#34;Josh&#39;s Best Stocks In The Market: ConocoPhillips, Devon Energy, Occidental Petroleum&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:44.350795-05:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "SLB Insider Executes Stock Sale",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T15:47:44.478577-05:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning UnitedHealth Group Stock In The Last 20 Years",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:45.412510-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "&#39;Hollywood backs NYT in AI copyright battle versus OpenAI, Microsoft&#39; - Axios",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T15:47:45.415475-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T15:47:45.418076-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Will Devote 65% Of Its $10B Stock Sale To Ten Investors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T15:47:45.420556-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "AMD Earnings Prediction Market Preview: What Will Lisa Su Say?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T15:47:45.719172-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;U.S. Senate Commerce Committee To Hold Nov. 10 Confirmation Hearing For Federal Communications Commissioner Nominee Thumann&#39; - Reuters News",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:45.722756-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "S&amp;P 500 Could Win No Matter Who Wins the Midterms: 5 ETFs to Watch Under JPMorgan&#39;s 4 Scenarios",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:45.725727-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Reuters Reported US Officials Have Held Up Approval For American Chipmaking Equipment Needed By SK Hynix To Expand Production In China",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:45.728229-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "This Midterm Nightmare Scenario Puts S&amp;P 500 Down 10% by Year-End, Evercore Warns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T15:47:45.855464-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "S&amp;P 500 Could Win No Matter Who Wins the Midterms: 5 ETFs to Watch Under JPMorgan&#39;s 4 Scenarios",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:45.858124-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "This Midterm Nightmare Scenario Puts S&amp;P 500 Down 10% by Year-End, Evercore Warns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:45.861050-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "QUICK SPARK: Trump Celebrates Republican Victory in Guam \u2014 &#39;Wow, Hopefully an Indication for Things to Come!&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:45.863501-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "AMD Earnings To Test Whether PC Weakness Is Intel-Specific, Apple\u2019s AI Agent Problem",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:46.017383-05:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Nasdaq 100 Gets a Lift As Nvidia Overtakes Apple: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T15:47:46.020515-05:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "SPY Vs. IWM: Why 3.4% GDP Growth Leaves Two Different Tests For Investors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T15:47:46.175730-05:00",
+    "symbols": [
+      "ALLO"
+    ],
+    "headline": "Allogene To Present Kidney Cancer CAR T Clinical Experience, Preclinical Small Cell Lung Cancer Data At SITC Meeting",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T15:47:46.453518-05:00",
+    "symbols": [
+      "ARDX"
+    ],
+    "headline": "Ardelyx Completes Enrollment In Phase 3 ACCEL Clinical Trial Of IBSRELA",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T15:47:46.599708-05:00",
+    "symbols": [
+      "ASPI"
+    ],
+    "headline": "ASP Isotopes Provides Operational Updates on Silicon-28 and Ytterbium-176 Production",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T15:47:46.758559-05:00",
+    "symbols": [
+      "BKYI"
+    ],
+    "headline": "Cipher And BIO-key Partner To Converge Cybersecurity, Identity Management And Access Governance, Introducing Integrated Offering In Portugal And Exploring Additional Markets Where Cipher Operates",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T15:47:46.910866-05:00",
+    "symbols": [
+      "BRAI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T15:47:47.155908-05:00",
+    "symbols": [
+      "CCCC"
+    ],
+    "headline": "C4 Therapeutics Announces Participation in Upcoming November Investor Conferences",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T15:47:47.158936-05:00",
+    "symbols": [
+      "CCCC"
+    ],
+    "headline": "C4 Therapeutics Grants Inducement Stock Options to New Employee",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T15:47:47.353721-05:00",
+    "symbols": [
+      "CLRO"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T15:47:47.506451-05:00",
+    "symbols": [
+      "FRMI"
+    ],
+    "headline": "Fermi Announces TensorWave Data Center Lease Closing Missed October 31 Deadline As Both Parties Continue Working To Satisfy Conditions; CEO Says Both Fermi And TensorWave Remain Committed To This Lease",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T15:47:47.672378-05:00",
+    "symbols": [
+      "GIXI"
+    ],
+    "headline": "Gix Internet Portfolio Company Quantum X Labs Completes First Demonstration Of Its Qatacomb Quantum Encryption Scheme On Commercial Hardware; Intended Recipient Reconstructed An Encrypted Image",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T15:47:47.833394-05:00",
+    "symbols": [
+      "GLND"
+    ],
+    "headline": "LMR Partners LLP Files Form 8.3 Disclosure Regarding Greenland Energy Company",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T15:47:47.988387-05:00",
+    "symbols": [
+      "GRAB"
+    ],
+    "headline": "Fabrinet, EverQuote, Lattice Semiconductor, Fiserv And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T15:47:47.991556-05:00",
+    "symbols": [
+      "GRAB"
+    ],
+    "headline": "Stock Market Today: S&amp;P 500, Nasdaq 100, Dow Jones Futures Mixed as Trump Touts Iran Settlement Hopes \u2014 AAPL, PLTR, AMD in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T15:47:47.994631-05:00",
+    "symbols": [
+      "GRAB"
+    ],
+    "headline": "Uber&#39;s Asia Rival Grab Reports First-Ever Profitability Across All Three Core Segments",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T15:47:47.997266-05:00",
+    "symbols": [
+      "GRAB"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T15:47:48.136387-05:00",
+    "symbols": [
+      "GRML"
+    ],
+    "headline": "Greenland&#39;s Parliament Approves Security Deal With The United States",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

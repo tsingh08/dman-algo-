@@ -1,67 +1,5 @@
 [
   {
-    "ts": "2026-11-02T15:50:41.788420-05:00",
-    "regime": "CHOP",
-    "regime_score": 8,
-    "vix": 21.5,
-    "min_score": 85,
-    "universe": "all",
-    "tickers_total": 231,
-    "signals": 0,
-    "signal_tickers": [],
-    "signal_scores": [],
-    "rejected_no_signal": 231,
-    "rejected_hard_gate": 0,
-    "rejected_low_score": 0,
-    "budget_hit": false,
-    "news_breadth_pct": 89.0,
-    "news_breadth_total": 379
-  },
-  {
-    "ts": "2026-11-02T15:59:07.496044-05:00",
-    "regime": "CHOP",
-    "regime_score": 8,
-    "vix": 21.7,
-    "min_score": 85,
-    "universe": "daemon-curated+smallcap+movers",
-    "tickers_total": 332,
-    "signals": 1,
-    "signal_tickers": [
-      "WETO"
-    ],
-    "signal_scores": [
-      100
-    ],
-    "rejected_no_signal": 331,
-    "rejected_hard_gate": 1,
-    "rejected_low_score": 0,
-    "budget_hit": false,
-    "news_breadth_pct": 90.4,
-    "news_breadth_total": 382
-  },
-  {
-    "ts": "2026-11-02T16:01:34.619998-05:00",
-    "regime": "CHOP",
-    "regime_score": 8,
-    "vix": 21.6,
-    "min_score": 85,
-    "universe": "daemon-curated+smallcap+movers",
-    "tickers_total": 332,
-    "signals": 1,
-    "signal_tickers": [
-      "WETO"
-    ],
-    "signal_scores": [
-      100
-    ],
-    "rejected_no_signal": 331,
-    "rejected_hard_gate": 1,
-    "rejected_low_score": 0,
-    "budget_hit": false,
-    "news_breadth_pct": 88.2,
-    "news_breadth_total": 380
-  },
-  {
     "ts": "2026-11-02T16:05:37.503273-05:00",
     "regime": "CHOP",
     "regime_score": 8,
@@ -1651,6 +1589,33 @@
   },
   {
     "ts": "2026-11-04T15:49:46.374624-05:00",
+    "halted": true,
+    "halt_reason": "monthly_loss_limit",
+    "min_score": 85,
+    "tickers_total": 348,
+    "signals": 0,
+    "signal_tickers": []
+  },
+  {
+    "ts": "2026-11-04T15:59:51.777894-05:00",
+    "halted": true,
+    "halt_reason": "monthly_loss_limit",
+    "min_score": 85,
+    "tickers_total": 348,
+    "signals": 0,
+    "signal_tickers": []
+  },
+  {
+    "ts": "2026-11-04T16:00:07.748080-05:00",
+    "halted": true,
+    "halt_reason": "monthly_loss_limit",
+    "min_score": 85,
+    "tickers_total": 348,
+    "signals": 0,
+    "signal_tickers": []
+  },
+  {
+    "ts": "2026-11-04T16:02:42.618982-05:00",
     "halted": true,
     "halt_reason": "monthly_loss_limit",
     "min_score": 85,

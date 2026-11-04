@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-11-03T15:59:26.489227-05:00",
-    "symbols": [
-      "HGTY"
-    ],
-    "headline": "Hagerty Raises FY2026 Sales Guidance from $1.325B-$1.340B to $1.340B-$1.354B vs $1.342B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T15:59:26.491905-05:00",
-    "symbols": [
-      "HGTY"
-    ],
-    "headline": "Hagerty Q3 Auction Sales Up 65% To $112M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T15:59:26.649755-05:00",
-    "symbols": [
-      "HGTY"
-    ],
-    "headline": "Hagerty Policies In Force Up 18% To 1.9M; Retention 88.2% Vs 88.6%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T15:59:26.653142-05:00",
-    "symbols": [
-      "HGTY"
-    ],
-    "headline": "Hagerty Re Q3 Combined Ratio 79.7% Vs 89.6% YoY; Loss Ratio 32.6% Vs 42.0%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-03T15:59:28.269295-05:00",
     "symbols": [
       "SPCX"
@@ -4995,6 +4955,46 @@
       "ANET"
     ],
     "headline": "Arista Networks Reports Insider Share Sale",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-04T12:02:20.700549-05:00",
+    "symbols": [
+      "GGB"
+    ],
+    "headline": "Gerdau Shuts Down Steel Production at Divin\u00f3polis Plant",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-04T12:02:20.873378-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Citi Maintains Nebius Group with Buy Rating, Adjusts Price Target",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-04T12:02:21.087695-05:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "Nemetschek SE Reports Third Quarter 2026 Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-04T12:03:20.664192-05:00",
+    "symbols": [
+      "STLA"
+    ],
+    "headline": "Stellantis Reports Progress on Cost-Saving Targets and Faces Production Disruptions",
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"

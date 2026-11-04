@@ -3481,5 +3481,23 @@
   "drift_pct": 0.07,
   "range_ratio": 0.3,
   "near_high": 0.977
+ },
+ {
+  "ts": "2026-11-04T09:27:05.897446-05:00",
+  "ticker": "FLYW",
+  "price": 19.15,
+  "rvol": 1.52,
+  "drift_pct": 1.16,
+  "range_ratio": 0.68,
+  "near_high": 0.973
+ },
+ {
+  "ts": "2026-11-04T09:29:47.811853-05:00",
+  "ticker": "TREX",
+  "price": 50.0,
+  "rvol": 1.5,
+  "drift_pct": 0.93,
+  "range_ratio": 0.37,
+  "near_high": 0.978
  }
 ]

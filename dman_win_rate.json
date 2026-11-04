@@ -2302,5 +2302,21 @@
     "shares": 16.0,
     "pnl_usd": -33.11,
     "spy_pct": null
+  },
+  {
+    "ticker": "SMCI",
+    "date": "2026-11-04",
+    "bias": "LONG",
+    "setup": "Options Call SMCI261113C00035000",
+    "entry": 1.45,
+    "exit": 0.35,
+    "outcome": "LOSS",
+    "pnl_pct": -75.86,
+    "score": 0,
+    "is_live": true,
+    "entry_date": "2026-11-02",
+    "shares": 100.0,
+    "pnl_usd": -110.0,
+    "spy_pct": 0.783
   }
 ]

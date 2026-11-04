@@ -1,135 +1,5 @@
 [
   {
-    "ts": "2026-11-03T15:59:23.247663-05:00",
-    "symbols": [
-      "ADM"
-    ],
-    "headline": "ADM Q3 Crushing Operating Profit $311M Vs $13M Year Ago",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:59:23.686319-05:00",
-    "symbols": [
-      "HLMN"
-    ],
-    "headline": "Hillman Solns Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T15:59:24.109760-05:00",
-    "symbols": [
-      "ALOY"
-    ],
-    "headline": "REalloys, U.S. Department Of Army Execute Non-Binding Term Sheet To Lay Out Commercial Terms For Potential Enhanced Use Lease To Produce Heavy Rare Earth Processing Site In Utah",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T15:59:24.547731-05:00",
-    "symbols": [
-      "BR"
-    ],
-    "headline": "Broadridge Financial Soln Q1 2027 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T15:59:24.550557-05:00",
-    "symbols": [
-      "BR"
-    ],
-    "headline": "Broadridge To Hold Investor Day 8 Dec, Will Give New Three-Year Financial Objectives",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T15:59:24.553052-05:00",
-    "symbols": [
-      "BR"
-    ],
-    "headline": "Broadridge Q1 Includes $40M Non-Cash Loss On Digital Assets",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T15:59:24.555554-05:00",
-    "symbols": [
-      "BR"
-    ],
-    "headline": "Broadridge Repurchased $200M Of Stock In Q1",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T15:59:24.558009-05:00",
-    "symbols": [
-      "BR"
-    ],
-    "headline": "Broadridge Q1 Closed Sales Up 10% To $36M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T15:59:24.981530-05:00",
-    "symbols": [
-      "SNN"
-    ],
-    "headline": "Smith & Nephew Implants Integrated into HipInsight System",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T15:59:24.984567-05:00",
-    "symbols": [
-      "SNN"
-    ],
-    "headline": "Citigroup Adjusts Price Target for Smith & Nephew",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T15:59:25.445000-05:00",
-    "symbols": [
-      "FLUT"
-    ],
-    "headline": "Bernstein Maintains Market Perform on Flutter Entertainment, Lowers Price Target to $100",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T15:59:25.905465-05:00",
-    "symbols": [
-      "PPLI"
-    ],
-    "headline": "People Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T15:59:26.486289-05:00",
-    "symbols": [
-      "HGTY"
-    ],
-    "headline": "Hagerty Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-03T15:59:26.489227-05:00",
     "symbols": [
       "HGTY"
@@ -4995,6 +4865,136 @@
       "NVO"
     ],
     "headline": "Novo Nordisk Appoints New Chief Financial Officer",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-04T11:02:20.678102-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Chase Launches Receivables Matching Solution",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-04T11:02:20.876024-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Chubu Electric Power Grid Reaches Milestone with Oracle Utilities",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-04T11:02:20.976913-05:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "Champion FleetCare Named Optic Truck Works Center for FedEx",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-04T11:02:21.144646-05:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Moderna Announces Oral Presentation of mRNA-2808 Clinical Data at 2026 ASH Annual Meeting",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-04T11:02:21.246626-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "ModelOp Integrates AI Governance with NVIDIA OpenShell",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-04T11:02:21.429884-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "ExxonMobil to Participate in Asopos-1 Offshore Drilling in Greece",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-04T11:02:21.555765-05:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Genmab and AbbVie to Present Epcoritamab Data at ASH Annual Meeting",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-04T11:02:21.574695-05:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Ichnos Glenmark Innovation to Present Updated Clinical Data for ABBV-2001",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-04T11:02:21.745215-05:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "Barclays Raises Vertex Pharmaceuticals Price Target to $626",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-04T11:02:21.855348-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike Announces Date for Fiscal Third Quarter 2027 Financial Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-04T11:02:21.860908-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike Announces 2026 European Customer Impact Award Winners",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-04T11:03:20.630742-05:00",
+    "symbols": [
+      "ISRG"
+    ],
+    "headline": "HSBC Adjusts Price Target on Intuitive Surgical to $392 From $391",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-04T11:03:20.719643-05:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "Arista Networks Reports Insider Share Sale",
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"

@@ -11479,6 +11479,20 @@ def _has_open_opposite_leg(occ_symbol: str) -> bool:
     return False
 
 
+def _option_stop_held(occ_symbol: str) -> bool:
+    """Operator override: skip the PREMIUM stop on one contract.
+
+    Set `OPTION_HOLD_<OCC>: true` in dman_flags.json. Only the -50% premium
+    stop is skipped -- the expiry backstop, T1, the trailing exit and the
+    broker-side catastrophe floor all still apply. A flag file rather than the
+    tracker's `stop` field because merge_positions_snapshots() keeps the
+    HIGHER stop, so a lowered stop is reverted by the first stale checkout to
+    sync. First use 2026-11-04: hold the SMCI 35C after closing the put leg
+    of a manual earnings strangle, for a post-earnings rally.
+    """
+    return flag(f"OPTION_HOLD_{str(occ_symbol or '').upper()}", False)
+
+
 def _opt_exit_stop(_ctrs, _exit_prem, _occ, _pnl_pct, _stop_prem, _stopk, kind, t):
     """Premium stop (floored at intrinsic value, see _stop_ref).
 
@@ -11782,7 +11796,8 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
         _action, _msg = _opt_exit_expiry_backstop(_ctrs, _dte_now, _kp, _occ, _pnl_pct, _tod, kind, t)
     elif (_quote_ok and _stop_verified and not _trail_active
           and _stop_ref is not None and _stop_ref <= _stop_prem
-          and not _has_open_opposite_leg(_occ)):
+          and not _has_open_opposite_leg(_occ)
+          and not _option_stop_held(_occ)):
         # Baseline floor for a position that never became meaningfully
         # profitable — trailing can't protect a move that hasn't happened.
         _action, _msg = _opt_exit_stop(_ctrs, _exit_prem, _occ, _pnl_pct, _stop_prem, _stopk, kind, t)

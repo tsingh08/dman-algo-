@@ -17579,6 +17579,25 @@ class TestStrangleLegsAreNotStoppedIndividually(unittest.TestCase):
     def test_the_monitor_consults_it(self):
         self.assertIn("_has_open_opposite_leg", inspect.getsource(a._monitor_option_position))
 
+    def test_operator_hold_flag_is_per_contract(self):
+        d = tempfile.mkdtemp(); f = os.path.join(d, "flags.json")
+        json.dump({"OPTION_HOLD_SMCI261113C00035000": True}, open(f, "w"))
+        with patch.object(a, "FLAGS_FILE", f):
+            self.assertTrue(a._option_stop_held("SMCI261113C00035000"))
+            self.assertTrue(a._option_stop_held("smci261113c00035000"))
+            self.assertFalse(a._option_stop_held("SMCI261113P00029000"))
+        import shutil as _sh; _sh.rmtree(d, True)
+
+    def test_no_flags_file_means_no_hold(self):
+        with patch.object(a, "FLAGS_FILE", os.path.join(tempfile.mkdtemp(), "missing.json")):
+            self.assertFalse(a._option_stop_held("SMCI261113C00035000"))
+
+    def test_the_monitor_gates_only_the_stop_branch_on_it(self):
+        src = inspect.getsource(a._monitor_option_position)
+        self.assertEqual(src.count("_option_stop_held("), 1)
+        _stop_branch = src[src.index("_option_stop_held("):src.index("_opt_exit_stop(")]
+        self.assertNotIn("_opt_exit_trailing(", _stop_branch)
+
 
 class TestStrangleAutoExecution(unittest.TestCase):
     """2026-09-16: the advisory only ever sent a message, so both QQQ strangles

@@ -11146,13 +11146,30 @@ def _submit_options_close(occ_symbol: str, qty: int, reason: str,
             )
         return "pdt_blocked", None
 
-    # Don't double-submit: if a SELL is already open for this contract, report it
+    # Don't double-submit: if a closing SELL is already working for this
+    # contract, report it. A resting STOP-type sell is NOT a close in
+    # flight — it is the broker-side catastrophe floor that
+    # _ensure_option_broker_stops() re-rests every daemon pass. Counting
+    # it here (as this did until 2026-11-04) returned "pending" on every
+    # software exit — premium stop, trail, T1, operator close, even the
+    # expiry backstop — for as long as the floor rested, i.e. always: the
+    # only exit that could ever fire was the -75% floor itself. Confirmed
+    # live 2026-11-04: SMCI261113P00029000 was flagged OPTION_CLOSE before
+    # the open and was still held after the close, while the 35C leg died
+    # at exactly the floor price. The floor is cancelled further down,
+    # only once every defer-guard has passed, so a deferred close never
+    # strips the floor.
+    _resting_floor_stops: list = []
     try:
         _open_orders = client.get_orders(filter=GetOrdersRequest(
             symbols=[occ_symbol], status=QueryOrderStatus.OPEN, limit=10))
         for _o in _open_orders:
-            if _o.side == OrderSide.SELL:
-                return "pending", str(_o.id)
+            if _o.side != OrderSide.SELL:
+                continue
+            if "stop" in str(getattr(_o.order_type, "value", _o.order_type) or "").lower():
+                _resting_floor_stops.append(_o)
+                continue
+            return "pending", str(_o.id)
     except Exception as _swallowed:
         _log_swallowed("_submit_options_close", _swallowed)
 
@@ -11214,6 +11231,23 @@ def _submit_options_close(occ_symbol: str, qty: int, reason: str,
                     return "no_quote", None
     except Exception as exc:
         _log_swallowed("close intrinsic guard", exc)
+    # The resting catastrophe floor holds the contracts, so a close
+    # submitted over it is rejected for insufficient qty. Cancel it only
+    # now — every guard above that can defer has passed, so the close WILL
+    # be submitted. If the cancel has not settled, do not submit an order
+    # the broker will reject; the floor can still fill while PENDING_CANCEL
+    # (see _wait_for_orders_clear), so "pending" + retry is the safe state.
+    _saved_floor: list = []
+    if _resting_floor_stops:
+        for _o in _resting_floor_stops:
+            try:
+                _saved_floor.append({"qty": int(float(_o.qty or 0)),
+                                     "stop_price": float(_o.stop_price or 0)})
+                client.cancel_order_by_id(_o.id)
+            except Exception as exc:
+                _log_swallowed("option close floor cancel", exc)
+        if not _wait_for_orders_clear(client, occ_symbol):
+            return "pending", str(_resting_floor_stops[0].id)
     try:
         # A real quote with bid <= $0.02 is a contract that is effectively
         # worthless; a market order there is the correct way out.
@@ -11244,9 +11278,16 @@ def _submit_options_close(occ_symbol: str, qty: int, reason: str,
         return "submitted", str(order.id)
     except Exception as exc:
         print(f"  ❌ Auto-close failed ({occ_symbol}): {exc}")
+        # The floor was cancelled above for this close; a failed close must
+        # not leave the position with neither a floor nor a sell. (The next
+        # _ensure_option_broker_stops() pass would also re-rest it, but that
+        # can be 10 minutes away.)
+        _restored = _restore_protective_stops(client, occ_symbol, _saved_floor)
         send_telegram(
             f"🚨 <b>AUTO-CLOSE FAILED</b> — {occ_symbol} ×{qty} ({reason})\n"
             f"{exc}\nClose manually in Alpaca NOW."
+            + (f"\nCatastrophe floor restored at ${_restored[0]:.2f}." if _restored
+               else "")
         )
         return "failed", None
 
@@ -11531,6 +11572,18 @@ def _opt_exit_operator(_ctrs, _exit_prem, _occ, _pnl_pct, kind, t):
     if _st in ("submitted", "failed", "would_orphan") and not _is_alerted_today(_k):
         send_telegram(f"🧹 <b>OPTION CLOSE (operator)</b> — {t} {kind} {_occ}\n{_msg}")
         _mark_alerted(_k)
+    # A deferral retries silently every guard cycle, so an operator who set
+    # OPTION_CLOSE_<OCC> believes the contract is gone while it is still
+    # held -- 2026-11-04: SMCI261113P00029000 was flagged for close before
+    # the open and was still tracked after the close with nothing saying
+    # why. "pending" stays quiet (it follows a "submitted" that already
+    # alerted); the two statuses that can repeat all day without ever
+    # having alerted are the ones that must say so. Once a day is enough.
+    _kd = f"{t}_{_occ}_OPCLOSE_DEFER_{_et_today().isoformat()}"
+    if _st in ("no_quote", "pdt_blocked") and not _is_alerted_today(_kd):
+        send_telegram(f"⏳ <b>OPTION CLOSE (operator) DEFERRED</b> ({_st}) — "
+                      f"{t} {kind} {_occ}\n{_msg} The contract is STILL HELD.")
+        _mark_alerted(_kd)
     return _action, _msg
 
 

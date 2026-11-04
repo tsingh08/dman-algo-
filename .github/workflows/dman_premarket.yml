@@ -136,6 +136,43 @@ jobs:
               print(f"Too late ({now.strftime('%H:%M ET')}) — GitHub delayed this past the open; "
                     "the 8:20 dispatch already delivered today's briefing. Skipping.")
               sys.exit(0)
+          # The early pre-market scan (overnight gaps + pre-gap news) lives on
+          # five scanner crons at 4:36-7:47 ET, and GitHub dropped EVERY one of
+          # them from 10-27 to 11-03: its marker was last written 10-29, by a
+          # hand dispatch. This run is the one reliably delivered before the
+          # open (cloud routine, 07:20 ET in winter), and it would otherwise
+          # sleep until 8:00 -- so run the scan inside that wait. Only with
+          # >= 15 min of slack (it takes ~8), hard-capped so it can never
+          # delay the briefing past 8:00. Same once-a-day marker as the
+          # scanner's slots, read from origin so neither duplicates the other.
+          if 430 <= cur_hhmm <= 745:
+              _early_done = False
+              try:
+                  subprocess.run(["git", "fetch", "-q", "origin", "main"], timeout=60)
+                  _pm = subprocess.run(["git", "show", "FETCH_HEAD:dman_premarket_marker.json"],
+                                       capture_output=True, text=True, timeout=30)
+                  _early_done = (_pm.returncode == 0
+                                 and json.loads(_pm.stdout).get("date") == str(now.date()))
+              except Exception as _e:
+                  print(f"Early-scan marker check failed ({_e}) — running it.")
+              if _early_done:
+                  print("premarket-early already ran today — not repeating it.")
+              else:
+                  _left_s = ((target_hhmm // 100) * 60 + target_hhmm % 100
+                             - (now.hour * 60 + now.minute)) * 60 - 60
+                  print(f"Running premarket-early inside the wait (cap {_left_s}s)...")
+                  try:
+                      _er = subprocess.run([sys.executable, "dman_algo.py", "--mode", "premarket-early"],
+                                           timeout=max(_left_s, 60))
+                      if _er.returncode == 0:
+                          with open("dman_premarket_marker.json", "w") as _mf:
+                              json.dump({"date": str(now.date())}, _mf)
+                  except subprocess.TimeoutExpired:
+                      print("premarket-early hit its cap — moving on to the briefing.")
+                  except Exception as _e:
+                      print(f"premarket-early failed ({_e}) — moving on to the briefing.")
+              now = datetime.now(ET)
+              cur_hhmm = now.hour * 100 + now.minute
           if cur_hhmm < target_hhmm:
               wait_s = (target_hhmm // 100 * 60 + target_hhmm % 100 - now.hour * 60 - now.minute) * 60
               # 12 -> 45 min. The cloud routine that actually triggers this
@@ -212,7 +249,7 @@ jobs:
         if: always()
         uses: ./.github/actions/persist-state
         with:
-          files: dman_universe_cache.json dman_briefing_marker.json
+          files: dman_universe_cache.json dman_briefing_marker.json dman_premarket_marker.json
           commit_message: 'chore: pre-built scan universe for the 9:45 gate [skip ci]'
 
       # This job PUSHES now (see the persist step above) and had no failure

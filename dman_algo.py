@@ -14544,13 +14544,18 @@ def _submit_bzone_entry(ticker: str, qty: int, ref_px: float, row: dict):
                               f"stop placed in Alpaca.")
             except Exception as _tgx:
                 _log_swallowed("bzone stop alert", _tgx)
-        PositionTracker().open(OpenPosition(
+        _tracked = PositionTracker().open(OpenPosition(
             ticker=ticker, bias="LONG",
             setup=f"{BZONE_SETUP} +{float(row.get('above_low_pct', 0)):.0f}% off low",
             entry=float(_fill), stop=0.01, target1=1e9, target2=1e9,
             shares=int(_got), entry_date=_et_today().isoformat(),
             score=int(min(100, float(row.get("above_low_pct", 0)) / 10)),
         ))
+        # open() REFUSES (returns False, no exception) when MAX_POSITIONS
+        # rows are already tracked, so this used to fall through to the
+        # success print with nothing recorded.
+        if _tracked is False:
+            raise RuntimeError(f"tracker full ({MAX_POSITIONS} positions)")
     except Exception as exc:
         send_telegram(f"🚨 <b>{ticker} breakout zone FILLED but NOT TRACKED</b> "
                       f"({html.escape(str(exc))}) — {qty} shares, no automated exit. "
@@ -14921,6 +14926,21 @@ def run_breakout_zone_manage(notify: bool = True) -> dict:
         _by_dollars = int(_d // _per_trade) if _d > 0 else 0
         _room = min(_room, _by_dollars)
         return (_room > 0), _w
+    # Tracking slots are shared with every other setup (an option strangle
+    # alone holds two). A zone bought with none free fills at the broker and
+    # is never tracked -- no time exit, no trail. 2026-11-03 ended with
+    # 5/5 rows (3 zones + a manual SMCI strangle). Refuse before buying.
+    try:
+        _all_rows = len(PositionTracker().positions)
+    except Exception as exc:
+        _log_swallowed("bzone tracker slots", exc)
+        _all_rows = MAX_POSITIONS
+    if _all_rows >= MAX_POSITIONS:
+        out["skipped"] = (f"tracker full ({_all_rows}/{MAX_POSITIONS} positions) — "
+                          f"a fill could not be tracked")
+        print(f"  🏔 Breakout zone manage: exits {out['exited']}, entries [] — {out['skipped']}")
+        return out
+    _room = min(_room, MAX_POSITIONS - _all_rows)
     _held_tickers = {str(p.ticker).upper() for p in _open} | _broker_committed_symbols()
     if "*" in _held_tickers:
         out["skipped"] = "broker holdings unreadable — no zone entries this pass"
@@ -23653,6 +23673,36 @@ def _check_stop_coverage() -> Optional[dict]:
             _log_swallowed("_check_stop_coverage", _swallowed)
         _orphans = [sym for sym in _alp_positions
                     if sym not in _tracked_tickers and sym not in _tracked_occ]
+        # The alarm says "NO STOP COVERAGE", so a position the broker is
+        # already protecting with a working sell stop is not what it is for.
+        # 2026-11-03: the scanner bought GDYN + STGW as breakout zones at 9:43
+        # with GTC stops attached; the daemon read the broker 2.5 min later,
+        # before the scanner had pushed its tracker, and alarmed both as
+        # unprotected orphans -- every cross-checkout zone entry does this.
+        # Such a position is still ADOPTED (adopt_orphan_positions, which
+        # sends its own notice), so nothing goes untracked; only the false
+        # "no stop" claim is dropped.
+        _stop_covered: set[str] = set()
+        for _o in (_open_orders or []):
+            try:
+                if (str(getattr(_o.side, "value", _o.side)).lower() == "sell"
+                        and "stop" in str(getattr(_o.order_type, "value", _o.order_type)).lower()
+                        and _o.symbol):
+                    _stop_covered.add(_o.symbol.upper())
+            except Exception:
+                continue
+        # Only while adoption can actually take it: with every tracking slot
+        # full, adoption's pt.open() refuses and the position would stay
+        # untracked for good -- that one must keep alarming.
+        try:
+            _slot_free = len(PositionTracker().positions) < MAX_POSITIONS
+        except Exception:
+            _slot_free = False
+        if _slot_free:
+            _covered_orphans = [s for s in _orphans if s.upper() in _stop_covered]
+            if _covered_orphans:
+                print(f"  ℹ️  untracked but broker-stop-covered (adoption handles): {_covered_orphans}")
+            _orphans = [s for s in _orphans if s.upper() not in _stop_covered]
         if _orphans:
             _orphan_msgs = []
             for _sym in _orphans:
@@ -29629,6 +29679,14 @@ def adopt_orphan_positions() -> int:
         if pt.open(pos):
             adopted += 1
             print(f"  🩹 Adopted orphan: {sym} {abs(qty)}sh @ ${entry:.4f} ({stop_note})")
+            # A breakout zone on record is this algo's own entry whose tracker
+            # row is still in flight from the other checkout; its "zone
+            # entered" Telegram already went out, so this would be a second
+            # (and misleading -- "missing from the tracker") message about the
+            # same fill. Log-only for those; a genuinely foreign position
+            # still notifies.
+            if _was_bzone:
+                continue
             send_telegram(
                 f"🩹 <b>Orphan position adopted</b> — {sym}\n"
                 f"{abs(qty)} sh @ ${entry:.4f}  |  stop ${stop:.4f}\n"
@@ -29664,7 +29722,19 @@ def _orphan_entry_date(symbol: str, orders: list) -> str:
             _closed = _c.get_orders(filter=GetOrdersRequest(
                 status=QueryOrderStatus.CLOSED, symbols=[symbol], limit=50))
             for o in _closed:
-                if str(getattr(o.side, "value", o.side)).lower() != "buy":
+                _side = getattr(o.side, "value", o.side)
+                if _side is None and getattr(o, "legs", None):
+                    # A multi-leg (mleg) parent has side None and no symbol;
+                    # the side lives on the leg. 2026-11-03: a SMCI strangle
+                    # bought at 13:21 ET was dated 11-02 because every match
+                    # was skipped here, so a same-day close would not have
+                    # been counted as a PDT day trade.
+                    _leg = next((l for l in o.legs
+                                 if str(getattr(l, "symbol", "") or "").upper() == symbol.upper()), None)
+                    if _leg is None:
+                        continue
+                    _side = getattr(_leg.side, "value", _leg.side)
+                if str(_side).lower() != "buy":
                     continue
                 filled_at = getattr(o, "filled_at", None)
                 if not filled_at:
@@ -30486,6 +30556,10 @@ def _get_day_start_equity(current_equity: float) -> float:
     return current_equity
 
 
+class _SkipSummary(Exception):
+    """Control flow only: send_account_pnl_telegram() skipping a duplicate EOD."""
+
+
 def send_account_pnl_telegram(label: str = "EOD") -> None:
     """
     Fetch live Alpaca account snapshot and send a P&L summary to Telegram.
@@ -30494,7 +30568,18 @@ def send_account_pnl_telegram(label: str = "EOD") -> None:
     if not ALPACA_API_KEY or not ALPACA_SECRET_KEY:
         print("  Alpaca credentials not configured — skipping P&L summary")
         return
+    # The EOD summary has two scan-path callers (the 3:25-4:00 safety net and
+    # the 3:50-4:15 heartbeat) and every late scanner run passes through both,
+    # with no dedup at all: 4 copies reached Telegram on 2026-11-03 (15:32,
+    # 15:45, and twice at 16:00 from one run). Once per ET day. On-demand
+    # /pnl ("On-Demand" label) is never suppressed.
+    _eod_key = f"__EOD_PNL__:{datetime.now(ET).date().isoformat()}"
+    _skip_summary = label == "EOD" and _is_duplicate_alert(_eod_key, 24 * 60)
+    if _skip_summary:
+        print("  📊 EOD P&L summary already sent today — skipping duplicate")
     try:
+        if _skip_summary:
+            raise _SkipSummary()
         from alpaca.trading.client import TradingClient
         tc    = TradingClient(ALPACA_API_KEY, ALPACA_SECRET_KEY, paper=ALPACA_PAPER)
         acct  = tc.get_account()
@@ -30549,7 +30634,11 @@ def send_account_pnl_telegram(label: str = "EOD") -> None:
             lines.append("\nNo open positions.")
 
         send_telegram("\n".join(lines))
+        if label == "EOD":
+            _save_last_alert(_eod_key)
         print(f"  📊 P&L summary sent — equity ${equity:,.2f}  day {day_pl_pct:+.2f}%")
+    except _SkipSummary:
+        pass
     except Exception as e:
         print(f"  ⚠️  P&L summary failed: {e}")
 
@@ -30560,7 +30649,9 @@ def send_account_pnl_telegram(label: str = "EOD") -> None:
     # run doesn't repeat it within the same cooldown window.
     try:
         _drift = WinRateTracker().setup_performance_drift()
-        if _drift and not _is_duplicate_alert("__SETUP_PERF_DRIFT__"):
+        # 24h, not the 30-min default: this rides the EOD summary's callers,
+        # which run several times in the last hour (sent twice 2026-11-03).
+        if _drift and not _is_duplicate_alert("__SETUP_PERF_DRIFT__", 24 * 60):
             _lines = ["📉 <b>Setup Performance Drift</b>",
                       "Live win rate has dropped below floor for:\n"]
             for _d in _drift:
@@ -32246,13 +32337,16 @@ def _live_mode_preflight(signals: list) -> Optional[tuple]:
         for _ev_mm in sorted(_MAJOR_MACRO_EVENT_DATES):
             _d_mm = (_ev_mm - _today_live).days
             if -1 <= _d_mm <= MACRO_BLACKOUT:
-                if not _is_duplicate_alert("__MACRO_EVENT_WARN__"):
+                # Once per ET day. The default 30-min cooldown re-sent this on
+                # every hourly scanner run (5x on 2026-11-03).
+                _mm_key = f"__MACRO_EVENT_WARN__:{_today_live.isoformat()}"
+                if not _is_duplicate_alert(_mm_key, 24 * 60):
                     send_telegram(
                         f"🚫 <b>DMan LIVE mode</b>: major macro event "
                         f"{_ev_mm.strftime('%a %b %d')} — new entries BLOCKED today "
                         f"(hard gate, not advisory). Existing positions still monitored/exited normally."
                     )
-                    _save_last_alert("__MACRO_EVENT_WARN__")
+                    _save_last_alert(_mm_key)
                     print(f"  🚫 LIVE: major macro event {_ev_mm} — entries blocked, alert sent")
                 # `return`, not `break`. This said "hard gate, not advisory" and
                 # then fell through to return the signals, so the orders went in

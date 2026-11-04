@@ -7219,6 +7219,29 @@ class TestOrphanEntryDateNeverInventsADayTrade(unittest.TestCase):
             got = a._orphan_entry_date("ZZZZ", [])
         self.assertNotEqual(got, datetime.now(a.ET).date().isoformat())
 
+    def _mleg(self, filled_at, legs):
+        o = MagicMock(); o.symbol = None; o.side = None; o.filled_at = filled_at
+        o.legs = [SimpleNamespace(symbol=s, side=SimpleNamespace(value=sd)) for s, sd in legs]
+        return o
+
+    def test_multi_leg_fill_dates_from_its_leg(self):
+        """2026-11-03: a SMCI strangle bought 13:21 ET was dated 11-02 -- the
+        mleg parent has side None, so the buy filter skipped every match."""
+        client = MagicMock()
+        client.get_orders.return_value = [self._mleg(
+            datetime(2026, 11, 3, 18, 21, tzinfo=_dt_timezone.utc),
+            [("SMCI261113C00035000", "buy"), ("SMCI261113P00029000", "buy")])]
+        with patch.object(a, "get_alpaca_client", return_value=client):
+            self.assertEqual(a._orphan_entry_date("SMCI261113C00035000", []), "2026-11-03")
+
+    def test_multi_leg_that_sold_this_leg_is_not_an_entry(self):
+        client = MagicMock()
+        client.get_orders.return_value = [self._mleg(
+            datetime(2026, 11, 3, 18, 21, tzinfo=_dt_timezone.utc),
+            [("SMCI261113C00035000", "sell"), ("SMCI261113P00029000", "sell")])]
+        with patch.object(a, "get_alpaca_client", return_value=client):
+            self.assertNotEqual(a._orphan_entry_date("SMCI261113C00035000", []), "2026-11-03")
+
 
 class TestRemoteFeatureFlags(unittest.TestCase):
     """Asked directly on 2026-09-07 whether the RVOL kill switch would flip
@@ -16201,6 +16224,41 @@ class TestCheckStopCoverageSplit(unittest.TestCase):
         self.assertIsNotNone(result)
         self.assertIn("W", result)
 
+    def _orphan_case(self, with_stop):
+        from alpaca.trading.enums import AssetClass, OrderType, OrderSide
+        pos = MagicMock()
+        pos.symbol = "GDYN"; pos.asset_class = AssetClass.US_EQUITY; pos.qty = "9"
+        pos.avg_entry_price = "13.305"; pos.unrealized_pl = "0"; pos.unrealized_plpc = "0"
+        orders = []
+        if with_stop:
+            o = MagicMock(); o.symbol = "GDYN"; o.side = OrderSide.SELL
+            o.order_type = OrderType.STOP; o.stop_price = "11.97"
+            orders.append(o)
+        mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")
+        mock_client.get_all_positions.return_value = [pos]
+        mock_client.get_orders.return_value = orders
+        with patch.object(a, "get_alpaca_client", return_value=mock_client), \
+             patch.object(a, "send_telegram", return_value=True) as tg:
+            a._check_stop_coverage()
+        return [c[0][0] for c in tg.call_args_list if "ORPHAN POSITIONS" in c[0][0]]
+
+    def test_untracked_position_with_a_working_broker_stop_is_not_alarmed(self):
+        """2026-11-03: GDYN/STGW zone buys (GTC stops attached) were alarmed
+        "NO STOP COVERAGE" by the daemon before the scanner pushed its tracker."""
+        self.assertEqual(self._orphan_case(with_stop=True), [])
+
+    def test_stop_covered_orphan_still_alarms_when_adoption_cannot_track_it(self):
+        # Tracker full -> adoption's pt.open() refuses -> it stays untracked
+        # for good, which is exactly what the alarm is for.
+        with patch.object(a, "MAX_POSITIONS", 0):
+            self.assertEqual(len(self._orphan_case(with_stop=True)), 1)
+
+    def test_untracked_position_without_a_stop_still_alarms(self):
+        msgs = self._orphan_case(with_stop=False)
+        self.assertEqual(len(msgs), 1)
+        self.assertIn("GDYN", msgs[0])
+
     def test_check_open_position_risk_delegates_to_check_stop_coverage(self):
         with patch.object(a, "_check_stop_coverage", return_value=None) as mock_split:
             a._check_open_position_risk({})
@@ -16434,6 +16492,29 @@ class TestSetupPerformanceDriftAlert(unittest.TestCase):
         drift_msgs = [m for m in msgs if "Setup Performance Drift" in m]
         self.assertEqual(len(drift_msgs), 1)
 
+    def test_eod_summary_sends_once_per_day_across_repeat_calls(self):
+        """2026-11-03: 4 EOD summaries (15:32, 15:45, 2x 16:00)."""
+        mock_tg = MagicMock(return_value=True)
+        for _ in range(3):
+            self._run_with_mocked_account(mock_tg)
+        msgs = [c[0][0] for c in mock_tg.call_args_list]
+        self.assertEqual(sum("EOD Account Summary" in m for m in msgs), 1)
+
+    def test_on_demand_pnl_is_never_suppressed(self):
+        mock_tg = MagicMock(return_value=True)
+        self._run_with_mocked_account(mock_tg)   # EOD
+        acct = MagicMock(); acct.equity = "5000.0"; acct.cash = "3000.0"; acct.buying_power = "3000.0"
+        mock_client = MagicMock(); mock_client.get_account.return_value = acct
+        mock_client.get_all_positions.return_value = []
+        with patch.object(a, "_get_day_start_equity", return_value=5000.0), \
+             patch("alpaca.trading.client.TradingClient", return_value=mock_client), \
+             patch.object(a, "ALPACA_API_KEY", "k"), patch.object(a, "ALPACA_SECRET_KEY", "s"), \
+             patch.object(a, "send_telegram", mock_tg):
+            a.send_account_pnl_telegram(label="On-Demand")
+            a.send_account_pnl_telegram(label="On-Demand")
+        msgs = [c[0][0] for c in mock_tg.call_args_list]
+        self.assertEqual(sum("On-Demand Account Summary" in m for m in msgs), 2)
+
     def test_drifting_setup_is_actually_restricted_not_just_alerted(self):
         # Added 2026-08-24: the whole point of this change -- a flagged
         # setup must come out of this with a real, live restriction, not
@@ -16506,7 +16587,10 @@ class TestAccountPnlTelegramOptionsPositionDisplay(unittest.TestCase):
         import functools
         self._patches = [
             patch.object(a, "WinRateTracker", functools.partial(a.WinRateTracker, filepath=self._wr_tmp.name)),
-            patch.object(a, "_is_duplicate_alert", return_value=True),   # skip the separate drift message
+            # skip the separate drift message (only -- the EOD summary is
+            # deduped by the same helper and must still send here)
+            patch.object(a, "_is_duplicate_alert",
+                         side_effect=lambda k, *_a, **_k: k == "__SETUP_PERF_DRIFT__"),
             patch.object(a, "_get_day_start_equity", return_value=5000.0),
             patch.object(a, "ALPACA_API_KEY", "k"),
             patch.object(a, "ALPACA_SECRET_KEY", "s"),
@@ -19712,10 +19796,12 @@ class TestBreakoutZoneTrading(unittest.TestCase):
                 "fresh_base": False, "weak_band": False}
 
     def _run(self, zones=(), open_pos=(), held=0, record=(0, 0.0), cash_ok=True, market=True,
-             broker=frozenset(), breakers=(True, "")):
+             broker=frozenset(), breakers=(True, ""), tracked_rows=0):
         # Mechanics, not sizing: full size, and the SPY-judged mean equal to
         # the raw one (TestJudgedAgainstSpy covers both separately).
         with patch.object(a, "_strategy_size_mult", return_value=1.0), \
+             patch.object(a, "PositionTracker",
+                          return_value=MagicMock(positions=[object()] * tracked_rows)), \
              patch.object(a, "_bzone_judged_mean", return_value=record[1]), \
              patch.object(a, "is_market_open", return_value=market), \
              patch.object(a, "_entry_circuit_breakers_ok", return_value=breakers), \
@@ -19759,6 +19845,22 @@ class TestBreakoutZoneTrading(unittest.TestCase):
         witness the tracker cannot overwrite."""
         _, _, entry, _ = self._run(zones=[self._zone("AAA")], broker={"AAA"})
         entry.assert_not_called()
+
+    def test_a_full_tracker_blocks_zone_entries_but_not_exits(self):
+        """2026-11-03 closed with 5/5 tracked rows (3 zones + a 2-leg manual
+        strangle). PositionTracker.open() refuses past MAX_POSITIONS by
+        returning False, so a zone bought then would never be tracked."""
+        out, close, entry, _ = self._run(zones=[self._zone()], open_pos=[self._pos()],
+                                         held=a.BZONE_HOLD_SESSIONS,
+                                         tracked_rows=a.MAX_POSITIONS)
+        entry.assert_not_called()
+        close.assert_called_once()
+        self.assertIn("tracker full", out["skipped"])
+
+    def test_entries_never_exceed_the_free_tracker_slots(self):
+        _, _, entry, _ = self._run(zones=[self._zone("AAA"), self._zone("BBB")],
+                                   tracked_rows=a.MAX_POSITIONS - 1)
+        self.assertEqual(entry.call_count, 1)
 
     def test_unreadable_broker_holdings_block_entries(self):
         out, close, entry, _ = self._run(zones=[self._zone()], open_pos=[self._pos()],
@@ -20439,6 +20541,20 @@ class TestSeczPostMortem(unittest.TestCase):
         self.assertEqual(float(req.limit_price), 14.65)
         self.assertEqual(req.side, a.OrderSide.BUY)
 
+    def test_a_refused_tracker_write_is_reported_not_printed_as_success(self):
+        """PositionTracker.open() returns False (no exception) at MAX_POSITIONS;
+        that fell through to the success print with nothing recorded."""
+        client = MagicMock()
+        client.submit_order.return_value = SimpleNamespace(id="oid-bz")
+        client.get_order_by_id.return_value = SimpleNamespace(filled_avg_price="14.60", filled_qty="17")
+        tracker = MagicMock(); tracker.open.return_value = False
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "PositionTracker", return_value=tracker), \
+             patch.object(a, "_et_today", return_value=date(2026, 9, 24)), \
+             patch.object(a, "send_telegram") as tg:
+            a._submit_bzone_entry("SECZ", 17, 14.36, {"above_low_pct": 166})
+        self.assertTrue(any("NOT TRACKED" in c[0][0] for c in tg.call_args_list))
+
     def test_the_fill_also_arms_a_catastrophe_floor(self):
         """The other half of the same call. A zone was unprotected for its whole
         20-session hold; the floor rests at the broker so it survives an Actions
@@ -21055,6 +21171,28 @@ class TestMajorMacroGateActuallyBlocks(unittest.TestCase):
              patch.object(a, "send_telegram"), \
              patch.dict(a.os.environ, {"ACCOUNT_SIZE": "30000"}):
             self.assertIsNone(a._live_mode_preflight([self._sig()]))
+
+    def test_the_blocked_notice_is_once_per_day_not_every_scan(self):
+        """2026-11-03: the 30-min default cooldown re-sent it on all 5 hourly
+        scanner runs. Key carries the ET date and a 24h cooldown."""
+        ev = date(2026, 11, 4)
+        seen = []
+        with patch.object(a, "ALPACA_PAPER", False), \
+             patch.object(a, "_MAJOR_MACRO_EVENT_DATES", {ev}), \
+             patch.object(a, "_FOMC_DATES", set()), \
+             patch.object(a, "_et_today", return_value=date(2026, 11, 3)), \
+             patch.object(a, "_get_pdt_status",
+                          return_value={"used": 0, "remaining": 3,
+                                        "swing_mode": False, "equity": 30000.0}), \
+             patch.object(a, "_is_duplicate_alert",
+                          side_effect=lambda k, cd=a.ALERT_COOLDOWN_MIN: seen.append((k, cd)) or False), \
+             patch.object(a, "_save_last_alert"), \
+             patch.object(a, "_mark_alerted"), \
+             patch.object(a, "send_telegram"), \
+             patch.dict(a.os.environ, {"ACCOUNT_SIZE": "30000"}):
+            a._live_mode_preflight([self._sig()])
+        mm = [s for s in seen if s[0].startswith("__MACRO_EVENT_WARN__")]
+        self.assertEqual(mm, [("__MACRO_EVENT_WARN__:2026-11-03", 24 * 60)])
 
     def test_an_ordinary_day_still_submits(self):
         out, _ = self._run(date(2026, 10, 20), {date(2026, 10, 15)})

@@ -11493,6 +11493,47 @@ def _option_stop_held(occ_symbol: str) -> bool:
     return flag(f"OPTION_HOLD_{str(occ_symbol or '').upper()}", False)
 
 
+def _option_close_requested(occ_symbol: str) -> bool:
+    """Operator override: close this contract at the next good quote.
+
+    Set `OPTION_CLOSE_<OCC>: true` in dman_flags.json. Exists because an
+    option close cannot be QUEUED overnight: Alpaca refuses option market
+    orders outside market hours, and a resting GTC stop cancelled after hours
+    sits in pending_cancel (holding the contracts) until the open. First use
+    2026-11-04: close the SMCI 29P leg of a manual earnings strangle at the
+    open while the 35C is held (see _option_stop_held). Stale flags are
+    harmless -- a closed contract is never monitored again.
+    """
+    return flag(f"OPTION_CLOSE_{str(occ_symbol or '').upper()}", False)
+
+
+def _opt_exit_operator(_ctrs, _exit_prem, _occ, _pnl_pct, kind, t):
+    """Close requested via OPTION_CLOSE_<OCC>. Returns: _action, _msg."""
+    _st, _coid = _submit_options_close(_occ, _ctrs, f"{t} {kind} operator close",
+                                       allow_orphan=False)
+    if _st == "submitted":
+        _action = "🧹 OPERATOR CLOSE — SELL submitted"
+        _msg = (f"Bid ${_exit_prem:.2f} ({_pnl_pct:+.0f}%) — SELL ×{_ctrs} "
+                f"(id {(_coid or '')[:8]}…). Sync will record P&L.")
+    elif _st == "pending":
+        _action = "🧹 OPERATOR CLOSE — a sell is already working"
+        _msg = f"Order {(_coid or '?')[:8]}… working (or a cancel still settling) — retrying"
+    elif _st == "already_closed":
+        _action = "🧹 OPERATOR CLOSE — already closed at Alpaca"
+        _msg = "Nothing held — next sync records the P&L"
+    elif _st in ("no_quote", "pdt_blocked"):
+        _action = f"⏳ OPERATOR CLOSE DEFERRED ({_st})"
+        _msg = "Retrying next guard cycle."
+    else:
+        _action = "🧹 OPERATOR CLOSE — ⚠️ submit FAILED"
+        _msg = f"Status {_st} — sell {_occ} manually"
+    _k = f"{t}_{_occ}_OPCLOSE_{_et_today().isoformat()}"
+    if _st in ("submitted", "failed", "would_orphan") and not _is_alerted_today(_k):
+        send_telegram(f"🧹 <b>OPTION CLOSE (operator)</b> — {t} {kind} {_occ}\n{_msg}")
+        _mark_alerted(_k)
+    return _action, _msg
+
+
 def _opt_exit_stop(_ctrs, _exit_prem, _occ, _pnl_pct, _stop_prem, _stopk, kind, t):
     """Premium stop (floored at intrinsic value, see _stop_ref).
 
@@ -11794,6 +11835,10 @@ def _monitor_option_position(pos: dict, kind: str, get_snapshot_fn=None, get_pri
         # strategy exit below it. In particular the T1 branch sells only HALF
         # a position -- at DTE 1 that would leave the other half to expire.
         _action, _msg = _opt_exit_expiry_backstop(_ctrs, _dte_now, _kp, _occ, _pnl_pct, _tod, kind, t)
+    elif _quote_ok and _option_close_requested(_occ) and is_market_open():
+        # Operator asked for this contract to go; outranks every strategy
+        # exit below. Market hours only -- see _option_close_requested().
+        _action, _msg = _opt_exit_operator(_ctrs, _exit_prem, _occ, _pnl_pct, kind, t)
     elif (_quote_ok and _stop_verified and not _trail_active
           and _stop_ref is not None and _stop_ref <= _stop_prem
           and not _has_open_opposite_leg(_occ)

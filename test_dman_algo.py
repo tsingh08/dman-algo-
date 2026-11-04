@@ -17592,6 +17592,39 @@ class TestStrangleLegsAreNotStoppedIndividually(unittest.TestCase):
         with patch.object(a, "FLAGS_FILE", os.path.join(tempfile.mkdtemp(), "missing.json")):
             self.assertFalse(a._option_stop_held("SMCI261113C00035000"))
 
+    def test_operator_close_flag_is_per_contract(self):
+        d = tempfile.mkdtemp(); f = os.path.join(d, "flags.json")
+        json.dump({"OPTION_CLOSE_SMCI261113P00029000": True}, open(f, "w"))
+        with patch.object(a, "FLAGS_FILE", f):
+            self.assertTrue(a._option_close_requested("SMCI261113P00029000"))
+            self.assertFalse(a._option_close_requested("SMCI261113C00035000"))
+        import shutil as _sh; _sh.rmtree(d, True)
+
+    def test_operator_close_submits_and_notifies_once(self):
+        with patch.object(a, "_submit_options_close", return_value=("submitted", "abcdef123")) as sub, \
+             patch.object(a, "_is_alerted_today", side_effect=[False, True]), \
+             patch.object(a, "_mark_alerted"), \
+             patch.object(a, "send_telegram") as tg:
+            act, _ = a._opt_exit_operator(1, 0.12, "SMCI261113P00029000", -92.0, "PUT", "SMCI")
+            a._opt_exit_operator(1, 0.12, "SMCI261113P00029000", -92.0, "PUT", "SMCI")
+        self.assertIn("SELL submitted", act)
+        self.assertEqual(sub.call_count, 2)
+        self.assertEqual(tg.call_count, 1)
+
+    def test_operator_close_waits_while_a_cancel_is_settling(self):
+        with patch.object(a, "_submit_options_close", return_value=("pending", "affdfbcd")), \
+             patch.object(a, "send_telegram") as tg:
+            act, _ = a._opt_exit_operator(1, 0.12, "SMCI261113P00029000", -92.0, "PUT", "SMCI")
+        self.assertIn("already working", act)
+        tg.assert_not_called()
+
+    def test_operator_close_outranks_strategy_exits_and_needs_market_hours(self):
+        src = inspect.getsource(a._monitor_option_position)
+        i_close = src.index("_option_close_requested(")
+        self.assertLess(src.index("_opt_exit_expiry_backstop("), i_close)
+        self.assertLess(i_close, src.index("_opt_exit_stop("))
+        self.assertIn("is_market_open()", src[i_close:src.index("_opt_exit_operator(")])
+
     def test_the_monitor_gates_only_the_stop_branch_on_it(self):
         src = inspect.getsource(a._monitor_option_position)
         self.assertEqual(src.count("_option_stop_held("), 1)

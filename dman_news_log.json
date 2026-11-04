@@ -1,325 +1,5 @@
 [
   {
-    "ts": "2026-11-03T15:47:39.374831-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "CrowdStrike Is Preparing for an AI Threat That Could Already Be Inside the Company",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T15:47:39.508670-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Tutanota LLC Extends Tender Offer for Palo Alto Networks Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:47:39.511502-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Palo Alto Networks to Announce Fiscal First Quarter 2027 Financial Results on November 18, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:47:39.943149-05:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase Stock Pops: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T15:47:40.118361-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Peter Schiff Challenges Saylor After Strategy Spends $2.25B on Buybacks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:47:40.121478-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "B. Riley Securities Maintains Buy on Strategy, Lowers Price Target to $180",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:47:40.603837-05:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "Rhode Announces $5 Million Commitment to Foundation for Women's Health",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:47:40.770605-05:00",
-    "symbols": [
-      "DECK"
-    ],
-    "headline": "Deckers Outdoor Corporation Raises Fiscal 2027 EPS Guidance",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:47:41.122099-05:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "UBS Maintains Neutral on Airbnb, Raises Price Target to $181",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T15:47:41.320129-05:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "Bernstein Maintains Outperform on DraftKings, Lowers Price Target to $27",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T15:47:41.891891-05:00",
-    "symbols": [
-      "LUNR"
-    ],
-    "headline": "Intuitive Machines Stock Climbs Tuesday: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T15:47:43.243314-05:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: BlackRock, Eaton, Pfizer, Amazon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:47:43.246138-05:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "Eaton Reports Record Orders As Data Center Demand Drives Growth",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:47:43.248738-05:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "Eaton Corp Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:47:43.685072-05:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Expensify Enters Referral Agreement with Visa",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:47:43.851743-05:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Mastercard Launches SME Academy: Cybersecurity in Europe",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T15:47:44.028542-05:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "This Midterm Nightmare Scenario Puts S&amp;P 500 Down 10% by Year-End, Evercore Warns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:47:44.031389-05:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Venezuela&#39;s Oil Exports Almost Unchanged At 1.08M Barrels/Day In Oct; Venezuela&#39;s Oil Exports To U.S. Fell To 449,000 Barrels/Day In Oct; Venezuela&#39;s Oil Exports To Europe Increased To Some 235,000 Barrels/Day In Oct; Chevron&#39;s Exports Of Venezuelan Crude Up To Some 303,000 Barrels/Day, Traders Exported 506,000 Barrels/Day",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:47:44.169776-05:00",
-    "symbols": [
-      "OXY"
-    ],
-    "headline": "Live On CNBC, Josh Brown Hosts Segment Titled &#34;Josh&#39;s Best Stocks In The Market: ConocoPhillips, Devon Energy, Occidental Petroleum&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:47:44.350795-05:00",
-    "symbols": [
-      "SLB"
-    ],
-    "headline": "SLB Insider Executes Stock Sale",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T15:47:44.478577-05:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "Here\u2019s How Much You Would Have Made Owning UnitedHealth Group Stock In The Last 20 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:47:45.412510-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "&#39;Hollywood backs NYT in AI copyright battle versus OpenAI, Microsoft&#39; - Axios",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T15:47:45.415475-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "10 Information Technology Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T15:47:45.418076-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Will Devote 65% Of Its $10B Stock Sale To Ten Investors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T15:47:45.420556-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "AMD Earnings Prediction Market Preview: What Will Lisa Su Say?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T15:47:45.719172-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;U.S. Senate Commerce Committee To Hold Nov. 10 Confirmation Hearing For Federal Communications Commissioner Nominee Thumann&#39; - Reuters News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T15:47:45.722756-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "S&amp;P 500 Could Win No Matter Who Wins the Midterms: 5 ETFs to Watch Under JPMorgan&#39;s 4 Scenarios",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T15:47:45.725727-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Reuters Reported US Officials Have Held Up Approval For American Chipmaking Equipment Needed By SK Hynix To Expand Production In China",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T15:47:45.728229-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "This Midterm Nightmare Scenario Puts S&amp;P 500 Down 10% by Year-End, Evercore Warns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T15:47:45.855464-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "S&amp;P 500 Could Win No Matter Who Wins the Midterms: 5 ETFs to Watch Under JPMorgan&#39;s 4 Scenarios",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:47:45.858124-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "This Midterm Nightmare Scenario Puts S&amp;P 500 Down 10% by Year-End, Evercore Warns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:47:45.861050-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "QUICK SPARK: Trump Celebrates Republican Victory in Guam \u2014 &#39;Wow, Hopefully an Indication for Things to Come!&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-03T15:47:45.863501-05:00",
     "symbols": [
       "QQQ"
@@ -4998,5 +4678,325 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T17:32:20.798952-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft, Google, and OpenAI Support New Standard for AI Training Opt-Outs",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T17:32:21.014613-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "J.P. Morgan Wealth Management Recruits Advisor from Merrill Lynch",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T17:32:21.231365-05:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "UnitedHealth Group Authorizes Additional 50 Million Share Buyback",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T17:32:21.489907-05:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "Multiple Analysts Adjust Price Targets for Vertex Pharmaceuticals",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T17:33:20.803365-05:00",
+    "symbols": [
+      "SOUN"
+    ],
+    "headline": "SoundHound AI Announces Strategic Partnership with LG Electronics",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T17:33:21.013753-05:00",
+    "symbols": [
+      "NUVB"
+    ],
+    "headline": "Nuvation Bio to Present Additional Updated Phase 2 Results at 2026 Society for Neuro-Oncology Annual Meeting",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T17:33:21.275638-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD Provides Fourth Quarter 2026 Revenue Guidance",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T17:33:21.486682-05:00",
+    "symbols": [
+      "DCH"
+    ],
+    "headline": "Dauch Corporation to Host Third Quarter 2026 Financial Results Conference Call",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T17:33:21.489975-05:00",
+    "symbols": [
+      "DCH"
+    ],
+    "headline": "Dauch Corporation Announces Equity Inducement Grant for New Senior Vice President of Finance",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T17:33:21.702181-05:00",
+    "symbols": [
+      "LUNR"
+    ],
+    "headline": "Intuitive Machines Selected for NASA's FALCON-RADAR Mission",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T17:33:21.919833-05:00",
+    "symbols": [
+      "PSEC"
+    ],
+    "headline": "Prospect Capital Corporation Announces Earnings Release and Conference Call Schedule",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T17:33:22.152669-05:00",
+    "symbols": [
+      "KOPN"
+    ],
+    "headline": "Kopin Corporation Scheduled to Announce Q3 2026 Financial Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T17:33:22.371144-05:00",
+    "symbols": [
+      "ARDX"
+    ],
+    "headline": "Ardelyx Completes Enrollment in Phase 3 ACCEL Clinical Trial for IBSRELA in Chronic Idiopathic Constipation",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T17:33:22.581995-05:00",
+    "symbols": [
+      "VRRM"
+    ],
+    "headline": "Verra Mobility Announces Inducement Grant for CEO Jon Newhard",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T17:33:22.795708-05:00",
+    "symbols": [
+      "CLSK"
+    ],
+    "headline": "CleanSpark CEO Outlines Strategic Focus on Power Load Security",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-03T17:33:23.006643-05:00",
+    "symbols": [
+      "NUAI"
+    ],
+    "headline": "New Era Energy & Digital, Inc. Announces Date for Third Quarter 2026 Financial Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T17:33:23.218323-05:00",
+    "symbols": [
+      "AQST"
+    ],
+    "headline": "Aquestive Therapeutics Reports Third Quarter 2026 Financial Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T18:02:20.762791-05:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase Participates in Assets on Blockchain Conference",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T18:03:20.781933-05:00",
+    "symbols": [
+      "FSLR"
+    ],
+    "headline": "Roth Capital Partners Maintains 'Buy' Rating on First Solar",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T18:03:20.998468-05:00",
+    "symbols": [
+      "DUOL"
+    ],
+    "headline": "Duolingo, Inc. Reports Third Quarter 2026 Financial Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T18:03:21.218316-05:00",
+    "symbols": [
+      "ELF"
+    ],
+    "headline": "The Empire Life Insurance Company Reports Q3 2026 Financial Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T18:03:21.432073-05:00",
+    "symbols": [
+      "FRSH"
+    ],
+    "headline": "Freshworks Reports Third Quarter 2026 Financial Results",
+    "source": "fiscal.ai",
+    "tag": "held",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T18:03:22.290635-05:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Super Micro Computer Reports Fiscal Q1 2027 Earnings and Updates Guidance",
+    "source": "fiscal.ai",
+    "tag": "held",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T19:02:20.797677-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "DeepInfra Announces New Benefits for NVIDIA Inception Members",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T19:02:21.013540-05:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "Analyst Rating and Price Target Updates for KLA Corporation",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T19:02:21.229056-05:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Uber Scheduled to Announce Third-Quarter 2026 Financial Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T19:02:21.449911-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa President of Technology Rajat Taneja Sells Shares Worth Over $14 Million",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T19:02:21.668422-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Morgan Stanley lowers price target for Applied Materials",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T19:03:20.753316-05:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Lockheed Martin to Pay $29.5 Million to Settle DOJ Discrimination Claims",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-03T20:03:20.802025-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Announces Share Distribution to Youth Accounts",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-03T20:03:21.014552-05:00",
+    "symbols": [
+      "STAK"
+    ],
+    "headline": "STAK Inc. Announces Management Changes",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-03T20:03:21.242701-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Former Visa CEO Joe Saunders Dies at 80",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

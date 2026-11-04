@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-11-03T15:59:34.215925-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Truist Securities Reiterates Buy on Palantir Technologies, Raises Price Target to $250",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:59:34.602935-05:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "What&#39;s Going On With Super Micro Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T15:59:34.605635-05:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "SambaNova Signing Partnership With Supermicro For 10K SN50 RDU Chips",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-03T15:59:34.980506-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Growth And Cyclical Lead Sectors Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-03T15:59:34.983364-05:00",
     "symbols": [
       "AVGO"
@@ -4995,6 +4955,46 @@
       "JOBY"
     ],
     "headline": "Joby Aviation Secures Additional U.S. Air Force Funding for Autonomous Flight Technology",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-04T15:02:20.683185-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Shares Decline Amid Market Concerns Over Data-Center Infrastructure Policy",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-04T15:02:20.773271-05:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "Bernstein Increases Price Target on Vertex Pharmaceuticals",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-04T15:03:20.738812-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Snowflake Announces New AI Agent Capabilities at Snowflake Expedition 2026",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-04T15:03:20.823147-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Platforms Acquires AI Coding Startup Conductor",
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"

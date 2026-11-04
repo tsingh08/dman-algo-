@@ -7235,12 +7235,17 @@ class TestOrphanEntryDateNeverInventsADayTrade(unittest.TestCase):
             self.assertEqual(a._orphan_entry_date("SMCI261113C00035000", []), "2026-11-03")
 
     def test_multi_leg_that_sold_this_leg_is_not_an_entry(self):
+        # A fill dated relative to today, NOT a fixed date: the skipped-sell
+        # path falls back to yesterday, so a fixed fill date made this fail
+        # on exactly one calendar day (2026-11-04, when yesterday == 11-03)
+        # while testing nothing different on every other day.
+        _fill = datetime.now(_dt_timezone.utc) - timedelta(days=5)
         client = MagicMock()
         client.get_orders.return_value = [self._mleg(
-            datetime(2026, 11, 3, 18, 21, tzinfo=_dt_timezone.utc),
-            [("SMCI261113C00035000", "sell"), ("SMCI261113P00029000", "sell")])]
+            _fill, [("SMCI261113C00035000", "sell"), ("SMCI261113P00029000", "sell")])]
         with patch.object(a, "get_alpaca_client", return_value=client):
-            self.assertNotEqual(a._orphan_entry_date("SMCI261113C00035000", []), "2026-11-03")
+            self.assertNotEqual(a._orphan_entry_date("SMCI261113C00035000", []),
+                                _fill.astimezone(a.ET).date().isoformat())
 
 
 class TestRemoteFeatureFlags(unittest.TestCase):
@@ -17618,6 +17623,19 @@ class TestStrangleLegsAreNotStoppedIndividually(unittest.TestCase):
         self.assertIn("already working", act)
         tg.assert_not_called()
 
+    def test_operator_close_deferral_alerts_once_a_day(self):
+        # "no_quote"/"pdt_blocked" retry silently forever; the operator who
+        # flagged the close must hear, once, that the contract is still held.
+        with patch.object(a, "_submit_options_close", return_value=("no_quote", None)), \
+             patch.object(a, "_is_alerted_today", side_effect=[False, True]), \
+             patch.object(a, "_mark_alerted"), \
+             patch.object(a, "send_telegram") as tg:
+            act, _ = a._opt_exit_operator(1, 0.12, "SMCI261113P00029000", -92.0, "PUT", "SMCI")
+            a._opt_exit_operator(1, 0.12, "SMCI261113P00029000", -92.0, "PUT", "SMCI")
+        self.assertIn("DEFERRED", act)
+        self.assertEqual(tg.call_count, 1)
+        self.assertIn("STILL HELD", tg.call_args_list[0][0][0])
+
     def test_operator_close_outranks_strategy_exits_and_needs_market_hours(self):
         src = inspect.getsource(a._monitor_option_position)
         i_close = src.index("_option_close_requested(")
@@ -19607,6 +19625,70 @@ class TestNeverSellBelowIntrinsic(unittest.TestCase):
              patch.object(a, "send_telegram", return_value=True):
             a._monitor_option_position(pos, "CALL", get_price_fn=lambda t: None)
         close.assert_not_called()
+
+
+class TestRestingFloorDoesNotBlockRealExits(unittest.TestCase):
+    """2026-11-04: SMCI261113P00029000 was flagged OPTION_CLOSE before the
+    open and was still held after the close. _ensure_option_broker_stops()
+    rests a GTC catastrophe stop on every tracked option, and the close
+    path's double-submit guard counted that resting SELL as a close already
+    in flight -- so every software exit returned "pending" forever, and the
+    only exit that could actually fire was the -75% floor itself (the 35C
+    leg died at exactly its floor price the same day)."""
+
+    OCC = "SMCI261113P00029000"
+
+    def _order(self, side, otype, oid="stp1"):
+        o = MagicMock()
+        o.id = oid; o.qty = "1"; o.stop_price = "0.39"
+        o.side = side; o.order_type = otype
+        return o
+
+    def _close(self, open_orders, clear=True):
+        client = MagicMock()
+        client.get_orders.return_value = open_orders
+        client.get_open_position.return_value = MagicMock(qty="1")
+        ok = MagicMock(); ok.id = "new1"
+        client.submit_order.return_value = ok
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "_options_close_would_violate_pdt", return_value=None), \
+             patch.object(a, "_get_option_snapshot",
+                          return_value={"bid": 0.70, "ask": 0.75, "mid": 0.725}), \
+             patch.object(a, "get_live_price", return_value=None), \
+             patch.object(a, "_wait_for_orders_clear", return_value=clear), \
+             patch.object(a, "send_telegram", return_value=True):
+            return a._submit_options_close(self.OCC, 1, "operator close"), client
+
+    def test_a_resting_catastrophe_stop_is_cancelled_not_pending(self):
+        from alpaca.trading.enums import OrderSide, OrderType
+        stop = self._order(OrderSide.SELL, OrderType.STOP)
+        (status, _), client = self._close([stop])
+        self.assertEqual(status, "submitted")
+        client.cancel_order_by_id.assert_called_once_with("stp1")
+
+    def test_a_working_close_sell_still_reports_pending(self):
+        from alpaca.trading.enums import OrderSide, OrderType
+        sell = self._order(OrderSide.SELL, OrderType.LIMIT, oid="lim1")
+        (status, oid), client = self._close([sell])
+        self.assertEqual(status, "pending")
+        self.assertEqual(oid, "lim1")
+        client.submit_order.assert_not_called()
+
+    def test_an_unsettled_cancel_defers_instead_of_submitting(self):
+        # The floor can still fill while PENDING_CANCEL -- submitting a close
+        # the broker will reject is strictly worse than retrying next cycle.
+        from alpaca.trading.enums import OrderSide, OrderType
+        stop = self._order(OrderSide.SELL, OrderType.STOP)
+        (status, _), client = self._close([stop], clear=False)
+        self.assertEqual(status, "pending")
+        client.submit_order.assert_not_called()
+
+    def test_a_buy_order_never_reads_as_a_working_close(self):
+        from alpaca.trading.enums import OrderSide, OrderType
+        buy = self._order(OrderSide.BUY, OrderType.LIMIT, oid="buy1")
+        (status, _), client = self._close([buy])
+        self.assertEqual(status, "submitted")
+        client.cancel_order_by_id.assert_not_called()
 
 
 class TestBreakoutZones(unittest.TestCase):

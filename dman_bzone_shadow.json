@@ -1978,5 +1978,55 @@
 "extension_pct": 20.0,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "EVER",
+"date": "2026-11-03",
+"close": 29.11,
+"base_days": 297,
+"above_low_pct": 104.0,
+"extension_pct": 34.4,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "REPL",
+"date": "2026-11-03",
+"close": 20.65,
+"base_days": 0,
+"above_low_pct": 1114.7,
+"extension_pct": 55.4,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "PRCH",
+"date": "2026-11-03",
+"close": 21.52,
+"base_days": 2,
+"above_low_pct": 236.2,
+"extension_pct": 19.9,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "MAX",
+"date": "2026-11-03",
+"close": 15.15,
+"base_days": 1,
+"above_low_pct": 111.3,
+"extension_pct": 30.4,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "SIBN",
+"date": "2026-11-03",
+"close": 23.77,
+"base_days": 2,
+"above_low_pct": 104.7,
+"extension_pct": 16.5,
+"fresh_base": false,
+"weak_band": false
 }
 ]

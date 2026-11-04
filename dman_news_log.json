@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-03T15:59:23.245055-05:00",
-    "symbols": [
-      "ADM"
-    ],
-    "headline": "Archer-Daniels-Midland Says Co Expects &#34;Constructive&#34; Macro Environment To Continue Into 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-03T15:59:23.247663-05:00",
     "symbols": [
       "ADM"
@@ -4995,6 +4985,16 @@
       "ELF"
     ],
     "headline": "E-L Financial Participates in Algoma Central Corporation's Convertible Debenture Financing",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-04T10:33:20.695272-05:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Novo Nordisk Appoints New Chief Financial Officer",
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"

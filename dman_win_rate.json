@@ -2286,5 +2286,21 @@
     "shares": 25.0,
     "pnl_usd": 21.29,
     "spy_pct": -1.219
+  },
+  {
+    "ticker": "FRSH",
+    "date": "2026-11-04",
+    "bias": "LONG",
+    "setup": "Breakout Zone +116% off low",
+    "entry": 14.85,
+    "exit": 12.78,
+    "outcome": "LOSS",
+    "pnl_pct": -13.94,
+    "score": 11,
+    "is_live": true,
+    "entry_date": "2026-10-21",
+    "shares": 16.0,
+    "pnl_usd": -33.11,
+    "spy_pct": null
   }
 ]

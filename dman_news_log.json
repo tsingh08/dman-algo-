@@ -1,185 +1,5 @@
 [
   {
-    "ts": "2026-11-03T15:59:19.398362-05:00",
-    "symbols": [
-      "ASC"
-    ],
-    "headline": "Ardmore Shipping Q3 Adj. EPS $0.40 Misses $0.70 Estimate, Sales $87.711M Beat $64.453M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T15:59:20.340269-05:00",
-    "symbols": [
-      "IMXI"
-    ],
-    "headline": "12 Financials Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T15:59:20.802804-05:00",
-    "symbols": [
-      "SN"
-    ],
-    "headline": "ARM, McDonald&#39;s On Deck Wednesday As AI Demand, Consumer Spending Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:59:21.250633-05:00",
-    "symbols": [
-      "AHRT"
-    ],
-    "headline": "AH Realty Trust Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-03T15:59:21.765084-05:00",
-    "symbols": [
-      "WAY"
-    ],
-    "headline": "TD Cowen Maintains Buy on Waystar Holding, Lowers Price Target to $39",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:59:21.768151-05:00",
-    "symbols": [
-      "WAY"
-    ],
-    "headline": "Evercore ISI Group Maintains Outperform on Waystar Holding, Raises Price Target to $31",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:59:21.770810-05:00",
-    "symbols": [
-      "WAY"
-    ],
-    "headline": "Canaccord Genuity Maintains Buy on Waystar Holding, Raises Price Target to $34",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:59:21.773502-05:00",
-    "symbols": [
-      "WAY"
-    ],
-    "headline": "Adeia Posts Downbeat Q3 Earnings, Joins Bioventus, Apple And Other Big Stocks Moving Lower In Tuesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:59:22.259355-05:00",
-    "symbols": [
-      "FMS"
-    ],
-    "headline": "Fresenius Medical Care Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T15:59:22.262315-05:00",
-    "symbols": [
-      "FMS"
-    ],
-    "headline": "Fresenius Medical Care Affirms FY2026 Sales Guidance of $23.764B vs $22.490B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T15:59:22.264860-05:00",
-    "symbols": [
-      "FMS"
-    ],
-    "headline": "Fresenius Medical Care CEO Says Many Parts Of Business \u201cStill At An Early Stage,\u201d Sees Room For \u201cTransformational\u201d Gains",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T15:59:22.267352-05:00",
-    "symbols": [
-      "FMS"
-    ],
-    "headline": "Fresenius Medical Care New CEO Korangy: \u201cWe Are Muted In Our Assessment Of Performance\u201d",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T15:59:22.269825-05:00",
-    "symbols": [
-      "FMS"
-    ],
-    "headline": "Fresenius Medical Care Says Repurchased 9.1M Shares For \u20ac357M As Of Sept. 30",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-03T15:59:22.756358-05:00",
-    "symbols": [
-      "FN"
-    ],
-    "headline": "Fabrinet, EverQuote, Lattice Semiconductor, Fiserv And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:59:22.759535-05:00",
-    "symbols": [
-      "FN"
-    ],
-    "headline": "Rosenblatt Maintains Buy on Fabrinet, Lowers Price Target to $600",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:59:23.236821-05:00",
-    "symbols": [
-      "ADM"
-    ],
-    "headline": "ADM CEO Sees No Biofuel Margin Collapse, Expects Strength Into 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:59:23.239819-05:00",
-    "symbols": [
-      "ADM"
-    ],
-    "headline": "Archer-Daniels Midland Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-03T15:59:23.242454-05:00",
-    "symbols": [
-      "ADM"
-    ],
-    "headline": "Archer-Daniels-Midland Expects 2027 Earnings To Be &#34;Somewhere In The Range Of What 2026 Was, Plus/Minus A Little Bit&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-03T15:59:23.245055-05:00",
     "symbols": [
       "ADM"
@@ -4996,6 +4816,186 @@
     ],
     "headline": "This Midterm Nightmare Scenario Puts S&amp;P 500 Down 10% by Year-End, Evercore Warns",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-04T09:32:20.511784-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Selects Qualcomm for Starlink Mobile 5G Network",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-04T09:32:20.519177-05:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "UnitedHealth Group Board Authorizes Payment of Quarterly Dividend",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-04T09:32:20.527450-05:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "Freeport-McMoRan Approves $4.5 Billion Expansion at Bagdad Operation",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-04T09:32:20.813923-05:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "SLB Executives Discuss AI Integration at ADIPEC 2026",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-04T09:33:20.522720-05:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Analyst Adjusts Caterpillar Price Target",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-04T09:33:20.564501-05:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Guggenheim Initiates Coverage on Lockheed Martin With Buy Rating",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-04T09:33:20.601178-05:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Gilead Sciences and Kite Announce Clinical Data Presentations for ASH 2026",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-04T09:33:20.609950-05:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "SpaceX Selects Qualcomm for Starlink Mobile 5G Network",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-04T09:33:20.754190-05:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Daiwa Securities Upgrades Fortinet to Outperform",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-04T09:33:20.760549-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa Joins Emirates NBD's NDTI AI Accelerator Program",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-04T09:33:20.766363-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Verifone Integrates Visa's Featurespace Solution into Anti-Fraud Framework",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-04T09:33:20.773557-05:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "Wedbush Adjusts Price Target on IonQ",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-04T09:33:20.778821-05:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "IonQ Completes Acquisition of Elisity, Inc.",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-04T09:33:20.978102-05:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "Percona Announces General Availability of Percona Search for MongoDB",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-04T09:33:20.984298-05:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Analysts Adjust Price Targets for Super Micro Computer Following Q1 Results",
+    "source": "fiscal.ai",
+    "tag": "held",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-04T09:33:21.427776-05:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "Riot Platforms Reports Q3 2026 Financial Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-04T09:34:20.523364-05:00",
+    "symbols": [
+      "ENPH"
+    ],
+    "headline": "Global Renewable Energy Stocks Rise Following US Midterm Election Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-04T09:35:20.512519-05:00",
+    "symbols": [
+      "ELF"
+    ],
+    "headline": "E-L Financial Participates in Algoma Central Corporation's Convertible Debenture Financing",
+    "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"
   }

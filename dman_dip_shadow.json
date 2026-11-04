@@ -694,90 +694,90 @@
 "ticker": "CRM",
 "entry": 237.52,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": -3.26,
 "entry_lim": 237.52,
-"pnl_lim_pct": null
+"pnl_lim_pct": -3.26
 },
 {
 "date": "2026-10-27",
 "ticker": "SPOT",
 "entry": 546.52,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": 13.81,
 "entry_lim": 546.52,
-"pnl_lim_pct": null
+"pnl_lim_pct": 13.81
 },
 {
 "date": "2026-10-27",
 "ticker": "GME",
 "entry": 23.24,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": 5.49,
 "entry_lim": 23.24,
-"pnl_lim_pct": null
+"pnl_lim_pct": 5.49
 },
 {
 "date": "2026-10-27",
 "ticker": "ABNB",
 "entry": 168.425,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": 3.15,
 "entry_lim": 168.425,
-"pnl_lim_pct": null
+"pnl_lim_pct": 3.15
 },
 {
 "date": "2026-10-27",
 "ticker": "V",
 "entry": 395.25,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": 7.55,
 "entry_lim": 395.25,
-"pnl_lim_pct": null
+"pnl_lim_pct": 7.55
 },
 {
 "date": "2026-10-27",
 "ticker": "MA",
 "entry": 605.97,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": 8.35,
 "entry_lim": 605.97,
-"pnl_lim_pct": null
+"pnl_lim_pct": 8.35
 },
 {
 "date": "2026-10-27",
 "ticker": "CVX",
 "entry": 228.88,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": -4.33,
 "entry_lim": 228.88,
-"pnl_lim_pct": null
+"pnl_lim_pct": -4.33
 },
 {
 "date": "2026-10-27",
 "ticker": "OXY",
 "entry": 63.16,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": -7.46,
 "entry_lim": 63.0436,
-"pnl_lim_pct": null
+"pnl_lim_pct": -7.29
 },
 {
 "date": "2026-10-27",
 "ticker": "UNH",
 "entry": 407.0,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": -2.4,
 "entry_lim": 407.0,
-"pnl_lim_pct": null
+"pnl_lim_pct": -2.4
 },
 {
 "date": "2026-10-27",
 "ticker": "ISRG",
 "entry": 441.425,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": 7.26,
 "entry_lim": 441.425,
-"pnl_lim_pct": null
+"pnl_lim_pct": 7.26
 },
 {
 "date": "2026-10-28",
@@ -1416,6 +1416,150 @@
 "rsi2": 0.0,
 "pnl_pct": null,
 "entry_lim": 279.84,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-03",
+"ticker": "AAPL",
+"entry": 341.565,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": null,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-03",
+"ticker": "CRM",
+"entry": 229.0,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": null,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-03",
+"ticker": "PLTR",
+"entry": 164.95,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 164.95,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-03",
+"ticker": "AFRM",
+"entry": 71.97,
+"rsi2": 6.4,
+"pnl_pct": null,
+"entry_lim": 71.97,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-03",
+"ticker": "ABBV",
+"entry": 293.95,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 287.43,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-03",
+"ticker": "LLY",
+"entry": 1440.0,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": null,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-03",
+"ticker": "BIIB",
+"entry": 253.54,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": null,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-03",
+"ticker": "GILD",
+"entry": 171.89,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": null,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-03",
+"ticker": "VRTX",
+"entry": 535.63,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": null,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-03",
+"ticker": "RXRX",
+"entry": 3.83,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": null,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-03",
+"ticker": "XOM",
+"entry": 174.26,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 174.26,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-03",
+"ticker": "PANW",
+"entry": 347.19,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 347.19,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-03",
+"ticker": "ZS",
+"entry": 223.8,
+"rsi2": 8.5,
+"pnl_pct": null,
+"entry_lim": 223.8,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-03",
+"ticker": "CVX",
+"entry": 222.56,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 222.56,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-03",
+"ticker": "OXY",
+"entry": 59.35,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 59.35,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-03",
+"ticker": "SLB",
+"entry": 52.195,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 52.195,
 "pnl_lim_pct": null
 }
 ]

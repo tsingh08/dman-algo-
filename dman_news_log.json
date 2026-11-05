@@ -1,525 +1,5 @@
 [
   {
-    "ts": "2026-11-05T11:19:07.904398-05:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "Fortinet Announces Availability of FortiAIGate on Equinix Distributed AI Hub",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T11:19:07.909193-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Zscaler to Host First Quarter Fiscal Year 2027 Earnings Conference Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T11:19:07.914350-05:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "MongoDB, Inc. Announces Date of Third Quarter Fiscal 2027 Earnings Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T11:19:07.926218-05:00",
-    "symbols": [
-      "SOUN"
-    ],
-    "headline": "SoundHound AI Expands Partnership with Ultraviolette Automotive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T11:19:07.934527-05:00",
-    "symbols": [
-      "LUNR"
-    ],
-    "headline": "Analysts Adjust Price Targets for Intuitive Machines",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T11:19:08.145633-05:00",
-    "symbols": [
-      "NRG"
-    ],
-    "headline": "BMO Capital Adjusts Price Target on NRG Energy to $147 From $214",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T11:19:08.156838-05:00",
-    "symbols": [
-      "TLN"
-    ],
-    "headline": "CIBC and Raymond James Adjust Talen Energy Price Targets",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T11:19:08.382212-05:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "J.P. Morgan Advises on DTE Energy's $3 Billion Sale of DTE Vantage",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T11:19:08.633345-05:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Chevron President of New Energies Sells Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T11:19:08.638478-05:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "EnerMech Secures Contract for Chevron's Aseng Gas Development",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T11:19:08.643578-05:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Chevron CEO Warns of Depleted Oil Buffers and Potential Price Increases",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T11:19:08.880234-05:00",
-    "symbols": [
-      "HTZ"
-    ],
-    "headline": "Hertz Stock Hits a Speed Bump: Revenue Reaches Three-Year High, but EPS Misses Estimates",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T11:19:08.890049-05:00",
-    "symbols": [
-      "KEEL"
-    ],
-    "headline": "Keel Infrastructure Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T11:19:08.922199-05:00",
-    "symbols": [
-      "TNMG"
-    ],
-    "headline": "TNL Mediagene Completes $6.25 Million Strategic Investment and Appoints New Director",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:19:08.929277-05:00",
-    "symbols": [
-      "YMAT"
-    ],
-    "headline": "J-Star Holding Co., Ltd. Clarifies Share Consolidation Authorization Status",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:19:09.542817-05:00",
-    "symbols": [
-      "FUN"
-    ],
-    "headline": "Six Flags Entertainment Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-05T11:19:09.547531-05:00",
-    "symbols": [
-      "FUN"
-    ],
-    "headline": "Six Flags Narrows Losses, But October&#39;s Double Blow Forces Profit Outlook Cut",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-05T11:19:09.552067-05:00",
-    "symbols": [
-      "FUN"
-    ],
-    "headline": "UPDATE: Six Flags Entertainment Q3 Adj. EPS $3.06 Beats $1.95 Estimate. Adj. EPS Excludes Non-cash Impairment Charges Of $678.67M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-05T11:19:09.557420-05:00",
-    "symbols": [
-      "FUN"
-    ],
-    "headline": "Six Flags Entertainment Q3 EPS $(3.59) Misses $1.88 Estimate, Sales $1.173B Beat $1.158B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-05T11:19:09.572019-05:00",
-    "symbols": [
-      "ZVIA"
-    ],
-    "headline": "Zevia Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T11:19:09.577028-05:00",
-    "symbols": [
-      "ZVIA"
-    ],
-    "headline": "Zevia Sees Q4 Sales $37.500M-$39.500M vs $38.231M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T11:19:09.582207-05:00",
-    "symbols": [
-      "ZVIA"
-    ],
-    "headline": "Zevia Raises FY2026 Sales Guidance from $170.000M-$175.000M to $177.000M-$179.000M vs $174.194M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T11:19:09.587408-05:00",
-    "symbols": [
-      "ZVIA"
-    ],
-    "headline": "Zevia Q3 Adj. EPS $(0.03) Beats $(0.05) Estimate, Sales $48.343M Beat $44.700M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T11:19:09.817964-05:00",
-    "symbols": [
-      "EWTX"
-    ],
-    "headline": "Wedbush Maintains Outperform on Edgewise Therapeutics, Lowers Price Target to $51",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:19:09.822918-05:00",
-    "symbols": [
-      "EWTX"
-    ],
-    "headline": "Edgewise Therapeutics Says Edgewise Has Submitted STRATUS-HCM Phase 3 Protocol Following End-Of-Phase 2 Meeting",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:19:09.828201-05:00",
-    "symbols": [
-      "EWTX"
-    ],
-    "headline": "Edgewise Therapeutics Q3 Adj. EPS $(0.19) Misses $2.48 Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:19:09.844593-05:00",
-    "symbols": [
-      "U"
-    ],
-    "headline": "Unity Stock Booms After Strong Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:19:10.772079-05:00",
-    "symbols": [
-      "BSY"
-    ],
-    "headline": "Bentley Systems Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:19:10.777375-05:00",
-    "symbols": [
-      "BSY"
-    ],
-    "headline": "Bentley Systems Q3 Adj. EPS $0.36 Beats $0.33 Estimate, Sales $421.507M Beat $420.761M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:19:10.922947-05:00",
-    "symbols": [
-      "ADMA"
-    ],
-    "headline": "ADMA Biologics CEO Says Star Drug ASCENIV Is Just Getting Started",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T11:19:10.928316-05:00",
-    "symbols": [
-      "ADMA"
-    ],
-    "headline": "Motorola Solutions, Sezzle, Unity Software, Toyota Motor And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T11:19:10.932784-05:00",
-    "symbols": [
-      "ADMA"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T11:19:10.938407-05:00",
-    "symbols": [
-      "ADMA"
-    ],
-    "headline": "Why AppLovin Shares Are Trading Higher By Over 16%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T11:19:10.942818-05:00",
-    "symbols": [
-      "ADMA"
-    ],
-    "headline": "Cantor Fitzgerald Maintains Neutral on ADMA Biologics, Raises Price Target to $13",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T11:19:10.948660-05:00",
-    "symbols": [
-      "VCEL"
-    ],
-    "headline": "Vericel Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:19:10.953097-05:00",
-    "symbols": [
-      "VCEL"
-    ],
-    "headline": "Vericel Q3 EPS $0.27 Beats $0.06 Estimate, Sales $85.371M Beat $77.948M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:19:10.959284-05:00",
-    "symbols": [
-      "VCEL"
-    ],
-    "headline": "Vericel Raises FY2026 Sales Guidance from $330.000M-$340.000M to $344.000M-$346.000M vs $336.224M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:19:10.964424-05:00",
-    "symbols": [
-      "TPR"
-    ],
-    "headline": "Tapestry Q1 2027 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T11:19:10.970361-05:00",
-    "symbols": [
-      "TPR"
-    ],
-    "headline": "Tapestry Exec Says Expecting North America Revenue To Increase Low-Single-Digits, With Coach Up Mid-Single-Digits For FY27",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T11:19:10.976047-05:00",
-    "symbols": [
-      "TPR"
-    ],
-    "headline": "Tapestry Raises Stock Buyback 2027 Outlook To $2B",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T11:19:10.980440-05:00",
-    "symbols": [
-      "TPR"
-    ],
-    "headline": "Tapestry Raises FY2027 Adj EPS Guidance from $7.80-$7.90 to $8.25-$8.35 vs $7.96 Est; Raises FY2027 Sales Guidance from $8.400B-$8.500B to $8.500B-$8.600B vs $8.538B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T11:20:09.532109-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "&#34;Microsoft Sours on Neoclouds Owing to Data Center Delays, Costs; Microsoft Is Tightening Oversight Of Some Data Center Projects From Nebius Group, IREN, And Nscale; IREN &amp; Microsoft Officials Met And Negotiated Revised Timeline That May Push Back Texas Site\u2019s Completion By Several Weeks Or Months&#34; - Bloomberg Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T11:20:10.635718-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#34;Microsoft Sours on Neoclouds Owing to Data Center Delays, Costs; Microsoft Is Tightening Oversight Of Some Data Center Projects From Nebius Group, IREN, And Nscale; IREN &amp; Microsoft Officials Met And Negotiated Revised Timeline That May Push Back Texas Site\u2019s Completion By Several Weeks Or Months&#34; - Bloomberg Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T11:20:10.946892-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Defensives Lead Sectors Thursday As Growth Sectors Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T11:20:10.951367-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#34;Microsoft Sours on Neoclouds Owing to Data Center Delays, Costs; Microsoft Is Tightening Oversight Of Some Data Center Projects From Nebius Group, IREN, And Nscale; IREN &amp; Microsoft Officials Met And Negotiated Revised Timeline That May Push Back Texas Site\u2019s Completion By Several Weeks Or Months&#34; - Bloomberg Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T11:20:12.372742-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Defensives Lead Sectors Thursday As Growth Sectors Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T11:20:12.653166-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Defensives Lead Sectors Thursday As Growth Sectors Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T11:20:13.134719-05:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce Ventures Participates in Zipline's $1.5 Billion Funding Round",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T11:20:13.534587-05:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Snowflake Officer Files Notice of Proposed Stock Sale",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T11:20:14.626328-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Defensives Lead Sectors Thursday As Growth Sectors Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T11:20:14.958913-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "QUICK SPARK: Micron Stock Drops Below 200-Day Moving Average for First Time Since May 2025",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T11:20:15.396423-05:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "QUICK SPARK: SanDisk Stock RSI Hits Most Oversold Level Since April 2025",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-05T11:20:15.949274-05:00",
     "symbols": [
       "QCOM"
@@ -4998,5 +4478,525 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T11:56:07.861079-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "QUICK SPARK: 10 US Tech Stocks Wipe Out $1.7 Trillion on Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T11:56:08.901618-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "QUICK SPARK: 10 US Tech Stocks Wipe Out $1.7 Trillion on Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T11:56:09.148817-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "QUICK SPARK: 10 US Tech Stocks Wipe Out $1.7 Trillion on Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T11:56:09.410120-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "QUICK SPARK: 10 US Tech Stocks Wipe Out $1.7 Trillion on Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T11:56:09.593222-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "QUICK SPARK: 10 US Tech Stocks Wipe Out $1.7 Trillion on Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T11:56:09.971620-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "QUICK SPARK: 10 US Tech Stocks Wipe Out $1.7 Trillion on Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T11:56:10.195967-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "QUICK SPARK: 10 US Tech Stocks Wipe Out $1.7 Trillion on Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T11:56:10.347544-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "QUICK SPARK: 10 US Tech Stocks Wipe Out $1.7 Trillion on Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T11:56:11.527487-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "QUICK SPARK: 10 US Tech Stocks Wipe Out $1.7 Trillion on Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T11:56:11.784721-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "QUICK SPARK: 10 US Tech Stocks Wipe Out $1.7 Trillion on Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T11:56:21.925168-05:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "BMO Capital Maintains Constellation Energy Buy Rating, Adjusts Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T11:56:27.042834-05:00",
+    "symbols": [
+      "AMC"
+    ],
+    "headline": "StoneX Maintains Buy on AMC Entertainment Hldgs, Raises Price Target to $5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T11:56:29.609898-05:00",
+    "symbols": [
+      "EOSE"
+    ],
+    "headline": "Eos Energy Enterprises Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T11:56:31.220127-05:00",
+    "symbols": [
+      "HTZ"
+    ],
+    "headline": "Hertz Stock Hits a Speed Bump: Revenue Reaches Three-Year High, but EPS Misses Estimates",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T11:56:32.021812-05:00",
+    "symbols": [
+      "KEEL"
+    ],
+    "headline": "Keel Infrastructure Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T11:56:34.036327-05:00",
+    "symbols": [
+      "PCT"
+    ],
+    "headline": "Dow Surges 250 Points; US Weekly Jobless Claims Fall",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T11:56:34.363941-05:00",
+    "symbols": [
+      "PTLO"
+    ],
+    "headline": "Portillos Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T11:56:35.246053-05:00",
+    "symbols": [
+      "TNMG"
+    ],
+    "headline": "TNL Mediagene Completes $6.25 Million Strategic Investment and Appoints New Director",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T11:56:35.902693-05:00",
+    "symbols": [
+      "YMAT"
+    ],
+    "headline": "J-Star Holding Co., Ltd. Clarifies Share Consolidation Authorization Status",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T11:56:36.399433-05:00",
+    "symbols": [
+      "AMTX"
+    ],
+    "headline": "Aemetis Says Biogas Unit Extends Preferred Unit Redemption To December 31, Cuts Fallback Loan Rate To Greater Of Prime Plus 5% Or 12%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T11:56:36.405315-05:00",
+    "symbols": [
+      "AMTX"
+    ],
+    "headline": "Aemetis Q3 EPS $(0.02) Beats $(0.20) Estimate, Sales $88.153M Beat $75.197M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T11:56:37.669405-05:00",
+    "symbols": [
+      "SMX"
+    ],
+    "headline": "SMX Announces Reverse Stock Split",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T11:56:38.628883-05:00",
+    "symbols": [
+      "FUN"
+    ],
+    "headline": "Six Flags Entertainment Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-05T11:56:38.635760-05:00",
+    "symbols": [
+      "FUN"
+    ],
+    "headline": "Six Flags Narrows Losses, But October&#39;s Double Blow Forces Profit Outlook Cut",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-05T11:56:38.640589-05:00",
+    "symbols": [
+      "FUN"
+    ],
+    "headline": "UPDATE: Six Flags Entertainment Q3 Adj. EPS $3.06 Beats $1.95 Estimate. Adj. EPS Excludes Non-cash Impairment Charges Of $678.67M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-05T11:56:38.646552-05:00",
+    "symbols": [
+      "FUN"
+    ],
+    "headline": "Six Flags Entertainment Q3 EPS $(3.59) Misses $1.88 Estimate, Sales $1.173B Beat $1.158B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-05T11:56:38.796584-05:00",
+    "symbols": [
+      "CCLD"
+    ],
+    "headline": "CareCloud Q3 Adj. EPS $0.14 Beats $0.12 Estimate, Sales $33.725M Beat $33.492M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T11:56:38.802777-05:00",
+    "symbols": [
+      "CCLD"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T11:56:38.808090-05:00",
+    "symbols": [
+      "CCLD"
+    ],
+    "headline": "CareCloud Affirms FY2026 GAAP EPS Guidance of $0.20-$0.23 vs $0.18 Est; Affirms FY2026 Sales Guidance of $128.000M-$132.000M vs $130.468M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T11:56:39.508586-05:00",
+    "symbols": [
+      "ZVIA"
+    ],
+    "headline": "Zevia Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T11:56:39.513815-05:00",
+    "symbols": [
+      "ZVIA"
+    ],
+    "headline": "Zevia Sees Q4 Sales $37.500M-$39.500M vs $38.231M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T11:56:39.518745-05:00",
+    "symbols": [
+      "ZVIA"
+    ],
+    "headline": "Zevia Raises FY2026 Sales Guidance from $170.000M-$175.000M to $177.000M-$179.000M vs $174.194M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T11:56:39.523413-05:00",
+    "symbols": [
+      "ZVIA"
+    ],
+    "headline": "Zevia Q3 Adj. EPS $(0.03) Beats $(0.05) Estimate, Sales $48.343M Beat $44.700M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T11:56:39.779732-05:00",
+    "symbols": [
+      "EWTX"
+    ],
+    "headline": "Wedbush Maintains Outperform on Edgewise Therapeutics, Lowers Price Target to $51",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T11:56:39.784846-05:00",
+    "symbols": [
+      "EWTX"
+    ],
+    "headline": "Edgewise Therapeutics Says Edgewise Has Submitted STRATUS-HCM Phase 3 Protocol Following End-Of-Phase 2 Meeting",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T11:56:39.790564-05:00",
+    "symbols": [
+      "EWTX"
+    ],
+    "headline": "Edgewise Therapeutics Q3 Adj. EPS $(0.19) Misses $2.48 Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T11:56:41.118032-05:00",
+    "symbols": [
+      "MGNI"
+    ],
+    "headline": "StoneX Maintains Buy on Magnite, Raises Price Target to $44",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T11:56:41.124596-05:00",
+    "symbols": [
+      "MGNI"
+    ],
+    "headline": "Wells Fargo Maintains Equal-Weight on Magnite, Raises Price Target to $23",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T11:56:42.116201-05:00",
+    "symbols": [
+      "VCEL"
+    ],
+    "headline": "Vericel Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T11:56:42.121811-05:00",
+    "symbols": [
+      "VCEL"
+    ],
+    "headline": "Vericel Q3 EPS $0.27 Beats $0.06 Estimate, Sales $85.371M Beat $77.948M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T11:56:42.127010-05:00",
+    "symbols": [
+      "VCEL"
+    ],
+    "headline": "Vericel Raises FY2026 Sales Guidance from $330.000M-$340.000M to $344.000M-$346.000M vs $336.224M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T11:56:43.242503-05:00",
+    "symbols": [
+      "BSY"
+    ],
+    "headline": "Bentley Systems Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T11:56:43.247805-05:00",
+    "symbols": [
+      "BSY"
+    ],
+    "headline": "Bentley Systems Q3 Adj. EPS $0.36 Beats $0.33 Estimate, Sales $421.507M Beat $420.761M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T11:56:43.403752-05:00",
+    "symbols": [
+      "ADMA"
+    ],
+    "headline": "ADMA Biologics CEO Says Star Drug ASCENIV Is Just Getting Started",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T11:56:43.409332-05:00",
+    "symbols": [
+      "ADMA"
+    ],
+    "headline": "Motorola Solutions, Sezzle, Unity Software, Toyota Motor And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T11:56:43.414851-05:00",
+    "symbols": [
+      "ADMA"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T11:56:43.420129-05:00",
+    "symbols": [
+      "ADMA"
+    ],
+    "headline": "Why AppLovin Shares Are Trading Higher By Over 16%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T11:56:43.425419-05:00",
+    "symbols": [
+      "ADMA"
+    ],
+    "headline": "Cantor Fitzgerald Maintains Neutral on ADMA Biologics, Raises Price Target to $13",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T11:56:43.790525-05:00",
+    "symbols": [
+      "TPR"
+    ],
+    "headline": "Tapestry Q1 2027 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T11:56:43.795821-05:00",
+    "symbols": [
+      "TPR"
+    ],
+    "headline": "Tapestry Exec Says Expecting North America Revenue To Increase Low-Single-Digits, With Coach Up Mid-Single-Digits For FY27",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T11:56:43.800829-05:00",
+    "symbols": [
+      "TPR"
+    ],
+    "headline": "Tapestry Raises Stock Buyback 2027 Outlook To $2B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T11:56:43.805591-05:00",
+    "symbols": [
+      "TPR"
+    ],
+    "headline": "Tapestry Raises FY2027 Adj EPS Guidance from $7.80-$7.90 to $8.25-$8.35 vs $7.96 Est; Raises FY2027 Sales Guidance from $8.400B-$8.500B to $8.500B-$8.600B vs $8.538B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

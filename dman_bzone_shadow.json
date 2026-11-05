@@ -2138,5 +2138,65 @@
 "extension_pct": 15.9,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "CERT",
+"date": "2026-11-05",
+"close": 12.18,
+"base_days": 298,
+"above_low_pct": 171.9,
+"extension_pct": 20.1,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "XERS",
+"date": "2026-11-05",
+"close": 13.08,
+"base_days": 255,
+"above_low_pct": 147.3,
+"extension_pct": 25.1,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "MGNI",
+"date": "2026-11-05",
+"close": 27.52,
+"base_days": 298,
+"above_low_pct": 145.7,
+"extension_pct": 18.1,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "ARDT",
+"date": "2026-11-05",
+"close": 15.9,
+"base_days": 298,
+"above_low_pct": 103.1,
+"extension_pct": 33.1,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "PTLO",
+"date": "2026-11-05",
+"close": 7.02,
+"base_days": 298,
+"above_low_pct": 100.9,
+"extension_pct": 52.9,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "CRCT",
+"date": "2026-11-05",
+"close": 9.25,
+"base_days": 0,
+"above_low_pct": 153.1,
+"extension_pct": 43.2,
+"fresh_base": false,
+"weak_band": false
 }
 ]

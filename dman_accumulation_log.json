@@ -3562,5 +3562,41 @@
   "drift_pct": 1.46,
   "range_ratio": 0.66,
   "near_high": 0.985
+ },
+ {
+  "ts": "2026-11-05T16:03:14.007723-05:00",
+  "ticker": "YLD",
+  "price": 18.295,
+  "rvol": 2.15,
+  "drift_pct": 0.52,
+  "range_ratio": 0.63,
+  "near_high": 0.961
+ },
+ {
+  "ts": "2026-11-05T16:03:14.007739-05:00",
+  "ticker": "BWMN",
+  "price": 43.01,
+  "rvol": 1.97,
+  "drift_pct": 0.26,
+  "range_ratio": 0.51,
+  "near_high": 1.0
+ },
+ {
+  "ts": "2026-11-05T16:03:14.007744-05:00",
+  "ticker": "RPV",
+  "price": 121.1,
+  "rvol": 1.58,
+  "drift_pct": 0.61,
+  "range_ratio": 0.63,
+  "near_high": 0.979
+ },
+ {
+  "ts": "2026-11-05T16:03:14.007748-05:00",
+  "ticker": "USMV",
+  "price": 101.8,
+  "rvol": 1.68,
+  "drift_pct": 1.1,
+  "range_ratio": 0.54,
+  "near_high": 0.974
  }
 ]

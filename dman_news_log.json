@@ -1,305 +1,5 @@
 [
   {
-    "ts": "2026-11-05T09:44:01.479968-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Inc. Files Form 424B2 For Seven-Part U.S. Dollar High-Grade Bond Sale",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.485416-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Politicians Fight Data Centers While Betting Your Retirement on Them",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.490539-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Amazon, Apple, FTAI Aviation And A Basic Material Stock: CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.494998-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Dan Ives Warns Chip Stocks Aren&#39;t Done Falling, Sees Another 12% Drop \u2014 But Tom Lee Calls AI Selloff an &#39;Overreaction,&#39; Predicts 20% Tech Rally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.500259-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Jim Cramer Warns Friday&#39;s Jobs Report Could &#39;Repeal&#39; Midterm Rally, Says Elections &#39;Did Not Upend&#39; Business Cycle: \u2018I Hesitate To Guess Where We Go Next\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.505138-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Ed Yardeni Says Slowing AI Boom Is Actually Bullish for Big Tech",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.510093-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Politicians Fight Data Centers While Betting Your Retirement on Them",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.514893-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft, Amazon Add $400 Billion in Market Value as Analyst Sees Pricing Upside From Data Center Constraints",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.519247-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft\u2019s $5 Billion AI Spending Shortfall Puts IREN, Nebius Under Spotlight as Satellite Imagery Shows Data Center Delays: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.524518-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Jim Cramer Warns Friday&#39;s Jobs Report Could &#39;Repeal&#39; Midterm Rally, Says Elections &#39;Did Not Upend&#39; Business Cycle: \u2018I Hesitate To Guess Where We Go Next\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.529998-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "China&#39;s Nvidia H200 Bottleneck Deepens: 600,000 Chips Reportedly Await Approval In Hong Kong as Servers Fetch Nearly $1 Million Each",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.535587-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Box Unveils Box Context Retrieval Powered By Nvidia Nemotron Models",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.540051-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Ed Yardeni Says Slowing AI Boom Is Actually Bullish for Big Tech",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.544570-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;Chinese AI lab Moonshot turned to Europe for Nvidia Blackwell access amid U.S. China curbs&#39; - CNBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.550133-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "What Is Going On With Nvidia Stock on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.555491-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Top 5 AI Stocks to Buy After Midterm Elections: This Strategist Calls the Sell-Off a Massive Opportunity",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.560281-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "IBM, Oak Ridge National Laboratory And AMD Announce Quantum Error Correction Platform Linking IBM Quantum Computers To AMD-Powered Supercomputer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.565196-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "What Is Going On With Nvidia Stock on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.569888-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Arm CEO Acknowledges AMD&#39;s Head Start in AI Chips, But Says &#39;We&#39;re Very, Very Serious&#39; About Competing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.574859-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Kevin O&#39;Leary Predicts Political U-Turn on AI Data Centers, Says They Will Become a Middle-Class Wealth Engine: &#39;Resistance is Going to Disappear&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.579352-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Five Signals That Preceded Past Recessions Are Back \u2014 and AI Is at the Center",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.584441-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Google Created 5 Billionaires Worth $553B \u2014 Almost All That Wealth Belongs to 2 People",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.590004-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "What&#39;s Going On With Qualcomm Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.594390-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Arm CEO Acknowledges AMD&#39;s Head Start in AI Chips, But Says &#39;We&#39;re Very, Very Serious&#39; About Competing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.600628-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Microsoft Is the Last Big Tech Buyback Holdout: Alphabet, Meta, Amazon Go Dark as AI Spending Eats Cash, Says This Market Commentator",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.606704-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Five Signals That Preceded Past Recessions Are Back \u2014 and AI Is at the Center",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.612240-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google Created 5 Billionaires Worth $553B \u2014 Almost All That Wealth Belongs to 2 People",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.616685-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Microsoft, Amazon Add $400 Billion in Market Value as Analyst Sees Pricing Upside From Data Center Constraints",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.621147-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Microsoft\u2019s $5 Billion AI Spending Shortfall Puts IREN, Nebius Under Spotlight as Satellite Imagery Shows Data Center Delays: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.626960-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Kevin O&#39;Leary Predicts Political U-Turn on AI Data Centers, Says They Will Become a Middle-Class Wealth Engine: &#39;Resistance is Going to Disappear&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-05T09:44:01.633328-05:00",
     "symbols": [
       "AMZN"
@@ -4998,5 +4698,305 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.657008-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Virgin Galactic Enters Three-Year Collaboration With Non-Profit Space For Humanity To Fly Three Dedicated Charters For Up To 18 Astronauts In Total",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.661822-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Arthur Hayes: Bitcoin Could Fall With SPCX Before \u2018Glorious\u2019 Bailout Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.666580-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Politicians Fight Data Centers While Betting Your Retirement on Them",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.671990-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Tesla, SpaceX Face Different Risks From Gina Hinojosa\u2019s Texas Midterm Win: Bitunix Analyst Says Expansion, Not Existing Operations, Is Key Concern",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.676980-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Top 5 AI Stocks to Buy After Midterm Elections: This Strategist Calls the Sell-Off a Massive Opportunity",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.681941-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "What Is Going On With Nvidia Stock on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.687474-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Microsoft\u2019s $5 Billion AI Spending Shortfall Puts IREN, Nebius Under Spotlight as Satellite Imagery Shows Data Center Delays: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.692607-05:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Jim Cramer Warns Friday&#39;s Jobs Report Could &#39;Repeal&#39; Midterm Rally, Says Elections &#39;Did Not Upend&#39; Business Cycle: \u2018I Hesitate To Guess Where We Go Next\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.698302-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Inc. Files Form 424B2 For Seven-Part U.S. Dollar High-Grade Bond Sale",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.703201-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Politicians Fight Data Centers While Betting Your Retirement on Them",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.707919-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Amazon, Apple, FTAI Aviation And A Basic Material Stock: CNBC\u2019s \u2018Final Trades\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.713074-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Dan Ives Warns Chip Stocks Aren&#39;t Done Falling, Sees Another 12% Drop \u2014 But Tom Lee Calls AI Selloff an &#39;Overreaction,&#39; Predicts 20% Tech Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.719403-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Ed Yardeni Says Slowing AI Boom Is Actually Bullish for Big Tech",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.724184-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Politicians Fight Data Centers While Betting Your Retirement on Them",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.729021-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft, Amazon Add $400 Billion in Market Value as Analyst Sees Pricing Upside From Data Center Constraints",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.734528-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "China&#39;s Nvidia H200 Bottleneck Deepens: 600,000 Chips Reportedly Await Approval In Hong Kong as Servers Fetch Nearly $1 Million Each",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.739172-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Box Unveils Box Context Retrieval Powered By Nvidia Nemotron Models",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.743932-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Ed Yardeni Says Slowing AI Boom Is Actually Bullish for Big Tech",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.749288-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;Chinese AI lab Moonshot turned to Europe for Nvidia Blackwell access amid U.S. China curbs&#39; - CNBC",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.754140-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Top 5 AI Stocks to Buy After Midterm Elections: This Strategist Calls the Sell-Off a Massive Opportunity",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.758404-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "IBM, Oak Ridge National Laboratory And AMD Announce Quantum Error Correction Platform Linking IBM Quantum Computers To AMD-Powered Supercomputer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.762736-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "What Is Going On With Nvidia Stock on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.767381-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Arm CEO Acknowledges AMD&#39;s Head Start in AI Chips, But Says &#39;We&#39;re Very, Very Serious&#39; About Competing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.772514-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Kevin O&#39;Leary Predicts Political U-Turn on AI Data Centers, Says They Will Become a Middle-Class Wealth Engine: &#39;Resistance is Going to Disappear&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.777824-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Five Signals That Preceded Past Recessions Are Back \u2014 and AI Is at the Center",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.782391-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Google Created 5 Billionaires Worth $553B \u2014 Almost All That Wealth Belongs to 2 People",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.787594-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "What&#39;s Going On With Qualcomm Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.792408-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Arm CEO Acknowledges AMD&#39;s Head Start in AI Chips, But Says &#39;We&#39;re Very, Very Serious&#39; About Competing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.799999-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Five Signals That Preceded Past Recessions Are Back \u2014 and AI Is at the Center",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:46:24.804707-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google Created 5 Billionaires Worth $553B \u2014 Almost All That Wealth Belongs to 2 People",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,355 +1,5 @@
 [
   {
-    "ts": "2026-11-04T14:02:20.970805-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Above Security Joins Microsoft for Startups Pegasus Program",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-04T14:02:21.078198-05:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Launches AI-Powered 'AI Discover' Feature in Limited US Test",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-04T14:02:21.177613-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Launches Shop Direct Merchant Workspace",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-04T14:02:21.263272-05:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "SkyFi's 'Satellite Intelligence' App Launches for Robinhood Agents",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-04T14:02:21.431539-05:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "WHO Advisory Group Recommends Advancing Moderna's mRNA-1469 Vaccine to Phase 2/3 Efficacy Study",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-04T14:02:21.669980-05:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Chase Updates Digital Services Agreement Regarding Third-Party AI Agents",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-04T14:02:21.764213-05:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "UnitedHealth Group Board Authorizes Quarterly Dividend",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-04T14:02:21.845107-05:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Bernstein Initiates Coverage on SanDisk with Buy Rating",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-04T14:02:21.932343-05:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Lockheed Martin Celebrates 57 Graduates from UAE Internship Program",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-04T14:02:22.060518-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "CrowdStrike Launches Sovereign Cloud Deployment in Saudi Arabia",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-04T14:03:20.664061-05:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Mastercard Expands Mobile Payment Choice in Morocco With Samsung Pay",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-04T14:03:20.893706-05:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "UAW Adjusts Organizing Strategy at Rivian's Normal Plant",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-04T14:03:20.989000-05:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "IonQ Partners with QuantumCT to Expand Quantum Access in Connecticut",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-04T14:03:21.081326-05:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "IEEE Designates First Robotic Telepresence Surgery System as an IEEE Milestone",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-04T14:03:21.210560-05:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "Nebraska Voters Reject Online Sports Betting Initiatives",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-04T14:04:20.650956-05:00",
-    "symbols": [
-      "DUOL"
-    ],
-    "headline": "Analysts Adjust Price Targets for Duolingo Following Third-Quarter Results",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-04T14:04:20.736419-05:00",
-    "symbols": [
-      "MARA"
-    ],
-    "headline": "Bernstein Reduces Price Target for MARA Holdings, Inc.",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-04T14:04:20.826541-05:00",
-    "symbols": [
-      "JOBY"
-    ],
-    "headline": "Joby Aviation Secures Additional U.S. Air Force Funding for Autonomous Flight Technology",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-04T15:02:20.683185-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Shares Decline Amid Market Concerns Over Data-Center Infrastructure Policy",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-04T15:02:20.773271-05:00",
-    "symbols": [
-      "VRTX"
-    ],
-    "headline": "Bernstein Increases Price Target on Vertex Pharmaceuticals",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-04T15:03:20.738812-05:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Snowflake Announces New AI Agent Capabilities at Snowflake Expedition 2026",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-04T15:03:20.823147-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Platforms Acquires AI Coding Startup Conductor",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-04T17:32:20.706844-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Updates Clarity Analytics Tool with AI Agent Tracking Features",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-04T17:32:20.909543-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Platforms Prices $15 Billion USD Bond Offering",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-04T17:32:21.102753-05:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Chevron CEO Warns of Depleted Oil Buffers and Potential Price Increases",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-04T17:32:21.107642-05:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "EnerMech Secures Contract for Chevron's Aseng Gas Development",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-04T17:32:21.112297-05:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Chevron President of New Energies Sells Shares",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-04T17:33:20.786194-05:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "AppLovin Reports Q3 2026 Financial Results and Increases Buyback Authorization",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-04T17:33:20.987084-05:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Qualcomm Reports Fiscal Fourth-Quarter 2026 Financial Results",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-04T17:33:21.152008-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Strategy Inc CFO Andrew Kang to Step Down",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-04T17:33:21.317118-05:00",
-    "symbols": [
-      "SOUN"
-    ],
-    "headline": "SoundHound AI Expands Partnership with Ultraviolette Automotive",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-04T17:33:21.494555-05:00",
-    "symbols": [
-      "LUNR"
-    ],
-    "headline": "Analysts Adjust Price Targets for Intuitive Machines",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-04T17:33:21.650889-05:00",
-    "symbols": [
-      "GT"
-    ],
-    "headline": "The Goodyear Tire & Rubber Company Reports Third Quarter 2026 Financial Results",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-04T17:33:21.829054-05:00",
-    "symbols": [
-      "PACB"
-    ],
-    "headline": "PacBio Reports Third-Quarter 2026 Financial Results",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-04T17:33:21.977034-05:00",
-    "symbols": [
-      "OPK"
-    ],
-    "headline": "OPKO Health Reports Third Quarter 2026 Financial Results and Provides Q4 Guidance",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-04T17:33:22.141774-05:00",
     "symbols": [
       "JBLU"
@@ -4998,5 +4648,355 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T09:32:20.533436-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "ExxonMobil Alaska Production Inc. Signs 15-Year Gas Sale Agreement",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T09:32:20.542857-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Supermicro and IBM Announce New Inference Solution Featuring NVIDIA Technology",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T09:32:20.548836-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Blitzy Announces Collaboration with Microsoft",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T09:32:20.554152-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Recast Software Enhances Right Click Tools for Microsoft Management Platforms",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T09:32:20.559353-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta's New Euro Bonds Trade Higher on Market Debut",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:32:20.563966-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "J.P. Morgan Advises on DTE Energy's $3 Billion Sale of DTE Vantage",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:32:20.569519-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Launches Seven-Part US Dollar High-Grade Bond Offering",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:32:20.592031-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "AmeriLife Partners with Palantir to Deploy AI Platforms",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:32:20.597968-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Analysts Update Ratings and Price Targets for Palantir",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:32:20.845152-05:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Ventures Participates in Zipline's $1.5 Billion Funding Round",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:32:21.100151-05:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "MongoDB, Inc. Announces Date of Third Quarter Fiscal 2027 Earnings Call",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:32:21.105192-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Files Major Holdings Notification for CECONOMY AG",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T09:32:21.111536-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Files Major Holdings Notification for Siltronic AG",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T09:32:38.444405-05:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Launches AI-Powered 'AI Discover' Feature in Limited US Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:32:38.457809-05:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Bernstein Initiates Coverage on SanDisk with Buy Rating",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:32:38.472601-05:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "SkyFi's 'Satellite Intelligence' App Launches for Robinhood Agents",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:32:38.478735-05:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "UAW Adjusts Organizing Strategy at Rivian's Normal Plant",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:32:38.484967-05:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "WHO Advisory Group Recommends Advancing Moderna's mRNA-1469 Vaccine to Phase 2/3 Efficacy Study",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-05T09:32:38.508006-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike Launches Sovereign Cloud Deployment in Saudi Arabia",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T09:32:38.555220-05:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Mastercard Expands Mobile Payment Choice in Morocco With Samsung Pay",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:32:38.563831-05:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "UnitedHealth Group Board Authorizes Quarterly Dividend",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T09:32:38.568275-05:00",
+    "symbols": [
+      "ISRG"
+    ],
+    "headline": "IEEE Designates First Robotic Telepresence Surgery System as an IEEE Milestone",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:33:20.537009-05:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "BMO Capital Adjusts Price Target on Vistra Corp.",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:33:20.565225-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "LifeMD Partners with Eli Lilly to Expand Access to GLP-1 Medications",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:33:20.814009-05:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Maxim Group Raises Gilead Sciences Price Target to $200",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:33:20.820743-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Zenith Epigenetics Announces Clinical Trial Collaboration with Eli Lilly",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:33:20.826098-05:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Cloudflare Names SentinelOne 2026 Technology Ecosystem Partner of the Year",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:33:20.831293-05:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "AMC CEO Adam Aron Rejects Stock Tokenization, Criticizes Robinhood's Practices",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:33:21.056174-05:00",
+    "symbols": [
+      "NRG"
+    ],
+    "headline": "BMO Capital Adjusts Price Target on NRG Energy to $147 From $214",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T09:33:21.062399-05:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "Multiple Financial Institutions Raise Price Targets for AppLovin",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-05T09:33:21.702339-05:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Fortinet Announces Availability of FortiAIGate on Equinix Distributed AI Hub",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:33:21.954441-05:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Zscaler to Host First Quarter Fiscal Year 2027 Earnings Conference Call",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:33:21.969467-05:00",
+    "symbols": [
+      "JOBY"
+    ],
+    "headline": "Joby Aviation Reports Q3 2026 Financial Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T09:33:21.991554-05:00",
+    "symbols": [
+      "JOBY"
+    ],
+    "headline": "CCORF Upgrades Joby Aviation to Buy Rating",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T09:33:22.011565-05:00",
+    "symbols": [
+      "MARA"
+    ],
+    "headline": "MARA Holdings, Inc. Receives FERC Approval for Long Ridge Energy Acquisition",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,275 +1,5 @@
 [
   {
-    "ts": "2026-11-05T09:44:01.637741-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Virgin Galactic Enters Three-Year Collaboration With Non-Profit Space For Humanity To Fly Three Dedicated Charters For Up To 18 Astronauts In Total",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.644812-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Zipline Announces $1.5B Capital Raise At Post-Money Valuation Of $21.5B; Working With Walmart To Launch 300 Additional Sites",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.652112-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon, Apple, FTAI Aviation And A Basic Material Stock: CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.658187-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "What&#39;s Going On With Qualcomm Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.663865-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla, SpaceX Face Different Risks From Gina Hinojosa\u2019s Texas Midterm Win: Bitunix Analyst Says Expansion, Not Existing Operations, Is Key Concern",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.668341-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "SPCX CEO Elon Musk Fires Back at Democrats&#39; AI Regulation Push After Midterm Rout: \u2018It&#39;s a Brave New World\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.673335-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Robert Reich Takes Aim at Elon Musk After Ken Paxton&#39;s Double-Digit Texas Senate Loss: &#39;Organized People Can Still Defeat...&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.678190-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla Bulls Could Get Burned? Gary Black Sees Trouble With SpaceX All-Stock Merger: Warns 24% Premium &#39;Can Quickly Go Negative&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.682999-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "TSLA, SPCX Stocks Fall Pre-Market as Ted Cruz Says Democrats Will \u2018Persecute\u2019 Elon Musk: Ron DeSantis Warns \u2018I Guarantee You They Will Do That\u2019 (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.687795-05:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Premieres Season 3 of 'The Devil's Plan'",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.968309-05:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Snowflake Insider Sells Shares Worth $3.06 Million",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.975490-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Dan Ives Warns Chip Stocks Aren&#39;t Done Falling, Sees Another 12% Drop \u2014 But Tom Lee Calls AI Selloff an &#39;Overreaction,&#39; Predicts 20% Tech Rally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.979987-05:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Smartbird Partners With Super Micro Computer To Offer AI Infrastructure Customized To Firms Workloads",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.985711-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "What Is Going On With Nvidia Stock on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.990184-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "What Is Going On With Nvidia Stock on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:01.995601-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Technology Stock Slides Again Thursday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:02.000984-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "&#39;Micron Pauses Work on $4.5 Billion Taiwan Plant After Labor Spat&#39; - Bloomberg Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:02.005476-05:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "AMD Sets the Bar High for 2027, Analysts Say It Can Clear It",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:02.011420-05:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Micron Technology Stock Slides Again Thursday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:02.017319-05:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100 Futures Trade Mixed After Post-Midterm Rally\u2014 TM, ARM, QCOM in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:02.021809-05:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Susquehanna Maintains Neutral on Qualcomm, Lowers Price Target to $165",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:02.026669-05:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Zillow Posts Downbeat Q3 Results, Joins HubSpot, Snap And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:02.031655-05:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "What&#39;s Going On With Qualcomm Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:02.037223-05:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Tesla Bulls Could Get Burned? Gary Black Sees Trouble With SpaceX All-Stock Merger: Warns 24% Premium &#39;Can Quickly Go Negative&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:44:02.042774-05:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "Citigroup Maintains Neutral on ON Semiconductor, Lowers Price Target to $80",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:44:02.047981-05:00",
-    "symbols": [
-      "RIOT"
-    ],
-    "headline": "Chardan Capital Maintains Buy on Riot Platforms, Raises Price Target to $32",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:44:02.052806-05:00",
-    "symbols": [
-      "RIOT"
-    ],
-    "headline": "Needham Maintains Buy on Riot Platforms, Raises Price Target to $31",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-05T09:44:02.058160-05:00",
     "symbols": [
       "HOOD"
@@ -4998,5 +4728,275 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:57:24.516999-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Microsoft Sours on Neoclouds Owing to Data Center Delays, Costs; Microsoft Is Tightening Oversight Of Some Data Center Projects From Nebius Group, Iren., And Nscale&#34; - Bloomberg Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:57:25.579084-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Sours on Neoclouds Owing to Data Center Delays, Costs; Microsoft Is Tightening Oversight Of Some Data Center Projects From Nebius Group, Iren., And Nscale&#34; - Bloomberg Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:57:27.499021-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Ed Yardeni Says Slowing AI Boom Is Actually Bullish for Big Tech",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:57:27.505513-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Virgin Galactic Enters Three-Year Collaboration With Non-Profit Space For Humanity To Fly Three Dedicated Charters For Up To 18 Astronauts In Total",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:57:27.511190-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Zipline Announces $1.5B Capital Raise At Post-Money Valuation Of $21.5B; Working With Walmart To Launch 300 Additional Sites",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:57:27.866418-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla, SpaceX Face Different Risks From Gina Hinojosa\u2019s Texas Midterm Win: Bitunix Analyst Says Expansion, Not Existing Operations, Is Key Concern",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:57:27.872694-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "SPCX CEO Elon Musk Fires Back at Democrats&#39; AI Regulation Push After Midterm Rout: \u2018It&#39;s a Brave New World\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:57:27.877440-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Robert Reich Takes Aim at Elon Musk After Ken Paxton&#39;s Double-Digit Texas Senate Loss: &#39;Organized People Can Still Defeat...&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:57:27.882140-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Bulls Could Get Burned? Gary Black Sees Trouble With SpaceX All-Stock Merger: Warns 24% Premium &#39;Can Quickly Go Negative&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:57:27.886889-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "TSLA, SPCX Stocks Fall Pre-Market as Ted Cruz Says Democrats Will \u2018Persecute\u2019 Elon Musk: Ron DeSantis Warns \u2018I Guarantee You They Will Do That\u2019 (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:57:28.226115-05:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Premieres Season 3 of 'The Devil's Plan'",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:57:28.957572-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Snowflake Insider Sells Shares Worth $3.06 Million",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:57:29.359550-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Dan Ives Warns Chip Stocks Aren&#39;t Done Falling, Sees Another 12% Drop \u2014 But Tom Lee Calls AI Selloff an &#39;Overreaction,&#39; Predicts 20% Tech Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:57:29.701802-05:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Smartbird Partners With Super Micro Computer To Offer AI Infrastructure Customized To Firms Workloads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:57:30.144086-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "What Is Going On With Nvidia Stock on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:57:30.575936-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "What Is Going On With Nvidia Stock on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:57:30.581550-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Technology Stock Slides Again Thursday: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:57:30.586636-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "&#39;Micron Pauses Work on $4.5 Billion Taiwan Plant After Labor Spat&#39; - Bloomberg Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:57:33.873686-05:00",
+    "symbols": [
+      "ENPH"
+    ],
+    "headline": "Solar Stocks Had Their Best Rally Against Oil in 4 Years: Is the Clean Energy Trade Back?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:57:34.186273-05:00",
+    "symbols": [
+      "FSLR"
+    ],
+    "headline": "Solar Stocks Had Their Best Rally Against Oil in 4 Years: Is the Clean Energy Trade Back?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:57:37.311833-05:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "Benzinga Market Summary: S&amp;P Sells Off From Yesterday&#39;s Post-Midterm Election Rally, QQQ Dips On AI Regulation Concerns, Applovin Rises On Q3 Earnings, Lower-Than-Expected Initial Jobless Claims Data Signals Job Market Strength",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-05T10:57:40.333227-05:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Keybanc Maintains Overweight on Uber Technologies, Lowers Price Target to $95",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:57:50.031466-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Benzinga Market Summary: S&amp;P Sells Off From Yesterday&#39;s Post-Midterm Election Rally, QQQ Dips On AI Regulation Concerns, Applovin Rises On Q3 Earnings, Lower-Than-Expected Initial Jobless Claims Data Signals Job Market Strength",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:57:50.296528-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Benzinga Market Summary: S&amp;P Sells Off From Yesterday&#39;s Post-Midterm Election Rally, QQQ Dips On AI Regulation Concerns, Applovin Rises On Q3 Earnings, Lower-Than-Expected Initial Jobless Claims Data Signals Job Market Strength",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:57:51.915439-05:00",
+    "symbols": [
+      "ARRY"
+    ],
+    "headline": "Solar Stocks Had Their Best Rally Against Oil in 4 Years: Is the Clean Energy Trade Back?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-05T10:58:06.347506-05:00",
+    "symbols": [
+      "LYNX"
+    ],
+    "headline": "Guggenheim Maintains Buy on Lyntris, Raises Price Target to $25",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:58:09.631004-05:00",
+    "symbols": [
+      "BKSY"
+    ],
+    "headline": "BlackSky Stock Surges After Surprising Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

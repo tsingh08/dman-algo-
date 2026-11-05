@@ -46648,8 +46648,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 38,
-"last_ts": "2026-11-05T10:53:29.813223-05:00",
+"seen": 40,
+"last_ts": "2026-11-05T10:58:48.662234-05:00",
 "entry_min": 161.27,
 "entry_max": 161.27
 },
@@ -46672,7 +46672,7 @@
 "rvol": 5.64,
 "atr": 0.36107142857142865,
 "beta": 1.0,
-"catalyst_tier": "",
+"catalyst_tier": "C",
 "news_boost": false,
 "regime": "CHOP",
 "regime_score": 8,
@@ -46683,7 +46683,7 @@
 "divergence_free": true,
 "breakdown": {
 "Regime": 8,
-"MTF": 6,
+"MTF": 12,
 "Rel Strength": 10,
 "Sector": 6,
 "Sector ETF": 0,
@@ -46708,10 +46708,10 @@
 "Float/Short": 5,
 "RVOL Tier": 6,
 "Gap Size": 5,
-"News Catalyst": 0
+"News Catalyst": 5
 },
-"seen": 38,
-"last_ts": "2026-11-05T10:53:30.369933-05:00",
+"seen": 40,
+"last_ts": "2026-11-05T10:58:49.161271-05:00",
 "entry_min": 5.33,
 "entry_max": 5.33
 },
@@ -47144,8 +47144,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 18,
-"last_ts": "2026-11-05T10:53:31.728883-05:00",
+"seen": 20,
+"last_ts": "2026-11-05T10:58:51.245806-05:00",
 "entry_min": 220.14,
 "entry_max": 220.14
 },
@@ -47303,7 +47303,7 @@
 "divergence_free": false,
 "breakdown": {
 "Regime": 8,
-"MTF": 12,
+"MTF": 6,
 "Rel Strength": 15,
 "Sector": 6,
 "Sector ETF": 0,
@@ -47330,8 +47330,8 @@
 "Gap Size": 5,
 "News Catalyst": 0
 },
-"seen": 12,
-"last_ts": "2026-11-05T10:53:31.409128-05:00",
+"seen": 14,
+"last_ts": "2026-11-05T10:58:50.266962-05:00",
 "entry_min": 10.32,
 "entry_max": 10.32
 }

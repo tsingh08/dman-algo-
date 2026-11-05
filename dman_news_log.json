@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-05T09:40:07.381554-05:00",
-    "symbols": [
-      "ZION"
-    ],
-    "headline": "BofA Adjusts Price Target on Zions Bancorporation to $65 From $68",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:07.653158-05:00",
-    "symbols": [
-      "WYFI"
-    ],
-    "headline": "WhiteFiber Acquires North Carolina Data Center Sites and Provides Operational Update",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:07.966206-05:00",
-    "symbols": [
-      "SHAK"
-    ],
-    "headline": "Shake Shack Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-11-05T09:40:07.970653-05:00",
     "symbols": [
       "SHAK"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:06:13.012552-05:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Gilead Sciences Reports Phase 3 IDEAL Success For Livdelzi In PBC, With 75.4% Achieving ALP Normalization At Week 52 Vs 16.1% Placebo; Serious Adverse Events 3.1% Livdelzi Vs 12.9% Placebo; None Related To Drug",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:06:13.485146-05:00",
+    "symbols": [
+      "DECK"
+    ],
+    "headline": "Argus Research Maintains Buy on Deckers Outdoor, Lowers Price Target to $102",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:06:15.679617-05:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "Reported November 4, 2026: GE Aerospace Partners With BETA Technologies On World\u2019s First Hybrid Electric Assisted Takeoff Of A Commercial Aircraft",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

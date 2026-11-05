@@ -1,305 +1,5 @@
 [
   {
-    "ts": "2026-11-05T13:44:19.083054-05:00",
-    "symbols": [
-      "VERX"
-    ],
-    "headline": "Needham Maintains Buy on Vertex, Raises Price Target to $30",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T13:44:19.087403-05:00",
-    "symbols": [
-      "VERX"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T13:44:19.091727-05:00",
-    "symbols": [
-      "VERX"
-    ],
-    "headline": "Piper Sandler Maintains Neutral on Vertex, Raises Price Target to $20",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T13:44:19.946496-05:00",
-    "symbols": [
-      "VISN"
-    ],
-    "headline": "Vistance Networks Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T13:44:19.950968-05:00",
-    "symbols": [
-      "VISN"
-    ],
-    "headline": "Vistance Networks Q3 Adj. EPS $0.23 Beats $0.21 Estimate, Sales $319.700M Miss $445.500M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T13:44:20.022329-05:00",
-    "symbols": [
-      "DXJ"
-    ],
-    "headline": "Reported Earlier, S&amp;P Global Japan Services Purchasing Managers&#39; Index For October 51.7 Vs. 52.0 Est.; 51.3 Prior",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T13:44:20.026737-05:00",
-    "symbols": [
-      "DXJ"
-    ],
-    "headline": "Reported Earlier, Japan 10-Year JGB Auction \t2.768% Vs. 3.101% Prior",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T13:44:20.209167-05:00",
-    "symbols": [
-      "BEX"
-    ],
-    "headline": "Benton Resources and Metals Creek Resources Option Bay of Islands Hydrogen Property to Brutus Mining Inc.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T13:44:20.368258-05:00",
-    "symbols": [
-      "SBGI"
-    ],
-    "headline": "Sinclair, Inc. Declares Quarterly Cash Dividend",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T13:44:20.637366-05:00",
-    "symbols": [
-      "ACAD"
-    ],
-    "headline": "RBC Capital Maintains Outperform on Acadia Pharmaceuticals, Raises Price Target to $38",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T13:44:20.711410-05:00",
-    "symbols": [
-      "ADMA"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T13:44:20.715869-05:00",
-    "symbols": [
-      "ADMA"
-    ],
-    "headline": "ADMA Biologics CEO Says Star Drug ASCENIV Is Just Getting Started",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T13:44:20.720178-05:00",
-    "symbols": [
-      "ADMA"
-    ],
-    "headline": "Motorola Solutions, Sezzle, Unity Software, Toyota Motor And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T13:44:20.724396-05:00",
-    "symbols": [
-      "ADMA"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T13:44:20.728613-05:00",
-    "symbols": [
-      "ADMA"
-    ],
-    "headline": "Why AppLovin Shares Are Trading Higher By Over 16%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T13:44:20.879127-05:00",
-    "symbols": [
-      "CPS"
-    ],
-    "headline": "Cyfrowy Polsat Initiates Debt Refinancing Analysis",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T13:44:20.953000-05:00",
-    "symbols": [
-      "RELY"
-    ],
-    "headline": "Remitly Global Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T13:44:20.957303-05:00",
-    "symbols": [
-      "RELY"
-    ],
-    "headline": "CORRECTION: Remitly Global Q3 GAAP EPS $0.30 Beats $0.14 Estimate, Sales $509.839M Beat $507.325M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T13:44:21.036005-05:00",
-    "symbols": [
-      "VYX"
-    ],
-    "headline": "NCR Voyix Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-05T13:44:21.040420-05:00",
-    "symbols": [
-      "VYX"
-    ],
-    "headline": "NCR Voyix Affirms FY2026 Adj EPS Guidance of $0.89-$0.92 vs $0.92 Est; Affirms FY2026 Sales Guidance of $2.188B-$2.303B vs $2.224B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-05T13:44:21.044794-05:00",
-    "symbols": [
-      "VYX"
-    ],
-    "headline": "NCR Voyix Q3 Adj. EPS $0.32 Beats $0.28 Estimate, Sales $539.000M Beat $538.850M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-05T13:44:21.121053-05:00",
-    "symbols": [
-      "WW"
-    ],
-    "headline": "WW International Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T13:44:21.125395-05:00",
-    "symbols": [
-      "WW"
-    ],
-    "headline": "WW International Q3 EPS $1.51 Beats $0.66 Estimate, Sales $152.901M Beat $152.348M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T13:44:21.129748-05:00",
-    "symbols": [
-      "WW"
-    ],
-    "headline": "WW International Narrows FY2026 Sales Guidance from $620.000M-$635.000M to $625.000M-$630.000M vs $630.773M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T13:44:21.227145-05:00",
-    "symbols": [
-      "SEZL"
-    ],
-    "headline": "Motorola Solutions, Sezzle, Unity Software, Toyota Motor And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T13:44:21.231607-05:00",
-    "symbols": [
-      "SEZL"
-    ],
-    "headline": "Sezzle Stock Gains As Strong Transaction Growth Fuels Earnings Outlook Upgrade",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T13:44:21.235998-05:00",
-    "symbols": [
-      "SEZL"
-    ],
-    "headline": "Needham Maintains Buy on Sezzle, Raises Price Target to $220",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T13:44:21.240331-05:00",
-    "symbols": [
-      "SEZL"
-    ],
-    "headline": "Why AppLovin Shares Are Trading Higher By Over 16%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T13:44:21.440816-05:00",
-    "symbols": [
-      "SSTK"
-    ],
-    "headline": "Shutterstock Q3 Adj. EPS $0.45 Beats $0.11 Estimate, Sales $173.900M Miss $194.906M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T13:44:21.566867-05:00",
-    "symbols": [
-      "EVMN"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-05T13:44:21.669081-05:00",
     "symbols": [
       "SITM"
@@ -4998,5 +4698,305 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T14:15:41.768836-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;GTA 6&#39; Preorder Sales Hit $751 Million 2 Weeks Ahead of Release. Are Investors Ignoring Take-Two Stock Opportunity?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T14:15:41.982297-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "SanDisk Leads Memory Stocks Lower: A Look Inside the Rout",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T14:15:42.149188-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "SanDisk Leads Memory Stocks Lower: A Look Inside the Rout",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T14:15:42.457418-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Google Plans to Spend $17 Billion on Wyoming Data Center&#39; - Bloomberg News",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T14:15:43.324638-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Reported Earlier: AmeriLife And Palantir Announce Enterprise Partnership To Bring AI-Driven Transformation To Insurance And Retirement Distribution",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T14:15:44.043932-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "SanDisk Leads Memory Stocks Lower: A Look Inside the Rout",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T14:15:44.173765-05:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "SanDisk Leads Memory Stocks Lower: A Look Inside the Rout",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T14:15:44.368366-05:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "SanDisk Leads Memory Stocks Lower: A Look Inside the Rout",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T14:15:44.544889-05:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Qualcomm Analysts Cut Price Targets After Q4 Print, Citing Handset Market Headwinds And Data Center Momentum",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T14:15:44.550557-05:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Barclays Maintains Underweight on Qualcomm, Lowers Price Target to $150",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T14:15:45.056876-05:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "Riot Platforms\u2019 Powered Land Lease Lowers Build Costs, But Texas Election Adds Timing Risk, Analysts Say",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T14:15:45.176445-05:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Stock Plunges as Bitcoin Dips After Elections",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T14:15:47.620647-05:00",
+    "symbols": [
+      "DDOG"
+    ],
+    "headline": "RBC Capital Maintains Outperform on Datadog, Lowers Price Target to $270",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T14:15:48.145513-05:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Barclays Maintains Overweight on Uber Technologies, Lowers Price Target to $100",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T14:15:56.589686-05:00",
+    "symbols": [
+      "PACB"
+    ],
+    "headline": "Barclays Maintains Underweight on Pacific Biosciences, Raises Price Target to $2",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T14:16:01.820179-05:00",
+    "symbols": [
+      "RPD"
+    ],
+    "headline": "Barclays Maintains Underweight on Rapid7, Raises Price Target to $14",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-05T14:16:02.177194-05:00",
+    "symbols": [
+      "ADMA"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T14:16:02.183717-05:00",
+    "symbols": [
+      "ADMA"
+    ],
+    "headline": "ADMA Biologics CEO Says Star Drug ASCENIV Is Just Getting Started",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T14:16:02.189218-05:00",
+    "symbols": [
+      "ADMA"
+    ],
+    "headline": "Motorola Solutions, Sezzle, Unity Software, Toyota Motor And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T14:16:02.194439-05:00",
+    "symbols": [
+      "ADMA"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T14:16:02.199439-05:00",
+    "symbols": [
+      "ADMA"
+    ],
+    "headline": "Why AppLovin Shares Are Trading Higher By Over 16%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T14:16:02.554017-05:00",
+    "symbols": [
+      "VERX"
+    ],
+    "headline": "Motorola Solutions, Sezzle, Unity Software, Toyota Motor And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T14:16:02.559243-05:00",
+    "symbols": [
+      "VERX"
+    ],
+    "headline": "Vertex Analysts Boost Their Forecasts After Better-Than-Expected Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T14:16:02.564260-05:00",
+    "symbols": [
+      "VERX"
+    ],
+    "headline": "Needham Maintains Buy on Vertex, Raises Price Target to $30",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T14:16:02.568887-05:00",
+    "symbols": [
+      "VERX"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T14:16:02.573879-05:00",
+    "symbols": [
+      "VERX"
+    ],
+    "headline": "Piper Sandler Maintains Neutral on Vertex, Raises Price Target to $20",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T14:16:05.023094-05:00",
+    "symbols": [
+      "VYX"
+    ],
+    "headline": "NCR Voyix Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-05T14:16:05.028702-05:00",
+    "symbols": [
+      "VYX"
+    ],
+    "headline": "NCR Voyix Affirms FY2026 Adj EPS Guidance of $0.89-$0.92 vs $0.92 Est; Affirms FY2026 Sales Guidance of $2.188B-$2.303B vs $2.224B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-05T14:16:05.034910-05:00",
+    "symbols": [
+      "VYX"
+    ],
+    "headline": "NCR Voyix Q3 Adj. EPS $0.32 Beats $0.28 Estimate, Sales $539.000M Beat $538.850M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-05T14:16:05.596994-05:00",
+    "symbols": [
+      "SONY"
+    ],
+    "headline": "&#39;GTA 6&#39; Preorder Sales Hit $751 Million 2 Weeks Ahead of Release. Are Investors Ignoring Take-Two Stock Opportunity?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

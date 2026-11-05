@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-05T09:39:57.851813-05:00",
-    "symbols": [
-      "Z"
-    ],
-    "headline": "Zillow Stock Tumbles on Q3 Double Miss, Weak Guidance",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-11-05T09:39:57.856101-05:00",
     "symbols": [
       "Z"
@@ -4995,6 +4985,16 @@
       "BSY"
     ],
     "headline": "Bentley Systems Q3 Adj. EPS $0.36 Beats $0.33 Estimate, Sales $421.507M Beat $420.761M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T09:55:49.563085-05:00",
+    "symbols": [
+      "BSY"
+    ],
+    "headline": "Bentley Systems Q3 2026 Earnings Call Transcript",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

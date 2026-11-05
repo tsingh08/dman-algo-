@@ -2334,5 +2334,21 @@
     "shares": 100.0,
     "pnl_usd": 1.0,
     "spy_pct": null
+  },
+  {
+    "ticker": "OPRT",
+    "date": "2026-11-05",
+    "bias": "LONG",
+    "setup": "Breakout Zone +215% off low",
+    "entry": 13.01,
+    "exit": 11.93,
+    "outcome": "LOSS",
+    "pnl_pct": -8.31,
+    "score": 21,
+    "is_live": true,
+    "entry_date": "2026-11-05",
+    "shares": 9.0,
+    "pnl_usd": -9.73,
+    "spy_pct": -3.03
   }
 ]

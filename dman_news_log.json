@@ -1,265 +1,5 @@
 [
   {
-    "ts": "2026-11-05T11:52:19.448187-05:00",
-    "symbols": [
-      "FWONK"
-    ],
-    "headline": "Liberty Formula One Group Q3 Sales $1.226B Miss $1.245B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:52:19.725230-05:00",
-    "symbols": [
-      "EWT"
-    ],
-    "headline": "&#39;Micron Pauses Work on $4.5 Billion Taiwan Plant After Labor Spat&#39; - Bloomberg Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:52:20.056185-05:00",
-    "symbols": [
-      "FSK"
-    ],
-    "headline": "FS KKR Capital Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T11:52:20.060871-05:00",
-    "symbols": [
-      "FSK"
-    ],
-    "headline": "FS KKR Capital Repurchased ~6M Shares In Q3 At $11.24 Average; Bought Further 1.5M Shares In October",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T11:52:20.065220-05:00",
-    "symbols": [
-      "FSK"
-    ],
-    "headline": "FS KKR Capital Non-Accruals 3.4% Of Portfolio At Fair Value vs 3.8% At June 30; 6.4% At Cost vs 7.1%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T11:52:20.069565-05:00",
-    "symbols": [
-      "FSK"
-    ],
-    "headline": "FS KKR Capital Q3 NAV $18.28/Share vs $18.30 At June 30",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T11:52:20.073988-05:00",
-    "symbols": [
-      "FSK"
-    ],
-    "headline": "FS KKR Capital Q3 Adj NII $0.46 Beats $0.40 Estimate; Total Investment Income $294M Beat $275.28M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T11:52:20.657582-05:00",
-    "symbols": [
-      "RVMD"
-    ],
-    "headline": "Truist Securities Reiterates Buy on Revolution Medicines, Raises Price Target to $261",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:52:20.662338-05:00",
-    "symbols": [
-      "RVMD"
-    ],
-    "headline": "Guggenheim Maintains Buy on Revolution Medicines, Raises Price Target to $298",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:52:20.666803-05:00",
-    "symbols": [
-      "RVMD"
-    ],
-    "headline": "Evercore ISI Group Maintains Outperform on Revolution Medicines, Raises Price Target to $340",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:52:20.671076-05:00",
-    "symbols": [
-      "RVMD"
-    ],
-    "headline": "Revolution Medicines Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:52:20.675524-05:00",
-    "symbols": [
-      "RVMD"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:52:21.218279-05:00",
-    "symbols": [
-      "CYTK"
-    ],
-    "headline": "Cytokinetics Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:52:21.222912-05:00",
-    "symbols": [
-      "CYTK"
-    ],
-    "headline": "Cytokinetics Q3 EPS $(1.37) Beats $(1.44) Estimate, Sales $47.557M Beat $41.879M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:52:22.121197-05:00",
-    "symbols": [
-      "TM"
-    ],
-    "headline": "Motorola Solutions, Sezzle, Unity Software, Toyota Motor And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:52:22.125938-05:00",
-    "symbols": [
-      "TM"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100 Futures Trade Mixed After Post-Midterm Rally\u2014 TM, ARM, QCOM in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:52:22.130309-05:00",
-    "symbols": [
-      "TM"
-    ],
-    "headline": "Toyota Motor Raises FY2027 GAAP EPS Guidance from $17.08 to $18.84 vs $21.80 Est; Lowers FY2027 Sales Guidance from $338.850B to $336.087B vs $337.600B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:52:22.134584-05:00",
-    "symbols": [
-      "TM"
-    ],
-    "headline": "Toyota Motor Q2 EPS \u00a565.28 Down From \u00a571.51 YoY, Sales \u00a513.437T Up From \u00a512.377T YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:52:22.138972-05:00",
-    "symbols": [
-      "TM"
-    ],
-    "headline": "Toyota Interim Dividend \u00a550/Share vs \u00a545 YoY; Maintains FY Dividend Forecast At \u00a5100",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:52:22.462427-05:00",
-    "symbols": [
-      "FUTU"
-    ],
-    "headline": "Futu Holdings Limited to Report Third Quarter 2026 Financial Results on November 19, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T11:52:22.768246-05:00",
-    "symbols": [
-      "BEX"
-    ],
-    "headline": "Benton Resources and Metals Creek Resources Option Bay of Islands Hydrogen Property to Brutus Mining Inc.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:52:23.089540-05:00",
-    "symbols": [
-      "ACDC"
-    ],
-    "headline": "ProFrac Holding Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:52:23.094159-05:00",
-    "symbols": [
-      "ACDC"
-    ],
-    "headline": "ProFrac Holding Q3 Sales $511.100M Miss $548.385M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:52:23.909990-05:00",
-    "symbols": [
-      "ARQT"
-    ],
-    "headline": "Zillow Posts Downbeat Q3 Results, Joins HubSpot, Snap And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:52:23.914585-05:00",
-    "symbols": [
-      "ARQT"
-    ],
-    "headline": "Arcutis Biotherapeutics Initiates Enrollment In Its INTEGUMENT-3 Trial To Evaluate ZORYVE To Treat Atopic Dermatitis",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T11:52:23.919001-05:00",
-    "symbols": [
-      "ARQT"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-05T11:52:23.923433-05:00",
     "symbols": [
       "ARQT"
@@ -4998,5 +4738,265 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T12:27:31.913399-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs International Discloses Connected-Party Trades for DCC Energy plc",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T12:27:31.919563-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Files Major Holdings Notification for Siltronic AG",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T12:27:31.924924-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Files Major Holdings Notification for CECONOMY AG",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T12:27:31.929846-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Adjusts Price Target on AppLovin to $445 From $400",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T12:27:31.935262-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs and Apollo Marketing $40 Billion SpaceX Financing Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T12:27:47.487414-05:00",
+    "symbols": [
+      "ACHC"
+    ],
+    "headline": "Acadia Healthcare Co Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T12:27:47.493891-05:00",
+    "symbols": [
+      "ACHC"
+    ],
+    "headline": "Motorola Solutions, Sezzle, Unity Software, Toyota Motor And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T12:27:47.499170-05:00",
+    "symbols": [
+      "ACHC"
+    ],
+    "headline": "Acadia Healthcare Co Raises FY2026 Adj EPS Guidance from $1.45-$1.60 to $1.70-$1.80 vs $1.55 Est; Raises FY2026 Sales Guidance from $3.400B-$3.450B to $3.440B-$3.460B vs $3.427B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T12:27:47.638031-05:00",
+    "symbols": [
+      "PKOH"
+    ],
+    "headline": "Park-Ohio Hldgs Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T12:27:47.642958-05:00",
+    "symbols": [
+      "PKOH"
+    ],
+    "headline": "Park-Ohio Holdings Raises FY2026 Adj EPS Guidance from $3.10-$3.30 to $3.35-$3.50 vs $3.26 Est; Raises FY2026 Sales Guidance from $1.700B-$1.730B to $1.750B-$1.770B vs $1.715B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T12:27:47.962336-05:00",
+    "symbols": [
+      "SNDQ"
+    ],
+    "headline": "SanDisk Bears Hit Jackpot: Short ETF Rockets 35%, Bullish Funds Bite the Dust",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T12:27:52.083871-05:00",
+    "symbols": [
+      "AAUC"
+    ],
+    "headline": "Allied Gold Q3 Adj. EPS $0.37 Misses $0.79 Estimate, Sales $358.072M Beat $352.000M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T12:27:52.540354-05:00",
+    "symbols": [
+      "PGNY"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Progyny, Raises Price Target to $38",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T12:27:52.545641-05:00",
+    "symbols": [
+      "PGNY"
+    ],
+    "headline": "Citizens Maintains Market Outperform on Progyny, Raises Price Target to $38",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T12:27:52.551185-05:00",
+    "symbols": [
+      "PGNY"
+    ],
+    "headline": "Cantor Fitzgerald Maintains Overweight on Progyny, Raises Price Target to $35",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T12:27:52.556108-05:00",
+    "symbols": [
+      "PGNY"
+    ],
+    "headline": "Progyny Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T12:27:52.746064-05:00",
+    "symbols": [
+      "SONY"
+    ],
+    "headline": "Sony Stock Surges: Blockbuster Spider-Man and Gaming Demand Drive Massive Q2 Profit Beat",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T12:27:52.751220-05:00",
+    "symbols": [
+      "SONY"
+    ],
+    "headline": "Sony Plans FY26 Dividend Of \u00a535/Share, Up \u00a510 YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T12:27:52.756029-05:00",
+    "symbols": [
+      "SONY"
+    ],
+    "headline": "Sony Q2 Imaging &amp; Sensing Solutions Sales Down 6% On Lower Mobile Image Sensor Sales; Operating Income Up 12% To \u00a5154.6B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T12:27:52.760931-05:00",
+    "symbols": [
+      "SONY"
+    ],
+    "headline": "Sony Q2 Game &amp; Network Services Operating Income \u00a5220.1B vs \u00a5120.4B YoY; Pictures \u00a592.6B vs \u00a513.9B On Spider-Man: Brand New Day",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T12:27:52.765412-05:00",
+    "symbols": [
+      "SONY"
+    ],
+    "headline": "Sony Q2 Operating Income \u00a5622.3B, Up 45% YoY; Margin 18.1% vs 13.8%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T12:27:52.955779-05:00",
+    "symbols": [
+      "APPN"
+    ],
+    "headline": "Appian CEO Says US Government Is Embracing AI Efficiency As Federal Deals Grow",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T12:27:52.960948-05:00",
+    "symbols": [
+      "APPN"
+    ],
+    "headline": "Appian Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T12:27:52.965717-05:00",
+    "symbols": [
+      "APPN"
+    ],
+    "headline": "Appian Raises FY2026 Adj EPS Guidance from $1.04-$1.12 to $1.20-$1.24 vs $1.08 Est; Raises FY2026 Sales Guidance from $845.000M-$853.000M to $873.000M-$877.000M vs $849.770M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T12:27:52.970840-05:00",
+    "symbols": [
+      "APPN"
+    ],
+    "headline": "Appian Q3 Adj. EPS $0.51 Beats $0.33 Estimate, Sales $234.632M Beat $215.224M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T12:27:52.975609-05:00",
+    "symbols": [
+      "APPN"
+    ],
+    "headline": "Appian Sees Q4 Adj EPS $0.30-$0.34 vs $0.37 Est; Sees Sales $233.000M-$237.000M vs $226.431M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

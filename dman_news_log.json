@@ -1,275 +1,5 @@
 [
   {
-    "ts": "2026-11-04T17:33:22.141774-05:00",
-    "symbols": [
-      "JBLU"
-    ],
-    "headline": "JetBlue Increases Checked Baggage Fees Amid Rising Fuel Costs",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-04T17:33:22.316549-05:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs Adjusts Apollo Global Management Price Target",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-04T17:33:22.485908-05:00",
-    "symbols": [
-      "PCT"
-    ],
-    "headline": "PureCycle Technologies Reports Third Quarter 2026 Financial Results",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-04T17:33:22.696001-05:00",
-    "symbols": [
-      "ASM"
-    ],
-    "headline": "Avino Silver & Gold Mines Ltd. Reports Q3 2026 Financial Results",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-04T17:33:22.865084-05:00",
-    "symbols": [
-      "NUVB"
-    ],
-    "headline": "Nuvation Bio Inc. Reports Third Quarter 2026 Financial Results",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-04T17:33:23.045155-05:00",
-    "symbols": [
-      "GTM"
-    ],
-    "headline": "ZoomInfo Reports Q3 2026 Financial Results",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-04T17:33:23.049854-05:00",
-    "symbols": [
-      "GTM"
-    ],
-    "headline": "ZoomInfo Issues Q4 2026 Financial Guidance",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-04T17:34:20.756045-05:00",
-    "symbols": [
-      "WOLF"
-    ],
-    "headline": "Wolfspeed, Inc. Reports Fiscal Q1 2027 Financial Results",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-04T18:02:20.693189-05:00",
-    "symbols": [
-      "TLN"
-    ],
-    "headline": "CIBC and Raymond James Adjust Talen Energy Price Targets",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-04T18:02:20.915577-05:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Rocket Lab CFO Executes Prearranged Share Sale",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-04T18:02:20.920448-05:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Globalstar Petitions FCC Regarding Rocket Lab's Proposed Iridium Acquisition",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-04T18:02:21.117143-05:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "KeyBanc Downgrades Vistra Corp. Following Election Results",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-04T18:03:20.676656-05:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "e.l.f. Beauty Announces Second Quarter Fiscal 2027 Results",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-04T18:03:20.891145-05:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase and GiveDirectly Release Results from USDC Cash Transfer Pilot",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-04T18:03:20.896368-05:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Second Circuit Denies Injunction Request in State Gambling Law Dispute",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-04T18:03:21.096099-05:00",
-    "symbols": [
-      "LUMN"
-    ],
-    "headline": "Lumen Technologies, Inc. Reports Q3 2026 Financial Results",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-04T18:04:20.762592-05:00",
-    "symbols": [
-      "CLOV"
-    ],
-    "headline": "Clover Health Reports Third Quarter 2026 Financial Results",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-04T19:02:20.769400-05:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Snowflake Officer Files Notice of Proposed Stock Sale",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-04T19:03:20.687756-05:00",
-    "symbols": [
-      "TNMG"
-    ],
-    "headline": "TNL Mediagene Completes $6.25 Million Strategic Investment and Appoints New Director",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-04T20:03:20.782659-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Reportedly Reduces Employee AI Spending Budgets",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-04T20:03:20.980371-05:00",
-    "symbols": [
-      "YMAT"
-    ],
-    "headline": "J-Star Holding Co., Ltd. Clarifies Share Consolidation Authorization Status",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-04T20:03:21.140764-05:00",
-    "symbols": [
-      "ANET"
-    ],
-    "headline": "Arista Networks Launches Open Rack-Scale Architectures for AI Networks",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:25:50.599096-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Virgin Galactic Enters Three-Year Collaboration With Non-Profit Space For Humanity To Fly Three Dedicated Charters For Up To 18 Astronauts In Total",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:25:50.603605-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Arthur Hayes: Bitcoin Could Fall With SPCX Before \u2018Glorious\u2019 Bailout Rally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:25:50.608186-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Politicians Fight Data Centers While Betting Your Retirement on Them",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:25:50.612486-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Tesla, SpaceX Face Different Risks From Gina Hinojosa\u2019s Texas Midterm Win: Bitunix Analyst Says Expansion, Not Existing Operations, Is Key Concern",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:25:50.616777-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "What&#39;s Going On With Qualcomm Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-05T09:25:50.773086-05:00",
     "symbols": [
       "NBIS"
@@ -4996,6 +4726,276 @@
     ],
     "headline": "MARA Holdings, Inc. Receives FERC Approval for Long Ridge Energy Acquisition",
     "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T09:36:11.762172-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Snowflake Announces New AI Agent Capabilities at Snowflake Expedition 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:36:14.084381-05:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Evercore ISI Group Maintains In-Line on Qualcomm, Raises Price Target to $165",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:36:17.821687-05:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "Bernstein Increases Price Target on Vertex Pharmaceuticals",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:36:24.486814-05:00",
+    "symbols": [
+      "SOUN"
+    ],
+    "headline": "SoundHound AI Expands Partnership with Ultraviolette Automotive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:36:25.069526-05:00",
+    "symbols": [
+      "LUNR"
+    ],
+    "headline": "Analysts Adjust Price Targets for Intuitive Machines",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:36:26.969888-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Chevron President of New Energies Sells Shares",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T09:36:26.975012-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "EnerMech Secures Contract for Chevron's Aseng Gas Development",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T09:36:26.980039-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Chevron CEO Warns of Depleted Oil Buffers and Potential Price Increases",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T09:36:29.920046-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Barkin Says Data Centers, Because Of Lack Of Employees, Do Not Have Natural Constituencies In The Communities Where They Are Located",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:36:29.925524-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Barkin Says AI Buildout Has Definitely Had An Inflationary Impact In The Near Term",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:36:35.149382-05:00",
+    "symbols": [
+      "HTZ"
+    ],
+    "headline": "Hertz Stock Hits a Speed Bump: Revenue Reaches Three-Year High, but EPS Misses Estimates",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T09:36:36.169136-05:00",
+    "symbols": [
+      "KEEL"
+    ],
+    "headline": "Keel Infrastructure Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:36:48.989546-05:00",
+    "symbols": [
+      "EPAM"
+    ],
+    "headline": "EPAM Systems Increases Share Repurchase Authorization By $1.5B, Bringing The Total Remaining Authorization To $1.8B; Plans To Enter A $500M Accelerated Share Repurchase Next Week",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:36:50.574901-05:00",
+    "symbols": [
+      "VRDN"
+    ],
+    "headline": "Evercore ISI Group Maintains Outperform on Viridian Therapeutics, Raises Price Target to $33",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T09:36:53.492835-05:00",
+    "symbols": [
+      "CNC"
+    ],
+    "headline": "US Department of Justice Intervenes in Whistleblower Lawsuit Against Centene Corporation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:36:53.498257-05:00",
+    "symbols": [
+      "CNC"
+    ],
+    "headline": "Sunflower State Health Plan Earns 4-Star NCQA Rating",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:36:55.495085-05:00",
+    "symbols": [
+      "CYH"
+    ],
+    "headline": "Community Health Systems Stock Rallies Following Midterm Election Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T09:36:56.427567-05:00",
+    "symbols": [
+      "VCEL"
+    ],
+    "headline": "Vericel Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T09:38:16.055930-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Snowflake Officer Files Notice of Proposed Stock Sale",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:38:16.091316-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Globalstar Petitions FCC Regarding Rocket Lab's Proposed Iridium Acquisition",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T09:38:16.096585-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab CFO Executes Prearranged Share Sale",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T09:38:16.245483-05:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Second Circuit Denies Injunction Request in State Gambling Law Dispute",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:38:16.256420-05:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase and GiveDirectly Release Results from USDC Cash Transfer Pilot",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:38:16.278011-05:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "KeyBanc Downgrades Vistra Corp. Following Election Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T09:38:16.304622-05:00",
+    "symbols": [
+      "TLN"
+    ],
+    "headline": "CIBC and Raymond James Adjust Talen Energy Price Targets",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T09:38:16.397364-05:00",
+    "symbols": [
+      "TNMG"
+    ],
+    "headline": "TNL Mediagene Completes $6.25 Million Strategic Investment and Appoints New Director",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T09:38:16.405395-05:00",
+    "symbols": [
+      "YMAT"
+    ],
+    "headline": "J-Star Holding Co., Ltd. Clarifies Share Consolidation Authorization Status",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

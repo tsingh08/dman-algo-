@@ -46648,8 +46648,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 8,
-"last_ts": "2026-11-05T09:33:22.446983-05:00",
+"seen": 12,
+"last_ts": "2026-11-05T09:39:00.144396-05:00",
 "entry_min": 161.27,
 "entry_max": 161.27
 },
@@ -46710,8 +46710,8 @@
 "Gap Size": 5,
 "News Catalyst": 0
 },
-"seen": 8,
-"last_ts": "2026-11-05T09:33:22.946718-05:00",
+"seen": 12,
+"last_ts": "2026-11-05T09:39:00.688490-05:00",
 "entry_min": 5.33,
 "entry_max": 5.33
 },
@@ -46772,8 +46772,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 8,
-"last_ts": "2026-11-05T09:33:23.680940-05:00",
+"seen": 12,
+"last_ts": "2026-11-05T09:39:01.510621-05:00",
 "entry_min": 59.08,
 "entry_max": 59.08
 },
@@ -46834,8 +46834,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 8,
-"last_ts": "2026-11-05T09:33:23.972185-05:00",
+"seen": 12,
+"last_ts": "2026-11-05T09:39:01.857299-05:00",
 "entry_min": 87.63,
 "entry_max": 87.63
 },
@@ -46896,8 +46896,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 8,
-"last_ts": "2026-11-05T09:33:24.300588-05:00",
+"seen": 12,
+"last_ts": "2026-11-05T09:39:02.172225-05:00",
 "entry_min": 75.6,
 "entry_max": 75.6
 },
@@ -46958,8 +46958,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 8,
-"last_ts": "2026-11-05T09:33:24.640400-05:00",
+"seen": 12,
+"last_ts": "2026-11-05T09:39:02.569123-05:00",
 "entry_min": 18.74,
 "entry_max": 18.74
 },
@@ -46982,8 +46982,8 @@
 "rvol": 2.82,
 "atr": 3.3987285714285704,
 "beta": 1.079,
-"catalyst_tier": "",
-"news_boost": false,
+"catalyst_tier": "C",
+"news_boost": true,
 "regime": "CHOP",
 "regime_score": 9,
 "mtf_ok": true,
@@ -47018,10 +47018,10 @@
 "Float/Short": 0,
 "RVOL Tier": 3,
 "Gap Size": 3,
-"News Catalyst": 0
+"News Catalyst": 5
 },
-"seen": 8,
-"last_ts": "2026-11-05T09:33:25.323548-05:00",
+"seen": 12,
+"last_ts": "2026-11-05T09:39:03.417604-05:00",
 "entry_min": 76.01,
 "entry_max": 76.01
 },
@@ -47082,8 +47082,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 8,
-"last_ts": "2026-11-05T09:33:25.627392-05:00",
+"seen": 12,
+"last_ts": "2026-11-05T09:39:03.742134-05:00",
 "entry_min": 40.35,
 "entry_max": 40.35
 }

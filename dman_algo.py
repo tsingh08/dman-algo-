@@ -2997,6 +2997,10 @@ def _monthly_halt_flag_name(when: Optional[datetime] = None) -> str:
     return f"MONTHLY_HALT_LIFTED_{(when or datetime.now(ET)).strftime('%Y-%m')}"
 
 
+def _monthly_halt_floor_flag_name(when: Optional[datetime] = None) -> str:
+    return f"MONTHLY_HALT_FLOOR_LIFTED_{(when or datetime.now(ET)).strftime('%Y-%m')}"
+
+
 # A manual lift is consent to trade past MONTHLY_LOSS_LIMIT, not to unlimited
 # losses: past this multiple of the limit the lift stops counting.
 MONTHLY_HALT_LIFT_FLOOR_MULT = 2.0
@@ -3026,6 +3030,12 @@ def _monthly_halt_lifted() -> bool:
     """
     if not flag(_monthly_halt_flag_name(), False):
         return False
+    # Second, explicit consent past the floor -- month-scoped like the lift
+    # itself, so it re-arms on the 1st. First use 2026-11-05: operator
+    # "disable the halt" at -6.5% with a pending close set to take the month
+    # to ~-8%, where the floor would have voided the lift within hours.
+    if flag(_monthly_halt_floor_flag_name(), False):
+        return True
     try:
         month = get_this_month_loss()
     except Exception as _exc:

@@ -7587,6 +7587,33 @@ class TestMonthlyHaltLift(unittest.TestCase):
         self.assertEqual(a._monthly_halt_flag_name(a.datetime(2026, 10, 1, tzinfo=a.ET)),
                          "MONTHLY_HALT_LIFTED_2026-10")
 
+    def test_floor_override_keeps_the_lift_past_2x(self):
+        stored = {"MONTHLY_HALT_LIFTED_2026-11": True,
+                  "MONTHLY_HALT_FLOOR_LIFTED_2026-11": True}
+        with patch.object(a, "_load_flags", return_value=stored), \
+             patch.object(a, "_monthly_halt_flag_name", return_value="MONTHLY_HALT_LIFTED_2026-11"), \
+             patch.object(a, "_monthly_halt_floor_flag_name", return_value="MONTHLY_HALT_FLOOR_LIFTED_2026-11"), \
+             patch.object(a, "get_this_month_loss", return_value=-9.0), \
+             patch.object(a, "send_telegram", return_value=True):
+            self.assertTrue(a._monthly_halt_lifted())
+
+    def test_floor_still_voids_the_lift_without_the_override(self):
+        stored = {"MONTHLY_HALT_LIFTED_2026-11": True}
+        with patch.object(a, "_load_flags", return_value=stored), \
+             patch.object(a, "_monthly_halt_flag_name", return_value="MONTHLY_HALT_LIFTED_2026-11"), \
+             patch.object(a, "_monthly_halt_floor_flag_name", return_value="MONTHLY_HALT_FLOOR_LIFTED_2026-11"), \
+             patch.object(a, "get_this_month_loss", return_value=-9.0), \
+             patch.object(a, "_is_duplicate_alert", return_value=True), \
+             patch.object(a, "send_telegram", return_value=True):
+            self.assertFalse(a._monthly_halt_lifted())
+
+    def test_floor_override_alone_does_not_lift(self):
+        stored = {"MONTHLY_HALT_FLOOR_LIFTED_2026-11": True}
+        with patch.object(a, "_load_flags", return_value=stored), \
+             patch.object(a, "_monthly_halt_flag_name", return_value="MONTHLY_HALT_LIFTED_2026-11"), \
+             patch.object(a, "_monthly_halt_floor_flag_name", return_value="MONTHLY_HALT_FLOOR_LIFTED_2026-11"):
+            self.assertFalse(a._monthly_halt_lifted())
+
     def test_lifting_september_does_not_lift_october(self):
         stored = {"MONTHLY_HALT_LIFTED_2026-09": True}
         with patch.object(a, "_load_flags", return_value=stored), \

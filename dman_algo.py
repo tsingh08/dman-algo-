@@ -480,6 +480,11 @@ OPTIONS_MIN_LEVERAGE = 3.0
 # its intrinsic value: below it the quote is broken, not cheap. See
 # _submit_options_close().
 OPTIONS_CLOSE_MIN_INTRINSIC_FRAC = 0.90
+# A closing limit priced at bid-2% that the market ran away from used to sit
+# "pending" for the rest of the day -- with the catastrophe floor already
+# cancelled for it. After this many seconds, a working close whose limit is
+# above the live bid is cancelled and re-priced off the new bid.
+OPTIONS_CLOSE_REPRICE_AFTER_S = 90
 # What an URGENT close (assignment avoidance) offers the contract at when the
 # book is broken. Refusing to sell is the safe answer for a stop and the WRONG
 # answer at expiry, where not selling means assignment. Anything genuinely
@@ -11169,7 +11174,10 @@ def _submit_options_close(occ_symbol: str, qty: int, reason: str,
             if "stop" in str(getattr(_o.order_type, "value", _o.order_type) or "").lower():
                 _resting_floor_stops.append(_o)
                 continue
-            return "pending", str(_o.id)
+            if urgent or not _option_close_is_stale(client, _o, occ_symbol):
+                return "pending", str(_o.id)
+            # Stale and unmarketable: cancelled inside the helper; fall
+            # through and re-price off the current bid below.
     except Exception as _swallowed:
         _log_swallowed("_submit_options_close", _swallowed)
 
@@ -11532,6 +11540,41 @@ def _option_stop_held(occ_symbol: str) -> bool:
     of a manual earnings strangle, for a post-earnings rally.
     """
     return flag(f"OPTION_HOLD_{str(occ_symbol or '').upper()}", False)
+
+
+def _option_close_is_stale(client, order, occ_symbol: str) -> bool:
+    """Cancel a working closing LIMIT the market has left behind.
+
+    True only when the order is a limit older than
+    OPTIONS_CLOSE_REPRICE_AFTER_S, its limit is above the live bid, AND the
+    cancel settled -- the caller then re-prices off the new bid. Anything
+    unknown (no timestamp, no quote, cancel not settled) returns False, which
+    keeps the old "pending" behaviour: never worse than before.
+    """
+    try:
+        from datetime import timezone as _tz
+        if "limit" not in str(getattr(order.order_type, "value", order.order_type) or "").lower():
+            return False
+        _ts = getattr(order, "submitted_at", None) or getattr(order, "created_at", None)
+        if not isinstance(_ts, datetime):
+            return False
+        if _ts.tzinfo is None:
+            _ts = _ts.replace(tzinfo=_tz.utc)
+        _age = (datetime.now(_tz.utc) - _ts).total_seconds()
+        if _age < OPTIONS_CLOSE_REPRICE_AFTER_S:
+            return False
+        _lim = float(order.limit_price)
+        _snap = _get_option_snapshot(occ_symbol)
+        _bid = float((_snap or {}).get("bid", 0) or 0)
+        if _bid <= 0 or _bid >= _lim:
+            return False          # marketable (or no quote): let it work
+        print(f"  ♻️  {occ_symbol}: close limit ${_lim:.2f} unfilled {_age:.0f}s, "
+              f"bid now ${_bid:.2f} — cancelling to re-price")
+        client.cancel_order_by_id(order.id)
+        return _wait_for_orders_clear(client, occ_symbol)
+    except Exception as exc:
+        _log_swallowed("option close stale check", exc)
+        return False
 
 
 def _option_close_requested(occ_symbol: str) -> bool:
@@ -24986,9 +25029,12 @@ def _ensure_option_broker_stops(notify: bool = True) -> dict:
         from alpaca.trading.enums import OrderSide, TimeInForce, QueryOrderStatus
         _open = _client.get_orders(filter=GetOrdersRequest(
             status=QueryOrderStatus.OPEN, limit=200))
+        # Any open SELL holds the contracts: a resting stop is the floor
+        # itself, and a working close limit means a floor submitted now is
+        # only rejected for qty (logged as "failed" on every pass while the
+        # close worked). The floor is re-rested once nothing is working.
         _resting = {str(o.symbol).upper() for o in _open
-                    if str(getattr(o.side, "value", o.side)).lower() == "sell"
-                    and "stop" in str(getattr(o.order_type, "value", o.order_type) or "").lower()}
+                    if str(getattr(o.side, "value", o.side)).lower() == "sell"}
         _held = {str(p.symbol).upper(): p for p in _client.get_all_positions()}
         for _pos in PositionTracker().positions:
             _occ = _position_identity(_pos.ticker, getattr(_pos, "setup", "") or "")

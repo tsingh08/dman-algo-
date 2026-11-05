@@ -19690,6 +19690,56 @@ class TestRestingFloorDoesNotBlockRealExits(unittest.TestCase):
         self.assertEqual(status, "submitted")
         client.cancel_order_by_id.assert_not_called()
 
+    # -- a close limit the market ran away from is re-priced, not left
+    #    "pending" all day with the floor already cancelled for it --
+    def _limit(self, limit, age_s):
+        from datetime import timezone as _tz
+        from alpaca.trading.enums import OrderSide, OrderType
+        o = self._order(OrderSide.SELL, OrderType.LIMIT, oid="lim1")
+        o.limit_price = str(limit)
+        o.submitted_at = a.datetime.now(_tz.utc) - a.timedelta(seconds=age_s)
+        return o
+
+    def test_a_stale_unmarketable_close_is_cancelled_and_repriced(self):
+        (status, _), client = self._close([self._limit(0.80, 300)])
+        self.assertEqual(status, "submitted")
+        client.cancel_order_by_id.assert_called_once_with("lim1")
+        req = client.submit_order.call_args[0][0]
+        self.assertAlmostEqual(float(req.limit_price), 0.69)   # 0.70 bid -2%
+
+    def test_a_fresh_close_limit_is_left_working(self):
+        (status, _), client = self._close([self._limit(0.80, 30)])
+        self.assertEqual(status, "pending")
+        client.cancel_order_by_id.assert_not_called()
+
+    def test_a_stale_but_marketable_close_is_left_working(self):
+        (status, _), client = self._close([self._limit(0.65, 300)])
+        self.assertEqual(status, "pending")
+        client.cancel_order_by_id.assert_not_called()
+
+    def test_an_unsettled_reprice_cancel_stays_pending(self):
+        (status, _), client = self._close([self._limit(0.80, 300)], clear=False)
+        self.assertEqual(status, "pending")
+        client.submit_order.assert_not_called()
+
+    def test_floor_is_not_rested_over_a_working_close(self):
+        """A floor submitted while a close limit holds the contracts is only
+        rejected for qty -- logged as 'failed' every daemon pass."""
+        from alpaca.trading.enums import OrderSide, OrderType
+        sell = self._order(OrderSide.SELL, OrderType.LIMIT, oid="lim1")
+        sell.symbol = self.OCC
+        client = MagicMock()
+        client.get_orders.return_value = [sell]
+        client.get_all_positions.return_value = [MagicMock(symbol=self.OCC, qty="1")]
+        pos = MagicMock(ticker="SMCI", setup=f"Options Put {self.OCC}", entry=1.55)
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "PositionTracker") as pt, \
+             patch.object(a, "send_telegram", return_value=True):
+            pt.return_value.positions = [pos]
+            out = a._ensure_option_broker_stops()
+        client.submit_order.assert_not_called()
+        self.assertEqual(out["failed"], [])
+
 
 class TestBreakoutZones(unittest.TestCase):
     """The META shape (2026-09-22). Tested on 1,784 liquid US stocks >= $50 over

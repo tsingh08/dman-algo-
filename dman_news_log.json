@@ -1,725 +1,5 @@
 [
   {
-    "ts": "2026-11-05T09:40:08.288310-05:00",
-    "symbols": [
-      "AMGN"
-    ],
-    "headline": "UBS Maintains Buy on Amgen, Raises Price Target to $530",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:40:08.292552-05:00",
-    "symbols": [
-      "AMGN"
-    ],
-    "headline": "Scotiabank Maintains Sector Outperform on Amgen, Raises Price Target to $530",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:40:08.296790-05:00",
-    "symbols": [
-      "AMGN"
-    ],
-    "headline": "Citigroup Maintains Neutral on Amgen, Raises Price Target to $465",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:40:08.564555-05:00",
-    "symbols": [
-      "TRLV"
-    ],
-    "headline": "Trulieve Cannabis Q3 Adj. EPS $0.09 Beats $0.05 Estimate, Sales $230.000M Beat $218.321M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:08.921164-05:00",
-    "symbols": [
-      "AMRX"
-    ],
-    "headline": "JP Morgan Maintains Overweight on Amneal Pharmaceuticals, Raises Price Target to $25",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:40:09.240627-05:00",
-    "symbols": [
-      "VECO"
-    ],
-    "headline": "Veeco Instruments Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:09.245123-05:00",
-    "symbols": [
-      "VECO"
-    ],
-    "headline": "Veeco Instruments Lowers FY2026 GAAP EPS Guidance from $0.78-$1.02 to $0.72-$0.92 vs $0.90 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:09.249380-05:00",
-    "symbols": [
-      "VECO"
-    ],
-    "headline": "Veeco Instruments Lowers FY2026 Adj EPS Guidance from $1.36-$1.61 to $1.32-$1.52 vs $1.51 Est; Raises FY2026 Sales Guidance from $780.000M-$810.000M to $790.000M-$820.000M vs $777.047M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:09.253603-05:00",
-    "symbols": [
-      "VECO"
-    ],
-    "headline": "Veeco Instruments Sees Q4 GAAP EPS $0.34-$0.53 vs $0.43 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:09.257850-05:00",
-    "symbols": [
-      "VECO"
-    ],
-    "headline": "Veeco Instruments Sees Q4 Adj EPS $0.50-$0.70 vs $0.60 Est; Sees Sales $230.000M-$260.000M vs $235.051M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:09.544974-05:00",
-    "symbols": [
-      "SBGI"
-    ],
-    "headline": "Sinclair Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:40:09.549386-05:00",
-    "symbols": [
-      "SBGI"
-    ],
-    "headline": "Sinclair Raises FY2026 Sales Guidance from $3.400B-$3.540B to $3.530B-$3.600B vs $3.521B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:40:09.553642-05:00",
-    "symbols": [
-      "SBGI"
-    ],
-    "headline": "Sinclair Broadcast Group Q3 EPS $0.60 Beats $0.34 Estimate, Sales $893.000M Beat $871.406M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:40:09.813198-05:00",
-    "symbols": [
-      "PZZA"
-    ],
-    "headline": "Papa John&#39;s International Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-05T09:40:09.817598-05:00",
-    "symbols": [
-      "PZZA"
-    ],
-    "headline": "Stephens &amp; Co. Reiterates Equal-Weight on Papa John&#39;s International, Maintains $19 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-05T09:40:09.821766-05:00",
-    "symbols": [
-      "PZZA"
-    ],
-    "headline": "Papa John&#39;s International Q3 Adj. EPS $0.16 Misses $0.17 Estimate, Sales $454.843M Miss $459.477M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-05T09:40:10.123720-05:00",
-    "symbols": [
-      "RDW"
-    ],
-    "headline": "Reported earlier, Redwire Affirms FY2026 Sales Guidance of $450.000M-$500.000M vs $473.179M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:40:10.128207-05:00",
-    "symbols": [
-      "RDW"
-    ],
-    "headline": "Redwire Awarded $20M DARPA Contract To Complete Additional Testing And Experimentation On Scaled Version Of Its SabreSat Spacecraft For A Precursor Flight Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:40:10.132584-05:00",
-    "symbols": [
-      "RDW"
-    ],
-    "headline": "Redwire Stock Hits Turbulence After Mixed Quarter: EPS Beats, Revenue Misses Estimates",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:40:10.136968-05:00",
-    "symbols": [
-      "RDW"
-    ],
-    "headline": "Redwire Stock Slips as Uneven Revenue Timing Softens Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:40:10.141249-05:00",
-    "symbols": [
-      "RDW"
-    ],
-    "headline": "Redwire Q3 Adj. EPS $(0.06) Beats $(0.12) Estimate, Sales $109.035M Miss $125.482M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:40:10.424135-05:00",
-    "symbols": [
-      "YUM"
-    ],
-    "headline": "Citigroup Maintains Neutral on Yum Brands, Raises Price Target to $171",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:40:10.428586-05:00",
-    "symbols": [
-      "YUM"
-    ],
-    "headline": "&#39;McDonald&#39;s wages war on KFC in Japan as consumers crave chicken&#39; - Nikkei Asia",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:40:10.706090-05:00",
-    "symbols": [
-      "APO"
-    ],
-    "headline": "&#39;Goldman, Apollo in Talks to Sell SpaceX\u2019s $40 Billion AI Deal&#39; - Bloomberg Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:40:10.710459-05:00",
-    "symbols": [
-      "APO"
-    ],
-    "headline": "Private Credit Risks Come Into Focus As Bermuda Insurers Reveal $435.7 Billion Exposure",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:40:10.714646-05:00",
-    "symbols": [
-      "APO"
-    ],
-    "headline": "JP Morgan Maintains Overweight on Apollo Global Management, Raises Price Target to $157",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:40:10.718820-05:00",
-    "symbols": [
-      "APO"
-    ],
-    "headline": "TD Cowen Maintains Buy on Apollo Global Management, Lowers Price Target to $136",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:40:10.974612-05:00",
-    "symbols": [
-      "SONY"
-    ],
-    "headline": "Sony Stock Surges: Blockbuster Spider-Man and Gaming Demand Drive Massive Q2 Profit Beat",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:40:10.979042-05:00",
-    "symbols": [
-      "SONY"
-    ],
-    "headline": "Sony Plans FY26 Dividend Of \u00a535/Share, Up \u00a510 YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:40:10.983336-05:00",
-    "symbols": [
-      "SONY"
-    ],
-    "headline": "Sony Q2 Imaging &amp; Sensing Solutions Sales Down 6% On Lower Mobile Image Sensor Sales; Operating Income Up 12% To \u00a5154.6B",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:40:10.987666-05:00",
-    "symbols": [
-      "SONY"
-    ],
-    "headline": "Sony Q2 Game &amp; Network Services Operating Income \u00a5220.1B vs \u00a5120.4B YoY; Pictures \u00a592.6B vs \u00a513.9B On Spider-Man: Brand New Day",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:40:10.991925-05:00",
-    "symbols": [
-      "SONY"
-    ],
-    "headline": "Sony Q2 Operating Income \u00a5622.3B, Up 45% YoY; Margin 18.1% vs 13.8%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:40:11.242410-05:00",
-    "symbols": [
-      "ALAB"
-    ],
-    "headline": "BMO Capital Initiates Coverage On Astera Labs with Outperform Rating, Announces Price Target of $375",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:40:11.246856-05:00",
-    "symbols": [
-      "ALAB"
-    ],
-    "headline": "UBS Maintains Neutral on Astera Labs, Lowers Price Target to $290",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:40:11.251141-05:00",
-    "symbols": [
-      "ALAB"
-    ],
-    "headline": "TD Cowen Maintains Hold on Astera Labs, Lowers Price Target to $225",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:40:11.514788-05:00",
-    "symbols": [
-      "AIG"
-    ],
-    "headline": "Cantor Fitzgerald Adjusts Price Target on American International Group to $90",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:40:11.519338-05:00",
-    "symbols": [
-      "AIG"
-    ],
-    "headline": "American International Group, Inc. Files Q3 2026 10-Q",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:40:11.798128-05:00",
-    "symbols": [
-      "ZNB"
-    ],
-    "headline": "Dow Surges 250 Points; US Weekly Jobless Claims Fall",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:11.802571-05:00",
-    "symbols": [
-      "ZNB"
-    ],
-    "headline": "Why AppLovin Shares Are Trading Higher By Over 16%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:12.055954-05:00",
-    "symbols": [
-      "FLYE"
-    ],
-    "headline": "Peapack Private Bank &amp; Trust Files Complaint Against Fly-E Group On Oct 30, 2026;  Complaint Seeks Recovery Of At Least $3.90M Plus Interest, Fees, And Expenses",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:12.344431-05:00",
-    "symbols": [
-      "ELPW"
-    ],
-    "headline": "Dow Surges 250 Points; US Weekly Jobless Claims Fall",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:12.348946-05:00",
-    "symbols": [
-      "ELPW"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:12.353278-05:00",
-    "symbols": [
-      "ELPW"
-    ],
-    "headline": "Why AppLovin Shares Are Trading Higher By Over 16%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:12.357585-05:00",
-    "symbols": [
-      "ELPW"
-    ],
-    "headline": "Elong Power Subsidiary Enters Three-Year Energy Storage Cooperation Agreement Worth At Least RMB2B (~$300M); First Contract Due January 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:12.610130-05:00",
-    "symbols": [
-      "AMTX"
-    ],
-    "headline": "Aemetis Says Biogas Unit Extends Preferred Unit Redemption To December 31, Cuts Fallback Loan Rate To Greater Of Prime Plus 5% Or 12%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:12.614685-05:00",
-    "symbols": [
-      "AMTX"
-    ],
-    "headline": "Aemetis Q3 EPS $(0.02) Beats $(0.20) Estimate, Sales $88.153M Beat $75.197M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:12.844272-05:00",
-    "symbols": [
-      "TBI"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:12.848781-05:00",
-    "symbols": [
-      "TBI"
-    ],
-    "headline": "TrueBlue Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:12.853103-05:00",
-    "symbols": [
-      "TBI"
-    ],
-    "headline": "TrueBlue shares are trading higher after the company reported better-than-expected Q3 financial results and issued Q4 sales guidance above estimates.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:12.857362-05:00",
-    "symbols": [
-      "TBI"
-    ],
-    "headline": "TrueBlue Sees Q4 Sales $499.000M-$519.000M vs $441.149M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:12.861560-05:00",
-    "symbols": [
-      "TBI"
-    ],
-    "headline": "TrueBlue Q3 Adj. EPS $0.33 Beats $0.19 Estimate, Sales $520.737M Beat $455.700M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:13.141810-05:00",
-    "symbols": [
-      "ARQ"
-    ],
-    "headline": "Arq Q3 EPS $0.06 Beats $0.04 Estimate, Sales $34.866M Miss $35.251M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-05T09:40:13.433423-05:00",
-    "symbols": [
-      "SMX"
-    ],
-    "headline": "SMX Announces Reverse Stock Split",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:13.754950-05:00",
-    "symbols": [
-      "CCLD"
-    ],
-    "headline": "CareCloud Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:13.759627-05:00",
-    "symbols": [
-      "CCLD"
-    ],
-    "headline": "CareCloud Q3 Adj. EPS $0.14 Beats $0.12 Estimate, Sales $33.725M Beat $33.492M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:13.763866-05:00",
-    "symbols": [
-      "CCLD"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:13.768104-05:00",
-    "symbols": [
-      "CCLD"
-    ],
-    "headline": "CareCloud Affirms FY2026 GAAP EPS Guidance of $0.20-$0.23 vs $0.18 Est; Affirms FY2026 Sales Guidance of $128.000M-$132.000M vs $130.468M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:14.057379-05:00",
-    "symbols": [
-      "JDZG"
-    ],
-    "headline": "Why AppLovin Shares Are Trading Higher By Over 16%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:14.348325-05:00",
-    "symbols": [
-      "PLCE"
-    ],
-    "headline": "Why AppLovin Shares Are Trading Higher By Over 16%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:14.352765-05:00",
-    "symbols": [
-      "PLCE"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:14.564483-05:00",
-    "symbols": [
-      "MTVA"
-    ],
-    "headline": "MetaVia Announces Interim Data From Part 3B Of Its Phase 1 Clinical Trial Of DA-1726 Targeting Both GLP-1 And Glucagon Receptors; Results Demonstrate 68% Placebo-Adjusted Reduction In Liver Fat And 13.5% Placebo-Adjusted Body Weight Reduction Following 16 Weeks Of Once-Weekly DA-1726 Treatment In Otherwise Healthy Adults With Obesity; Plans Phase 2 For H2 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:14.789551-05:00",
-    "symbols": [
-      "TKNO"
-    ],
-    "headline": "Alpha Teknova Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:14.794070-05:00",
-    "symbols": [
-      "TKNO"
-    ],
-    "headline": "Alpha Teknova Raises FY2026 Sales Guidance from $45.000M-$47.000M to $46.000M-$48.000M vs $46.058M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:14.798317-05:00",
-    "symbols": [
-      "TKNO"
-    ],
-    "headline": "Alpha Teknova Q3 EPS $(0.06) Beats $(0.07) Estimate, Sales $12.704M Beat $11.639M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:15.008362-05:00",
-    "symbols": [
-      "VNT"
-    ],
-    "headline": "CORRECTION: Vontier Q3 Adj. EPS $0.92 Beats $0.84 Estimate, Sales $736.900M Beat $727.731M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:15.012781-05:00",
-    "symbols": [
-      "VNT"
-    ],
-    "headline": "Vontier Raises FY2026 Adj EPS Guidance from $3.45-$3.55 to $3.60-$3.64 vs $3.50 Est; Narrows FY2026 Sales Guidance from $3.000B-$3.050B to $3.030B vs $3.029B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:15.017068-05:00",
-    "symbols": [
-      "VNT"
-    ],
-    "headline": "Vontier Sees Q4 Adj EPS $0.99-$1.03 vs $0.97 Est; Sees Sales $785.000M vs $794.911M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:15.021353-05:00",
-    "symbols": [
-      "VNT"
-    ],
-    "headline": "Vontier Q3 Adj. EPS $0.98 Beats $0.84 Estimate, Sales $736.900M Beat $727.731M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:15.245526-05:00",
-    "symbols": [
-      "FSK"
-    ],
-    "headline": "FS KKR Capital Repurchased ~6M Shares In Q3 At $11.24 Average; Bought Further 1.5M Shares In October",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:15.249965-05:00",
-    "symbols": [
-      "FSK"
-    ],
-    "headline": "FS KKR Capital Non-Accruals 3.4% Of Portfolio At Fair Value vs 3.8% At June 30; 6.4% At Cost vs 7.1%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:15.254270-05:00",
-    "symbols": [
-      "FSK"
-    ],
-    "headline": "FS KKR Capital Q3 NAV $18.28/Share vs $18.30 At June 30",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T09:40:15.258525-05:00",
-    "symbols": [
-      "FSK"
-    ],
-    "headline": "FS KKR Capital Q3 Adj NII $0.46 Beats $0.40 Estimate; Total Investment Income $294M Beat $275.28M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-05T09:40:15.504141-05:00",
     "symbols": [
       "CAH"
@@ -4995,6 +4275,726 @@
       "FSK"
     ],
     "headline": "FS KKR Capital Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:24:50.866805-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Amazon and Google Could Outperform Nvidia as AI Trade Enters New Phase, Says Joseph Carlson",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:24:51.117873-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Amazon and Google Could Outperform Nvidia as AI Trade Enters New Phase, Says Joseph Carlson",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:24:51.317961-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Amazon and Google Could Outperform Nvidia as AI Trade Enters New Phase, Says Joseph Carlson",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:24:51.872497-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Amazon and Google Could Outperform Nvidia as AI Trade Enters New Phase, Says Joseph Carlson",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:24:51.877220-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Google AI in School Triggered Teen\u2019s Mental Health Crisis, Lawsuit Says&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:24:52.114351-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon and Google Could Outperform Nvidia as AI Trade Enters New Phase, Says Joseph Carlson",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:24:54.086173-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Amazon and Google Could Outperform Nvidia as AI Trade Enters New Phase, Says Joseph Carlson",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:24:57.730101-05:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "Motorola Solutions, Sezzle, Unity Software, Toyota Motor And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-05T10:25:09.833079-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "CORRECTION: Fed&#39;s Hammack Says Gradual Rate Hikes Less Disruptive To Economy And Financial System; Inflation Has Been Too High, Moving In Wrong Direction; It&#39;s Hard To See Dollar Losing Reserve Status",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:25:12.973668-05:00",
+    "symbols": [
+      "COTY"
+    ],
+    "headline": "Motorola Solutions, Sezzle, Unity Software, Toyota Motor And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:23.690687-05:00",
+    "symbols": [
+      "SEZL"
+    ],
+    "headline": "Motorola Solutions, Sezzle, Unity Software, Toyota Motor And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:25:24.270676-05:00",
+    "symbols": [
+      "LYNX"
+    ],
+    "headline": "Motorola Solutions, Sezzle, Unity Software, Toyota Motor And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:25:24.276119-05:00",
+    "symbols": [
+      "LYNX"
+    ],
+    "headline": "Evercore ISI Group Maintains Outperform on Lyntris, Lowers Price Target to $17",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:25:24.281613-05:00",
+    "symbols": [
+      "LYNX"
+    ],
+    "headline": "This Materion Analyst Turns Bullish; Here Are Top 5 Upgrades For Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:25:24.286549-05:00",
+    "symbols": [
+      "LYNX"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:25:24.292047-05:00",
+    "symbols": [
+      "LYNX"
+    ],
+    "headline": "Baird Upgrades Lyntris to Outperform, Maintains Price Target to $18",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:25:24.644737-05:00",
+    "symbols": [
+      "XERS"
+    ],
+    "headline": "Motorola Solutions, Sezzle, Unity Software, Toyota Motor And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:24.985583-05:00",
+    "symbols": [
+      "WW"
+    ],
+    "headline": "WW International Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:25:24.990614-05:00",
+    "symbols": [
+      "WW"
+    ],
+    "headline": "WW International Q3 EPS $1.51 Beats $0.66 Estimate, Sales $152.901M Beat $152.348M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:25:24.995895-05:00",
+    "symbols": [
+      "WW"
+    ],
+    "headline": "WW International Narrows FY2026 Sales Guidance from $620.000M-$635.000M to $625.000M-$630.000M vs $630.773M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:25:25.315270-05:00",
+    "symbols": [
+      "GROY"
+    ],
+    "headline": "Reported Earlier, Gold Royalty Q3 Adj. EPS $0.02 Beats $0.01 Estimate, Sales $10.246M Beat $8.235M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:26.446206-05:00",
+    "symbols": [
+      "AGL"
+    ],
+    "headline": "Motorola Solutions, Sezzle, Unity Software, Toyota Motor And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:25:27.274290-05:00",
+    "symbols": [
+      "IRWD"
+    ],
+    "headline": "Ironwood Pharmaceuticals Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:27.280778-05:00",
+    "symbols": [
+      "IRWD"
+    ],
+    "headline": "Ironwood Pharmaceuticals Raises FY2026 Sales Guidance from $460.000M-$485.000M to $485.000M-$510.000M vs $471.600M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:27.286901-05:00",
+    "symbols": [
+      "IRWD"
+    ],
+    "headline": "Ironwood Pharmaceuticals Q3 Adj. EPS $0.36 Beats $0.32 Estimate, Sales $133.040M Beat $121.567M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:27.538412-05:00",
+    "symbols": [
+      "BKSY"
+    ],
+    "headline": "BlackSky Technology Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:27.544368-05:00",
+    "symbols": [
+      "BKSY"
+    ],
+    "headline": "BlackSky Technology Q3 EPS $0.10 Beats $(0.22) Estimate, Sales $42.844M Beat $39.548M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:27.549172-05:00",
+    "symbols": [
+      "BKSY"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:27.554171-05:00",
+    "symbols": [
+      "BKSY"
+    ],
+    "headline": "BlackSky Technology Raises FY2026 Sales Guidance from $130.000M-$150.000M to $140.000M-$150.000M vs $141.302M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:27.805007-05:00",
+    "symbols": [
+      "U"
+    ],
+    "headline": "Motorola Solutions, Sezzle, Unity Software, Toyota Motor And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:28.036566-05:00",
+    "symbols": [
+      "MGNI"
+    ],
+    "headline": "Motorola Solutions, Sezzle, Unity Software, Toyota Motor And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:25:28.242684-05:00",
+    "symbols": [
+      "UIS"
+    ],
+    "headline": "Unisys Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:28.247680-05:00",
+    "symbols": [
+      "UIS"
+    ],
+    "headline": "Unisys Raises FY2026 Sales Guidance from $1.853B-$1.882B to $1.891B-$1.921B vs $1.921B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:28.252442-05:00",
+    "symbols": [
+      "UIS"
+    ],
+    "headline": "Unisys Q3 Adj. EPS $(0.12) Beats $(0.23) Estimate, Sales $471.500M Beat $449.850M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:28.482967-05:00",
+    "symbols": [
+      "ONT"
+    ],
+    "headline": "Onterris Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:25:28.489005-05:00",
+    "symbols": [
+      "ONT"
+    ],
+    "headline": "Conference call:\nOnterris Affirms FY2026 Sales Guidance of $740.000M-$790.000M vs $751.588M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:25:28.494999-05:00",
+    "symbols": [
+      "ONT"
+    ],
+    "headline": "Onterris Announces It Engaged Evercore, AEC ADvisors As Financial Advisors For Board-Led Strategic Review; No Assurance Whether Any Process Will Take Place",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:25:28.500566-05:00",
+    "symbols": [
+      "ONT"
+    ],
+    "headline": "Onterris Q3 Adj. EPS $0.56 Beats $0.10 Estimate, Sales $203.044M Beat $197.093M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:25:28.714472-05:00",
+    "symbols": [
+      "GCT"
+    ],
+    "headline": "GigaCloud Tech Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:25:28.720143-05:00",
+    "symbols": [
+      "GCT"
+    ],
+    "headline": "GigaCloud Tech Sees Q4 Sales $425.000M-$450.000M vs $405.990M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:25:28.726809-05:00",
+    "symbols": [
+      "GCT"
+    ],
+    "headline": "GigaCloud Tech Q3 Adj. EPS $1.73 Beats $1.12 Estimate, Sales $423.564M Beat $389.387M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:25:28.962387-05:00",
+    "symbols": [
+      "CRNT"
+    ],
+    "headline": "Ceragon Networks Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:28.969536-05:00",
+    "symbols": [
+      "CRNT"
+    ],
+    "headline": "Ceragon Networks Narrows FY2026 Sales Guidance from $355.000M-$385.000M to $365.000M-$375.000M vs $369.488M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:28.975752-05:00",
+    "symbols": [
+      "CRNT"
+    ],
+    "headline": "Ceragon Networks Q3 Adj. EPS $0.07 Beats $0.04 Estimate, Sales $95.524M Beat $94.399M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:29.652557-05:00",
+    "symbols": [
+      "PLTK"
+    ],
+    "headline": "Playtika Holding Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:29.658116-05:00",
+    "symbols": [
+      "PLTK"
+    ],
+    "headline": "UPDATE Playtika Holding Q3 Adj. EPS $0.315 Beats $0.23 Estimate, Sales $673.800M Beat $666.642M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:29.663007-05:00",
+    "symbols": [
+      "PLTK"
+    ],
+    "headline": "12 Communication Services Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:29.667979-05:00",
+    "symbols": [
+      "PLTK"
+    ],
+    "headline": "Playtika Holding Affirms FY2026 Sales Guidance of $2.750B-$2.850B vs $2.780B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:29.673228-05:00",
+    "symbols": [
+      "PLTK"
+    ],
+    "headline": "Playtika Q3 Record Adj EBITDA $252.1M, Up 15.9% YoY; Average Daily Paying Users 333K, Down 5.9% YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:29.940301-05:00",
+    "symbols": [
+      "TM"
+    ],
+    "headline": "Motorola Solutions, Sezzle, Unity Software, Toyota Motor And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:30.235280-05:00",
+    "symbols": [
+      "SVCO"
+    ],
+    "headline": "Silvaco Group Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:30.240677-05:00",
+    "symbols": [
+      "SVCO"
+    ],
+    "headline": "Silvaco Group Sees Q4 Sales $19.800M-$24.200M vs $18.918M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:30.246268-05:00",
+    "symbols": [
+      "SVCO"
+    ],
+    "headline": "Silvaco Group Q3 Adj. EPS $(0.04) Misses $0.01 Estimate, Sales $16.294M Miss $17.084M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:30.505891-05:00",
+    "symbols": [
+      "CPAY"
+    ],
+    "headline": "Motorola Solutions, Sezzle, Unity Software, Toyota Motor And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:25:30.511868-05:00",
+    "symbols": [
+      "CPAY"
+    ],
+    "headline": "If You Invested $1000 In Corpay Stock 15 Years Ago, You Would Have This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:25:30.516883-05:00",
+    "symbols": [
+      "CPAY"
+    ],
+    "headline": "Keefe, Bruyette &amp; Woods Maintains Outperform on Corpay, Raises Price Target to $525",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:25:30.522561-05:00",
+    "symbols": [
+      "CPAY"
+    ],
+    "headline": "Corpay Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:25:30.527997-05:00",
+    "symbols": [
+      "CPAY"
+    ],
+    "headline": "Corpay Sees Q4 Adj EPS $7.55-$7.75 vs $7.43 Est; Sees Sales $1.370B vs $1.360B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:25:31.482785-05:00",
+    "symbols": [
+      "CRAI"
+    ],
+    "headline": "CRA Intl Raises FY2026 Sales Guidance from $805.000M-$820.000M to $830.000M-$840.000M vs $814.338M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:25:31.487699-05:00",
+    "symbols": [
+      "CRAI"
+    ],
+    "headline": "CRA Intl Q3 Adj. EPS $2.19 Beats $2.07 Estimate, Sales $214.917M Beat $201.960M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:25:31.492792-05:00",
+    "symbols": [
+      "CRAI"
+    ],
+    "headline": "Charles River Associates Increases Quarterly Cash Dividend From $0.57/Share To $0.67/Share",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:25:31.922987-05:00",
+    "symbols": [
+      "DNUT"
+    ],
+    "headline": "Motorola Solutions, Sezzle, Unity Software, Toyota Motor And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:31.929477-05:00",
+    "symbols": [
+      "DNUT"
+    ],
+    "headline": "Krispy Kreme Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:31.934959-05:00",
+    "symbols": [
+      "DNUT"
+    ],
+    "headline": "Krispy Kreme Raises FY2026 Sales Guidance from $1.250B-$1.350B to $1.350B-$1.400B vs $1.351B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:31.940297-05:00",
+    "symbols": [
+      "DNUT"
+    ],
+    "headline": "Krispy Kreme Q3 Adj. EPS $0.06 Beats $0.01 Estimate, Sales $328.758M Beat $311.406M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:32.176811-05:00",
+    "symbols": [
+      "VCEL"
+    ],
+    "headline": "Motorola Solutions, Sezzle, Unity Software, Toyota Motor And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:32.391668-05:00",
+    "symbols": [
+      "BSY"
+    ],
+    "headline": "Motorola Solutions, Sezzle, Unity Software, Toyota Motor And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:32.598864-05:00",
+    "symbols": [
+      "TPR"
+    ],
+    "headline": "Motorola Solutions, Sezzle, Unity Software, Toyota Motor And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:25:33.033345-05:00",
+    "symbols": [
+      "VNT"
+    ],
+    "headline": "CORRECTION: Vontier Q3 Adj. EPS $0.92 Beats $0.84 Estimate, Sales $736.900M Beat $727.731M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:33.038702-05:00",
+    "symbols": [
+      "VNT"
+    ],
+    "headline": "Vontier Raises FY2026 Adj EPS Guidance from $3.45-$3.55 to $3.60-$3.64 vs $3.50 Est; Narrows FY2026 Sales Guidance from $3.000B-$3.050B to $3.030B vs $3.029B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:33.043080-05:00",
+    "symbols": [
+      "VNT"
+    ],
+    "headline": "Vontier Sees Q4 Adj EPS $0.99-$1.03 vs $0.97 Est; Sees Sales $785.000M vs $794.911M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T10:25:33.048708-05:00",
+    "symbols": [
+      "VNT"
+    ],
+    "headline": "Vontier Q3 Adj. EPS $0.98 Beats $0.84 Estimate, Sales $736.900M Beat $727.731M Estimate",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

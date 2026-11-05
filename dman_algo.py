@@ -20607,6 +20607,17 @@ class WinRateTracker:
                 return "Earnings Spread"
             if setup.startswith(("Options Call", "Options Put")):
                 return "Options Single-Leg"
+            # Breakout-zone labels embed the extension at entry ("Breakout
+            # Zone +148% off low"), so every zone trade was its own one-trade
+            # "setup" here — same failure mode as the earnings/options
+            # pooling above. Found 2026-11-05: 11 closed live zone trades
+            # (4W/7L, 36% WR, under the 40% floor since trade 3) and this
+            # alert had never fired for the family. Pooling is for the EOD
+            # drift ALERT and the probation record's visibility; zone entries
+            # gate on their own n>=12 mean<=0 verdict (see BZONE_TRADE_REVIEW_N),
+            # not on the confluence-score bonus probation adds.
+            if setup.startswith(BZONE_SETUP):
+                return BZONE_SETUP
             return setup
 
         live = [r for r in self.records if r.is_live]

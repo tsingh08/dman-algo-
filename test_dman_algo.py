@@ -16424,6 +16424,25 @@ class TestSetupPerformanceDrift(unittest.TestCase):
         self.assertEqual(drift[0]["total"], 3)
         self.assertEqual(drift[0]["win_rate"], 0.0)
 
+    def test_per_extension_breakout_zone_labels_are_pooled_as_one_family(self):
+        # Same failure mode as the earnings/options pooling above, found in
+        # the 2026-11-05 review: zone labels embed the extension at entry
+        # ("Breakout Zone +148% off low"), so 11 closed live zone trades
+        # (4W/7L, 36% WR) sat as 11 distinct one-trade "setups" and the
+        # drift alert had never fired for the family.
+        tracker = a.WinRateTracker(filepath=self._tmp.name)
+        self._record(tracker, "LOSS",
+                     setup="Breakout Zone +148% off low", pnl_pct=-6.68)
+        self._record(tracker, "LOSS",
+                     setup="Breakout Zone +426% off low", pnl_pct=-10.02)
+        self._record(tracker, "LOSS",
+                     setup="Breakout Zone (adopted)", pnl_pct=-8.31)
+        drift = tracker.setup_performance_drift()
+        self.assertEqual(len(drift), 1)
+        self.assertEqual(drift[0]["setup"], "Breakout Zone")
+        self.assertEqual(drift[0]["total"], 3)
+        self.assertEqual(drift[0]["win_rate"], 0.0)
+
     def test_non_earnings_setups_still_pool_by_their_own_exact_label(self):
         # The grouping is earnings-only -- Gap & Hold and Low Float
         # Catalyst must stay separate from each other and from Earnings

@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-05T14:50:43.842503-05:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "Macquarie Maintains Outperform on AppLovin, Raises Price Target to $470",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-05T14:50:43.847519-05:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "Dow Jumps 1,569 Points, Chipmakers&#39; Growth Beyond Phones, Arm&#39;s Server Share Grows",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-05T14:50:44.998538-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Dow Jumps 1,569 Points, Chipmakers&#39; Growth Beyond Phones, Arm&#39;s Server Share Grows",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-05T14:50:53.451214-05:00",
     "symbols": [
       "NUVB"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T16:05:14.885075-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;NVIDIA Explores Retrofitting Old Telecom Buildings For AI Data Centers&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T16:05:14.917217-05:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "AppLovin Posts Q3 Beat, Hybrid Model Rollout Lifts Sentiment: Analysts",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-05T16:05:14.920161-05:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "Macquarie Maintains Outperform on AppLovin, Raises Price Target to $470",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-11-05T09:40:07.970653-05:00",
-    "symbols": [
-      "SHAK"
-    ],
-    "headline": "Wendy&#39;s Announces It Unanimously Rejected Unsolicited, Non-Binding Proposal From Trian Consortium; Adopts Limited-Duration Shareholder Rights Plan",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-05T09:40:07.974838-05:00",
-    "symbols": [
-      "SHAK"
-    ],
-    "headline": "Shake Shack Affirms FY2026 Sales Guidance of $1.600B-$1.700B vs $1.651B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-05T09:40:07.979017-05:00",
-    "symbols": [
-      "SHAK"
-    ],
-    "headline": "Shake Shack Q3 Adj. EPS $0.40 Beats $0.34 Estimate, Sales $423.273M Miss $426.098M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-05T09:40:08.279504-05:00",
-    "symbols": [
-      "AMGN"
-    ],
-    "headline": "Amgen Announces Results From Large Real-World Study Showing Treatment With Repatha Reduced Risk Of Fatal Or Nonfatal Heart Attacks By 20% Compared With Ezetimibe In People With ASCVD And Prior Statin Use",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T09:40:08.283943-05:00",
-    "symbols": [
-      "AMGN"
-    ],
-    "headline": "Canaccord Genuity Maintains Hold on Amgen, Raises Price Target to $440",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-05T09:40:08.288310-05:00",
     "symbols": [
       "AMGN"
@@ -4998,5 +4948,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:12:03.264267-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Platforms Rolling Out Events Home, Invitations For Non-Users On WhatsApp",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:12:30.248752-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Costco Stock Moves Higher: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:12:32.685764-05:00",
+    "symbols": [
+      "ALT"
+    ],
+    "headline": "Altimmune To Present Phase 2 RECLAIM Results For Pemvidutide In Alcohol Use Disorder At AASLD Liver Meeting; FDA End-Of-Phase 2 Meeting Set For December",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T10:12:39.801541-05:00",
+    "symbols": [
+      "HTZ"
+    ],
+    "headline": "Hertz Global Holdings Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-05T10:12:54.081328-05:00",
+    "symbols": [
+      "FSK"
+    ],
+    "headline": "FS KKR Capital Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

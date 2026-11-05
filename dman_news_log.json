@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-11-05T14:27:57.291619-05:00",
-    "symbols": [
-      "PGNY"
-    ],
-    "headline": "Cantor Fitzgerald Maintains Overweight on Progyny, Raises Price Target to $35",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T14:27:57.397421-05:00",
-    "symbols": [
-      "COLD"
-    ],
-    "headline": "Americold Realty Trust Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T14:27:57.402589-05:00",
-    "symbols": [
-      "COLD"
-    ],
-    "headline": "Americold Realty Trust Raises FY2026 FFO Guidance from $1.26-$1.32 to $1.31-$1.33 vs $1.22 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T14:27:57.407802-05:00",
-    "symbols": [
-      "COLD"
-    ],
-    "headline": "Americold Says EQT JV Enabled $1.15B Reduction In Outstanding Debt, Cutting Net Leverage By A Full Turn",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T14:27:57.413776-05:00",
-    "symbols": [
-      "COLD"
-    ],
-    "headline": "Americold Raises FY26 Core EBITDA Guidance To $585M-$610M From $570M-$600M; Total Company NOI To $800M-$830M From $775M-$815M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T14:27:57.418933-05:00",
-    "symbols": [
-      "COLD"
-    ],
-    "headline": "Americold Raises FY26 AFFO Guidance To $1.31-$1.33/Share From $1.26-$1.32",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-05T14:27:57.544254-05:00",
-    "symbols": [
-      "SONY"
-    ],
-    "headline": "Sony Stock Surges: Blockbuster Spider-Man and Gaming Demand Drive Massive Q2 Profit Beat",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T14:27:57.549360-05:00",
-    "symbols": [
-      "SONY"
-    ],
-    "headline": "Sony Plans FY26 Dividend Of \u00a535/Share, Up \u00a510 YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T14:27:57.554071-05:00",
-    "symbols": [
-      "SONY"
-    ],
-    "headline": "Sony Q2 Imaging &amp; Sensing Solutions Sales Down 6% On Lower Mobile Image Sensor Sales; Operating Income Up 12% To \u00a5154.6B",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-05T14:27:57.558951-05:00",
-    "symbols": [
-      "SONY"
-    ],
-    "headline": "Sony Q2 Game &amp; Network Services Operating Income \u00a5220.1B vs \u00a5120.4B YoY; Pictures \u00a592.6B vs \u00a513.9B On Spider-Man: Brand New Day",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-05T14:27:57.661232-05:00",
     "symbols": [
       "PLTK"
@@ -4995,6 +4895,106 @@
       "FIP"
     ],
     "headline": "MARA Holdings Receives U.S. Federal Energy Regulatory Commission Approval For Proposed Acquisition Of Long Ridge Energy &amp; Power From FTAI Infrastructure",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T15:44:53.005670-05:00",
+    "symbols": [
+      "DDOG"
+    ],
+    "headline": "TD Cowen Maintains Buy on Datadog, Lowers Price Target to $275",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T15:45:00.734977-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Trump-Backed Critical Minerals Deals Face Growing Pressure After Blue Wave&#39; - Bloomberg News",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-05T15:45:26.127363-05:00",
+    "symbols": [
+      "PGNY"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Progyny, Raises Price Target to $38",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T15:45:26.130293-05:00",
+    "symbols": [
+      "PGNY"
+    ],
+    "headline": "Citizens Maintains Market Outperform on Progyny, Raises Price Target to $38",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T15:45:26.133160-05:00",
+    "symbols": [
+      "PGNY"
+    ],
+    "headline": "Cantor Fitzgerald Maintains Overweight on Progyny, Raises Price Target to $35",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T15:45:27.424572-05:00",
+    "symbols": [
+      "BOBS"
+    ],
+    "headline": "Bobs Discount Furniture Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T15:45:27.428913-05:00",
+    "symbols": [
+      "BOBS"
+    ],
+    "headline": "Bobs Discount Furniture Q3 Adj. EPS $0.28 Beats $0.27 Estimate, Sales $680.436M Beat $666.254M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T15:45:27.431623-05:00",
+    "symbols": [
+      "BOBS"
+    ],
+    "headline": "UPDATE: Bobs Discount Furniture Sees FY2026 Adj EPS $0.90-$0.96 vs $0.92 Est; Affirms FY2026 Sales Guidance of $2.600B-$2.625B vs $2.612B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T15:45:27.434104-05:00",
+    "symbols": [
+      "BOBS"
+    ],
+    "headline": "Bobs Discount Furniture Affirms FY2026 Sales Guidance of $2.600B-$2.625B vs $2.612B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-05T15:45:28.883815-05:00",
+    "symbols": [
+      "SVCO"
+    ],
+    "headline": "Silvaco Group, Inc. Reports Third Quarter 2026 Financial Results",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

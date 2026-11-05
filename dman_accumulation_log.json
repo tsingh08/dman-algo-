@@ -3517,5 +3517,14 @@
   "drift_pct": 1.46,
   "range_ratio": 0.66,
   "near_high": 0.985
+ },
+ {
+  "ts": "2026-11-05T13:15:48.177398-05:00",
+  "ticker": "YLD",
+  "price": 18.275,
+  "rvol": 2.09,
+  "drift_pct": 0.63,
+  "range_ratio": 0.63,
+  "near_high": 0.96
  }
 ]

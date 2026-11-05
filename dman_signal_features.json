@@ -47330,8 +47330,8 @@
 "Gap Size": 5,
 "News Catalyst": 0
 },
-"seen": 48,
-"last_ts": "2026-11-05T13:32:46.013760-05:00",
+"seen": 50,
+"last_ts": "2026-11-05T13:44:19.151270-05:00",
 "entry_min": 10.12,
 "entry_max": 10.32
 },
@@ -47392,8 +47392,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 14,
-"last_ts": "2026-11-05T13:32:43.959715-05:00",
+"seen": 16,
+"last_ts": "2026-11-05T13:44:15.591483-05:00",
 "entry_min": 117.35,
 "entry_max": 119.37
 },
@@ -47578,8 +47578,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 14,
-"last_ts": "2026-11-05T13:32:48.020624-05:00",
+"seen": 16,
+"last_ts": "2026-11-05T13:44:21.661563-05:00",
 "entry_min": 27.58,
 "entry_max": 27.62
 },
@@ -47602,8 +47602,8 @@
 "rvol": 3.83,
 "atr": 0.2514285714285715,
 "beta": 0.577,
-"catalyst_tier": "C",
-"news_boost": true,
+"catalyst_tier": "",
+"news_boost": false,
 "regime": "CHOP",
 "regime_score": 8,
 "mtf_ok": false,
@@ -47638,10 +47638,10 @@
 "Float/Short": 5,
 "RVOL Tier": 6,
 "Gap Size": 0,
-"News Catalyst": 5
+"News Catalyst": 0
 },
-"seen": 10,
-"last_ts": "2026-11-05T13:32:47.641663-05:00",
+"seen": 12,
+"last_ts": "2026-11-05T13:44:20.397354-05:00",
 "entry_min": 6.92,
 "entry_max": 6.93
 },
@@ -47702,8 +47702,8 @@
 "Gap Size": 5,
 "News Catalyst": 0
 },
-"seen": 8,
-"last_ts": "2026-11-05T13:32:44.785717-05:00",
+"seen": 10,
+"last_ts": "2026-11-05T13:44:16.887999-05:00",
 "entry_min": 78.02,
 "entry_max": 78.02
 },
@@ -47764,8 +47764,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 8,
-"last_ts": "2026-11-05T13:32:45.268326-05:00",
+"seen": 10,
+"last_ts": "2026-11-05T13:44:17.639748-05:00",
 "entry_min": 34.25,
 "entry_max": 34.25
 },
@@ -47826,8 +47826,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 8,
-"last_ts": "2026-11-05T13:32:45.541925-05:00",
+"seen": 10,
+"last_ts": "2026-11-05T13:44:18.467655-05:00",
 "entry_min": 27.83,
 "entry_max": 27.83
 },
@@ -47888,8 +47888,8 @@
 "Gap Size": 5,
 "News Catalyst": 0
 },
-"seen": 8,
-"last_ts": "2026-11-05T13:32:46.498821-05:00",
+"seen": 10,
+"last_ts": "2026-11-05T13:44:19.826285-05:00",
 "entry_min": 13.93,
 "entry_max": 13.93
 },

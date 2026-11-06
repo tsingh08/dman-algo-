@@ -164,6 +164,12 @@ def setUpModule():
     _p = patch.object(a, "_close_key_on_origin", lambda _k: False)
     _p.start()
     _state_write_isolation.append(_p)
+    # The zone market-shock pause (2026-11-05) reads live SPY history; with no
+    # broker key it fails CLOSED and every zone-entry test would see a pause.
+    # Covered directly in TestBzoneShockPause.
+    _p = patch.object(a, "_bzone_shock_pause", lambda *_a, **_k: (False, ""))
+    _p.start()
+    _state_write_isolation.append(_p)
 
 
 def tearDownModule():
@@ -1509,6 +1515,7 @@ class TestSyncWinRateWithRemote(unittest.TestCase):
 
 
 _REAL_CLOSE_KEY_ON_ORIGIN = a._close_key_on_origin   # before setUpModule's patch
+_REAL_BZONE_SHOCK_PAUSE = a._bzone_shock_pause         # before setUpModule's patch
 
 
 class TestCloseKeyOnOrigin(unittest.TestCase):
@@ -30926,3 +30933,51 @@ class TestPitHarness(unittest.TestCase):
         self.assertFalse(ok)
         self.assertIn("h1", why)
         self.assertFalse(self.h.portfolio_verdict({**good, "max_dd": -29.2}, spy, ref)[0])
+
+
+class TestBzoneShockPause(unittest.TestCase):
+    """2026-11-05: SPY closed -4.4%. Zone signals within 3 sessions of a SPY
+    -2% close averaged -10.1% vs SPY in tools/pit_harness.py `shock`."""
+
+    def _map(self, closes):
+        days = ["2026-10-29", "2026-10-30", "2026-11-02", "2026-11-03", "2026-11-04", "2026-11-05"]
+        return {d: (c, c) for d, c in zip(days, closes)}
+
+    def _run(self, closes, flags=None):
+        m = self._map(closes)
+        with patch.object(a, "_spy_ohlc_map", lambda refresh=False: m),              patch.object(a, "_load_flags", return_value=flags or {}):
+            return _REAL_BZONE_SHOCK_PAUSE(a.date(2026, 11, 6))
+
+    def test_shock_yesterday_pauses(self):
+        paused, why = self._run([760, 756, 755, 768, 767, 733])
+        self.assertTrue(paused)
+        self.assertIn("2026-11-05", why)
+
+    def test_shock_three_sessions_ago_still_pauses(self):
+        self.assertTrue(self._run([760, 756, 758, 740, 745, 750])[0])   # 11-03, 3rd back
+
+    def test_shock_four_sessions_ago_has_expired(self):
+        self.assertFalse(self._run([760, 756, 740, 745, 748, 750])[0])   # 11-02, 4th back
+
+    def test_ordinary_selloff_does_not_pause(self):
+        self.assertFalse(self._run([760, 752, 745, 738, 732, 726])[0])   # ~-1%/day
+
+    def test_unreadable_history_fails_closed(self):
+        with patch.object(a, "_spy_ohlc_map", lambda refresh=False: {}),              patch.object(a, "_load_flags", return_value={}):
+            paused, why = _REAL_BZONE_SHOCK_PAUSE(a.date(2026, 11, 6))
+        self.assertTrue(paused)
+        self.assertIn("fails closed", why)
+
+    def test_todays_forming_bar_is_ignored(self):
+        m = self._map([760, 756, 755, 768, 767, 766])
+        m["2026-11-06"] = (766, 700)      # intraday crash today: not a completed session
+        with patch.object(a, "_spy_ohlc_map", lambda refresh=False: m),              patch.object(a, "_load_flags", return_value={}):
+            self.assertFalse(_REAL_BZONE_SHOCK_PAUSE(a.date(2026, 11, 6))[0])
+
+    def test_override_flag(self):
+        self.assertFalse(self._run([760, 756, 755, 768, 767, 733], {"ZONE_SHOCK_PAUSE_OFF": True})[0])
+
+    def test_manage_skips_entries_but_runs_after_exits(self):
+        src = inspect.getsource(a.run_breakout_zone_manage)
+        self.assertLess(src.index("# ---- entries ----"), src.index("_bzone_shock_pause()"))
+        self.assertLess(src.index("_bzone_shock_pause()"), src.index("_recent_logged_zones("))

@@ -14216,6 +14216,15 @@ BZONE_CATASTROPHE_STOP_PCT = 0.10
 # ADOPTED_FALLBACK_STOP_PCT -- asserted in the test suite, not implied here.
 BZONE_HOLD_SESSIONS    = 20
 BZONE_TRADE_REVIEW_N   = 12       # closed trades before the record gets a verdict
+# MARKET-SHOCK PAUSE (2026-11-05, the day SPY closed -4.4%). tools/pit_harness.py
+# `shock`, 2023-06..2026-10: zone signals within 3 sessions of a SPY close at or
+# below -2% averaged -10.1% vs SPY over the 20-session hold (n=191 over 35 days,
+# clustered t -3.09, negative in 2024, 2025 AND 2026), against +0.56% for the
+# rest. The sign held at 1, 2, 3 and 5 sessions and at a -1.5% threshold. Breakouts
+# bought into a market selloff are the first thing the next leg down sells. This
+# is a pause, not an edge claim. Override: flag ZONE_SHOCK_PAUSE_OFF (/flags).
+BZONE_SHOCK_SPY_PCT    = -2.0     # SPY close-to-close % that counts as a shock
+BZONE_SHOCK_SESSIONS   = 3        # completed sessions a shock keeps entries paused
 # A breakout-zone entry is priced off a LOGGED scan row that can be two days
 # old, so a market order can fill far from the price the decision was made at.
 # SECZ, 2026-09-24: logged close $14.36, market fill $15.98 -- 11.3% higher and
@@ -15001,6 +15010,33 @@ def _bzone_record_lines() -> list:
     return _out
 
 
+def _bzone_shock_pause(today: Optional[date] = None) -> tuple[bool, str]:
+    """(paused, why). Paused while any of the last BZONE_SHOCK_SESSIONS COMPLETED
+    SPY sessions closed <= BZONE_SHOCK_SPY_PCT. See the constants for the test.
+
+    Fails CLOSED: an unreadable SPY history pauses entries (it is an entry
+    gate; exits never read it)."""
+    if flag("ZONE_SHOCK_PAUSE_OFF", False):
+        return False, ""
+    today = today or _et_today()
+    _m = _spy_ohlc_map()
+    _done = sorted(k for k in _m if k < today.isoformat())
+    if not _done or _done[-1] < (today - timedelta(days=5)).isoformat():
+        _m = _spy_ohlc_map(refresh=True)
+        _done = sorted(k for k in _m if k < today.isoformat())
+    if len(_done) < BZONE_SHOCK_SESSIONS + 1:
+        return True, "SPY history unreadable \u2014 market-shock check fails closed"
+    for _prev, _day in zip(_done[-BZONE_SHOCK_SESSIONS - 1:-1], _done[-BZONE_SHOCK_SESSIONS:]):
+        _p, _c = _m[_prev][1], _m[_day][1]
+        if _p > 0:
+            _r = (_c / _p - 1) * 100
+            if _r <= BZONE_SHOCK_SPY_PCT:
+                return True, (f"market-shock pause: SPY {_r:+.1f}% on {_day} (zones bought within "
+                              f"{BZONE_SHOCK_SESSIONS} sessions of a {BZONE_SHOCK_SPY_PCT:.0f}% "
+                              f"day averaged -10% vs SPY in testing)")
+    return False, ""
+
+
 def run_breakout_zone_manage(notify: bool = True) -> dict:
     """Exit zones held BZONE_HOLD_SESSIONS sessions, then open new ones.
 
@@ -15068,6 +15104,15 @@ def run_breakout_zone_manage(notify: bool = True) -> dict:
     _cb_ok, _cb_reason = _entry_circuit_breakers_ok()
     if not _cb_ok:
         out["skipped"] = f"{_cb_reason} — no zone entries"
+        return out
+    _shock, _shock_why = _bzone_shock_pause()
+    if _shock:
+        out["skipped"] = f"{_shock_why} — no zone entries"
+        print(f"  🏔 Breakout zone manage: exits {out['exited']}, entries [] — {out['skipped']}")
+        if notify and not _is_duplicate_alert("__BZONE_SHOCK_PAUSE__", cooldown_min=20 * 60):
+            _save_last_alert("__BZONE_SHOCK_PAUSE__")
+            send_telegram(f"⏸️ <b>Zone entries paused</b> — {_shock_why}. Held zones keep "
+                          f"their stops and time exits.")
         return out
     _open = _bzone_open_positions()
     # Exposure, not headcount. A count cap treated two $250 zones and two $900

@@ -32,7 +32,25 @@ TREND (portfolio bar below; 2017-02..2026-10, total return, 0.05%/turnover):
   -> Trend following did NOT earn its keep out of sample. Do not ship it as a
      "safer SPY"; at this account size the cheapest drawdown control is size.
 
+MARKET SHOCKS (2026-11-05, SPY -4.4% / QQQ -6.5% / SOX -12.3%; same cache):
+  zone signals within k sessions of a SPY close <= -2%, 20-session hold, vs SPY:
+        k=1  n=38   mean -10.10  t -1.31      rest +0.14
+        k=2  n=104  mean  -7.94  t -2.02      rest +0.25
+        k=3  n=191  mean -10.09  t -3.09      rest +0.56   every year negative
+        k=5  n=322  mean -10.94  t -4.07      rest +1.02
+     -> SHIPPED as an entry pause (BZONE_SHOCK_SPY_PCT -2, BZONE_SHOCK_SESSIONS 3).
+        (<= -3% days alone: n=6-24, all April 2025, positive -- too few to act on.)
+  "buy relative-strength leaders on a shock day" (green / top decile / near
+        52w high, liquid): NEGATIVE at every cut, 20d t -2.3..-3.6. Do not buy them.
+  "buy the day's worst decile above MA200": passes at 10 sessions on -1.25..-1.75%
+        days but NOT on <= -2% days (h10 +0.3..+0.7, t ~1); 36 cells searched,
+        the dip rule (its parent) failed on 164k trades -> research only, not shipped.
+  Index base rates since 1950 (^GSPC <= -4%, declustered n=28): next day median
+        +1.3% (64% up), 20d a coin flip (50%), 60d +7.5% median (79% up); above the
+        MA200 n=6 only.
+
 Usage:
+  py -3 tools/pit_harness.py shock           # the market-shock tables above
   py -3 tools/pit_harness.py zone            # the live breakout-zone rule
   py -3 tools/pit_harness.py dip             # the dip-in-uptrend rule
   py -3 tools/pit_harness.py trend           # 4 trend-following portfolios vs SPY, 60/40
@@ -312,10 +330,40 @@ def run_trend():
     return st
 
 
+def _row_mask(m: pd.Series, like: pd.DataFrame) -> pd.DataFrame:
+    return pd.DataFrame(np.repeat(m.values[:, None], like.shape[1], 1),
+                        index=like.index, columns=like.columns)
+
+
+def run_shock(thr: float = -0.02):
+    """Zone entries in/out of a SPY-shock window, and the shock-day stock rules."""
+    o, c, v = load_bars()
+    sr = c["SPY"].pct_change()
+    show = lambda lab, ent, hold: print(
+        f"{lab:44s}", {k: (round(x, 2) if isinstance(x, float) else x)
+                       for k, x in evaluate(ent, o, c, hold).items() if k != "years"})
+    z = rule_zone(o, c, v)
+    for k in (1, 2, 3, 5):
+        w = (sr <= thr).astype(int).rolling(k).max().fillna(0).astype(bool)
+        show(f"zone IN  SPY<={thr:.0%} within {k}", z & _row_mask(w, c), 20)
+        show(f"zone OUT SPY<={thr:.0%} within {k}", z & _row_mask(~w, c), 20)
+    liq = (_adv(v) >= 20e6) & (c >= 10)
+    r1 = c.pct_change(fill_method=None)
+    rk = r1.sub(sr, axis=0).where(liq).rank(axis=1, pct=True)
+    ma200 = c.rolling(200, min_periods=190).mean()
+    S = _row_mask(sr <= thr, c) & liq
+    for hold in (10, 20):
+        show(f"RS leaders top decile >MA200 h{hold}", S & (rk >= 0.9) & (c > ma200), hold)
+        show(f"worst decile >MA200 h{hold}", S & (rk <= 0.1) & (c > ma200), hold)
+
+
 if __name__ == "__main__":
     name = sys.argv[1] if len(sys.argv) > 1 else "zone"
     if name == "trend":
         run_trend()
+        sys.exit(0)
+    if name == "shock":
+        run_shock()
         sys.exit(0)
     fn, hold = RULES[name]
     o, c, v = load_bars()

@@ -1,285 +1,5 @@
 [
   {
-    "ts": "2026-11-06T09:39:45.775322-05:00",
-    "symbols": [
-      "SNAP"
-    ],
-    "headline": "JP Morgan Maintains Underweight on Snap, Lowers Price Target to $5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T09:39:45.778923-05:00",
-    "symbols": [
-      "SNAP"
-    ],
-    "headline": "Barclays Maintains Overweight on Snap, Lowers Price Target to $8",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T09:39:45.953950-05:00",
-    "symbols": [
-      "XE"
-    ],
-    "headline": "Fluor Selected By X-Energy To Provide Engineering, Design, And Project Management Services For The Cascade Small Modular Reactor Project In Washington; Undisclosed Contract Value To Be Booked In Q3",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T09:39:46.144056-05:00",
-    "symbols": [
-      "SAFE"
-    ],
-    "headline": "Safestore Holdings plc Announces Change of Registrar",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T09:39:46.347455-05:00",
-    "symbols": [
-      "APD"
-    ],
-    "headline": "RBC Raises Price Target on Air Products & Chemicals to $359 From $346",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T09:39:46.351177-05:00",
-    "symbols": [
-      "APD"
-    ],
-    "headline": "Deutsche Bank Adjusts Price Target on Air Products and Chemicals",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T09:39:46.354647-05:00",
-    "symbols": [
-      "APD"
-    ],
-    "headline": "Mizuho Adjusts Price Target on Air Products and Chemicals",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T09:39:46.531562-05:00",
-    "symbols": [
-      "FG"
-    ],
-    "headline": "F&amp;G Annuities &amp; Life Increases Its Quarterly Cash Dividend From $0.25 To $0.26 Per Share",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T09:39:46.535333-05:00",
-    "symbols": [
-      "FG"
-    ],
-    "headline": "F&amp;G Annuities &amp; Life Announces $100M Buyback Plan Through November 2029",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T09:39:46.538834-05:00",
-    "symbols": [
-      "FG"
-    ],
-    "headline": "F&amp;G Annuities &amp; Life Q3 Adj. EPS $0.74 Beats $0.66 Estimate, Sales $1.131B Beat $731.000M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T09:39:46.753693-05:00",
-    "symbols": [
-      "CSTL"
-    ],
-    "headline": "Keybanc Maintains Overweight on Castle Biosciences, Raises Price Target to $40",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T09:39:46.757389-05:00",
-    "symbols": [
-      "CSTL"
-    ],
-    "headline": "Castle Biosciences Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T09:39:46.761379-05:00",
-    "symbols": [
-      "CSTL"
-    ],
-    "headline": "Castle Biosciences Raises FY2026 Sales Guidance from $365.000M-$375.000M to $385.000M-$395.000M vs $373.753M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T09:39:46.764851-05:00",
-    "symbols": [
-      "CSTL"
-    ],
-    "headline": "Castle Biosciences Q3 Adj. EPS $(0.13) Beats $(0.37) Estimate, Sales $102.891M Beat $92.523M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T09:39:46.965971-05:00",
-    "symbols": [
-      "SU"
-    ],
-    "headline": "Schneider Electric Joins Industry Coalition to Advocate for Clean Electrification at COP31",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T09:39:46.969779-05:00",
-    "symbols": [
-      "SU"
-    ],
-    "headline": "Scotiabank Increases Suncor Energy Price Target to $126",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T09:39:46.973302-05:00",
-    "symbols": [
-      "SU"
-    ],
-    "headline": "Wells Fargo Raises Suncor Energy Price Target to $114",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T09:39:47.153658-05:00",
-    "symbols": [
-      "XNET"
-    ],
-    "headline": "Xunlei Limited Schedules 2026 Unaudited Third Quarter Earnings Release",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T09:39:47.291829-05:00",
-    "symbols": [
-      "DBX"
-    ],
-    "headline": "Dropbox Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T09:39:47.295677-05:00",
-    "symbols": [
-      "DBX"
-    ],
-    "headline": "Conference call:\nDropbox Sees Q4 Sales $630.000M-$633.000M vs $629.244M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T09:39:47.299177-05:00",
-    "symbols": [
-      "DBX"
-    ],
-    "headline": "Dropbox Raises FY2026 Sales Guidance from $2.513B-$2.523B to $2.528B-$2.531B vs $2.520B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T09:39:47.302717-05:00",
-    "symbols": [
-      "DBX"
-    ],
-    "headline": "Dropbox Q3 Adj. EPS $0.88 Beats $0.73 Estimate, Sales $637.300M Beat $629.591M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T09:39:47.446090-05:00",
-    "symbols": [
-      "SERV"
-    ],
-    "headline": "CORRECTION: Serve Robotics Q3 Adj. EPS $(0.51) Beats $(0.67) Estimate, Sales $2.835M Beat $1.654M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T09:39:47.449804-05:00",
-    "symbols": [
-      "SERV"
-    ],
-    "headline": "Serve Robotics Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T09:39:47.453290-05:00",
-    "symbols": [
-      "SERV"
-    ],
-    "headline": "Serve Robotics Stock Rallies After Q3 Revenue Blows Past Estimates",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T09:39:47.456804-05:00",
-    "symbols": [
-      "SERV"
-    ],
-    "headline": "Serve Robotics Q3 Adj. EPS $(0.50) Beats $(0.67) Estimate, Sales $2.835M Beat $1.654M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T09:39:47.460251-05:00",
-    "symbols": [
-      "SERV"
-    ],
-    "headline": "Serve Robotics Raises FY2026 Sales Guidance from $9.000M-$10.000M to $12.000M vs $9.700M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T09:39:47.632600-05:00",
-    "symbols": [
-      "VFF"
-    ],
-    "headline": "Village Farms Welcomes Government of Canada's Announcement of Common Cannabis Excise Duty Stamp",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-06T09:39:47.953101-05:00",
     "symbols": [
       "ALMU"
@@ -4998,5 +4718,285 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T10:43:56.451154-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Musk Winds Down Cybertruck After Sales Collapse, Shifts Tesla Focus to Cybercab",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T10:43:57.151861-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "If You Invested $1000 In Applied Materials Stock 5 Years Ago, You Would Have This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T10:43:58.507032-05:00",
+    "symbols": [
+      "CELH"
+    ],
+    "headline": "B. Riley Securities Reiterates Buy on Celsius Holdings, Lowers Price Target to $53",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T10:43:58.810721-05:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "Wells Fargo Maintains Equal-Weight on AppLovin, Raises Price Target to $347",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T10:43:59.733378-05:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Airbnb, Raises Price Target to $215",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T10:44:02.805191-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "VIX Spikes Nearly 70%: History Says S&amp;P 500 Usually Bounces Within a Month",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T10:44:02.900663-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "VIX Spikes Nearly 70%: History Says S&amp;P 500 Usually Bounces Within a Month",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T10:44:04.280925-05:00",
+    "symbols": [
+      "HNST"
+    ],
+    "headline": "B. Riley Securities Reiterates Buy on Honest Co, Raises Price Target to $5.5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T10:44:04.505758-05:00",
+    "symbols": [
+      "INDI"
+    ],
+    "headline": "B. Riley Securities Maintains Buy on Indie Semiconductor, Lowers Price Target to $4",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T10:44:07.964247-05:00",
+    "symbols": [
+      "FROG"
+    ],
+    "headline": "Piper Sandler Maintains Neutral on JFrog, Raises Price Target to $95",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T10:44:07.970147-05:00",
+    "symbols": [
+      "FROG"
+    ],
+    "headline": "Keybanc Maintains Overweight on JFrog, Raises Price Target to $118",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T10:44:07.975013-05:00",
+    "symbols": [
+      "FROG"
+    ],
+    "headline": "JFrog Cloud Business Surges as AI and Security Adoption Expand",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T10:44:07.979766-05:00",
+    "symbols": [
+      "FROG"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T10:44:07.984842-05:00",
+    "symbols": [
+      "FROG"
+    ],
+    "headline": "Why Cloudflare Shares Are Trading Higher By Around 15%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T10:44:08.073227-05:00",
+    "symbols": [
+      "ETON"
+    ],
+    "headline": "HC Wainwright &amp; Co. Maintains Buy on Eton Pharmaceuticals, Raises Price Target to $80",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T10:44:08.078609-05:00",
+    "symbols": [
+      "ETON"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T10:44:08.083435-05:00",
+    "symbols": [
+      "ETON"
+    ],
+    "headline": "Why Cloudflare Shares Are Trading Higher By Around 15%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T10:44:08.088687-05:00",
+    "symbols": [
+      "ETON"
+    ],
+    "headline": "Eton Pharmaceuticals Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T10:44:08.093824-05:00",
+    "symbols": [
+      "ETON"
+    ],
+    "headline": "Eton Pharmaceuticals Q3 Adj. EPS $0.50 Beats $0.31 Estimate, Sales $57.925M Beat $41.985M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T10:44:08.512559-05:00",
+    "symbols": [
+      "TMDX"
+    ],
+    "headline": "TransMedics Group Raises FY2026 Sales Guidance from $737.000M-$757.000M to $750.000M-$760.000M vs $743.798M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T10:44:08.520150-05:00",
+    "symbols": [
+      "TMDX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T10:44:08.524608-05:00",
+    "symbols": [
+      "TMDX"
+    ],
+    "headline": "TransMedics Gr Q3 Adj. EPS $0.51 Beats $0.29 Estimate, Sales $203.005M Beat $177.584M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T10:44:08.855429-05:00",
+    "symbols": [
+      "ACRE"
+    ],
+    "headline": "Ares Comml Real Est Q3 Adj. EPS $0.12 Beats $0.06 Estimate, Sales $13.513M Beat $13.313M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T10:44:08.925781-05:00",
+    "symbols": [
+      "FLY"
+    ],
+    "headline": "Firefly, AST SpaceMobile Stocks Rise on $1.3B Rocket Engine Deal: What\u2019s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T10:44:08.931060-05:00",
+    "symbols": [
+      "FLY"
+    ],
+    "headline": "Firefly Aerospace Inks $1.3B Agreement With AST SpaceMobile To Provide Over 36 Rocket Engines",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T10:44:09.138675-05:00",
+    "symbols": [
+      "PLBY"
+    ],
+    "headline": "PLBY Group Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T10:44:09.146549-05:00",
+    "symbols": [
+      "PLBY"
+    ],
+    "headline": "Playboy Agrees To Acquire Property For Future Membership Club In Miami Beach; Financial Terms Not Disclosed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T10:44:09.152334-05:00",
+    "symbols": [
+      "PLBY"
+    ],
+    "headline": "Playboy Q3 Adj. EPS $0.02 Beats $0.01 Estimate, Sales $31.714M Beat $30.318M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

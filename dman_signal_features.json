@@ -46451,7 +46451,13 @@
 "seen": 12,
 "last_ts": "2026-11-03T14:59:43.625605-05:00",
 "entry_min": 62.1,
-"entry_max": 62.46
+"entry_max": 62.46,
+"label_fill": 63.74,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 2.95,
+"label_outcome": "WIN",
+"label_mfe_pct": 3.4,
+"label_mae_pct": -1.84
 },
 {
 "ts": "2026-11-04T09:26:19.092500-05:00",
@@ -48838,8 +48844,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 66,
-"last_ts": "2026-11-06T15:53:36.386653-05:00",
+"seen": 68,
+"last_ts": "2026-11-06T16:02:26.483219-05:00",
 "entry_min": 18.13,
 "entry_max": 20.57
 }

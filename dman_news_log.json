@@ -1,565 +1,5 @@
 [
   {
-    "ts": "2026-11-06T13:54:32.930807-05:00",
-    "symbols": [
-      "CLNE"
-    ],
-    "headline": "Moderna, JFrog, TransMedics, Ubiquiti And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T13:54:33.176840-05:00",
-    "symbols": [
-      "FLY"
-    ],
-    "headline": "Moderna, JFrog, TransMedics, Ubiquiti And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T13:54:33.316662-05:00",
-    "symbols": [
-      "EXTR"
-    ],
-    "headline": "Moderna, JFrog, TransMedics, Ubiquiti And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T13:54:33.387903-05:00",
-    "symbols": [
-      "KRMN"
-    ],
-    "headline": "Moderna, JFrog, TransMedics, Ubiquiti And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T13:54:33.619028-05:00",
-    "symbols": [
-      "TMDX"
-    ],
-    "headline": "Moderna, JFrog, TransMedics, Ubiquiti And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T14:02:20.517207-05:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Recent Analyst Actions on Cloudflare Following Q3 Earnings",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T14:02:20.525466-05:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce Expands Agentforce Coworker with New AI Capabilities and Integrations",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T14:02:20.537976-05:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "Arm Announces New Total Access Deals and CSS Licenses",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T14:02:41.396440-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;In Recent Months, Microsoft Has Been Turning Off Rented Computing Capacity From Oracle After Declining To Renew The Contract&#39; - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T14:02:41.401115-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;Microsoft Is Winding Down Oracle Deal To Rent AI Cloud Capacity&#39; - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T14:02:41.407022-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nasdaq 100 Rebounds 2% After Worst Day Since 2020, Payrolls Smash Estimates: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T14:02:41.414856-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Nasdaq 100 Rebounds 2% After Worst Day Since 2020, Payrolls Smash Estimates: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T14:02:41.433609-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Nasdaq 100 Rebounds 2% After Worst Day Since 2020, Payrolls Smash Estimates: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T14:02:41.441644-05:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Deal Dispatch: Salesforce Buys Cresta, CrowdStrike Acquires Two AI Companies, Out West Restaurant Group Bankruptcy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T14:02:41.455916-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Nasdaq 100 Rebounds 2% After Worst Day Since 2020, Payrolls Smash Estimates: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T14:02:41.478331-05:00",
-    "symbols": [
-      "AFRM"
-    ],
-    "headline": "RBC Capital Maintains Sector Perform on Affirm Holdings, Lowers Price Target to $83",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T14:02:41.512261-05:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Rothschild & Co Redburn Adjusts Price Target on Datadog to $275 From $300",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T14:02:41.517391-05:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Analysts Adjust Price Targets for Datadog Following Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T14:02:41.536182-05:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "RBC Capital Maintains Outperform on Airbnb, Raises Price Target to $215",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T14:02:41.544644-05:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "Nasdaq 100 Rebounds 2% After Worst Day Since 2020, Payrolls Smash Estimates: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T14:02:41.564216-05:00",
-    "symbols": [
-      "OKLO"
-    ],
-    "headline": "Nasdaq 100 Rebounds 2% After Worst Day Since 2020, Payrolls Smash Estimates: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T14:02:41.595740-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "&#39;In Recent Months, Microsoft Has Been Turning Off Rented Computing Capacity From Oracle After Declining To Renew The Contract&#39; - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T14:02:41.601065-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "&#39;Microsoft Is Winding Down Oracle Deal To Rent AI Cloud Capacity&#39; - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T14:02:41.611663-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Nasdaq 100 Rebounds 2% After Worst Day Since 2020, Payrolls Smash Estimates: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T14:02:41.619748-05:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Nasdaq 100 Rebounds 2% After Worst Day Since 2020, Payrolls Smash Estimates: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T14:02:41.624677-05:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Growth Lead Sectors In Friday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T14:02:41.633208-05:00",
-    "symbols": [
-      "CCCC"
-    ],
-    "headline": "Guggenheim Maintains Buy on C4 Therapeutics, Lowers Price Target to $6",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T14:02:41.675734-05:00",
-    "symbols": [
-      "SERV"
-    ],
-    "headline": "Serve Robotics Stock Soars After Revenue Quadruples and Guidance Hike",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T14:02:41.705311-05:00",
-    "symbols": [
-      "FROG"
-    ],
-    "headline": "Guggenheim Maintains Buy on JFrog, Raises Price Target to $125",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T14:02:41.710319-05:00",
-    "symbols": [
-      "LASR"
-    ],
-    "headline": "nLIGHT Stock Flies After Strong Q3 Results and Optimistic Guidance",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T14:02:41.940952-05:00",
-    "symbols": [
-      "AOSL"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T14:02:41.946481-05:00",
-    "symbols": [
-      "AOSL"
-    ],
-    "headline": "B. Riley Securities Maintains Neutral on Alpha &amp; Omega, Lowers Price Target to $22",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T14:02:41.951218-05:00",
-    "symbols": [
-      "AOSL"
-    ],
-    "headline": "These Analysts Lower Their Forecasts On Alpha And Omega Semiconductor Following Q1 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T14:02:41.956356-05:00",
-    "symbols": [
-      "AOSL"
-    ],
-    "headline": "Stifel Maintains Hold on Alpha &amp; Omega, Lowers Price Target to $27",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T14:02:41.961071-05:00",
-    "symbols": [
-      "AOSL"
-    ],
-    "headline": "Needham Maintains Buy on Alpha &amp; Omega, Lowers Price Target to $30",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T14:02:41.968935-05:00",
-    "symbols": [
-      "IREN"
-    ],
-    "headline": "Nasdaq 100 Rebounds 2% After Worst Day Since 2020, Payrolls Smash Estimates: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T14:02:41.988180-05:00",
-    "symbols": [
-      "KRMN"
-    ],
-    "headline": "Nasdaq 100 Rebounds 2% After Worst Day Since 2020, Payrolls Smash Estimates: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T14:02:42.006092-05:00",
-    "symbols": [
-      "ELAN"
-    ],
-    "headline": "Elanco Animal Health Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T14:02:42.010794-05:00",
-    "symbols": [
-      "ELAN"
-    ],
-    "headline": "Elanco Animal Health Sees Q4 Adj EPS $0.16-$0.19 vs $0.18 Est; Sees Sales $1.190B-$1.215B vs $1.193B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T14:02:42.016680-05:00",
-    "symbols": [
-      "ELAN"
-    ],
-    "headline": "Elanco Animal Health Raises FY2026 Adj EPS Guidance from $1.10-$1.16 to $1.17-$1.20 vs $1.13 Est; Raises FY2026 Sales Guidance from $5.090B-$5.140B to $5.155B-$5.180B vs $5.132B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T14:02:42.021503-05:00",
-    "symbols": [
-      "ELAN"
-    ],
-    "headline": "Elanco Animal Health Q3 Adj. EPS $0.27 Beats $0.20 Estimate, Sales $1.265B Beat $1.208B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T14:03:20.530569-05:00",
-    "symbols": [
-      "AFRM"
-    ],
-    "headline": "Barclays Maintains Affirm Holdings at Overweight, Lowers Price Target to $100",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T14:03:20.535640-05:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "Gilead Sciences Announces Positive Results from PURPOSE 5 Trial for Lenacapavir",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T14:03:20.568749-05:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Chase Reiterates Buy Rating on Axon Enterprise",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T14:03:20.594412-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Microsoft to Conclude Agreement to Rent AI Compute Capacity from Oracle",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T14:03:20.616951-05:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Morgan Stanley Maintains Buy Rating and $270 Price Target on Datadog",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T14:03:20.828450-05:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "D.A. Davidson Maintains Hold Rating on Rivian Automotive",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T14:03:21.107003-05:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Argus Research Adjusts Price Target on AbbVie",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T14:03:21.112496-05:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "e.l.f. Beauty Partners with Palm Tree Crew for Art Basel Activation",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T14:03:21.117502-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Musk Reports SpaceX Government Revenue to Fall Below 10% This Quarter",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T14:03:21.193658-05:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Announces 'Stranger Things' Prequel Series 'Other Worlds'",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T14:03:21.200729-05:00",
-    "symbols": [
-      "OKLO"
-    ],
-    "headline": "Oklo Inc. Enters Strategic Manufacturing Agreement with U.S. Forged Rings, Inc.",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T14:03:21.206217-05:00",
-    "symbols": [
-      "RIOT"
-    ],
-    "headline": "Multiple Wall Street Firms Update Ratings and Price Targets for Riot Platforms",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T14:03:21.212883-05:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "BofA Securities Lowers DraftKings Price Target to $23",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T14:04:20.598972-05:00",
-    "symbols": [
-      "SMR"
-    ],
-    "headline": "RBC Capital Markets Adjusts NuScale Power Price Target",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T14:04:40.639559-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Crusoe Announces Wyoming Data Center Campus Update; Google Has Acquired Crusoe\u2019s Data Center Site In Southeast Wyoming, Completing Crusoe\u2019s Pre-Development Work On Site Selection, Governmental Approvals, And A Hybrid Power Strategy Developed With Tallgrass Energy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-06T14:04:46.621279-05:00",
     "symbols": [
       "SPY"
@@ -4820,6 +4260,146 @@
     "sentiment": "positive"
   },
   {
+    "ts": "2026-11-06T15:52:54.840963-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Jason Calacanis Is Buying These 8 Stocks After the Midterm Selloff: &#39;Markets Top Tick and Set New Records&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T15:52:54.996478-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Nvidia Is Reportedly Pouring Billions Into AI&#39;s Next Big Bottleneck: Advanced Chip Packaging",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T15:52:55.000968-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Jason Calacanis Is Buying These 8 Stocks After the Midterm Selloff: &#39;Markets Top Tick and Set New Records&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T15:52:55.085492-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Oracle\u2019s AI Trouble Is Wall Street\u2019s New Headache: 2 ETFs to Watch as Data Center Fears Grow",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T15:52:55.089898-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Jason Calacanis Is Buying These 8 Stocks After the Midterm Selloff: &#39;Markets Top Tick and Set New Records&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T15:52:55.095479-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI Announces Partnering With Hacktron To Find Vulnerabilities In OpenAI\u2019s Systems",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T15:52:55.170339-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Is Reportedly Pouring Billions Into AI&#39;s Next Big Bottleneck: Advanced Chip Packaging",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T15:52:55.174713-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "AI Stocks Could Fall Further Despite Surging GPU Demand, Research Firm Warns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T15:52:55.255553-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AI Stocks Could Fall Further Despite Surging GPU Demand, Research Firm Warns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T15:52:55.335235-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Introduces Spaces Feature In Muse App",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T15:52:55.339608-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Unity Software Just Did Something It Hasn&#39;t Done Since Its IPO \u2014 and Wall Street Wants More",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T15:52:55.516127-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Oracle\u2019s AI Trouble Is Wall Street\u2019s New Headache: 2 ETFs to Watch as Data Center Fears Grow",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T15:52:55.520525-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Jason Calacanis Is Buying These 8 Stocks After the Midterm Selloff: &#39;Markets Top Tick and Set New Records&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T15:52:55.525486-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Unity Software Just Did Something It Hasn&#39;t Done Since Its IPO \u2014 and Wall Street Wants More",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
     "ts": "2026-11-06T15:52:55.542553-05:00",
     "symbols": [
       "TMDX"
@@ -4830,6 +4410,36 @@
     "sentiment": "positive"
   },
   {
+    "ts": "2026-11-06T15:52:55.606424-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Oracle\u2019s AI Trouble Is Wall Street\u2019s New Headache: 2 ETFs to Watch as Data Center Fears Grow",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T15:52:55.610840-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Jason Calacanis Is Buying These 8 Stocks After the Midterm Selloff: &#39;Markets Top Tick and Set New Records&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T15:52:55.680645-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Jason Calacanis Is Buying These 8 Stocks After the Midterm Selloff: &#39;Markets Top Tick and Set New Records&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
     "ts": "2026-11-06T15:52:56.015090-05:00",
     "symbols": [
       "PAR"
@@ -4838,6 +4448,16 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T15:52:56.286537-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Nvidia Is Reportedly Pouring Billions Into AI&#39;s Next Big Bottleneck: Advanced Chip Packaging",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   },
   {
     "ts": "2026-11-06T15:52:57.005478-05:00",
@@ -4880,6 +4500,16 @@
     "sentiment": "negative"
   },
   {
+    "ts": "2026-11-06T15:52:57.033537-05:00",
+    "symbols": [
+      "AFRM"
+    ],
+    "headline": "Scotiabank Maintains Sector Outperform on Affirm Holdings, Raises Price Target to $97",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
     "ts": "2026-11-06T15:52:58.011840-05:00",
     "symbols": [
       "QBTS"
@@ -4898,6 +4528,26 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T15:52:58.327051-05:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "Oracle\u2019s AI Trouble Is Wall Street\u2019s New Headache: 2 ETFs to Watch as Data Center Fears Grow",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T15:52:58.597505-05:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "RBC Capital Maintains Outperform on Cloudflare, Lowers Price Target to $350",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   },
   {
     "ts": "2026-11-06T15:52:58.783214-05:00",
@@ -4928,6 +4578,16 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T15:52:59.030673-05:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Jason Calacanis Is Buying These 8 Stocks After the Midterm Selloff: &#39;Markets Top Tick and Set New Records&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   },
   {
     "ts": "2026-11-06T15:52:59.738492-05:00",
@@ -4990,6 +4650,16 @@
     "sentiment": "positive"
   },
   {
+    "ts": "2026-11-06T15:53:01.473932-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "If You Invested $100 In Goldman Sachs Group Stock 5 Years Ago, You Would Have This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
     "ts": "2026-11-06T15:53:01.614986-05:00",
     "symbols": [
       "CALY"
@@ -4998,5 +4668,335 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T15:53:02.402033-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle\u2019s AI Trouble Is Wall Street\u2019s New Headache: 2 ETFs to Watch as Data Center Fears Grow",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T15:53:02.815909-05:00",
+    "symbols": [
+      "STLN"
+    ],
+    "headline": "BTIG Maintains Buy on Starling Oncology, Raises Price Target to $10",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T15:53:03.177917-05:00",
+    "symbols": [
+      "CGON"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T15:53:03.561006-05:00",
+    "symbols": [
+      "ARDT"
+    ],
+    "headline": "Stephens &amp; Co. Maintains Overweight on Ardent Health, Raises Price Target to $21",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T15:53:04.156191-05:00",
+    "symbols": [
+      "SG"
+    ],
+    "headline": "DA Davidson Maintains Neutral on Sweetgreen, Raises Price Target to $12",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T15:53:04.788518-05:00",
+    "symbols": [
+      "SPRY"
+    ],
+    "headline": "ARS Pharmaceuticals Analysts Cut Their Forecasts After Downbeat Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T15:53:04.793073-05:00",
+    "symbols": [
+      "SPRY"
+    ],
+    "headline": "Cantor Fitzgerald Maintains Overweight on ARS Pharmaceuticals, Lowers Price Target to $20",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T15:53:04.797436-05:00",
+    "symbols": [
+      "SPRY"
+    ],
+    "headline": "Raymond James Downgrades ARS Pharmaceuticals to Outperform, Lowers Price Target to $17",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T15:53:04.926013-05:00",
+    "symbols": [
+      "SKWD"
+    ],
+    "headline": "Barclays Maintains Overweight on Skyward Specialty, Raises Price Target to $71",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T15:53:04.930479-05:00",
+    "symbols": [
+      "SKWD"
+    ],
+    "headline": "Skyward Specialty Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T15:53:05.095273-05:00",
+    "symbols": [
+      "RCEL"
+    ],
+    "headline": "Texas Roadhouse To Rally Around 11%? Here Are 10 Top Analyst Forecasts For Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T15:53:05.099824-05:00",
+    "symbols": [
+      "RCEL"
+    ],
+    "headline": "BTIG Maintains Buy on AVITA Medical, Raises Price Target to $21",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T15:53:05.242186-05:00",
+    "symbols": [
+      "SPNT"
+    ],
+    "headline": "SiriusPoint Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T15:53:05.318394-05:00",
+    "symbols": [
+      "XPOF"
+    ],
+    "headline": "Xponential Fitness Reports Q3 2026 Financial Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T15:53:05.392105-05:00",
+    "symbols": [
+      "AMN"
+    ],
+    "headline": "Citizens Maintains Market Outperform on AMN Healthcare Services, Raises Price Target to $51",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T15:53:05.543740-05:00",
+    "symbols": [
+      "BL"
+    ],
+    "headline": "Texas Roadhouse To Rally Around 11%? Here Are 10 Top Analyst Forecasts For Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T15:53:05.548129-05:00",
+    "symbols": [
+      "BL"
+    ],
+    "headline": "Piper Sandler Maintains Neutral on BlackLine, Lowers Price Target to $30",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T15:53:05.619238-05:00",
+    "symbols": [
+      "TBCH"
+    ],
+    "headline": "B. Riley Securities Downgrades Turtle Beach to Neutral, Maintains Price Target to $17",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T15:53:05.623665-05:00",
+    "symbols": [
+      "TBCH"
+    ],
+    "headline": "DraftKings Posts Downbeat Q3 Results, Joins Atlassian, Natera And Other Big Stocks Moving Lower In Friday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T15:53:05.628074-05:00",
+    "symbols": [
+      "TBCH"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T15:53:05.705747-05:00",
+    "symbols": [
+      "SLVM"
+    ],
+    "headline": "Sylvamo Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T15:53:05.710189-05:00",
+    "symbols": [
+      "SLVM"
+    ],
+    "headline": "Sylvamo Q3 Adj. EPS $1.33 Beats $1.14 Estimate, Sales $645.000M Miss $822.043M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T15:53:05.714781-05:00",
+    "symbols": [
+      "SLVM"
+    ],
+    "headline": "Sylvamo Enters Put Option Agreement To Sell Its Europe Business, Including Uncoated Freesheet Paper Mills In France And Sweden, As Well As Forestry Operations; Terms Not Disclosed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T15:53:05.786140-05:00",
+    "symbols": [
+      "BIP"
+    ],
+    "headline": "Brookfield Infrastructure Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T15:53:05.790646-05:00",
+    "symbols": [
+      "BIP"
+    ],
+    "headline": "Brookfield Infrastructure Partners Q3 EPS $(0.04), Sales $6.556B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T15:53:05.881304-05:00",
+    "symbols": [
+      "REAX"
+    ],
+    "headline": "Jones Trading Maintains Buy on Real REMAX Group, Lowers Price Target to $25.75",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T15:53:05.982875-05:00",
+    "symbols": [
+      "TEAM"
+    ],
+    "headline": "Truist Securities Reiterates Buy on Atlassian, Lowers Price Target to $200",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T15:53:05.987456-05:00",
+    "symbols": [
+      "TEAM"
+    ],
+    "headline": "Nasdaq 100 Rebounds 2% After Worst Day Since 2020, Payrolls Smash Estimates: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T15:53:05.991879-05:00",
+    "symbols": [
+      "TEAM"
+    ],
+    "headline": "Oppenheimer Maintains Outperform on Atlassian, Lowers Price Target to $240",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T15:53:05.996269-05:00",
+    "symbols": [
+      "TEAM"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Atlassian, Lowers Price Target to $200",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T15:53:06.000734-05:00",
+    "symbols": [
+      "TEAM"
+    ],
+    "headline": "DraftKings Posts Downbeat Q3 Results, Joins Atlassian, Natera And Other Big Stocks Moving Lower In Friday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T15:53:06.230177-05:00",
+    "symbols": [
+      "TNDM"
+    ],
+    "headline": "Barclays Maintains Equal-Weight on Tandem Diabetes Care, Raises Price Target to $20",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T15:53:06.234789-05:00",
+    "symbols": [
+      "TNDM"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Tandem Diabetes Care, Lowers Price Target to $25",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

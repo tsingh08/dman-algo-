@@ -48195,7 +48195,7 @@
 "ticker": "NEM",
 "setup": "Day 2 Continuation",
 "bias": "LONG",
-"taken": true,
+"taken": false,
 "reject": "macro blackout",
 "score": 100,
 "final_score": 100.0,
@@ -48246,8 +48246,8 @@
 "Gap Size": 0,
 "News Catalyst": 0
 },
-"seen": 19,
-"last_ts": "2026-11-06T10:01:51.203765-05:00",
+"seen": 20,
+"last_ts": "2026-11-06T10:10:37.425415-05:00",
 "entry_min": 119.71,
 "entry_max": 119.71
 },
@@ -48308,8 +48308,8 @@
 "Gap Size": 0,
 "News Catalyst": 0
 },
-"seen": 19,
-"last_ts": "2026-11-06T10:01:51.465380-05:00",
+"seen": 20,
+"last_ts": "2026-11-06T10:10:38.037627-05:00",
 "entry_min": 5.27,
 "entry_max": 5.27
 },
@@ -48714,8 +48714,8 @@
 "macro_ok": true,
 "divergence_free": true,
 "breakdown": {},
-"seen": 1,
-"last_ts": "2026-11-06T10:01:53.796906-05:00",
+"seen": 2,
+"last_ts": "2026-11-06T10:10:40.678072-05:00",
 "entry_min": 1.9739,
 "entry_max": 1.9739
 }

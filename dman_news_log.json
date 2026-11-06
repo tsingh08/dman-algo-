@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-11-06T10:23:46.362350-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;OPEC Output Neared Pre-War Levels on Saudi Rebound, Survey Shows&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T10:23:52.566726-05:00",
-    "symbols": [
-      "PSQH"
-    ],
-    "headline": "PSQ Holdings Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T10:23:52.572416-05:00",
-    "symbols": [
-      "PSQH"
-    ],
-    "headline": "PSQ Holdings Sees FY2026 Sales $32.000M vs $33.059M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T10:23:52.579565-05:00",
-    "symbols": [
-      "PSQH"
-    ],
-    "headline": "PSQ Holdings Q3 EPS $(1.00) Beats $(2.13) Estimate, Sales $7.342M Miss $7.758M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T10:23:52.766730-05:00",
-    "symbols": [
-      "SLVM"
-    ],
-    "headline": "Sylvamo Q3 Adj. EPS $1.33 Beats $1.14 Estimate, Sales $645.000M Miss $822.043M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T10:23:52.772509-05:00",
-    "symbols": [
-      "SLVM"
-    ],
-    "headline": "Sylvamo Enters Put Option Agreement To Sell Its Europe Business, Including Uncoated Freesheet Paper Mills In France And Sweden, As Well As Forestry Operations; Terms Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T10:23:52.862739-05:00",
-    "symbols": [
-      "EXTR"
-    ],
-    "headline": "Extreme Networks Exploring Sale Of The Company After Interest From Suitors - Reuters Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T10:23:53.051743-05:00",
-    "symbols": [
-      "CLAR"
-    ],
-    "headline": "Clarus Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T10:23:53.057401-05:00",
-    "symbols": [
-      "CLAR"
-    ],
-    "headline": "Clarus Sees Q4 Sales $62.000M-$66.000M vs $65.950M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-06T10:23:53.063060-05:00",
     "symbols": [
       "CLAR"
@@ -4996,6 +4906,96 @@
     ],
     "headline": "Nasdaq Jumps 400 Points; US Nonfarm Payrolls Top Estimates In October",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T12:01:50.387650-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "StoneX Maintains Hold Rating on Palantir Technologies Inc.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T12:01:50.392699-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir Set to Receive NHS Contract Extension",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T12:01:50.596951-05:00",
+    "symbols": [
+      "PSQH"
+    ],
+    "headline": "PSQ Holdings Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T12:01:50.603028-05:00",
+    "symbols": [
+      "PSQH"
+    ],
+    "headline": "PSQ Holdings Sees FY2026 Sales $32.000M vs $33.059M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T12:01:50.608648-05:00",
+    "symbols": [
+      "PSQH"
+    ],
+    "headline": "PSQ Holdings Q3 EPS $(1.00) Beats $(2.13) Estimate, Sales $7.342M Miss $7.758M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T12:01:50.619746-05:00",
+    "symbols": [
+      "SLVM"
+    ],
+    "headline": "Sylvamo Q3 Adj. EPS $1.33 Beats $1.14 Estimate, Sales $645.000M Miss $822.043M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T12:01:50.624717-05:00",
+    "symbols": [
+      "SLVM"
+    ],
+    "headline": "Sylvamo Enters Put Option Agreement To Sell Its Europe Business, Including Uncoated Freesheet Paper Mills In France And Sweden, As Well As Forestry Operations; Terms Not Disclosed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T12:01:50.631380-05:00",
+    "symbols": [
+      "EXTR"
+    ],
+    "headline": "Extreme Networks Exploring Sale Of The Company After Interest From Suitors - Reuters Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T12:02:20.569269-05:00",
+    "symbols": [
+      "SBS"
+    ],
+    "headline": "Sabesp Reports Third Quarter 2026 Financial Results",
+    "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": null
   }

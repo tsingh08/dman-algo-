@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-11-06T12:59:26.907413-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "CoreWeave Stock Gains Friday: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T12:59:26.911949-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "AI Bubble About to Burst? Top Tech Investor Warns Most Neocloud Players Could Go to Zero",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T12:59:26.916309-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Jim Cramer Raises Red Flags Over CoreWeave, IREN and Nebius Data Center Expansion: &#39;These Are What I Am Concerned About&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T12:59:27.109819-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "AI Bubble About to Burst? Top Tech Investor Warns Most Neocloud Players Could Go to Zero",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T12:59:27.706547-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Micron, AMD, SanDisk Lead AI Stock Bounce as Investors Buy the Dip",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T12:59:27.711058-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "October Payrolls Smash Estimates at 165K, Jobless Rate Falls to 4.1% (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T12:59:27.899198-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "What&#39;s Going On With Marvell Technology Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T12:59:27.904516-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#39;Trump administration scraps meeting of panel that includes Meta&#39;s Zuckerberg, Nvidia&#39;s Huang&#39; - Reuters",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T12:59:27.908968-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Softbank In Discussions To Invest Hundreds Of Millions Of Dollars In Latest OpenAI Funding Round Of $20B Across Two Parts; Emirati Group Including MGX Expected To Be Largest Investor At Latest Valuation Of $1.25T - NY Times DealBook",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-06T12:59:28.207260-05:00",
     "symbols": [
       "GOOGL"
@@ -4995,6 +4905,96 @@
       "XERS"
     ],
     "headline": "HC Wainwright &amp; Co. Maintains Buy on Xeris Biopharma Holdings, Raises Price Target to $18",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T14:39:07.638668-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Elon Musk Pardon Request Hits Change.org with Tesla Influencer Sharing: What Investors Should Know",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T14:39:07.645244-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Reported Earlier: &#39;SpaceX, Tesla Merger Less Likely After Midterms. Texas Gov. Requests Pause On Land Talks&#39; - Investor Business Daily",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T14:39:07.739665-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "CoreWeave Stock Gains Friday: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T14:39:07.744359-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "AI Bubble About to Burst? Top Tech Investor Warns Most Neocloud Players Could Go to Zero",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T14:39:07.835185-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "AI Bubble About to Burst? Top Tech Investor Warns Most Neocloud Players Could Go to Zero",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T14:39:08.077353-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Micron, AMD, SanDisk Lead AI Stock Bounce as Investors Buy the Dip",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T14:39:08.496400-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Elon Musk Pardon Request Hits Change.org with Tesla Influencer Sharing: What Investors Should Know",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T14:39:08.501119-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Reported Earlier: &#39;SpaceX, Tesla Merger Less Likely After Midterms. Texas Gov. Requests Pause On Land Talks&#39; - Investor Business Daily",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T14:39:18.355824-05:00",
+    "symbols": [
+      "FROG"
+    ],
+    "headline": "Canaccord Genuity Maintains Buy on JFrog, Raises Price Target to $110",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

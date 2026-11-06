@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-06T09:39:54.469745-05:00",
-    "symbols": [
-      "TMQ"
-    ],
-    "headline": "\u2018Subpoena Season\u2019: Democrats Set Their Sights on $40B in Mining Deals",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-06T09:39:54.641902-05:00",
     "symbols": [
       "AXP"
@@ -4995,6 +4985,16 @@
       "SPCX"
     ],
     "headline": "SpaceX Faces Potential Network Access Hurdles for Boost Mobile Acquisition",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T11:04:20.587638-05:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "Rothschild & Co Redburn Adjusts SLB Price Target to $64 From $68",
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "neutral"

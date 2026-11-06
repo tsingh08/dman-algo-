@@ -30945,8 +30945,15 @@ class TestBzoneShockPause(unittest.TestCase):
 
     def _run(self, closes, flags=None):
         m = self._map(closes)
-        with patch.object(a, "_spy_ohlc_map", lambda refresh=False: m),              patch.object(a, "_load_flags", return_value=flags or {}):
+        # Window logic tested at 3 sessions so six bars can show expiry.
+        with patch.object(a, "_spy_ohlc_map", lambda refresh=False: m),              patch.object(a, "BZONE_SHOCK_SESSIONS", 3),              patch.object(a, "_load_flags", return_value=flags or {}):
             return _REAL_BZONE_SHOCK_PAUSE(a.date(2026, 11, 6))
+
+    def test_live_window_is_ten_sessions(self):
+        # 3-9 sessions after a shock measured -8.92% vs SPY (t -3.61): a
+        # 3-session pause re-opened entries into the second-worst bucket.
+        self.assertEqual(a.BZONE_SHOCK_SESSIONS, 10)
+        self.assertEqual(a.BZONE_SHOCK_SPY_PCT, -2.0)
 
     def test_shock_yesterday_pauses(self):
         paused, why = self._run([760, 756, 755, 768, 767, 733])
@@ -30971,7 +30978,7 @@ class TestBzoneShockPause(unittest.TestCase):
     def test_todays_forming_bar_is_ignored(self):
         m = self._map([760, 756, 755, 768, 767, 766])
         m["2026-11-06"] = (766, 700)      # intraday crash today: not a completed session
-        with patch.object(a, "_spy_ohlc_map", lambda refresh=False: m),              patch.object(a, "_load_flags", return_value={}):
+        with patch.object(a, "_spy_ohlc_map", lambda refresh=False: m),              patch.object(a, "BZONE_SHOCK_SESSIONS", 3),              patch.object(a, "_load_flags", return_value={}):
             self.assertFalse(_REAL_BZONE_SHOCK_PAUSE(a.date(2026, 11, 6))[0])
 
     def test_override_flag(self):

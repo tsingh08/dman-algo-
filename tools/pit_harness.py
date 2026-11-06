@@ -38,7 +38,12 @@ MARKET SHOCKS (2026-11-05, SPY -4.4% / QQQ -6.5% / SOX -12.3%; same cache):
         k=2  n=104  mean  -7.94  t -2.02      rest +0.25
         k=3  n=191  mean -10.09  t -3.09      rest +0.56   every year negative
         k=5  n=322  mean -10.94  t -4.07      rest +1.02
-     -> SHIPPED as an entry pause (BZONE_SHOCK_SPY_PCT -2, BZONE_SHOCK_SESSIONS 3).
+  by sessions SINCE the shock (signal day): 0-2 -10.09 (t -3.09), 3-9 -8.92
+        (t -3.61, every year), 10-19 +1.84 (t 2.50, 2026 neg), 20-39 -0.95, 40+ +2.28
+     -> SHIPPED as an entry pause (BZONE_SHOCK_SPY_PCT -2, BZONE_SHOCK_SESSIONS 10).
+  Day 2 Continuation (rebuilt on this universe, $5+/$25M, n=219, +0.40 vs SPY):
+        0-2 sessions after a shock +1.55 (n=11), 3-9 +3.53 (n=13, t 1.67), 10-19
+        +0.46, none in 20 +0.09 -> NOT paused; post-shock is its best bucket (unproven).
         (<= -3% days alone: n=6-24, all April 2025, positive -- too few to act on.)
   "buy relative-strength leaders on a shock day" (green / top decile / near
         52w high, liquid): NEGATIVE at every cut, 20d t -2.3..-3.6. Do not buy them.

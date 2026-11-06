@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-11-06T09:39:47.953101-05:00",
-    "symbols": [
-      "ALMU"
-    ],
-    "headline": "Aeluma to Participate in 2026 Stifel Deep Tech Summit",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T09:39:48.125838-05:00",
-    "symbols": [
-      "TPR"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Tapestry, Raises Price Target to $155",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T09:39:48.342037-05:00",
-    "symbols": [
-      "XRAY"
-    ],
-    "headline": "DraftKings Posts Downbeat Q3 Results, Joins Atlassian, Natera And Other Big Stocks Moving Lower In Friday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T09:39:48.345711-05:00",
-    "symbols": [
-      "XRAY"
-    ],
-    "headline": "Dentsply Sirona Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T09:39:48.349193-05:00",
-    "symbols": [
-      "XRAY"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-06T09:39:48.352697-05:00",
     "symbols": [
       "XRAY"
@@ -4998,5 +4948,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T10:52:03.224276-05:00",
+    "symbols": [
+      "SERV"
+    ],
+    "headline": "CORRECTION: Serve Robotics Q3 Adj. EPS $(0.51) Beats $(0.67) Estimate, Sales $2.835M Beat $1.654M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T10:52:03.229707-05:00",
+    "symbols": [
+      "SERV"
+    ],
+    "headline": "Serve Robotics Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T10:52:03.235029-05:00",
+    "symbols": [
+      "SERV"
+    ],
+    "headline": "Serve Robotics Stock Rallies After Q3 Revenue Blows Past Estimates",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T10:52:03.239504-05:00",
+    "symbols": [
+      "SERV"
+    ],
+    "headline": "Serve Robotics Q3 Adj. EPS $(0.50) Beats $(0.67) Estimate, Sales $2.835M Beat $1.654M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T10:52:03.244448-05:00",
+    "symbols": [
+      "SERV"
+    ],
+    "headline": "Serve Robotics Raises FY2026 Sales Guidance from $9.000M-$10.000M to $12.000M vs $9.700M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

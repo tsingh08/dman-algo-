@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-11-06T09:39:42.617199-05:00",
-    "symbols": [
-      "STX"
-    ],
-    "headline": "SanDisk Leads Memory Stocks Lower: A Look Inside the Rout",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T09:39:42.800581-05:00",
-    "symbols": [
-      "CRWV"
-    ],
-    "headline": "CoreWeave Stock Gains Friday: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-11-06T09:39:42.804202-05:00",
     "symbols": [
       "CRWV"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T10:14:51.816584-05:00",
+    "symbols": [
+      "RAYA"
+    ],
+    "headline": "Nasdaq Jumps 400 Points; US Nonfarm Payrolls Top Estimates In October",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T10:14:52.475537-05:00",
+    "symbols": [
+      "FG"
+    ],
+    "headline": "F&amp;G Annuities &amp; Life Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

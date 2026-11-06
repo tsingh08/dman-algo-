@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-06T10:23:53.063060-05:00",
-    "symbols": [
-      "CLAR"
-    ],
-    "headline": "Clarus Raises FY2026 Sales Guidance from $245.000M-$255.000M to $251.000M-$255.000M vs $252.472M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-06T10:23:53.068276-05:00",
     "symbols": [
       "CLAR"
@@ -4998,5 +4988,15 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T12:03:20.671795-05:00",
+    "symbols": [
+      "STLA"
+    ],
+    "headline": "Jeep Brand Collaborates with Marvel Studios' 'Avengers: Doomsday'",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

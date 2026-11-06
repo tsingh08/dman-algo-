@@ -3598,5 +3598,50 @@
   "drift_pct": 1.1,
   "range_ratio": 0.54,
   "near_high": 0.974
+ },
+ {
+  "ts": "2026-11-06T09:45:31.200252-05:00",
+  "ticker": "EBND",
+  "price": 20.56,
+  "rvol": 1.68,
+  "drift_pct": 0.39,
+  "range_ratio": 0.69,
+  "near_high": 0.964
+ },
+ {
+  "ts": "2026-11-06T09:45:31.200266-05:00",
+  "ticker": "YLD",
+  "price": 18.28,
+  "rvol": 2.09,
+  "drift_pct": 0.44,
+  "range_ratio": 0.63,
+  "near_high": 0.961
+ },
+ {
+  "ts": "2026-11-06T09:45:31.200269-05:00",
+  "ticker": "BWMN",
+  "price": 43.0,
+  "rvol": 1.99,
+  "drift_pct": 0.23,
+  "range_ratio": 0.51,
+  "near_high": 1.0
+ },
+ {
+  "ts": "2026-11-06T09:45:31.200273-05:00",
+  "ticker": "RSPH",
+  "price": 40.17,
+  "rvol": 1.83,
+  "drift_pct": 0.68,
+  "range_ratio": 0.57,
+  "near_high": 0.967
+ },
+ {
+  "ts": "2026-11-06T09:45:31.200276-05:00",
+  "ticker": "ANDG",
+  "price": 66.0,
+  "rvol": 1.75,
+  "drift_pct": 0.27,
+  "range_ratio": 0.37,
+  "near_high": 0.978
  }
 ]

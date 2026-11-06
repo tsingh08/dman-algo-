@@ -919,108 +919,108 @@
 "ticker": "MSFT",
 "entry": 525.27,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": 0.97,
 "entry_lim": 525.27,
-"pnl_lim_pct": null
+"pnl_lim_pct": 0.97
 },
 {
 "date": "2026-10-29",
 "ticker": "NVDA",
 "entry": 208.94,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": -7.19,
 "entry_lim": 208.94,
-"pnl_lim_pct": null
+"pnl_lim_pct": -7.19
 },
 {
 "date": "2026-10-29",
 "ticker": "TSLA",
 "entry": 393.22,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": -9.84,
 "entry_lim": 393.22,
-"pnl_lim_pct": null
+"pnl_lim_pct": -9.84
 },
 {
 "date": "2026-10-29",
 "ticker": "CRM",
 "entry": 231.34,
 "rsi2": 9.8,
-"pnl_pct": null,
+"pnl_pct": -6.38,
 "entry_lim": 231.34,
-"pnl_lim_pct": null
+"pnl_lim_pct": -6.38
 },
 {
 "date": "2026-10-29",
 "ticker": "PLTR",
 "entry": 193.625,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": -16.13,
 "entry_lim": 193.625,
-"pnl_lim_pct": null
+"pnl_lim_pct": -16.13
 },
 {
 "date": "2026-10-29",
 "ticker": "ANET",
 "entry": 173.57,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": -0.63,
 "entry_lim": 173.57,
-"pnl_lim_pct": null
+"pnl_lim_pct": -0.63
 },
 {
 "date": "2026-10-29",
 "ticker": "CRWD",
 "entry": 261.06,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": -12.87,
 "entry_lim": 261.06,
-"pnl_lim_pct": null
+"pnl_lim_pct": -12.87
 },
 {
 "date": "2026-10-29",
 "ticker": "PANW",
 "entry": 383.39,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": -14.57,
 "entry_lim": 382.4728,
-"pnl_lim_pct": null
+"pnl_lim_pct": -14.37
 },
 {
 "date": "2026-10-29",
 "ticker": "NET",
 "entry": 299.69,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": -7.98,
 "entry_lim": 299.69,
-"pnl_lim_pct": null
+"pnl_lim_pct": -7.98
 },
 {
 "date": "2026-10-29",
 "ticker": "DDOG",
 "entry": 253.615,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": -28.06,
 "entry_lim": 253.615,
-"pnl_lim_pct": null
+"pnl_lim_pct": -28.06
 },
 {
 "date": "2026-10-29",
 "ticker": "FTNT",
 "entry": 137.09,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": -9.74,
 "entry_lim": 137.09,
-"pnl_lim_pct": null
+"pnl_lim_pct": -9.74
 },
 {
 "date": "2026-10-29",
 "ticker": "ZS",
 "entry": 244.245,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": -14.26,
 "entry_lim": 244.245,
-"pnl_lim_pct": null
+"pnl_lim_pct": -14.26
 },
 {
 "date": "2026-10-30",
@@ -1632,6 +1632,78 @@
 "rsi2": 0.0,
 "pnl_pct": null,
 "entry_lim": 51.8178,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-05",
+"ticker": "SNOW",
+"entry": 280.0,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": null,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-05",
+"ticker": "PLTR",
+"entry": 158.68,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": null,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-05",
+"ticker": "XOM",
+"entry": 164.25,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 164.25,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-05",
+"ticker": "CRWD",
+"entry": 230.69,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": null,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-05",
+"ticker": "PANW",
+"entry": 331.5,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": null,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-05",
+"ticker": "ZS",
+"entry": 209.53,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": null,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-05",
+"ticker": "LMT",
+"entry": 569.0,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 569.0,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-05",
+"ticker": "CVX",
+"entry": 211.525,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 211.525,
 "pnl_lim_pct": null
 }
 ]

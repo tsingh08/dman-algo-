@@ -3832,5 +3832,104 @@
   "drift_pct": 0.58,
   "range_ratio": 0.62,
   "near_high": 0.983
+ },
+ {
+  "ts": "2026-11-06T15:15:34.016116-05:00",
+  "ticker": "VRTX",
+  "price": 546.745,
+  "rvol": 1.5,
+  "drift_pct": 1.16,
+  "range_ratio": 0.52,
+  "near_high": 0.978
+ },
+ {
+  "ts": "2026-11-06T15:15:34.016130-05:00",
+  "ticker": "TMB",
+  "price": 25.0052,
+  "rvol": 4.86,
+  "drift_pct": 0.44,
+  "range_ratio": 0.28,
+  "near_high": 0.987
+ },
+ {
+  "ts": "2026-11-06T15:15:34.016134-05:00",
+  "ticker": "TIPX",
+  "price": 18.4457,
+  "rvol": 2.36,
+  "drift_pct": 0.08,
+  "range_ratio": 0.27,
+  "near_high": 0.987
+ },
+ {
+  "ts": "2026-11-06T15:15:34.016136-05:00",
+  "ticker": "BSCQ",
+  "price": 19.535,
+  "rvol": 2.26,
+  "drift_pct": 0.08,
+  "range_ratio": 0.29,
+  "near_high": 0.998
+ },
+ {
+  "ts": "2026-11-06T15:15:34.016139-05:00",
+  "ticker": "BWMN",
+  "price": 43.0,
+  "rvol": 1.99,
+  "drift_pct": 0.23,
+  "range_ratio": 0.51,
+  "near_high": 1.0
+ },
+ {
+  "ts": "2026-11-06T15:15:34.016142-05:00",
+  "ticker": "BSCX",
+  "price": 20.44,
+  "rvol": 2.01,
+  "drift_pct": 0.57,
+  "range_ratio": 0.53,
+  "near_high": 0.98
+ },
+ {
+  "ts": "2026-11-06T15:15:34.016145-05:00",
+  "ticker": "FIIG",
+  "price": 20.12,
+  "rvol": 3.16,
+  "drift_pct": 0.6,
+  "range_ratio": 0.42,
+  "near_high": 0.981
+ },
+ {
+  "ts": "2026-11-06T15:15:34.016148-05:00",
+  "ticker": "BSCV",
+  "price": 16.025,
+  "rvol": 1.95,
+  "drift_pct": 0.53,
+  "range_ratio": 0.62,
+  "near_high": 0.983
+ },
+ {
+  "ts": "2026-11-06T15:15:34.016151-05:00",
+  "ticker": "AQN",
+  "price": 5.68,
+  "rvol": 1.55,
+  "drift_pct": 1.25,
+  "range_ratio": 0.58,
+  "near_high": 0.964
+ },
+ {
+  "ts": "2026-11-06T15:15:34.016154-05:00",
+  "ticker": "JSCP",
+  "price": 46.285,
+  "rvol": 2.89,
+  "drift_pct": 0.14,
+  "range_ratio": 0.31,
+  "near_high": 0.985
+ },
+ {
+  "ts": "2026-11-06T15:15:34.016157-05:00",
+  "ticker": "VUSB",
+  "price": 49.52,
+  "rvol": 1.58,
+  "drift_pct": 0.14,
+  "range_ratio": 0.42,
+  "near_high": 0.995
  }
 ]

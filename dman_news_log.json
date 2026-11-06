@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-06T12:59:41.259477-05:00",
-    "symbols": [
-      "BWMN"
-    ],
-    "headline": "Bernhard Capital Partners and Bowman Consulting Group Announce Completion of Approximately $1 Billion Acquisition",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T12:59:41.590113-05:00",
-    "symbols": [
-      "AXON"
-    ],
-    "headline": "RBC Capital Maintains Outperform on Axon Enterprise, Lowers Price Target to $615",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T12:59:41.596745-05:00",
-    "symbols": [
-      "AXON"
-    ],
-    "headline": "These Analysts Cut Their Forecasts On Axon Enterprise After Downbeat Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-06T12:59:42.293447-05:00",
     "symbols": [
       "TILE"
@@ -4998,5 +4968,35 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T15:15:09.523364-05:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "Reported Earlier: Vistra Authorizes Additional $1.5B In Share Buybacks, With $2.5B Remaining Through 2028",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T15:15:16.214154-05:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Novo Nordisk Reports Greater Weight Loss And Improved Liver Outcomes With Semaglutide 2.4mg Versus Resmetirom In Real-World MASH Study",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T15:15:30.458287-05:00",
+    "symbols": [
+      "IREN"
+    ],
+    "headline": "HC Wainwright &amp; Co. Maintains Buy on IREN, Lowers Price Target to $56",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

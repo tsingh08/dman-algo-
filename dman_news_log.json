@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-11-06T09:39:45.581622-05:00",
-    "symbols": [
-      "TSEM"
-    ],
-    "headline": "Chip Stocks Just Had Their Worst Day Since 2020: 28 of 30 Biggest Names Are in a Bear Market",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T09:39:45.771577-05:00",
-    "symbols": [
-      "SNAP"
-    ],
-    "headline": "UBS Maintains Neutral on Snap, Lowers Price Target to $6",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-06T09:39:45.775322-05:00",
     "symbols": [
       "SNAP"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T10:32:20.533362-05:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Eli Lilly Partners with Hims & Hers to Offer Obesity Drugs, Increasing Competition with Novo Nordisk",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T10:32:26.474500-05:00",
+    "symbols": [
+      "TMC"
+    ],
+    "headline": "The Metals Company Announces Third Quarter 2026 Earnings Conference Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

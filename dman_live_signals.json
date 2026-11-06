@@ -83,6 +83,30 @@
       "score": 100,
       "date": "2026-11-02",
       "timestamp": "2026-11-02T12:57:24.364169-05:00"
+    },
+    {
+      "ticker": "NEM",
+      "setup": "Day 2 Continuation",
+      "bias": "LONG",
+      "entry": 119.71,
+      "stop": 114.57,
+      "target1": 129.99,
+      "target2": 137.7,
+      "score": 100,
+      "date": "2026-11-06",
+      "timestamp": "2026-11-06T10:01:53.852882-05:00"
+    },
+    {
+      "ticker": "BTG",
+      "setup": "Day 2 Continuation",
+      "bias": "LONG",
+      "entry": 5.27,
+      "stop": 4.96,
+      "target1": 5.89,
+      "target2": 6.35,
+      "score": 100,
+      "date": "2026-11-06",
+      "timestamp": "2026-11-06T10:01:53.855732-05:00"
     }
   ]
 }

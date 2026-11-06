@@ -3643,5 +3643,32 @@
   "drift_pct": 0.27,
   "range_ratio": 0.37,
   "near_high": 0.978
+ },
+ {
+  "ts": "2026-11-06T11:20:54.987528-05:00",
+  "ticker": "TIPX",
+  "price": 18.4425,
+  "rvol": 2.23,
+  "drift_pct": 0.09,
+  "range_ratio": 0.27,
+  "near_high": 0.987
+ },
+ {
+  "ts": "2026-11-06T11:20:54.987543-05:00",
+  "ticker": "BWMN",
+  "price": 43.0,
+  "rvol": 1.99,
+  "drift_pct": 0.23,
+  "range_ratio": 0.51,
+  "near_high": 1.0
+ },
+ {
+  "ts": "2026-11-06T11:20:54.987547-05:00",
+  "ticker": "FIIG",
+  "price": 20.12,
+  "rvol": 2.93,
+  "drift_pct": 0.6,
+  "range_ratio": 0.41,
+  "near_high": 0.981
  }
 ]

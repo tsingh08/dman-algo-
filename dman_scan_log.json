@@ -1,14 +1,5 @@
 [
   {
-    "ts": "2026-11-04T13:26:31.551252-05:00",
-    "halted": true,
-    "halt_reason": "monthly_loss_limit",
-    "min_score": 85,
-    "tickers_total": 332,
-    "signals": 0,
-    "signal_tickers": []
-  },
-  {
     "ts": "2026-11-04T13:36:43.169792-05:00",
     "halted": true,
     "halt_reason": "monthly_loss_limit",
@@ -2075,5 +2066,23 @@
     "budget_hit": false,
     "news_breadth_pct": 46.8,
     "news_breadth_total": 375
+  },
+  {
+    "ts": "2026-11-06T12:41:44.960239-05:00",
+    "regime": "CHOP",
+    "regime_score": 8,
+    "vix": 24.1,
+    "min_score": 85,
+    "universe": "all",
+    "tickers_total": 138,
+    "signals": 0,
+    "signal_tickers": [],
+    "signal_scores": [],
+    "rejected_no_signal": 137,
+    "rejected_hard_gate": 1,
+    "rejected_low_score": 0,
+    "budget_hit": false,
+    "news_breadth_pct": 52.1,
+    "news_breadth_total": 365
   }
 ]

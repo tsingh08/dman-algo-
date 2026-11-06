@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-06T12:56:38.009597-05:00",
-    "symbols": [
-      "KRMN"
-    ],
-    "headline": "These Analysts Revise Their Forecasts On Karman After Upbeat Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T12:56:38.014752-05:00",
-    "symbols": [
-      "KRMN"
-    ],
-    "headline": "Needham Maintains Buy on Karman Holdings, Lowers Price Target to $50",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T12:59:26.742364-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk Posts On X &#34;SpaceX revenue this quarter alone will be substantially higher than NASA\u2019s entire annual budget!&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T12:59:26.747537-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk Says Tesla Has No Government Contracts And President Trump Ended Federal Incentives For Electric Vehicles; SpaceX Contracts With The Government Are Both The Best Product And The Lowest Price; Government Revenue Will Be Less Than 10% Of SpaceX Revenue This Quarter And Less Then 5% A Year From Now",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T12:59:26.752355-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "EXCLUSIVE: Nasdaq 100 Suffers Worst Day Since 2020, but Credit Markets Aren&#39;t Panicking, Says S&amp;P Global Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T12:59:26.756685-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk Claims SoftBank Is Defaulting on Turbine Orders",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-06T12:59:26.907413-05:00",
     "symbols": [
       "NBIS"
@@ -4998,5 +4938,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T14:28:00.527245-05:00",
+    "symbols": [
+      "SMR"
+    ],
+    "headline": "Canaccord Genuity Maintains Buy on NuScale Power, Lowers Price Target to $11",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T14:28:07.768968-05:00",
+    "symbols": [
+      "KRMN"
+    ],
+    "headline": "These Analysts Revise Their Forecasts On Karman After Upbeat Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T14:28:07.774353-05:00",
+    "symbols": [
+      "KRMN"
+    ],
+    "headline": "Needham Maintains Buy on Karman Holdings, Lowers Price Target to $50",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T14:28:08.091904-05:00",
+    "symbols": [
+      "XERS"
+    ],
+    "headline": "Oppenheimer Reiterates Outperform on Xeris Biopharma Holdings, Raises Price Target to $21",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T14:28:08.097047-05:00",
+    "symbols": [
+      "XERS"
+    ],
+    "headline": "Piper Sandler Reiterates Neutral on Xeris Biopharma Holdings, Raises Price Target to $12",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T14:28:08.102101-05:00",
+    "symbols": [
+      "XERS"
+    ],
+    "headline": "HC Wainwright &amp; Co. Maintains Buy on Xeris Biopharma Holdings, Raises Price Target to $18",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

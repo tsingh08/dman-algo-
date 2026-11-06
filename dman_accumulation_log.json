@@ -3778,5 +3778,59 @@
   "drift_pct": 0.67,
   "range_ratio": 0.62,
   "near_high": 0.984
+ },
+ {
+  "ts": "2026-11-06T13:41:00.937761-05:00",
+  "ticker": "TMB",
+  "price": 25.0199,
+  "rvol": 4.84,
+  "drift_pct": 0.5,
+  "range_ratio": 0.28,
+  "near_high": 0.987
+ },
+ {
+  "ts": "2026-11-06T13:41:00.937774-05:00",
+  "ticker": "TIPX",
+  "price": 18.445,
+  "rvol": 2.32,
+  "drift_pct": 0.08,
+  "range_ratio": 0.27,
+  "near_high": 0.987
+ },
+ {
+  "ts": "2026-11-06T13:41:00.937778-05:00",
+  "ticker": "BSCQ",
+  "price": 19.53,
+  "rvol": 2.22,
+  "drift_pct": 0.05,
+  "range_ratio": 0.29,
+  "near_high": 0.998
+ },
+ {
+  "ts": "2026-11-06T13:41:00.937781-05:00",
+  "ticker": "BWMN",
+  "price": 43.0,
+  "rvol": 1.99,
+  "drift_pct": 0.23,
+  "range_ratio": 0.51,
+  "near_high": 1.0
+ },
+ {
+  "ts": "2026-11-06T13:41:00.937784-05:00",
+  "ticker": "BSCX",
+  "price": 20.4417,
+  "rvol": 1.96,
+  "drift_pct": 0.58,
+  "range_ratio": 0.53,
+  "near_high": 0.98
+ },
+ {
+  "ts": "2026-11-06T13:41:00.937786-05:00",
+  "ticker": "BSCV",
+  "price": 16.0323,
+  "rvol": 1.9,
+  "drift_pct": 0.58,
+  "range_ratio": 0.62,
+  "near_high": 0.983
  }
 ]

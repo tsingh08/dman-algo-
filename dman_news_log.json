@@ -1,135 +1,5 @@
 [
   {
-    "ts": "2026-11-06T10:23:53.068276-05:00",
-    "symbols": [
-      "CLAR"
-    ],
-    "headline": "Clarus Q3 Adj. EPS $0.15 Beats $0.05 Estimate, Sales $71.218M Beat $66.772M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T10:23:53.142777-05:00",
-    "symbols": [
-      "IMCR"
-    ],
-    "headline": "Immunocore Hldgs Q3 EPS $(0.28) Misses $(0.10) Estimate, Sales $102.222M Miss $113.438M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T10:23:53.224516-05:00",
-    "symbols": [
-      "KINS"
-    ],
-    "headline": "Kingstone Companies Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T10:23:53.230072-05:00",
-    "symbols": [
-      "KINS"
-    ],
-    "headline": "Kingstone Companies Raises FY2026 GAAP EPS Guidance from $2.20-$2.90 to $2.70-$2.90 vs $2.66 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T10:23:53.234711-05:00",
-    "symbols": [
-      "KINS"
-    ],
-    "headline": "Kingstone Companies Q3 Adj. EPS $1.22 Beats $0.92 Estimate, Sales $62.412M Beat $42.800M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T10:23:53.307502-05:00",
-    "symbols": [
-      "MSLE"
-    ],
-    "headline": "Satellos Bioscience Switches BASECAMP Phase 2 Primary Endpoint To MRI Fat Fraction Following FDA Feedback",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T10:23:53.384728-05:00",
-    "symbols": [
-      "UEIC"
-    ],
-    "headline": "Universal Electronics Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T10:23:53.390093-05:00",
-    "symbols": [
-      "UEIC"
-    ],
-    "headline": "Universal Electronics Affirms FY2026 Adj EPS Guidance of $0.45-$0.65 vs $0.45 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T10:23:53.395533-05:00",
-    "symbols": [
-      "UEIC"
-    ],
-    "headline": "Universal Electronics Q3 Adj. EPS $0.17 Beats $0.10 Estimate, Sales $89.423M Beat $76.969M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T10:23:53.728439-05:00",
-    "symbols": [
-      "TDS"
-    ],
-    "headline": "Telephone and Data Systems Raises FY2026 TDS Telecom Revenue Guidance to $990M-$1.010B",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T10:23:53.733296-05:00",
-    "symbols": [
-      "TDS"
-    ],
-    "headline": "Telephone and Data Systems Announces $250M Buyback Plan",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T10:23:53.739035-05:00",
-    "symbols": [
-      "TDS"
-    ],
-    "headline": "Telephone and Data Q3 EPS $0.26 Beats $0.13 Estimate, Sales $306.700M Miss $309.252M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T10:23:53.743857-05:00",
-    "symbols": [
-      "TDS"
-    ],
-    "headline": "Enbridge, Moderna On Deck Friday As Demand, Vaccine Pipeline Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-06T10:32:20.533362-05:00",
     "symbols": [
       "NVO"
@@ -4998,5 +4868,135 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T12:03:53.913587-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Western Digital Stock Rebounds as Wall Street Bets AI Storage Demand Outlasts Election Rout",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T12:03:55.356504-05:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Why Is Salesforce Stock Falling on Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T12:03:55.574404-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Rep. Maria Elvira Salazar Has Bought Up to $60K Worth Of NVIDIA Stock: Here\u2019s What You Should Know",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T12:03:56.642855-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "A Congress Member Bought Up To $30K In Applied Materials Stock: Here&#39;s What You Need To Know",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T12:03:56.893410-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Western Digital Stock Rebounds as Wall Street Bets AI Storage Demand Outlasts Election Rout",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T12:03:58.550105-05:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "Analysts Adjust Price Targets for Riot Platforms Following Q3 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T12:03:58.753643-05:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Markets, Inc. Insider Sells Shares",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T12:03:58.976774-05:00",
+    "symbols": [
+      "AFRM"
+    ],
+    "headline": "Why Is Affirm Stock Falling Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T12:04:03.320548-05:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "Vistra Stock Soars After Surprising Q3 Sales Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T12:04:03.775291-05:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "B. Riley Securities Reiterates Buy on Airbnb, Raises Price Target to $230",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T12:04:05.569054-05:00",
+    "symbols": [
+      "OKLO"
+    ],
+    "headline": "Oklo Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T12:04:11.774492-05:00",
+    "symbols": [
+      "BKD"
+    ],
+    "headline": "Brookdale Senior Living Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T12:04:11.779269-05:00",
+    "symbols": [
+      "BKD"
+    ],
+    "headline": "Brookdale Senior Living Q3 EPS $(0.06) Misses $(0.03) Estimate, Sales $712.068M Miss $721.002M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

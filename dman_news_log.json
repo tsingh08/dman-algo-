@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-06T11:19:28.164726-05:00",
-    "symbols": [
-      "AXON"
-    ],
-    "headline": "Needham Maintains Buy on Axon Enterprise, Lowers Price Target to $500",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-06T11:24:58.116951-05:00",
     "symbols": [
       "SPCX"
@@ -4995,6 +4985,16 @@
       "TDS"
     ],
     "headline": "Telephone and Data Q3 EPS $0.26 Beats $0.13 Estimate, Sales $306.700M Miss $309.252M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T12:37:12.935631-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Deal Dispatch: Salesforce Buys Cresta, CrowdStrike Acquires Two AI Companies, Out West Restaurant Group Bankruptcy",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"

@@ -1,595 +1,5 @@
 [
   {
-    "ts": "2026-11-06T11:03:15.570214-05:00",
-    "symbols": [
-      "KRMN"
-    ],
-    "headline": "Moderna, JFrog, TransMedics, Ubiquiti And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T11:03:15.847062-05:00",
-    "symbols": [
-      "ELVN"
-    ],
-    "headline": "Enliven Therapeutics Reaches FDA Alignment On Pivotal Phase 3 ENABLE-2 Design, On Track To Start Before Year-End; Cash $884.4M Funds Operations Into 2030",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T11:03:15.858728-05:00",
-    "symbols": [
-      "ELVN"
-    ],
-    "headline": "Enliven Therapeutics Q3 GAAP EPS $(0.36) vs $(0.32) YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T11:03:20.538829-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Land Negotiations in Texas Face Pause Request",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T11:03:20.545147-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Faces Potential Network Access Hurdles for Boost Mobile Acquisition",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T11:04:20.587638-05:00",
-    "symbols": [
-      "SLB"
-    ],
-    "headline": "Rothschild & Co Redburn Adjusts SLB Price Target to $64 From $68",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T11:13:29.193669-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "EXCLUSIVE: Nasdaq 100 Suffers Worst Day Since 2020, but Credit Markets Aren&#39;t Panicking, Says S&amp;P Global Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T11:13:29.737763-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "EXCLUSIVE: Nasdaq 100 Suffers Worst Day Since 2020, but Credit Markets Aren&#39;t Panicking, Says S&amp;P Global Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T11:13:29.743170-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "What&#39;s Going On With Marvell Technology Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T11:13:29.989516-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "What&#39;s Going On With Marvell Technology Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T11:13:30.094354-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "EXCLUSIVE: Nasdaq 100 Suffers Worst Day Since 2020, but Credit Markets Aren&#39;t Panicking, Says S&amp;P Global Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T11:13:30.277873-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "EXCLUSIVE: Nasdaq 100 Suffers Worst Day Since 2020, but Credit Markets Aren&#39;t Panicking, Says S&amp;P Global Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T11:13:31.258895-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "What&#39;s Going On With Marvell Technology Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T11:13:31.504581-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "EXCLUSIVE: Nasdaq 100 Suffers Worst Day Since 2020, but Credit Markets Aren&#39;t Panicking, Says S&amp;P Global Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T11:13:31.510701-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "What&#39;s Going On With Marvell Technology Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T11:13:31.691386-05:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "EXCLUSIVE: Nasdaq 100 Suffers Worst Day Since 2020, but Credit Markets Aren&#39;t Panicking, Says S&amp;P Global Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T11:13:32.000318-05:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "What&#39;s Going On With Marvell Technology Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T11:13:32.187330-05:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "What&#39;s Going On With Marvell Technology Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T11:13:33.373670-05:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "What&#39;s Going On With Marvell Technology Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T11:13:34.267139-05:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "Vistra Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T11:13:36.971543-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "EXCLUSIVE: Nasdaq 100 Suffers Worst Day Since 2020, but Credit Markets Aren&#39;t Panicking, Says S&amp;P Global Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T11:13:37.169836-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;US and EU\u2019s China talks channel comes back to life after stalling since Trump\u2019s return&#39; - South China Morning Post Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T11:13:37.175078-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "The Proposals Stop Short Of Complete Dismantlement, But Do Address Iran\u2019s Stockpile Of Highly Enriched Uranium; The Offers Would See Iran Receive Significant Sanctions Relief From U.S.; Iranian Negotiators Are Reviewing Proposals Under Which The Islamic Republic Would Limit Its Nuclear Program, The Times Of Israel, Citing Diplomatic Source",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T11:13:37.991926-05:00",
-    "symbols": [
-      "CLOV"
-    ],
-    "headline": "UBS Maintains Neutral on Clover Health Investments, Raises Price Target to $5.5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T11:13:38.159574-05:00",
-    "symbols": [
-      "DCH"
-    ],
-    "headline": "Dauch Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T11:13:38.302086-05:00",
-    "symbols": [
-      "ENVX"
-    ],
-    "headline": "Enovix Completes Cost-Reduction Phase and Announces $19 Million Investment in South Korean Capacity",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T11:13:42.393874-05:00",
-    "symbols": [
-      "ACRE"
-    ],
-    "headline": "Ares Comml Real Est Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T11:19:20.705738-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "EXCLUSIVE: Nasdaq 100 Suffers Worst Day Since 2020, but Credit Markets Aren&#39;t Panicking, Says S&amp;P Global Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T11:19:21.305514-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "EXCLUSIVE: Nasdaq 100 Suffers Worst Day Since 2020, but Credit Markets Aren&#39;t Panicking, Says S&amp;P Global Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T11:19:21.309291-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "What&#39;s Going On With Marvell Technology Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T11:19:21.487328-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "What&#39;s Going On With Marvell Technology Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T11:19:21.568899-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "EXCLUSIVE: Nasdaq 100 Suffers Worst Day Since 2020, but Credit Markets Aren&#39;t Panicking, Says S&amp;P Global Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T11:19:21.682010-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "EXCLUSIVE: Nasdaq 100 Suffers Worst Day Since 2020, but Credit Markets Aren&#39;t Panicking, Says S&amp;P Global Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T11:19:22.212919-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "What&#39;s Going On With Marvell Technology Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T11:19:22.411077-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "EXCLUSIVE: Nasdaq 100 Suffers Worst Day Since 2020, but Credit Markets Aren&#39;t Panicking, Says S&amp;P Global Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T11:19:22.415003-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "What&#39;s Going On With Marvell Technology Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T11:19:22.508158-05:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "EXCLUSIVE: Nasdaq 100 Suffers Worst Day Since 2020, but Credit Markets Aren&#39;t Panicking, Says S&amp;P Global Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T11:19:22.722637-05:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "What&#39;s Going On With Marvell Technology Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T11:19:22.797821-05:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "What&#39;s Going On With Marvell Technology Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T11:19:24.133301-05:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "What&#39;s Going On With Marvell Technology Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T11:19:25.129298-05:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "Vistra Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T11:19:27.238000-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "EXCLUSIVE: Nasdaq 100 Suffers Worst Day Since 2020, but Credit Markets Aren&#39;t Panicking, Says S&amp;P Global Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T11:19:27.438082-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;US and EU\u2019s China talks channel comes back to life after stalling since Trump\u2019s return&#39; - South China Morning Post Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T11:19:27.441837-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "The Proposals Stop Short Of Complete Dismantlement, But Do Address Iran\u2019s Stockpile Of Highly Enriched Uranium; The Offers Would See Iran Receive Significant Sanctions Relief From U.S.; Iranian Negotiators Are Reviewing Proposals Under Which The Islamic Republic Would Limit Its Nuclear Program, The Times Of Israel, Citing Diplomatic Source",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T11:19:27.827565-05:00",
-    "symbols": [
-      "STLN"
-    ],
-    "headline": "B. Riley Securities Reiterates Buy on Starling Oncology, Lowers Price Target to $10",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T11:19:27.831543-05:00",
-    "symbols": [
-      "STLN"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T11:19:27.835173-05:00",
-    "symbols": [
-      "STLN"
-    ],
-    "headline": "BTIG Maintains Buy on Starling Oncology, Raises Price Target to $10",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T11:19:27.838926-05:00",
-    "symbols": [
-      "STLN"
-    ],
-    "headline": "Starling Oncology Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T11:19:27.842537-05:00",
-    "symbols": [
-      "STLN"
-    ],
-    "headline": "Starling Oncology Narrows FY2026 Sales Guidance from $650.000M-$670.000M to $650.000M-$660.000M vs $663.685M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T11:19:27.980304-05:00",
-    "symbols": [
-      "BWMN"
-    ],
-    "headline": "Bernhard Capital Partners and Bowman Consulting Group Announce Completion of Approximately $1 Billion Acquisition",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T11:19:28.066183-05:00",
-    "symbols": [
-      "FIVN"
-    ],
-    "headline": "Barclays Maintains Overweight on Five9, Lowers Price Target to $38",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T11:19:28.070273-05:00",
-    "symbols": [
-      "FIVN"
-    ],
-    "headline": "Five9 Slides as CEO Sees AI Momentum but 2026 Profit View Gets Cut",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T11:19:28.074095-05:00",
-    "symbols": [
-      "FIVN"
-    ],
-    "headline": "Wells Fargo Maintains Equal-Weight on Five9, Lowers Price Target to $28",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T11:19:28.077902-05:00",
-    "symbols": [
-      "FIVN"
-    ],
-    "headline": "Keybanc Maintains Overweight on Five9, Raises Price Target to $34",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T11:19:28.081813-05:00",
-    "symbols": [
-      "FIVN"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100 Futures Trade Mixed as October Jobs Rose by 165,000\u2014 Airbnb, Cloudflare, Lam Research in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T11:19:28.149168-05:00",
-    "symbols": [
-      "AXON"
-    ],
-    "headline": "These Analysts Cut Their Forecasts On Axon Enterprise After Downbeat Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T11:19:28.153087-05:00",
-    "symbols": [
-      "AXON"
-    ],
-    "headline": "Piper Sandler Reiterates Overweight on Axon Enterprise, Lowers Price Target to $540",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T11:19:28.156937-05:00",
-    "symbols": [
-      "AXON"
-    ],
-    "headline": "DraftKings Posts Downbeat Q3 Results, Joins Atlassian, Natera And Other Big Stocks Moving Lower In Friday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T11:19:28.160858-05:00",
-    "symbols": [
-      "AXON"
-    ],
-    "headline": "Axon Enterprise Stock Slides Again Friday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-06T11:19:28.164726-05:00",
     "symbols": [
       "AXON"
@@ -4995,6 +4405,596 @@
       "CRM"
     ],
     "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T12:36:12.628465-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T12:36:12.633607-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Chip Stocks Are Now Cheaper Than the S&amp;P 500 \u2014 Something Unseen During the Entire AI Boom",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T12:36:12.638721-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Growth Lead Sectors In Friday Trading As Defensives Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T12:36:12.824058-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Chip Stocks Are Now Cheaper Than the S&amp;P 500 \u2014 Something Unseen During the Entire AI Boom",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T12:36:12.926293-05:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T12:36:13.617836-05:00",
+    "symbols": [
+      "AFRM"
+    ],
+    "headline": "Barclays Maintains Overweight on Affirm Holdings, Lowers Price Target to $100",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T12:36:13.692275-05:00",
+    "symbols": [
+      "NIO"
+    ],
+    "headline": "6 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T12:36:13.830239-05:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Moderna, JFrog, TransMedics, Ubiquiti And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T12:36:13.904335-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Growth Lead Sectors In Friday Trading As Defensives Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T12:36:14.161195-05:00",
+    "symbols": [
+      "DUOL"
+    ],
+    "headline": "6 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T12:36:14.592613-05:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "Moderna, JFrog, TransMedics, Ubiquiti And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T12:36:14.741362-05:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Moderna, JFrog, TransMedics, Ubiquiti And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T12:36:14.894929-05:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "4 Financials Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T12:36:15.032423-05:00",
+    "symbols": [
+      "CLSK"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T12:36:15.255900-05:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "Vistra Says Mid Term Election Results Do Not Change Its Fundamental View Of Growth Opportunities; Expects Cogentrix Deal To Deliver High-Single-Digit Adjusted FCF Accretion In Near Term, Double-Digit Accretion From 2029; Says It Is In Active Talks With Large-Load Customers In PJM And Ercot For Existing And New-Build Assets; Says It Remains Open To Opportunistic, Fleet-Complementary M&amp;A",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T12:36:15.398734-05:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Barclays Maintains Equal-Weight on Airbnb, Raises Price Target to $195",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T12:36:15.404052-05:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Moderna, JFrog, TransMedics, Ubiquiti And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T12:36:15.541434-05:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "6 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T12:36:15.743536-05:00",
+    "symbols": [
+      "PDD"
+    ],
+    "headline": "6 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T12:36:16.068011-05:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "Moderna, JFrog, TransMedics, Ubiquiti And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T12:36:16.073282-05:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "IonQ Stock Surges After Strong Q3 Results and Guidance",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T12:36:16.078835-05:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "B. Riley Securities Reiterates Buy on IonQ, Lowers Price Target to $70",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T12:36:16.150523-05:00",
+    "symbols": [
+      "SOUN"
+    ],
+    "headline": "SoundHound AI Stock Dips: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T12:36:16.300108-05:00",
+    "symbols": [
+      "OKLO"
+    ],
+    "headline": "Moderna, JFrog, TransMedics, Ubiquiti And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T12:36:16.447890-05:00",
+    "symbols": [
+      "SMR"
+    ],
+    "headline": "This Palatin Technologies Analyst Begins Coverage On A Bullish Note; Here Are Top 4 Initiations For Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T12:36:17.378984-05:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "Rothschild & Co Redburn Adjusts SLB Price Target to $64 From $68",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T12:36:17.459712-05:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Growth Lead Sectors In Friday Trading As Defensives Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T12:36:17.642291-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Growth Lead Sectors In Friday Trading As Defensives Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T12:36:17.720158-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Growth Lead Sectors In Friday Trading As Defensives Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T12:36:17.869174-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. And Iran Should Accept A Good Deal Over A Perfect One; U.S. And Iran Won\u2019t Be Able To Make A Perfect Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T12:36:17.874256-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Treasury Secretary Scott Bessent Posts On X &#34;Today, @USTradeRep Greer and I spoke with Vice Premier He Lifeng about the U.S.-China economic relationship and implementation of the Busan arrangement. I emphasized the importance of China fully and immediately honoring its commitments, raised concerns about recent Chinese actions and underscored that progress depends on concrete results. The Trump Administration will continue pursuing policies that benefit American workers, farmers, and businesses...&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T12:36:17.951049-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "What&#39;s Going On With Marvell Technology Stock Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T12:36:17.956404-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Growth Lead Sectors In Friday Trading As Defensives Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T12:36:18.032581-05:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Growth Lead Sectors In Friday Trading As Defensives Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T12:36:18.102038-05:00",
+    "symbols": [
+      "ALEC"
+    ],
+    "headline": "Alector Reports Third Quarter 2026 Financial Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T12:36:18.527874-05:00",
+    "symbols": [
+      "BW"
+    ],
+    "headline": "Babcock & Wilcox Enterprises Declares Preferred Stock Dividend",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T12:36:18.697021-05:00",
+    "symbols": [
+      "CLOV"
+    ],
+    "headline": "UBS Maintains Neutral on Clover Health Investments, Raises Price Target to $5.5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T12:36:18.846014-05:00",
+    "symbols": [
+      "DCH"
+    ],
+    "headline": "Dauch Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T12:36:18.915260-05:00",
+    "symbols": [
+      "ENVX"
+    ],
+    "headline": "Enovix Completes Cost-Reduction Phase and Announces $19 Million Investment in South Korean Capacity",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T12:36:19.630138-05:00",
+    "symbols": [
+      "KEEL"
+    ],
+    "headline": "This Palatin Technologies Analyst Begins Coverage On A Bullish Note; Here Are Top 4 Initiations For Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T12:36:21.211768-05:00",
+    "symbols": [
+      "SPCE"
+    ],
+    "headline": "Rocket Lab Stock Pulls Out of a Nosedive Friday: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T12:36:21.278379-05:00",
+    "symbols": [
+      "STAK"
+    ],
+    "headline": "STAK Inc. Discloses Initial Progress in Gas-Powered Generator Business",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T12:36:22.021925-05:00",
+    "symbols": [
+      "FROG"
+    ],
+    "headline": "Moderna, JFrog, TransMedics, Ubiquiti And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T12:36:22.337074-05:00",
+    "symbols": [
+      "IREN"
+    ],
+    "headline": "Why Is Nebius Stock Surging on Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T12:36:22.342480-05:00",
+    "symbols": [
+      "IREN"
+    ],
+    "headline": "Moderna, JFrog, TransMedics, Ubiquiti And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T12:36:22.347470-05:00",
+    "symbols": [
+      "IREN"
+    ],
+    "headline": "What&#39;s Going On With IREN Shares Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T12:36:22.352200-05:00",
+    "symbols": [
+      "IREN"
+    ],
+    "headline": "Cantor Fitzgerald Maintains Overweight on IREN, Lowers Price Target to $47",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T12:36:22.356592-05:00",
+    "symbols": [
+      "IREN"
+    ],
+    "headline": "CoreWeave Stock Gains Friday: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T12:36:22.443394-05:00",
+    "symbols": [
+      "CLNE"
+    ],
+    "headline": "Moderna, JFrog, TransMedics, Ubiquiti And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T12:36:22.660209-05:00",
+    "symbols": [
+      "TMDX"
+    ],
+    "headline": "Moderna, JFrog, TransMedics, Ubiquiti And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T12:36:22.734259-05:00",
+    "symbols": [
+      "SLVM"
+    ],
+    "headline": "Sylvamo Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-06T12:36:22.801576-05:00",
+    "symbols": [
+      "EXTR"
+    ],
+    "headline": "Moderna, JFrog, TransMedics, Ubiquiti And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T12:36:22.867116-05:00",
+    "symbols": [
+      "PSIX"
+    ],
+    "headline": "Power Solutions Intl Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T12:36:23.009579-05:00",
+    "symbols": [
+      "FLY"
+    ],
+    "headline": "Moderna, JFrog, TransMedics, Ubiquiti And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T12:36:23.082210-05:00",
+    "symbols": [
+      "KRMN"
+    ],
+    "headline": "Moderna, JFrog, TransMedics, Ubiquiti And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T12:36:23.675534-05:00",
+    "symbols": [
+      "TDS"
+    ],
+    "headline": "Telephone and Data Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T12:36:23.680152-05:00",
+    "symbols": [
+      "TDS"
+    ],
+    "headline": "Telephone and Data Systems Raises FY2026 TDS Telecom Revenue Guidance to $990M-$1.010B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T12:36:23.684548-05:00",
+    "symbols": [
+      "TDS"
+    ],
+    "headline": "Telephone and Data Systems Announces $250M Buyback Plan",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T12:36:23.689289-05:00",
+    "symbols": [
+      "TDS"
+    ],
+    "headline": "Telephone and Data Q3 EPS $0.26 Beats $0.13 Estimate, Sales $306.700M Miss $309.252M Estimate",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"

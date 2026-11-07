@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-06T15:13:54.238324-05:00",
-    "symbols": [
-      "GSIT"
-    ],
-    "headline": "GSI Technology, Inc. Announces Second Quarter of Fiscal Year 2027 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T15:13:55.071800-05:00",
-    "symbols": [
-      "RIGL"
-    ],
-    "headline": "Cantor Fitzgerald Maintains Neutral on Rigel Pharmaceuticals, Raises Price Target to $47",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T15:13:55.795270-05:00",
-    "symbols": [
-      "RPC"
-    ],
-    "headline": "Barclays Maintains Overweight Rating on Ridgepost Capital and Raises Price Target to $12",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T15:13:55.798953-05:00",
-    "symbols": [
-      "RPC"
-    ],
-    "headline": "JP Morgan Maintains Overweight Rating on Ridgepost Capital and Raises Price Target to $15",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T15:13:56.277210-05:00",
-    "symbols": [
-      "ASTH"
-    ],
-    "headline": "Needham Maintains Buy on Astrana Health, Raises Price Target to $45",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T15:13:56.502845-05:00",
-    "symbols": [
-      "SG"
-    ],
-    "headline": "Oppenheimer Maintains Outperform on Sweetgreen, Raises Price Target to $14",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-06T15:13:56.506542-05:00",
     "symbols": [
       "SG"
@@ -4998,5 +4938,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-06T20:02:20.752389-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Hosts Financial Services Industry AI Roundtable",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T20:02:20.879417-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Snowflake Expands Adoption of Docebo Learning Platform",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T20:02:20.987520-05:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "Vertex Pharmaceuticals Executive Files Form 144 for Share Sale",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T20:02:21.053898-05:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "Arista Networks Provides 2027 Financial Outlook and AI Growth Targets",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-06T20:03:20.573751-05:00",
+    "symbols": [
+      "POM"
+    ],
+    "headline": "POMDOCTOR LIMITED Regains Compliance with Nasdaq Bid Price Requirement",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-06T20:03:20.672231-05:00",
+    "symbols": [
+      "WRD"
+    ],
+    "headline": "WeRide Announces Board of Directors Meeting Date",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

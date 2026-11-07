@@ -36,8 +36,8 @@ RESULTS 2026-11-07 (0.10% RT long, 0.30% RT short):
               (252d), worst week -16..-48%.
             * "hedged" lines are INVALID: the matched ETF can change at a
               month boundary between entry and exit (mixed-ETF prices).
-          NEXT: daily-high stop test + borrow sensitivity, then a forward
-          shadow (30 trades) before any real short.
+          STOP TEST DONE (tools/fade_stop_study.py): any buy-stop at a
+          realistic >=0.6% cost FAILS -> NO-SHIP, no shadow.
 
 Usage: py -3 tools/edge_study.py vix | pairs | fade
 """

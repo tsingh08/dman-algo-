@@ -894,6 +894,30 @@ ADOPTED_FALLBACK_STOP_PCT = 0.04
 # noticing. Cancelling is the safe direction -- the cost is a missed trade, and
 # a still-valid setup gets re-signalled at a current price with current gates.
 STALE_ENTRY_CANCEL_SESSIONS = 3
+# Setups whose tested entry is ONE session: the signal is decided on day t and
+# the pit_harness Day 2 rebuild enters at t+1's open. A GTC bracket parent that
+# is still unfilled on a later calendar day is a trade nothing ever tested --
+# NEM 2026-11-06: Day 2 limit $117.30 never filled (low $118.64) and would
+# have rested over the weekend, filling Monday only on a gap DOWN, i.e. on the
+# exact day the continuation thesis had failed. These cancel the next calendar
+# day, before the open, instead of after STALE_ENTRY_CANCEL_SESSIONS.
+SESSION_ONLY_ENTRY_SETUPS = ("Day 2 Continuation",)
+
+
+def _session_only_entry(sym: str, sub_date) -> bool:
+    """True if `sym`'s entry submitted on `sub_date` came from a one-session
+    setup (SESSION_ONLY_ENTRY_SETUPS), per dman_live_signals.json. Unknown ->
+    False, so an unmatched order keeps the ordinary 3-session expiry."""
+    try:
+        with open(LIVE_SIGNALS_FILE, encoding="utf-8") as fh:
+            d = json.load(fh)
+        rows = d if isinstance(d, list) else (d.get("pending") or d.get("signals") or [])
+        day = sub_date.isoformat()
+        return any(isinstance(r, dict) and r.get("ticker") == sym
+                   and str(r.get("date", ""))[:10] == day
+                   and r.get("setup") in SESSION_ONLY_ENTRY_SETUPS for r in rows)
+    except Exception:
+        return False
 
 MOMENTUM_EOD_CLOSE_HOUR_ET   = 15    # force-close any open day-only position at/after this ET
 MOMENTUM_EOD_CLOSE_MINUTE_ET = 45    # time -- 3:45 PM ET, ahead of the last momentum-watch cron
@@ -24093,7 +24117,9 @@ def _check_stop_coverage() -> Optional[dict]:
             if _sub_date >= _today_et:
                 continue
             _aged = _sessions_since(_sub_date)
-            if _aged >= STALE_ENTRY_CANCEL_SESSIONS:
+            if _session_only_entry(_sym, _sub_date):
+                _too_old.append((_o, _sym, _sub_date, max(_aged, 1)))
+            elif _aged >= STALE_ENTRY_CANCEL_SESSIONS:
                 _too_old.append((_o, _sym, _sub_date, _aged))
             else:
                 _stale_entries.append(f"{_sym} (submitted {_sub_date.isoformat()})")
@@ -24110,8 +24136,9 @@ def _check_stop_coverage() -> Optional[dict]:
         if _cancelled:
             send_telegram(
                 "🚫 <b>Stale entry order(s) CANCELLED</b>\n"
-                f"Unfilled for {STALE_ENTRY_CANCEL_SESSIONS}+ sessions, so the "
-                f"thesis that priced them is gone:\n\n"
+                f"Unfilled for {STALE_ENTRY_CANCEL_SESSIONS}+ sessions (one-session "
+                f"setups like Day 2: past their signal day), so the thesis "
+                f"that priced them is gone:\n\n"
                 + "\n".join(f"• {_c}" for _c in _cancelled)
                 + "\n\nIf the setup still holds it will be re-signalled at a "
                   "current price. Bracket legs cancel with the parent."

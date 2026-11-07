@@ -23052,6 +23052,30 @@ class TestStaleEntryOrdersExpire(unittest.TestCase):
             a._check_stop_coverage()      # must not raise
         a._stop_coverage_fetch_cache.update({"ts": 0, "positions": None, "orders": None})
 
+    def test_a_day2_entry_cancels_the_next_calendar_day_before_any_session(self):
+        """NEM 2026-11-06: Day 2's tested entry is one session; Monday premarket
+        counts 0 completed sessions, so the 3-session cap would let it fill on
+        a gap down."""
+        o = self._order(sym="NEM", days=3)
+        with patch.object(a, "_session_only_entry", return_value=True):
+            client, out = self._run([o], aged=0)
+        client.cancel_order_by_id.assert_called_once_with("id-NEM")
+        self.assertIn("CANCELLED", out)
+
+    def test_session_only_lookup_matches_setup_and_signal_date(self):
+        import tempfile, json as _j
+        rows = {"pending": [{"ticker": "NEM", "setup": "Day 2 Continuation", "date": "2026-11-06"},
+                            {"ticker": "GDYN", "setup": "Breakout Zone", "date": "2026-11-06"}]}
+        with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False) as fh:
+            _j.dump(rows, fh)
+        with patch.object(a, "LIVE_SIGNALS_FILE", fh.name):
+            self.assertTrue(a._session_only_entry("NEM", a.date(2026, 11, 6)))
+            self.assertFalse(a._session_only_entry("NEM", a.date(2026, 11, 5)))
+            self.assertFalse(a._session_only_entry("GDYN", a.date(2026, 11, 6)))
+        with patch.object(a, "LIVE_SIGNALS_FILE", fh.name + ".missing"):
+            self.assertFalse(a._session_only_entry("NEM", a.date(2026, 11, 6)))
+        os.unlink(fh.name)
+
     def test_the_alert_says_they_expire_themselves(self):
         """The old text told the user to go cancel it in Alpaca by hand."""
         _, out = self._run([self._order(days=1)], aged=1)

@@ -1,26 +1,26 @@
 {
- "bar": "2026-11-02",
+ "bar": "2026-11-06",
  "entered": null,
  "tickers": [
   {
-   "ticker": "XBI",
-   "close": 152.05
+   "ticker": "CRM",
+   "close": 213.65
   },
   {
-   "ticker": "CRM",
-   "close": 226.18
+   "ticker": "AFRM",
+   "close": 68.11
+  },
+  {
+   "ticker": "GILD",
+   "close": 166.89
   },
   {
    "ticker": "CRWD",
-   "close": 241.81
+   "close": 216.9
   },
   {
    "ticker": "ZS",
-   "close": 223.79
-  },
-  {
-   "ticker": "SLB",
-   "close": 52.31
+   "close": 197.66
   }
  ]
 }

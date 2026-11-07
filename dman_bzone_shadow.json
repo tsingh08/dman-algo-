@@ -2198,5 +2198,75 @@
 "extension_pct": 43.2,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "REPL",
+"date": "2026-11-06",
+"close": 21.62,
+"base_days": 2,
+"above_low_pct": 1171.8,
+"extension_pct": 50.3,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "XERS",
+"date": "2026-11-06",
+"close": 15.2,
+"base_days": 0,
+"above_low_pct": 187.3,
+"extension_pct": 43.4,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "STGW",
+"date": "2026-11-06",
+"close": 11.64,
+"base_days": 3,
+"above_low_pct": 164.5,
+"extension_pct": 23.5,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "SG",
+"date": "2026-11-06",
+"close": 12.01,
+"base_days": 6,
+"above_low_pct": 155.5,
+"extension_pct": 13.6,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "CYRX",
+"date": "2026-11-06",
+"close": 19.1,
+"base_days": 11,
+"above_low_pct": 147.4,
+"extension_pct": 10.3,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "ARHS",
+"date": "2026-11-06",
+"close": 14.19,
+"base_days": 1,
+"above_low_pct": 146.8,
+"extension_pct": 26.7,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "ARDT",
+"date": "2026-11-06",
+"close": 17.3,
+"base_days": 0,
+"above_low_pct": 120.9,
+"extension_pct": 42.0,
+"fresh_base": false,
+"weak_band": false
 }
 ]

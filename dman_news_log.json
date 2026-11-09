@@ -1,205 +1,5 @@
 [
   {
-    "ts": "2026-11-09T11:28:16.955988-05:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Seed Health Launches Nationwide at Costco",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-09T11:28:31.457035-05:00",
-    "symbols": [
-      "TMCI"
-    ],
-    "headline": "This AMD Analyst Turns Bullish; Here Are Top 5 Upgrades For Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T11:28:31.461825-05:00",
-    "symbols": [
-      "TMCI"
-    ],
-    "headline": "Stifel Upgrades Treace Medical Concepts to Buy, Raises Price Target to $6.5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T11:28:33.358642-05:00",
-    "symbols": [
-      "SHMD"
-    ],
-    "headline": "SCHMID Group Receives Order For Key Process Equipment For Its New Glass Core Substrate Manufacturing Facility In South Asia",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T11:28:34.320918-05:00",
-    "symbols": [
-      "TTD"
-    ],
-    "headline": "Trade Desk Likely To Report Lower Q3 Earnings; These Most Accurate Analysts Revise Forecasts Ahead Of Earnings Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-09T11:28:34.325980-05:00",
-    "symbols": [
-      "TTD"
-    ],
-    "headline": "Nebius Could Swing $6.56 Billion After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-09T11:33:20.549253-05:00",
-    "symbols": [
-      "DIA"
-    ],
-    "headline": "Diagnostyka Included in PFR Ventures Investment Portfolio",
-    "source": "fiscal.ai",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T11:39:39.649340-05:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Morgan Stanley Adjusts Price Target on Applied Digital",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T11:39:44.248989-05:00",
-    "symbols": [
-      "RIOT"
-    ],
-    "headline": "Morgan Stanley Maintains Riot Platforms Buy Rating, Raises Price Target to $41",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T11:39:44.960836-05:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "Stifel Reiterates Buy on Rivian Automotive, Maintains $22 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T11:39:49.262116-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "McDonald&#39;s Expands Uber Partnership in 14 Markets",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-09T11:39:51.992422-05:00",
-    "symbols": [
-      "LUNR"
-    ],
-    "headline": "NASA Awards Intuitive Machines Spot In $10 Billion Lunar Program",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T11:39:57.324195-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;AI safety groups outline their plans for a new Washington&#39; - Semafor Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-09T11:39:59.048509-05:00",
-    "symbols": [
-      "CWH"
-    ],
-    "headline": "This Supernus Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T11:51:50.865072-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Bill Ackman Says Jensen Huang \u2018Has Done a Lot of Good for the World\u2019: Hopes Damage From Affair Is \u2018Minimal\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-09T11:51:51.149065-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is Marvell Stock Surging on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-09T11:51:51.154588-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Bill Ackman Says Jensen Huang \u2018Has Done a Lot of Good for the World\u2019: Hopes Damage From Affair Is \u2018Minimal\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-09T11:51:51.404872-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "CNH Industrial, Planet Labs, Ferguson Enterprises And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-09T11:51:51.410025-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Why Is Marvell Stock Surging on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-09T11:51:51.697489-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Bill Ackman Says Jensen Huang \u2018Has Done a Lot of Good for the World\u2019: Hopes Damage From Affair Is \u2018Minimal\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-09T11:51:52.279422-05:00",
     "symbols": [
       "AMZN"
@@ -4705,6 +4505,206 @@
       "IMVT"
     ],
     "headline": "Immunovant Q2 EPS $(0.47) Beats $(0.71) Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T15:12:12.505300-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "UPDATE: SpaceX Plans $24 Billion Data Center and Gas Plant in Texas",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T15:12:13.674961-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA Founder &amp; CEO Jensen Huang Is Scheduled To Attend Semafor\u2019s Silicon Valley &amp; The World, &#34;The Definitive New Initiative Connecting The Builders Of Transformative Technologies With The Global Leaders Shaping Their Impact.&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T15:12:13.679814-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;Leaders Of Three U.S. House Committees Have Summoned NVIDIA CEO Jensen Huang To A Closed-Door Briefing Over His Ties To Alice Huang, A Tech Executive Reportedly Identified As A Chinese Spy&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T15:12:13.684267-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Benzinga Market Summary: S&amp;P Rises As Tech Rebounds, Oil Drops As Trump Downplays Future Strikes On Iran, NVIDIA Drops After CEO Admitted Affair With Alleged Chinese Asset",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T15:12:13.971868-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Platforms Rolls Out AI Age-Estimation Technology Globally In Teen Account Protections On Instagram",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T15:12:15.202739-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Monness Analyst Maintains Bullish Rating on Snowflake",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T15:12:19.838960-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "5 Stocks For Option Trading This Month",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T15:12:21.954620-05:00",
+    "symbols": [
+      "ONON"
+    ],
+    "headline": "5 Stocks For Option Trading This Month",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T15:12:25.640594-05:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Mastercard Reports Third-Quarter Earnings Beat and Partnership with Egypt's Housing and Development Bank",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-09T15:12:27.373189-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Leaders Of Three U.S. House Committees Have Summoned NVIDIA CEO Jensen Huang To A Closed-Door Briefing Over His Ties To Alice Huang, A Tech Executive Reportedly Identified As A Chinese Spy&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T15:12:27.378061-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;U.S. Supreme Court Lifts Judicial Decision That Blocked Trump Administration From Building Border Barriers In Big Bend National Park In Texas&#39; - Reuters News",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T15:12:27.382790-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Benzinga Market Summary: S&amp;P Rises As Tech Rebounds, Oil Drops As Trump Downplays Future Strikes On Iran, NVIDIA Drops After CEO Admitted Affair With Alleged Chinese Asset",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T15:12:28.381488-05:00",
+    "symbols": [
+      "TLS"
+    ],
+    "headline": "Telos Q3 Adj. EPS $0.09 Beats $0.04 Estimate, Sales $55.198M Beat $50.004M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T15:12:28.386525-05:00",
+    "symbols": [
+      "TLS"
+    ],
+    "headline": "Telos Raises FY2026 Sales Guidance from $187.000M-$195.000M to $198.200M-$200.700M vs $191.407M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T15:12:29.701865-05:00",
+    "symbols": [
+      "CECO"
+    ],
+    "headline": "CECO Environmental Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T15:12:29.706888-05:00",
+    "symbols": [
+      "CECO"
+    ],
+    "headline": "CECO Environmental Affirms FY2026 Sales Guidance of $1.300B-$1.375B vs $1.103B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T15:12:29.711694-05:00",
+    "symbols": [
+      "CECO"
+    ],
+    "headline": "CECO Environmental Q3 Adj. EPS $0.60 Misses $0.83 Estimate, Sales $404.428M Beat $208.104M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T15:12:29.874504-05:00",
+    "symbols": [
+      "UAMY"
+    ],
+    "headline": "United States Antimony Corporation Announces Third Quarter 2026 Earnings Webcast",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T15:12:29.999243-05:00",
+    "symbols": [
+      "COAG"
+    ],
+    "headline": "LifeSci Capital Initiates Coverage On Hemab Therapeutics Hldgs with Outperform Rating, Announces Price Target of $65",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T15:12:30.004333-05:00",
+    "symbols": [
+      "COAG"
+    ],
+    "headline": "Hemab Therapeutics Initiates SOLARA, Pivotal Phase 3 Trial Evaluating Sutacimig As Potential Prophylactic Treatment For People With Glanzmann Thrombasthenia",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

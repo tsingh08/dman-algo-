@@ -1,155 +1,5 @@
 [
   {
-    "ts": "2026-11-09T10:21:51.072171-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Congressional Democrats Are Weighing Whether To Use A Dec. 11 Government Shutdown Deadline To Try To Pressure President Donald Trump To End The War In Iran&#39; - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-09T10:21:59.808843-05:00",
-    "symbols": [
-      "WVE"
-    ],
-    "headline": "B. Riley Securities Reiterates Buy on Wave Life Sciences, Lowers Price Target to $18",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T10:22:04.042549-05:00",
-    "symbols": [
-      "CTEV"
-    ],
-    "headline": "Claritev Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-09T10:22:04.047509-05:00",
-    "symbols": [
-      "CTEV"
-    ],
-    "headline": "Claritev Raises FY2026 Sales Guidance from $1.000B-$1.020B to $1.038B-$1.043B vs $1.014B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-09T10:22:04.052607-05:00",
-    "symbols": [
-      "CTEV"
-    ],
-    "headline": "Claritev Q3 EPS $(3.64) Beats $(3.81) Estimate, Sales $268.311M Beat $256.129M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-09T10:22:04.798914-05:00",
-    "symbols": [
-      "ICCM"
-    ],
-    "headline": "IceCure Medical Receives New Patent In China For Covering A Connector Used In Its Cryogenic Technology Platform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T10:22:05.750897-05:00",
-    "symbols": [
-      "VIR"
-    ],
-    "headline": "Vir Biotech Highlights Significant Viral Suppression in Advanced Liver Disease Study",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T10:22:07.213558-05:00",
-    "symbols": [
-      "CNH"
-    ],
-    "headline": "CNH Industrial Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T10:33:20.850346-05:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Novo Nordisk Provides Update on Share Repurchase Program",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-09T10:33:25.912601-05:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "Gilead Highlights Strong Trial Results in HIV Prevention and Liver Disease",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-09T10:33:28.169315-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitmine Adds 9,587 ETH as Tom Lee Hails \u2018Seismic Shift\u2019 for Ethereum",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T10:33:29.428345-05:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "Barclays Maintains Overweight on DraftKings, Lowers Price Target to $27",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-09T10:33:35.592752-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Goolsbee Says Big Problem Has All Been On The Inflation Side; Employment And Growth Are Actually Pretty Stable; Starting To See Inflation Kicking Up In Services; Data Centers Looking Like Old-Fashioned Overheating; Consumer Spending Has Been Main Driver Of Growth",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-09T10:33:36.600139-05:00",
-    "symbols": [
-      "COTY"
-    ],
-    "headline": "Barclays Maintains Underweight on Coty, Raises Price Target to $3",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T10:33:47.910339-05:00",
-    "symbols": [
-      "TLS"
-    ],
-    "headline": "Telos Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-09T10:33:50.586046-05:00",
     "symbols": [
       "SHMD"
@@ -4995,6 +4845,156 @@
       "PRAX"
     ],
     "headline": "Praxis Precision Medicine Q3 EPS $(3.23) Beats $(3.66) Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T13:45:41.814549-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Rocket Lab Stock Rebounds Into Earnings: Q3 Still Needs to Deliver",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T13:45:46.285064-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "What Is Going on With Taiwan Semiconductor Stock on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T13:45:46.757481-05:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "What Is Going on With Taiwan Semiconductor Stock on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T13:45:50.021354-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "FDA Requires Safety Labeling Changes for Glucagon-Like Peptide-1 Receptor Agonists Due to Potential Increased Risk of Rare But Serious Eye Condition",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T13:45:50.026033-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Gains After Jefferies Raises Price Target to Wall Street-High $1,700",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T13:45:51.910086-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab Stock Rebounds Into Earnings: Q3 Still Needs to Deliver",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T13:45:52.872357-05:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "PNC Bank Launches USDC Payment Acceptance For Corporate Clients, Enabling 1-To-1 Conversion Into U.S. Dollars Through Coinbase",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T13:45:55.751166-05:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "Why Is IonQ Stock Surging Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T13:45:56.929693-05:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Constellation Energy Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T13:45:57.418961-05:00",
+    "symbols": [
+      "OKLO"
+    ],
+    "headline": "Wedbush Reiterates Outperform on Oklo, Maintains $36 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T13:46:00.767629-05:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "FDA Requires Safety Labeling Changes for Glucagon-Like Peptide-1 Receptor Agonists Due to Potential Increased Risk of Rare But Serious Eye Condition",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T13:46:00.773117-05:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Eli Lilly Gains After Jefferies Raises Price Target to Wall Street-High $1,700",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T13:46:03.645771-05:00",
+    "symbols": [
+      "CCOI"
+    ],
+    "headline": "Citigroup Maintains Neutral on Cogent Comms Hldgs, Lowers Price Target to $5.2",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T13:46:05.289952-05:00",
+    "symbols": [
+      "DNUT"
+    ],
+    "headline": "Citigroup Maintains Neutral on Krispy Kreme, Raises Price Target to $4.8",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T13:46:12.510010-05:00",
+    "symbols": [
+      "WVE"
+    ],
+    "headline": "B. Riley Securities Reiterates Buy on Wave Life Sciences, Lowers Price Target to $18",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

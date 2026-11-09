@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-11-09T09:39:26.504674-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Rolls Out Groot 2, Isaac Lab 3.0, And New Open Benchmarks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-09T09:39:26.757181-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Chip Stocks Are 38% Off Their Peak: &#39;Time to Buy the Dip,&#39; Analysts Say",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-09T09:39:28.366005-05:00",
     "symbols": [
       "AVGO"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-09T12:56:59.311483-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Stock Moves Higher: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-09T12:57:23.856308-05:00",
+    "symbols": [
+      "TKC"
+    ],
+    "headline": "Turkcell Iletisim Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

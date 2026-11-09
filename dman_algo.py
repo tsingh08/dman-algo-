@@ -18371,7 +18371,8 @@ _PPI_DATES: set[date] = {
 # year (BEA's own schedule shows an irregular cadence, attributed to an
 # Oct-Nov 2025 government-shutdown delay pushing 13 releases into 2026
 # instead of the usual 12) -- every date below is a verified BEA date, not
-# a computed estimate. 2027 not yet available from BEA; add once published.
+# a computed estimate. 2027 added 2026-11-09 verbatim from bea.gov/news/schedule/next-year
+# (all 8:30 AM ET); 2028 is not published yet -- the 60-day runway alert asks for it.
 _PCE_DATES: set[date] = {
     date(2026, 7, 30),    # June 2026 data
     date(2026, 8, 26),    # July 2026 data -- same day as NVDA earnings (after close)
@@ -18379,6 +18380,18 @@ _PCE_DATES: set[date] = {
     date(2026, 10, 29),   # September 2026 data
     date(2026, 11, 25),   # October 2026 data
     date(2026, 12, 23),   # November 2026 data
+    date(2027, 1, 28),    # December 2026 data
+    date(2027, 2, 25),    # January 2027 data
+    date(2027, 3, 31),    # February 2027 data
+    date(2027, 4, 29),    # March 2027 data
+    date(2027, 5, 27),    # April 2027 data
+    date(2027, 6, 25),    # May 2027 data
+    date(2027, 7, 29),    # June 2027 data (same day as the GDP advance estimate)
+    date(2027, 8, 25),    # July 2027 data
+    date(2027, 9, 30),    # August 2027 data
+    date(2027, 10, 28),   # September 2027 data (same day as the GDP advance estimate)
+    date(2027, 11, 24),   # October 2027 data
+    date(2027, 12, 22),   # November 2027 data
 }
 
 # Manually-maintained: major macro catalysts that aren't on a fixed schedule
@@ -18489,7 +18502,7 @@ def _macro_calendar_state(today: date) -> tuple:
 
     A hardcoded calendar does not fail loudly when it runs out -- it just stops
     matching, and every release after that date silently passes a gate whose
-    entire job is to catch it. _PCE_DATES ends 2026-12-23; without this, every
+    entire job is to catch it. _PCE_DATES once ended 2026-12-23; without this, every
     PCE print from then on would have looked like a clear day, and PCE is the
     release the briefing itself flags as gap risk at the open.
     """
@@ -26098,20 +26111,32 @@ def run_api_health_check(notify: bool = False) -> list[str]:
            _http("https://api.github.com/rate_limit"))
 
     # -------------------------------------------------------------- OPTIONAL
-    def _anthropic():
-        if not os.getenv("ANTHROPIC_API_KEY", ""):
-            return False, "ANTHROPIC_API_KEY not set"
-        r = requests.post("https://api.anthropic.com/v1/messages",
-                          headers={"x-api-key": os.getenv("ANTHROPIC_API_KEY", ""),
-                                   "anthropic-version": "2023-06-01",
-                                   "content-type": "application/json"},
-                          json={"model": "claude-haiku-4-5-20251001", "max_tokens": 1,
-                                "messages": [{"role": "user", "content": "hi"}]},
-                          timeout=20)
-        return r.status_code == 200, f"HTTP {r.status_code}"
+    # One probe per model id production actually calls. This used to ping a
+    # hardcoded Haiku id only, while the live scanner's AI veto runs on
+    # AI_SCORE_MODEL: a retired or mistyped scorer id would have failed OPEN
+    # ("AI score unavailable") on every signal and still shown green here.
+    def _anthropic(model):
+        def _call():
+            if not os.getenv("ANTHROPIC_API_KEY", ""):
+                return False, f"ANTHROPIC_API_KEY not set  [{model}]"
+            r = requests.post("https://api.anthropic.com/v1/messages",
+                              headers={"x-api-key": os.getenv("ANTHROPIC_API_KEY", ""),
+                                       "anthropic-version": "2023-06-01",
+                                       "content-type": "application/json"},
+                              json={"model": model, "max_tokens": 1,
+                                    "messages": [{"role": "user", "content": "hi"}]},
+                              timeout=20)
+            return r.status_code == 200, f"HTTP {r.status_code}  [{model}]"
+        return _call
 
     _lines.append("")
-    _probe("OPTIONAL", "anthropic (ai notes)", _anthropic)
+    _probe("OPTIONAL", "anthropic (ai scorer veto)", _anthropic(AI_SCORE_MODEL))
+    _models_probed = {AI_SCORE_MODEL}
+    for _label, _m in (("anthropic (shadow review)", SHADOW_REVIEW_MODEL),
+                       ("anthropic (tg commands)", NL_COMMAND_MODEL)):
+        if _m not in _models_probed:
+            _models_probed.add(_m)
+            _probe("OPTIONAL", _label, _anthropic(_m))
     _probe("OPTIONAL", "stocktwits",
            _http("https://api.stocktwits.com/api/2/streams/symbol/AAPL.json"))
     _probe("OPTIONAL", "benzinga direct (legacy)",

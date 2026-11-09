@@ -22572,6 +22572,18 @@ class TestApiHealthCheck(unittest.TestCase):
     def test_the_mode_is_dispatchable(self):
         self.assertIn('args.mode == "apicheck"', inspect.getsource(a))
 
+    def test_it_probes_the_model_the_live_ai_veto_uses(self):
+        """The probe pinged a hardcoded Haiku id while the scanner's veto ran on
+        AI_SCORE_MODEL, so a dead scorer id would have shown green here."""
+        out = self._run()
+        self.assertIn(f"[{a.AI_SCORE_MODEL}]", out)
+        self.assertIn("ai scorer veto", out)
+
+    def test_it_runs_weekly_without_anyone_dispatching_it(self):
+        with open(".github/workflows/dman_weekend.yml", encoding="utf-8") as fh:
+            wf = fh.read()
+        self.assertIn("--mode apicheck", wf)
+
 
 class TestBriefingMatchesTheGate(unittest.TestCase):
     """The briefing told the reader "the gate passes on this" for an unverified
@@ -23220,7 +23232,7 @@ class TestMacroCalendarCannotExpireSilently(unittest.TestCase):
     runs out -- it stops matching, and every release past the last entry looks
     like a clear day to the gate whose only job is to catch it.
 
-    _PCE_DATES ends 2026-12-23. Without this, every PCE print from then on would
+    _PCE_DATES once ended 2026-12-23. Without this, every PCE print from then on would
     have passed silently, and PCE is the release the briefing itself flags as gap
     risk at the open. The only prior signal was a print() to stderr on a cloud
     runner, which is a log nobody reads."""
@@ -23237,11 +23249,11 @@ class TestMacroCalendarCannotExpireSilently(unittest.TestCase):
     def test_it_asks_for_a_refill_before_running_out(self):
         """60 days, because a human refills these from federalreserve.gov and the
         request has to arrive while someone is still around to act on it."""
-        _, expiring = self._state(date(2026, 10, 25))
+        _, expiring = self._state(date(2027, 11, 1))
         self.assertIn("PCE", expiring)
 
     def test_an_exhausted_list_is_reported_expired(self):
-        expired, _ = self._state(date(2027, 1, 5))
+        expired, _ = self._state(date(2028, 1, 5))
         self.assertIn("PCE", expired)
 
     # --- what expiry does to the gate -------------------------------------
@@ -23259,7 +23271,7 @@ class TestMacroCalendarCannotExpireSilently(unittest.TestCase):
             return a.check_macro_safe(), chr(10).join(sent)
 
     def test_an_expired_calendar_blocks_entries(self):
-        (safe, score), out = self._gate(date(2027, 1, 5))
+        (safe, score), out = self._gate(date(2028, 1, 5))
         self.assertFalse(safe)
         self.assertEqual(score, 0)
         self.assertIn("EXPIRED", out)
@@ -23267,9 +23279,18 @@ class TestMacroCalendarCannotExpireSilently(unittest.TestCase):
 
     def test_a_soon_to_expire_calendar_warns_but_still_trades(self):
         """Blocking on a warning would be an outage, not a safeguard."""
-        (safe, _), out = self._gate(date(2026, 10, 25))
+        (safe, _), out = self._gate(date(2027, 11, 1))
         self.assertTrue(safe)
         self.assertIn("runs out soon", out)
+
+    def test_pce_reaches_through_2027(self):
+        """Refilled 2026-11-09 from bea.gov's 2027 schedule. Before that the
+        list ended 2026-12-23, and from 12-24 the expiry rule above would have
+        blocked EVERY entry until a human refilled it."""
+        self.assertEqual(max(a._PCE_DATES), date(2027, 12, 22))
+        self.assertEqual(len([d for d in a._PCE_DATES if d.year == 2027]), 12)
+        expired, _ = self._state(date(2026, 12, 28))
+        self.assertEqual(expired, [])
 
     def test_a_healthy_calendar_sends_nothing(self):
         (safe, _), out = self._gate(date(2026, 9, 29))
@@ -24338,9 +24359,17 @@ class TestTheRefillNagNamesTheRightSource(unittest.TestCase):
     def test_pce_really_is_the_first_to_expire(self):
         """Pins the premise. If another list ever becomes the short one, the
         reasoning above needs re-reading rather than silently going stale."""
+        # Re-read 2026-11-09 when PCE was refilled through 2027 from bea.gov:
+        # the shortest list is now FOMC (2027-12-08), whose nag names
+        # federalreserve.gov (test_an_fomc_nag_names_the_fed), so the premise
+        # -- the first nag anyone receives names the right agency -- holds.
         cov = a._macro_calendar_coverage(date(2026, 10, 2))
-        self.assertEqual(min(cov, key=lambda n: cov[n][1]), "PCE")
-        self.assertEqual(cov["PCE"][0], date(2026, 12, 23))
+        self.assertEqual(min(cov, key=lambda n: cov[n][1]), "FOMC")
+        self.assertEqual(cov["FOMC"][0], date(2027, 12, 8))
+        self.assertEqual(cov["PCE"][0], date(2027, 12, 22))
+        # And no list nags before autumn 2027.
+        self.assertTrue(all(_last - timedelta(days=a.MACRO_CALENDAR_RUNWAY_DAYS)
+                            >= date(2027, 10, 1) for _last, _ in cov.values()))
 
 
 class TestHeatCapIsABudgetNotAPositionCount(unittest.TestCase):

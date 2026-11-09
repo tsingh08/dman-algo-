@@ -104,7 +104,14 @@ def bea_pce_schedule() -> set:
     year equals the reference year except when the release month wraps round
     to January, which is the December-reference release.
     """
+    # The current-year page only; the following year lives on its own page
+    # (/next-year) once BEA publishes it, which is where the 2027 refill of
+    # 2026-11-09 came from. A missing next-year page is not an error.
     body = _text("https://www.bea.gov/news/schedule")
+    try:
+        body += " " + _text("https://www.bea.gov/news/schedule/next-year")
+    except Exception:
+        pass
     txt = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", body))
     out = set()
     pat = (r"([A-Z][a-z]+)\s+(\d{1,2})\s+\d{1,2}:\d{2}\s*[AP]M\s+N\s*ews\s+"

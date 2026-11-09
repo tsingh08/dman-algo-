@@ -87,6 +87,24 @@ jobs:
           ACCOUNT_SIZE:        ${{ secrets.ACCOUNT_SIZE }}
         run: python dman_algo.py --mode weekend
 
+      # Weekly end-to-end API health report, Sunday's last look only (one
+      # Telegram a week). Until 2026-11-09 this probe ran only when someone
+      # dispatched it by hand -- an unattended system needs it to come to
+      # you. Read-only: places no order, writes no state.
+      - name: Weekly API health check
+        if: github.event.schedule == '0 22 * * 0' || github.event_name == 'workflow_dispatch'
+        continue-on-error: true
+        env:
+          TELEGRAM_TOKEN:      ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID:    ${{ secrets.TELEGRAM_CHAT_ID }}
+          APCA_API_KEY_ID:     ${{ secrets.APCA_API_KEY_ID }}
+          APCA_API_SECRET_KEY: ${{ secrets.APCA_API_SECRET_KEY }}
+          MASSIVE_API_KEY:          ${{ secrets.MASSIVE_API_KEY }}
+          MASSIVE_BACKUP_API_KEY:   ${{ secrets.MASSIVE_BACKUP_API_KEY }}
+          ANTHROPIC_API_KEY:   ${{ secrets.ANTHROPIC_API_KEY }}
+          ACCOUNT_SIZE:        ${{ secrets.ACCOUNT_SIZE }}
+        run: python dman_algo.py --mode apicheck
+
       # Weekly rebuild of the alert-only small-cap list from a liquidity
       # screen -- see tools/smallcap_universe_refresh.py for the measurement.
       # Sunday's last-look run only, so Monday scans the fresh list. Leaves

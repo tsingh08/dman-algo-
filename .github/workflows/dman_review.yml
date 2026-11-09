@@ -475,6 +475,7 @@ jobs:
           PR_URL:        ${{ steps.pr.outputs.pr_url }}
           PR_VERDICT:    ${{ steps.validate.outputs.verdict }}
           PR_VDETAIL:    ${{ steps.validate.outputs.detail }}
+          RUN_URL:       ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           TELEGRAM_TOKEN:   ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
@@ -509,20 +510,20 @@ jobs:
                   "confluence-only scoring, never blocks a trade) -- confirmed no live scan hit "
                   "this today."
               )
-          text = f"{header}\n\n{html.escape(body)}"
+          footer = ""
           if kind == "eod" and pr_url:
-              text += f"\n\n📤 <b>PR opened:</b> {html.escape(pr_url)}"
+              footer += f"\n\n📤 <b>PR opened:</b> {html.escape(pr_url)}"
               # GitHub runs no CI on an Actions-token PR, so this branch
               # validation is the only gate -- report it here rather than
               # leaving it only in the PR body nobody opens on a phone.
               verdict = os.environ.get("PR_VERDICT", "").strip()
               detail  = html.escape(os.environ.get("PR_VDETAIL", "").strip())
               if verdict == "pass":
-                  text += f"\n✅ <b>Branch checks passed</b> — {detail}"
+                  footer += f"\n✅ <b>Branch checks passed</b> — {detail}"
               elif verdict == "fail":
-                  text += (f"\n⛔ <b>Branch checks FAILED — do not merge</b> — {detail}")
+                  footer += (f"\n⛔ <b>Branch checks FAILED — do not merge</b> — {detail}")
               elif verdict:
-                  text += f"\n⚠️ <b>Branch checks {html.escape(verdict)}</b> — {detail}"
+                  footer += f"\n⚠️ <b>Branch checks {html.escape(verdict)}</b> — {detail}"
           # Standard library only. This step runs `if: always()`, but the only
           # `pip install` in the job lives inside the conditional validation
           # step, with its output sent to /dev/null -- so on 2026-09-11 the
@@ -531,11 +532,55 @@ jobs:
           # alert that pointed at the wrong step. A report step that can only
           # run when some other step happened to install a package is not a
           # report step you can rely on.
-          urllib.request.urlopen(urllib.request.Request(
-              f"https://api.telegram.org/bot{token}/sendMessage",
-              data=urllib.parse.urlencode(
-                  {"chat_id": chat, "text": text, "parse_mode": "HTML"}).encode()),
-              timeout=15)
+          #
+          # Telegram rejects any message over 4096 characters with HTTP 400,
+          # and nothing here limited the length: the 11-03 and 11-05 EOD
+          # reviews both ran, opened their PRs, and then never reached the
+          # phone. So the body goes out in chunks of at most CHUNK raw
+          # characters, split on line breaks and escaped AFTER splitting
+          # (an entity is never cut in half), capped at MAX_PARTS messages
+          # with a pointer to the run log for the rest. A 400 on a part is
+          # retried once as plain text, so a markup quirk cannot lose it.
+          import re, urllib.error
+          CHUNK, MAX_PARTS = 3300, 4
+          run_url = os.environ.get("RUN_URL", "")
+          # Lengths are measured AFTER escaping ("&" -> "&amp;" is 5x), and an
+          # over-long line is cut into 600-char pieces first, so no piece can
+          # escape past CHUNK on its own.
+          esc = lambda s: len(html.escape(s))
+          lines, parts, cur = [], [], ""
+          for ln in body.splitlines(keepends=True):
+              lines.extend([ln[i:i + 600] for i in range(0, len(ln), 600)] or [ln])
+          for ln in lines:
+              if cur and esc(cur + ln) > CHUNK:
+                  parts.append(cur); cur = ""
+              cur += ln
+          if cur or not parts:
+              parts.append(cur)
+          truncated = len(parts) > MAX_PARTS
+          parts = parts[:MAX_PARTS]
+
+          def send(msg):
+              def post(payload):
+                  urllib.request.urlopen(urllib.request.Request(
+                      f"https://api.telegram.org/bot{token}/sendMessage",
+                      data=urllib.parse.urlencode(payload).encode()), timeout=15)
+              try:
+                  post({"chat_id": chat, "text": msg, "parse_mode": "HTML"})
+              except urllib.error.HTTPError as e:
+                  if e.code != 400:
+                      raise
+                  plain = html.unescape(re.sub(r"<[^>]+>", "", msg))[:4000]
+                  post({"chat_id": chat, "text": plain})
+
+          n = len(parts)
+          for i, part in enumerate(parts):
+              msg = (header if i == 0 else f"🔎 <b>(part {i + 1}/{n})</b>") + "\n\n" + html.escape(part)
+              if i == n - 1:
+                  if truncated:
+                      msg += f"\n\n… <i>truncated — full report in the run log</i> {html.escape(run_url)}"
+                  msg += footer
+              send(msg)
           EOF
 
       - name: Notify on workflow failure
@@ -546,5 +591,5 @@ jobs:
         run: |
           curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage" \
             -d "chat_id=${TELEGRAM_CHAT_ID}" \
-            -d "text=⚠️ <b>DMan review FAILED</b> — pre-run step failed (checkout/install). Check GitHub Actions." \
+            -d "text=⚠️ <b>DMan review FAILED</b> — a workflow step failed (not necessarily the review itself): ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
             -d "parse_mode=HTML" || true

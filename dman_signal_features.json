@@ -48904,7 +48904,7 @@
 "setup": "Morning Runner",
 "bias": "LONG",
 "taken": false,
-"reject": "hard gate",
+"reject": "mtf: weekly disagrees",
 "score": 98,
 "final_score": 98.0,
 "ai_scored": false,
@@ -48954,8 +48954,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 7,
-"last_ts": "2026-11-09T09:40:29.598740-05:00",
+"seen": 8,
+"last_ts": "2026-11-09T09:40:29.691262-05:00",
 "entry_min": 20.76,
 "entry_max": 20.76
 },
@@ -48978,8 +48978,8 @@
 "rvol": 3.47,
 "atr": 5.022492857142859,
 "beta": 2.096,
-"catalyst_tier": "",
-"news_boost": false,
+"catalyst_tier": "C",
+"news_boost": true,
 "regime": "CHOP",
 "regime_score": 8,
 "mtf_ok": false,
@@ -49014,10 +49014,10 @@
 "Float/Short": 10,
 "RVOL Tier": 6,
 "Gap Size": 0,
-"News Catalyst": 0
+"News Catalyst": 5
 },
-"seen": 5,
-"last_ts": "2026-11-09T09:34:09.060429-05:00",
+"seen": 7,
+"last_ts": "2026-11-09T09:40:30.146116-05:00",
 "entry_min": 88.24,
 "entry_max": 88.24
 }

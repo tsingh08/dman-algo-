@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-11-06T16:01:39.927110-05:00",
-    "symbols": [
-      "STEP"
-    ],
-    "headline": "RBC Capital Maintains Outperform on StepStone Group, Raises Price Target to $68",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.930867-05:00",
-    "symbols": [
-      "IREN"
-    ],
-    "headline": "Nasdaq 100 Rebounds 2% After Worst Day Since 2020, Payrolls Smash Estimates: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.933359-05:00",
-    "symbols": [
-      "IREN"
-    ],
-    "headline": "Why Is Nebius Stock Surging on Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.935838-05:00",
-    "symbols": [
-      "IREN"
-    ],
-    "headline": "Moderna, JFrog, TransMedics, Ubiquiti And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.938680-05:00",
-    "symbols": [
-      "FLY"
-    ],
-    "headline": "Moderna, JFrog, TransMedics, Ubiquiti And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T16:01:39.942594-05:00",
-    "symbols": [
-      "KRMN"
-    ],
-    "headline": "Nasdaq 100 Rebounds 2% After Worst Day Since 2020, Payrolls Smash Estimates: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.945593-05:00",
-    "symbols": [
-      "KRMN"
-    ],
-    "headline": "Moderna, JFrog, TransMedics, Ubiquiti And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.948103-05:00",
-    "symbols": [
-      "KRMN"
-    ],
-    "headline": "These Analysts Revise Their Forecasts On Karman After Upbeat Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-06T16:01:39.950598-05:00",
     "symbols": [
       "KRMN"
@@ -4995,6 +4915,86 @@
       "CNH"
     ],
     "headline": "CNH Industrial Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:33:20.850346-05:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Novo Nordisk Provides Update on Share Repurchase Program",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T10:33:25.912601-05:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Gilead Highlights Strong Trial Results in HIV Prevention and Liver Disease",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T10:33:28.169315-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Bitmine Adds 9,587 ETH as Tom Lee Hails \u2018Seismic Shift\u2019 for Ethereum",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:33:29.428345-05:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "Barclays Maintains Overweight on DraftKings, Lowers Price Target to $27",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T10:33:35.592752-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Goolsbee Says Big Problem Has All Been On The Inflation Side; Employment And Growth Are Actually Pretty Stable; Starting To See Inflation Kicking Up In Services; Data Centers Looking Like Old-Fashioned Overheating; Consumer Spending Has Been Main Driver Of Growth",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T10:33:36.600139-05:00",
+    "symbols": [
+      "COTY"
+    ],
+    "headline": "Barclays Maintains Underweight on Coty, Raises Price Target to $3",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:33:47.910339-05:00",
+    "symbols": [
+      "TLS"
+    ],
+    "headline": "Telos Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:33:50.586046-05:00",
+    "symbols": [
+      "SHMD"
+    ],
+    "headline": "Why Is SCHMID Group Stock Gaining Monday?",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

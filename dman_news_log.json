@@ -1,225 +1,5 @@
 [
   {
-    "ts": "2026-11-06T16:01:39.781227-05:00",
-    "symbols": [
-      "SMR"
-    ],
-    "headline": "This Palatin Technologies Analyst Begins Coverage On A Bullish Note; Here Are Top 4 Initiations For Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.787154-05:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Chase & Co. Files Major Holdings Notification for Delivery Hero SE",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.789698-05:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Chase Reiterates Buy Rating on Axon Enterprise",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.795311-05:00",
-    "symbols": [
-      "SLB"
-    ],
-    "headline": "Rothschild & Co Redburn Adjusts SLB Price Target to $64 From $68",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.797868-05:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "Growth Lead Sectors In Friday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.800858-05:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Growth Lead Sectors In Friday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.803783-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Stock Slides as Microsoft Reportedly Pulls Back From AI Computing Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.806694-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "&#39;In Recent Months, Microsoft Has Been Turning Off Rented Computing Capacity From Oracle After Declining To Renew The Contract&#39; - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.809203-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "&#39;Microsoft Is Winding Down Oracle Deal To Rent AI Cloud Capacity&#39; - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.812440-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Posts On Truth Social &#34;I am pleased to announce that Mr. Stephen Miller, the current Deputy Chief of Staff of the Trump Administration, and one of my most trusted advisors, will become the Chief of Staff starting Monday, November 9, 2026. Susie Wiles, who has done an outstanding job, will be moving over to the Trump Political Operation. I want to thank her for her service as Chief of Staff \u2014 She has done a great job!&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.816499-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "QQQ Vs. TQQQ: 3X Nasdaq ETFs Compounding Trap Is Costing Investors Big",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.819178-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Nasdaq 100 Rebounds 2% After Worst Day Since 2020, Payrolls Smash Estimates: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.822179-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "What&#39;s Going On With Marvell Technology Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.824722-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Growth Lead Sectors In Friday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.827260-05:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Nasdaq 100 Rebounds 2% After Worst Day Since 2020, Payrolls Smash Estimates: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T16:01:39.829830-05:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Growth Lead Sectors In Friday Trading As Defensives Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T16:01:39.832513-05:00",
-    "symbols": [
-      "ALEC"
-    ],
-    "headline": "Alector Reports Third Quarter 2026 Financial Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T16:01:39.835815-05:00",
-    "symbols": [
-      "BW"
-    ],
-    "headline": "Babcock & Wilcox Enterprises Declares Preferred Stock Dividend",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.838392-05:00",
-    "symbols": [
-      "CCCC"
-    ],
-    "headline": "Guggenheim Maintains Buy on C4 Therapeutics, Lowers Price Target to $6",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T16:01:39.841612-05:00",
-    "symbols": [
-      "DCH"
-    ],
-    "headline": "Dauch Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T16:01:39.852095-05:00",
-    "symbols": [
-      "KEEL"
-    ],
-    "headline": "This Palatin Technologies Analyst Begins Coverage On A Bullish Note; Here Are Top 4 Initiations For Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.859843-05:00",
-    "symbols": [
-      "QSI"
-    ],
-    "headline": "Quantum-Si Reports Third Quarter 2026 Financial Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-11-06T16:01:39.863109-05:00",
     "symbols": [
       "SERV"
@@ -4995,6 +4775,226 @@
       "SOC"
     ],
     "headline": "UPDATE: Sable Offshore Q3 Adj. EPS $(0.43) Misses $(0.19) Estimate, Sales $154.370M Miss $155.668M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:04:15.746139-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Jim Cramer Posts On X &#34;AMD viewed as a winner. It IS a winner. But a data center multi-year roadmap in this country is now suspect...&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T10:04:17.315878-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Congressional Trading Report: Rep. John McGuire Sold Over $1K In Western Digital Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T10:04:17.664393-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "AI Chatbots\u2019 Stock Pick Showdown: Constellation, Applied Materials, Take-Two",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T10:04:17.929192-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Congressional Trading Report: Rep. John McGuire Sold Over $1K In Western Digital Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T10:04:19.099670-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "B. Riley Securities Maintains Buy on Marvell Technology, Lowers Price Target to $250",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T10:04:20.687459-05:00",
+    "symbols": [
+      "FSLR"
+    ],
+    "headline": "U.S. Department Of Commerce And The U.S. ITC Issues Antidumping Duty Orders And Amended Final Determination On Solar Cells From India, Indonesia, And Laos",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T10:04:24.139349-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "MSTR Drops 3% Despite Strategy\u2019s Biggest Bitcoin Buy in 6 Weeks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:04:27.336969-05:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Dow Jumps Over 600 Points; Constellation Energy Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:04:27.342826-05:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "AI Chatbots\u2019 Stock Pick Showdown: Constellation, Applied Materials, Take-Two",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:04:32.135930-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "CB Employment Trends Index For October 108.36 Vs 108.43 Prior",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T10:04:32.141098-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Wholesale Inventories (MoM) For September 0.7% Vs 0.6% Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T10:04:32.145983-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Wholesale Trade Sales (MoM) For September 2.8% Vs 2.0% Prior",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T10:04:32.151514-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Department Of Commerce And The U.S. ITC Issues Antidumping Duty Orders And Amended Final Determination On Solar Cells From India, Indonesia, And Laos",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T10:04:34.913965-05:00",
+    "symbols": [
+      "EVGO"
+    ],
+    "headline": "EVgo Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:04:38.168047-05:00",
+    "symbols": [
+      "PLUG"
+    ],
+    "headline": "Plug Power Fuels Up Ahead of Earnings Tonight: Here\u2019s What Investors Need to Know",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T10:04:39.404065-05:00",
+    "symbols": [
+      "SOC"
+    ],
+    "headline": "Dow Jumps Over 600 Points; Constellation Energy Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:04:41.135645-05:00",
+    "symbols": [
+      "ZURA"
+    ],
+    "headline": "Dow Jumps Over 600 Points; Constellation Energy Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:04:41.640203-05:00",
+    "symbols": [
+      "JDZG"
+    ],
+    "headline": "Dow Jumps Over 600 Points; Constellation Energy Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:04:42.163004-05:00",
+    "symbols": [
+      "MF"
+    ],
+    "headline": "Dow Jumps Over 600 Points; Constellation Energy Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:04:47.338649-05:00",
+    "symbols": [
+      "PRAX"
+    ],
+    "headline": "Praxis Precision Medicines Says Cash and Investments of Approximately $1.3B as of September 30, 2026 to Maintain Runway Into 2028",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:04:47.343740-05:00",
+    "symbols": [
+      "PRAX"
+    ],
+    "headline": "Praxis Precision Medicine Q3 EPS $(3.23) Beats $(3.66) Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:04:47.348331-05:00",
+    "symbols": [
+      "PRAX"
+    ],
+    "headline": "KKR, Constellation Energy On Deck Monday As Private Credit, Power Face Test",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

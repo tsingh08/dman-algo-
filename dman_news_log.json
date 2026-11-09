@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-09T11:04:40.603935-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Kevin O\u2019Leary Calls AI an &#39;Amazing Opportunity&#39; for Entrepreneurs, Says Nobody Wants to Stop &#39;Innovation&#39; or &#39;Job Creation&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-09T11:04:40.608932-05:00",
     "symbols": [
       "GOOGL"
@@ -4998,5 +4988,15 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T14:05:20.783259-05:00",
+    "symbols": [
+      "CLOV"
+    ],
+    "headline": "Clover Health Reports Q3 2026 Financial Results and Raises Guidance",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

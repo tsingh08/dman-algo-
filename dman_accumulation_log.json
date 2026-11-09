@@ -4111,5 +4111,23 @@
   "drift_pct": 1.1,
   "range_ratio": 0.52,
   "near_high": 0.979
+ },
+ {
+  "ts": "2026-11-09T14:12:44.105078-05:00",
+  "ticker": "ACWV",
+  "price": 130.085,
+  "rvol": 2.39,
+  "drift_pct": 0.96,
+  "range_ratio": 0.64,
+  "near_high": 0.99
+ },
+ {
+  "ts": "2026-11-09T14:12:44.105095-05:00",
+  "ticker": "GTEN",
+  "price": 10.44,
+  "rvol": 3.88,
+  "drift_pct": 0.09,
+  "range_ratio": 0.5,
+  "near_high": 0.977
  }
 ]

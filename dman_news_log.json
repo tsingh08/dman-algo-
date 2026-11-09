@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-11-09T09:33:21.506568-05:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Seed Health Launches Nationwide at Costco",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-09T09:33:21.512613-05:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "Eaton Selected to Provide Systems for Dassault Falcon 10X Jet",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T09:33:21.518120-05:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "B. Riley Adjusts Price Target on Marvell Technology to $250 From $275",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-09T09:33:21.813169-05:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "Daiwa Securities Adjusts Gilead Sciences Price Target to $174 From $150",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-09T09:33:21.819256-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Uber and McDonald's Expand Delivery and Rewards Partnership Across 14 Markets",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-09T09:34:20.629909-05:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "Shareholder Investigation Announced Regarding DraftKings Securities Disclosures",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-09T09:34:20.948904-05:00",
-    "symbols": [
-      "RIOT"
-    ],
-    "headline": "Morgan Stanley Maintains Riot Platforms Buy Rating, Raises Price Target to $41",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T09:34:21.262666-05:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Morgan Stanley Adjusts Price Target on Applied Digital",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T09:34:21.522990-05:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Caterpillar and Phoenix Service Partners Test Ultra-Low Methane Gas Compression System",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T09:34:21.528508-05:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "Enphase Energy Announces Milestone of 8 Million IQ Microinverters Shipped from U.S. Facilities",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-09T09:37:56.943657-05:00",
     "symbols": [
       "AAPL"
@@ -4998,5 +4898,105 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T11:28:01.121394-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "QUICK SPARK: Nvidia Stock Eyes a Negative Streak Unseen Since 2012",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-09T11:28:07.780008-05:00",
+    "symbols": [
+      "RBLX"
+    ],
+    "headline": "Rovio Launches Angry Birds Tower Defense on Roblox",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T11:28:13.813943-05:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "RTX's Raytheon Completes Third Successful Flight Test of Joint Reduced Range Rocket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T11:28:15.020314-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs CEO Solomon Says Optimistic There&#39;ll Still Be Significant Amount Of Investment In Data Centers, Compute Capacity In U.S.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T11:28:16.955988-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Seed Health Launches Nationwide at Costco",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T11:28:31.457035-05:00",
+    "symbols": [
+      "TMCI"
+    ],
+    "headline": "This AMD Analyst Turns Bullish; Here Are Top 5 Upgrades For Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T11:28:31.461825-05:00",
+    "symbols": [
+      "TMCI"
+    ],
+    "headline": "Stifel Upgrades Treace Medical Concepts to Buy, Raises Price Target to $6.5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T11:28:33.358642-05:00",
+    "symbols": [
+      "SHMD"
+    ],
+    "headline": "SCHMID Group Receives Order For Key Process Equipment For Its New Glass Core Substrate Manufacturing Facility In South Asia",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T11:28:34.320918-05:00",
+    "symbols": [
+      "TTD"
+    ],
+    "headline": "Trade Desk Likely To Report Lower Q3 Earnings; These Most Accurate Analysts Revise Forecasts Ahead Of Earnings Call",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T11:28:34.325980-05:00",
+    "symbols": [
+      "TTD"
+    ],
+    "headline": "Nebius Could Swing $6.56 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -4084,5 +4084,14 @@
   "drift_pct": 0.57,
   "range_ratio": 0.64,
   "near_high": 0.986
+ },
+ {
+  "ts": "2026-11-09T11:28:57.970240-05:00",
+  "ticker": "VRTX",
+  "price": 547.09,
+  "rvol": 1.6,
+  "drift_pct": 1.1,
+  "range_ratio": 0.52,
+  "near_high": 0.979
  }
 ]

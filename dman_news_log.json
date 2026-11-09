@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-09T09:37:56.943657-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Chip Stocks Are 38% Off Their Peak: &#39;Time to Buy the Dip,&#39; Analysts Say",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-09T09:37:57.363994-05:00",
     "symbols": [
       "NVDA"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T11:33:20.549253-05:00",
+    "symbols": [
+      "DIA"
+    ],
+    "headline": "Diagnostyka Included in PFR Ventures Investment Portfolio",
+    "source": "fiscal.ai",
+    "tag": "macro",
+    "sentiment": null
   }
 ]

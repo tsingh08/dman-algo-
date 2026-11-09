@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-06T16:01:39.721901-05:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Morgan Stanley Maintains Buy Rating and $270 Price Target on Datadog",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-06T16:01:39.724455-05:00",
     "symbols": [
       "DDOG"
@@ -4995,6 +4985,16 @@
       "CORZ"
     ],
     "headline": "B. Riley Adjusts Price Target on Core Scientific to $27 From $31",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T09:46:09.334670-05:00",
+    "symbols": [
+      "VFF"
+    ],
+    "headline": "Village Farms Intl Q3 2026 Earnings Call Transcript",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

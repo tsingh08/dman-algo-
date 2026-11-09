@@ -151,7 +151,16 @@
     "OSS",
     "EVH",
     "JBI",
-    "CLVT"
+    "CLVT",
+    "TWG",
+    "OCG",
+    "NEXR",
+    "IMSR"
   ],
-  "dman_calls": []
+  "dman_calls": [
+    "TWG",
+    "OCG",
+    "NEXR",
+    "IMSR"
+  ]
 }

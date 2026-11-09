@@ -816,5 +816,61 @@
    "regime": "CHOP",
    "regime_score": 7
   }
+ },
+ {
+  "ts": "2026-11-09T16:22:52.707390-05:00",
+  "kind": "dman_play",
+  "ticker": "TWG",
+  "verdict": "skip",
+  "confidence": 75,
+  "reason": "Entry at 3.39 is 39% above stated 2.44 buy. Already deep into move with limited room to 4.00 target.",
+  "facts": {
+   "price": 3.39,
+   "post": "Swing $TWG 2.44 BUY last week boom here we near $4",
+   "posted_et": "11/09 15:25",
+   "plan": "+15% target / -20% stop, same-day exit"
+  }
+ },
+ {
+  "ts": "2026-11-09T16:22:53.715166-05:00",
+  "kind": "dman_play",
+  "ticker": "OCG",
+  "verdict": "skip",
+  "confidence": 75,
+  "reason": "Entry at 1.65 is 10% above the 1.50 level being watched. Already chasing into move with poor risk/reward asymmetry.",
+  "facts": {
+   "price": 1.65,
+   "post": "$OCG watching her here 1.50s \ud83e\udd14\ud83e\udee3\u2705",
+   "posted_et": "11/09 13:50",
+   "plan": "+15% target / -20% stop, same-day exit"
+  }
+ },
+ {
+  "ts": "2026-11-09T16:22:54.544435-05:00",
+  "kind": "dman_play",
+  "ticker": "NEXR",
+  "verdict": "skip",
+  "confidence": 85,
+  "reason": "No catalyst named. Vague post ('about to go here') lacks specificity. No technical setup described or visible.",
+  "facts": {
+   "price": 2.105,
+   "post": "$NEXR about to go here guys green now \u2705\u2705",
+   "posted_et": "11/09 13:24",
+   "plan": "+15% target / -20% stop, same-day exit"
+  }
+ },
+ {
+  "ts": "2026-11-09T16:22:55.513861-05:00",
+  "kind": "dman_play",
+  "ticker": "IMSR",
+  "verdict": "skip",
+  "confidence": 78,
+  "reason": "Entry after 23% move already executed. Risk/reward skewed unfavorably at +15% target versus -20% stop from current price.",
+  "facts": {
+   "price": 2.995,
+   "post": "$IMSR i gave this swing last week 2.44-2.45 BUY we have $3+ run so far \u2705",
+   "posted_et": "11/09 13:06",
+   "plan": "+15% target / -20% stop, same-day exit"
+  }
  }
 ]

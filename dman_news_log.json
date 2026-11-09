@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-11-09T11:04:40.608932-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Elon Musk Backs Google Co-Founder Larry Page&#39;s &#39;Accurate&#39; Prediction That 99.999% of Computing Could Move to Space",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-09T11:04:40.613783-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Deerfield Management Announces Collaboration With AWS To Accelerate Ai-Driven Healthcare Innovation, Care Delivery",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-09T11:04:40.618720-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "GTA Owner Take-Two, ExxonMobil, Clorox And A Financial Stock On CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-09T11:04:40.624533-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Elon Musk Says Tesla Will Have to Return Cybertruck Deposits to &#39;A Lot of People,&#39; Rejects Unprofitability Reports",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-09T11:04:40.629175-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Chuck Schumer Says Republicans Threatened to Interfere With Midterm Elections, Credits Democrats And &#39;Tens of Thousands&#39; of Poll Watchers: &#39;Our Democracy Is Stronger...&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-09T11:04:40.633986-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Musk Says Cybertruck Order Rate Far Exceeds Production Rate, Line To Shut Down In About 8 Months, Deposits To Be Returned To Many",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-09T11:04:40.639024-05:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Jim Cramer Praises The &#39;Number One Oil Company In The World&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-09T11:04:40.651463-05:00",
     "symbols": [
       "MU"
@@ -4996,6 +4926,76 @@
     ],
     "headline": "Clover Health Reports Q3 2026 Financial Results and Raises Guidance",
     "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T14:14:10.552085-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "&#39;SpaceX Plans $24 Billion Data Center and Gas Plant in Texas&#39; - Bloomberg News",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T14:14:12.079205-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Short Nvidia, Long Drama: Traders Pile into Leveraged ETFs During Sell-Off",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T14:14:12.084310-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Jensen Huang Net Worth Takes a Hit: Nvidia CEO Loses Two Spots Among Top 10 Billionaires",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T14:14:12.837914-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;Google Escalates Nvidia Rivalry With Specialized Versions of AI Chips&#39; - Bloomberg Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T14:14:12.843042-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Elizabeth Warren Slams Trump for &#39;Wining and Dining&#39; AI Billionaires Instead of Protecting Americans: &#39;It Needs to Stop&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T14:14:12.847438-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Kevin O\u2019Leary Calls AI an &#39;Amazing Opportunity&#39; for Entrepreneurs, Says Nobody Wants to Stop &#39;Innovation&#39; or &#39;Job Creation&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T14:14:47.765055-05:00",
+    "symbols": [
+      "NVD"
+    ],
+    "headline": "Short Nvidia, Long Drama: Traders Pile into Leveraged ETFs During Sell-Off",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

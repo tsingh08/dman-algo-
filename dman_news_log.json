@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-09T14:26:47.556091-05:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "GE Vernova Lands Wind Turbine Order With 20-Year Service Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-09T14:26:47.561619-05:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "GE Vernova Signs Agreement To Supply Stadtwerke Heidenheim With Three 5.5 MW-158m Onshore Wind Turbines For Schlotberg-J\u00fcchsen Wind Farm In Germany, Including 20-Year Service Agreement",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-09T14:26:47.794167-05:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Lockheed Martin Awards Teledyne Brown Engineering Subcontract To Deliver NGI Mechanical Ground Support Equipment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-09T14:26:48.289237-05:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "11 Of 11 Sectors Rise Monday As Growth Leads",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-09T14:26:48.535704-05:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "11 Of 11 Sectors Rise Monday As Growth Leads",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-09T14:26:48.782140-05:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "Eaton Selected By Dassault Aviation To Provide Hydraulic Power System And Fuel System Technologies For Falcon 10X Business Jet",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-09T14:26:49.020911-05:00",
     "symbols": [
       "JPM"
@@ -4996,6 +4936,66 @@
     ],
     "headline": "LifeStance Health Stockholders Launch Secondary Offering Of 45M Shares; Company Authorizes Concurrent Repurchase of 2M Shares",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T16:32:20.786996-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft and Northern Trust Expand AI Collaboration",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T16:32:21.077800-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Selected for NASA's $10 Billion Commercial Lunar Payload Services 2 Contract",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T16:32:21.309947-05:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Acquires International Streaming Rights for 'The Gallerist'",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T16:32:21.550420-05:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Mastercard Outlines Strategic Focus on AI and Agentic Payments",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-09T16:32:21.777758-05:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "FedEx Expands European Logistics Infrastructure with New German Hub and Madrid Facility Upgrades",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T16:32:22.072512-05:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Adobe and The Walt Disney Company Announce Multi-Year Strategic Partnership",
+    "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": null
   }

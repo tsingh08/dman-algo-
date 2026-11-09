@@ -2268,5 +2268,145 @@
 "extension_pct": 42.0,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "DCTH",
+"date": "2026-11-09",
+"close": 20.27,
+"base_days": 62,
+"above_low_pct": 147.5,
+"extension_pct": 38.2,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "SGRY",
+"date": "2026-11-09",
+"close": 26.45,
+"base_days": 296,
+"above_low_pct": 130.2,
+"extension_pct": 38.4,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "REPL",
+"date": "2026-11-09",
+"close": 22.26,
+"base_days": 0,
+"above_low_pct": 1209.4,
+"extension_pct": 50.5,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "MRNA",
+"date": "2026-11-09",
+"close": 269.0,
+"base_days": 2,
+"above_low_pct": 1103.0,
+"extension_pct": 19.6,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "XERS",
+"date": "2026-11-09",
+"close": 15.86,
+"base_days": 0,
+"above_low_pct": 199.8,
+"extension_pct": 46.3,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "SG",
+"date": "2026-11-09",
+"close": 13.36,
+"base_days": 0,
+"above_low_pct": 184.3,
+"extension_pct": 24.9,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "SN",
+"date": "2026-11-09",
+"close": 229.51,
+"base_days": 2,
+"above_low_pct": 171.4,
+"extension_pct": 14.2,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "NIQ",
+"date": "2026-11-09",
+"close": 21.42,
+"base_days": 6,
+"above_low_pct": 168.8,
+"extension_pct": 10.0,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "VIR",
+"date": "2026-11-09",
+"close": 13.64,
+"base_days": 0,
+"above_low_pct": 166.5,
+"extension_pct": 24.0,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "CYRX",
+"date": "2026-11-09",
+"close": 20.47,
+"base_days": 0,
+"above_low_pct": 165.2,
+"extension_pct": 17.6,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "ARHS",
+"date": "2026-11-09",
+"close": 15.02,
+"base_days": 0,
+"above_low_pct": 161.2,
+"extension_pct": 31.5,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "MGNI",
+"date": "2026-11-09",
+"close": 29.04,
+"base_days": 1,
+"above_low_pct": 159.3,
+"extension_pct": 23.6,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "ARDT",
+"date": "2026-11-09",
+"close": 17.97,
+"base_days": 0,
+"above_low_pct": 129.5,
+"extension_pct": 43.9,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "VTRS",
+"date": "2026-11-09",
+"close": 20.49,
+"base_days": 6,
+"above_low_pct": 109.9,
+"extension_pct": 10.6,
+"fresh_base": false,
+"weak_band": false
 }
 ]

@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-06T20:03:20.672231-05:00",
-    "symbols": [
-      "WRD"
-    ],
-    "headline": "WeRide Announces Board of Directors Meeting Date",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T09:26:23.339910-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk Says He&#39;s &#39;Excited&#39; About Qualcomm Deal As SpaceX Gears Up For Massive 5G Expansion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-09T09:26:23.344395-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Chuck Schumer Says Republicans Threatened to Interfere With Midterm Elections, Credits Democrats And &#39;Tens of Thousands&#39; of Poll Watchers: &#39;Our Democracy Is Stronger...&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-09T09:26:23.348780-05:00",
     "symbols": [
       "SPCX"
@@ -4995,6 +4965,36 @@
       "VIA"
     ],
     "headline": "Via Transportation Sees Q4 Sales $150.000M-$151.700M vs $150.689M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:58:05.396244-05:00",
+    "symbols": [
+      "FSLR"
+    ],
+    "headline": "Piper Sandler Maintains Overweight on First Solar, Lowers Price Target to $222",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T10:58:16.128031-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Secretary Of State Marco Rubio, On AI, Says We Need Industry-Led Partnerships, Not More Regulation And Unnecessary Red Tape",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T10:58:28.627689-05:00",
+    "symbols": [
+      "DCTH"
+    ],
+    "headline": "BTIG Maintains Buy on Delcath Systems, Raises Price Target to $25",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

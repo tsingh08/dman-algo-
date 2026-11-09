@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-11-09T09:26:36.714999-05:00",
-    "symbols": [
-      "OXY"
-    ],
-    "headline": "Stock Market Today: Dow, S&amp;P 500 Futures Rise Despite Nvidia Sell-Off Over Jensen Huang Controversy \u2014 NVDA, OXY, CEG In Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T09:26:36.719442-05:00",
-    "symbols": [
-      "OXY"
-    ],
-    "headline": "Nasdaq Gains Over 1% as Chipmakers Recover: Investor Sentiment Improves, but Fear &amp; Greed Index Remains in \u2018Extreme Fear\u2019 Zone",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T09:26:36.723810-05:00",
-    "symbols": [
-      "OXY"
-    ],
-    "headline": "Constellation Energy, NRG Energy and 3 Stocks to Watch Heading Into Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T09:26:36.728444-05:00",
-    "symbols": [
-      "OXY"
-    ],
-    "headline": "KKR, Constellation Energy On Deck Monday As Private Credit, Power Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T09:26:36.952414-05:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Novo Nordisk Upgrades Metabolic Health Service 'Lightweight Station' in China",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-09T09:26:36.956966-05:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Novo Nordisk Announces Post Hoc Analysis Results from Phase 3 ESSENCE Trial",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-09T09:26:37.183007-05:00",
-    "symbols": [
-      "NEM"
-    ],
-    "headline": "Forget the ETF Outflows: Gold Miners Offer 3X Leverage As Cash Flow Surges",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T09:26:37.410255-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Why Is IREN Stock Falling on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-09T09:26:37.414883-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "CoreWeave Stock Hits Turbulence Monday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-09T09:26:37.702191-05:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Adobe Partners With Walt Disney To Enhance Storytelling Through Technologies, Experiences",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-09T09:26:37.949052-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Trade Representative Suspends Any Action Related To China Shipbuilding And Maritime Sector Until Jan. 10, 2027, To Allow For Further Discussion; Also Announces Determination To Further Extend All 178 Current Exclusions Related To China\u2019s Technology Transfer, Intellectual Property, Innovation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-09T09:26:37.953634-05:00",
     "symbols": [
       "SPY"
@@ -4998,5 +4888,115 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T11:15:51.247418-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "11 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T11:15:51.815297-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Jensen Huang&#39;s Reported Affair With Suspected Chinese Spy Pushes Nvidia Stock to Most Oversold Level Since 2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-09T11:15:51.820302-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;Commerce Dept. Chip Inquiry Was Halted After Nvidia Intervention&#39; - The New York Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-09T11:15:52.080598-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Jensen Huang&#39;s Reported Affair With Suspected Chinese Spy Pushes Nvidia Stock to Most Oversold Level Since 2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T11:15:52.881934-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "11 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T11:15:53.154556-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "11 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-09T11:15:53.648765-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Jensen Huang&#39;s Reported Affair With Suspected Chinese Spy Pushes Nvidia Stock to Most Oversold Level Since 2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T11:15:53.653359-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "11 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T11:15:55.133355-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Jensen Huang&#39;s Reported Affair With Suspected Chinese Spy Pushes Nvidia Stock to Most Oversold Level Since 2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T11:15:57.300119-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "11 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T11:16:01.522660-05:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "TD Cowen Maintains Buy on DraftKings, Lowers Price Target to $25",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

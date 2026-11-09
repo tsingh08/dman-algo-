@@ -1,185 +1,5 @@
 [
   {
-    "ts": "2026-11-06T16:01:39.950598-05:00",
-    "symbols": [
-      "KRMN"
-    ],
-    "headline": "Needham Maintains Buy on Karman Holdings, Lowers Price Target to $50",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.953587-05:00",
-    "symbols": [
-      "TMDX"
-    ],
-    "headline": "Canaccord Genuity Maintains Buy on TransMedics Group, Raises Price Target to $120",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.956621-05:00",
-    "symbols": [
-      "TMDX"
-    ],
-    "headline": "Moderna, JFrog, TransMedics, Ubiquiti And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.959667-05:00",
-    "symbols": [
-      "EXTR"
-    ],
-    "headline": "Moderna, JFrog, TransMedics, Ubiquiti And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T16:01:39.963187-05:00",
-    "symbols": [
-      "XERS"
-    ],
-    "headline": "Oppenheimer Reiterates Outperform on Xeris Biopharma Holdings, Raises Price Target to $21",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T16:01:39.965740-05:00",
-    "symbols": [
-      "XERS"
-    ],
-    "headline": "Piper Sandler Reiterates Neutral on Xeris Biopharma Holdings, Raises Price Target to $12",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T16:01:39.968251-05:00",
-    "symbols": [
-      "XERS"
-    ],
-    "headline": "HC Wainwright &amp; Co. Maintains Buy on Xeris Biopharma Holdings, Raises Price Target to $18",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T16:01:39.971835-05:00",
-    "symbols": [
-      "HIMX"
-    ],
-    "headline": "Himax Technologies, Inc. Reports Third Quarter 2026 Financial Results and Provides Fourth Quarter 2026 Guidance",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.981362-05:00",
-    "symbols": [
-      "ELAN"
-    ],
-    "headline": "Elanco Animal Health Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.983938-05:00",
-    "symbols": [
-      "ELAN"
-    ],
-    "headline": "Elanco Animal Health Sees Q4 Adj EPS $0.16-$0.19 vs $0.18 Est; Sees Sales $1.190B-$1.215B vs $1.193B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.986486-05:00",
-    "symbols": [
-      "ELAN"
-    ],
-    "headline": "Elanco Animal Health Raises FY2026 Adj EPS Guidance from $1.10-$1.16 to $1.17-$1.20 vs $1.13 Est; Raises FY2026 Sales Guidance from $5.090B-$5.140B to $5.155B-$5.180B vs $5.132B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.989033-05:00",
-    "symbols": [
-      "ELAN"
-    ],
-    "headline": "Elanco Animal Health Q3 Adj. EPS $0.27 Beats $0.20 Estimate, Sales $1.265B Beat $1.208B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.991624-05:00",
-    "symbols": [
-      "SARO"
-    ],
-    "headline": "UBS Adjusts StandardAero Price Target to $34 From $32, Maintains Buy Rating",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T20:02:20.752389-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Hosts Financial Services Industry AI Roundtable",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T20:02:20.879417-05:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Snowflake Expands Adoption of Docebo Learning Platform",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T20:02:20.987520-05:00",
-    "symbols": [
-      "VRTX"
-    ],
-    "headline": "Vertex Pharmaceuticals Executive Files Form 144 for Share Sale",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T20:02:21.053898-05:00",
-    "symbols": [
-      "ANET"
-    ],
-    "headline": "Arista Networks Provides 2027 Financial Outlook and AI Growth Targets",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T20:03:20.573751-05:00",
-    "symbols": [
-      "POM"
-    ],
-    "headline": "POMDOCTOR LIMITED Regains Compliance with Nasdaq Bid Price Requirement",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-06T20:03:20.672231-05:00",
     "symbols": [
       "WRD"
@@ -4995,6 +4815,186 @@
       "SHMD"
     ],
     "headline": "Why Is SCHMID Group Stock Gaining Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:46:16.526104-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Stock of the Day: Where is the Bottom for NVIDIA?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-09T10:46:16.530968-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Cathie Wood Buys More Nvidia and AMD, Sells Broadcom in Latest ARK Trades",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-09T10:46:16.791999-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Cathie Wood Buys More Nvidia and AMD, Sells Broadcom in Latest ARK Trades",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T10:46:18.289029-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "What Is Going on With Broadcom Stock on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T10:46:18.294456-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Cathie Wood Buys More Nvidia and AMD, Sells Broadcom in Latest ARK Trades",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T10:46:28.334239-05:00",
+    "symbols": [
+      "NRG"
+    ],
+    "headline": "NRG Energy Gains After Earnings Beat, $4 Billion Sale Sharpens Buyback and Debt Plans",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:46:28.603000-05:00",
+    "symbols": [
+      "OKLO"
+    ],
+    "headline": "Oklo Posts Higher Q3 Net Loss, Aurora-ID Construction Moves Toward Structural Work",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T10:46:32.744319-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Iran Won\u2019t Enter Any Talks With U.S. In Absence Of Practical Action On 7 Conditions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T10:46:36.904989-05:00",
+    "symbols": [
+      "GRAB"
+    ],
+    "headline": "SoftBank Group, Grab Holdings, Petroleum Sarawak Berhad Ink Agreement To Invest $1B  To Develop AI Infrastructure In Sarawak, Malaysia",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:46:46.003573-05:00",
+    "symbols": [
+      "UG"
+    ],
+    "headline": "United-Guardian Q3 EPS $0.20 Up From $0.06 YoY, Sales $3.495M Up From $2.264M YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:46:48.667793-05:00",
+    "symbols": [
+      "FERG"
+    ],
+    "headline": "Ferguson Enterprises Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:46:48.673638-05:00",
+    "symbols": [
+      "FERG"
+    ],
+    "headline": "Ferguson Raises Sales Outlook Driven by Nonresidential Demand",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:46:48.678766-05:00",
+    "symbols": [
+      "FERG"
+    ],
+    "headline": "Ferguson Enterprises Q3 Adj. EPS $3.43 Beats $3.30 Estimate, Sales $9.026B Beat $8.736B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:46:48.684169-05:00",
+    "symbols": [
+      "FERG"
+    ],
+    "headline": "KKR, Constellation Energy On Deck Monday As Private Credit, Power Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:46:50.112138-05:00",
+    "symbols": [
+      "VIA"
+    ],
+    "headline": "Via Transportation Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:46:50.117341-05:00",
+    "symbols": [
+      "VIA"
+    ],
+    "headline": "Via Transportation Q3 Adj. EPS $0.00 Beats $(0.02) Estimate, Sales $143.528M Beat $137.937M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:46:50.122675-05:00",
+    "symbols": [
+      "VIA"
+    ],
+    "headline": "Via Transportation Raises FY2026 Sales Guidance from $550.000M-$553.000M to $556.700M-$558.400M vs $551.736M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T10:46:50.127208-05:00",
+    "symbols": [
+      "VIA"
+    ],
+    "headline": "Via Transportation Sees Q4 Sales $150.000M-$151.700M vs $150.689M Est",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

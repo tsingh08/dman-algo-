@@ -1,185 +1,5 @@
 [
   {
-    "ts": "2026-11-06T16:01:39.724455-05:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Rothschild & Co Redburn Adjusts Price Target on Datadog to $275 From $300",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.726977-05:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Analysts Adjust Price Targets for Datadog Following Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.729553-05:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "4 Financials Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.733365-05:00",
-    "symbols": [
-      "CLSK"
-    ],
-    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.738199-05:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "Vistra Says Mid Term Election Results Do Not Change Its Fundamental View Of Growth Opportunities; Expects Cogentrix Deal To Deliver High-Single-Digit Adjusted FCF Accretion In Near Term, Double-Digit Accretion From 2029; Says It Is In Active Talks With Large-Load Customers In PJM And Ercot For Existing And New-Build Assets; Says It Remains Open To Opportunistic, Fleet-Complementary M&amp;A",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-06T16:01:39.741879-05:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Canaccord Genuity Maintains Buy on Airbnb, Raises Price Target to $225",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.744395-05:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "RBC Capital Maintains Outperform on Airbnb, Raises Price Target to $215",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.747730-05:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "Nasdaq 100 Rebounds 2% After Worst Day Since 2020, Payrolls Smash Estimates: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.751788-05:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "6 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.754690-05:00",
-    "symbols": [
-      "PDD"
-    ],
-    "headline": "6 Consumer Discretionary Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.758284-05:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "Moderna, JFrog, TransMedics, Ubiquiti And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.760815-05:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "IonQ Stock Surges After Strong Q3 Results and Guidance",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.763323-05:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "B. Riley Securities Reiterates Buy on IonQ, Lowers Price Target to $70",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.766181-05:00",
-    "symbols": [
-      "SOUN"
-    ],
-    "headline": "SoundHound AI Stock Dips: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.769415-05:00",
-    "symbols": [
-      "OKLO"
-    ],
-    "headline": "Nasdaq 100 Rebounds 2% After Worst Day Since 2020, Payrolls Smash Estimates: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.772077-05:00",
-    "symbols": [
-      "OKLO"
-    ],
-    "headline": "Moderna, JFrog, TransMedics, Ubiquiti And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.775985-05:00",
-    "symbols": [
-      "SMR"
-    ],
-    "headline": "Canaccord Genuity Maintains Buy on NuScale Power, Lowers Price Target to $11",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-06T16:01:39.778520-05:00",
-    "symbols": [
-      "SMR"
-    ],
-    "headline": "RBC Capital Maintains Sector Perform on NuScale Power, Lowers Price Target to $5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-06T16:01:39.781227-05:00",
     "symbols": [
       "SMR"
@@ -4995,6 +4815,186 @@
       "VFF"
     ],
     "headline": "Village Farms Intl Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T09:52:17.881094-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Bitcoin, Monero Remain the Best Coins for Market in &#39;Despair,&#39; Analyst Argues",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T09:52:18.452871-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Google Turns Up the Heat on NVIDIA With New Offerings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T09:52:18.457633-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Bitcoin, Monero Remain the Best Coins for Market in &#39;Despair,&#39; Analyst Argues",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T09:52:20.281600-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Google Turns Up the Heat on NVIDIA With New Offerings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-09T09:52:20.287623-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia\u2019s $540 Billion ETF Empire Has a Jensen Huang Problem",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-09T09:52:20.551968-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Google Turns Up the Heat on NVIDIA With New Offerings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T09:52:20.817841-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Google Turns Up the Heat on NVIDIA With New Offerings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T09:52:21.129305-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google Turns Up the Heat on NVIDIA With New Offerings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T09:52:21.735335-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Bitcoin, Monero Remain the Best Coins for Market in &#39;Despair,&#39; Analyst Argues",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-09T09:52:22.236221-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Google Turns Up the Heat on NVIDIA With New Offerings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T09:52:22.484976-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "B. Riley Securities Maintains Buy on Applied Materials, Lowers Price Target to $475",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T09:52:23.862989-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Google Turns Up the Heat on NVIDIA With New Offerings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T09:52:35.365446-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Google Turns Up the Heat on NVIDIA With New Offerings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-09T09:52:35.947040-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Trump Administration Deepens Interagency Collaboration To Protect The Nation\u2019s Skies From Unmanned Threats",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T09:52:36.218366-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Nvidia\u2019s $540 Billion ETF Empire Has a Jensen Huang Problem",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-09T09:52:37.483826-05:00",
+    "symbols": [
+      "CYPH"
+    ],
+    "headline": "Watching Cypherpunk Technologies; Fugazi Research Issues Report On Co Titled, \u201cCYPH: Incinerating Your Money for a Crypto You Don\u2019t Need\u201d",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T09:52:38.256880-05:00",
+    "symbols": [
+      "EOSE"
+    ],
+    "headline": "B. Riley Securities Maintains Neutral on Eos Energy Enterprises, Lowers Price Target to $2",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T09:52:43.043293-05:00",
+    "symbols": [
+      "SOC"
+    ],
+    "headline": "UPDATE: Sable Offshore Q3 Adj. EPS $(0.43) Misses $(0.19) Estimate, Sales $154.370M Miss $155.668M Estimate",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

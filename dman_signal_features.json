@@ -48904,7 +48904,7 @@
 "setup": "Morning Runner",
 "bias": "LONG",
 "taken": false,
-"reject": "mtf: weekly disagrees",
+"reject": "hard gate",
 "score": 98,
 "final_score": 98.0,
 "ai_scored": false,
@@ -48954,8 +48954,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 6,
-"last_ts": "2026-11-09T09:34:08.683545-05:00",
+"seen": 7,
+"last_ts": "2026-11-09T09:40:29.598740-05:00",
 "entry_min": 20.76,
 "entry_max": 20.76
 },

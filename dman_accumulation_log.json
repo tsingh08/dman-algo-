@@ -3949,5 +3949,104 @@
   "drift_pct": 1.1,
   "range_ratio": 0.52,
   "near_high": 0.979
+ },
+ {
+  "ts": "2026-11-09T09:41:20.458687-05:00",
+  "ticker": "TMB",
+  "price": 25.0,
+  "rvol": 5.01,
+  "drift_pct": 0.43,
+  "range_ratio": 0.28,
+  "near_high": 0.986
+ },
+ {
+  "ts": "2026-11-09T09:41:20.458702-05:00",
+  "ticker": "TIPX",
+  "price": 18.415,
+  "rvol": 1.76,
+  "drift_pct": 0.03,
+  "range_ratio": 0.21,
+  "near_high": 0.985
+ },
+ {
+  "ts": "2026-11-09T09:41:20.458705-05:00",
+  "ticker": "TFLR",
+  "price": 50.35,
+  "rvol": 2.89,
+  "drift_pct": 0.42,
+  "range_ratio": 0.46,
+  "near_high": 0.989
+ },
+ {
+  "ts": "2026-11-09T09:41:20.458708-05:00",
+  "ticker": "BSCQ",
+  "price": 19.545,
+  "rvol": 2.34,
+  "drift_pct": 0.08,
+  "range_ratio": 0.29,
+  "near_high": 0.999
+ },
+ {
+  "ts": "2026-11-09T09:41:20.458711-05:00",
+  "ticker": "BSCX",
+  "price": 20.49,
+  "rvol": 1.62,
+  "drift_pct": 0.89,
+  "range_ratio": 0.53,
+  "near_high": 0.983
+ },
+ {
+  "ts": "2026-11-09T09:41:20.458713-05:00",
+  "ticker": "FIIG",
+  "price": 20.15,
+  "rvol": 3.1,
+  "drift_pct": 0.9,
+  "range_ratio": 0.45,
+  "near_high": 0.982
+ },
+ {
+  "ts": "2026-11-09T09:41:20.458716-05:00",
+  "ticker": "IPXG",
+  "price": 10.21,
+  "rvol": 2.01,
+  "drift_pct": 0.1,
+  "range_ratio": 0.35,
+  "near_high": 1.0
+ },
+ {
+  "ts": "2026-11-09T09:41:20.458720-05:00",
+  "ticker": "ANDG",
+  "price": 66.01,
+  "rvol": 2.08,
+  "drift_pct": 0.5,
+  "range_ratio": 0.33,
+  "near_high": 0.979
+ },
+ {
+  "ts": "2026-11-09T09:41:20.458723-05:00",
+  "ticker": "NFRX",
+  "price": 26.26,
+  "rvol": 6340.28,
+  "drift_pct": 0.81,
+  "range_ratio": 0.4,
+  "near_high": 0.981
+ },
+ {
+  "ts": "2026-11-09T09:41:20.458726-05:00",
+  "ticker": "JSCP",
+  "price": 46.315,
+  "rvol": 2.78,
+  "drift_pct": 0.34,
+  "range_ratio": 0.33,
+  "near_high": 0.985
+ },
+ {
+  "ts": "2026-11-09T09:41:20.458729-05:00",
+  "ticker": "PPL",
+  "price": 35.92,
+  "rvol": 1.62,
+  "drift_pct": 0.59,
+  "range_ratio": 0.52,
+  "near_high": 0.994
  }
 ]

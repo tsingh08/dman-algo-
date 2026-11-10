@@ -872,5 +872,19 @@
    "posted_et": "11/09 13:06",
    "plan": "+15% target / -20% stop, same-day exit"
   }
+ },
+ {
+  "ts": "2026-11-10T13:34:16.809675-05:00",
+  "kind": "dman_play",
+  "ticker": "BYAH",
+  "verdict": "skip",
+  "confidence": 78,
+  "reason": "Entry already 2.3% above buy zone at 1.80-1.83. Posted after 12% move already captured. Late entry with asymmetric risk-reward.",
+  "facts": {
+   "price": 1.76,
+   "post": "$BYAH 1.80-1.83 buy idea hit 2.03 so far not bad",
+   "posted_et": "11/10 10:39",
+   "plan": "+15% target / -20% stop, same-day exit"
+  }
  }
 ]

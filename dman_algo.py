@@ -23932,7 +23932,8 @@ def _check_stop_coverage() -> Optional[dict]:
         except Exception as _swallowed:
             _log_swallowed("_check_stop_coverage", _swallowed)
         _orphans = [sym for sym in _alp_positions
-                    if sym not in _tracked_tickers and sym not in _tracked_occ]
+                    if sym not in _tracked_tickers and sym not in _tracked_occ
+                    and not _is_core_hold(sym)]
         # The alarm says "NO STOP COVERAGE", so a position the broker is
         # already protecting with a working sell stop is not what it is for.
         # 2026-11-03: the scanner bought GDYN + STGW as breakout zones at 9:43
@@ -29787,6 +29788,20 @@ def _is_occ_symbol(sym: str) -> bool:
     return _parse_occ_symbol(sym) is not None
 
 
+def _is_core_hold(symbol: str) -> bool:
+    """True when the operator marked an equity as a long-term core holding.
+
+    Set `CORE_HOLD_<SYM>: true` in dman_flags.json. Added 2026-11-10 for the
+    operator's dip-buy sleeve (GOOGL/META/TSM/AVGO fractional shares): those
+    are bought by hand to be held for months, with no stop. Without this the
+    orphan adopter took them in as generic swings with a 4% fallback stop,
+    which would shake a long-term position out on ordinary noise. A core hold
+    is neither adopted nor reported as an unprotected orphan. Everything that
+    reads equity (breakers, sizing) still sees it -- only management skips it.
+    """
+    return bool(flag(f"CORE_HOLD_{str(symbol or '').upper()}", False))
+
+
 def adopt_orphan_positions() -> int:
     """
     Bring any EQUITY position held at Alpaca but missing from the tracker
@@ -29888,6 +29903,8 @@ def adopt_orphan_positions() -> int:
         if sym in tracked:
             adopted += _reconcile_tracked_quantity(p, sym)
             continue
+        if _is_core_hold(sym):
+            continue          # operator's long-term holding: never managed
         _occ = _parse_occ_symbol(sym)
         if _occ:
             _n = _adopt_single_leg_option(p, _occ, pt)

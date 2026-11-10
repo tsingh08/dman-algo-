@@ -31050,3 +31050,17 @@ class TestBzoneShockPause(unittest.TestCase):
         self.assertEqual(src.count("_zone_trail_exit_check("), 1)
         for gate in ("_bzone_record()", "_bzone_shock_pause()", "# ---- entries ----"):
             self.assertLess(trail, src.index(gate), gate)
+
+
+class TestCoreHold(unittest.TestCase):
+    """2026-11-10: hand-bought long-term holdings must never be adopted
+    as swings (4% fallback stop) nor alarm as unprotected orphans."""
+
+    def test_flag_controls_it(self):
+        with patch.object(a, "_load_flags", return_value={"CORE_HOLD_GOOGL": True}):
+            self.assertTrue(a._is_core_hold("googl"))
+            self.assertFalse(a._is_core_hold("META"))
+
+    def test_adopter_and_orphan_alarm_skip_core_holds(self):
+        self.assertIn("_is_core_hold(sym)", inspect.getsource(a.adopt_orphan_positions))
+        self.assertIn("_is_core_hold(sym)", inspect.getsource(a._check_stop_coverage))

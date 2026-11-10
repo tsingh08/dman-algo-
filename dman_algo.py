@@ -5021,8 +5021,12 @@ def _tg_cmd_enter(parts: list) -> None:
         send_telegram(f"\u26d4 /enter {_tk} refused — an order is already working. "
                       f"<code>/cancel {_tk}</code> first.")
         return
-    if len(_held | _working) >= MAX_POSITIONS:
-        send_telegram(f"\u26d4 /enter {_tk} refused — {len(_held | _working)} of "
+    # Core holds are long-term capital, not trading slots, and a spread's
+    # legs are one position, not two (2026-11-10).
+    _held_slots = {((_parse_occ_symbol(t) or {}).get("underlying") or t).upper()
+                   for t in (_held | _working) if not _is_core_hold(t)}
+    if len(_held_slots) >= MAX_POSITIONS:
+        send_telegram(f"\u26d4 /enter {_tk} refused — {len(_held_slots)} of "
                       f"{MAX_POSITIONS} slots committed.")
         return
 
@@ -27287,6 +27291,11 @@ def _scan_portfolio_heat(eff_account, total_risk_pct):
                     if getattr(_hp, "asset_class", None) == AssetClass.US_EQUITY:
                         _sym = str(getattr(_hp, "symbol", "") or "")
                         if _bzone_entry_on_record(_sym):
+                            continue
+                        # Long-term core holds carry no stop by design; the
+                        # flat 2% fallback would charge 4 of them 8% > the
+                        # 6% limit and freeze every trading entry.
+                        if _is_core_hold(_sym):
                             continue
                         total_risk_pct += _position_heat_pct(
                             _hp, _stop_pxs.get(_sym), eff_account)

@@ -31064,3 +31064,7 @@ class TestCoreHold(unittest.TestCase):
     def test_adopter_and_orphan_alarm_skip_core_holds(self):
         self.assertIn("_is_core_hold(sym)", inspect.getsource(a.adopt_orphan_positions))
         self.assertIn("_is_core_hold(sym)", inspect.getsource(a._check_stop_coverage))
+
+    def test_heat_and_enter_slots_skip_core_holds(self):
+        self.assertIn("_is_core_hold(_sym)", inspect.getsource(a._scan_portfolio_heat))
+        self.assertIn("_is_core_hold(t)", inspect.getsource(a._tg_cmd_enter))

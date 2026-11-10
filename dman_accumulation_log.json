@@ -4165,5 +4165,23 @@
   "drift_pct": 0.97,
   "range_ratio": 0.64,
   "near_high": 0.99
+ },
+ {
+  "ts": "2026-11-10T09:39:40.821843-05:00",
+  "ticker": "ACWV",
+  "price": 129.755,
+  "rvol": 2.05,
+  "drift_pct": 1.23,
+  "range_ratio": 0.64,
+  "near_high": 0.988
+ },
+ {
+  "ts": "2026-11-10T09:39:40.821856-05:00",
+  "ticker": "FDUS",
+  "price": 19.69,
+  "rvol": 1.71,
+  "drift_pct": 0.05,
+  "range_ratio": 0.48,
+  "near_high": 0.993
  }
 ]

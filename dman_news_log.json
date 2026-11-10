@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-11-09T14:26:49.020911-05:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Jim Cramer Praises The &#39;Number One Oil Company In The World&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-09T14:26:50.405706-05:00",
-    "symbols": [
-      "SLB"
-    ],
-    "headline": "11 Of 11 Sectors Rise Monday As Growth Leads",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T14:26:50.631868-05:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "UnitedHealth Is Said To Have Bid $28 Per Share For Surgery Partners",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-09T14:26:52.302404-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;BLS Will Not Publish 12-Month CPI, Core CPI Figures For October&#39; - Bloomberg New s",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-09T14:26:52.762829-05:00",
     "symbols": [
       "IWM"
@@ -4995,6 +4955,46 @@
       "ADBE"
     ],
     "headline": "Adobe and The Walt Disney Company Announce Multi-Year Strategic Partnership",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T20:02:20.801600-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Receives Regulatory Clearance for AI Services in China",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T20:02:21.022849-05:00",
+    "symbols": [
+      "NWGL"
+    ],
+    "headline": "CL Workshop Group Files 6-K Report",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-09T20:02:21.269959-05:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "KLA Corporation Reports Advanced-Packaging Revenue Outlook and Service Growth",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-09T20:03:20.747964-05:00",
+    "symbols": [
+      "VNET"
+    ],
+    "headline": "VNET Group, Inc. to Announce Third Quarter 2026 Financial Results",
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": null

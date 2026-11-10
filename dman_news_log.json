@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-10T09:37:25.667970-05:00",
-    "symbols": [
-      "ZETA"
-    ],
-    "headline": "Zeta Global Holdings Sees Q4 Sales $521.000M-$525.000M vs $504.921M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-10T09:37:25.866426-05:00",
     "symbols": [
       "WGS"
@@ -4998,5 +4988,15 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-10T12:02:20.789393-05:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "Bluebeam Highlights AI Integration in Revu for Construction Workflows",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

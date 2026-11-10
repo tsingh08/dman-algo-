@@ -27544,11 +27544,16 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
                       f"(consec-loss/monthly-loss guards bypassed; daily limit still applies).")
         _save_last_alert("__PROBATION_ACTIVE__")
 
-    # Daily loss circuit breaker — dedup
+    # Daily loss circuit breaker — dedup. Through the LATCH, not the raw
+    # number: this gate re-read get_todays_loss() while the latch only guarded
+    # order submission, so on 2026-11-10 the scanner halted at -3.91% (09:32),
+    # resumed scanning and alerting on an equity bounce (09:39-10:41, EMBJ
+    # signal sent), then halted again -- the exact on/off-on-the-same-broken-day
+    # behaviour _daily_loss_limit_hit()'s latch exists to prevent.
     todays_loss = get_todays_loss()
-    if todays_loss <= -(DAILY_LOSS_LIMIT * 100):
+    if _daily_loss_limit_hit():
         print(f"\n  🛑 DAILY LOSS LIMIT HIT: Down {todays_loss:.1f}% today "
-              f"(limit: {DAILY_LOSS_LIMIT*100:.0f}%).")
+              f"(limit: {DAILY_LOSS_LIMIT*100:.0f}%; latched until the next ET day).")
         print(f"     Stop trading. Protect your capital. Come back tomorrow.\n")
         if not _is_duplicate_alert("__DAILY_LIMIT__"):
             send_telegram(f"🛑 <b>Daily loss limit hit</b> — down {todays_loss:.1f}% today. Halted.")

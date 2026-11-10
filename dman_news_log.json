@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-11-10T09:26:29.518949-05:00",
-    "symbols": [
-      "CABA"
-    ],
-    "headline": "Citigroup Maintains Buy Rating on Cabaletta Bio, Lowers Price Target to $8",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-10T09:26:29.671769-05:00",
-    "symbols": [
-      "TBLA"
-    ],
-    "headline": "FTSE Russell Announces Dianomi Deletion Following Taboola Europe Limited Acquisition",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-10T09:26:29.836368-05:00",
     "symbols": [
       "NOVT"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-10T10:06:28.129215-05:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "If You Invested $1000 In RTX Stock 5 Years Ago, You Would Have This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-10T10:06:28.354008-05:00",
+    "symbols": [
+      "EVH"
+    ],
+    "headline": "Humana Partners With Evolent Health, American Oncology Network To Introduce New Cancel Care Model In 8 U.S. States",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

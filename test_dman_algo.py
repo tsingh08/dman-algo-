@@ -17407,7 +17407,13 @@ class TestDailyLossHaltLatches(unittest.TestCase):
             self.assertFalse(_REAL_DAILY_LOSS_LIMIT_HIT())
 
     def test_guards_use_the_latch(self):
-        for fn in (a._entry_circuit_breakers_ok, a._submit_signals_to_alpaca):
+        # run_pro_scanner added 2026-11-10: its gate re-read the raw
+        # get_todays_loss() value, so the scan (and its Telegram signal
+        # alerts) resumed on an intraday bounce after the latch had already
+        # tripped -- observed live that day as halted/ok/halted flapping in
+        # dman_scan_log.json between 09:32 and 10:51 ET.
+        for fn in (a._entry_circuit_breakers_ok, a._submit_signals_to_alpaca,
+                   a.run_pro_scanner):
             self.assertIn("_daily_loss_limit_hit()", _effective_guard_src(fn), fn.__name__)
 
     def test_scanner_persists_every_daemon_state_file(self):

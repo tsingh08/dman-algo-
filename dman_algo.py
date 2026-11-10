@@ -9755,6 +9755,35 @@ def report_signal_features(min_n: int = 5) -> list[str]:
     return lines
 
 
+def send_exit_capture_summary() -> None:
+    """Push the exit-capture headline to Telegram, at most once per weekend.
+
+    _mfe_capture_lines() exists so the exit-capture number is watched, but
+    until 2026-11-10 its only surface was `--mode features` stdout — the same
+    runner-log blind spot that hid the heat cap for a whole session (noted
+    2026-10-06: -69% capture, 2 of 50 signals reaching target, and nothing
+    reporting it). The nightly review quotes it now, but a review prompt is
+    config, not code; this puts the number where every other metric a human
+    acts on already lives. Called from `--mode weekend` (5 cron fires per
+    weekend), deduped to one message per weekend via the alert cache.
+    """
+    if _is_duplicate_alert("__EXIT_CAPTURE_WEEKLY__", cooldown_min=4 * 24 * 60):
+        return
+    try:
+        with open(SIGNAL_FEATURES_FILE) as f:
+            _all = json.load(f)
+        rows = [r for r in _dedupe_feature_rows(_all) if r.get("label_outcome")]
+        lines = _mfe_capture_lines(rows)
+    except Exception as exc:
+        _log_swallowed("exit capture summary", exc)
+        return
+    if not lines:
+        return
+    _save_last_alert("__EXIT_CAPTURE_WEEKLY__")
+    send_telegram("📐 <b>Exit capture — weekly</b>  (n={} labelled signals)\n{}".format(
+        len(rows), "\n".join(_l.strip() for _l in lines)))
+
+
 def _grade_catalyst(ticker: str, headlines: Optional[list]) -> tuple[str, str]:
     """(tier, headline) for a ticker's recent news, or ("", "") with none.
 
@@ -34409,6 +34438,7 @@ def main():
 
     elif args.mode == "weekend":
         run_weekend_watch()
+        send_exit_capture_summary()
 
     elif args.mode == "label":
         label_signal_features()

@@ -15111,6 +15111,14 @@ def run_breakout_zone_manage(notify: bool = True) -> dict:
             send_telegram(f"📤 <b>{_pos.ticker} breakout zone closed</b> — {_held} sessions held, "
                           f"the tested exit. Entry ${float(getattr(_pos, 'entry', 0) or 0):.2f}.")
 
+    # The giveback trail is an EXIT, so it runs before every entry-side gate
+    # below. It used to sit at the very end of this function, after the
+    # verdict, breaker, shock-pause, max-open and tracker-full early returns
+    # -- so from the 2026-11-05 shock pause on it never ran: ARHS peaked
+    # +17.6% and STGW +16% with their stops still on the catastrophe floor
+    # and peak_gain_pct stuck at 0. Pausing entries must never pause exits.
+    out["trail_exits"] = _zone_trail_exit_check(notify=notify)
+
     # ---- entries ----
     _n, _avg = _bzone_record()
     for _ln in _bzone_record_lines():
@@ -15234,7 +15242,6 @@ def run_breakout_zone_manage(notify: bool = True) -> dict:
                     f"whole position. Position ${_qty * _px:.0f}.</i>")
     # Read-only: makes the peak visible. See the constants block for why this
     # alerts instead of exiting.
-    out["trail_exits"] = _zone_trail_exit_check(notify=notify)
     print(f"  🏔 Breakout zone manage: exits {out['exited']}, entries {out['entered']}"
           f"{' — ' + out['skipped'] if out['skipped'] else ''}")
     return out

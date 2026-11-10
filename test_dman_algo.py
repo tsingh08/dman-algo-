@@ -31041,3 +31041,12 @@ class TestBzoneShockPause(unittest.TestCase):
         src = inspect.getsource(a.run_breakout_zone_manage)
         self.assertLess(src.index("# ---- entries ----"), src.index("_bzone_shock_pause()"))
         self.assertLess(src.index("_bzone_shock_pause()"), src.index("_recent_logged_zones("))
+
+    def test_trail_exit_runs_before_every_entry_gate(self):
+        # 2026-11-10: the trail sat after the shock-pause return, so it never
+        # ran while entries were paused (ARHS +17.6% peak, stop on the floor).
+        src = inspect.getsource(a.run_breakout_zone_manage)
+        trail = src.index("_zone_trail_exit_check(")
+        self.assertEqual(src.count("_zone_trail_exit_check("), 1)
+        for gate in ("_bzone_record()", "_bzone_shock_pause()", "# ---- entries ----"):
+            self.assertLess(trail, src.index(gate), gate)

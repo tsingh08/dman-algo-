@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-11-10T09:37:25.117907-05:00",
-    "symbols": [
-      "WIX"
-    ],
-    "headline": "Nvidia To $300? Here Are 10 Top Analyst Forecasts For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-10T09:37:25.122039-05:00",
-    "symbols": [
-      "WIX"
-    ],
-    "headline": "B of A Securities Downgrades Wix.com to Underperform, Lowers Price Target to $68",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-10T09:37:25.126258-05:00",
-    "symbols": [
-      "WIX"
-    ],
-    "headline": "Wix.com Sees Q4 2026 Revenue Growth of Low-Double-Digits Percentage YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-10T09:37:25.245177-05:00",
-    "symbols": [
-      "COAG"
-    ],
-    "headline": "Hemab Therapeutics Hldgs Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-10T09:37:25.249772-05:00",
-    "symbols": [
-      "COAG"
-    ],
-    "headline": "Hemab Therapeutics Hldgs Q3 EPS $(0.58) Misses $(0.52) Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-10T09:37:25.253898-05:00",
-    "symbols": [
-      "COAG"
-    ],
-    "headline": "Petrobras, TransDigm On Deck Tuesday As Oil Profits, Aerospace Demand Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-10T09:37:25.515600-05:00",
-    "symbols": [
-      "TGTX"
-    ],
-    "headline": "Evercore ISI Group Maintains Outperform on TG Therapeutics, Lowers Price Target to $71",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-10T09:37:25.650704-05:00",
-    "symbols": [
-      "ZETA"
-    ],
-    "headline": "RBC Capital Maintains Outperform on Zeta Global Holdings, Raises Price Target to $41",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-10T09:37:25.655699-05:00",
-    "symbols": [
-      "ZETA"
-    ],
-    "headline": "UPDATE: Zeta Global Holdings Raises FY2026 GAAP EPS Guidance from $0.09-$0.11 to $0.22-$0.24 vs $0.12 Est; Raises FY2026 Sales Guidance from $1.811B-$1.824B to $1.853B-$1.857B vs $1.820B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-10T09:37:25.659838-05:00",
-    "symbols": [
-      "ZETA"
-    ],
-    "headline": "Zeta Global Holdings Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-10T09:37:25.663910-05:00",
-    "symbols": [
-      "ZETA"
-    ],
-    "headline": "Zeta Global Holdings Raises FY2026 Sales Guidance from $1.811B-$1.824B to $1.853B-$1.857B vs $1.820B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-10T09:37:25.667970-05:00",
     "symbols": [
       "ZETA"
@@ -4998,5 +4888,115 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-10T11:02:20.752761-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "AvePoint Expands Strategic Partnership with Microsoft for AI Governance",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-10T11:02:20.763686-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Elon Musk Discusses Potential Acquisition of U.S. Telecommunications Company",
+    "source": "fiscal.ai",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-10T11:02:20.973943-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta and IMAX Announce Partnership for Upcoming VR Glasses",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-10T11:02:21.207152-05:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "SoftBank Subsidiary Modifies Turbine Procurement Agreement with GE Vernova",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-10T11:02:21.213855-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Monad Joins Visa's Stablecoin Settlement Program",
+    "source": "fiscal.ai",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-10T11:02:21.448513-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA and Commvault Collaborate to Enhance Enterprise Data for AI",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-10T11:02:21.627399-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Oppenheimer Maintains Buy Rating and $450 Price Target for Palo Alto Networks",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-10T11:02:21.865636-05:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Adobe and Google Expand Strategic Partnership to Integrate AI and Creative Tools",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-10T11:02:22.071156-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "project44 Integrates with Snowflake to Enhance AI-Powered Supply Chain Analytics",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-10T11:02:22.285713-05:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "BAE Systems Delivers Lot 8 RF Sensors to Lockheed Martin for LRASM Program",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-10T11:02:22.467792-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Forecasts Significant Growth in Global AI Infrastructure Capital Expenditure",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

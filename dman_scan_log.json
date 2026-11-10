@@ -1,31 +1,5 @@
 [
   {
-    "ts": "2026-11-06T12:02:44.381733-05:00",
-    "regime": "CHOP",
-    "regime_score": 8,
-    "vix": 24.0,
-    "min_score": 85,
-    "universe": "daemon-curated+smallcap+movers",
-    "tickers_total": 320,
-    "signals": 3,
-    "signal_tickers": [
-      "NEM",
-      "BTG",
-      "TMDX"
-    ],
-    "signal_scores": [
-      100,
-      100,
-      100
-    ],
-    "rejected_no_signal": 316,
-    "rejected_hard_gate": 1,
-    "rejected_low_score": 0,
-    "budget_hit": false,
-    "news_breadth_pct": 50.7,
-    "news_breadth_total": 370
-  },
-  {
     "ts": "2026-11-06T12:05:48.421579-05:00",
     "regime": "CHOP",
     "regime_score": 8,
@@ -2182,6 +2156,15 @@
   },
   {
     "ts": "2026-11-10T13:22:37.476959-05:00",
+    "halted": true,
+    "halt_reason": "daily_loss_limit",
+    "min_score": 85,
+    "tickers_total": 332,
+    "signals": 0,
+    "signal_tickers": []
+  },
+  {
+    "ts": "2026-11-10T13:32:49.969336-05:00",
     "halted": true,
     "halt_reason": "daily_loss_limit",
     "min_score": 85,

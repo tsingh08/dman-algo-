@@ -2350,5 +2350,21 @@
     "shares": 9.0,
     "pnl_usd": -9.73,
     "spy_pct": -3.03
+  },
+  {
+    "ticker": "STGW",
+    "date": "2026-11-10",
+    "bias": "LONG",
+    "setup": "Breakout Zone +145% off low",
+    "entry": 10.66,
+    "exit": 11.34,
+    "outcome": "WIN",
+    "pnl_pct": 6.39,
+    "score": 14,
+    "is_live": true,
+    "entry_date": "2026-11-03",
+    "shares": 11.0,
+    "pnl_usd": 7.49,
+    "spy_pct": -0.489
   }
 ]

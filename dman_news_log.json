@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-11-10T09:37:23.101423-05:00",
-    "symbols": [
-      "DCTH"
-    ],
-    "headline": "HC Wainwright &amp; Co. Maintains Buy on Delcath Systems, Raises Price Target to $36",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-10T09:37:23.348035-05:00",
-    "symbols": [
-      "IONS"
-    ],
-    "headline": "HC Wainwright &amp; Co. Maintains Buy on Ionis Pharmaceuticals, Lowers Price Target to $70",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-10T09:37:23.461831-05:00",
-    "symbols": [
-      "ARWR"
-    ],
-    "headline": "Arrowhead Pharmaceuticals Announces Participation in Upcoming Investor Conferences",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-10T09:37:23.588519-05:00",
-    "symbols": [
-      "TLS"
-    ],
-    "headline": "Needham Maintains Buy on Telos, Raises Price Target to $9",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-10T09:37:23.723444-05:00",
-    "symbols": [
-      "ACAD"
-    ],
-    "headline": "Reported Earlier, Acadia Says Federal Circuit Heard Oral Arguments In NUPLAZID 34 Mg Capsule Patent Appeal, Expects Decision In First Half Of 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-10T09:37:23.727847-05:00",
-    "symbols": [
-      "ACAD"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday's After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-10T09:37:24.032270-05:00",
-    "symbols": [
-      "GMRS"
-    ],
-    "headline": "GMR Solutions Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-10T09:37:24.037090-05:00",
-    "symbols": [
-      "GMRS"
-    ],
-    "headline": "GMR Solutions Narrows FY2026 Sales Guidance from $5.890B-$6.180B to $5.900B-$6.050B vs $6.034B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-10T09:37:24.041296-05:00",
     "symbols": [
       "GMRS"
@@ -4998,5 +4918,85 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-10T10:28:57.476103-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "$1000 Invested In Apple 10 Years Ago Would Be Worth This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-10T10:28:58.788096-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Elon Musk Goes From SNL Host to Joke Punchline: \u2018My Car Did a Flip\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-10T10:28:59.688972-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Monness Analyst Maintains Bullish Rating on Snowflake",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-10T10:28:59.898537-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir Hires Former Senator Jon Tester as Adviser",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-10T10:29:01.988632-05:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "AbbVie Ventures Participates in $25 Million Financing for PsiThera",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-10T10:29:02.481584-05:00",
+    "symbols": [
+      "HIMS"
+    ],
+    "headline": "These Analysts Revise Their Forecasts On Hims &amp; Hers Health After Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-10T10:29:04.471731-05:00",
+    "symbols": [
+      "ELF"
+    ],
+    "headline": "e.l.f. Cosmetics Named Lip Oil Product of the Year at 2026 Beauty Innovation Awards",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-10T10:29:09.494542-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Stock Hovers Around the Flatline: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

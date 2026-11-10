@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-10T09:37:27.440845-05:00",
-    "symbols": [
-      "SRRK"
-    ],
-    "headline": "Scholar Rock Holding Q3 EPS $(0.81) Beats $(0.85) Estimate, Sales $600.000K Beat $22.429K Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-10T09:37:27.445094-05:00",
-    "symbols": [
-      "SRRK"
-    ],
-    "headline": "Petrobras, TransDigm On Deck Tuesday As Oil Profits, Aerospace Demand Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-10T09:37:27.565886-05:00",
-    "symbols": [
-      "CEVA"
-    ],
-    "headline": "Stifel Maintains Buy on CEVA, Lowers Price Target to $40",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-10T09:37:27.808299-05:00",
-    "symbols": [
-      "FLGT"
-    ],
-    "headline": "Piper Sandler Maintains Neutral on Fulgent Genetics, Raises Price Target to $25",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-10T09:37:27.943386-05:00",
-    "symbols": [
-      "KLRA"
-    ],
-    "headline": "Kailera Therapeutics Announces Upcoming Presentations at ObesityWeek 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-10T09:37:28.058510-05:00",
-    "symbols": [
-      "EMAT"
-    ],
-    "headline": "Groupon Posts Downbeat Q3 Results, Joins GeneDx Holdings, Qualys And Other Big Stocks Moving Lower In Tuesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-10T09:37:28.062883-05:00",
     "symbols": [
       "EMAT"
@@ -4998,5 +4938,65 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-10T15:02:20.660725-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "The Ohio State University and Microsoft Announce Five-Year Strategic Partnership",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-10T15:02:20.845055-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Broadcom Updates VMware Cloud Foundation to Enhance Private AI Infrastructure Security and Resilience",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-10T15:02:20.939686-05:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Caterpillar Launches Cat Compact Distribution Sub-brand",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-10T15:02:20.946149-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Commits to $270 Million Stablecoin Venture",
+    "source": "fiscal.ai",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-10T15:02:21.095008-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Sargasso Capital Management Proposes Tesla and SpaceX Combination",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-10T15:02:21.100285-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Executives Explain Removal of Opening Sunroof in Model Y L",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

@@ -49698,8 +49698,8 @@
 "Gap Size": 3,
 "News Catalyst": 5
 },
-"seen": 2,
-"last_ts": "2026-11-10T10:06:56.437976-05:00",
+"seen": 3,
+"last_ts": "2026-11-10T10:18:33.794413-05:00",
 "entry_min": 81.89,
 "entry_max": 81.89
 },
@@ -49710,7 +49710,7 @@
 "setup": "Low Float Catalyst",
 "bias": "LONG",
 "taken": false,
-"reject": "heat cap 0.3%/6%",
+"reject": "heat cap 0.4%/6%",
 "score": 100,
 "final_score": 0.0,
 "ai_scored": false,
@@ -49725,15 +49725,15 @@
 "catalyst_tier": "",
 "news_boost": false,
 "regime": "CHOP",
-"regime_score": 8,
+"regime_score": 9,
 "mtf_ok": false,
 "regime_ok": false,
 "earnings_ok": false,
 "macro_ok": true,
 "divergence_free": true,
 "breakdown": {},
-"seen": 2,
-"last_ts": "2026-11-10T10:06:57.297868-05:00",
+"seen": 3,
+"last_ts": "2026-11-10T10:18:36.531546-05:00",
 "entry_min": 0.3991,
 "entry_max": 0.3991
 }

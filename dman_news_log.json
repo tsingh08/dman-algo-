@@ -1,395 +1,5 @@
 [
   {
-    "ts": "2026-11-10T09:26:29.836368-05:00",
-    "symbols": [
-      "NOVT"
-    ],
-    "headline": "Novanta Lowers FY2026 Adj EPS Guidance from $3.68-$3.74 to $3.66-$3.71 vs $3.69 Est; Raises FY2026 Sales Guidance from $1.130B-$1.140B to $1.135B-$1.140B vs $1.134B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-10T09:26:29.840779-05:00",
-    "symbols": [
-      "NOVT"
-    ],
-    "headline": "Novanta Q3 Adj. EPS $1.05 Beats $0.97 Estimate, Sales $305.008M Beat $301.010M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-10T09:26:29.844931-05:00",
-    "symbols": [
-      "NOVT"
-    ],
-    "headline": "Novanta Sees Q4 Adj EPS $0.91-$0.96 vs $1.02 Est; Sees Sales $306.000M-$312.000M vs $308.823M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-10T09:28:18.574686-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "$1000 Invested In Apple 10 Years Ago Would Be Worth This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-10T09:28:18.590294-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Platforms Rolls Out AI Age-Estimation Technology Globally In Teen Account Protections On Instagram",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-10T09:28:18.603416-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Elon Musk Goes From SNL Host to Joke Punchline: \u2018My Car Did a Flip\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-10T09:28:18.609923-05:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Monness Analyst Maintains Bullish Rating on Snowflake",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-10T09:28:18.615093-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Palantir Hires Former Senator Jon Tester as Adviser",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-10T09:28:18.624754-05:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Freedom Broker Downgrades Qualcomm to Hold, Lowers Price Target to $185",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-10T09:28:18.666840-05:00",
-    "symbols": [
-      "ONON"
-    ],
-    "headline": "CoreWeave Could Swing $4.85 Billion In Value After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-10T09:28:18.673364-05:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "JP Morgan Downgrades DraftKings to Neutral, Lowers Price Target to $21",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-10T09:30:29.355070-05:00",
-    "symbols": [
-      "KDK"
-    ],
-    "headline": "Amerx Reiterates Hold on Kodiak AIto Hold",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-10T09:32:20.533264-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Launches New AI-Assisted Financial Services Analytics Applications",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-10T09:32:20.545328-05:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Chase Expands Veteran Technology Training Partnership in Alabama",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-10T09:32:20.551250-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Technology to Participate in Anthropic IPO",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-10T09:32:20.556692-05:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "AbbVie Ventures Participates in $25 Million Financing for PsiThera",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-10T09:32:20.562484-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Pixelworks Partners With Meta to Bring TrueCut Motion Cinematic Content to Meta VR Devices",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-10T09:33:20.567357-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Hitachi Solutions and Microsoft Collaborate on Digital Council Initiative",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-10T09:33:20.575046-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Awardco Announces Model Context Protocol Support for Microsoft Copilot 365",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-10T09:33:20.580459-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "IBM and Microsoft Announce New AI Agent Platform",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-10T09:33:20.585844-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Uber Extends Acceptance Period for Delivery Hero Acquisition Offer",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-10T09:33:20.601618-05:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Evercore Analyst Adjusts Caterpillar Price Target",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-10T09:33:20.617506-05:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Rocket Lab's ESCAPADE Spacecraft Complete Trans-Mars Injection Burns",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-10T09:33:20.623745-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Commvault and Zscaler Announce Strategic Partnership for AI Security",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-10T09:33:20.666145-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "AMD to Invest $2.5 Billion in Anthropic IPO",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-10T09:33:20.993899-05:00",
-    "symbols": [
-      "FSLR"
-    ],
-    "headline": "UBS Adjusts First Solar Price Target to $295",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-10T09:34:20.572134-05:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "e.l.f. Cosmetics Named Lip Oil Product of the Year at 2026 Beauty Innovation Awards",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-10T09:34:20.732597-05:00",
-    "symbols": [
-      "BULL"
-    ],
-    "headline": "Webull Expands European Presence with Launch in Italy",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-10T09:37:13.567874-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Pixelworks Stock Surges Tuesday, Partners With Meta to Bring TrueCut Motion Technology to VR Glasses",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-10T09:37:15.527560-05:00",
-    "symbols": [
-      "RIOT"
-    ],
-    "headline": "This Riot Platforms Analyst Turns Bullish; Here Are Top 5 Upgrades For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-10T09:37:16.986869-05:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "IonQ Shares Fall With Space Stocks: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-10T09:37:17.712853-05:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase, Kraken, Kalshi Support CFTC in Legal Fight Over Stock Perpetual Futures",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-10T09:37:18.970314-05:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "This Riot Platforms Analyst Turns Bullish; Here Are Top 5 Upgrades For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-10T09:37:19.088755-05:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "This Wix.com Analyst Turns Bearish; Here Are Top 5 Downgrades For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-10T09:37:19.343662-05:00",
-    "symbols": [
-      "PDD"
-    ],
-    "headline": "This Wix.com Analyst Turns Bearish; Here Are Top 5 Downgrades For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-10T09:37:19.470716-05:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "IonQ Shares Fall With Space Stocks: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-10T09:37:22.722792-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "White House Senior Adviser Hassett Says CPI Report Was Disappointing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-10T09:37:22.727099-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "US Consumer Prices Rise 0.4% in October, Exceeding Forecasts as Fed Hike Looms (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-10T09:37:22.979544-05:00",
-    "symbols": [
-      "ABEO"
-    ],
-    "headline": "Abeona Therapeutics Announces Participation in November 2026 Investor Conferences",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-10T09:37:23.101423-05:00",
     "symbols": [
       "DCTH"
@@ -4998,5 +4608,395 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-10T10:17:40.123934-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple TV Series Named Finalists for 65th Rose d'Or Awards",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-10T10:17:40.129448-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Citic Securities Adjusts Apple Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-10T10:17:40.134386-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Receives Regulatory Clearance for AI Services in China",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-10T10:17:40.547228-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Chip Stocks Trade at 9 Times 2028 Earnings. Cantor Calls It a Gift, Bank of America Says Wait for Policy Clarity",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-10T10:17:40.715993-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Chip Stocks Trade at 9 Times 2028 Earnings. Cantor Calls It a Gift, Bank of America Says Wait for Policy Clarity",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-10T10:17:42.529499-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Chip Stocks Trade at 9 Times 2028 Earnings. Cantor Calls It a Gift, Bank of America Says Wait for Policy Clarity",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-10T10:17:42.687321-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Chip Stocks Trade at 9 Times 2028 Earnings. Cantor Calls It a Gift, Bank of America Says Wait for Policy Clarity",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-10T10:17:43.916749-05:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "&#39;Rivian CEO says new R2 SUV, autonomy make 2027 an \u2018inflection year\u2019 as EV maker marks five years since IPO&#39; - CNBC",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-10T10:17:44.073457-05:00",
+    "symbols": [
+      "FSLR"
+    ],
+    "headline": "Stock of the Day: Will First Solar Rally From Here?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-10T10:17:45.108719-05:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning Spotify Technology Stock In The Last 5 Years",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-10T10:17:46.638904-05:00",
+    "symbols": [
+      "MARA"
+    ],
+    "headline": "AAON, Ziprecruiter, Rackspace Technology, Babcock &amp; Wilcox And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-10T10:17:47.961294-05:00",
+    "symbols": [
+      "ONON"
+    ],
+    "headline": "CoreWeave Could Swing $4.85 Billion In Value After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-10T10:17:48.319957-05:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "JP Morgan Downgrades DraftKings to Neutral, Lowers Price Target to $21",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-10T10:17:52.531615-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Launches New AI-Assisted Financial Services Analytics Applications",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-10T10:17:53.023495-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Iran\u2019s Foreign Minister Says Claims About Meeting Between Security Chief Rezaei And Vance Are Baseless Media Speculation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-10T10:17:54.400354-05:00",
+    "symbols": [
+      "BW"
+    ],
+    "headline": "AAON, Ziprecruiter, Rackspace Technology, Babcock &amp; Wilcox And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-10T10:17:57.773653-05:00",
+    "symbols": [
+      "KDK"
+    ],
+    "headline": "Amerx Reiterates Hold on Kodiak AIto Hold",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-10T10:17:57.926712-05:00",
+    "symbols": [
+      "LCID"
+    ],
+    "headline": "AAON, Ziprecruiter, Rackspace Technology, Babcock &amp; Wilcox And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-10T10:17:59.778223-05:00",
+    "symbols": [
+      "RXT"
+    ],
+    "headline": "AAON, Ziprecruiter, Rackspace Technology, Babcock &amp; Wilcox And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-10T10:18:02.843528-05:00",
+    "symbols": [
+      "MNDO"
+    ],
+    "headline": "MIND C.T.I. Agrees To Be Acquired By Enghouse Systems For $1.30 Per Share In Cash; Appoints Orly Sorokin CEO, Effective Nov. 17",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-10T10:18:03.200450-05:00",
+    "symbols": [
+      "SECZ"
+    ],
+    "headline": "These Analysts Revise Their Forecasts On Securitize Following Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-10T10:18:04.642453-05:00",
+    "symbols": [
+      "CSQR"
+    ],
+    "headline": "AAON, Ziprecruiter, Rackspace Technology, Babcock &amp; Wilcox And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-10T10:18:04.647915-05:00",
+    "symbols": [
+      "CSQR"
+    ],
+    "headline": "Csquare Narrows FY2026 Sales Guidance from $1.130B-$1.170B to $1.140B-$1.160B vs $1.124B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-10T10:18:04.652846-05:00",
+    "symbols": [
+      "CSQR"
+    ],
+    "headline": "Csquare Q3 EPS $(0.58) Misses $(0.49) Estimate, Sales $302.300M Beat $281.514M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-10T10:18:04.846184-05:00",
+    "symbols": [
+      "ZNTL"
+    ],
+    "headline": "Wedbush Upgrades Zentalis Pharmaceuticals to Outperform, Raises Price Target to $6",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-10T10:18:04.851584-05:00",
+    "symbols": [
+      "ZNTL"
+    ],
+    "headline": "Zentalis Pharma Q3 EPS $(0.34) Beats $(0.53) Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-10T10:18:05.712862-05:00",
+    "symbols": [
+      "AIBZ"
+    ],
+    "headline": "Bitzero Receives All Long-Lead High-Voltage Equipment for Flagship Norway Data Center",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-10T10:18:06.086435-05:00",
+    "symbols": [
+      "SMC"
+    ],
+    "headline": "Summit Midstream Reaffirms FY26 Capex Guidance $100M-$120M; Sees Near High End",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-10T10:18:06.092193-05:00",
+    "symbols": [
+      "SMC"
+    ],
+    "headline": "Summit Midstream Raises FY26 Adj. EBITDA Guidance To $250M-$260M From $235M-$255M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-10T10:18:06.097004-05:00",
+    "symbols": [
+      "SMC"
+    ],
+    "headline": "Summit Midstream Q3 EPS $0.58 Beats $(0.11) Estimate, Sales $183.005M Beat $168.000M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-10T10:18:06.416309-05:00",
+    "symbols": [
+      "QMLS"
+    ],
+    "headline": "QumulusAI Secures Five-Year Agreement for 1.2 MW of Critical IT Load in Denver",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-10T10:18:07.108313-05:00",
+    "symbols": [
+      "EVI"
+    ],
+    "headline": "EVI Industries Q1 EPS $0.24 Beats $0.14 Estimate, Sales $112.948M Miss $114.657M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-10T10:18:08.130148-05:00",
+    "symbols": [
+      "BDTX"
+    ],
+    "headline": "Black Diamond Therapeutics Reports Updated Phase 2 Silevertinib Data, FDA End-Of-Phase 2 Feedback, Supporting Pivotal Development In All 1L EGFR-NCM NSCLC Patients With Potential For Accelerated Approval Based On CNS-ORR",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-10T10:18:08.135662-05:00",
+    "symbols": [
+      "BDTX"
+    ],
+    "headline": "Black Diamond Therapeutics To Host A Webcast For Investors To Present Updated Results From Its Ongoing Phase 2 Trial Of Silevertinib",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-10T10:18:08.432004-05:00",
+    "symbols": [
+      "ONTO"
+    ],
+    "headline": "Stifel Maintains Buy on Onto Innovation, Lowers Price Target to $305",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-10T10:18:08.437207-05:00",
+    "symbols": [
+      "ONTO"
+    ],
+    "headline": "Evercore ISI Group Maintains Outperform on Onto Innovation, Lowers Price Target to $250",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-10T10:18:08.442036-05:00",
+    "symbols": [
+      "ONTO"
+    ],
+    "headline": "Nvidia To $300? Here Are 10 Top Analyst Forecasts For Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-10T10:18:08.446452-05:00",
+    "symbols": [
+      "ONTO"
+    ],
+    "headline": "Needham Maintains Buy on Onto Innovation, Lowers Price Target to $285",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-10T10:18:08.451185-05:00",
+    "symbols": [
+      "ONTO"
+    ],
+    "headline": "Onto Innovation Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

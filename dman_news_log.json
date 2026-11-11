@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-11-11T09:38:12.489382-05:00",
-    "symbols": [
-      "CTEV"
-    ],
-    "headline": "Analyst Rating Update: Claritev (CTEV) Price Target Raised by CCORF",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T09:38:12.721716-05:00",
-    "symbols": [
-      "CLX"
-    ],
-    "headline": "Watching Clorox Company; Shares Higher On The Session, Traders Circulate Unconfirmed Rumor From M&amp;A Blog Suggesting The Co Is Seeing Takeover Interest",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T09:38:12.961262-05:00",
-    "symbols": [
-      "CRSP"
-    ],
-    "headline": "CRISPR Therapeutics Highlights Substantial Lipid Reductions with Investigational Gene Editing Therapy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T09:38:13.192801-05:00",
-    "symbols": [
-      "GSHD"
-    ],
-    "headline": "Piper Sandler Maintains Hold Rating on Goosehead Insurance and Raises Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T09:38:13.430346-05:00",
-    "symbols": [
-      "HROW"
-    ],
-    "headline": "BTIG Reiterates Buy on Harrow, Maintains $63 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-11T09:38:13.711787-05:00",
-    "symbols": [
-      "LINE"
-    ],
-    "headline": "Evercore ISI Group Maintains In-Line on Lineage, Lowers Price Target to $39",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T09:38:13.716669-05:00",
-    "symbols": [
-      "LINE"
-    ],
-    "headline": "Baird Maintains Neutral on Lineage, Lowers Price Target to $40",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T09:38:13.721044-05:00",
-    "symbols": [
-      "LINE"
-    ],
-    "headline": "Hot CPI Pushes 10-Year Yield to 5%, Nvidia Sinks 6%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T09:38:13.968911-05:00",
-    "symbols": [
-      "LEGN"
-    ],
-    "headline": "RBC Capital Markets Adjusts Price Target for Legend Biotech",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T09:38:14.214982-05:00",
-    "symbols": [
-      "WIX"
-    ],
-    "headline": "Wedbush Maintains Neutral on Wix.com, Lowers Price Target to $75",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T09:38:14.220532-05:00",
-    "symbols": [
-      "WIX"
-    ],
-    "headline": "Cantor Fitzgerald Maintains Overweight on Wix.com, Lowers Price Target to $80",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-11T09:38:14.480933-05:00",
     "symbols": [
       "EQPT"
@@ -4995,6 +4885,116 @@
       "GOOGL"
     ],
     "headline": "What Is Going on With AMD Stock on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T10:26:42.948270-05:00",
+    "symbols": [
+      "OKLO"
+    ],
+    "headline": "OKLO Jumps After DOE Clears Groves-1 to Run Without Restrictions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T10:26:44.547946-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Bessent confronts Lutnick over China inaction&#39;- Axios",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-11T10:26:45.854985-05:00",
+    "symbols": [
+      "DCH"
+    ],
+    "headline": "Barclays Maintains Equal-Weight on Dauch, Lowers Price Target to $6",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-11T10:26:47.913025-05:00",
+    "symbols": [
+      "RUM"
+    ],
+    "headline": "RUM Group Revenue Soars 290% As Quake AI Delivers $68.2 Million",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-11T10:26:49.916071-05:00",
+    "symbols": [
+      "RSKD"
+    ],
+    "headline": "Riskified CEO Sounds Alarm: Fraudsters Are Moving Into AI Shopping Faster Than Consumers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-11T10:26:50.370564-05:00",
+    "symbols": [
+      "AZTA"
+    ],
+    "headline": "Azenta Sees FY2027 Sales $648.000M-$660.000M vs $639.051M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-11T10:26:50.375983-05:00",
+    "symbols": [
+      "AZTA"
+    ],
+    "headline": "Azenta Q4 Adj. EPS $0.28 Beats $0.11 Estimate, Sales $167.088M Beat $160.133M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-11T10:26:50.461548-05:00",
+    "symbols": [
+      "CRWV"
+    ],
+    "headline": "What Is Going on With AMD Stock on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T10:26:50.787770-05:00",
+    "symbols": [
+      "HYLN"
+    ],
+    "headline": "Hyliion Holdings Raises FY2026 Sales Guidance from $15.000M to $18.000M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T10:26:50.793351-05:00",
+    "symbols": [
+      "HYLN"
+    ],
+    "headline": "Hyliion Holdings Q3 EPS $(0.06) Beats $(0.07) Estimate, Sales $7.452M Beat $4.033M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T10:26:50.999280-05:00",
+    "symbols": [
+      "FLY"
+    ],
+    "headline": "Barclays Maintains Equal-Weight on Firefly Aerospace, Raises Price Target to $35",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

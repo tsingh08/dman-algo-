@@ -134,7 +134,7 @@
    "🛑 <b>Daily loss limit hit</b> — down -5.0% today. Halted."
   ],
   "stdout": [
-   "  🛑 DAILY LOSS LIMIT HIT: Down -5.0% today (limit: 3%).",
+   "  🛑 DAILY LOSS LIMIT HIT: Down -5.0% today (limit: 3%; latched until the next ET day).",
    "     Stop trading. Protect your capital. Come back tomorrow."
   ]
  },

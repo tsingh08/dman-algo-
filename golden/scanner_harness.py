@@ -129,6 +129,12 @@ def run(name, over):
         patch.object(a, "is_on_probation", return_value=cfg["probation"]),
         patch.object(a, "_scan_consecutive_loss_gate", return_value=cfg["consec"]),
         patch.object(a, "get_todays_loss", return_value=cfg["todays_loss"]),
+        # run_pro_scanner gates on the daily LATCH since 2026-11-10 (3eceb5cd),
+        # which reads a file: without this every scenario read the repo's real
+        # dman_daily_halt.json and "halted" whenever it carried today's date.
+        # Same isolation submit_signals_harness already had.
+        patch.object(a, "DAILY_HALT_FILE",
+                     os.path.join(tempfile.mkdtemp(), "dman_daily_halt.json")),
         patch.object(a, "SEASONAL_WEAK_MONTHS", cfg["seasonal_months"]),
         patch.object(a, "get_market_regime",
                      return_value=_regime(cfg["vix"], cfg["regime"], cfg["shock"], cfg["rotation"])),

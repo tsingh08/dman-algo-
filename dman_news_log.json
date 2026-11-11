@@ -1,185 +1,5 @@
 [
   {
-    "ts": "2026-11-11T09:53:24.843410-05:00",
-    "symbols": [
-      "CRWV"
-    ],
-    "headline": "Live on CNBC, CoreWeave CEO Says NVIDIA Will Continue To Be A Great Partner For Us",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T09:53:24.849312-05:00",
-    "symbols": [
-      "CRWV"
-    ],
-    "headline": "Live On CNBC, CoreWeave CEO Says NVIDIA Is Not One Person, It Is An Extraordinary Company",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T09:53:24.854569-05:00",
-    "symbols": [
-      "CRWV"
-    ],
-    "headline": "Live On CNBC, CoreWeave CEO Says We\u2019re About To Launch Another Asset-Level Debit In The Next Week Or Two",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T09:53:24.859947-05:00",
-    "symbols": [
-      "CRWV"
-    ],
-    "headline": "Live On CNBC, CoreWeave CEO Says We Don\u2019t See Any Impact On Our Ability To Deliver Data Centers Within The U.S.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T10:04:14.099389-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "If You Invested $100 In Broadcom Stock 5 Years Ago, You Would Have This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T10:04:15.054687-05:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Is Crypto Taking Over Stock Trading? Not Yet\u201467 Companies Push Back",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T10:04:15.475985-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "EXCLUSIVE: Lilly, Gilead Face Near-Term Drug Pricing Risks As Washington Turns Up Heat",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T10:04:15.702286-05:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "EXCLUSIVE: Lilly, Gilead Face Near-Term Drug Pricing Risks As Washington Turns Up Heat",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T10:04:16.843045-05:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Is Crypto Taking Over Stock Trading? Not Yet\u201467 Companies Push Back",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T10:04:16.928397-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Is Crypto Taking Over Stock Trading? Not Yet\u201467 Companies Push Back",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T10:04:19.716743-05:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "GE Vernova Stock Rebounds as AI Optimism Counters SoftBank Concerns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T10:04:21.491462-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Iran&#39;s National Security Head Rezaei Says We Are Working On Nuclear-Powered Ships And Submarines, So We Need Our Enriched Materials; If The U.S. Attacks Iran, We Will Attack Not Only Nearby American Bases, But U.S. Military Bases In European Countries",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T10:04:24.212694-05:00",
-    "symbols": [
-      "LCID"
-    ],
-    "headline": "What's Going On With Lucid Group Stock Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T10:04:27.899578-05:00",
-    "symbols": [
-      "CRWV"
-    ],
-    "headline": "GE Vernova Stock Rebounds as AI Optimism Counters SoftBank Concerns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T10:04:27.905393-05:00",
-    "symbols": [
-      "CRWV"
-    ],
-    "headline": "Live On CNBC, CoreWeave CEO Says Our Build Plans Are Not Being Delayed Or In Any Way Transformed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T10:04:28.074193-05:00",
-    "symbols": [
-      "NXXT"
-    ],
-    "headline": "NEXTNRG (NXXT) Shares Plunge 25% After-Hours: Here\u2019s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T10:04:28.080762-05:00",
-    "symbols": [
-      "NXXT"
-    ],
-    "headline": "NextNRG Says It Received Nasdaq Panel Decision Denying Continued Listing; Shares To Be Suspended November 11",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T10:04:28.087137-05:00",
-    "symbols": [
-      "NXXT"
-    ],
-    "headline": "12 Energy Stocks Moving In Tuesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-11T10:04:28.164313-05:00",
     "symbols": [
       "TPST"
@@ -4995,6 +4815,186 @@
       "VIV"
     ],
     "headline": "Stock Market Today: Dow Jones, S&amp;P 500 Futures Rise as Bessent Urges US-China to &#39;De-Risk&#39; \u2014 CRWV, RGTI, FNV in Focus",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-11T13:32:57.294570-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Nvidia\u2019s Earnings Day Is \u2018Earnings Day for Your 401(k).\u2019 Here\u2019s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T13:32:57.566959-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Nvidia\u2019s Earnings Day Is \u2018Earnings Day for Your 401(k).\u2019 Here\u2019s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T13:32:57.795659-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia\u2019s Earnings Day Is \u2018Earnings Day for Your 401(k).\u2019 Here\u2019s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-11T13:32:59.290611-05:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Series 'Dead-End Job' Tops Non-English TV Chart",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T13:33:00.376403-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Applied Materials Earnings Due Thursday: What Investors Need to Know",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T13:33:03.025691-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Reports 52-Week Results Showing Improved Efficacy From TOGETHER-Psa Phase 3b Open-Label Clinical Trial Evaluating Taltz-Zepbound Combination In Psoriatic Arthritis",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T13:33:03.031759-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Lilly Highlights Phase 3b Data On Taltz, Zepbound",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T13:33:06.988282-05:00",
+    "symbols": [
+      "ELF"
+    ],
+    "headline": "E-L Financial Corporation Limited Declares Cash Dividends",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T13:33:06.993057-05:00",
+    "symbols": [
+      "ELF"
+    ],
+    "headline": "E-L Financial Corporation Limited Reports Third Quarter 2026 Financial Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T13:33:06.998821-05:00",
+    "symbols": [
+      "ELF"
+    ],
+    "headline": "Morgan Stanley Maintains Hold Rating and $125 Price Target for e.l.f. Beauty",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T13:33:07.658077-05:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Airbnb CEO Brian Chesky Pledges $100 Million for San Francisco Parks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-11T13:33:07.662963-05:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Airbnb.org Expands Free Temporary Housing for US Military Families",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-11T13:33:10.158047-05:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "GE Vernova Stock Rebounds as AI Optimism Counters SoftBank Concerns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T13:33:12.143207-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Chevron Announces Expansion Plans for Vaca Muerta Assets in Argentina",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T13:33:14.123727-05:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "RBC Capital Reiterates Outperform on Adobe, Maintains $315 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T13:33:14.555712-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Nvidia\u2019s Earnings Day Is \u2018Earnings Day for Your 401(k).\u2019 Here\u2019s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-11T13:33:18.570611-05:00",
+    "symbols": [
+      "HIVE"
+    ],
+    "headline": "B. Riley Securities Maintains Buy on HIVE Digital Technologies, Lowers Price Target to $5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T13:33:20.222769-05:00",
+    "symbols": [
+      "LAC"
+    ],
+    "headline": "America\u2019s Biggest Lithium Bet Just Got $900 Million Pricier",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

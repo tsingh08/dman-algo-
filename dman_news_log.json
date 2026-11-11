@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-11T13:44:02.910244-05:00",
-    "symbols": [
-      "WGS"
-    ],
-    "headline": "Guggenheim Maintains Buy Rating and $83 Price Target for GeneDx Holdings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-11T13:44:03.075768-05:00",
     "symbols": [
       "CTEV"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-11T15:39:58.474501-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Peter Thiel\u2019s Longtime Business Partner Says AI Is Absolutely in a Bubble: \u2018This Will Correct\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

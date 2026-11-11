@@ -2366,5 +2366,21 @@
     "shares": 11.0,
     "pnl_usd": 7.49,
     "spy_pct": -0.489
+  },
+  {
+    "ticker": "GDYN",
+    "date": "2026-11-11",
+    "bias": "LONG",
+    "setup": "Breakout Zone +163% off low",
+    "entry": 13.3,
+    "exit": 13.85,
+    "outcome": "WIN",
+    "pnl_pct": 4.1,
+    "score": 16,
+    "is_live": true,
+    "entry_date": "2026-11-03",
+    "shares": 9.0,
+    "pnl_usd": 4.9,
+    "spy_pct": 0.518
   }
 ]

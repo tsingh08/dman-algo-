@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-11-11T13:37:24.700022-05:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Chevron Announces Expansion Plans for Vaca Muerta Assets in Argentina",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T13:37:25.389632-05:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "RBC Capital Reiterates Outperform on Adobe, Maintains $315 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T13:37:25.532105-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Nvidia\u2019s Earnings Day Is \u2018Earnings Day for Your 401(k).\u2019 Here\u2019s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T13:43:49.042855-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Nvidia\u2019s Earnings Day Is \u2018Earnings Day for Your 401(k).\u2019 Here\u2019s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T13:43:49.276981-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Nvidia\u2019s Earnings Day Is \u2018Earnings Day for Your 401(k).\u2019 Here\u2019s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T13:43:49.462142-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia\u2019s Earnings Day Is \u2018Earnings Day for Your 401(k).\u2019 Here\u2019s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-11T13:43:50.563004-05:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Series 'Dead-End Job' Tops Non-English TV Chart",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T13:43:51.471203-05:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Applied Materials Earnings Due Thursday: What Investors Need to Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T13:43:53.398055-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly Reports 52-Week Results Showing Improved Efficacy From TOGETHER-Psa Phase 3b Open-Label Clinical Trial Evaluating Taltz-Zepbound Combination In Psoriatic Arthritis",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-11T13:43:53.402707-05:00",
     "symbols": [
       "LLY"
@@ -4996,6 +4906,96 @@
     ],
     "headline": "KLA Corporation Enters Long-Term Lease for Milpitas R&D Facility",
     "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T15:15:30.152240-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Anthropic Perp Rallies 8%: Traders Price the Claude Maker at $1.8 Trillion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T15:15:30.357973-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Anthropic Perp Rallies 8%: Traders Price the Claude Maker at $1.8 Trillion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-11T15:15:31.015547-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Anthropic Perp Rallies 8%: Traders Price the Claude Maker at $1.8 Trillion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T15:15:32.624556-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Anthropic Perp Rallies 8%: Traders Price the Claude Maker at $1.8 Trillion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T15:15:45.021205-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Traders Circulating Headline Iran\u2019s Brigadier General Heydari Says We Have Closed The Strait Of Hormuz And We Will Not Open It Except By The Order Of The Leader Of The Revolution",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-11T15:15:45.162156-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Anthropic Perp Rallies 8%: Traders Price the Claude Maker at $1.8 Trillion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T15:15:47.526824-05:00",
+    "symbols": [
+      "GOVX"
+    ],
+    "headline": "Trading Halt: Halted at 7:50:00 p.m. ET - Trading Halt: Halt News Pending",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-11T15:15:55.470600-05:00",
+    "symbols": [
+      "CRWV"
+    ],
+    "headline": "Applied Optoelectronics Stock Jumps After CoreWeave&#39;s Strong Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T15:15:55.475286-05:00",
+    "symbols": [
+      "CRWV"
+    ],
+    "headline": "Anthropic Perp Rallies 8%: Traders Price the Claude Maker at $1.8 Trillion",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

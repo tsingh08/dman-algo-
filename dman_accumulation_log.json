@@ -4237,5 +4237,59 @@
   "drift_pct": 0.19,
   "range_ratio": 0.49,
   "near_high": 0.999
+ },
+ {
+  "ts": "2026-11-11T13:46:25.906094-05:00",
+  "ticker": "FTCA",
+  "price": 7.135,
+  "rvol": 1.95,
+  "drift_pct": 0.35,
+  "range_ratio": 0.26,
+  "near_high": 0.981
+ },
+ {
+  "ts": "2026-11-11T13:46:25.906117-05:00",
+  "ticker": "FOXA",
+  "price": 67.52,
+  "rvol": 3.23,
+  "drift_pct": 0.22,
+  "range_ratio": 0.64,
+  "near_high": 0.96
+ },
+ {
+  "ts": "2026-11-11T13:46:25.906121-05:00",
+  "ticker": "IEUR",
+  "price": 76.015,
+  "rvol": 1.56,
+  "drift_pct": 1.38,
+  "range_ratio": 0.62,
+  "near_high": 0.965
+ },
+ {
+  "ts": "2026-11-11T13:46:25.906125-05:00",
+  "ticker": "CPLB",
+  "price": 20.23,
+  "rvol": 1.81,
+  "drift_pct": 0.54,
+  "range_ratio": 0.62,
+  "near_high": 0.972
+ },
+ {
+  "ts": "2026-11-11T13:46:25.906128-05:00",
+  "ticker": "HFSI",
+  "price": 33.905,
+  "rvol": 1.52,
+  "drift_pct": 0.19,
+  "range_ratio": 0.59,
+  "near_high": 0.965
+ },
+ {
+  "ts": "2026-11-11T13:46:25.906132-05:00",
+  "ticker": "BBEU",
+  "price": 77.92,
+  "rvol": 1.62,
+  "drift_pct": 1.16,
+  "range_ratio": 0.61,
+  "near_high": 0.959
  }
 ]

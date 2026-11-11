@@ -20756,6 +20756,12 @@ class WinRateTracker:
             # Watch Breakout (Day)" sat apart from the unprefixed twin.
             if setup.startswith("SWING — "):
                 setup = setup[len("SWING — "):]
+            # Zone labels embed a per-trade number ("Breakout Zone +148% off
+            # low"), so unpooled every zone is its own 1-2 trade "setup" that
+            # can never reach min_trades: 13 live zone fills (cum -26%) were
+            # invisible here while 20 Morning Runner fills tripped the gates.
+            if setup.startswith(BZONE_SETUP):
+                return BZONE_SETUP
             if setup.startswith("Momentum Call Spread"):
                 return "Momentum Call Spread"
             if setup.startswith("Earnings "):  # stats family, not a spread check

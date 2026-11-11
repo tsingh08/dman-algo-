@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-11T13:44:03.075768-05:00",
-    "symbols": [
-      "CTEV"
-    ],
-    "headline": "Analyst Rating Update: Claritev (CTEV) Price Target Raised by CCORF",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T13:44:03.389086-05:00",
-    "symbols": [
-      "GSHD"
-    ],
-    "headline": "Piper Sandler Maintains Hold Rating on Goosehead Insurance and Raises Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T13:44:03.535365-05:00",
-    "symbols": [
-      "HROW"
-    ],
-    "headline": "BTIG Reiterates Buy on Harrow, Maintains $63 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-11T13:44:03.679846-05:00",
-    "symbols": [
-      "LINE"
-    ],
-    "headline": "Evercore ISI Group Maintains In-Line on Lineage, Lowers Price Target to $39",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T13:44:03.684581-05:00",
-    "symbols": [
-      "LINE"
-    ],
-    "headline": "Baird Maintains Neutral on Lineage, Lowers Price Target to $40",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T13:44:03.843577-05:00",
-    "symbols": [
-      "LEGN"
-    ],
-    "headline": "Oppenheimer Maintains Perform on Legend Biotech, Lowers Price Target to $25",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-11T13:44:03.848250-05:00",
     "symbols": [
       "LEGN"
@@ -4998,5 +4938,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T15:39:58.758788-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Cisco Systems Could Swing $30.8 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T15:39:58.763903-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Cisco Systems, Applied Materials On Deck Thursday As AI Demand Faces Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T15:40:01.445538-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Peter Thiel\u2019s Longtime Business Partner Says AI Is Absolutely in a Bubble: \u2018This Will Correct\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T15:40:02.096547-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Cisco Systems Could Swing $30.8 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T15:40:02.101635-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Cisco Systems, Applied Materials On Deck Thursday As AI Demand Faces Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T15:40:10.267235-05:00",
+    "symbols": [
+      "LUNR"
+    ],
+    "headline": "Cisco Systems Could Swing $30.8 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -2408,5 +2408,85 @@
 "extension_pct": 10.6,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "ZIP",
+"date": "2026-11-10",
+"close": 6.59,
+"base_days": 297,
+"above_low_pct": 289.9,
+"extension_pct": 50.2,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "REPL",
+"date": "2026-11-10",
+"close": 23.28,
+"base_days": 0,
+"above_low_pct": 1269.4,
+"extension_pct": 52.6,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "GDYN",
+"date": "2026-11-10",
+"close": 14.06,
+"base_days": 5,
+"above_low_pct": 169.9,
+"extension_pct": 38.7,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "CYRX",
+"date": "2026-11-10",
+"close": 20.74,
+"base_days": 0,
+"above_low_pct": 168.7,
+"extension_pct": 17.9,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "TGTX",
+"date": "2026-11-10",
+"close": 64.26,
+"base_days": 6,
+"above_low_pct": 138.5,
+"extension_pct": 12.9,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "VTRS",
+"date": "2026-11-10",
+"close": 20.85,
+"base_days": 0,
+"above_low_pct": 113.3,
+"extension_pct": 11.6,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "LILAK",
+"date": "2026-11-10",
+"close": 9.97,
+"base_days": 0,
+"above_low_pct": 112.2,
+"extension_pct": 20.3,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "FLYW",
+"date": "2026-11-10",
+"close": 22.35,
+"base_days": 3,
+"above_low_pct": 110.1,
+"extension_pct": 14.8,
+"fresh_base": false,
+"weak_band": false
 }
 ]

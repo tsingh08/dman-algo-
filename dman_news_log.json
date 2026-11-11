@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-11-11T09:38:10.718750-05:00",
-    "symbols": [
-      "ZIP"
-    ],
-    "headline": "UBS Maintains Neutral on ZipRecruiter, Raises Price Target to $5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T09:38:10.953431-05:00",
-    "symbols": [
-      "DSP"
-    ],
-    "headline": "UBS Maintains Buy on Viant Technology, Lowers Price Target to $18",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-11T09:38:11.195852-05:00",
-    "symbols": [
-      "JHX"
-    ],
-    "headline": "James Hardie Products Recognized in 2027 Good Housekeeping Home Reno Awards",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T09:38:11.430325-05:00",
-    "symbols": [
-      "FA"
-    ],
-    "headline": "Citigroup Maintains Neutral on First Advantage, Raises Price Target to $25",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T09:38:11.665369-05:00",
-    "symbols": [
-      "APPS"
-    ],
-    "headline": "Block & Leviton Investigates Digital Turbine for Potential Securities Law Violations",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-11T09:38:11.900276-05:00",
     "symbols": [
       "GILT"
@@ -4998,5 +4948,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T10:15:23.422433-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Bernstein Adjusts Price Target on Visa",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T10:15:23.427605-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Whish Money Deploys Visa's Featurespace for Fraud Prevention in Lebanon",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T10:15:23.432660-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Whish Money to Deploy Visa's Featurespace for Fraud Prevention",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T10:15:23.716948-05:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "BMO Capital Adjusts Price Target on Occidental Petroleum to $65 From $70",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T10:15:30.839682-05:00",
+    "symbols": [
+      "CRWV"
+    ],
+    "headline": "DA Davidson Maintains Neutral on CoreWeave, Lowers Price Target to $45",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

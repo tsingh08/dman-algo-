@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-11T09:38:11.900276-05:00",
-    "symbols": [
-      "GILT"
-    ],
-    "headline": "Brightview Posts Downbeat Q4 Results, Joins Astronics, Spire Global And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T09:38:11.905475-05:00",
-    "symbols": [
-      "GILT"
-    ],
-    "headline": "William Blair Downgrades Gilat Satellite Networks to Market Perform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T09:38:12.149346-05:00",
-    "symbols": [
-      "WGS"
-    ],
-    "headline": "Guggenheim Maintains Buy Rating and $83 Price Target for GeneDx Holdings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-11T09:38:12.489382-05:00",
     "symbols": [
       "CTEV"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T10:26:37.425670-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What Is Going on With AMD Stock on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-11T10:26:37.543241-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "What Is Going on With AMD Stock on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T10:26:37.742831-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "What Is Going on With AMD Stock on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -2488,5 +2488,85 @@
 "extension_pct": 14.8,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "FOSL",
+"date": "2026-11-11",
+"close": 9.97,
+"base_days": 3,
+"above_low_pct": 457.0,
+"extension_pct": 42.4,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "FROG",
+"date": "2026-11-11",
+"close": 109.51,
+"base_days": 1,
+"above_low_pct": 215.1,
+"extension_pct": 16.1,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "XERS",
+"date": "2026-11-11",
+"close": 16.52,
+"base_days": 1,
+"above_low_pct": 212.3,
+"extension_pct": 45.0,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "RSKD",
+"date": "2026-11-11",
+"close": 10.37,
+"base_days": 11,
+"above_low_pct": 173.6,
+"extension_pct": 19.5,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "FIGS",
+"date": "2026-11-11",
+"close": 23.4,
+"base_days": 8,
+"above_low_pct": 165.0,
+"extension_pct": 14.1,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "AXGN",
+"date": "2026-11-11",
+"close": 58.63,
+"base_days": 53,
+"above_low_pct": 149.0,
+"extension_pct": 35.9,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "VTRS",
+"date": "2026-11-11",
+"close": 21.06,
+"base_days": 0,
+"above_low_pct": 114.4,
+"extension_pct": 11.7,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "ZETA",
+"date": "2026-11-11",
+"close": 37.74,
+"base_days": 26,
+"above_low_pct": 159.4,
+"extension_pct": 16.0,
+"fresh_base": false,
+"weak_band": true
 }
 ]

@@ -1,14 +1,22 @@
 {
- "bar": "2026-11-10",
+ "bar": "2026-11-11",
  "entered": null,
  "tickers": [
   {
-   "ticker": "XOM",
-   "close": 164.5
+   "ticker": "ELF",
+   "close": 118.46
+  },
+  {
+   "ticker": "ZS",
+   "close": 193.795
   },
   {
    "ticker": "ABNB",
-   "close": 186.94
+   "close": 181.13
+  },
+  {
+   "ticker": "NEM",
+   "close": 118.47
   }
  ]
 }

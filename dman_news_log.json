@@ -1,145 +1,5 @@
 [
   {
-    "ts": "2026-11-11T13:43:53.402707-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Lilly Highlights Phase 3b Data On Taltz, Zepbound",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T13:43:56.277858-05:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "E-L Financial Corporation Limited Declares Cash Dividends",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T13:43:56.282615-05:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "E-L Financial Corporation Limited Reports Third Quarter 2026 Financial Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T13:43:56.287104-05:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "Morgan Stanley Maintains Hold Rating and $125 Price Target for e.l.f. Beauty",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T13:43:56.699051-05:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Airbnb CEO Brian Chesky Pledges $100 Million for San Francisco Parks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T13:43:56.703759-05:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Airbnb.org Expands Free Temporary Housing for US Military Families",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T13:43:58.511535-05:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "GE Vernova Stock Rebounds as AI Optimism Counters SoftBank Concerns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T13:43:59.906595-05:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Chevron Announces Expansion Plans for Vaca Muerta Assets in Argentina",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T13:44:01.589414-05:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "RBC Capital Reiterates Outperform on Adobe, Maintains $315 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T13:44:01.858111-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Nvidia\u2019s Earnings Day Is \u2018Earnings Day for Your 401(k).\u2019 Here\u2019s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T13:44:02.285769-05:00",
-    "symbols": [
-      "FF"
-    ],
-    "headline": "First Mining Gold Corp. Reports Third Quarter 2026 Financial Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T13:44:02.425618-05:00",
-    "symbols": [
-      "ZIP"
-    ],
-    "headline": "UBS Raises ZipRecruiter Price Target to $5.00",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T13:44:02.585958-05:00",
-    "symbols": [
-      "GFL"
-    ],
-    "headline": "JP Morgan Maintains Underweight on GFL Environmental, Lowers Price Target to $40",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T13:44:02.748712-05:00",
-    "symbols": [
-      "GILT"
-    ],
-    "headline": "Brightview Posts Downbeat Q4 Results, Joins Astronics, Spire Global And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-11T13:44:02.910244-05:00",
     "symbols": [
       "WGS"
@@ -4998,5 +4858,145 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T15:28:21.485032-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "CalPERS Doubles $500 Million Bet Thanks to Elon Musk\u2019s SpaceX Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T15:28:21.971520-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Nvidia\u2019s Earnings Day Is \u2018Earnings Day for Your 401(k).\u2019 Here\u2019s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T15:28:22.142868-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Nvidia\u2019s Earnings Day Is \u2018Earnings Day for Your 401(k).\u2019 Here\u2019s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T15:28:22.357212-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia\u2019s Earnings Day Is \u2018Earnings Day for Your 401(k).\u2019 Here\u2019s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-11T15:28:23.466706-05:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Series 'Dead-End Job' Tops Non-English TV Chart",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T15:28:23.639156-05:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "$1000 Invested In Salesforce 20 Years Ago Would Be Worth This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T15:28:24.413404-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Applied Materials Earnings Due Thursday: What Investors Need to Know",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T15:28:26.653214-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Reports 52-Week Results Showing Improved Efficacy From TOGETHER-Psa Phase 3b Open-Label Clinical Trial Evaluating Taltz-Zepbound Combination In Psoriatic Arthritis",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T15:28:26.657875-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Lilly Highlights Phase 3b Data On Taltz, Zepbound",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T15:28:30.502797-05:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Airbnb CEO Brian Chesky Pledges $100 Million for San Francisco Parks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-11T15:28:30.507633-05:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Airbnb.org Expands Free Temporary Housing for US Military Families",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-11T15:28:32.200087-05:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "GE Vernova Stock Rebounds as AI Optimism Counters SoftBank Concerns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T15:28:35.207131-05:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "RBC Capital Reiterates Outperform on Adobe, Maintains $315 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T15:28:35.515892-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Nvidia\u2019s Earnings Day Is \u2018Earnings Day for Your 401(k).\u2019 Here\u2019s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

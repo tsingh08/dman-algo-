@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-11-11T13:37:18.985303-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Nvidia\u2019s Earnings Day Is \u2018Earnings Day for Your 401(k).\u2019 Here\u2019s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T13:37:19.062419-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Nvidia\u2019s Earnings Day Is \u2018Earnings Day for Your 401(k).\u2019 Here\u2019s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T13:37:19.180731-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia\u2019s Earnings Day Is \u2018Earnings Day for Your 401(k).\u2019 Here\u2019s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-11T13:37:19.736388-05:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Series 'Dead-End Job' Tops Non-English TV Chart",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T13:37:20.203194-05:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Applied Materials Earnings Due Thursday: What Investors Need to Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T13:37:21.382926-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly Reports 52-Week Results Showing Improved Efficacy From TOGETHER-Psa Phase 3b Open-Label Clinical Trial Evaluating Taltz-Zepbound Combination In Psoriatic Arthritis",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T13:37:21.386641-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Lilly Highlights Phase 3b Data On Taltz, Zepbound",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-11T13:37:22.838351-05:00",
     "symbols": [
       "ELF"
@@ -4998,5 +4928,75 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-11T14:50:41.640002-05:00",
+    "symbols": [
+      "HIVE"
+    ],
+    "headline": "B. Riley Securities Maintains Buy on HIVE Digital Technologies, Lowers Price Target to $5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T14:50:43.135725-05:00",
+    "symbols": [
+      "LAC"
+    ],
+    "headline": "America\u2019s Biggest Lithium Bet Just Got $900 Million Pricier",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-11T14:50:53.019671-05:00",
+    "symbols": [
+      "IHRT"
+    ],
+    "headline": "Levi & Korsinsky Investigates iHeartMedia Following Guidance Reduction",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-11T14:50:53.235332-05:00",
+    "symbols": [
+      "CAPR"
+    ],
+    "headline": "Capricor Stock Rises Despite Wider-Than-Expected Q3 Loss",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-11T14:50:54.102357-05:00",
+    "symbols": [
+      "MRCY"
+    ],
+    "headline": "This Apple Analyst Turns Bullish; Here Are Top 5 Upgrades For Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T14:50:54.107387-05:00",
+    "symbols": [
+      "MRCY"
+    ],
+    "headline": "JP Morgan Upgrades Mercury System to Overweight, Lowers Price Target to $102",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T14:50:54.111665-05:00",
+    "symbols": [
+      "MRCY"
+    ],
+    "headline": "Piper Sandler Reiterates Overweight on Mercury System, Maintains $107 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

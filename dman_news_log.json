@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-11-11T09:38:26.124790-05:00",
-    "symbols": [
-      "BGS"
-    ],
-    "headline": "B&amp;G Foods Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T09:38:26.130116-05:00",
-    "symbols": [
-      "BGS"
-    ],
-    "headline": "B&amp;G Foods Affirms FY2026 Adj EPS Guidance of $0.57-$0.68 vs $0.55 Est; Raises FY2026 Sales Guidance from $1.735B-$1.775B to $1.760B-$1.800B vs $1.739B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T09:38:26.134604-05:00",
-    "symbols": [
-      "BGS"
-    ],
-    "headline": "B&amp;G Foods Q3 Adj. EPS $0.21 Beats $0.15 Estimate, Sales $459.800M Beat $435.016M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T09:38:26.377361-05:00",
-    "symbols": [
-      "NYAX"
-    ],
-    "headline": "Nayax Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-11T09:38:26.382492-05:00",
     "symbols": [
       "NYAX"
@@ -4998,5 +4958,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-11T11:26:37.358944-05:00",
+    "symbols": [
+      "ONON"
+    ],
+    "headline": "On Holding Analysts Revise Their Forecasts After Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T11:26:38.404265-05:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "JP Morgan Maintains Overweight on GE Vernova, Lowers Price Target to $1000",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T11:26:45.436018-05:00",
+    "symbols": [
+      "ANGX"
+    ],
+    "headline": "Angel Studios Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T11:26:45.441651-05:00",
+    "symbols": [
+      "ANGX"
+    ],
+    "headline": "Angel Studios Q3 EPS $(0.03) Beats $(0.08) Estimate, Sales $159.015M Beat $140.357M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

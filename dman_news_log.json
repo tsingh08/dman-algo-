@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-11-11T13:44:04.034327-05:00",
-    "symbols": [
-      "WIX"
-    ],
-    "headline": "Citigroup Maintains Neutral on Wix.com, Lowers Price Target to $71",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T13:44:04.039226-05:00",
-    "symbols": [
-      "WIX"
-    ],
-    "headline": "ServiceNow Stock Climbs: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-11T13:44:04.044405-05:00",
     "symbols": [
       "WIX"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-11T16:03:40.373789-05:00",
+    "symbols": [
+      "JBI"
+    ],
+    "headline": "UBS Maintains Neutral on Janus Intl Gr, Lowers Price Target to $4.8",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-11T16:03:44.283388-05:00",
+    "symbols": [
+      "TROX"
+    ],
+    "headline": "UBS Maintains Neutral on Tronox Holdings, Lowers Price Target to $2.75",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

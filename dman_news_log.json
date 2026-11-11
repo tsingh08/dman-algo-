@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-11-11T09:38:19.456242-05:00",
-    "symbols": [
-      "TTD"
-    ],
-    "headline": "UBS Maintains Buy on Trade Desk, Raises Price Target to $19",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T09:38:19.460696-05:00",
-    "symbols": [
-      "TTD"
-    ],
-    "headline": "Citigroup Maintains Sell on Trade Desk, Raises Price Target to $12",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T09:38:19.694695-05:00",
-    "symbols": [
-      "DCTH"
-    ],
-    "headline": "CCORF Maintains Delcath Systems (DCTH.US) With Buy Rating, Raises Target Price to $27",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T09:38:19.927039-05:00",
-    "symbols": [
-      "ZETA"
-    ],
-    "headline": "Citigroup Maintains Buy on Zeta Global Holdings, Raises Price Target to $38",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T09:38:20.166199-05:00",
-    "symbols": [
-      "TLS"
-    ],
-    "headline": "B. Riley Adjusts Price Target on Telos to $11 From $9, Maintains Buy Rating",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T09:38:20.408151-05:00",
-    "symbols": [
-      "TNGX"
-    ],
-    "headline": "Wall Street Analysts Update Ratings and Price Targets for Tango Therapeutics",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T09:38:20.646761-05:00",
-    "symbols": [
-      "ALC"
-    ],
-    "headline": "Alcon Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-11T09:38:20.652258-05:00",
     "symbols": [
       "ALC"
@@ -4998,5 +4928,75 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T11:02:20.514430-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "TO THE NEW Joins SpaceX Super Intelligence Partner Network",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T11:02:20.677795-05:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "RTX's Raytheon Collaborates with Martinrea Units to Accelerate Tomahawk Missile Production",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T11:02:28.536573-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Cyclicals Lead Sectors In Wednesday Trading As Defensives Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-11T11:02:28.674280-05:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "Cyclicals Lead Sectors In Wednesday Trading As Defensives Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-11T11:02:28.679434-05:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Cyclicals Lead Sectors In Wednesday Trading As Defensives Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T11:02:28.696538-05:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "Cyclicals Lead Sectors In Wednesday Trading As Defensives Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-11T11:02:28.877391-05:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Cyclicals Lead Sectors In Wednesday Trading As Defensives Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -17379,6 +17379,82 @@ class TestLiveOnlyCircuitBreakers(unittest.TestCase):
 _REAL_DAILY_LOSS_LIMIT_HIT = a._daily_loss_limit_hit   # before setUpModule's patch
 
 
+class TestOperatorSleeveOutOfDailyLoss(unittest.TestCase):
+    """2026-11-10: the daily halt latched at 09:32 ET on the operator's manual
+    NVDA 195/205 spread (opening-auction overpay, then NVDA -5.5%) while the
+    algo had realized +0.32%. Operator decided: CORE_HOLD-flagged, untracked
+    positions are out of the equity measure; everything else is unchanged."""
+
+    def _ap(self, sym, pl):
+        return SimpleNamespace(symbol=sym, unrealized_intraday_pl=str(pl))
+
+    def _run(self, flags, positions, tracked=()):
+        client = MagicMock()
+        client.get_all_positions.return_value = positions
+        tracker = MagicMock(); tracker.positions = list(tracked)
+        with patch.object(a, "_load_flags", return_value=flags), \
+             patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "PositionTracker", return_value=tracker):
+            return a._operator_sleeve_intraday_pl(), client
+
+    def test_no_core_hold_flags_means_zero_and_no_broker_call(self):
+        v, client = self._run({"MONTHLY_HALT_LIFTED_2026-11": True},
+                              [self._ap("NVDA", -90)])
+        self.assertEqual(v, 0.0)
+        client.get_all_positions.assert_not_called()
+
+    def test_sums_only_flagged_untracked_symbols(self):
+        occ_l, occ_s = "NVDA270115C00195000", "NVDA270115C00205000"
+        v, _ = self._run(
+            {f"CORE_HOLD_{occ_l}": True, f"CORE_HOLD_{occ_s}": True, "CORE_HOLD_AVGO": True},
+            [self._ap(occ_l, -159), self._ap(occ_s, 74), self._ap("AVGO", 11.7),
+             self._ap("ARHS", -40)])                     # unflagged zone: stays in
+        self.assertAlmostEqual(v, -159 + 74 + 11.7)
+
+    def test_flag_on_underlying_does_not_cover_option_legs(self):
+        # CORE_HOLD_NVDA must not silently pull in NVDA options, and vice versa.
+        v, _ = self._run({"CORE_HOLD_NVDA": True}, [self._ap("NVDA270115C00195000", -159)])
+        self.assertEqual(v, 0.0)
+
+    def test_a_tracked_position_is_never_excluded(self):
+        # The broker merges an algo GOOGL buy into the core GOOGL position;
+        # hiding the algo trade's loss is the one thing this must not do.
+        pos = SimpleNamespace(ticker="GOOGL", setup="Day 2 Continuation", legs=[])
+        v, _ = self._run({"CORE_HOLD_GOOGL": True}, [self._ap("GOOGL", -50)], tracked=[pos])
+        self.assertEqual(v, 0.0)
+
+    def test_broker_error_falls_back_to_the_full_account(self):
+        client = MagicMock(); client.get_all_positions.side_effect = RuntimeError("503")
+        with patch.object(a, "_load_flags", return_value={"CORE_HOLD_AVGO": True}), \
+             patch.object(a, "get_alpaca_client", return_value=client):
+            self.assertEqual(a._operator_sleeve_intraday_pl(), 0.0)
+
+    def test_todays_loss_excludes_the_sleeve(self):
+        # 2026-11-10 shape: base 2398.31, account -3.9%, almost all of it the spread.
+        with patch.object(a, "_period_pnl_total", return_value=0.32), \
+             patch.object(a, "_live_equity_no_fallback", return_value=2304.80), \
+             patch.object(a, "_get_day_start_equity", return_value=2398.31), \
+             patch.object(a, "_operator_sleeve_intraday_pl", return_value=-85.0):
+            v = a.get_todays_loss()
+        self.assertAlmostEqual(v, (2304.80 + 85.0 - 2398.31) / 2398.31 * 100, places=4)
+        self.assertGreater(v, -(a.DAILY_LOSS_LIMIT * 100))
+
+    def test_todays_loss_unchanged_without_a_sleeve(self):
+        with patch.object(a, "_period_pnl_total", return_value=0.0), \
+             patch.object(a, "_live_equity_no_fallback", return_value=2304.80), \
+             patch.object(a, "_get_day_start_equity", return_value=2398.31), \
+             patch.object(a, "_operator_sleeve_intraday_pl", return_value=0.0):
+            v = a.get_todays_loss()
+        self.assertAlmostEqual(v, (2304.80 - 2398.31) / 2398.31 * 100, places=4)
+
+    def test_recorded_algo_losses_still_win_the_min(self):
+        with patch.object(a, "_period_pnl_total", return_value=-3.5), \
+             patch.object(a, "_live_equity_no_fallback", return_value=2398.31), \
+             patch.object(a, "_get_day_start_equity", return_value=2398.31), \
+             patch.object(a, "_operator_sleeve_intraday_pl", return_value=-85.0):
+            self.assertAlmostEqual(a.get_todays_loss(), -3.5)
+
+
 class TestDailyLossHaltLatches(unittest.TestCase):
     """Review 2026-09-10: down 3.1% stopped trading, a bounce to -2.9% resumed
     it on the same day. Once hit, the stop holds until the ET date changes."""
@@ -20787,14 +20863,19 @@ class TestSeczPostMortem(unittest.TestCase):
         client.submit_order.return_value = SimpleNamespace(id="oid-bz")
         client.get_order_by_id.return_value = SimpleNamespace(
             filled_avg_price="14.60", filled_qty="17")
+        # _bzone_floor_pct() is pinned: unpatched it fetched SECZ's real ATR, so
+        # the floor placed (live ATR) and the floor checked (same call, but
+        # resolved at a different moment / with no network in CI) could
+        # disagree. Failed locally, passed in CI -- found 2026-11-10.
         with patch.object(a, "get_alpaca_client", return_value=client), \
              patch.object(a, "PositionTracker", return_value=MagicMock()), \
+             patch.object(a, "_bzone_floor_pct", return_value=0.35), \
              patch.object(a, "_et_today", return_value=date(2026, 9, 24)):
             a._submit_bzone_entry("SECZ", 17, 14.36, {"above_low_pct": 166})
-        _stops = [c[0][0] for c in client.submit_order.call_args_list
-                  if getattr(c[0][0], "stop_price", None) is not None]
-        self.assertEqual(len(_stops), 1)
-        self.assertTrue(a._is_catastrophe_stop(14.60, float(_stops[0].stop_price)))
+            _stops = [c[0][0] for c in client.submit_order.call_args_list
+                      if getattr(c[0][0], "stop_price", None) is not None]
+            self.assertEqual(len(_stops), 1)
+            self.assertTrue(a._is_catastrophe_stop(14.60, float(_stops[0].stop_price), "SECZ"))
 
     def test_the_tracked_entry_is_the_fill_not_the_logged_price(self):
         """Recording the reference price is what booked a loss as a win."""

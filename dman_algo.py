@@ -19464,6 +19464,55 @@ def _live_equity_no_fallback() -> Optional[float]:
     return None
 
 
+def _operator_sleeve_intraday_pl() -> float:
+    """Today's dollar P&L on the operator's hand-held sleeve, 0.0 if none.
+
+    The sleeve is every live broker position whose exact symbol carries a
+    CORE_HOLD_<SYM> flag (an equity ticker, or an option leg's OCC symbol)
+    AND that the algo does not track. Its move is the operator's decision,
+    not evidence that the algo's day is broken, so get_todays_loss() takes
+    it out of the equity measure. Decided by the operator 2026-11-10, after
+    the daily halt latched at 09:32 ET on a manual NVDA 195/205 call spread
+    (bought ~$0.65 over market in the opening auction, then NVDA -5.5%)
+    while the algo itself had realized +0.32% that day.
+
+    Fails toward the old behaviour: no flags, no client, or any error -> 0.0,
+    i.e. the full-account measure. A flagged symbol the tracker also holds is
+    NOT excluded -- the broker merges both into one position, and hiding an
+    algo trade's loss is the one failure this must never have. Realized
+    closes still reach the breaker through measure 1 and through equity once
+    they stop being positions.
+    """
+    try:
+        _flags = _load_flags()
+        if not any(str(k).startswith("CORE_HOLD_") and v is True for k, v in _flags.items()):
+            return 0.0
+        _c = get_alpaca_client()
+        if _c is None:
+            return 0.0
+        _tracked: set = set()
+        for _p in PositionTracker().positions:
+            _tracked.add(str(_p.ticker or "").upper())
+            try:
+                _tracked.add(str(_position_identity(_p.ticker, _p.setup) or "").upper())
+            except Exception:
+                pass
+            for _leg in (getattr(_p, "legs", None) or []):
+                _s = _leg.get("symbol") if isinstance(_leg, dict) else getattr(_leg, "symbol", "")
+                if _s:
+                    _tracked.add(str(_s).upper())
+        _total = 0.0
+        for _ap in _c.get_all_positions():
+            _sym = str(getattr(_ap, "symbol", "") or "").upper()
+            if not _sym or _sym in _tracked or not _is_core_hold(_sym):
+                continue
+            _total += float(getattr(_ap, "unrealized_intraday_pl", 0) or 0)
+        return _total
+    except Exception as exc:
+        _log_swallowed("operator sleeve intraday P&L", exc)
+        return 0.0
+
+
 def get_todays_loss() -> float:
     """Return today's P&L as a signed percentage of account size.
     Negative = loss. Returns 0.0 if nothing is known.
@@ -19496,7 +19545,15 @@ def get_todays_loss() -> float:
         if _eq and _eq > 0:
             _base = _get_day_start_equity(_eq)
             if _base and _base > 0:
-                return min(_recorded, (_eq - _base) / _base * 100.0)
+                # The operator's CORE_HOLD sleeve is out of measure 2
+                # (2026-11-10, see _operator_sleeve_intraday_pl). Its P&L is
+                # read fresh, so re-read equity fresh too when it applies:
+                # the shared cache can be 5 minutes older than the positions.
+                _sleeve = _operator_sleeve_intraday_pl()
+                if _sleeve:
+                    _live_equity_cache["ts"] = 0.0
+                    _eq = _live_equity_no_fallback() or _eq
+                return min(_recorded, (_eq - _sleeve - _base) / _base * 100.0)
     except Exception:
         pass
     return _recorded

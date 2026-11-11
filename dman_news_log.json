@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-11T13:44:03.848250-05:00",
-    "symbols": [
-      "LEGN"
-    ],
-    "headline": "Morgan Stanley Maintains Overweight on Legend Biotech, Lowers Price Target to $43",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T13:44:03.852875-05:00",
-    "symbols": [
-      "LEGN"
-    ],
-    "headline": "Barclays Maintains Overweight on Legend Biotech, Lowers Price Target to $61",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T13:44:03.857462-05:00",
-    "symbols": [
-      "LEGN"
-    ],
-    "headline": "RBC Capital Maintains Outperform on Legend Biotech, Lowers Price Target to $50",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-11T13:44:04.034327-05:00",
     "symbols": [
       "WIX"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-11T15:51:57.901040-05:00",
+    "symbols": [
+      "GOVX"
+    ],
+    "headline": "GeoVax Labs Appoints Tyler O'Brien as Chairman and Interim CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-11T15:52:06.446429-05:00",
+    "symbols": [
+      "CAPR"
+    ],
+    "headline": "Jones Trading Upgrades Capricor Therapeutics to Buy, Announces $25 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-11T15:52:06.617886-05:00",
+    "symbols": [
+      "AZTA"
+    ],
+    "headline": "Jefferies Maintains Buy on Azenta, Raises Price Target to $52",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

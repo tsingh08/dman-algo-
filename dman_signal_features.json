@@ -50042,8 +50042,8 @@
 "Gap Size": 0,
 "News Catalyst": 0
 },
-"seen": 12,
-"last_ts": "2026-11-11T13:34:02.981542-05:00",
+"seen": 14,
+"last_ts": "2026-11-11T13:46:14.309035-05:00",
 "entry_min": 7.09,
 "entry_max": 7.28
 },
@@ -50053,7 +50053,7 @@
 "ticker": "ERAS",
 "setup": "Gap & Hold",
 "bias": "LONG",
-"taken": false,
+"taken": true,
 "reject": "mtf: weekly disagrees",
 "score": 100,
 "final_score": 100.0,
@@ -50104,8 +50104,8 @@
 "Gap Size": 0,
 "News Catalyst": 0
 },
-"seen": 4,
-"last_ts": "2026-11-11T13:34:03.371621-05:00",
+"seen": 5,
+"last_ts": "2026-11-11T13:46:15.277894-05:00",
 "entry_min": 17.06,
 "entry_max": 17.06
 }

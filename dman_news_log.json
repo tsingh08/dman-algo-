@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-11T13:37:22.838351-05:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "E-L Financial Corporation Limited Declares Cash Dividends",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T13:37:22.842091-05:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "E-L Financial Corporation Limited Reports Third Quarter 2026 Financial Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T13:37:22.845580-05:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "Morgan Stanley Maintains Hold Rating and $125 Price Target for e.l.f. Beauty",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T13:37:23.049069-05:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Airbnb CEO Brian Chesky Pledges $100 Million for San Francisco Parks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T13:37:23.052847-05:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Airbnb.org Expands Free Temporary Housing for US Military Families",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T13:37:23.959815-05:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "GE Vernova Stock Rebounds as AI Optimism Counters SoftBank Concerns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-11T13:37:24.700022-05:00",
     "symbols": [
       "CVX"
@@ -4996,6 +4936,66 @@
     ],
     "headline": "Piper Sandler Reiterates Overweight on Mercury System, Maintains $107 Price Target",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T15:02:08.581653-05:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "TeraWulf Stock Rises With AI Infrastructure Stocks After CoreWeave Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T15:02:20.534361-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "SEC Completes Distribution of Fair Fund from 2018 Tesla Settlement",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T15:02:20.748687-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Goldman Sachs Adjusts Chevron Price Target",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T15:02:20.753790-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD Disclosed as Strategic Partner and Investor in Anthropic IPO Filing",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T15:02:42.140426-05:00",
+    "symbols": [
+      "CRWV"
+    ],
+    "headline": "TeraWulf Stock Rises With AI Infrastructure Stocks After CoreWeave Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T15:03:20.877251-05:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "KLA Corporation Enters Long-Term Lease for Milpitas R&D Facility",
+    "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"
   }

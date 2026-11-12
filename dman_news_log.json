@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-12T09:37:56.810350-05:00",
-    "symbols": [
-      "TWST"
-    ],
-    "headline": "Twist Bioscience Q4 EPS $(0.32) Beats $(0.34) Estimate, Sales $126.644M Beat $123.085M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-12T09:37:56.814626-05:00",
     "symbols": [
       "TWST"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T11:57:09.686558-05:00",
+    "symbols": [
+      "JXG"
+    ],
+    "headline": "JX Luxventure Group H1 EPS $(1.99) Down From $0.33 YoY, Sales $68.484M Up From $25.179M YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

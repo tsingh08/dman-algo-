@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-12T09:37:54.663610-05:00",
-    "symbols": [
-      "KPLT"
-    ],
-    "headline": "Katapult Holdings Q3 Sales $753.894M Vs $443.296M YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:37:54.867898-05:00",
-    "symbols": [
-      "LQDA"
-    ],
-    "headline": "Raymond James Maintains Liquidia (LQDA) Buy Rating and Raises Price Target to $77",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:37:54.872459-05:00",
-    "symbols": [
-      "LQDA"
-    ],
-    "headline": "BTIG Analyst Raises Liquidia Price Target to $87",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-12T09:37:55.071533-05:00",
     "symbols": [
       "BATRK"
@@ -4995,6 +4965,36 @@
       "APLD"
     ],
     "headline": "XYZ Reality Releases Case-Study Documentary Featuring Applied Digital's Polaris Forge 1 Build",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T11:32:20.787291-05:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Vivani Medical Reports Positive Phase 1 Results for NPM-139 Semaglutide Implant",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T11:32:20.968282-05:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "Piper Sandler Maintains Buy Rating on Arm Holdings",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T11:32:41.036159-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;DOJ probes Nvidia as fallout from Huang\u2019s resignation ripples across Washington&#39; -Semafor",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

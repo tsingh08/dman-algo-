@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-11-12T10:15:20.288331-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nebius Tumbles After Trimming 2026 View to Low End of Range",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T10:15:20.828473-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Nebius Tumbles After Trimming 2026 View to Low End of Range",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-12T10:15:21.037937-05:00",
     "symbols": [
       "NVDA"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-12T12:56:32.581076-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab\u2019s Near-50% Rebound Is Defying a Wave of Price-Target Cuts",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T12:56:47.758231-05:00",
+    "symbols": [
+      "BEZ"
+    ],
+    "headline": "Zurich Insurance Group reports progress on Beazley integration",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

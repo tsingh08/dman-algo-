@@ -1,785 +1,5 @@
 [
   {
-    "ts": "2026-11-12T13:25:29.664199-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Strategy Shares Fall About 6% After MSCI Confirms Index Removal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T13:25:29.667142-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin, Ethereum, XRP Steady, but Dogecoin Dips: Analyst Bets a Repeat of BTC&#39;s Short Squeeze, Driving It Toward $90,000",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T13:25:29.669830-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "&#39;Index Provider MSCI Removes Strategy From Equity Benchmark&#39;- Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T13:25:29.820378-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Uber Technologies, Tractor Supply Launch Nationwide Delivery Partnership",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:25:29.823380-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Coinbase CEO Says AI Agents Are Sending Hundreds of Feature Requests Daily, With Some Updates Live in Under 24 Hours",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:25:29.985471-05:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "e.l.f. Beauty Launches 'Dial 0 for Zero Distance' CEO Hotline and Publishes Fiscal Year 2026 Impact Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:25:30.152641-05:00",
-    "symbols": [
-      "DECK"
-    ],
-    "headline": "Michael Burry\u2019s Portfolio: What the \u2018Big Short\u2019 Investor Owns Now",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T13:25:30.523976-05:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Analyst Maintains Buy Rating and Raises Price Target for Airbnb",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:25:30.687835-05:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "DraftKings Director Gregory Wendt Buys 5,000 Shares At Avg $19.76",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T13:25:30.691028-05:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "Jim Cramer: Buy This Financial Stock, Palantir Reported an \u2018Excellent\u2019 Quarter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T13:25:30.863497-05:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Jim Cramer: Buy This Financial Stock, Palantir Reported an \u2018Excellent\u2019 Quarter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T13:25:30.866516-05:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Corteva Posts Downbeat Q3 Results, Joins Nvidia, Alvotech And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T13:25:30.869500-05:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Why Is Alibaba Stock Falling Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T13:25:31.029200-05:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Baidu Prices ERNIE 5.5 Flash Preview API At RMB1 Per 1M Input Tokens, RMB4 Per 1M Output",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T13:25:31.032218-05:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Baidu Says Apollo Go Now Covers 28 Cities, Over 240M Fully Driverless Km",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T13:25:31.034974-05:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Baidu Says Kunlunxin M100 Inference Chip Has Shipped; Flagship M300 Expected To Ship In 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T13:25:31.037936-05:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Baidu Launches \u2018Token Exchange\u2019 Marketplace For AI Model Services; Says It Handles Over 50M Calls &amp; 700B Tokens Daily",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T13:25:33.120650-05:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Nasdaq 100 Turns Green Despite Nvidia&#39;s 5% Drop on Huang Exit: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:25:34.725246-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed\u2019s Daly Says AI Pipeline Is Deep, So Continues Even If It Slows; Says Economy Being Driven By Technology Boom; Says No Doubt Of AI-Fueled Price Pressures",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T13:25:34.728541-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Seeing Reports White House Discussing Howard Lutnick\u2019s Future As Commerce Secretary",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T13:25:34.896223-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Nasdaq 100 Turns Green Despite Nvidia&#39;s 5% Drop on Huang Exit: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:25:35.061322-05:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Nasdaq 100 Turns Green Despite Nvidia&#39;s 5% Drop on Huang Exit: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T13:25:36.592917-05:00",
-    "symbols": [
-      "DJT"
-    ],
-    "headline": "Kalshi Ends Donald Trump Jr\u2019s Advisor Contract",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T13:25:37.810456-05:00",
-    "symbols": [
-      "FRMI"
-    ],
-    "headline": "Nasdaq 100 Turns Green Despite Nvidia&#39;s 5% Drop on Huang Exit: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T13:25:47.150049-05:00",
-    "symbols": [
-      "MBGL"
-    ],
-    "headline": "Nasdaq 100 Turns Green Despite Nvidia&#39;s 5% Drop on Huang Exit: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T13:25:47.339048-05:00",
-    "symbols": [
-      "FIGR"
-    ],
-    "headline": "Nasdaq 100 Turns Green Despite Nvidia&#39;s 5% Drop on Huang Exit: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T13:25:47.502784-05:00",
-    "symbols": [
-      "DPC"
-    ],
-    "headline": "Nasdaq 100 Turns Green Despite Nvidia&#39;s 5% Drop on Huang Exit: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T13:28:29.351377-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "What Is Going on With Apple Stock on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T13:28:29.355051-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Can Nvidia Pull A Tim Cook? Apple&#39;s Post-Jobs Performance Offers Clues",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T13:28:29.358478-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "What&#39;s Going On With Alphabet Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T13:28:29.361978-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Nasdaq 100 Turns Green Despite Nvidia&#39;s 5% Drop on Huang Exit: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T13:28:29.594094-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "What Is Going on With Apple Stock on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T13:28:29.597801-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Can Nvidia Pull A Tim Cook? Apple&#39;s Post-Jobs Performance Offers Clues",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T13:28:29.601202-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Melius Research Downgrades NVIDIA to Hold, Lowers Price Target to $185",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T13:28:29.604681-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nasdaq 100 Turns Green Despite Nvidia&#39;s 5% Drop on Huang Exit: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T13:28:29.608074-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "DA Davidson Maintains Buy on NVIDIA, Lowers Price Target to $200",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T13:28:29.756742-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Nasdaq 100 Turns Green Despite Nvidia&#39;s 5% Drop on Huang Exit: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:28:29.839099-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "What&#39;s Going On With Alphabet Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T13:28:29.922103-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "What&#39;s Going On With Alphabet Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T13:28:29.925822-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Nasdaq 100 Turns Green Despite Nvidia&#39;s 5% Drop on Huang Exit: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T13:28:30.034200-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "What Is Going on with Amazon Stock on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T13:28:30.644629-05:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Nasdaq 100 Turns Green Despite Nvidia&#39;s 5% Drop on Huang Exit: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:28:30.648846-05:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Corteva Posts Downbeat Q3 Results, Joins Nvidia, Alvotech And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:28:30.730726-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Nasdaq 100 Turns Green Despite Nvidia&#39;s 5% Drop on Huang Exit: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:28:30.821298-05:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Nasdaq 100 Turns Green Despite Nvidia&#39;s 5% Drop on Huang Exit: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:28:30.825041-05:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Applied Materials Earnings Are Imminent; These Most Accurate Analysts Revise Forecasts Ahead Of Earnings Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:28:31.160475-05:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Marvell Expands Board To 10 From 7",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:28:31.164181-05:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Marvell Appoints Intuit CEO Sasan Goodarzi, Lam Research CFO Douglas Bettinger &amp; Walmart Chief People Officer Donna Morris To Board",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:28:31.240165-05:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Klarna Names Chris Koegel As CFO",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:28:31.314186-05:00",
-    "symbols": [
-      "AFRM"
-    ],
-    "headline": "Affirm Announces Upcoming Card-Specific Financing and 'Edge' Pilot",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T13:28:31.413074-05:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "Rivian R2 Named MotorTrend 2027 SUV of the Year",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:28:31.506792-05:00",
-    "symbols": [
-      "NIO"
-    ],
-    "headline": "NIO Reaches Milestone of 9,838 Charging and Swapping Stations",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T13:28:31.649217-05:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Moderna Raises FY26 Sales Growth Guidance To 15%-25% From 10%; On Track To Achieve FY26 Gross Margin Expansion Of ~10 Percentage Points Excluding Litigation Settlement Charge; Expects Annual Cash Costs Of ~$4B-$4.5B Over 2027-2030; Sees Ending 2026 With ~$9B In Total Liquidity, Including Cash, Investments And Undrawn Borrowing Capacity",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:28:31.719340-05:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "AbbVie Named to Fortune World's Best Workplaces List",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:28:31.794515-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly Wins China Approval for First GLP-1 Weight-Loss Pill, Giving It First-Mover Edge In Potential $4.5 Billion Market: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:28:32.166206-05:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Bernstein Maintains Outperform on ExxonMobil Holdings, Lowers Price Target to $186",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T13:28:32.386721-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Jim Cramer: Buy This Financial Stock, Palantir Reported an \u2018Excellent\u2019 Quarter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:28:32.487192-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Jefferies Maintains Buy on Palo Alto Networks, Lowers Price Target to $400",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:28:32.491321-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Jim Cramer: Buy This Financial Stock, Palantir Reported an \u2018Excellent\u2019 Quarter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:28:32.632818-05:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Cloudflare Reports Findings on Perplexity AI Crawler Behavior",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:28:32.864738-05:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase CEO Says AI Agents Are Sending Hundreds of Feature Requests Daily, With Some Updates Live in Under 24 Hours",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:28:32.935428-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Strategy Shares Fall About 6% After MSCI Confirms Index Removal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T13:28:32.939085-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin, Ethereum, XRP Steady, but Dogecoin Dips: Analyst Bets a Repeat of BTC&#39;s Short Squeeze, Driving It Toward $90,000",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T13:28:32.942540-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "&#39;Index Provider MSCI Removes Strategy From Equity Benchmark&#39;- Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T13:28:33.073570-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Uber Technologies, Tractor Supply Launch Nationwide Delivery Partnership",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:28:33.102820-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Coinbase CEO Says AI Agents Are Sending Hundreds of Feature Requests Daily, With Some Updates Live in Under 24 Hours",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:28:33.173588-05:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "e.l.f. Beauty Launches 'Dial 0 for Zero Distance' CEO Hotline and Publishes Fiscal Year 2026 Impact Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:28:33.243094-05:00",
-    "symbols": [
-      "DECK"
-    ],
-    "headline": "Michael Burry\u2019s Portfolio: What the \u2018Big Short\u2019 Investor Owns Now",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T13:28:33.444927-05:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Analyst Maintains Buy Rating and Raises Price Target for Airbnb",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T13:28:33.514830-05:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "DraftKings Director Gregory Wendt Buys 5,000 Shares At Avg $19.76",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T13:28:33.518451-05:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "Jim Cramer: Buy This Financial Stock, Palantir Reported an \u2018Excellent\u2019 Quarter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T13:28:33.591450-05:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Jim Cramer: Buy This Financial Stock, Palantir Reported an \u2018Excellent\u2019 Quarter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T13:28:33.595090-05:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Corteva Posts Downbeat Q3 Results, Joins Nvidia, Alvotech And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T13:28:33.598520-05:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Why Is Alibaba Stock Falling Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T13:28:33.671863-05:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Baidu Prices ERNIE 5.5 Flash Preview API At RMB1 Per 1M Input Tokens, RMB4 Per 1M Output",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T13:28:33.675542-05:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Baidu Says Apollo Go Now Covers 28 Cities, Over 240M Fully Driverless Km",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T13:28:33.679003-05:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Baidu Says Kunlunxin M100 Inference Chip Has Shipped; Flagship M300 Expected To Ship In 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T13:28:33.682401-05:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Baidu Launches \u2018Token Exchange\u2019 Marketplace For AI Model Services; Says It Handles Over 50M Calls &amp; 700B Tokens Daily",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-11-12T13:28:33.764279-05:00",
     "symbols": [
       "PDD"
@@ -4998,5 +4218,785 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:40.921304-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Stock Rises Thursday on Speculation Huang Could Team Up With Musk",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:40.924691-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "OpenAI Raises $15B At $1.25T Valuation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:40.927431-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "How the SpaceX Stock Slump Complicates Elon Musk\u2019s Tesla Merger",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:41.101461-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nebius Tumbles After Trimming 2026 View to Low End of Range",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:41.268510-05:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Voters Rejected Data Centers In 10 States, Raising Regulatory Risk for CoreWeave, Nvidia and AI Build-Out",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:41.628721-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Nebius Tumbles After Trimming 2026 View to Low End of Range",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:41.631705-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Nvidia CEO Jensen Huang Resigns \u2014 CFO Collette Kress in as Interim CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:41.969824-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "B of A Securities Maintains Buy on Advanced Micro Devices, Raises Price Target to $700",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:41.973016-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD Stock Upgraded as AI Chip Rival Nvidia Spirals",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:42.154852-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Live On CNBC, Stephanie Link Announces Bought Meta Platforms",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T14:13:42.157865-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "AMD Stock Upgraded as AI Chip Rival Nvidia Spirals",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T14:13:42.375539-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Google Launches Gemini App On Apple Carplay For iOS Users",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T14:13:42.709358-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "How the SpaceX Stock Slump Complicates Elon Musk\u2019s Tesla Merger",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-12T14:13:43.030742-05:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T14:13:43.187762-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Nebius Tumbles After Trimming 2026 View to Low End of Range",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T14:13:43.350111-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:43.354022-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Nebius Tumbles After Trimming 2026 View to Low End of Range",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:43.356828-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir CEO Alex Karp Says Silicon Valley \u2018Would Not Even Exist\u2019 Without US Military Support",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:43.684563-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "AMD Stock Rallies as &#39;Godfather of AI&#39; Jensen Huang Leaves Nvidia",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:43.992212-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Micron Technology, Digital Realty Trust, Natera, Moody&#39;s",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:45.070759-05:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Moderna Analyst Day: Details Strategic Shift Toward Oncology and Enhanced Production Capabilities",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:45.824707-05:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "Spotify Expands AI DJ Feature with New Voices and Personalization Options",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:45.998065-05:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "GameStop an AI Stock? Dan Ives Says \u2018Market Has Not Priced\u2019 In Opportunities",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T14:13:46.283400-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab\u2019s Near-50% Rebound Is Defying a Wave of Price-Target Cuts",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:46.771493-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:46.916518-05:00",
+    "symbols": [
+      "DDOG"
+    ],
+    "headline": "Nebius Tumbles After Trimming 2026 View to Low End of Range",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:47.080096-05:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "B. Riley Securities Reiterates Neutral on Coinbase Global, Lowers Price Target to $150",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:47.238038-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Peter Schiff Says There&#39;s &#39;No Basis&#39; for Saylor&#39;s Bullish Bitcoin Assumptions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:13:48.746334-05:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Study Highlights Airbnb's Economic Impact in Brazil",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:49.060646-05:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "&#39;Some Democrats push to keep House\u2019s China committee&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T14:13:49.064775-05:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "4 Consumer Discretionary Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T14:13:49.232230-05:00",
+    "symbols": [
+      "BIDU"
+    ],
+    "headline": "&#39;Some Democrats push to keep House\u2019s China committee&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-12T14:13:49.496483-05:00",
+    "symbols": [
+      "JD"
+    ],
+    "headline": "&#39;Some Democrats push to keep House\u2019s China committee&#39; - Semafor Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T14:13:49.842690-05:00",
+    "symbols": [
+      "LUNR"
+    ],
+    "headline": "Gold Down 3%; Legence Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T14:13:49.845909-05:00",
+    "symbols": [
+      "LUNR"
+    ],
+    "headline": "Intuitive Machines, Mobility Global, Fermi And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T14:13:49.848620-05:00",
+    "symbols": [
+      "LUNR"
+    ],
+    "headline": "Intuitive Machines Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T14:13:50.618541-05:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "JP Morgan Resumes Coverage of Eaton Corporation plc",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T14:13:52.200316-05:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "Gold Stocks Dip: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:52.364548-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Costco Stock Rises Near 52-Week High: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:52.651427-05:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "HubSpot Co-Founder Brian Halligan Returns As CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:52.654338-05:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:53.124914-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Nvidia ETFs Have a New Problem: Life After Jensen Huang",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:13:54.365854-05:00",
+    "symbols": [
+      "CTMX"
+    ],
+    "headline": "JP Morgan Maintains Overweight on CytomX Therapeutics, Raises Price Target to $12",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:13:54.640447-05:00",
+    "symbols": [
+      "DJT"
+    ],
+    "headline": "Trump Says &#39;Well, You Should&#39;ve Had Stock,&#39; After Being Asked About $3 Billion Jump in His Net Worth \u2014 \u2018I Have a Lotta Money\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:13:54.643527-05:00",
+    "symbols": [
+      "DJT"
+    ],
+    "headline": "Kalshi Ends Donald Trump Jr\u2019s Advisor Contract",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:13:56.802813-05:00",
+    "symbols": [
+      "FRMI"
+    ],
+    "headline": "Intuitive Machines, Mobility Global, Fermi And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:13:56.805647-05:00",
+    "symbols": [
+      "FRMI"
+    ],
+    "headline": "Fermi Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:13:58.294023-05:00",
+    "symbols": [
+      "NRGV"
+    ],
+    "headline": "Cantor Fitzgerald Maintains Buy Rating and Raises Price Target for Energy Vault",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-12T14:14:00.513354-05:00",
+    "symbols": [
+      "TSHA"
+    ],
+    "headline": "Taysha Gene Therapies Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:01.009944-05:00",
+    "symbols": [
+      "XNDU"
+    ],
+    "headline": "RBC Capital Maintains Outperform on Xanadu Quantum, Lowers Price Target to $13",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:01.156105-05:00",
+    "symbols": [
+      "XXII"
+    ],
+    "headline": "&#39;European cities demand total EU ban on cigarette filters&#39; -Politico Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:01.430496-05:00",
+    "symbols": [
+      "PARA"
+    ],
+    "headline": "Nasdaq Falls Over 100 Points; Nvidia CEO Jensen Huang Resigns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:02.059158-05:00",
+    "symbols": [
+      "CORD"
+    ],
+    "headline": "Cordiant Digital Infrastructure Limited Announces Result of Extraordinary General Meeting",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:02.863218-05:00",
+    "symbols": [
+      "BEZ"
+    ],
+    "headline": "Zurich Insurance Group reports progress on Beazley integration",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:03.025645-05:00",
+    "symbols": [
+      "AVEX"
+    ],
+    "headline": "Gold Down 3%; Legence Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:03.028852-05:00",
+    "symbols": [
+      "AVEX"
+    ],
+    "headline": "Intuitive Machines, Mobility Global, Fermi And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:03.031449-05:00",
+    "symbols": [
+      "AVEX"
+    ],
+    "headline": "AEVEX Analysts Revise Their Forecasts Following Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:03.543478-05:00",
+    "symbols": [
+      "TRT"
+    ],
+    "headline": "CORRECTION: Trio-Tech International Q1 EPS $0.07 Up From $0.01 YoY, Sales $19.949M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:03.546590-05:00",
+    "symbols": [
+      "TRT"
+    ],
+    "headline": "Trio-Tech International Q1 EPS $0.08, Sales $19.949M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:03.973007-05:00",
+    "symbols": [
+      "ANNA"
+    ],
+    "headline": "AleAnna Q3 EPS $0.09 Vs $0.08 YoY, Revenue $20.5M Up From $11.2M YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:04.087587-05:00",
+    "symbols": [
+      "AIRO"
+    ],
+    "headline": "AIRO Group Holdings Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:04.091015-05:00",
+    "symbols": [
+      "AIRO"
+    ],
+    "headline": "AIRO Group Holdings Q3 EPS $(0.38) Beats $(0.41) Estimate, Sales $17.510M Beat $14.851M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:04.093994-05:00",
+    "symbols": [
+      "AIRO"
+    ],
+    "headline": "AIRO Group Holdings Narrows FY2026 Sales Guidance of $104.543M-$113.634M vs $108.253M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:04.240944-05:00",
+    "symbols": [
+      "ENGN"
+    ],
+    "headline": "This AMD Analyst Turns Bullish; Here Are Top 5 Upgrades For Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:04.243721-05:00",
+    "symbols": [
+      "ENGN"
+    ],
+    "headline": "Piper Sandler Upgrades enGene Therapeutics to Overweight, Maintains Price Target to $4",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:04.246547-05:00",
+    "symbols": [
+      "ENGN"
+    ],
+    "headline": "Wells Fargo Upgrades enGene Therapeutics to Overweight, Raises Price Target to $6",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:04.674884-05:00",
+    "symbols": [
+      "PLCE"
+    ],
+    "headline": "Nasdaq Falls Over 100 Points; Nvidia CEO Jensen Huang Resigns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:04.677652-05:00",
+    "symbols": [
+      "PLCE"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:04.680307-05:00",
+    "symbols": [
+      "PLCE"
+    ],
+    "headline": "Why Tetra Tech Shares Are Trading Higher By Over 8%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:04.716077-05:00",
+    "symbols": [
+      "PLCE"
+    ],
+    "headline": "Children\u2019s Place (PLCE) Stock Soars Nearly 260% After Hours: Here\u2019s What You Should Know",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:04.849087-05:00",
+    "symbols": [
+      "PLBL"
+    ],
+    "headline": "Why Is Polibeli Group Stock Gaining Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:05.290109-05:00",
+    "symbols": [
+      "MBGL"
+    ],
+    "headline": "Nasdaq 100 Turns Green Despite Nvidia&#39;s 5% Drop on Huang Exit: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:05.293363-05:00",
+    "symbols": [
+      "MBGL"
+    ],
+    "headline": "Mobility Global Stock Hits 52-Week High - Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:05.296743-05:00",
+    "symbols": [
+      "MBGL"
+    ],
+    "headline": "Intuitive Machines, Mobility Global, Fermi And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:05.299439-05:00",
+    "symbols": [
+      "MBGL"
+    ],
+    "headline": "Mobility Global Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T14:14:05.487078-05:00",
+    "symbols": [
+      "FIGR"
+    ],
+    "headline": "Figure Technology Rallies After Earnings Beat, 135% Marketplace Volume Growth",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-12T14:14:05.489806-05:00",
+    "symbols": [
+      "FIGR"
+    ],
+    "headline": "Figure Technology Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-12T14:14:05.604571-05:00",
+    "symbols": [
+      "DPC"
+    ],
+    "headline": "Nasdaq 100 Turns Green Despite Nvidia&#39;s 5% Drop on Huang Exit: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-11-12T14:01:50.056253-05:00",
-    "symbols": [
-      "PYPD"
-    ],
-    "headline": "HC Wainwright &amp; Co. Reiterates Buy on PolyPid, Maintains $13 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:01:50.229919-05:00",
-    "symbols": [
-      "ITG"
-    ],
-    "headline": "B of A Securities Maintains Buy on ITG, Lowers Price Target to $13",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:01:50.232546-05:00",
-    "symbols": [
-      "ITG"
-    ],
-    "headline": "Keybanc Maintains Overweight on ITG, Lowers Price Target to $10",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:01:50.235005-05:00",
-    "symbols": [
-      "ITG"
-    ],
-    "headline": "Baird Maintains Outperform on ITG, Lowers Price Target to $10",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-12T14:01:50.237369-05:00",
     "symbols": [
       "ITG"
@@ -4998,5 +4958,45 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T15:37:27.983654-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Stephen King Tells Elon Musk \u2018You Sound Like Trump\u2019 After Billionaire Warns Democrats Will \u2018Execute Their Plan to End Democracy in America\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T15:37:29.773489-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Stephen King Tells Elon Musk \u2018You Sound Like Trump\u2019 After Billionaire Warns Democrats Will \u2018Execute Their Plan to End Democracy in America\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-12T15:37:50.202754-05:00",
+    "symbols": [
+      "CAE"
+    ],
+    "headline": "CAE Seeks Noteholder Consent To Amend C$400M 5.541% Notes Due 2028 Indenture For Potential US GAAP Switch; Offers C$1.00 Per C$1,000 Consent Fee",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T15:37:50.205715-05:00",
+    "symbols": [
+      "CAE"
+    ],
+    "headline": "CAE Exploring Transition From IFRS To US GAAP To Align With Aerospace &amp; Defense Peers; Would Apply From FY27 Q4",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

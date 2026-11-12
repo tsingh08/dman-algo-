@@ -31175,3 +31175,21 @@ class TestLiveSignalSyncOneRowPerTickerDay(unittest.TestCase):
             out = cap["rebuild"](rows, None, None)["pending"]
         self.assertEqual([(p["ticker"], p["entry"]) for p in out],
                          [("AMD", 529.63), ("ERAS", 17.06)])
+
+
+class TestFetchSymsDropsNonCommon(unittest.TestCase):
+    """ETFs and NASDAQ warrants/rights/units ate half the universe budget."""
+
+    def test_filters(self):
+        txt = ("Symbol|Security Name|Test Issue|ETF\n"
+               "AAPL|Apple Inc. - Common Stock|N|N\n"
+               "AACIW|Armada Acquisition Corp. III - Warrant|N|N\n"
+               "AACIU|Armada Acquisition Corp. III - Units|N|N\n"
+               "AMPGZ|Amplitech Group, Inc. - Series B Right|N|N\n"
+               "ARLP|Alliance Resource Partners, L.P. - Common Units Representing Limited Partnership Interests|N|N\n"
+               "AB|AllianceBernstein Holding L.P.  Units|N|N\n"
+               "QQQ|Invesco QQQ Trust|N|Y\n"
+               "ZTEST|Test - Common Stock|Y|N\n")
+        resp = MagicMock(text=txt)
+        with patch.object(a.requests, "get", return_value=resp):
+            self.assertEqual(a._fetch_syms("u", "Symbol"), ["AAPL", "ARLP", "AB"])

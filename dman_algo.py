@@ -1777,6 +1777,33 @@ def is_market_open() -> bool:
     t = now.hour * 100 + now.minute
     return 930 <= t <= 1600
 
+_NON_COMMON_NAME_RE = re.compile(r" - (?:.* )?(?:Warrants?|Rights?|Units?)\s*$", re.I)
+
+
+def _fetch_syms(url: str, sym_col: str) -> list[str]:
+    """Listed common-stock symbols from a nasdaqtrader symbol directory.
+
+    Drops test issues, ETFs and NASDAQ warrants/rights/units. Measured
+    2026-11-11: 5,788 of 12,715 listed symbols were ETFs and ~720 were
+    SPAC warrants/rights/units, so the broad sweeps spent half their
+    download budget on names no setup can trade, and the 7-minute universe
+    budget stopped at batch 15 of 32. The name filter needs the " - "
+    separator only nasdaqlisted.txt uses, so NYSE partnership "Units"
+    (AB, BEP, BIP) are kept.
+    """
+    import io
+    r = requests.get(url, timeout=8, headers={"User-Agent": "Mozilla/5.0"})
+    df = pd.read_csv(io.StringIO(r.text), sep="|")
+    if "Test Issue" in df.columns:
+        df = df[df["Test Issue"] != "Y"]
+    if "ETF" in df.columns:
+        df = df[df["ETF"] != "Y"]
+    if "Security Name" in df.columns:
+        df = df[~df["Security Name"].astype(str).str.contains(_NON_COMMON_NAME_RE)]
+    raw = df[sym_col].dropna().astype(str).tolist()
+    return [s.strip() for s in raw if s.strip().isalpha() and 1 <= len(s.strip()) <= 5]
+
+
 def build_scan_universe(min_price: float = 2.0,
                         min_avg_vol: int  = 200_000,
                         min_dollar_vol: float = 1_000_000,
@@ -1789,18 +1816,8 @@ def build_scan_universe(min_price: float = 2.0,
     yield 800+. hard_cap guards the scan budget on extreme days.
     Falls back to WATCHLIST if any step fails.
     """
-    import io
     print("  [universe] Fetching NASDAQ + NYSE symbol list...", flush=True)
     try:
-        # NASDAQ provides the symbol directory via their web interface (more reliable than FTP)
-        def _fetch_syms(url: str, sym_col: str) -> list[str]:
-            r = requests.get(url, timeout=8, headers={"User-Agent": "Mozilla/5.0"})
-            df = pd.read_csv(io.StringIO(r.text), sep="|")
-            if "Test Issue" in df.columns:
-                df = df[df["Test Issue"] != "Y"]
-            raw = df[sym_col].dropna().astype(str).tolist()
-            return [s.strip() for s in raw if s.strip().isalpha() and 1 <= len(s.strip()) <= 5]
-
         nasdaq_syms = _fetch_syms(
             "https://www.nasdaqtrader.com/dynamic/symdir/nasdaqlisted.txt", "Symbol")
         other_syms  = _fetch_syms(
@@ -1898,16 +1915,7 @@ def fetch_premarket_gap_universe(min_price: float = 0.30, max_price: float = 20.
     EDGAR 8-K check, PDT guard, auto-submit thresholds — is untouched; this
     only widens which tickers reach that existing, already-vetted logic.
     """
-    import io
     try:
-        def _fetch_syms(url: str, sym_col: str) -> list[str]:
-            r = requests.get(url, timeout=8, headers={"User-Agent": "Mozilla/5.0"})
-            df = pd.read_csv(io.StringIO(r.text), sep="|")
-            if "Test Issue" in df.columns:
-                df = df[df["Test Issue"] != "Y"]
-            raw = df[sym_col].dropna().astype(str).tolist()
-            return [s.strip() for s in raw if s.strip().isalpha() and 1 <= len(s.strip()) <= 5]
-
         nasdaq_syms = _fetch_syms("https://www.nasdaqtrader.com/dynamic/symdir/nasdaqlisted.txt", "Symbol")
         other_syms  = _fetch_syms("https://www.nasdaqtrader.com/dynamic/symdir/otherlisted.txt", "ACT Symbol")
         all_syms = list(set(nasdaq_syms + other_syms) - set(WATCHLIST) - set(DMAN_SMALLCAP_WATCHLIST))

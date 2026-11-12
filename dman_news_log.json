@@ -1,285 +1,5 @@
 [
   {
-    "ts": "2026-11-12T09:33:20.529233-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Tractor Supply Co. Partners with Uber for On-Demand Delivery",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:33:20.543150-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "AMD and PsiQuantum Expand Partnership for Quantum Computing Infrastructure",
-    "source": "fiscal.ai",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:33:20.548647-05:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce Ventures Leads $290 Million Series C Funding for Q-CTRL",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:33:20.553505-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Bentaus and DriveNets Achieve Efficiency Gains Using AMD Instinct MI325X GPUs",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:33:20.560530-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Waratek Publishes State of Java Exploits Report Highlighting Oracle Product Vulnerabilities",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:33:20.684571-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "NVIDIA Announces CEO Resignation and Leadership Transition",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:33:20.690300-05:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Robinhood Executive Chris Koegel Appointed CFO of Klarna",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:33:20.920400-05:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "MongoDB Addresses Critical Vulnerability in Database Server",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:33:20.925389-05:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Datadog COO Adam Blitzer Appointed to Rocket Companies Board",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:33:20.930470-05:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "XYZ Reality Releases Case-Study Documentary Featuring Applied Digital's Polaris Forge 1 Build",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:33:20.935285-05:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "B. Riley and Cantor Fitzgerald Adjust Price Targets for Coinbase Global",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:33:20.943126-05:00",
-    "symbols": [
-      "OKLO"
-    ],
-    "headline": "Oklo Signs Multi-Year HALEU Supply Agreements with Centrus Energy for Ohio Power Campus",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:37:34.153666-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Seeing Reports Speaker Johnson Says &#39;Critically Important&#39; To Choose Right Successor To Replace Nvidia CEO",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:37:34.158214-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Interim CEO Kress To Host A Company Meeting On November 18 At 9:00AM PT",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:37:48.209432-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Seeing Reports Speaker Johnson Says &#39;Critically Important&#39; To Choose Right Successor To Replace Nvidia CEO",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:37:48.214095-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Mexico President Sheinbaum Says Since Trump Came To Power, No Migrant Caravan Has Arrived At U.S. Border",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:37:48.822466-05:00",
-    "symbols": [
-      "ELE"
-    ],
-    "headline": "NVIDIA To $186? Here Are 10 Top Analyst Forecasts For Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:37:48.827027-05:00",
-    "symbols": [
-      "ELE"
-    ],
-    "headline": "HC Wainwright &amp; Co. Maintains Buy on Elemental Royalty, Lowers Price Target to $30.25",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:37:49.021127-05:00",
-    "symbols": [
-      "FMS"
-    ],
-    "headline": "Fresenius SE Reduces Stake in Fresenius Medical Care",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:37:49.487532-05:00",
-    "symbols": [
-      "CDLR"
-    ],
-    "headline": "Cadeler Signs Exclusivity Agreement for UK Offshore Wind Project",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:37:50.490604-05:00",
-    "symbols": [
-      "SUJA"
-    ],
-    "headline": "Jefferies Maintains Buy on Suja Life, Lowers Price Target to $17",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T09:37:51.083730-05:00",
-    "symbols": [
-      "ODD"
-    ],
-    "headline": "Truist Securities Maintains Hold on ODDITY Tech, Raises Price Target to $20",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:37:51.088401-05:00",
-    "symbols": [
-      "ODD"
-    ],
-    "headline": "Needham Reiterates Hold on ODDITY Techto Hold",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:37:51.289832-05:00",
-    "symbols": [
-      "YETI"
-    ],
-    "headline": "YETI Holdings Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:37:51.294360-05:00",
-    "symbols": [
-      "YETI"
-    ],
-    "headline": "YETI Bought Back About 0.5M Shares For $20M In Q3; About $350M Remains On Authorization",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:37:51.298708-05:00",
-    "symbols": [
-      "YETI"
-    ],
-    "headline": "YETI Q3 Gross Margin 57.7% Vs 55.9% YoY; Adj. 59.0%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:37:51.302961-05:00",
-    "symbols": [
-      "YETI"
-    ],
-    "headline": "YETI Q3 DTC Sales Down 6% To $272.2M; Wholesale Up 19% To $237.3M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:37:51.307228-05:00",
-    "symbols": [
-      "YETI"
-    ],
-    "headline": "YETI Q3 Drinkware Sales Up 8% To $284.0M; International Sales Up 19% To $119.1M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-12T09:37:51.501888-05:00",
     "symbols": [
       "TRMK"
@@ -4995,6 +4715,286 @@
       "DPC"
     ],
     "headline": "DPC Holdings Q3 Adj. EPS $0.49 Beats $0.22 Estimate, Sales $308.100M Beat $266.400M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T11:21:43.927186-05:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Applied Digital Shares Rise Following CoreWeave Earnings Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T11:21:44.545271-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is IREN Stock Falling on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T11:21:44.550833-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Jensen Huang Agrees To Testify Before Congress Before Thanksgiving",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T11:21:44.557200-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Drone Maker Ondas Raises Full-Year Outlook",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T11:21:44.563083-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Seeing Reports House Democratic Leader Says Classified Briefing On Nvidia Situation Should Be Scheduled For U.S. House Members",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T11:21:45.842413-05:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Ventures Leads $290 Million Series C Funding for Q-CTRL",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T11:21:46.195349-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Drone Maker Ondas Raises Full-Year Outlook",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T11:21:48.376991-05:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "AbbVie Receives Corporate Leadership Award from Lymphoma Research Foundation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T11:21:48.686761-05:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Gilead Sciences Collaborates with TelevisaUnivision for HIV Prevention Awareness at Latin GRAMMY Awards",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T11:21:51.455577-05:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "MongoDB Addresses Critical Vulnerability in Database Server",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T11:21:56.514725-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Why Is IREN Stock Falling on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T11:21:56.519627-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Goolsbee Says Seeing &#39;Unanchoring Of Inflation Expectations&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T11:21:56.524052-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Seeing Reports House Democratic Leader Says Classified Briefing On Nvidia Situation Should Be Scheduled For U.S. House Members",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T11:21:56.528024-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Goolsbee Says AI Costs Are &#39;Extremely High;&#39; Says &#39;OId-Fashioned Demand&#39; Overheating",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T11:21:56.531977-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Goolsbee Says &#39;We&#39;re way above target&#39; On Inflation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T11:21:56.700710-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Why Is IREN Stock Falling on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T11:22:03.256380-05:00",
+    "symbols": [
+      "SABR"
+    ],
+    "headline": "Travelport Says It Is Not In Any Deal Talks With Sabre",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T11:22:06.879766-05:00",
+    "symbols": [
+      "AGBK"
+    ],
+    "headline": "Intuitive Machines, Mobility Global, Fermi And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T11:22:06.884381-05:00",
+    "symbols": [
+      "AGBK"
+    ],
+    "headline": "Oppenheimer Maintains Outperform on AGI, Lowers Price Target to $8",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T11:22:06.888596-05:00",
+    "symbols": [
+      "AGBK"
+    ],
+    "headline": "AGI Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T11:22:06.893054-05:00",
+    "symbols": [
+      "AGBK"
+    ],
+    "headline": "Agi Q3 Net Income R$276.0mn, Up 31% YoY; Credit Portfolio R$38.8bn, Up 12%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T11:22:06.897508-05:00",
+    "symbols": [
+      "AGBK"
+    ],
+    "headline": "Agi Q3 EPS R$1.73 vs R$1.56 YoY; Total Revenue R$3.22bn vs R$2.80bn YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T11:22:07.059901-05:00",
+    "symbols": [
+      "MBRX"
+    ],
+    "headline": "Moleculin Biotech And University Of Texas Receive Australian Patent Covering The Preparation Of Preliposomal Annamycin Lyophilizate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T11:22:08.294172-05:00",
+    "symbols": [
+      "FBYD"
+    ],
+    "headline": "Falcons Beyond Global Q3 EPS $(0.09) Up From $(0.13) YoY, Sales $7.289M Up From $4.054M YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T11:22:08.813857-05:00",
+    "symbols": [
+      "CLBT"
+    ],
+    "headline": "Cellebrite DI Lowers FY2026 Sales Guidance from $555.000M-$561.000M to $553.000M-$558.000M vs $556.733M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T11:22:08.818815-05:00",
+    "symbols": [
+      "CLBT"
+    ],
+    "headline": "Cellebrite DI Q3 Adj. EPS $0.17 Beats $0.16 Estimate, Sales $149.022M Beat $145.923M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T11:22:08.822780-05:00",
+    "symbols": [
+      "CLBT"
+    ],
+    "headline": "Cellebrite DI Sees Q4 Sales $145.000M-$150.000M vs $151.451M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T11:22:09.523976-05:00",
+    "symbols": [
+      "PLBL"
+    ],
+    "headline": "Polibeli Enters AI Agreement With Taiwanese Customer For Cloud Computing, Model Access, AI Model Hosting And Inference, Model Deployment And Related Technical Support",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

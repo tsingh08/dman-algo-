@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-12T14:01:49.018085-05:00",
-    "symbols": [
-      "AADX"
-    ],
-    "headline": "RBC Capital Maintains Outperform on Applied Aerospace, Lowers Price Target to $15",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:01:49.022172-05:00",
-    "symbols": [
-      "AADX"
-    ],
-    "headline": "These Analysts Revise Their Forecasts On Applied Aerospace After Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:01:49.024587-05:00",
-    "symbols": [
-      "AADX"
-    ],
-    "headline": "Stifel Maintains Buy on Applied Aerospace, Lowers Price Target to $18",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:01:49.026992-05:00",
-    "symbols": [
-      "AADX"
-    ],
-    "headline": "Morgan Stanley Maintains Equal-Weight on Applied Aerospace, Raises Price Target to $17",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:01:49.344265-05:00",
-    "symbols": [
-      "CRWV"
-    ],
-    "headline": "Super Micro Stock Plunges Amid DOJ Probe Rumors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:01:49.346956-05:00",
-    "symbols": [
-      "CRWV"
-    ],
-    "headline": "Barclays Maintains Equal-Weight on CoreWeave, Lowers Price Target to $85",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-12T14:01:49.349350-05:00",
     "symbols": [
       "CRWV"
@@ -4996,6 +4936,66 @@
     ],
     "headline": "New Era Energy Stock Booms After Strong Q3 Revenue",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T15:02:20.522313-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Lawsuit Filed Against Tesla Over San Mateo Street-Racing Incident",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-12T15:02:20.529671-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Announces Over $74 Billion Investment in Texas and Arizona Data Centers",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T15:02:20.534608-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Jackery Launches FridgeGuard Power Solution at Costco",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T15:02:20.731002-05:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Cloudflare Joins Founding Members of New SGLang Consortium",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T15:02:20.733946-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Wall Street Analysts Update Ratings and Price Targets for Palo Alto Networks",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T15:02:20.736733-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Evercore Maintains Buy Rating and Raises Snowflake Price Target to $430",
+    "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

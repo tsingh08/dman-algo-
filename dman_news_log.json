@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-11T13:44:04.044405-05:00",
-    "symbols": [
-      "WIX"
-    ],
-    "headline": "Morgan Stanley Maintains Equal-Weight on Wix.com, Raises Price Target to $73",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T13:44:04.048968-05:00",
-    "symbols": [
-      "WIX"
-    ],
-    "headline": "RBC Capital Maintains Sector Perform on Wix.com, Lowers Price Target to $58",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T13:44:04.053506-05:00",
-    "symbols": [
-      "WIX"
-    ],
-    "headline": "Wells Fargo Maintains Equal-Weight on Wix.com, Lowers Price Target to $63",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T13:44:04.214733-05:00",
-    "symbols": [
-      "EQPT"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on EquipmentShare.com, Lowers Price Target to $17",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-11T13:44:04.400984-05:00",
-    "symbols": [
-      "BV"
-    ],
-    "headline": "Crude Oil Gains 2%; CoreWeave Posts Upbeat Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-11T13:44:04.405723-05:00",
-    "symbols": [
-      "BV"
-    ],
-    "headline": "BrightView Hldgs Q4 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-11-11T13:44:04.410196-05:00",
     "symbols": [
       "BV"
@@ -4998,5 +4938,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-11T19:02:20.624501-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Wall Street Analysts Update Ratings for Palo Alto Networks",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T19:02:20.728658-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA Board Reportedly Considering CEO Removal Amid Leadership Scandal",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T19:02:20.865062-05:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Study Highlights Airbnb's Economic Impact in Brazil",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T20:02:20.655669-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Goldman Sachs Maintains Neutral Rating on Micron Technology",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-11T20:02:20.783824-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Chevron Progresses Toward New Energy Agreements in Venezuela",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-11T20:02:20.883673-05:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "JP Morgan Resumes Coverage of Eaton Corporation plc",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

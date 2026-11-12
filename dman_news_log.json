@@ -1,195 +1,5 @@
 [
   {
-    "ts": "2026-11-11T15:28:35.515892-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Nvidia\u2019s Earnings Day Is \u2018Earnings Day for Your 401(k).\u2019 Here\u2019s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T15:39:58.474501-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Peter Thiel\u2019s Longtime Business Partner Says AI Is Absolutely in a Bubble: \u2018This Will Correct\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T15:39:58.758788-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Cisco Systems Could Swing $30.8 Billion After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T15:39:58.763903-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Cisco Systems, Applied Materials On Deck Thursday As AI Demand Faces Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T15:40:01.445538-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Peter Thiel\u2019s Longtime Business Partner Says AI Is Absolutely in a Bubble: \u2018This Will Correct\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T15:40:02.096547-05:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Cisco Systems Could Swing $30.8 Billion After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T15:40:02.101635-05:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Cisco Systems, Applied Materials On Deck Thursday As AI Demand Faces Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T15:40:10.267235-05:00",
-    "symbols": [
-      "LUNR"
-    ],
-    "headline": "Cisco Systems Could Swing $30.8 Billion After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T15:51:57.901040-05:00",
-    "symbols": [
-      "GOVX"
-    ],
-    "headline": "GeoVax Labs Appoints Tyler O'Brien as Chairman and Interim CEO",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T15:52:06.446429-05:00",
-    "symbols": [
-      "CAPR"
-    ],
-    "headline": "Jones Trading Upgrades Capricor Therapeutics to Buy, Announces $25 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T15:52:06.617886-05:00",
-    "symbols": [
-      "AZTA"
-    ],
-    "headline": "Jefferies Maintains Buy on Azenta, Raises Price Target to $52",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-11T16:03:40.373789-05:00",
-    "symbols": [
-      "JBI"
-    ],
-    "headline": "UBS Maintains Neutral on Janus Intl Gr, Lowers Price Target to $4.8",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T16:03:44.283388-05:00",
-    "symbols": [
-      "TROX"
-    ],
-    "headline": "UBS Maintains Neutral on Tronox Holdings, Lowers Price Target to $2.75",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-11T19:02:20.624501-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Wall Street Analysts Update Ratings for Palo Alto Networks",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T19:02:20.728658-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "NVIDIA Board Reportedly Considering CEO Removal Amid Leadership Scandal",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T19:02:20.865062-05:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Study Highlights Airbnb's Economic Impact in Brazil",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T20:02:20.655669-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Goldman Sachs Maintains Neutral Rating on Micron Technology",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T20:02:20.783824-05:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Chevron Progresses Toward New Energy Agreements in Venezuela",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-11T20:02:20.883673-05:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "JP Morgan Resumes Coverage of Eaton Corporation plc",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-12T09:25:57.474194-05:00",
     "symbols": [
       "SPCX"
@@ -4998,5 +4808,195 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:15:20.288331-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nebius Tumbles After Trimming 2026 View to Low End of Range",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:15:20.828473-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Nebius Tumbles After Trimming 2026 View to Low End of Range",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:15:21.037937-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;Alice Huang\u2019s Companies\u2019 Investment Aims To Secure NVIDIA Blackwell Chip Supply For Deepseek&#39; -The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:15:21.042620-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;Alice Huang\u2019s Companies Invested in DeepSeek, Promising Nvidia Chips&#39; -The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:15:21.423188-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta&#39;s $27B Off-Balance-Sheet AI Deal Reminds Steve Eisman of Enron\u2014 Joseph Carlson Disagrees",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:15:22.427392-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Nebius Tumbles After Trimming 2026 View to Low End of Range",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:15:22.613070-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Nebius Tumbles After Trimming 2026 View to Low End of Range",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:15:24.847638-05:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Moderna Analyst Day: Details Strategic Shift Toward Oncology and Enhanced Production Capabilities",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:15:25.575834-05:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "GameStop an AI Stock? Dan Ives Says \u2018Market Has Not Priced\u2019 In Opportunities",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:15:26.733963-05:00",
+    "symbols": [
+      "DDOG"
+    ],
+    "headline": "Nebius Tumbles After Trimming 2026 View to Low End of Range",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:15:26.874371-05:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "B. Riley Securities Reiterates Neutral on Coinbase Global, Lowers Price Target to $150",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:15:29.124441-05:00",
+    "symbols": [
+      "LUNR"
+    ],
+    "headline": "Intuitive Machines, Mobility Global, Fermi And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:15:32.425833-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Existing Home Sales (MoM) For October -5.5% Vs 1.0% Prior",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:15:32.430627-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Existing Home Sales For October 3.75M Vs 3.89M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:15:35.533094-05:00",
+    "symbols": [
+      "FRMI"
+    ],
+    "headline": "Intuitive Machines, Mobility Global, Fermi And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:15:36.710258-05:00",
+    "symbols": [
+      "JBI"
+    ],
+    "headline": "UBS Maintains Neutral on Janus Intl Gr, Lowers Price Target to $4.8",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:15:40.316517-05:00",
+    "symbols": [
+      "TROX"
+    ],
+    "headline": "UBS Maintains Neutral on Tronox Holdings, Lowers Price Target to $2.75",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:15:41.036245-05:00",
+    "symbols": [
+      "XNDU"
+    ],
+    "headline": "RBC Capital Maintains Outperform on Xanadu Quantum, Lowers Price Target to $13",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:15:42.709299-05:00",
+    "symbols": [
+      "AVEX"
+    ],
+    "headline": "Intuitive Machines, Mobility Global, Fermi And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

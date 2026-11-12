@@ -4291,5 +4291,14 @@
   "drift_pct": 1.16,
   "range_ratio": 0.61,
   "near_high": 0.959
+ },
+ {
+  "ts": "2026-11-12T09:27:53.581354-05:00",
+  "ticker": "VECA",
+  "price": 10.03,
+  "rvol": 51.45,
+  "drift_pct": 0.2,
+  "range_ratio": 0.2,
+  "near_high": 0.998
  }
 ]

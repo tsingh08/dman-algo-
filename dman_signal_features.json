@@ -49143,7 +49143,13 @@
 "seen": 8,
 "last_ts": "2026-11-09T09:40:29.691262-05:00",
 "entry_min": 20.76,
-"entry_max": 20.76
+"entry_max": 20.76,
+"label_fill": 23.48,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 13.33,
+"label_outcome": "WIN",
+"label_mfe_pct": 13.76,
+"label_mae_pct": -1.7
 },
 {
 "ts": "2026-11-09T09:27:12.218901-05:00",
@@ -49205,7 +49211,13 @@
 "seen": 7,
 "last_ts": "2026-11-09T09:40:30.146116-05:00",
 "entry_min": 88.24,
-"entry_max": 88.24
+"entry_max": 88.24,
+"label_fill": 93.5,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -1.59,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.34,
+"label_mae_pct": -4.3
 },
 {
 "ts": "2026-11-09T10:47:16.308906-05:00",
@@ -49267,7 +49279,13 @@
 "seen": 16,
 "last_ts": "2026-11-09T11:40:46.362142-05:00",
 "entry_min": 263.47,
-"entry_max": 263.47
+"entry_max": 263.47,
+"label_fill": 258.59,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 2.29,
+"label_outcome": "WIN",
+"label_mfe_pct": 2.97,
+"label_mae_pct": -1.99
 },
 {
 "ts": "2026-11-09T11:22:04.116383-05:00",
@@ -49329,7 +49347,13 @@
 "seen": 38,
 "last_ts": "2026-11-09T16:06:06.485139-05:00",
 "entry_min": 14.84,
-"entry_max": 15.16
+"entry_max": 15.16,
+"label_fill": 14.52,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 10.06,
+"label_outcome": "WIN",
+"label_mfe_pct": 13.08,
+"label_mae_pct": -1.52
 },
 {
 "ts": "2026-11-09T12:16:43.207086-05:00",
@@ -49391,7 +49415,13 @@
 "seen": 46,
 "last_ts": "2026-11-09T16:06:06.895127-05:00",
 "entry_min": 29.89,
-"entry_max": 29.98
+"entry_max": 29.98,
+"label_fill": 29.51,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -3.66,
+"label_outcome": "LOSS",
+"label_mfe_pct": 0.98,
+"label_mae_pct": -4.07
 },
 {
 "ts": "2026-11-09T12:57:59.023725-05:00",
@@ -49453,7 +49483,13 @@
 "seen": 19,
 "last_ts": "2026-11-09T16:06:05.546632-05:00",
 "entry_min": 26.16,
-"entry_max": 26.16
+"entry_max": 26.16,
+"label_fill": 26.71,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.19,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 0.41,
+"label_mae_pct": -1.44
 },
 {
 "ts": "2026-11-10T09:26:47.983045-05:00",

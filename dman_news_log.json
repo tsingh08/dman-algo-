@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-11T14:38:49.428120-05:00",
-    "symbols": [
-      "VIV"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100 Futures Rise as Bessent Urges US-China to \u2018De-Risk\u2019\u2014 Alcon, CoreWeave, Telefonica Brasil in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-11T14:38:49.432996-05:00",
     "symbols": [
       "VIV"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T09:46:56.831801-05:00",
+    "symbols": [
+      "ACHR"
+    ],
+    "headline": "Canaccord Genuity Maintains Buy on Archer Aviation, Lowers Price Target to $9.5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-12T14:01:50.237369-05:00",
-    "symbols": [
-      "ITG"
-    ],
-    "headline": "Morgan Stanley Maintains Overweight on ITG, Lowers Price Target to $9",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:01:50.523592-05:00",
-    "symbols": [
-      "KPLT"
-    ],
-    "headline": "Katapult Holdings Q3 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T14:01:50.526213-05:00",
-    "symbols": [
-      "KPLT"
-    ],
-    "headline": "Katapult Holdings Q3 EPS $(0.38) Beats $(0.56) Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T14:01:50.528625-05:00",
-    "symbols": [
-      "KPLT"
-    ],
-    "headline": "Katapult Holdings Q3 Sales $753.894M Vs $443.296M YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T14:01:50.703623-05:00",
-    "symbols": [
-      "LQDA"
-    ],
-    "headline": "Raymond James Maintains Liquidia (LQDA) Buy Rating and Raises Price Target to $77",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:01:50.859462-05:00",
-    "symbols": [
-      "BATRK"
-    ],
-    "headline": "Rosenblatt Maintains Buy on Atlanta Braves Holdings, Raises Price Target to $91",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-12T14:01:51.013868-05:00",
     "symbols": [
       "AVNW"
@@ -4998,5 +4938,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T15:48:52.731998-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX, Tesla Merger Discussions Are Said To Progress, Discussing Terms, Deal Could Slip Into 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T15:48:53.665123-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Short Seller Flagged Nvidia China Worries Months Ago: Here\u2019s How Much Stock Has Fallen Since",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-12T15:48:54.638890-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "SpaceX, Tesla Merger Discussions Are Said To Progress, Discussing Terms, Deal Could Slip Into 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-12T15:48:57.258010-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Breaks Ground On $3.5B Manufacturing Facility In Pennsylvania&#39;s Lehigh Valley; Site To Create 850 High-Wage Jobs And 2,000 Construction Jobs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T15:49:02.799161-05:00",
+    "symbols": [
+      "ACHR"
+    ],
+    "headline": "Short Seller Flagged Nvidia China Worries Months Ago: Here\u2019s How Much Stock Has Fallen Since",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T15:49:12.466995-05:00",
+    "symbols": [
+      "TE"
+    ],
+    "headline": "Short Seller Flagged Nvidia China Worries Months Ago: Here\u2019s How Much Stock Has Fallen Since",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

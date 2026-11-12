@@ -1,14 +1,18 @@
 {
- "bar": "2026-11-11",
+ "bar": "2026-11-12",
  "entered": null,
  "tickers": [
   {
+   "ticker": "GILD",
+   "close": 167.95
+  },
+  {
    "ticker": "ELF",
-   "close": 118.46
+   "close": 113.53
   },
   {
    "ticker": "ZS",
-   "close": 193.795
+   "close": 193.22
   },
   {
    "ticker": "ABNB",
@@ -16,7 +20,7 @@
   },
   {
    "ticker": "NEM",
-   "close": 118.47
+   "close": 112.64
   }
  ]
 }

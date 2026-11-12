@@ -2568,5 +2568,15 @@
 "extension_pct": 16.0,
 "fresh_base": false,
 "weak_band": true
+},
+{
+"ticker": "XERS",
+"date": "2026-11-12",
+"close": 16.65,
+"base_days": 0,
+"above_low_pct": 214.7,
+"extension_pct": 42.0,
+"fresh_base": false,
+"weak_band": false
 }
 ]

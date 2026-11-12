@@ -16484,11 +16484,14 @@ class TestSetupPerformanceDriftAlert(unittest.TestCase):
         self._alerts_patch.stop(); os.unlink(self._alerts_tmp.name)
         self._setup_prob_patch.stop(); os.unlink(self._setup_prob_tmp.name)
 
-    def _record_drifting_setup(self):
+    def _record_drifting_setup(self, setup="Morning Runner"):
+        # Not "Low Float Catalyst" any more: that name is in RETIRED_SETUPS,
+        # and retired setups are filtered out of the drift alert since the
+        # 2026-11-12 review (frozen record -> the alert fired every day).
         tracker = a.WinRateTracker()
         for _ in range(3):
             tracker.record(a.TradeRecord(
-                ticker="TESTX", date="2026-08-15", bias="LONG", setup="Low Float Catalyst",
+                ticker="TESTX", date="2026-08-15", bias="LONG", setup=setup,
                 entry=10.0, exit=8.0, outcome="LOSS", pnl_pct=-20.0, score=90, is_live=True,
             ))
 
@@ -16513,7 +16516,18 @@ class TestSetupPerformanceDriftAlert(unittest.TestCase):
         msgs = [c[0][0] for c in mock_tg.call_args_list]
         drift_msgs = [m for m in msgs if "Setup Performance Drift" in m]
         self.assertEqual(len(drift_msgs), 1)
-        self.assertIn("Low Float Catalyst", drift_msgs[0])
+        self.assertIn("Morning Runner", drift_msgs[0])
+
+    def test_a_retired_setup_alone_sends_no_drift_alert(self):
+        """A retired setup's live record is frozen below the floor forever, so
+        before the 2026-11-12 filter it re-fired this alert every single day
+        with the same dead name — alarm fatigue on the one message meant to
+        catch a NEW drifting setup."""
+        self._record_drifting_setup(setup="Low Float Catalyst")
+        mock_tg = MagicMock(return_value=True)
+        self._run_with_mocked_account(mock_tg)
+        msgs = [c[0][0] for c in mock_tg.call_args_list]
+        self.assertFalse(any("Setup Performance Drift" in m for m in msgs))
 
     def test_no_drift_sends_only_the_account_summary(self):
         mock_tg = MagicMock(return_value=True)
@@ -16561,19 +16575,19 @@ class TestSetupPerformanceDriftAlert(unittest.TestCase):
         self._record_drifting_setup()
         mock_tg = MagicMock(return_value=True)
         self._run_with_mocked_account(mock_tg)
-        self.assertIn("Low Float Catalyst", a._load_setup_probation())
-        self.assertEqual(a._setup_probation_bonus("Low Float Catalyst"), a.SETUP_PROBATION_SCORE_BONUS)
+        self.assertIn("Morning Runner", a._load_setup_probation())
+        self.assertEqual(a._setup_probation_bonus("Morning Runner"), a.SETUP_PROBATION_SCORE_BONUS)
         drift_msgs = [c[0][0] for c in mock_tg.call_args_list if "Setup Performance Drift" in c[0][0]]
         self.assertIn("restricted", drift_msgs[0])
 
     def test_already_restricted_setup_is_not_re_restricted_or_reworded_as_new(self):
         self._record_drifting_setup()
-        a._enter_setup_probation("Low Float Catalyst", "already flagged yesterday")
-        original = a._load_setup_probation()["Low Float Catalyst"]["started"]
+        a._enter_setup_probation("Morning Runner", "already flagged yesterday")
+        original = a._load_setup_probation()["Morning Runner"]["started"]
         mock_tg = MagicMock(return_value=True)
         with patch.object(a, "_is_duplicate_alert", return_value=False):
             self._run_with_mocked_account(mock_tg)
-        self.assertEqual(a._load_setup_probation()["Low Float Catalyst"]["started"], original)
+        self.assertEqual(a._load_setup_probation()["Morning Runner"]["started"], original)
         drift_msgs = [c[0][0] for c in mock_tg.call_args_list if "Setup Performance Drift" in c[0][0]]
         self.assertIn("already restricted", drift_msgs[0])
 
@@ -17604,13 +17618,18 @@ class TestDriftRestrictionsEnforcedEveryScan(unittest.TestCase):
     """Review 2026-09-08: restrictions expired on a clock and were only ever
     re-applied inside an EOD window that delayed crons routinely miss."""
 
-    def _tracker(self, wr_floor_breach=True):
+    def _tracker(self, wr_floor_breach=True, setup="Morning Runner"):
+        # The drifting fixture must be a setup that is NOT in RETIRED_SETUPS
+        # (it was "Low Float Catalyst" until that name was hand-retired):
+        # retired setups are skipped by enforcement since the 2026-11-12
+        # review, because a probation bonus on a setup that cannot take money
+        # re-armed forever off a frozen live record.
         tmp = os.path.join(tempfile.mkdtemp(), "wr.json")
         tr = a.WinRateTracker(filepath=tmp)
         for i in range(a.SETUP_PERFORMANCE_ALERT_MIN_TRADES + 1):
             win = not wr_floor_breach and i > 0
             tr.record(a.TradeRecord(
-                ticker=f"T{i}", date=str(a._et_today()), bias="LONG", setup="Low Float Catalyst",
+                ticker=f"T{i}", date=str(a._et_today()), bias="LONG", setup=setup,
                 entry=10.0, exit=11.0 if win else 9.0, outcome="WIN" if win else "LOSS",
                 pnl_pct=8.0 if win else -9.0, score=90, is_live=True))
         return tr
@@ -17619,10 +17638,21 @@ class TestDriftRestrictionsEnforcedEveryScan(unittest.TestCase):
         prob = os.path.join(tempfile.mkdtemp(), "prob.json")
         with patch.object(a, "SETUP_PROBATION_FILE", prob), patch.object(a, "send_telegram"):
             newly = a._enforce_setup_drift_restrictions(self._tracker())
-            self.assertIn("Low Float Catalyst", newly)
-            self.assertGreater(a._setup_probation_bonus("Low Float Catalyst"), 0)
+            self.assertIn("Morning Runner", newly)
+            self.assertGreater(a._setup_probation_bonus("Morning Runner"), 0)
             # idempotent: a second scan keeps the original clock, restricts nothing new
             self.assertEqual(a._enforce_setup_drift_restrictions(self._tracker()), [])
+
+    def test_a_retired_setup_is_never_restricted(self):
+        """Retirement already blocks the money unconditionally; re-entering
+        probation off its permanently-frozen record was a daily no-op that
+        kept the probation file and drift alert churning forever."""
+        prob = os.path.join(tempfile.mkdtemp(), "prob.json")
+        with patch.object(a, "SETUP_PROBATION_FILE", prob), patch.object(a, "send_telegram"):
+            newly = a._enforce_setup_drift_restrictions(
+                self._tracker(setup="Low Float Catalyst"))
+            self.assertEqual(newly, [])
+            self.assertEqual(a._setup_probation_bonus("Low Float Catalyst"), 0)
 
     def test_a_healthy_setup_is_left_alone(self):
         prob = os.path.join(tempfile.mkdtemp(), "prob.json")

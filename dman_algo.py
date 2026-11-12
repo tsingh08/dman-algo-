@@ -4230,6 +4230,15 @@ def _enforce_setup_drift_restrictions(tracker: "WinRateTracker") -> list[str]:
     newly: list[str] = []
     try:
         for _d in tracker.setup_performance_drift() or []:
+            # A RETIRED setup cannot take money whatever its score, so a
+            # probation bonus is a no-op — and because retirement freezes the
+            # live record below the floor forever, the drift check otherwise
+            # re-restricts it every 10 days in perpetuity (Low Float Catalyst,
+            # last live fill 2026-08-24, re-entered probation 2026-11-12 on
+            # the same frozen 1W/5L record). Skip them here and in the EOD
+            # alert; un-retiring a setup puts it straight back under watch.
+            if _setup_retired(_d["setup"]):
+                continue
             if _enter_setup_probation(
                     _d["setup"],
                     f"{_d['win_rate']*100:.0f}% WR over last {_d['total']} live trades "
@@ -31029,7 +31038,13 @@ def send_account_pnl_telegram(label: str = "EOD") -> None:
     # its own, and deduped like every other alert so a manual `--mode pnl`
     # run doesn't repeat it within the same cooldown window.
     try:
-        _drift = WinRateTracker().setup_performance_drift()
+        # Retired setups are excluded: their live record is frozen below the
+        # floor forever (they cannot trade), so they made this alert fire
+        # every single day listing the same dead names — noise that trains a
+        # reader to skip the one message meant to surface a NEW drifting
+        # setup. Same filter as _enforce_setup_drift_restrictions().
+        _drift = [_d for _d in WinRateTracker().setup_performance_drift()
+                  if not _setup_retired(_d["setup"])]
         # 24h, not the 30-min default: this rides the EOD summary's callers,
         # which run several times in the last hour (sent twice 2026-11-03).
         if _drift and not _is_duplicate_alert("__SETUP_PERF_DRIFT__", 24 * 60):

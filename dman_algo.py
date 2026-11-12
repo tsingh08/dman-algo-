@@ -21704,8 +21704,15 @@ def sync_live_signals_with_remote() -> None:
     """
     def _rebuild(merged, _le, _re):
         logged = _logged_outcome_keys()
-        return {"pending": [p for p in merged
-                            if (p.get("ticker", ""), p.get("date", "")) not in logged]}
+        # One row per (ticker, date), earliest first: the daemon and the
+        # scanner can each log the same signal seconds apart at slightly
+        # different prices (ERAS 2026-11-11), and the union kept both.
+        first: dict = {}
+        for p in sorted(merged, key=lambda p: str(p.get("timestamp", ""))):
+            k = (p.get("ticker", ""), p.get("date", ""))
+            if k not in logged:
+                first.setdefault(k, p)
+        return {"pending": list(first.values())}
 
     _sync_json_file_via_merge(
         LIVE_SIGNALS_FILE,

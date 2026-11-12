@@ -31155,3 +31155,23 @@ class TestCoreHold(unittest.TestCase):
     def test_heat_and_enter_slots_skip_core_holds(self):
         self.assertIn("_is_core_hold(_sym)", inspect.getsource(a._scan_portfolio_heat))
         self.assertIn("_is_core_hold(t)", inspect.getsource(a._tg_cmd_enter))
+
+
+class TestLiveSignalSyncOneRowPerTickerDay(unittest.TestCase):
+    """Daemon + scanner each logged ERAS on 2026-11-11 seconds apart at
+    different prices; the union merge kept both rows."""
+
+    def test_keeps_earliest_and_drops_logged(self):
+        cap = {}
+        rows = [
+            {"ticker": "ERAS", "date": "2026-11-11", "entry": 17.19, "timestamp": "2026-11-11T13:46:25"},
+            {"ticker": "ERAS", "date": "2026-11-11", "entry": 17.06, "timestamp": "2026-11-11T13:46:16"},
+            {"ticker": "AMD", "date": "2026-11-11", "entry": 529.63, "timestamp": "2026-11-11T09:43:13"},
+            {"ticker": "OLD", "date": "2026-11-01", "entry": 1.0, "timestamp": "2026-11-01T10:00:00"},
+        ]
+        with patch.object(a, "_sync_json_file_via_merge", lambda *_, **kw: cap.update(kw)), \
+             patch.object(a, "_logged_outcome_keys", lambda: {("OLD", "2026-11-01")}):
+            a.sync_live_signals_with_remote()
+            out = cap["rebuild"](rows, None, None)["pending"]
+        self.assertEqual([(p["ticker"], p["entry"]) for p in out],
+                         [("AMD", 529.63), ("ERAS", 17.06)])

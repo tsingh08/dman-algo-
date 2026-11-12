@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-11-11T15:28:32.200087-05:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "GE Vernova Stock Rebounds as AI Optimism Counters SoftBank Concerns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-11T15:28:35.207131-05:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "RBC Capital Reiterates Outperform on Adobe, Maintains $315 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-11T15:28:35.515892-05:00",
     "symbols": [
       "SPY"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:04:10.646096-05:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "$1000 Invested In Salesforce 20 Years Ago Would Be Worth This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:04:10.665105-05:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "KLA Corporation Enters Long-Term Lease for Milpitas R&D Facility",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

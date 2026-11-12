@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-12T14:01:48.589348-05:00",
-    "symbols": [
-      "GO"
-    ],
-    "headline": "DA Davidson Maintains Neutral on Grocery Outlet Holding, Raises Price Target to $14",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T14:01:48.592024-05:00",
-    "symbols": [
-      "GO"
-    ],
-    "headline": "Goldman Sachs Maintains Sell on Grocery Outlet Holding, Raises Price Target to $8",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T14:01:48.712774-05:00",
-    "symbols": [
-      "ENS"
-    ],
-    "headline": "EnerSys, Ultralife Deal Helps Grow Market Share As Data Centers Drive Momentum",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T14:01:48.715335-05:00",
-    "symbols": [
-      "ENS"
-    ],
-    "headline": "Intuitive Machines, Mobility Global, Fermi And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T14:01:48.717722-05:00",
-    "symbols": [
-      "ENS"
-    ],
-    "headline": "EnerSys Q2 2027 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T14:01:48.720103-05:00",
-    "symbols": [
-      "ENS"
-    ],
-    "headline": "NVIDIA To $186? Here Are 10 Top Analyst Forecasts For Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-12T14:01:48.722479-05:00",
     "symbols": [
       "ENS"
@@ -4998,5 +4938,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T14:48:42.747417-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Hyro Achieves Oracle Health Endpoint Validation Expertise",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T14:48:54.338282-05:00",
+    "symbols": [
+      "XE"
+    ],
+    "headline": "X-Energy Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:48:54.341181-05:00",
+    "symbols": [
+      "XE"
+    ],
+    "headline": "X-Energy Says Vertical Construction Of TX-1 Fuel Facility In Oak Ridge Complete",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:48:54.343733-05:00",
+    "symbols": [
+      "XE"
+    ],
+    "headline": "X-Energy Says Project Pipeline Stands At 144 Reactors, About 11.5 GW",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:48:54.346355-05:00",
+    "symbols": [
+      "XE"
+    ],
+    "headline": "X-Energy Ends Q3 With $1.8B Total Liquidity, No Debt",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:48:54.348943-05:00",
+    "symbols": [
+      "XE"
+    ],
+    "headline": "X-Energy Q3 Adj. EBITDA Loss $75.7M Vs Loss $36.7M YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

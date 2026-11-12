@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-12T14:01:49.349350-05:00",
-    "symbols": [
-      "CRWV"
-    ],
-    "headline": "Cerebras Stock Hovers Near Flatline Ahead of Earnings: What You Should Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:01:49.351723-05:00",
-    "symbols": [
-      "CRWV"
-    ],
-    "headline": "Macquarie Maintains Outperform on CoreWeave, Lowers Price Target to $120",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:01:49.354136-05:00",
-    "symbols": [
-      "CRWV"
-    ],
-    "headline": "Argus Research Maintains Buy on CoreWeave, Lowers Price Target to $100",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:01:49.476410-05:00",
-    "symbols": [
-      "BV"
-    ],
-    "headline": "Goldman Sachs Maintains Sell on BrightView Hldgs, Lowers Price Target to $8.7",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T14:01:49.478999-05:00",
-    "symbols": [
-      "BV"
-    ],
-    "headline": "JP Morgan Maintains Neutral on BrightView Hldgs, Lowers Price Target to $11",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T14:01:49.643955-05:00",
-    "symbols": [
-      "VELO"
-    ],
-    "headline": "Needham Adjusts Price Target on Velo3D to $12",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-12T14:01:49.927180-05:00",
     "symbols": [
       "HIG"
@@ -4998,5 +4938,65 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T15:25:39.956280-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Jensen Huang Scandal Widens: Former Nvidia CEO Linked to Second Employee",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-12T15:25:40.171362-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Jensen Huang Scandal Widens: Former Nvidia CEO Linked to Second Employee",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T15:25:41.995879-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Jensen Huang Scandal Widens: Former Nvidia CEO Linked to Second Employee",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T15:25:42.824117-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Jensen Huang Scandal Widens: Former Nvidia CEO Linked to Second Employee",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T15:25:44.739843-05:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "Jensen Huang Scandal Widens: Former Nvidia CEO Linked to Second Employee",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T15:25:45.606104-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Why Is Bitcoin&#39;s Decline Accelerating? Mark Yusko Weighs In",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

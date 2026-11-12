@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-11-12T14:01:48.722479-05:00",
-    "symbols": [
-      "ENS"
-    ],
-    "headline": "BTIG Maintains Buy on EnerSys, Lowers Price Target to $250",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T14:01:48.887378-05:00",
-    "symbols": [
-      "KBR"
-    ],
-    "headline": "KBR Says Trinzic Spin-Off On Track For January 2027; LTM Revenue $5.1B, Backlog $17.3B",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:01:48.890026-05:00",
-    "symbols": [
-      "KBR"
-    ],
-    "headline": "Trinzic Expects Net Leverage Of About 3.15x At Separation; Sees NASA Insourcing As ~4% Revenue Headwind In 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:01:48.892398-05:00",
-    "symbols": [
-      "KBR"
-    ],
-    "headline": "Trinzic Targets Over $700M Cumulative Operating Cash Flow 2027-2029, Net Leverage Of 2.5x Or Less",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:01:48.894796-05:00",
-    "symbols": [
-      "KBR"
-    ],
-    "headline": "KBR Spin-Off Trinzic Sets 2027-2029 Targets: 3%-6% Revenue CAGR Ex-NASA Insourcing, Adj. EBITDA Margin Of 9%+",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-12T14:01:49.018085-05:00",
     "symbols": [
       "AADX"
@@ -4998,5 +4948,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:59:49.472175-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Plans $74B in AI Spending Across Texas and Arizona",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T14:59:49.971937-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Wall Street Takes the Chainsaw to Nvidia Targets: One Bank Slashes $465 to $186",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T14:59:50.389561-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Wall Street Takes the Chainsaw to Nvidia Targets: One Bank Slashes $465 to $186",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-12T14:59:56.884358-05:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "New Era Energy Stock Booms After Strong Q3 Revenue",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T15:00:08.712433-05:00",
+    "symbols": [
+      "NUAI"
+    ],
+    "headline": "New Era Energy Stock Booms After Strong Q3 Revenue",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

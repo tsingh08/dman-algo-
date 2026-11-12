@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-11-12T09:25:57.474194-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "State Street Raises Stake In SpaceX By 77.8% To 19.3M Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:25:57.479259-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Porsche CEO Takes a Swipe at Elon Musk\u2019s Flying Tesla Roadster: \u2018We Want to Steer Clear of Effects and Shows\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:25:57.483266-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Rocket Lab CEO Takes a Swipe at Elon Musk, Explains Why Neutron Gives Company an Edge Over SpaceX: \u2018First Priority Is\u2026\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:25:57.488208-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk Isn\u2019t Worried About Anthropic Walking Away From SpaceX\u2019s $120 Billion AI Deal: \u2018The Opposite Is Going To Happen\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:25:57.492460-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "\u2018SpaceX Will Be Worth More Than Earth\u2019: Elon Musk Reveals Bold 1 Petawatt Power Goal for the Moon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:25:57.679778-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nebius Group N.V. - Class A Ordinary Shares Q3 Adj. EPS $0.30 Beats $(0.69) Estimate, Sales $980.800M Beat $907.534M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:25:57.683716-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nebius Says Databricks, Datadog, And Snowflake Signed Multi-Year AI Cloud Agreements, Palantir Named It Preferred AI Cloud Partner; Terms Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:25:57.687288-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nebius Says Remaining New Jersey Capacity For Microsoft Delayed To Q2 2027; Expects More Than Half Delivered By Year-End",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-12T09:25:57.691407-05:00",
     "symbols": [
       "NBIS"
@@ -4995,6 +4915,86 @@
       "AVEX"
     ],
     "headline": "Intuitive Machines, Mobility Global, Fermi And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:15:44.014838-05:00",
+    "symbols": [
+      "FIGR"
+    ],
+    "headline": "Figure Technology Rallies After Earnings Beat, 135% Marketplace Volume Growth",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:15:44.373603-05:00",
+    "symbols": [
+      "KYTX"
+    ],
+    "headline": "Kyverna Therapeutics Q3 EPS $(0.68) Beats $(0.69) Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:15:44.380102-05:00",
+    "symbols": [
+      "KYTX"
+    ],
+    "headline": "Kyverna Therapeutics Completes BLA Submission For Miv-Cel In SPS Completed With Request For Priority Review; Says KYSA-6 Phase 3 gMG Trial Enrollment On-Track For Completion In Mid-2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:15:45.758549-05:00",
+    "symbols": [
+      "MBGL"
+    ],
+    "headline": "Intuitive Machines, Mobility Global, Fermi And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:15:45.763268-05:00",
+    "symbols": [
+      "MBGL"
+    ],
+    "headline": "Mobility Global Q3 2026 Earnings Call Transcript",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:15:45.767270-05:00",
+    "symbols": [
+      "MBGL"
+    ],
+    "headline": "Mobility Global Affirms FY2026 Sales Guidance of $1.870B-$1.885B vs $1.876B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:15:45.771322-05:00",
+    "symbols": [
+      "MBGL"
+    ],
+    "headline": "UPDATE: Mobility Global Q3 Adj. EPS $0.40 Beats $0.38 Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:15:45.775943-05:00",
+    "symbols": [
+      "MBGL"
+    ],
+    "headline": "Mobility Global Q3 EPS $0.14 Misses $0.17 Estimate, Sales $478.000M Beat $475.813M Estimate",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

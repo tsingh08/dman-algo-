@@ -2382,5 +2382,21 @@
     "shares": 9.0,
     "pnl_usd": 4.9,
     "spy_pct": 0.518
+  },
+  {
+    "ticker": "ARHS",
+    "date": "2026-11-12",
+    "bias": "LONG",
+    "setup": "Breakout Zone +129% off low",
+    "entry": 12.78,
+    "exit": 14.48,
+    "outcome": "WIN",
+    "pnl_pct": 13.35,
+    "score": 12,
+    "is_live": true,
+    "entry_date": "2026-11-05",
+    "shares": 9.0,
+    "pnl_usd": 15.35,
+    "spy_pct": null
   }
 ]

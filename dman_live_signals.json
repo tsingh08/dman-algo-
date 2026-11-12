@@ -1,30 +1,6 @@
 {
   "pending": [
     {
-      "ticker": "ALLE",
-      "setup": "Gap & Hold",
-      "bias": "LONG",
-      "entry": 172.85,
-      "stop": 166.07,
-      "target1": 190.13,
-      "target2": 200.5,
-      "score": 100,
-      "date": "2026-10-22",
-      "timestamp": "2026-10-22T10:55:32.499934-04:00"
-    },
-    {
-      "ticker": "POOL",
-      "setup": "Gap & Hold",
-      "bias": "LONG",
-      "entry": 189.93,
-      "stop": 180.7,
-      "target1": 233.08,
-      "target2": 258.97,
-      "score": 100,
-      "date": "2026-10-22",
-      "timestamp": "2026-10-22T14:19:05.045870-04:00"
-    },
-    {
       "ticker": "BENF",
       "setup": "Low Float Catalyst",
       "bias": "LONG",
@@ -119,18 +95,6 @@
       "score": 100,
       "date": "2026-11-11",
       "timestamp": "2026-11-11T09:43:13.635676-05:00"
-    },
-    {
-      "ticker": "ERAS",
-      "setup": "Gap & Hold",
-      "bias": "LONG",
-      "entry": 17.19,
-      "stop": 15.46,
-      "target1": 21.6,
-      "target2": 24.25,
-      "score": 100,
-      "date": "2026-11-11",
-      "timestamp": "2026-11-11T13:46:25.378928-05:00"
     },
     {
       "ticker": "ERAS",

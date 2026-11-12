@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-12T14:01:52.492877-05:00",
-    "symbols": [
-      "ATEX"
-    ],
-    "headline": "Intuitive Machines, Mobility Global, Fermi And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-12T14:01:52.495257-05:00",
     "symbols": [
       "ATEX"
@@ -4996,6 +4986,16 @@
     ],
     "headline": "Nebius Crashes 20% as Jensen Huang Shock Rocks AI Stocks: One ETF Is Having a Field Day",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T16:02:20.672761-05:00",
+    "symbols": [
+      "GGB"
+    ],
+    "headline": "Gerdau S.A. Ex-Dividend Date",
+    "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": null
   }

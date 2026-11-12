@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-12T09:37:51.501888-05:00",
-    "symbols": [
-      "TRMK"
-    ],
-    "headline": "Trading Halt: Halt status updated at 8:15:00 AM ET: Quotation Resumption: News and Resumption Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-12T09:37:51.506779-05:00",
     "symbols": [
       "TRMK"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T11:24:56.383212-05:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "XYZ Reality Releases Case-Study Documentary Featuring Applied Digital's Polaris Forge 1 Build",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

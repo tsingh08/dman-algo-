@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-12T09:37:56.814626-05:00",
-    "symbols": [
-      "TWST"
-    ],
-    "headline": "Twist Bioscience Sees FY2027 Sales $550.000M-$560.000M vs $547.137M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-12T09:37:56.818926-05:00",
     "symbols": [
       "TWST"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T12:03:20.775140-05:00",
+    "symbols": [
+      "STLA"
+    ],
+    "headline": "Stellantis Hosts Global Supplier Conference",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

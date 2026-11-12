@@ -1,775 +1,5 @@
 [
   {
-    "ts": "2026-11-12T09:26:01.613611-05:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Marvell Appoints Intuit CEO Sasan Goodarzi, Lam Research CFO Douglas Bettinger &amp; Walmart Chief People Officer Donna Morris To Board",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:02.293470-05:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Klarna Names Chris Koegel As CFO",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:02.457062-05:00",
-    "symbols": [
-      "AFRM"
-    ],
-    "headline": "Affirm Announces Upcoming Card-Specific Financing and 'Edge' Pilot",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:26:02.605289-05:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "Rivian R2 Named MotorTrend 2027 SUV of the Year",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:02.746730-05:00",
-    "symbols": [
-      "NIO"
-    ],
-    "headline": "NIO Reaches Milestone of 9,838 Charging and Swapping Stations",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:26:02.919497-05:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Moderna Raises FY26 Sales Growth Guidance To 15%-25% From 10%; On Track To Achieve FY26 Gross Margin Expansion Of ~10 Percentage Points Excluding Litigation Settlement Charge; Expects Annual Cash Costs Of ~$4B-$4.5B Over 2027-2030; Sees Ending 2026 With ~$9B In Total Liquidity, Including Cash, Investments And Undrawn Borrowing Capacity",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:03.113130-05:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "AbbVie Named to Fortune World's Best Workplaces List",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:03.299379-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly Wins China Approval for First GLP-1 Weight-Loss Pill, Giving It First-Mover Edge In Potential $4.5 Billion Market: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:03.331830-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Pfizer And Blackstone Life Sciences Enter Co-Funding Agreement Under Which Blackstone Will Pay Up To $1.5B Of Development Costs For Study Of Monthly GLP-1 Receptor Agonist Peptide Berobenatide Through 2028",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:03.631267-05:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Bernstein Maintains Outperform on ExxonMobil Holdings, Lowers Price Target to $186",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:26:03.803612-05:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Rocket Lab CEO Takes a Swipe at Elon Musk, Explains Why Neutron Gives Company an Edge Over SpaceX: \u2018First Priority Is\u2026\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:26:03.808856-05:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Cathie Wood Doubles Down On Archer Aviation, Rocket Lab As Ark Keeps Selling BYD Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:26:03.968063-05:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "POET Stock Soars After CoreWeave's Strong Q3 Results and FY26 Guidance",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:04.144580-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Jim Cramer: Buy This Financial Stock, Palantir Reported an \u2018Excellent\u2019 Quarter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:04.276753-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Jim Cramer: Buy This Financial Stock, Palantir Reported an \u2018Excellent\u2019 Quarter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:04.458086-05:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Cloudflare Reports Findings on Perplexity AI Crawler Behavior",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:04.608742-05:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Datadog Announces Participation in Upcoming Investor Conferences",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:04.780378-05:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase CEO Says AI Agents Are Sending Hundreds of Feature Requests Daily, With Some Updates Live in Under 24 Hours",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:04.939986-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Strategy Shares Fall About 6% After MSCI Confirms Index Removal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:26:04.944490-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin, Ethereum, XRP Steady, but Dogecoin Dips: Analyst Bets a Repeat of BTC&#39;s Short Squeeze, Driving It Toward $90,000",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:26:04.948313-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "&#39;Index Provider MSCI Removes Strategy From Equity Benchmark&#39;- Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:26:05.090710-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Uber Technologies, Tractor Supply Launch Nationwide Delivery Partnership",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:05.095063-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Coinbase CEO Says AI Agents Are Sending Hundreds of Feature Requests Daily, With Some Updates Live in Under 24 Hours",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:05.261972-05:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "e.l.f. Beauty Launches 'Dial 0 for Zero Distance' CEO Hotline and Publishes Fiscal Year 2026 Impact Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:05.423926-05:00",
-    "symbols": [
-      "DECK"
-    ],
-    "headline": "Michael Burry\u2019s Portfolio: What the \u2018Big Short\u2019 Investor Owns Now",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:26:05.604688-05:00",
-    "symbols": [
-      "ONON"
-    ],
-    "headline": "UBS Maintains Buy on On Holding, Lowers Price Target to $65",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:26:05.763043-05:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Analyst Maintains Buy Rating and Raises Price Target for Airbnb",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:05.936811-05:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "DraftKings Director Gregory Wendt Buys 5,000 Shares At Avg $19.76",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:26:05.941049-05:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "Jim Cramer: Buy This Financial Stock, Palantir Reported an \u2018Excellent\u2019 Quarter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:26:06.109408-05:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Jim Cramer: Buy This Financial Stock, Palantir Reported an \u2018Excellent\u2019 Quarter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:26:06.114049-05:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Corteva Posts Downbeat Q3 Results, Joins Nvidia, Alvotech And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:26:06.117974-05:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Why Is Alibaba Stock Falling Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:26:06.290559-05:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Baidu Prices ERNIE 5.5 Flash Preview API At RMB1 Per 1M Input Tokens, RMB4 Per 1M Output",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T09:26:06.294780-05:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Baidu Says Apollo Go Now Covers 28 Cities, Over 240M Fully Driverless Km",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T09:26:06.299263-05:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Baidu Says Kunlunxin M100 Inference Chip Has Shipped; Flagship M300 Expected To Ship In 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T09:26:06.302965-05:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Baidu Launches \u2018Token Exchange\u2019 Marketplace For AI Model Services; Says It Handles Over 50M Calls &amp; 700B Tokens Daily",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T09:26:06.307200-05:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Baidu Unveils ERNIE 5.5 Flash Preview Foundation Model; Says Model Weights To Be Open-Sourced By 25 Nov",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T09:26:06.467514-05:00",
-    "symbols": [
-      "PDD"
-    ],
-    "headline": "PDD Holdings to Report Third Quarter 2026 Financial Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:26:06.633622-05:00",
-    "symbols": [
-      "JD"
-    ],
-    "headline": "JD.com Completes Voluntary Public Takeover Offer For CECONOMY, Acquiring 59.8% Of Share Capital And Voting Rights Of CECONOMY With Total Consideration Of EUR 1,335 Mln",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:26:06.637736-05:00",
-    "symbols": [
-      "JD"
-    ],
-    "headline": "Michael Burry\u2019s Portfolio: What the \u2018Big Short\u2019 Investor Owns Now",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:26:06.803679-05:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "Quantum Stocks Slide as Rigetti, D-Wave Results Disappoint, Nvidia Turmoil Overshadows IonQ",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:06.808096-05:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "Why Is IonQ Stock Falling on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:06.987290-05:00",
-    "symbols": [
-      "LUNR"
-    ],
-    "headline": "Intuitive Machines Is No Longer Just About the Moon, CEO Sees Bigger Space Opportunity",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:26:06.992291-05:00",
-    "symbols": [
-      "LUNR"
-    ],
-    "headline": "Intuitive Machines Reports Backlog At End Of Q3 Of $1.9B, Up $1.7B YtD",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:26:06.996872-05:00",
-    "symbols": [
-      "LUNR"
-    ],
-    "headline": "Intuitive Machines Q3 EPS $(0.02) Beats $(0.12) Estimate, Sales $269.348M Beat $245.879M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:26:07.000954-05:00",
-    "symbols": [
-      "LUNR"
-    ],
-    "headline": "Intuitive Machines Narrows FY2026 Sales Guidance from $900.000M-$1.000B to $920.000M-$950.000M vs $925.193M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:26:07.180404-05:00",
-    "symbols": [
-      "ACHR"
-    ],
-    "headline": "Archer Partners With Formula 1 To Be At Select Grands Prix Events; Will Consider Future Integration Of eVTOL Air Taxi Services At Grand Prix Events",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:26:07.184508-05:00",
-    "symbols": [
-      "ACHR"
-    ],
-    "headline": "Cathie Wood Doubles Down On Archer Aviation, Rocket Lab As Ark Keeps Selling BYD Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:26:07.305107-05:00",
-    "symbols": [
-      "OKLO"
-    ],
-    "headline": "Centrus Says Now Has $5.4B In Customer Contracts &amp; Commitments For LEU &amp; HALEU From New Capacity",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:26:07.309150-05:00",
-    "symbols": [
-      "OKLO"
-    ],
-    "headline": "Oklo Says Fuel Covers First Phase Of Planned 1.2 GW Ohio Power Campus With Meta",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:26:07.312986-05:00",
-    "symbols": [
-      "OKLO"
-    ],
-    "headline": "Oklo To Make Prepayments To Centrus For Future HALEU Deliveries, Supported By Meta\u2019s Prepayment For Oklo Power; Value Undisclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:26:07.316637-05:00",
-    "symbols": [
-      "OKLO"
-    ],
-    "headline": "Oklo, Centrus Sign Definitive Multi-Year HALEU Supply Contracts To Fuel Up To Five Aurora Powerhouses; Deliveries From 2029",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:26:07.488038-05:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Michael Burry\u2019s Portfolio: What the \u2018Big Short\u2019 Investor Owns Now",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:07.807598-05:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Chase & Co. Issues Neutral Rating for Allianz",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:26:07.814596-05:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Chase Discloses Voting Rights in Delivery Hero SE",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:26:07.995050-05:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs Forecasts AI-Related Spending to Reach $1.4 Trillion by 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:26:07.998879-05:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs Issues Long-Term Revenue Projections for Anthropic",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:26:08.171347-05:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Visa Expands Scan to Pay Acceptance in Hong Kong via Octopus Partnership",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:08.309732-05:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Mastercard Canada Releases 2026 Holiday Shopper Insights",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:08.481139-05:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Bernstein Maintains Market Perform on Chevron, Lowers Price Target to $233",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:08.485257-05:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Chevron To Restart Operations At Its Biodiesel Production Facility In Ralston, Iowa, With Capacity Of Almost 42M Gallons/Year",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:08.644312-05:00",
-    "symbols": [
-      "OXY"
-    ],
-    "headline": "Barclays Adjusts Price Target on Occidental Petroleum to $73 From $71",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:08.648437-05:00",
-    "symbols": [
-      "OXY"
-    ],
-    "headline": "Wall Street Analysts Update Ratings for Occidental Petroleum",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:08.775461-05:00",
-    "symbols": [
-      "SLB"
-    ],
-    "headline": "SLB Selected By V\u00e5r Energi As Main Integrated Drilling Services Supplier For The Transocean Barents And Deepsea Bergen Rigs On The Norwegian Continental Shelf For Up to Eight Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:26:08.991977-05:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Pfizer And Blackstone Life Sciences Enter Co-Funding Agreement Under Which Blackstone Will Pay Up To $1.5B Of Development Costs For Study Of Monthly GLP-1 Receptor Agonist Peptide Berobenatide Through 2028",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:09.132111-05:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "Freeport-McMoRan Subsidiary Earns 60% Interest in JOY District",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:09.297307-05:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Top 3 Risk Off Stocks That Could Sink Your Portfolio This Quarter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:26:09.492038-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Michael Burry\u2019s Portfolio: What the \u2018Big Short\u2019 Investor Owns Now",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:26:09.616453-05:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Michael Burry\u2019s Portfolio: What the \u2018Big Short\u2019 Investor Owns Now",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:26:09.740740-05:00",
-    "symbols": [
-      "FDX"
-    ],
-    "headline": "FedEx Fined $2.975 Million Over California Privacy Violations",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:26:09.745028-05:00",
-    "symbols": [
-      "FDX"
-    ],
-    "headline": "FedEx Highlights Veteran Pilot and Community Service Initiatives",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:26:09.905573-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Seeing Reports U.S. Speaker Johnson Says He Is In Favor Of Limiting Chip Exports To China",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:26:09.910158-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed\u2019s Hammack Says Prefers To See Smaller, Steadier FOMC Rate Moves; If We Get Behind, A Larger Move Could Be Needed; Go Into All FOMC Meetings With An Open Mind",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:26:09.913996-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "NVIDIA Says Colette Kress To Serve As Interim CEO Until Permanent Successor Named; Board Is Initiating Search For Permanent CEO And Will Consider Internal And External Candidates",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:26:09.917482-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Hammack Says Fed Has Been Missing On Inflation Mandate For Years; Most Recent Inflation Data Show It&#39;s Moving In The Wrong Direction; Fed Doing Very Well On Job Side Of Its Mandate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:26:09.920932-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. Trade Rep Greer Says &#39;We Have To Rebalance Global Trade&#39; Regardless Of Midterm Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:26:10.059891-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market Today: NVDA Stock Sinks Nasdaq, S&amp;P 500 Futures as Board Weighs Jensen Huang\u2019s Future \u2014 CRWV, TTEK, FNV in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-12T09:26:10.064598-05:00",
     "symbols": [
       "QQQ"
@@ -4995,6 +4225,776 @@
       "GSM"
     ],
     "headline": "Intuitive Machines, Mobility Global, Fermi And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:43:57.610405-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "President Trump On Truth Social Says Now That NVIDIA CEO Jensen Huang, Who Has Done A Fantastic Job, Has Resigned, There Is Only One Man To Take His Place - Tim Cook Of Apple",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:43:58.018999-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Needham Maintains Buy on NVIDIA, Lowers Price Target to $200",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:43:58.023345-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Jim Cramer Says Jensen Huang&#39;s NVIDIA Exit &#39;Had to Happen&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:43:58.028678-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "StoneX Downgrades NVIDIA to Hold",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:43:58.033425-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "President Trump On Truth Social Says Now That NVIDIA CEO Jensen Huang, Who Has Done A Fantastic Job, Has Resigned, There Is Only One Man To Take His Place - Tim Cook Of Apple",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:43:58.220639-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Jim Cramer Says Jensen Huang&#39;s NVIDIA Exit &#39;Had to Happen&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:00.475965-05:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Nvidia, AMD, SanDisk, Broadcom and Apple: Why These 5 Stocks Are on Investors' Radars Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:00.480689-05:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Evercore ISI Analyst Issues Positive Outlook on SanDisk",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:00.484992-05:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Micron, Sandisk Soar as CoreWeave CEO Says AI Demand Outpaces World's Capacity",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:00.677020-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell Expands Board To 10 From 7",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:00.681726-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell Appoints Intuit CEO Sasan Goodarzi, Lam Research CFO Douglas Bettinger &amp; Walmart Chief People Officer Donna Morris To Board",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:01.045779-05:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Klarna Names Chris Koegel As CFO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:01.223071-05:00",
+    "symbols": [
+      "AFRM"
+    ],
+    "headline": "Affirm Announces Upcoming Card-Specific Financing and 'Edge' Pilot",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:44:01.399027-05:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "Rivian R2 Named MotorTrend 2027 SUV of the Year",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:01.558841-05:00",
+    "symbols": [
+      "NIO"
+    ],
+    "headline": "NIO Reaches Milestone of 9,838 Charging and Swapping Stations",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:44:01.702984-05:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Moderna Raises FY26 Sales Growth Guidance To 15%-25% From 10%; On Track To Achieve FY26 Gross Margin Expansion Of ~10 Percentage Points Excluding Litigation Settlement Charge; Expects Annual Cash Costs Of ~$4B-$4.5B Over 2027-2030; Sees Ending 2026 With ~$9B In Total Liquidity, Including Cash, Investments And Undrawn Borrowing Capacity",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:01.902873-05:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "AbbVie Named to Fortune World's Best Workplaces List",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:02.097166-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Wins China Approval for First GLP-1 Weight-Loss Pill, Giving It First-Mover Edge In Potential $4.5 Billion Market: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:02.791927-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Bernstein Maintains Outperform on ExxonMobil Holdings, Lowers Price Target to $186",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:44:03.000490-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab CEO Takes a Swipe at Elon Musk, Explains Why Neutron Gives Company an Edge Over SpaceX: \u2018First Priority Is\u2026\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:44:03.177599-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Jim Cramer: Buy This Financial Stock, Palantir Reported an \u2018Excellent\u2019 Quarter",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:03.315298-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Jim Cramer: Buy This Financial Stock, Palantir Reported an \u2018Excellent\u2019 Quarter",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:03.463045-05:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Cloudflare Reports Findings on Perplexity AI Crawler Behavior",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:03.774836-05:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase CEO Says AI Agents Are Sending Hundreds of Feature Requests Daily, With Some Updates Live in Under 24 Hours",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:03.927308-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Strategy Shares Fall About 6% After MSCI Confirms Index Removal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:44:03.931532-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Bitcoin, Ethereum, XRP Steady, but Dogecoin Dips: Analyst Bets a Repeat of BTC&#39;s Short Squeeze, Driving It Toward $90,000",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:44:03.935797-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "&#39;Index Provider MSCI Removes Strategy From Equity Benchmark&#39;- Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:44:04.112435-05:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Uber Technologies, Tractor Supply Launch Nationwide Delivery Partnership",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:04.117566-05:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Coinbase CEO Says AI Agents Are Sending Hundreds of Feature Requests Daily, With Some Updates Live in Under 24 Hours",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:04.309889-05:00",
+    "symbols": [
+      "ELF"
+    ],
+    "headline": "e.l.f. Beauty Launches 'Dial 0 for Zero Distance' CEO Hotline and Publishes Fiscal Year 2026 Impact Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:04.495508-05:00",
+    "symbols": [
+      "DECK"
+    ],
+    "headline": "Michael Burry\u2019s Portfolio: What the \u2018Big Short\u2019 Investor Owns Now",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:44:04.844785-05:00",
+    "symbols": [
+      "ONON"
+    ],
+    "headline": "UBS Maintains Buy on On Holding, Lowers Price Target to $65",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:44:05.016461-05:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Analyst Maintains Buy Rating and Raises Price Target for Airbnb",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:05.199512-05:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "DraftKings Director Gregory Wendt Buys 5,000 Shares At Avg $19.76",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:44:05.204289-05:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "Jim Cramer: Buy This Financial Stock, Palantir Reported an \u2018Excellent\u2019 Quarter",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:44:05.350677-05:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "Jim Cramer: Buy This Financial Stock, Palantir Reported an \u2018Excellent\u2019 Quarter",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:44:05.355269-05:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "Corteva Posts Downbeat Q3 Results, Joins Nvidia, Alvotech And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:44:05.359531-05:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "Why Is Alibaba Stock Falling Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:44:05.535573-05:00",
+    "symbols": [
+      "BIDU"
+    ],
+    "headline": "Baidu Prices ERNIE 5.5 Flash Preview API At RMB1 Per 1M Input Tokens, RMB4 Per 1M Output",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-12T10:44:05.540111-05:00",
+    "symbols": [
+      "BIDU"
+    ],
+    "headline": "Baidu Says Apollo Go Now Covers 28 Cities, Over 240M Fully Driverless Km",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-12T10:44:05.544686-05:00",
+    "symbols": [
+      "BIDU"
+    ],
+    "headline": "Baidu Says Kunlunxin M100 Inference Chip Has Shipped; Flagship M300 Expected To Ship In 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-12T10:44:05.549013-05:00",
+    "symbols": [
+      "BIDU"
+    ],
+    "headline": "Baidu Launches \u2018Token Exchange\u2019 Marketplace For AI Model Services; Says It Handles Over 50M Calls &amp; 700B Tokens Daily",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-12T10:44:05.553386-05:00",
+    "symbols": [
+      "BIDU"
+    ],
+    "headline": "Baidu Unveils ERNIE 5.5 Flash Preview Foundation Model; Says Model Weights To Be Open-Sourced By 25 Nov",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-12T10:44:05.733745-05:00",
+    "symbols": [
+      "PDD"
+    ],
+    "headline": "PDD Holdings to Report Third Quarter 2026 Financial Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:44:05.881854-05:00",
+    "symbols": [
+      "JD"
+    ],
+    "headline": "JD.com Completes Voluntary Public Takeover Offer For CECONOMY, Acquiring 59.8% Of Share Capital And Voting Rights Of CECONOMY With Total Consideration Of EUR 1,335 Mln",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:44:05.886928-05:00",
+    "symbols": [
+      "JD"
+    ],
+    "headline": "Michael Burry\u2019s Portfolio: What the \u2018Big Short\u2019 Investor Owns Now",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:44:06.038882-05:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "Quantum Stocks Slide as Rigetti, D-Wave Results Disappoint, Nvidia Turmoil Overshadows IonQ",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:06.043852-05:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "Why Is IonQ Stock Falling on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:06.216475-05:00",
+    "symbols": [
+      "LUNR"
+    ],
+    "headline": "Intuitive Machines Is No Longer Just About the Moon, CEO Sees Bigger Space Opportunity",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:44:06.221002-05:00",
+    "symbols": [
+      "LUNR"
+    ],
+    "headline": "Intuitive Machines Reports Backlog At End Of Q3 Of $1.9B, Up $1.7B YtD",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:44:06.226192-05:00",
+    "symbols": [
+      "LUNR"
+    ],
+    "headline": "Intuitive Machines Q3 EPS $(0.02) Beats $(0.12) Estimate, Sales $269.348M Beat $245.879M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:44:06.395449-05:00",
+    "symbols": [
+      "ACHR"
+    ],
+    "headline": "Archer Partners With Formula 1 To Be At Select Grands Prix Events; Will Consider Future Integration Of eVTOL Air Taxi Services At Grand Prix Events",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:44:06.400583-05:00",
+    "symbols": [
+      "ACHR"
+    ],
+    "headline": "Cathie Wood Doubles Down On Archer Aviation, Rocket Lab As Ark Keeps Selling BYD Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:44:06.584981-05:00",
+    "symbols": [
+      "OKLO"
+    ],
+    "headline": "Centrus Says Now Has $5.4B In Customer Contracts &amp; Commitments For LEU &amp; HALEU From New Capacity",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:44:06.589688-05:00",
+    "symbols": [
+      "OKLO"
+    ],
+    "headline": "Oklo Says Fuel Covers First Phase Of Planned 1.2 GW Ohio Power Campus With Meta",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:44:06.594421-05:00",
+    "symbols": [
+      "OKLO"
+    ],
+    "headline": "Oklo To Make Prepayments To Centrus For Future HALEU Deliveries, Supported By Meta\u2019s Prepayment For Oklo Power; Value Undisclosed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:44:06.602217-05:00",
+    "symbols": [
+      "OKLO"
+    ],
+    "headline": "Oklo, Centrus Sign Definitive Multi-Year HALEU Supply Contracts To Fuel Up To Five Aurora Powerhouses; Deliveries From 2029",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:44:06.744899-05:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Michael Burry\u2019s Portfolio: What the \u2018Big Short\u2019 Investor Owns Now",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:07.128161-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Chase & Co. Issues Neutral Rating for Allianz",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:44:07.132658-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Chase Discloses Voting Rights in Delivery Hero SE",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:44:07.282692-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Forecasts AI-Related Spending to Reach $1.4 Trillion by 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:44:07.287028-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Issues Long-Term Revenue Projections for Anthropic",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:44:07.419487-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa Expands Scan to Pay Acceptance in Hong Kong via Octopus Partnership",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:07.570228-05:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Mastercard Canada Releases 2026 Holiday Shopper Insights",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:07.772112-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Bernstein Maintains Market Perform on Chevron, Lowers Price Target to $233",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:07.776605-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Chevron To Restart Operations At Its Biodiesel Production Facility In Ralston, Iowa, With Capacity Of Almost 42M Gallons/Year",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:07.994304-05:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "Barclays Adjusts Price Target on Occidental Petroleum to $73 From $71",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:07.999271-05:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "Wall Street Analysts Update Ratings for Occidental Petroleum",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:08.178066-05:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "SLB Selected By V\u00e5r Energi As Main Integrated Drilling Services Supplier For The Transocean Barents And Deepsea Bergen Rigs On The Norwegian Continental Shelf For Up to Eight Years",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T10:44:08.354604-05:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Pfizer And Blackstone Life Sciences Enter Co-Funding Agreement Under Which Blackstone Will Pay Up To $1.5B Of Development Costs For Study Of Monthly GLP-1 Receptor Agonist Peptide Berobenatide Through 2028",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:08.529625-05:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "Freeport-McMoRan Subsidiary Earns 60% Interest in JOY District",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:08.735920-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Top 3 Risk Off Stocks That Could Sink Your Portfolio This Quarter",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:44:08.946679-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Michael Burry\u2019s Portfolio: What the \u2018Big Short\u2019 Investor Owns Now",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:44:09.123287-05:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Michael Burry\u2019s Portfolio: What the \u2018Big Short\u2019 Investor Owns Now",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T10:44:09.299055-05:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "FedEx Fined $2.975 Million Over California Privacy Violations",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:44:09.303435-05:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "FedEx Highlights Veteran Pilot and Community Service Initiatives",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T10:44:18.948672-05:00",
+    "symbols": [
+      "GP"
+    ],
+    "headline": "GreenPower Motor Shares Halted On Circuit Breaker To The Upside, Stock Now Up 162.87%",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

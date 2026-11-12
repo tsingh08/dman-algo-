@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-12T14:01:49.927180-05:00",
-    "symbols": [
-      "HIG"
-    ],
-    "headline": "Mizuho Maintains Neutral on The Hartford Insurance Gr, Raises Price Target to $145",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-12T14:01:50.056253-05:00",
     "symbols": [
       "PYPD"
@@ -4996,6 +4986,16 @@
     ],
     "headline": "Why Is Bitcoin&#39;s Decline Accelerating? Mark Yusko Weighs In",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T15:32:20.680848-05:00",
+    "symbols": [
+      "INTR"
+    ],
+    "headline": "Inter & Co Expands 'Indique e Ganhe' Referral Program",
+    "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": null
   }

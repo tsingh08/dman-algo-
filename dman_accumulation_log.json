@@ -4318,5 +4318,14 @@
   "drift_pct": 0.07,
   "range_ratio": 0.36,
   "near_high": 0.997
+ },
+ {
+  "ts": "2026-11-12T12:10:32.312072-05:00",
+  "ticker": "EPR",
+  "price": 59.79,
+  "rvol": 1.5,
+  "drift_pct": 0.47,
+  "range_ratio": 0.34,
+  "near_high": 0.977
  }
 ]

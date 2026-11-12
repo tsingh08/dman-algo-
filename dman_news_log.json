@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-11-12T09:37:55.071533-05:00",
-    "symbols": [
-      "BATRK"
-    ],
-    "headline": "Rosenblatt Maintains Buy on Atlanta Braves Holdings, Raises Price Target to $91",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:37:55.276365-05:00",
-    "symbols": [
-      "NAVI"
-    ],
-    "headline": "Navient Announces Fourth Quarter 2026 Dividend",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T09:37:55.470107-05:00",
-    "symbols": [
-      "AVNW"
-    ],
-    "headline": "B. Riley Trims Price Target on Aviat Networks to $32 From $33, Keeps Buy Rating",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:37:55.667909-05:00",
-    "symbols": [
-      "ALLT"
-    ],
-    "headline": "Allot Q3 Adj. EPS $0.09, Inline, Sales $30.588M Beat $30.029M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:37:55.672379-05:00",
-    "symbols": [
-      "ALLT"
-    ],
-    "headline": "Allot Raises FY2026 Sales Guidance from $115.000M-$118.000M to $116.000M-$118.000M vs $116.321M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T09:37:55.993405-05:00",
-    "symbols": [
-      "QUIK"
-    ],
-    "headline": "QuickLogic Q3 EPS $(0.12) Vs $(0.24) YoY, Revenue $5.1M Up From $2.0M YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T09:37:56.202432-05:00",
-    "symbols": [
-      "TLSI"
-    ],
-    "headline": "Canaccord Genuity Maintains Buy on TriSalus Life Sciences, Lowers Price Target to $4",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T09:37:56.805884-05:00",
-    "symbols": [
-      "TWST"
-    ],
-    "headline": "Twist Bioscience Q4 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-12T09:37:56.810350-05:00",
     "symbols": [
       "TWST"
@@ -4998,5 +4918,85 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T11:48:57.999865-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Trump\u2019s Bombshell Choice for Nvidia\u2019s Next CEO: \u2018A Legend Replaces a Legend\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T11:48:58.504312-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Goldman Sachs Maintains Buy on NVIDIA, Lowers Price Target to $220",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T11:48:58.509310-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What Is Going On With Intel Stock on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T11:48:58.513440-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Trump\u2019s Bombshell Choice for Nvidia\u2019s Next CEO: \u2018A Legend Replaces a Legend\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T11:48:58.517197-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What&#39;s Going On With Super Micro Computer Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T11:49:00.218794-05:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "What&#39;s Going On With Super Micro Computer Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T11:49:10.025359-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "White House Expected In Coming Days To Extend Jones Act Waiver On Shipping Oil And Commodities On Foreign-Flagged Ships Between U.S. Ports",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T11:49:12.689288-05:00",
+    "symbols": [
+      "ENVX"
+    ],
+    "headline": "Enovix Stock Sinks After Wider Q3 Loss, Smartphone Testing Exit",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

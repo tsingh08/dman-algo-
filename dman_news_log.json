@@ -1,195 +1,5 @@
 [
   {
-    "ts": "2026-11-13T09:25:31.462519-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nebius Crashes 20% as Jensen Huang Shock Rocks AI Stocks: One ETF Is Having a Field Day",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:25:31.531064-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Trump Urged Jensen Huang To \u2018Keep Fighting\u2019 for His Nvidia CEO Job Two Days Before Resignation: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T09:25:31.535602-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Elon Musk Warns Against Pushing Founders Out \u2014 Steve Jobs and Travis Kalanick Lessons Resurface as Jensen Huang Exits Nvidia",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T09:25:31.540023-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "AOC Says Five Guys in Tuxedos Shouldn\u2019t Control the Economy: \u2018We Need to Check These Guys Power\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T09:25:31.544413-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Nvidia at 11X Earnings? One Wall Street Bull Says Investors Are Getting a Rare Bargain",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T09:25:31.606779-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Chamath Palihapitiya Says Nvidia Oversight Would Be A \u2018Disaster\u2019 After Jensen Huang&#39;s Exit, Warns Against Repeating Microsoft\u2019s DOJ Era",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T09:25:31.611351-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "NVIDIA\u2019s Shakeup Clouds Copper\u2019s AI Boom",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T09:25:31.616836-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Nvidia-Backed Nscale Warns It Needs More &#39;Financing&#39; Amid $44.6B Anthropic Contract Ahead of US IPO As Nine-Month Loss Widens to $1.69 Billion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T09:25:31.621362-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Cerebras (CBRS) Stock Is Trending Pre-Market: Here&#39;s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T09:25:31.683906-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Jim Cramer Questions If Jensen Huang Betrayed Nvidia Shareholders, Says Former CEO Let Investors Down: \u2018Yes. End Of Story\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T09:25:31.688840-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100  Futures Rise as Nvidia CEO Exit Remains in Focus\u2014 CSCO, AMAT, NU in Focus(UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T09:25:31.693225-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "SemiAnalysis Suspects US Intelligence Role in Jensen Huang\u2019s Exit as China Chip Crackdown Looms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T09:25:31.697567-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Jensen Huang Faces Subpoena Threat As 3 Republican-Led House Committees Demand Closed-Door Testimony Over Nvidia\u2019s China Ties",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T09:25:31.701869-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "What Is Going on With Micron Stock on Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T09:25:31.774022-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "What&#39;s Going On With AMD Stock Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:25:31.779097-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Broadcom Is &#39;Very, Very Capable,&#39; Analyst Says As NVIDIA&#39;s Troubles Mount",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:25:31.784196-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "NVIDIA&#39;s Board Was &#39;Very Deferential&#39; To Jensen Huang: Expert",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:25:31.924220-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Newsmax Delivers Its Strongest Quarter Since Going Public",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T09:25:31.928964-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#39;Amazon\u2019s plan to own the world\u2019s product data and fight AI shopping agents&#39; - Reuters Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-13T09:25:31.933409-05:00",
     "symbols": [
       "META"
@@ -4995,6 +4805,196 @@
       "YMAT"
     ],
     "headline": "J-Star Holding Announces Executive Debt-to-Equity Conversion and Strategic Carbon Fiber Supply Collaboration",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T11:02:20.517296-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Enhances Primavera Unifier with AI Capabilities",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:02:20.524490-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Form Energy Appoints Former Tesla Executive Jon McNeill to Board of Directors",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:02:32.311799-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "&#39;Texas\u2019 Next AG Vows \u2018Tremendous Scrutiny\u2019 of Tesla-SpaceX Deal&#39; - Bloomberg Interview",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T11:02:32.317086-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Kevin O\u2019Leary Backs Elon Musk\u2019s Starlink as United CEO Calls It \u2018Biggest Near-Term Competitive Advantage\u2019 in 100 Years, Says Amazon Leo Is \u2018A Mistake\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T11:02:32.322028-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Ed Bastian Says Delta Will Be &#39;Nuanced&#39; in Its Approach to AI Agents Looking for Cheaper Fares\u2014Warns Oil Shock May Not Be &#39;Behind Us&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T11:02:32.328015-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nvidia-Backed Nscale Warns It Needs More &#39;Financing&#39; Amid $44.6B Anthropic Contract Ahead of US IPO As Nine-Month Loss Widens to $1.69 Billion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T11:02:32.333650-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Trump Urged Jensen Huang To \u2018Keep Fighting\u2019 for His Nvidia CEO Job Two Days Before Resignation: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:02:32.339624-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Elon Musk Warns Against Pushing Founders Out \u2014 Steve Jobs and Travis Kalanick Lessons Resurface as Jensen Huang Exits Nvidia",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:02:32.344764-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "AOC Says Five Guys in Tuxedos Shouldn\u2019t Control the Economy: \u2018We Need to Check These Guys Power\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:02:32.351604-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Chamath Palihapitiya Says Nvidia Oversight Would Be A \u2018Disaster\u2019 After Jensen Huang&#39;s Exit, Warns Against Repeating Microsoft\u2019s DOJ Era",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:02:32.356546-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "NVIDIA\u2019s Shakeup Clouds Copper\u2019s AI Boom",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:02:32.445308-05:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Consumer Staples Leads Sectors As Technology Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T11:02:32.450840-05:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Veylo and Thunderyard Solutions Continue Strategic Partnership for Federal AI Modernization",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:02:32.457812-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Snowflake Executive Discusses AI and Data Strategy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T11:02:32.474003-05:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "What's Going On With Qualcomm Stock Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:02:32.480172-05:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Telit Cinterion Launches Smart Module Powered by Qualcomm Processor",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:02:32.522080-05:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Consumer Staples Leads Sectors As Technology Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T11:02:32.621116-05:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Consumer Staples Leads Sectors As Technology Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T11:02:32.777360-05:00",
+    "symbols": [
+      "NNOX"
+    ],
+    "headline": "NANO-X IMAGING Enters Into Non-Exclusive Distribution Agreement With Medworks To Support Nanox.AI\u2019s HealthOST Commercial Expansion In Greece",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

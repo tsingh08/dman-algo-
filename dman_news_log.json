@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-13T09:25:31.933409-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "AOC Says Five Guys in Tuxedos Shouldn\u2019t Control the Economy: \u2018We Need to Check These Guys Power\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T09:25:32.098338-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "11 AI Stocks to Buy on Dips: &#39;Don&#39;t Waste a Good Sell-Off,&#39; Analyst Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T09:25:32.102933-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "What&#39;s Going On With AMD Stock Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-13T09:25:32.107346-05:00",
     "symbols": [
       "GOOGL"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T11:03:20.597919-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "BofA Securities Raises Price Target on Costco Wholesale",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:03:20.603008-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Kirkland Signature Launches Prebiotic Soda",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:03:20.674181-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA Faces Multiple US Department of Justice Probes",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

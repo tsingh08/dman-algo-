@@ -1,215 +1,5 @@
 [
   {
-    "ts": "2026-11-13T10:52:49.447403-05:00",
-    "symbols": [
-      "MLCO"
-    ],
-    "headline": "UBS Downgrades Melco Resorts & Entertainment to Sell From Buy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T10:52:49.697328-05:00",
-    "symbols": [
-      "NWGL"
-    ],
-    "headline": "CL Workshop Group Reports Fiscal Year Financial Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T10:52:51.128891-05:00",
-    "symbols": [
-      "YMAT"
-    ],
-    "headline": "J-Star Holding Announces Executive Debt-to-Equity Conversion and Strategic Carbon Fiber Supply Collaboration",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:02:20.517296-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Enhances Primavera Unifier with AI Capabilities",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T11:02:20.524490-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Form Energy Appoints Former Tesla Executive Jon McNeill to Board of Directors",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T11:02:32.311799-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "&#39;Texas\u2019 Next AG Vows \u2018Tremendous Scrutiny\u2019 of Tesla-SpaceX Deal&#39; - Bloomberg Interview",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T11:02:32.317086-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Kevin O\u2019Leary Backs Elon Musk\u2019s Starlink as United CEO Calls It \u2018Biggest Near-Term Competitive Advantage\u2019 in 100 Years, Says Amazon Leo Is \u2018A Mistake\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T11:02:32.322028-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Ed Bastian Says Delta Will Be &#39;Nuanced&#39; in Its Approach to AI Agents Looking for Cheaper Fares\u2014Warns Oil Shock May Not Be &#39;Behind Us&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T11:02:32.328015-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nvidia-Backed Nscale Warns It Needs More &#39;Financing&#39; Amid $44.6B Anthropic Contract Ahead of US IPO As Nine-Month Loss Widens to $1.69 Billion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T11:02:32.333650-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Trump Urged Jensen Huang To \u2018Keep Fighting\u2019 for His Nvidia CEO Job Two Days Before Resignation: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T11:02:32.339624-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Elon Musk Warns Against Pushing Founders Out \u2014 Steve Jobs and Travis Kalanick Lessons Resurface as Jensen Huang Exits Nvidia",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T11:02:32.344764-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "AOC Says Five Guys in Tuxedos Shouldn\u2019t Control the Economy: \u2018We Need to Check These Guys Power\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T11:02:32.351604-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Chamath Palihapitiya Says Nvidia Oversight Would Be A \u2018Disaster\u2019 After Jensen Huang&#39;s Exit, Warns Against Repeating Microsoft\u2019s DOJ Era",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T11:02:32.356546-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "NVIDIA\u2019s Shakeup Clouds Copper\u2019s AI Boom",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T11:02:32.445308-05:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Consumer Staples Leads Sectors As Technology Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T11:02:32.450840-05:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Veylo and Thunderyard Solutions Continue Strategic Partnership for Federal AI Modernization",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T11:02:32.457812-05:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Snowflake Executive Discusses AI and Data Strategy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T11:02:32.474003-05:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "What's Going On With Qualcomm Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T11:02:32.480172-05:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Telit Cinterion Launches Smart Module Powered by Qualcomm Processor",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T11:02:32.522080-05:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Consumer Staples Leads Sectors As Technology Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T11:02:32.621116-05:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Consumer Staples Leads Sectors As Technology Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-13T11:02:32.777360-05:00",
     "symbols": [
       "NNOX"
@@ -4998,5 +4788,215 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T13:47:56.408019-05:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "AMD Sinks 10.5% as Chip Rally Unwinds, Nasdaq 100 Falls 1.7%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T13:47:56.980087-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "AMD Sinks 10.5% as Chip Rally Unwinds, Nasdaq 100 Falls 1.7%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T13:47:57.248815-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "AMD Stock Has Outrun Nvidia 5X Since 2024. But There\u2019s a Valuation Catch",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-13T13:47:57.252746-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "AMD Sinks 10.5% as Chip Rally Unwinds, Nasdaq 100 Falls 1.7%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-13T13:47:57.524581-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD Stock Has Outrun Nvidia 5X Since 2024. But There\u2019s a Valuation Catch",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T13:47:57.528517-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD Sinks 10.5% as Chip Rally Unwinds, Nasdaq 100 Falls 1.7%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T13:48:03.730119-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Barclays Maintains Overweight on ExxonMobil Holdings, Raises Price Target to $206",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T13:48:08.518348-05:00",
+    "symbols": [
+      "SMR"
+    ],
+    "headline": "Rosen Law Firm Announces Class Action Lawsuit Against NuScale Power Corporation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T13:48:09.055500-05:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "&#39;Senate Republicans eye defense-only spending bill&#39; - Semafor",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T13:48:09.285654-05:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "&#39;Senate Republicans eye defense-only spending bill&#39; - Semafor",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T13:48:11.112090-05:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "Barclays Maintains Overweight on Occidental Petroleum, Raises Price Target to $73",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T13:48:12.920406-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "AMD Sinks 10.5% as Chip Rally Unwinds, Nasdaq 100 Falls 1.7%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T13:48:13.148935-05:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "AMD Sinks 10.5% as Chip Rally Unwinds, Nasdaq 100 Falls 1.7%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T13:48:15.177019-05:00",
+    "symbols": [
+      "ENVX"
+    ],
+    "headline": "Why Is Enovix Stock Falling Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T13:48:16.754399-05:00",
+    "symbols": [
+      "MLCO"
+    ],
+    "headline": "UBS Downgrades Melco Resorts & Entertainment to Sell From Buy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T13:48:17.653144-05:00",
+    "symbols": [
+      "NWGL"
+    ],
+    "headline": "CL Workshop Group Reports Fiscal Year Financial Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T13:48:19.295292-05:00",
+    "symbols": [
+      "SNAP"
+    ],
+    "headline": "Seller Snap Launches MCP Server for AI Integration",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T13:48:21.749088-05:00",
+    "symbols": [
+      "YMAT"
+    ],
+    "headline": "J-Star Holding Announces Executive Debt-to-Equity Conversion and Strategic Carbon Fiber Supply Collaboration",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T13:48:22.650043-05:00",
+    "symbols": [
+      "MOD"
+    ],
+    "headline": "AMD Sinks 10.5% as Chip Rally Unwinds, Nasdaq 100 Falls 1.7%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T13:48:23.341585-05:00",
+    "symbols": [
+      "LFTO"
+    ],
+    "headline": "Barclays Maintains Overweight on Liftoff Mobile, Lowers Price Target to $30",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T13:48:31.785912-05:00",
+    "symbols": [
+      "ALM"
+    ],
+    "headline": "AMD Sinks 10.5% as Chip Rally Unwinds, Nasdaq 100 Falls 1.7%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

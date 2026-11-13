@@ -147,7 +147,10 @@ def setUpModule():
     # leak state between suite runs. Tests that cover these stores directly
     # still patch them to their own files, which overrides this.
     global _state_write_isolation
-    for _const in ("LAST_ALERTS_FILE", "_ALERT_DEDUP_FILE", "_DAY_START_EQUITY_FILE"):
+    # 2026-11-12: DIP_CANDIDATES_FILE and _OPTIONS_FEED_STATE_FILE joined the
+    # list -- every full local run left both modified in the working tree.
+    for _const in ("LAST_ALERTS_FILE", "_ALERT_DEDUP_FILE", "_DAY_START_EQUITY_FILE",
+                   "DIP_CANDIDATES_FILE", "_OPTIONS_FEED_STATE_FILE"):
         _tmp = os.path.join(tempfile.gettempdir(),
                             f"dman_test_isolation{_const.lower()}.json")
         try:
@@ -11994,6 +11997,64 @@ class TestRegisterTelegramCommands(unittest.TestCase):
         msg = mock_tg.call_args[0][0]
         for cmd, _ in a.TELEGRAM_COMMANDS:
             self.assertIn(f"/{cmd}", msg)
+
+
+class TestEarlyCloseSessions(unittest.TestCase):
+    """2026-11-12: nothing modelled the 1 PM closes; an order sent after 13:00
+    on one is worked by the broker at the NEXT session's open."""
+
+    def _open_at(self, *ymdhm):
+        with patch.object(a, "datetime") as mock_dt:
+            mock_dt.now.return_value = datetime(*ymdhm, tzinfo=a.ET)
+            return a.is_market_open()
+
+    def test_day_after_thanksgiving_closes_at_one(self):
+        self.assertTrue(self._open_at(2026, 11, 27, 12, 59))
+        self.assertTrue(self._open_at(2026, 11, 27, 13, 0))
+        self.assertFalse(self._open_at(2026, 11, 27, 13, 1))
+        self.assertFalse(self._open_at(2026, 11, 27, 14, 0))
+
+    def test_a_normal_day_still_closes_at_four(self):
+        self.assertTrue(self._open_at(2026, 11, 20, 14, 0))
+        self.assertFalse(self._open_at(2026, 11, 20, 16, 1))
+
+    def test_close_time_helper(self):
+        self.assertEqual(a._session_close_hm(date(2026, 12, 24)), (13, 0))
+        self.assertEqual(a._session_close_hm(date(2026, 12, 23)), (16, 0))
+        # an early close is a session, never also a holiday
+        self.assertFalse(a._EARLY_CLOSE_DATES & a._MARKET_HOLIDAYS)
+        self.assertTrue(all(d.weekday() < 5 for d in a._EARLY_CLOSE_DATES))
+
+
+class TestNetTransfersAndProbationSweep(unittest.TestCase):
+    def test_transfers_sum_and_fail_to_none(self):
+        tc = MagicMock()
+        tc.get.return_value = [{"net_amount": "500"}, {"net_amount": "-120.5"}]
+        self.assertAlmostEqual(a._net_transfers_today(tc), 379.5)
+        tc.get.return_value = []
+        self.assertEqual(a._net_transfers_today(tc), 0.0)
+        tc.get.return_value = MagicMock()               # not a list
+        self.assertIsNone(a._net_transfers_today(tc))
+        tc.get.side_effect = RuntimeError("503")
+        self.assertIsNone(a._net_transfers_today(tc))
+
+    def test_sweep_drops_only_expired_entries(self):
+        now = datetime.now(a.ET)
+        state = {"Old": {"started": (now - timedelta(days=a.SETUP_PROBATION_MAX_DAYS + 25)).isoformat()},
+                 "Fresh": {"started": (now - timedelta(days=1)).isoformat()},
+                 "Broken": {"started": "not-a-date"}}
+        saved = {}
+        with patch.object(a, "_load_setup_probation", return_value=state), \
+             patch.object(a, "_save_setup_probation", side_effect=lambda st: saved.update(st)):
+            self.assertEqual(a._sweep_expired_setup_probation(), ["Old"])
+        self.assertEqual(sorted(saved), ["Broken", "Fresh"])
+
+    def test_sweep_with_nothing_expired_does_not_write(self):
+        state = {"Fresh": {"started": datetime.now(a.ET).isoformat()}}
+        with patch.object(a, "_load_setup_probation", return_value=state), \
+             patch.object(a, "_save_setup_probation") as sv:
+            self.assertEqual(a._sweep_expired_setup_probation(), [])
+            sv.assert_not_called()
 
 
 class TestIsMarketOpenHolidayAware(unittest.TestCase):

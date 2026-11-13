@@ -1775,7 +1775,21 @@ def is_market_open() -> bool:
     if now.date() in _MARKET_HOLIDAYS:
         return False
     t = now.hour * 100 + now.minute
-    return 930 <= t <= 1600
+    _ch, _cm = _session_close_hm(now.date())
+    return 930 <= t <= _ch * 100 + _cm
+
+
+def _session_close_hm(d: Optional[date] = None) -> tuple[int, int]:
+    """(hour, minute) ET of the regular-session close on `d` (default today):
+    13:00 on an NYSE early-close day, 16:00 otherwise.
+
+    Until 2026-11-12 nothing modelled the 1 PM closes. The one that costs
+    money is an order sent after 13:00 on such a day: the broker accepts a
+    DAY order after the close and works it at the NEXT session's open, so a
+    2 PM signal on the Friday after Thanksgiving would have become a Monday
+    opening-auction fill nobody chose."""
+    d = d or datetime.now(ET).date()
+    return (13, 0) if d in _EARLY_CLOSE_DATES else (16, 0)
 
 _NON_COMMON_NAME_RE = re.compile(r" - (?:.* )?(?:Warrants?|Rights?|Units?)\s*$", re.I)
 
@@ -4004,6 +4018,34 @@ def _effective_min_score(setup: str, ticker: str, base: int) -> tuple[int, int]:
         _eff = max(_eff, SEASONAL_MIN_SCORE)
     _uncapped = _eff + _setup_probation_bonus(setup)
     return min(_uncapped, MAX_EFFECTIVE_MIN_SCORE), _uncapped
+
+
+def _sweep_expired_setup_probation() -> list[str]:
+    """Drop setup-probation entries older than SETUP_PROBATION_MAX_DAYS.
+
+    Expiry is otherwise lazy -- it happens only when that setup is next
+    scored -- so a setup that stops producing signals keeps a dead entry in
+    the state file indefinitely (2026-11-12: an "Earnings Spread" entry 35
+    days old against a 10-day limit), and anyone reading the file sees a
+    restriction that is not in force. Silent: nothing changes for trading."""
+    try:
+        state = _load_setup_probation()
+        gone = []
+        for key, entry in list(state.items()):
+            try:
+                started = datetime.fromisoformat((entry or {}).get("started", ""))
+                if (datetime.now(started.tzinfo) - started).days >= SETUP_PROBATION_MAX_DAYS:
+                    gone.append(key)
+            except (ValueError, TypeError, AttributeError):
+                continue
+        if gone:
+            for key in gone:
+                del state[key]
+            _save_setup_probation(state)
+        return gone
+    except Exception as exc:
+        _log_swallowed("setup probation sweep", exc)
+        return []
 
 
 def _setup_probation_bonus(setup: str) -> int:
@@ -12354,7 +12396,13 @@ def _force_close_day_only_positions(_now_et: Optional[datetime] = None) -> int:
     """
     now_et = _now_et if _now_et is not None else datetime.now(ET)
     today_str = now_et.date().isoformat()
-    at_or_past_eod = (now_et.hour, now_et.minute) >= (MOMENTUM_EOD_CLOSE_HOUR_ET, MOMENTUM_EOD_CLOSE_MINUTE_ET)
+    # On a 1 PM early close the usual 15:45 never arrives in-session, and a
+    # "day-only" position would ride overnight: close 15 minutes before the
+    # bell instead.
+    _eod_hm = (MOMENTUM_EOD_CLOSE_HOUR_ET, MOMENTUM_EOD_CLOSE_MINUTE_ET)
+    if _session_close_hm(now_et.date()) == (13, 0):
+        _eod_hm = (12, 45)
+    at_or_past_eod = (now_et.hour, now_et.minute) >= _eod_hm
     closed = 0
     for pos in list(PositionTracker().positions):
         if not pos.day_only:
@@ -18299,6 +18347,14 @@ _FOMC_LAST_CONFIRMED_YEAR = 2026  # raise this after verifying new dates
 
 # NYSE market holidays — algo skips scans and omits these days when computing
 # "blackout lifts" dates. Update each December from nyse.com/markets/hours-calendars.
+# NYSE 1:00 PM ET early closes (day after Thanksgiving, Christmas Eve when it
+# is a weekday session, July 3 when July 4 is a weekday). Update each December
+# with _MARKET_HOLIDAYS. 2027-12-24 and 2027-07-05 are full holidays, not here.
+_EARLY_CLOSE_DATES: set[date] = {
+    date(2026, 11, 27), date(2026, 12, 24),
+    date(2027, 11, 26),
+}
+
 _MARKET_HOLIDAYS: set[date] = {
     # 2025
     date(2025,  1,  1),  # New Year's Day
@@ -30937,6 +30993,22 @@ def _describe_occ_symbol(occ: str) -> str:
 
 _DAY_START_EQUITY_FILE = "dman_day_start_equity.json"
 
+def _net_transfers_today(tc) -> Optional[float]:
+    """Net cash moved in (+) or out (-) of the account today, from the
+    broker's own activity log; None when that cannot be read (callers then
+    fall back to the first-reading baseline)."""
+    try:
+        _rows = tc.get("/account/activities",
+                       {"activity_types": "CSD,CSW,JNLC",
+                        "date": datetime.now(ET).date().isoformat()})
+        if not isinstance(_rows, list):
+            return None
+        return float(sum(float((_r or {}).get("net_amount") or 0) for _r in _rows))
+    except Exception as exc:
+        _log_swallowed("net transfers today", exc)
+        return None
+
+
 def _day_start_sleeve() -> dict:
     """The operator sleeve's per-symbol intraday P&L as it stood when today's
     baseline was written; {} when there is no baseline for today or it was
@@ -31018,6 +31090,19 @@ def send_account_pnl_telegram(label: str = "EOD") -> None:
         equity     = _float_strict(acct.equity)
         cash       = _float_strict(acct.cash)
         last_eq    = _get_day_start_equity(equity)
+        # The REPORTED day is prior close -> now, with today's deposits and
+        # withdrawals taken out exactly. The first-reading baseline above is
+        # written ~09:25 ET, after any pre-market gap: on 2026-11-12 it was
+        # $2,185 against a $2,362 prior close, so a -1.2% day was reported as
+        # a gain. It stays as the fallback (it still excludes a deposit) when
+        # the broker's activity log or last_equity cannot be read.
+        try:
+            _prior = float(acct.last_equity)
+            _xfer = _net_transfers_today(tc)
+            if _xfer is not None and _prior + _xfer > 0:
+                last_eq = _prior + _xfer
+        except (TypeError, ValueError):
+            pass
         day_pl     = equity - last_eq
         day_pl_pct = day_pl / last_eq * 100 if last_eq > 0 else 0.0
         bp         = float(getattr(acct, "buying_power", cash))
@@ -31085,6 +31170,7 @@ def send_account_pnl_telegram(label: str = "EOD") -> None:
         # every single day listing the same dead names — noise that trains a
         # reader to skip the one message meant to surface a NEW drifting
         # setup. Same filter as _enforce_setup_drift_restrictions().
+        _sweep_expired_setup_probation()
         _drift = [_d for _d in WinRateTracker().setup_performance_drift()
                   if not _setup_retired(_d["setup"])]
         # 24h, not the 30-min default: this rides the EOD summary's callers,

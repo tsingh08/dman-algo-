@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-11-12T17:33:22.925463-05:00",
-    "symbols": [
-      "ARI"
-    ],
-    "headline": "Apollo Commercial Real Estate Finance, Inc. Completes Asset Transfer to Liquidating Trust",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T17:33:23.156120-05:00",
-    "symbols": [
-      "ENVX"
-    ],
-    "headline": "Block & Leviton Investigates Enovix Corporation for Potential Securities Law Violations",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T17:33:23.379573-05:00",
-    "symbols": [
-      "JBI"
-    ],
-    "headline": "UBS Adjusts Price Target for Janus International Group",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T17:34:20.805030-05:00",
-    "symbols": [
-      "CTMX"
-    ],
-    "headline": "CytomX Therapeutics Maintained at Overweight by JP Morgan",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T18:02:20.864928-05:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Supermicro Faces DOJ Investigation Over Alleged Smuggling to China",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T18:03:20.859812-05:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Rocket Lab Announces Upcoming 100th Electron Rocket Launch",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T18:03:21.146461-05:00",
-    "symbols": [
-      "JOBY"
-    ],
-    "headline": "Joby and Archer Push Initial Passenger Operations to 2027",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T18:03:21.373465-05:00",
-    "symbols": [
-      "SNAP"
-    ],
-    "headline": "Seller Snap Launches MCP Server for AI Integration",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T18:03:21.609547-05:00",
-    "symbols": [
-      "SMR"
-    ],
-    "headline": "Rosen Law Firm Announces Class Action Lawsuit Against NuScale Power Corporation",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T19:02:20.818465-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly Presents New Clinical Data at ACR Convergence 2026",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T19:02:21.058798-05:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs International Discloses Dealings in DCC Energy PLC",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-12T19:03:20.776948-05:00",
     "symbols": [
       "ABNB"
@@ -4995,6 +4885,116 @@
       "LFTO"
     ],
     "headline": "RBC Capital Maintains Outperform on Liftoff Mobile, Raises Price Target to $38",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T10:42:12.181197-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Barclays Maintains Overweight on NVIDIA, Lowers Price Target to $210",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-13T10:42:13.984384-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Barclays Maintains Overweight on ExxonMobil Holdings, Raises Price Target to $206",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T10:42:17.177767-05:00",
+    "symbols": [
+      "ADTN"
+    ],
+    "headline": "CEO Thomas R. Stanton Acquires 150,000 Shares of ADTRAN Holdings, Inc.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T10:42:17.182787-05:00",
+    "symbols": [
+      "ADTN"
+    ],
+    "headline": "Goldman Sachs Group, Inc. Reports Change in Voting Rights in ADTRAN Holdings, Inc.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T10:42:17.265223-05:00",
+    "symbols": [
+      "ARI"
+    ],
+    "headline": "Apollo Commercial Real Estate Finance, Inc. Completes Asset Transfer to Liquidating Trust",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T10:42:17.683943-05:00",
+    "symbols": [
+      "CTMX"
+    ],
+    "headline": "CytomX Therapeutics Maintained at Overweight by JP Morgan",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T10:42:17.902746-05:00",
+    "symbols": [
+      "ENVX"
+    ],
+    "headline": "Why Is Enovix Stock Falling Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T10:42:18.446772-05:00",
+    "symbols": [
+      "JBI"
+    ],
+    "headline": "UBS Adjusts Price Target for Janus International Group",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T10:42:19.472426-05:00",
+    "symbols": [
+      "SNAP"
+    ],
+    "headline": "Seller Snap Launches MCP Server for AI Integration",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T10:42:20.785053-05:00",
+    "symbols": [
+      "LFTO"
+    ],
+    "headline": "Barclays Maintains Overweight on Liftoff Mobile, Lowers Price Target to $30",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T10:42:22.899038-05:00",
+    "symbols": [
+      "GEMI"
+    ],
+    "headline": "Gemini Space Station Q3 EPS $(0.46) Beats $(0.58) Estimate, Sales $40.881M Miss $42.036M Estimate",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

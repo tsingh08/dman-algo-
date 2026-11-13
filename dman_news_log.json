@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-11-12T14:25:36.194118-05:00",
-    "symbols": [
-      "OXY"
-    ],
-    "headline": "Wall Street Analysts Update Ratings for Occidental Petroleum",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:25:36.359766-05:00",
-    "symbols": [
-      "SLB"
-    ],
-    "headline": "SLB Selected By V\u00e5r Energi As Main Integrated Drilling Services Supplier For The Transocean Barents And Deepsea Bergen Rigs On The Norwegian Continental Shelf For Up to Eight Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T14:25:36.606989-05:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "Freeport-McMoRan Subsidiary Earns 60% Interest in JOY District",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:25:36.904367-05:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Top 3 Risk Off Stocks That Could Sink Your Portfolio This Quarter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:25:37.090019-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Michael Burry\u2019s Portfolio: What the \u2018Big Short\u2019 Investor Owns Now",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T14:25:37.276737-05:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Michael Burry\u2019s Portfolio: What the \u2018Big Short\u2019 Investor Owns Now",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:25:37.592236-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Kansas City Fed\u2019s Schmid Does Not Comment On Monetary Policy Or Economic Outlook In Remarks On Housing Costs; Says Materials And Labor Costs May Worsen Housing Affordability",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:25:37.596489-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed\u2019s Daly Says AI Pipeline Is Deep, So Continues Even If It Slows; Says Economy Being Driven By Technology Boom; Says No Doubt Of AI-Fueled Price Pressures",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-12T14:25:37.732540-05:00",
     "symbols": [
       "QQQ"
@@ -4995,6 +4915,86 @@
       "MBGL"
     ],
     "headline": "RBC Capital Markets Raises Price Target on Mobility Global Inc.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T09:37:58.423000-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX&#39;s Historic Starship Flight 15 Still Awaiting FAA Approval Hours Before Launch",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T09:37:58.740666-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Crisis Fails to Stop ETF Buying Frenzy: VOO, QQQ, SOXL Leads $37.5B ETF Inflow Surge",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-13T09:37:58.746331-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Truist Securities Downgrades NVIDIA to Hold, Lowers Price Target to $174",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-13T09:37:59.703794-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Jefferies Maintains Buy on Applied Materials, Lowers Price Target to $580",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T09:38:00.054229-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell Technology, Inc. Appoints Three New Independent Directors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T09:38:00.701487-05:00",
+    "symbols": [
+      "RBLX"
+    ],
+    "headline": "Citigroup Downgrades Roblox to Neutral, Maintains Price Target to $55",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T09:38:04.186015-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed\u2019s Collins Does Not Comment On Economic Outlook Or Monetary Policy; Says Ensuring Price Stability Is A Long-Run Benefit For Housing Market; Notes Persistent Housing Shortage; Higher Productivity Has Helped Limit Some Inflationary Pressures",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T09:38:04.303535-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Nvidia Crisis Fails to Stop ETF Buying Frenzy: VOO, QQQ, SOXL Leads $37.5B ETF Inflow Surge",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

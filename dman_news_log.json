@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-13T09:59:40.294969-05:00",
-    "symbols": [
-      "WWW"
-    ],
-    "headline": "Stifel Maintains Buy on Wolverine World Wide, Raises Price Target to $28",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:59:40.297906-05:00",
-    "symbols": [
-      "WWW"
-    ],
-    "headline": "Baird Maintains Outperform on Wolverine World Wide, Raises Price Target to $27",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:59:40.513800-05:00",
-    "symbols": [
-      "NTES"
-    ],
-    "headline": "NetEase Cloud Music And Sony Music Announce Strategic Multi-Year Licensing Agreement, Expanding Collaboration Across Music Content, Artist Promotion And Cultural Exchange",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-13T09:59:40.739944-05:00",
     "symbols": [
       "QFIN"
@@ -4995,6 +4965,36 @@
       "ENHA"
     ],
     "headline": "Enhanced Group Inc. Reports Q3 2026 Financial Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T12:27:14.695122-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Daly Says Bias Is That Rates Need To Go Up; Markets Understand Fed&#39;s Reaction Function; In All Likelihood We Will Need To Raise Rates",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T12:27:14.700180-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed\u2019s Daly Says Key Problem We Have Is Inflation; A Good Economy With One Problem, Inflation; Not Much Evidence That AI Is Driving Labor Productivity Up",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T12:27:19.046763-05:00",
+    "symbols": [
+      "ACCV"
+    ],
+    "headline": "Accelevation Holdings Sees FY2026 Sales $905.000M-$915.000M vs $896.463M Est",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

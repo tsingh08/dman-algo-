@@ -1,26 +1,26 @@
 {
- "bar": "2026-11-12",
+ "bar": "2026-11-13",
  "entered": null,
  "tickers": [
   {
-   "ticker": "GILD",
-   "close": 167.95
+   "ticker": "XBI",
+   "close": 150.55
   },
   {
-   "ticker": "ELF",
-   "close": 113.53
+   "ticker": "PLTR",
+   "close": 167.99
+  },
+  {
+   "ticker": "MRNA",
+   "close": 223.37
   },
   {
    "ticker": "ZS",
-   "close": 193.22
+   "close": 192.47
   },
   {
-   "ticker": "ABNB",
-   "close": 181.13
-  },
-  {
-   "ticker": "NEM",
-   "close": 112.64
+   "ticker": "GILD",
+   "close": 168.08
   }
  ]
 }

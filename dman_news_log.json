@@ -1,225 +1,5 @@
 [
   {
-    "ts": "2026-11-13T11:13:04.178379-05:00",
-    "symbols": [
-      "CDXS"
-    ],
-    "headline": "Codexis Affirms FY2026 Sales Guidance of $72.000M-$76.000M vs $73.882M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T11:13:04.385202-05:00",
-    "symbols": [
-      "DGXX"
-    ],
-    "headline": "Digi Power X Q3 EPS $0.01 Beats $(0.13) Estimate, Sales $12.250M Miss $14.638M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:13:04.389990-05:00",
-    "symbols": [
-      "DGXX"
-    ],
-    "headline": "Mitsubishi UFJ, Sumitomo Mitsui On Deck Friday As Japanese Banks Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:13:04.456090-05:00",
-    "symbols": [
-      "NEOV"
-    ],
-    "headline": "NeoVolta Power Enters $116M Master Purchase Agreement With An Energy Solutions Provider",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T11:13:04.460623-05:00",
-    "symbols": [
-      "NEOV"
-    ],
-    "headline": "NeoVolta Q1 EPS $(0.13), Inline, Sales $2.787M Beat $1.225M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T11:13:04.647700-05:00",
-    "symbols": [
-      "RLMD"
-    ],
-    "headline": "Relmada Therapeutics Q3 EPS $(0.12) Beats $(0.14) Estimate. Cash and Equivalents $202.1M.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:13:04.711729-05:00",
-    "symbols": [
-      "LFMD"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T11:13:04.716772-05:00",
-    "symbols": [
-      "LFMD"
-    ],
-    "headline": "LifeMD Q3 EPS $(0.11) Beats $(0.14) Estimate, Sales $44.625M Miss $48.885M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T11:13:04.721799-05:00",
-    "symbols": [
-      "LFMD"
-    ],
-    "headline": "LifeMD Lowers FY2026 Sales Guidance from $205.500M-$212.500M to $188.000M-$191.000M vs $207.582M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T11:13:04.727319-05:00",
-    "symbols": [
-      "LFMD"
-    ],
-    "headline": "LifeMD Sees Q4 Sales $46.000M-$49.000M vs $61.318M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T11:13:04.796256-05:00",
-    "symbols": [
-      "BIRD"
-    ],
-    "headline": "Smartbird CEO Says Several Prospective Customer Discussions Have Advanced To Detailed Technical And Commercial Planning",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:13:04.801289-05:00",
-    "symbols": [
-      "BIRD"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:13:04.806036-05:00",
-    "symbols": [
-      "BIRD"
-    ],
-    "headline": "Smartbird Q3 EPS $(0.31) Beats $(1.32) Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:23:30.146359-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Stock in Focus as Massive 365 Outage Hits Outlook, Teams and Copilot: What Investors Should Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T11:23:30.266640-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Michael Burry Says WSJ Missed the Real Nvidia Story",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T11:23:31.666803-05:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Goldman Sachs Maintains Buy on Robinhood Markets, Lowers Price Target to $115",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T11:23:32.012107-05:00",
-    "symbols": [
-      "VRTX"
-    ],
-    "headline": "Here\u2019s How Much You Would Have Made Owning Vertex Pharmaceuticals Stock In The Last 10 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T11:23:35.572632-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;US wants Japan to nearly triple budget for hosting American troops&#39;- Nikkei Asia",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T11:23:35.646038-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Michael Burry Says WSJ Missed the Real Nvidia Story",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T11:23:40.406456-05:00",
-    "symbols": [
-      "RZLT"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:23:40.411302-05:00",
-    "symbols": [
-      "RZLT"
-    ],
-    "headline": "Rezolute Prices ~$100M Offering Of 22M Shares At $3.87Share And Warrants To Purchase Up To 3.8M Shares At $3.869/Pre-Funded Warrant",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:23:40.416183-05:00",
-    "symbols": [
-      "RZLT"
-    ],
-    "headline": "Rezolute Announces Results From Its Ongoing Open-Label Phase 3 upLIFT Study Of Ersodetug In Tumor Hyperinsulinism; Primary Efficacy Endpoint Has Been Achieved Based On Preliminary Results; Topline Results Expected By Mid-December 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-13T11:23:40.775232-05:00",
     "symbols": [
       "HAWK"
@@ -4998,5 +4778,225 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T15:01:49.470112-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "QUICK SPARK: Broadcom Scores Historic Win Over Nvidia as AVGO-NVDA Gap Explodes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-13T15:01:50.028909-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;Meta Testing New Prediction-Market App With Employees&#39;- WSJ",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T15:01:52.461060-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "QUICK SPARK: Broadcom Scores Historic Win Over Nvidia as AVGO-NVDA Gap Explodes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T15:01:52.694586-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "JP Morgan Maintains Overweight on Applied Materials, Lowers Price Target to $500",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T15:02:00.510003-05:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "&#39;Meta Testing New Prediction-Market App With Employees&#39;- WSJ",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T15:02:20.538760-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Advises TruGreen and CD&R on Transaction",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T15:02:20.545018-05:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Renews 'Virgin River' for Ninth Season",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T15:02:20.548813-05:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Announces New Animated Series 'PLANESWALKER' Based on Magic: The Gathering",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T15:02:20.562858-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Texas Attorney General Threatens Potential Tesla-SpaceX Merger",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T15:02:20.566748-05:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Uber Reports Personal Data Exposure Following Third-Party Security Incident",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T15:02:20.831616-05:00",
+    "symbols": [
+      "DGXX"
+    ],
+    "headline": "Digi Power X Q3 EPS $0.01 Beats $(0.13) Estimate, Sales $12.250M Miss $14.638M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T15:02:21.067593-05:00",
+    "symbols": [
+      "NEOV"
+    ],
+    "headline": "NeoVolta Power Enters $116M Master Purchase Agreement With An Energy Solutions Provider",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T15:02:21.992189-05:00",
+    "symbols": [
+      "LFMD"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-13T15:02:22.218271-05:00",
+    "symbols": [
+      "BIRD"
+    ],
+    "headline": "Smartbird CEO Says Several Prospective Customer Discussions Have Advanced To Detailed Technical And Commercial Planning",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T15:02:22.221993-05:00",
+    "symbols": [
+      "BIRD"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T15:02:22.231359-05:00",
+    "symbols": [
+      "BIRD"
+    ],
+    "headline": "Smartbird Q3 EPS $(0.31) Beats $(1.32) Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T15:02:22.462031-05:00",
+    "symbols": [
+      "SRFM"
+    ],
+    "headline": "Surf Air Mobility to Participate in StoneX 15th Annual Discovery 1x1 Investor Conference",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T15:02:22.696431-05:00",
+    "symbols": [
+      "CBRS"
+    ],
+    "headline": "Cerebras Stock Jumps on Q3 Cloud Revenue Up 265%, Raised Outlook (CORRECTED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T15:02:28.075255-05:00",
+    "symbols": [
+      "WWW"
+    ],
+    "headline": "UBS Maintains Buy on Wolverine World Wide, Raises Price Target to $33",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T15:02:28.079146-05:00",
+    "symbols": [
+      "WWW"
+    ],
+    "headline": "Keybanc Maintains Overweight on Wolverine World Wide, Raises Price Target to $27",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T15:02:28.082773-05:00",
+    "symbols": [
+      "WWW"
+    ],
+    "headline": "Stifel Maintains Buy on Wolverine World Wide, Raises Price Target to $28",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T15:02:28.149032-05:00",
+    "symbols": [
+      "WWW"
+    ],
+    "headline": "Baird Maintains Outperform on Wolverine World Wide, Raises Price Target to $27",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

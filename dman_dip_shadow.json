@@ -1639,7 +1639,7 @@
 "ticker": "SNOW",
 "entry": 280.0,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": 4.46,
 "entry_lim": null,
 "pnl_lim_pct": null
 },
@@ -1648,7 +1648,7 @@
 "ticker": "PLTR",
 "entry": 158.68,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": 6.04,
 "entry_lim": null,
 "pnl_lim_pct": null
 },
@@ -1657,16 +1657,16 @@
 "ticker": "XOM",
 "entry": 164.25,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": 3.6,
 "entry_lim": 164.25,
-"pnl_lim_pct": null
+"pnl_lim_pct": 3.6
 },
 {
 "date": "2026-11-05",
 "ticker": "CRWD",
 "entry": 230.69,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": -2.47,
 "entry_lim": null,
 "pnl_lim_pct": null
 },
@@ -1675,7 +1675,7 @@
 "ticker": "PANW",
 "entry": 331.5,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": -3.41,
 "entry_lim": null,
 "pnl_lim_pct": null
 },
@@ -1684,7 +1684,7 @@
 "ticker": "ZS",
 "entry": 209.53,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": -8.07,
 "entry_lim": null,
 "pnl_lim_pct": null
 },
@@ -1693,18 +1693,18 @@
 "ticker": "LMT",
 "entry": 569.0,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": 4.64,
 "entry_lim": 569.0,
-"pnl_lim_pct": null
+"pnl_lim_pct": 4.64
 },
 {
 "date": "2026-11-05",
 "ticker": "CVX",
 "entry": 211.525,
 "rsi2": 0.0,
-"pnl_pct": null,
+"pnl_pct": 2.91,
 "entry_lim": 211.525,
-"pnl_lim_pct": null
+"pnl_lim_pct": 2.91
 },
 {
 "date": "2026-11-06",
@@ -2001,6 +2001,87 @@
 "rsi2": 0.0,
 "pnl_pct": null,
 "entry_lim": 114.98,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-12",
+"ticker": "MRNA",
+"entry": 224.9,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 224.9,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-12",
+"ticker": "BIIB",
+"entry": 250.58,
+"rsi2": 4.9,
+"pnl_pct": null,
+"entry_lim": 250.58,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-12",
+"ticker": "GILD",
+"entry": 168.58,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 168.58,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-12",
+"ticker": "VRTX",
+"entry": 542.12,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 542.12,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-12",
+"ticker": "ELF",
+"entry": 113.71,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 113.71,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-12",
+"ticker": "ZS",
+"entry": 197.24,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 194.1861,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-12",
+"ticker": "ABNB",
+"entry": 182.665,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 182.0356,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-12",
+"ticker": "ISRG",
+"entry": 443.69,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 442.0894,
+"pnl_lim_pct": null
+},
+{
+"date": "2026-11-12",
+"ticker": "NEM",
+"entry": 112.88,
+"rsi2": 0.0,
+"pnl_pct": null,
+"entry_lim": 112.88,
 "pnl_lim_pct": null
 }
 ]

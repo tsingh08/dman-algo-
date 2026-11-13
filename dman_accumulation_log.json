@@ -4363,5 +4363,14 @@
   "drift_pct": 0.35,
   "range_ratio": 0.34,
   "near_high": 0.975
+ },
+ {
+  "ts": "2026-11-13T10:01:21.250651-05:00",
+  "ticker": "PAYO",
+  "price": 7.185,
+  "rvol": 2.19,
+  "drift_pct": 0.49,
+  "range_ratio": 0.55,
+  "near_high": 1.0
  }
 ]

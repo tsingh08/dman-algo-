@@ -49551,7 +49551,13 @@
 "seen": 8,
 "last_ts": "2026-11-10T09:41:32.429669-05:00",
 "entry_min": 14.93,
-"entry_max": 14.93
+"entry_max": 14.93,
+"label_fill": 15.23,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 1.58,
+"label_outcome": "WIN",
+"label_mfe_pct": 7.8,
+"label_mae_pct": -0.98
 },
 {
 "ts": "2026-11-10T09:26:49.818202-05:00",
@@ -49613,7 +49619,13 @@
 "seen": 8,
 "last_ts": "2026-11-10T09:41:33.449050-05:00",
 "entry_min": 29.94,
-"entry_max": 29.94
+"entry_max": 29.94,
+"label_fill": 29.25,
+"label_exit_reason": "stop",
+"label_pnl_pct": -5.31,
+"label_outcome": "LOSS",
+"label_mfe_pct": 0.0,
+"label_mae_pct": -5.91
 },
 {
 "ts": "2026-11-10T09:28:33.349547-05:00",
@@ -49675,7 +49687,13 @@
 "seen": 6,
 "last_ts": "2026-11-10T09:41:33.739740-05:00",
 "entry_min": 26.45,
-"entry_max": 26.45
+"entry_max": 26.45,
+"label_fill": 26.39,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 0.72,
+"label_outcome": "WIN",
+"label_mfe_pct": 1.61,
+"label_mae_pct": 0.0
 },
 {
 "ts": "2026-11-10T10:02:20.673459-05:00",
@@ -49737,7 +49755,13 @@
 "seen": 5,
 "last_ts": "2026-11-10T10:41:19.638540-05:00",
 "entry_min": 81.89,
-"entry_max": 81.89
+"entry_max": 81.89,
+"label_fill": 82.46,
+"label_exit_reason": "stop",
+"label_pnl_pct": -3.77,
+"label_outcome": "LOSS",
+"label_mfe_pct": 0.13,
+"label_mae_pct": -3.8
 },
 {
 "ts": "2026-11-10T10:02:23.000535-05:00",
@@ -49771,7 +49795,13 @@
 "seen": 5,
 "last_ts": "2026-11-10T10:41:21.186602-05:00",
 "entry_min": 0.3991,
-"entry_max": 0.3991
+"entry_max": 0.3991,
+"label_fill": 0.4492,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -6.7,
+"label_outcome": "LOSS",
+"label_mfe_pct": 19.97,
+"label_mae_pct": -6.72
 },
 {
 "ts": "2026-11-10T10:41:19.138696-05:00",
@@ -49833,7 +49863,13 @@
 "seen": 2,
 "last_ts": "2026-11-10T10:41:19.197237-05:00",
 "entry_min": 225.86,
-"entry_max": 225.86
+"entry_max": 225.86,
+"label_fill": 227.49,
+"label_exit_reason": "horizon",
+"label_pnl_pct": -0.24,
+"label_outcome": "SCRATCH",
+"label_mfe_pct": 4.36,
+"label_mae_pct": -1.9
 },
 {
 "ts": "2026-11-11T09:42:25.932669-05:00",

@@ -4372,5 +4372,14 @@
   "drift_pct": 0.49,
   "range_ratio": 0.55,
   "near_high": 1.0
+ },
+ {
+  "ts": "2026-11-13T11:39:00.741921-05:00",
+  "ticker": "SOMN",
+  "price": 48.625,
+  "rvol": 1.58,
+  "drift_pct": 0.44,
+  "range_ratio": 0.32,
+  "near_high": 0.989
  }
 ]

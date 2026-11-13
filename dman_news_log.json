@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-11-13T11:34:12.002342-05:00",
-    "symbols": [
-      "SBC"
-    ],
-    "headline": "SBC Medical Says Clinic Network Grew By 36 YoY To 293 Locations; Cash $198M, Net Cash $154M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:34:12.007076-05:00",
-    "symbols": [
-      "SBC"
-    ],
-    "headline": "SBC Medical Q3 Adj. EBITDA $27.6M vs $16.6M Prior; Operating Income $26.4M, Up 66% YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:34:12.011472-05:00",
-    "symbols": [
-      "SBC"
-    ],
-    "headline": "SBC Medical Secures Priority Sales Rights For NeuroBrain Dynamics\u2019 Existing Products In Japan And South Korea",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:34:12.016349-05:00",
-    "symbols": [
-      "SBC"
-    ],
-    "headline": "SBC Medical Announces Strategic Capital And Business Alliance Agreement With NeuroBrain To Co-Develop Six Medical AI Solutions Targeting Revenue Expansion, Cost Reduction",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-13T11:34:12.372083-05:00",
     "symbols": [
       "DEFT"
@@ -4998,5 +4958,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T15:25:47.367395-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Says Infrastructure Stabilizes As Queued Messages Drain And Traffic Rebalances, With No ETA For Full Recovery",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T15:26:23.539789-05:00",
+    "symbols": [
+      "ITG"
+    ],
+    "headline": "Truist Securities Reiterates Buy on ITG, Lowers Price Target to $11",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T15:26:23.544511-05:00",
+    "symbols": [
+      "ITG"
+    ],
+    "headline": "Stifel Maintains Buy on ITG, Lowers Price Target to $8",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T15:26:23.772622-05:00",
+    "symbols": [
+      "BZ"
+    ],
+    "headline": "Barclays Maintains Overweight on Kanzhun, Lowers Price Target to $17",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

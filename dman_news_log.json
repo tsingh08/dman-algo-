@@ -1,175 +1,5 @@
 [
   {
-    "ts": "2026-11-13T11:13:02.078204-05:00",
-    "symbols": [
-      "QSI"
-    ],
-    "headline": "H.C. Wainwright Maintains Buy Rating on Quantum-Si",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:13:02.143589-05:00",
-    "symbols": [
-      "SABR"
-    ],
-    "headline": "Sabre Stock Declines Following Report of Denied Deal Speculation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:13:02.211370-05:00",
-    "symbols": [
-      "SAIQ"
-    ],
-    "headline": "WISeSat.Space Outlines Approach To Securing Satellite Communications, From Spacecraft And Their Communications Links To Mission Control Centers, Ground Stations And User Terminals",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:13:02.352041-05:00",
-    "symbols": [
-      "SPCE"
-    ],
-    "headline": "Virgin Galactic Reports Q3 Results, Shares Slip",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T11:13:02.357123-05:00",
-    "symbols": [
-      "SPCE"
-    ],
-    "headline": "Virgin Galactic Says New High-Cadence Launch Hangar And Fueling Infrastructure  Expected To Increase Spaceflight Capacity By 20% To 150 Spaceflights Per Year",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T11:13:02.361600-05:00",
-    "symbols": [
-      "SPCE"
-    ],
-    "headline": "Virgin Galactic Hldgs Q3 EPS $(0.39) Beats $(0.50) Estimate, Sales $427.000K Beat $400.000K Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T11:13:02.421527-05:00",
-    "symbols": [
-      "STLA"
-    ],
-    "headline": "Stellantis CEO Warns of Multi-Billion Euro Inflationary Headwinds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:13:02.426593-05:00",
-    "symbols": [
-      "STLA"
-    ],
-    "headline": "Ontario Premier Opposes Potential Stellantis-Leapmotor EV Production Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:13:02.488111-05:00",
-    "symbols": [
-      "SVRA"
-    ],
-    "headline": "H.C. Wainwright Initiates Coverage of Savara Inc. with Buy Rating",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:13:02.560739-05:00",
-    "symbols": [
-      "TCRT"
-    ],
-    "headline": "Alaunos Therapeutics Registered 382,090,789 Shares Of Common Stock For Resale",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:13:02.691376-05:00",
-    "symbols": [
-      "TMC"
-    ],
-    "headline": "HC Wainwright &amp; Co. Maintains Buy on TMC The Metals Co, Lowers Price Target to $5.5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T11:13:02.697706-05:00",
-    "symbols": [
-      "TMC"
-    ],
-    "headline": "TMC Metals Q3 EPS $(0.06), Inline",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T11:13:02.775444-05:00",
-    "symbols": [
-      "UAMY"
-    ],
-    "headline": "HC Wainwright &amp; Co. Maintains Buy on United States Antimony, Lowers Price Target to $6.5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T11:13:02.780059-05:00",
-    "symbols": [
-      "UAMY"
-    ],
-    "headline": "US Antimony Shares Sink on Disappointing Q3 Print, Pulled Guidance",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T11:13:02.784495-05:00",
-    "symbols": [
-      "UAMY"
-    ],
-    "headline": "United States Antimony Withdraws Its Prior 2026 Revenue Guidance Of $60M-$75M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T11:13:02.788892-05:00",
-    "symbols": [
-      "UAMY"
-    ],
-    "headline": "United States Antimony Q3 EPS $(0.06) Misses $(0.01) Estimate, Sales $10.100M Miss $16.383M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T11:13:02.852638-05:00",
-    "symbols": [
-      "USAS"
-    ],
-    "headline": "Americas Gold And Silver Q3 Adj. EPS $0.02 Misses $0.05 Estimate, Sales $51.400M Miss $68.365M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-13T11:13:02.985402-05:00",
     "symbols": [
       "WVE"
@@ -4995,6 +4825,176 @@
       "PDSB"
     ],
     "headline": "PDS Biotechnology Q3 EPS $(0.11) Misses $(0.09) Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T14:03:20.777571-05:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "MongoDB Ventures Participates in $300 Million Funding Round for LangChain",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T14:03:20.781884-05:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "Biogen and Eisai Launch LEQEMBI Pen in Japan",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T14:03:21.036399-05:00",
+    "symbols": [
+      "NRG"
+    ],
+    "headline": "SiebertWilliams Shank Adjusts NRG Energy Price Target",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T14:03:21.040693-05:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Ventures Participates in LangChain Funding Round",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T14:03:21.044370-05:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "Barclays and J.P. Morgan Adjust Price Targets for Occidental Petroleum",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T14:04:20.834013-05:00",
+    "symbols": [
+      "HIMS"
+    ],
+    "headline": "Evercore ISI Raises Price Target for Hims & Hers Health",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T14:04:21.111477-05:00",
+    "symbols": [
+      "RXRX"
+    ],
+    "headline": "Bank of America Merrill Lynch Initiates Coverage on Recursion Pharmaceuticals",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T14:04:41.815279-05:00",
+    "symbols": [
+      "QSI"
+    ],
+    "headline": "H.C. Wainwright Maintains Buy Rating on Quantum-Si",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T14:04:41.818975-05:00",
+    "symbols": [
+      "SABR"
+    ],
+    "headline": "Sabre Stock Declines Following Report of Denied Deal Speculation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T14:04:41.822541-05:00",
+    "symbols": [
+      "SAIQ"
+    ],
+    "headline": "WISeSat.Space Outlines Approach To Securing Satellite Communications, From Spacecraft And Their Communications Links To Mission Control Centers, Ground Stations And User Terminals",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T14:04:41.828273-05:00",
+    "symbols": [
+      "STLA"
+    ],
+    "headline": "Stellantis CEO Warns of Multi-Billion Euro Inflationary Headwinds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T14:04:41.831812-05:00",
+    "symbols": [
+      "STLA"
+    ],
+    "headline": "Ontario Premier Opposes Potential Stellantis-Leapmotor EV Production Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T14:04:41.835289-05:00",
+    "symbols": [
+      "SVRA"
+    ],
+    "headline": "H.C. Wainwright Initiates Coverage of Savara Inc. with Buy Rating",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T14:04:41.839116-05:00",
+    "symbols": [
+      "TCRT"
+    ],
+    "headline": "Alaunos Therapeutics Registered 382,090,789 Shares Of Common Stock For Resale",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T14:04:41.842627-05:00",
+    "symbols": [
+      "TMC"
+    ],
+    "headline": "HC Wainwright &amp; Co. Maintains Buy on TMC The Metals Co, Lowers Price Target to $5.5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T14:04:41.846070-05:00",
+    "symbols": [
+      "UAMY"
+    ],
+    "headline": "HC Wainwright &amp; Co. Maintains Buy on United States Antimony, Lowers Price Target to $6.5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-13T14:04:41.874121-05:00",
+    "symbols": [
+      "ACCV"
+    ],
+    "headline": "Goldman Sachs Downgrades Accelevation Holdings to Neutral",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

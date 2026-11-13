@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-11-13T11:13:03.757924-05:00",
-    "symbols": [
-      "LFTO"
-    ],
-    "headline": "Piper Sandler Maintains Neutral on Liftoff Mobile, Raises Price Target to $24",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:13:03.764272-05:00",
-    "symbols": [
-      "LFTO"
-    ],
-    "headline": "BTIG Maintains Buy on Liftoff Mobile, Raises Price Target to $31",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:13:03.768959-05:00",
-    "symbols": [
-      "LFTO"
-    ],
-    "headline": "Freedom Capital Markets Upgrades Liftoff Mobile to Buy, Raises Price Target to $27",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:13:03.833397-05:00",
-    "symbols": [
-      "NMAX"
-    ],
-    "headline": "Newsmax Delivers Its Strongest Quarter Since Going Public",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:13:03.838254-05:00",
-    "symbols": [
-      "NMAX"
-    ],
-    "headline": "Freedom Capital Markets Upgrades Newsmax to Buy, Maintains Price Target to $10",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:13:03.842906-05:00",
-    "symbols": [
-      "NMAX"
-    ],
-    "headline": "CORRECTION: Newsmax Affirms FY2026 Underlying Sales Guidance of $212.000M-$216.000M vs $214.767M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:13:03.848784-05:00",
-    "symbols": [
-      "NMAX"
-    ],
-    "headline": "Newsmax Q3 EPS $0.12 Beats $(0.01) Estimate, Sales $69.032M Beat $49.833M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:13:03.854133-05:00",
-    "symbols": [
-      "NMAX"
-    ],
-    "headline": "Newsmax Raises FY2026 Sales Guidance from $212.000M-$216.000M to $226.000M-$230.000M vs $214.767M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:13:03.934210-05:00",
-    "symbols": [
-      "SLSN"
-    ],
-    "headline": "Solesence Q3 EPS $0.05 Up From $(0.02) YoY, Sales $19.978M Up From $14.597M YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-13T11:13:04.009796-05:00",
     "symbols": [
       "SNAL"
@@ -4995,6 +4905,96 @@
       "MRLN"
     ],
     "headline": "Merlin (MRLN) Stock Jumps Over 54% After Hours: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T14:27:07.680168-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Jensen Huang Joins Wall Street\u2019s Fallen-Founder Hall of Fame: 13 Founders Who Fell Before Him",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-13T14:27:07.683940-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "CNBC Reporter Seema Mody Posts On X &#34;Nvidia board to @CNBC:&#34;We are in the process of selecting a search firm for the NVIDIA CEO role. We have not formally engaged any potential candidates. Any speculation regarding individual candidates, whether internal or external, is premature.&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-13T14:27:08.732983-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Issues An Update On Labour Proceedings In Delta, BC",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T14:27:16.991473-05:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Jensen Huang Joins Wall Street\u2019s Fallen-Founder Hall of Fame: 13 Founders Who Fell Before Him",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T14:27:21.137120-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Jensen Huang Joins Wall Street\u2019s Fallen-Founder Hall of Fame: 13 Founders Who Fell Before Him",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T14:27:33.906236-05:00",
+    "symbols": [
+      "LFTO"
+    ],
+    "headline": "Piper Sandler Maintains Neutral on Liftoff Mobile, Raises Price Target to $24",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T14:27:34.130811-05:00",
+    "symbols": [
+      "NMAX"
+    ],
+    "headline": "Newsmax Delivers Its Strongest Quarter Since Going Public",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T14:27:34.134696-05:00",
+    "symbols": [
+      "NMAX"
+    ],
+    "headline": "Freedom Capital Markets Upgrades Newsmax to Buy, Maintains Price Target to $10",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T14:27:34.138660-05:00",
+    "symbols": [
+      "NMAX"
+    ],
+    "headline": "CORRECTION: Newsmax Affirms FY2026 Underlying Sales Guidance of $212.000M-$216.000M vs $214.767M Est",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

@@ -1,195 +1,5 @@
 [
   {
-    "ts": "2026-11-13T09:59:42.094771-05:00",
-    "symbols": [
-      "EROC"
-    ],
-    "headline": "ERock Stock Drops After Mixed Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T09:59:42.310151-05:00",
-    "symbols": [
-      "DBD"
-    ],
-    "headline": "DA Davidson Maintains Buy Rating for Diebold Nixdorf",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T09:59:42.526760-05:00",
-    "symbols": [
-      "VOXR"
-    ],
-    "headline": "Vox Royalty Reports Q3 2026 Financial Results and Declares Quarterly Dividend",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T09:59:42.746826-05:00",
-    "symbols": [
-      "SPB"
-    ],
-    "headline": "Canaccord Genuity Maintains Buy on Spectrum Brands Holdings, Lowers Price Target to $105",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:59:42.964285-05:00",
-    "symbols": [
-      "S"
-    ],
-    "headline": "SentinelOne Announces Date of Fiscal Third Quarter 2027 Financial Results Conference Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T09:59:43.180999-05:00",
-    "symbols": [
-      "BTI"
-    ],
-    "headline": "Regulatory Scrutiny Over Vuse E-Cigarette Marketing in New Zealand",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T09:59:43.620026-05:00",
-    "symbols": [
-      "PNFP"
-    ],
-    "headline": "Pinnacle Financial Partners and Raymond James Expand Strategic Relationship",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T09:59:43.840275-05:00",
-    "symbols": [
-      "EGBN"
-    ],
-    "headline": "Eagle Bancorp Insider Sold Shares Worth $275,046",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:59:44.057209-05:00",
-    "symbols": [
-      "ONDS"
-    ],
-    "headline": "Needham Maintains Buy on Ondas, Lowers Price Target to $14",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:59:44.274840-05:00",
-    "symbols": [
-      "TEO"
-    ],
-    "headline": "Telecom Argentina Q3 Sales $1.778B Beat $1.770B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T09:59:44.499775-05:00",
-    "symbols": [
-      "ARMK"
-    ],
-    "headline": "Aramark Likely To Report Higher Q4 Earnings; These Most Accurate Analysts Revise Forecasts Ahead Of Earnings Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:59:44.502878-05:00",
-    "symbols": [
-      "ARMK"
-    ],
-    "headline": "12 Consumer Discretionary Stocks Moving In Thursday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:59:44.720260-05:00",
-    "symbols": [
-      "HOS"
-    ],
-    "headline": "Hornbeck Offshore Services CEO Todd Hornbeck Increases Stake Following Stock Decline",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T09:59:44.942494-05:00",
-    "symbols": [
-      "ECO"
-    ],
-    "headline": "B. Riley Securities Maintains Buy on Okeanis Eco Tankers, Raises Price Target to $120",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:59:45.163750-05:00",
-    "symbols": [
-      "ATI"
-    ],
-    "headline": "BTIG Maintains Buy on ATI, Raises Price Target to $260",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:59:49.216511-05:00",
-    "symbols": [
-      "ENHA"
-    ],
-    "headline": "Enhanced Group Q3 EPS $(1.01) Misses $(0.30) Estimate, Sales $3.307M Miss $8.533M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T09:59:49.861606-05:00",
-    "symbols": [
-      "TGL"
-    ],
-    "headline": "Treasure Global Announces 1-for-24 Reverse Stock Split",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T09:59:50.953708-05:00",
-    "symbols": [
-      "SLS"
-    ],
-    "headline": "SELLAS Life Sciences Gr Q3 EPS $(0.05), Inline",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T09:59:50.956833-05:00",
-    "symbols": [
-      "SLS"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-13T09:59:51.382419-05:00",
     "symbols": [
       "MIST"
@@ -4995,6 +4805,196 @@
       "NU"
     ],
     "headline": "Nu Holdings Q3 Earnings Ease Brazil Concerns, Boost Mexico, Colombia Growth",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T12:37:42.426385-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Analyst Shrugs Off Nebius Data Center Delay As &#39;Slight Blemish&#39; on Strong Quarter",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T12:37:42.646894-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T12:37:42.758830-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Analyst Shrugs Off Nebius Data Center Delay As &#39;Slight Blemish&#39; on Strong Quarter",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T12:37:42.832504-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Analyst Shrugs Off Nebius Data Center Delay As &#39;Slight Blemish&#39; on Strong Quarter",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T12:37:42.837590-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T12:37:43.632245-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T12:37:43.910058-05:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T12:37:44.247814-05:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "7 Financials Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T12:37:45.105441-05:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "7 Financials Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T12:37:46.416600-05:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Live On CNBC, Kevin Simpson Announces Bought More Caterpillar",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T12:37:46.488017-05:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "5 Industrials Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T12:37:46.563160-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "7 Financials Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T12:37:46.632080-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "7 Financials Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T12:37:46.694731-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "7 Financials Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T12:37:46.911030-05:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "7 Financials Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T12:37:47.489136-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed\u2019s Daly: Looking At How The Gap Between Consumer Sentiment And Behavior Gets Closed; Watch Services Ex-Housing Inflation Carefully, It\u2019s Not Moving In The Correct Direction",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T12:37:47.493727-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed\u2019s Daly Says A Myriad Of Things Are Pushing Up Inflation, Which Makes It Concerning; Consumer Spending Surprisingly Resilient",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T12:37:49.713431-05:00",
+    "symbols": [
+      "PRME"
+    ],
+    "headline": "Prime Medicine Announces Closing of Public Offering",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T12:37:49.719462-05:00",
+    "symbols": [
+      "PRME"
+    ],
+    "headline": "Prime Medicine Reports Third Quarter 2026 Financial Results",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"

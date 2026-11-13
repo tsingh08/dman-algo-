@@ -17434,7 +17434,8 @@ class TestOperatorSleeveOutOfDailyLoss(unittest.TestCase):
         with patch.object(a, "_period_pnl_total", return_value=0.32), \
              patch.object(a, "_live_equity_no_fallback", return_value=2304.80), \
              patch.object(a, "_get_day_start_equity", return_value=2398.31), \
-             patch.object(a, "_operator_sleeve_intraday_pl", return_value=-85.0):
+             patch.object(a, "_operator_sleeve_intraday_by_symbol", return_value={"OCC": -85.0}), \
+             patch.object(a, "_day_start_sleeve", return_value={}):
             v = a.get_todays_loss()
         self.assertAlmostEqual(v, (2304.80 + 85.0 - 2398.31) / 2398.31 * 100, places=4)
         self.assertGreater(v, -(a.DAILY_LOSS_LIMIT * 100))
@@ -17443,7 +17444,8 @@ class TestOperatorSleeveOutOfDailyLoss(unittest.TestCase):
         with patch.object(a, "_period_pnl_total", return_value=0.0), \
              patch.object(a, "_live_equity_no_fallback", return_value=2304.80), \
              patch.object(a, "_get_day_start_equity", return_value=2398.31), \
-             patch.object(a, "_operator_sleeve_intraday_pl", return_value=0.0):
+             patch.object(a, "_operator_sleeve_intraday_by_symbol", return_value={}), \
+             patch.object(a, "_day_start_sleeve", return_value={}):
             v = a.get_todays_loss()
         self.assertAlmostEqual(v, (2304.80 - 2398.31) / 2398.31 * 100, places=4)
 
@@ -17451,8 +17453,51 @@ class TestOperatorSleeveOutOfDailyLoss(unittest.TestCase):
         with patch.object(a, "_period_pnl_total", return_value=-3.5), \
              patch.object(a, "_live_equity_no_fallback", return_value=2398.31), \
              patch.object(a, "_get_day_start_equity", return_value=2398.31), \
-             patch.object(a, "_operator_sleeve_intraday_pl", return_value=-85.0):
+             patch.object(a, "_operator_sleeve_intraday_by_symbol", return_value={"OCC": -85.0}), \
+             patch.object(a, "_day_start_sleeve", return_value={}):
             self.assertAlmostEqual(a.get_todays_loss(), -3.5)
+
+
+    def _loss(self, eq, base, now, at_base):
+        with patch.object(a, "_period_pnl_total", return_value=0.0), \
+             patch.object(a, "_live_equity_no_fallback", return_value=eq), \
+             patch.object(a, "_get_day_start_equity", return_value=base), \
+             patch.object(a, "_operator_sleeve_intraday_by_symbol", return_value=now), \
+             patch.object(a, "_day_start_sleeve", return_value=at_base):
+            return a.get_todays_loss()
+
+    def test_premarket_sleeve_gap_is_not_taken_out_twice(self):
+        # 2026-11-12 shape: prior close 2362, baseline 2185 taken with the
+        # sleeve already -177 pre-market. The sleeve recovers to -55 and the
+        # ALGO then loses $80: the breaker must see -80/2185, not +8%.
+        v = self._loss(2362.0 - 55.0 - 80.0, 2185.0, {"OCC": -55.0}, {"OCC": -177.0})
+        self.assertAlmostEqual(v, -80.0 / 2185.0 * 100, places=4)
+        self.assertLess(v, -(a.DAILY_LOSS_LIMIT * 100))
+
+    def test_premarket_sleeve_gap_up_is_not_a_false_halt(self):
+        # Mirror: sleeve +100 before the baseline, flat since, algo flat.
+        v = self._loss(2500.0, 2500.0, {"AVGO": 100.0}, {"AVGO": 100.0})
+        self.assertAlmostEqual(v, 0.0, places=6)
+
+    def test_a_sleeve_position_closed_intraday_counts_in_full_again(self):
+        # NVDA leg gone from the broker -> nothing subtracted for it, so its
+        # realized move since the baseline reaches the breaker through equity.
+        v = self._loss(2400.0, 2500.0, {"AVGO": 5.0}, {"AVGO": 5.0, "OCC": -60.0})
+        self.assertAlmostEqual(v, -100.0 / 2500.0 * 100, places=4)
+
+    def test_baseline_file_keeps_the_sleeve_snapshot_and_reads_it_back(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as d:
+            with patch.object(a, "_DAY_START_EQUITY_FILE", os.path.join(d, "dse.json")):
+                self.assertEqual(a._day_start_sleeve(), {})
+                self.assertEqual(a._get_day_start_equity(2185.35, sleeve={"OCC": -177.0}), 2185.35)
+                self.assertEqual(a._day_start_sleeve(), {"OCC": -177.0})
+                # set once per day: a later call never moves it
+                a._get_day_start_equity(2300.0, sleeve={"OCC": -55.0})
+                self.assertEqual(a._day_start_sleeve(), {"OCC": -177.0})
+            with patch.object(a, "_DAY_START_EQUITY_FILE", os.path.join(d, "none.json")):
+                a._get_day_start_equity(2000.0)          # a no-sleeve caller
+                self.assertEqual(a._day_start_sleeve(), {})
 
 
 class TestDailyLossHaltLatches(unittest.TestCase):

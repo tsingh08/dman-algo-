@@ -1930,13 +1930,14 @@ def fetch_premarket_gap_universe(min_price: float = 0.30, max_price: float = 20.
     batch_size = 400
     batches = [all_syms[i:i+batch_size] for i in range(0, len(all_syms), batch_size)]
     _start  = time.monotonic()
-    # 5-min cap, leaving room for the per-ticker deep dive in run_premarket_early_scan()
-    # inside the 35-min workflow timeout. Measured against the real ~12,400-symbol
-    # NASDAQ+NYSE list, this covers ~12 of 31 batches (~40%) before time runs out —
-    # a real, honest limitation, not full-market coverage. Python's per-process
-    # hash randomization means set() ordering (and so which ~40% gets checked)
-    # varies run to run, so coverage isn't the same 60% left out every single day.
-    _budget = 5 * 60
+    # 7-min cap, leaving room for the per-ticker deep dive in run_premarket_early_scan().
+    # Since 8ae7ab4a dropped ETFs/warrants/units the list is ~6,000 symbols in 15
+    # batches of ~23s each; the old 5-min cap stopped at 13 of 15 on 2026-11-12, so
+    # a random ~13% of the market went unchecked. 7 minutes covers all 15 with
+    # margin and is still a hard stop if Yahoo is slow. Python's per-process hash
+    # randomization means set() ordering varies run to run, so when the cap does
+    # bite it is not the same names left out every day.
+    _budget = 7 * 60
     for idx, batch in enumerate(batches, 1):
         if time.monotonic() - _start > _budget:
             print(f"  [pm-universe] time budget reached after batch {idx-1} of "
@@ -19474,6 +19475,13 @@ def _live_equity_no_fallback() -> Optional[float]:
 
 def _operator_sleeve_intraday_pl() -> float:
     """Today's dollar P&L on the operator's hand-held sleeve, 0.0 if none.
+    The sum of _operator_sleeve_intraday_by_symbol(), which see."""
+    return float(sum(_operator_sleeve_intraday_by_symbol().values()))
+
+
+def _operator_sleeve_intraday_by_symbol() -> dict:
+    """Today's dollar P&L on the operator's hand-held sleeve, per broker
+    symbol; {} if none.
 
     The sleeve is every live broker position whose exact symbol carries a
     CORE_HOLD_<SYM> flag (an equity ticker, or an option leg's OCC symbol)
@@ -19484,7 +19492,7 @@ def _operator_sleeve_intraday_pl() -> float:
     (bought ~$0.65 over market in the opening auction, then NVDA -5.5%)
     while the algo itself had realized +0.32% that day.
 
-    Fails toward the old behaviour: no flags, no client, or any error -> 0.0,
+    Fails toward the old behaviour: no flags, no client, or any error -> {},
     i.e. the full-account measure. A flagged symbol the tracker also holds is
     NOT excluded -- the broker merges both into one position, and hiding an
     algo trade's loss is the one failure this must never have. Realized
@@ -19494,10 +19502,10 @@ def _operator_sleeve_intraday_pl() -> float:
     try:
         _flags = _load_flags()
         if not any(str(k).startswith("CORE_HOLD_") and v is True for k, v in _flags.items()):
-            return 0.0
+            return {}
         _c = get_alpaca_client()
         if _c is None:
-            return 0.0
+            return {}
         _tracked: set = set()
         for _p in PositionTracker().positions:
             _tracked.add(str(_p.ticker or "").upper())
@@ -19509,16 +19517,16 @@ def _operator_sleeve_intraday_pl() -> float:
                 _s = _leg.get("symbol") if isinstance(_leg, dict) else getattr(_leg, "symbol", "")
                 if _s:
                     _tracked.add(str(_s).upper())
-        _total = 0.0
+        _out: dict = {}
         for _ap in _c.get_all_positions():
             _sym = str(getattr(_ap, "symbol", "") or "").upper()
             if not _sym or _sym in _tracked or not _is_core_hold(_sym):
                 continue
-            _total += float(getattr(_ap, "unrealized_intraday_pl", 0) or 0)
-        return _total
+            _out[_sym] = _out.get(_sym, 0.0) + float(getattr(_ap, "unrealized_intraday_pl", 0) or 0)
+        return _out
     except Exception as exc:
         _log_swallowed("operator sleeve intraday P&L", exc)
-        return 0.0
+        return {}
 
 
 def get_todays_loss() -> float:
@@ -19551,17 +19559,30 @@ def get_todays_loss() -> float:
     try:
         _eq = _live_equity_no_fallback()
         if _eq and _eq > 0:
-            _base = _get_day_start_equity(_eq)
+            # The operator's CORE_HOLD sleeve is out of measure 2
+            # (2026-11-10, see _operator_sleeve_intraday_by_symbol). Its P&L
+            # is read fresh, so re-read equity fresh too when it applies:
+            # the shared cache can be 5 minutes older than the positions.
+            _sleeve = _operator_sleeve_intraday_by_symbol()
+            if _sleeve:
+                _live_equity_cache["ts"] = 0.0
+                _eq = _live_equity_no_fallback() or _eq
+            _base = _get_day_start_equity(_eq, sleeve=_sleeve)
             if _base and _base > 0:
-                # The operator's CORE_HOLD sleeve is out of measure 2
-                # (2026-11-10, see _operator_sleeve_intraday_pl). Its P&L is
-                # read fresh, so re-read equity fresh too when it applies:
-                # the shared cache can be 5 minutes older than the positions.
-                _sleeve = _operator_sleeve_intraday_pl()
-                if _sleeve:
-                    _live_equity_cache["ts"] = 0.0
-                    _eq = _live_equity_no_fallback() or _eq
-                return min(_recorded, (_eq - _sleeve - _base) / _base * 100.0)
+                # The sleeve's P&L is measured from the PRIOR CLOSE, the
+                # baseline from the first reading of the day (~09:25 ET), so
+                # whatever the sleeve had already moved by then sits in both.
+                # 2026-11-12: NVDA gapped down pre-market, the baseline was
+                # taken at $2,185 against a $2,362 prior close, and taking the
+                # sleeve's full-day loss out a second time left the breaker
+                # reading about +8% all session -- blind to the first ~$180
+                # of an algo loss. A pre-market gap UP is the mirror: a false
+                # halt at the open. Only the sleeve's move SINCE the baseline
+                # comes out, per symbol, so a sleeve position closed intraday
+                # goes back to counting in full.
+                _at_base = _day_start_sleeve()
+                _adj = sum(_v - _at_base.get(_k, 0.0) for _k, _v in _sleeve.items())
+                return min(_recorded, (_eq - _adj - _base) / _base * 100.0)
     except Exception:
         pass
     return _recorded
@@ -30907,7 +30928,23 @@ def _describe_occ_symbol(occ: str) -> str:
 
 _DAY_START_EQUITY_FILE = "dman_day_start_equity.json"
 
-def _get_day_start_equity(current_equity: float) -> float:
+def _day_start_sleeve() -> dict:
+    """The operator sleeve's per-symbol intraday P&L as it stood when today's
+    baseline was written; {} when there is no baseline for today or it was
+    written without one (then the whole sleeve move comes out, as before)."""
+    try:
+        with open(_DAY_START_EQUITY_FILE) as f:
+            data = json.load(f)
+        if data.get("date") == datetime.now(ET).date().isoformat():
+            return {str(k): float(v) for k, v in (data.get("sleeve") or {}).items()}
+    except FileNotFoundError:
+        pass
+    except Exception as exc:
+        _log_swallowed("day-start sleeve snapshot", exc)
+    return {}
+
+
+def _get_day_start_equity(current_equity: float, sleeve: Optional[dict] = None) -> float:
     """
     Alpaca's own last_equity field is the prior TRADING DAY's closing
     equity — it does not account for a deposit/withdrawal that lands
@@ -30933,7 +30970,12 @@ def _get_day_start_equity(current_equity: float) -> float:
             return float(data["equity"])
     except (FileNotFoundError, json.JSONDecodeError, KeyError, ValueError):
         pass
-    _write_json_atomic(_DAY_START_EQUITY_FILE, {"date": today_str, "equity": current_equity})
+    # `sleeve` is the operator sleeve's intraday P&L at this same moment, kept
+    # so get_todays_loss() can take out only its move since the baseline.
+    _row = {"date": today_str, "equity": current_equity}
+    if sleeve:
+        _row["sleeve"] = {str(k): round(float(v), 2) for k, v in sleeve.items()}
+    _write_json_atomic(_DAY_START_EQUITY_FILE, _row)
     return current_equity
 
 

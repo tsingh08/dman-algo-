@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-13T11:13:02.985402-05:00",
-    "symbols": [
-      "WVE"
-    ],
-    "headline": "Wave Life Sciences Highlights WVE-007 Progress at ObesityWeek\u00ae 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-13T11:13:03.062617-05:00",
     "symbols": [
       "XLAB"
@@ -4996,6 +4986,16 @@
     ],
     "headline": "Goldman Sachs Downgrades Accelevation Holdings to Neutral",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T14:05:20.554573-05:00",
+    "symbols": [
+      "MARA"
+    ],
+    "headline": "Macquarie Adjusts MARA Holdings Price Target to $20 from $26",
+    "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": null
   }

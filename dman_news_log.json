@@ -1,245 +1,5 @@
 [
   {
-    "ts": "2026-11-12T15:49:12.466995-05:00",
-    "symbols": [
-      "TE"
-    ],
-    "headline": "Short Seller Flagged Nvidia China Worries Months Ago: Here\u2019s How Much Stock Has Fallen Since",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T15:56:54.836069-05:00",
-    "symbols": [
-      "GLND"
-    ],
-    "headline": "Greenland Energy Company Announces Recommended All-Share Acquisition Of 80 Mile Plce",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T15:56:55.938871-05:00",
-    "symbols": [
-      "POAS"
-    ],
-    "headline": "Nasdaq Falls Over 100 Points; Nvidia CEO Jensen Huang Resigns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T15:56:55.943476-05:00",
-    "symbols": [
-      "POAS"
-    ],
-    "headline": "Why Tetra Tech Shares Are Trading Higher By Over 8%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T15:56:58.647424-05:00",
-    "symbols": [
-      "HCTI"
-    ],
-    "headline": "Healthcare Triangle Q3 Gross Margin 22.8% Vs 17.7% YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T15:56:58.651319-05:00",
-    "symbols": [
-      "HCTI"
-    ],
-    "headline": "Healthcare Triangle Q3 Rev $9.12M Vs $3.49M YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T15:56:59.142200-05:00",
-    "symbols": [
-      "TTEK"
-    ],
-    "headline": "Tetra Tech Backlog Hits $4.67 Billion as New Orders Exceed $1.6 Billion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T15:56:59.146045-05:00",
-    "symbols": [
-      "TTEK"
-    ],
-    "headline": "Tetra Tech Q4 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T15:56:59.149599-05:00",
-    "symbols": [
-      "TTEK"
-    ],
-    "headline": "Stock Market Today: NVDA Stock Sinks Nasdaq, S&amp;P 500 Futures as Board Weighs Jensen Huang\u2019s Future \u2014 CRWV, TTEK, FNV in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T15:56:59.153021-05:00",
-    "symbols": [
-      "TTEK"
-    ],
-    "headline": "Baird Maintains Neutral on Tetra Tech, Raises Price Target to $40",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T15:56:59.156555-05:00",
-    "symbols": [
-      "TTEK"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T16:00:16.214482-05:00",
-    "symbols": [
-      "NBIZ"
-    ],
-    "headline": "Nebius Crashes 20% as Jensen Huang Shock Rocks AI Stocks: One ETF Is Having a Field Day",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T16:02:20.672761-05:00",
-    "symbols": [
-      "GGB"
-    ],
-    "headline": "Gerdau S.A. Ex-Dividend Date",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T17:32:20.826718-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft 365 Experiences Service Outage",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T17:32:21.060493-05:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "XTI Aerospace Secures Credit Facility Amendment with JPMorgan Chase Bank",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T17:32:21.286890-05:00",
-    "symbols": [
-      "SOUN"
-    ],
-    "headline": "American Heritage Credit Union's AI Agent Surpasses 500,000 Conversations with SoundHound AI",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T17:32:21.518745-05:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Caterpillar Awarded $50 Million Annualized Contract for Data Center Energy Storage",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T17:32:21.750465-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Tampa General Hospital Partners with Palantir for Reliability Management System",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T17:32:21.757756-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Palantir Officer Shyam Sankar Files Notice of Proposed Stock Sale",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T17:32:22.038872-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly Breaks Ground on $3.5 Billion Manufacturing Facility in Pennsylvania",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T17:32:22.342676-05:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Mastercard Completes Live AI-Powered Travel Booking",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T17:32:22.620169-05:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Visa Direct Integrates with AviaGames for Real-Time Payouts",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T17:32:22.899608-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Reports Emerge of Potential Merger Negotiations Between SpaceX and Tesla",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T17:32:22.904411-05:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Visa Expands Stablecoin Settlement Capabilities with Anchorage Digital",
-    "source": "fiscal.ai",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-12T17:32:23.134143-05:00",
     "symbols": [
       "SVRA"
@@ -4998,5 +4758,245 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T10:20:48.655119-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Michael Burry Posts On X &#34;My Thesis On NVIDIA Was Not About Illicit Affairs Because It Goes Far Beyond Illicit Affairs.&#34;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-13T10:20:49.773469-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron, Moody\u2019s, Digital Realty and a Health Care Stock on CNBC\u2019s \u2018Final Trades\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T10:20:50.035715-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Jensen Huang Scandal Widens: Former Nvidia CEO Linked to Second Employee",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T10:20:50.710030-05:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "Jensen Huang Scandal Widens: Former Nvidia CEO Linked to Second Employee",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T10:20:50.849622-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Palo Alto, CrowdStrike Stocks Reverse Lower Despite Analyst Upgrade, Rosenblatt Price Target Hike",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T10:20:50.919045-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto, CrowdStrike Stocks Reverse Lower Despite Analyst Upgrade, Rosenblatt Price Target Hike",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T10:20:51.135102-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Why Is Bitcoin&#39;s Decline Accelerating? Mark Yusko Weighs In",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T10:20:51.834439-05:00",
+    "symbols": [
+      "LUNR"
+    ],
+    "headline": "Roth Capital Maintains Buy on Intuitive Machines, Lowers Price Target to $20",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T10:20:51.905029-05:00",
+    "symbols": [
+      "ACHR"
+    ],
+    "headline": "Short Seller Flagged Nvidia China Worries Months Ago: Here\u2019s How Much Stock Has Fallen Since",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T10:20:54.881770-05:00",
+    "symbols": [
+      "GLND"
+    ],
+    "headline": "Greenland Energy Company Announces Recommended All-Share Acquisition Of 80 Mile Plce",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T10:20:56.507517-05:00",
+    "symbols": [
+      "TE"
+    ],
+    "headline": "Short Seller Flagged Nvidia China Worries Months Ago: Here\u2019s How Much Stock Has Fallen Since",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-13T10:20:57.435542-05:00",
+    "symbols": [
+      "MRLN"
+    ],
+    "headline": "Roth Capital Maintains Buy on Merlin, Lowers Price Target to $4",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T10:21:00.036092-05:00",
+    "symbols": [
+      "GRDX"
+    ],
+    "headline": "Trading Halt: Halt status updated at 9:45:00 AM ET: Quotation Resumption: News and Resumption Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T10:21:00.041367-05:00",
+    "symbols": [
+      "GRDX"
+    ],
+    "headline": "GridAI Technologies To Acquire Natural Gas And Energy Infrastructure Platform Pronghorn Resources for 1.25M GRDX Shares And Up To 129,504 Series I Convertible Prefs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T10:21:00.047505-05:00",
+    "symbols": [
+      "GRDX"
+    ],
+    "headline": "Trading Halt: Halted at 8:55:00 a.m. ET - Trading Halt: Halt News Pending",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T10:21:00.124934-05:00",
+    "symbols": [
+      "LUCD"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T10:21:00.204284-05:00",
+    "symbols": [
+      "ECC"
+    ],
+    "headline": "Eagle Point Credit Co Q3 Adj. EPS $0.31 Beats $0.17 Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T10:21:00.209289-05:00",
+    "symbols": [
+      "ECC"
+    ],
+    "headline": "Eagle Point Credit Co Q3 Sales $63.745M Beat $39.309M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T10:21:00.214213-05:00",
+    "symbols": [
+      "ECC"
+    ],
+    "headline": "Mitsubishi UFJ, Sumitomo Mitsui On Deck Friday As Japanese Banks Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T10:21:00.357860-05:00",
+    "symbols": [
+      "NU"
+    ],
+    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100  Futures Rise as Nvidia CEO Exit Remains in Focus\u2014 CSCO, AMAT, NU in Focus(UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T10:21:00.363060-05:00",
+    "symbols": [
+      "NU"
+    ],
+    "headline": "Why Is Nu Holdings Stock Gaining Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T10:21:00.368053-05:00",
+    "symbols": [
+      "NU"
+    ],
+    "headline": "Needham Reiterates Buy on Nu Holdings, Maintains $19 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T10:21:00.372578-05:00",
+    "symbols": [
+      "NU"
+    ],
+    "headline": "Stock Market Today: Dow Jones, S&amp;P 500 Futures Rise, Nvidia CEO Exit Remains in Focus \u2014 CSCO, AMAT, NU in Focus",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T10:21:00.376962-05:00",
+    "symbols": [
+      "NU"
+    ],
+    "headline": "Cerebras, Applied Materials, Cisco, Super Micro Computer and Nu Holdings: Why These 5 Stocks Are on Investors&#39; Radars Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

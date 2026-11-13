@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-11-13T09:59:36.752316-05:00",
-    "symbols": [
-      "PANL"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:59:36.965250-05:00",
-    "symbols": [
-      "NIQ"
-    ],
-    "headline": "Needham Maintains Buy on NIQ Global Intelligence, Raises Price Target to $24",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:59:37.184732-05:00",
-    "symbols": [
-      "TNK"
-    ],
-    "headline": "Evercore ISI Group Maintains Outperform on Teekay Tankers, Raises Price Target to $122",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T09:59:37.407430-05:00",
-    "symbols": [
-      "FLO"
-    ],
-    "headline": "Flowers Foods Feels the Squeeze As Americans Put Affordability First",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T09:59:37.410612-05:00",
-    "symbols": [
-      "FLO"
-    ],
-    "headline": "Cisco, Applied Materials And 3 Stocks To Watch Heading Into Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T09:59:37.413589-05:00",
-    "symbols": [
-      "FLO"
-    ],
-    "headline": "FLowers Foods Lowers FY2026 Adj EPS Guidance from $0.75-$0.85 to $0.63-$0.68 vs $0.77 Est; Lowers FY2026 Sales Guidance from $5.070B-$5.142B to $5.016B-$5.063B vs $5.086B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T09:59:37.416505-05:00",
-    "symbols": [
-      "FLO"
-    ],
-    "headline": "Flowers Foods Q3 Adj. EPS $0.10 Misses $0.15 Estimate, Sales $1.169B Miss $1.180B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T09:59:37.635577-05:00",
-    "symbols": [
-      "ENB"
-    ],
-    "headline": "Enbridge's Woodfibre LNG Project to Receive $200 Million in Canadian Government Funding",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-13T09:59:37.854795-05:00",
     "symbols": [
       "MWH"
@@ -4998,5 +4918,85 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T12:06:07.984250-05:00",
+    "symbols": [
+      "CRMN"
+    ],
+    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T12:06:08.067834-05:00",
+    "symbols": [
+      "JCAP"
+    ],
+    "headline": "Jefferson Capital Q3 Adj. EPS $0.83 Beats $0.72 Estimate, Sales $185.514M Beat $174.811M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T12:06:08.468735-05:00",
+    "symbols": [
+      "RAIN"
+    ],
+    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T12:06:08.548295-05:00",
+    "symbols": [
+      "PMN"
+    ],
+    "headline": "ProMIS Neurosciences Says PRECISE-AD Phase 1b clinical Trial In Alzheimer\u2019s Patients Remains On Track For Unblinded 12-Month Topline Data In The First Quarter Of 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T12:06:08.553873-05:00",
+    "symbols": [
+      "PMN"
+    ],
+    "headline": "ProMIS Neurosciences Q3 EPS $(0.89) Beats $(1.28) Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T12:06:08.845233-05:00",
+    "symbols": [
+      "VNRX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T12:06:08.992364-05:00",
+    "symbols": [
+      "GYGY"
+    ],
+    "headline": "11 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T12:06:09.235585-05:00",
+    "symbols": [
+      "GRDX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,27 +1,5 @@
 [
   {
-    "ts": "2026-11-11T10:27:22.056449-05:00",
-    "regime": "CHOP",
-    "regime_score": 9,
-    "vix": 18.3,
-    "min_score": 85,
-    "universe": "daemon-curated+smallcap+movers",
-    "tickers_total": 329,
-    "signals": 1,
-    "signal_tickers": [
-      "AMD"
-    ],
-    "signal_scores": [
-      100
-    ],
-    "rejected_no_signal": 327,
-    "rejected_hard_gate": 1,
-    "rejected_low_score": 0,
-    "budget_hit": false,
-    "news_breadth_pct": 39.2,
-    "news_breadth_total": 285
-  },
-  {
     "ts": "2026-11-11T10:38:23.155237-05:00",
     "regime": "CHOP",
     "regime_score": 9,
@@ -2393,6 +2371,28 @@
     "rejected_low_score": 0,
     "budget_hit": false,
     "news_breadth_pct": 74.4,
+    "news_breadth_total": 283
+  },
+  {
+    "ts": "2026-11-13T12:06:21.086236-05:00",
+    "regime": "CHOP",
+    "regime_score": 7,
+    "vix": 20.3,
+    "min_score": 85,
+    "universe": "daemon-curated+smallcap+movers",
+    "tickers_total": 331,
+    "signals": 1,
+    "signal_tickers": [
+      "BTCZ"
+    ],
+    "signal_scores": [
+      100
+    ],
+    "rejected_no_signal": 330,
+    "rejected_hard_gate": 0,
+    "rejected_low_score": 0,
+    "budget_hit": false,
+    "news_breadth_pct": 78.2,
     "news_breadth_total": 283
   }
 ]

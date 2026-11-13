@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-11-13T10:31:33.646758-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Israeli spy chief in D.C. as Netanyahu presses Trump to resume war&#39;- Axios",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T10:31:34.344238-05:00",
-    "symbols": [
-      "DCH"
-    ],
-    "headline": "Dauch Corporation to Participate in Barclays 17th Annual Global Automotive and Mobility Tech Conference",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T10:31:34.560430-05:00",
-    "symbols": [
-      "EOSE"
-    ],
-    "headline": "Eos Energy Options Activity Reported for November 11, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T10:31:34.699032-05:00",
-    "symbols": [
-      "GGB"
-    ],
-    "headline": "Gerdau S.A. Ex-Dividend Date",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-13T10:31:36.566513-05:00",
     "symbols": [
       "SVRA"
@@ -4995,6 +4955,46 @@
       "ECC"
     ],
     "headline": "Eagle Point Credit Co Q3 Sales $63.745M Beat $39.309M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T13:36:43.805372-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "How Did Dell Servers With Restricted NVIDIA Chips End Up in China?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-13T13:36:44.615983-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Your AI Health Advice May Be Influenced by Drug Ads, Study Finds",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T13:36:53.501146-05:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "IonQ Shares Drop on Sudden Leadership Shake-Up",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-13T13:37:15.313822-05:00",
+    "symbols": [
+      "TNDM"
+    ],
+    "headline": "Tandem Mobi Becomes Only Insulin Pump Offering Both Tubed and Tubeless Wear Options",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

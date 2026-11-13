@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-11-13T11:34:12.372083-05:00",
-    "symbols": [
-      "DEFT"
-    ],
-    "headline": "DeFi Technologies Q3 EPS $0.06 Beats $0.01 Estimate, Sales $18.300M Beat $12.059M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T11:34:13.320307-05:00",
-    "symbols": [
-      "RAIN"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-13T11:34:13.325078-05:00",
     "symbols": [
       "RAIN"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T15:32:24.922878-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia In Process Of Selecting Search Firm, No Formal Candidates Engaged To Succeed Jensen Huang - CNBC",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-13T15:32:54.599706-05:00",
+    "symbols": [
+      "ZEPP"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

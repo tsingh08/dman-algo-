@@ -1,135 +1,5 @@
 [
   {
-    "ts": "2026-11-12T19:03:20.776948-05:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Airbnb Releases Q3 2026 Holiday Travel Trends",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T20:02:20.847389-05:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Veylo and Thunderyard Solutions Continue Strategic Partnership for Federal AI Modernization",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T20:02:21.084485-05:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Telit Cinterion Launches Smart Module Powered by Qualcomm Processor",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T20:02:21.366338-05:00",
-    "symbols": [
-      "NWGL"
-    ],
-    "headline": "CL Workshop Group Reports Fiscal Year Financial Results",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T20:02:21.639671-05:00",
-    "symbols": [
-      "MLCO"
-    ],
-    "headline": "UBS Downgrades Melco Resorts & Entertainment to Sell From Buy",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T20:02:21.871175-05:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Snowflake Executive Discusses AI and Data Strategy",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T20:02:22.098973-05:00",
-    "symbols": [
-      "YMAT"
-    ],
-    "headline": "J-Star Holding Announces Executive Debt-to-Equity Conversion and Strategic Carbon Fiber Supply Collaboration",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T09:25:31.352143-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "&#39;Texas\u2019 Next AG Vows \u2018Tremendous Scrutiny\u2019 of Tesla-SpaceX Deal&#39; - Bloomberg Interview",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:25:31.357999-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Kevin O\u2019Leary Backs Elon Musk\u2019s Starlink as United CEO Calls It \u2018Biggest Near-Term Competitive Advantage\u2019 in 100 Years, Says Amazon Leo Is \u2018A Mistake\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:25:31.362487-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Ed Bastian Says Delta Will Be &#39;Nuanced&#39; in Its Approach to AI Agents Looking for Cheaper Fares\u2014Warns Oil Shock May Not Be &#39;Behind Us&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:25:31.366827-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Ed Bastian Says Delta Will Take \u2018Nuanced\u2019 Approach to AI Agents, Warns Oil Shock May Not Be \u2018Behind Us\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:25:31.371378-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Cathie Wood Says Nvidia \u2018Cannot Be Just The Jensen Show\u2019 After Huang\u2019s Exit, Warns NVDA\u2019s Five-Year CAGR Could Be Cut in Half",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:25:31.457993-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nvidia-Backed Nscale Warns It Needs More &#39;Financing&#39; Amid $44.6B Anthropic Contract Ahead of US IPO As Nine-Month Loss Widens to $1.69 Billion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-13T09:25:31.462519-05:00",
     "symbols": [
       "NBIS"
@@ -4995,6 +4865,136 @@
       "GEMI"
     ],
     "headline": "Gemini Space Station Q3 EPS $(0.46) Beats $(0.58) Estimate, Sales $40.881M Miss $42.036M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T10:52:42.936685-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Bitcoin Could Crash Below $10,000, Peter Schiff Warns: \u2018Get the Hell Out\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-13T10:52:46.495572-05:00",
+    "symbols": [
+      "SMR"
+    ],
+    "headline": "Rosen Law Firm Announces Class Action Lawsuit Against NuScale Power Corporation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T10:52:46.623404-05:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "&#39;Senate Republicans eye defense-only spending bill&#39; - Semafor",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T10:52:46.694028-05:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "&#39;Senate Republicans eye defense-only spending bill&#39; - Semafor",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T10:52:47.043401-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs International Discloses Dealings in DCC Energy PLC",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T10:52:47.380710-05:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "Barclays Maintains Overweight on Occidental Petroleum, Raises Price Target to $73",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T10:52:47.866304-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Live On Bloomberg TV, Fed\u2019s Collins Says Possible Fed May Have To Raise More Than Expected; Best Case Scenario Is \u2018careful Adjustment\u2019 Of Monetary Policy; Energy Is An Inflation Driver, But I See It As Broader; Many Firms Expect To Pass On Higher Costs To Consumers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T10:52:47.871694-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Bitcoin Could Crash Below $10,000, Peter Schiff Warns: \u2018Get the Hell Out\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T10:52:47.877182-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Live On Bloomberg TV, Fed\u2019s Collins Says Inflation Is Too High And Appears To Be Broadening; Recent Inflation Data Less Promising Than I Hope; I Would Think Some Additional Policy Tightening Warranted Soon",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T10:52:47.881627-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Senate Republicans eye defense-only spending bill&#39; - Semafor",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T10:52:49.447403-05:00",
+    "symbols": [
+      "MLCO"
+    ],
+    "headline": "UBS Downgrades Melco Resorts & Entertainment to Sell From Buy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T10:52:49.697328-05:00",
+    "symbols": [
+      "NWGL"
+    ],
+    "headline": "CL Workshop Group Reports Fiscal Year Financial Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T10:52:51.128891-05:00",
+    "symbols": [
+      "YMAT"
+    ],
+    "headline": "J-Star Holding Announces Executive Debt-to-Equity Conversion and Strategic Carbon Fiber Supply Collaboration",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

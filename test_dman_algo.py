@@ -6534,6 +6534,23 @@ class TestMarketWideScreen(unittest.TestCase):
         self.assertFalse(f({"symbol": "NHYDY", "exchange": "OTC",
                             "name": "Norsk Hydro ASA ADR"}))
 
+    def test_etfs_and_etns_are_dropped_by_name(self):
+        """11-13: leveraged/inverse ETPs (AMDL -7.9%, VIXY -4.9%, EMBJ -3.8%,
+        SBIT/BTCZ inverse-crypto 'Gap & Hold longs') reached the gap screen
+        because only the NASDAQ-listings universe filtered ETFs."""
+        f = a._is_listed_common
+        self.assertFalse(f({"symbol": "AMDL", "exchange": "NASDAQ",
+                            "name": "GraniteShares 2x Long AMD Daily ETF"}))
+        self.assertFalse(f({"symbol": "VIXY", "exchange": "BATS",
+                            "name": "ProShares VIX Short-Term Futures ETF"}))
+        self.assertFalse(f({"symbol": "SBIT", "exchange": "ARCA",
+                            "name": "ProShares UltraShort Bitcoin ETF"}))
+        self.assertFalse(f({"symbol": "AMJB", "exchange": "NYSE",
+                            "name": "JPMorgan Chase Alerian MLP Index ETN"}))
+        # Not an ETF, name merely contains the letters: must be kept.
+        self.assertTrue(f({"symbol": "NETF", "exchange": "NYSE",
+                           "name": "NetFusion Corp Common Stock"}))
+
     def test_partnership_units_and_adr_rights_wording_are_kept(self):
         f = a._is_listed_common
         for sym, ex, name in (

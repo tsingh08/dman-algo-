@@ -26891,20 +26891,34 @@ MARKET_SCAN_MAX_CANDIDATES = 60
 _LISTED_EXCHANGES = {"NYSE", "NASDAQ", "ARCA", "AMEX", "BATS", "NYSEARCA"}
 _WARRANT_NAME = re.compile(r"\bwarrants?\b", re.I)
 _UNIT_RIGHT_NAME = re.compile(r"\b(units?|rights?)\b", re.I)
+_ETF_ETN_NAME = re.compile(r"\bETFs?\b|\bETNs?\b", re.I)
 
 
 def _is_listed_common(asset: dict) -> bool:
-    """Exchange-listed and not a warrant / SPAC unit / SPAC right.
+    """Exchange-listed and not a warrant / SPAC unit / SPAC right / ETF.
 
     "Units" and "right" alone are NOT enough: MLPs trade as "Common Units"
     (BIP, ARLP, USAC), ADRs say "right to receive" (AMX), UNG is a "Unit".
     So units/rights are dropped only on the SPAC symbol shape -- five letters
     ending U or R. Warrants are dropped by name whatever the symbol.
+
+    ETFs/ETNs are dropped by name: the curated universe builder already
+    excludes ETFs by design (see fetch_nasdaq_listed), but this Alpaca path
+    fed them straight into the gap screen, and leveraged/inverse products
+    gap mechanically every time their underlying moves. By 2026-11-13 the
+    signal log held BITX (2x bitcoin), AMDL twice (2x AMD, -7.9% stop that
+    day), VIXY (-4.9%), EMBJ (-3.8%), plus same-day SBIT/BTCZ pendings --
+    inverse-crypto "Gap & Hold longs" scored with equity catalyst logic.
+    Name-match only (\\bETF/ETN\\b), so UNG/QQQ-style fund names without the
+    acronym still pass; the leveraged single-stock/crypto wrappers that
+    actually reach the gap screen all carry it.
     """
     if str(asset.get("exchange", "")).upper() not in _LISTED_EXCHANGES:
         return False
     _n = str(asset.get("name", "") or "")
     if _WARRANT_NAME.search(_n):
+        return False
+    if _ETF_ETN_NAME.search(_n):
         return False
     _s = str(asset.get("symbol", "") or "")
     if (len(_s) == 5 and _s[-1] in "UR" and _UNIT_RIGHT_NAME.search(_n)

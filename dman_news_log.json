@@ -1,205 +1,5 @@
 [
   {
-    "ts": "2026-11-13T09:32:20.539948-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Palo Alto Networks Joins Factory's Cyber Defense Network",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:32:20.552665-05:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "IonQ Announces Executive Leadership Changes",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T09:32:20.579241-05:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "B. Riley Securities Maintains Buy Rating for Airbnb",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:32:20.584693-05:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Airbnb Presents Best Host Performance Award to First Class Property Management",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:32:20.590640-05:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Cloudflare Placed in 2026 Gartner\u00ae Magic Quadrant\u2122 for Edge Distribution Platforms",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:32:27.362545-05:00",
-    "symbols": [
-      "ENVX"
-    ],
-    "headline": "B. Riley Securities Downgrades Enovix to Neutral, Lowers Price Target to $2",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T09:33:20.539630-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX AI Group Reduces Video Generation Team",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:33:20.598598-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Rosenblatt Securities Adjusts CrowdStrike Price Target to $275",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:34:20.543501-05:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Chase's Indirect Stake in Ubisoft Surpasses 10%",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T09:34:26.388664-05:00",
-    "symbols": [
-      "ISRG"
-    ],
-    "headline": "If You Invested $100 In Intuitive Surgical Stock 20 Years Ago, You Would Have This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:34:26.602443-05:00",
-    "symbols": [
-      "MBGL"
-    ],
-    "headline": "RBC Capital Markets Raises Price Target on Mobility Global Inc.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:37:58.423000-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX&#39;s Historic Starship Flight 15 Still Awaiting FAA Approval Hours Before Launch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:37:58.740666-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Crisis Fails to Stop ETF Buying Frenzy: VOO, QQQ, SOXL Leads $37.5B ETF Inflow Surge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T09:37:58.746331-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Truist Securities Downgrades NVIDIA to Hold, Lowers Price Target to $174",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T09:37:59.703794-05:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Jefferies Maintains Buy on Applied Materials, Lowers Price Target to $580",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:38:00.054229-05:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Marvell Technology, Inc. Appoints Three New Independent Directors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:38:00.701487-05:00",
-    "symbols": [
-      "RBLX"
-    ],
-    "headline": "Citigroup Downgrades Roblox to Neutral, Maintains Price Target to $55",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T09:38:04.186015-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed\u2019s Collins Does Not Comment On Economic Outlook Or Monetary Policy; Says Ensuring Price Stability Is A Long-Run Benefit For Housing Market; Notes Persistent Housing Shortage; Higher Productivity Has Helped Limit Some Inflationary Pressures",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T09:38:04.303535-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Nvidia Crisis Fails to Stop ETF Buying Frenzy: VOO, QQQ, SOXL Leads $37.5B ETF Inflow Surge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:44:18.669436-05:00",
-    "symbols": [
-      "ZBAO"
-    ],
-    "headline": "Zhibao Technology FY EPS $(0.58) Up From $(13.50) YoY, Sales $47.149M Up From $38.569M YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-13T09:44:18.755898-05:00",
     "symbols": [
       "ONFO"
@@ -4995,6 +4795,206 @@
       "SBC"
     ],
     "headline": "SBC Medical Announces Strategic Capital And Business Alliance Agreement With NeuroBrain To Co-Develop Six Medical AI Solutions Targeting Revenue Expansion, Cost Reduction",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T11:44:41.510675-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Baird Maintains Outperform on Nebius Group, Lowers Price Target to $200",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T11:44:41.653039-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "AMD Benefits From Nvidia&#39;s Troubles, Smart Money Sells Nvidia; Cooler PPI; Bitcoin Below $70K",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:44:41.725663-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "AMD Benefits From Nvidia&#39;s Troubles, Smart Money Sells Nvidia; Cooler PPI; Bitcoin Below $70K",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:44:41.864056-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "AMD Benefits From Nvidia&#39;s Troubles, Smart Money Sells Nvidia; Cooler PPI; Bitcoin Below $70K",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:44:41.996149-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "AMD Benefits From Nvidia&#39;s Troubles, Smart Money Sells Nvidia; Cooler PPI; Bitcoin Below $70K",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:44:42.140254-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "AMD Benefits From Nvidia&#39;s Troubles, Smart Money Sells Nvidia; Cooler PPI; Bitcoin Below $70K",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:44:42.242950-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "AMD Benefits From Nvidia&#39;s Troubles, Smart Money Sells Nvidia; Cooler PPI; Bitcoin Below $70K",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:44:42.638872-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir Officer Shyam Sankar Files Notice of Proposed Stock Sale",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T11:44:42.644277-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Tampa General Hospital Partners with Palantir for Reliability Management System",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T11:44:42.870694-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Applied Materials, Lowers Price Target to $500",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T11:44:43.745754-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab Announces Upcoming 100th Electron Rocket Launch",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:44:43.750640-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab's 100th Electron Rocket Scheduled For Launch At The End Of This Week",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:44:46.749030-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Bill Ackman Is a Fan of \u2018Remarkable Story\u2019 of Anthropic, but He\u2019s Not Buying Stock at IPO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:44:47.543480-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Bessent Blames Lutnick\u2019s Commerce As He slams Nvidia Chip \u2018Leakage\u2019 To China&#39;- CNBC",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:44:47.548914-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "AMD Benefits From Nvidia&#39;s Troubles, Smart Money Sells Nvidia; Cooler PPI; Bitcoin Below $70K",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:44:47.624494-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "AMD Benefits From Nvidia&#39;s Troubles, Smart Money Sells Nvidia; Cooler PPI; Bitcoin Below $70K",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T11:44:51.286387-05:00",
+    "symbols": [
+      "LFTO"
+    ],
+    "headline": "Why Is Liftoff Mobile Stock Skyrocketing Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T11:44:51.292553-05:00",
+    "symbols": [
+      "LFTO"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Liftoff Mobile, Raises Price Target to $27",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T11:44:53.195224-05:00",
+    "symbols": [
+      "GYGY"
+    ],
+    "headline": "Game Your Game Subsidiary Altus Sports Group Appoints Colin Gordon as Senior Football Advisor",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T11:44:53.260486-05:00",
+    "symbols": [
+      "WSE"
+    ],
+    "headline": "Wise Stock Surge as Cross-Border Payments Hit $141 Billion, Revenue Surges 23%",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

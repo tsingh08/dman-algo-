@@ -1,275 +1,5 @@
 [
   {
-    "ts": "2026-11-13T09:44:19.302214-05:00",
-    "symbols": [
-      "KTTA"
-    ],
-    "headline": "Pasithea\u2019s PAS-004 Reduces Cutaneous Neurofibromas In All 15 Evaluable Participants, 41% Median Best Reduction, 46% At Planned Phase 2 Doses, With No Treatment-Related Serious Adverse Events",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:44:19.369347-05:00",
-    "symbols": [
-      "VNRX"
-    ],
-    "headline": "VolitionRX Q3 EPS $(0.21) Beats $(0.40) Estimate, Sales $1.614M Beat $706.500K Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T09:44:19.452399-05:00",
-    "symbols": [
-      "INLF"
-    ],
-    "headline": "INLIF Limited Subsidiary Ewatt Enters $30 Million Supply Framework Agreement",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T09:44:19.526914-05:00",
-    "symbols": [
-      "ALM"
-    ],
-    "headline": "Stifel Maintains Buy on Almonty Indus, Lowers Price Target to $18",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T09:44:19.532944-05:00",
-    "symbols": [
-      "ALM"
-    ],
-    "headline": "Almonty Indus Q3 EPS $0.12 Misses $0.16 Estimate, Sales $29.934M Miss $48.790M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T09:54:36.945739-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "&#39;Elon Musk\u2019s AI Group Guts Grok Video Generation Team&#39;- The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:54:37.037273-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Truist Securities Reiterates Buy on Nebius Group, Lowers Price Target to $245",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:54:37.200391-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Outage Hit More Than Outlook: Even Its Cybersecurity Defenses Were Affected",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T09:54:37.287628-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Options Traders Expect Nvidia&#39;s Biggest Earnings Move Since 2024",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T09:54:37.292907-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Colette Kress\u2019 First Nvidia Earnings Call Without Jensen Huang: 5 Things Investors Need to Hear",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T09:54:37.462344-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta\u2019s TikTok Threat Just Became Bigger Than Oracle",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T09:54:37.724939-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "&#39;Elon Musk\u2019s AI Group Guts Grok Video Generation Team&#39;- The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T09:54:38.143805-05:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "TD Cowen Maintains Buy on Applied Materials, Lowers Price Target to $500",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:54:38.965846-05:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "What&#39;s Going On With ExxonMobil Stock Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T09:54:40.810679-05:00",
-    "symbols": [
-      "OKLO"
-    ],
-    "headline": "Truist Securities Maintains Hold on Oklo, Lowers Price Target to $28",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:54:41.958241-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Meta\u2019s TikTok Threat Just Became Bigger Than Oracle",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T09:54:42.097659-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed\u2019s Logan Does Not Comment On Monetary Policy Or Economic Outlook In Remarks To Dallas Fed Conference On Bank Funding; Says Fed Should Further Develop Its Operational Readiness To Lend To Designated Financial Market Utilities; Treasury Market Currently Functioning Very Well, Trading Proceeding Smoothly Even Amid Substantial Rate Volatility",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T09:54:43.675334-05:00",
-    "symbols": [
-      "NUAI"
-    ],
-    "headline": "Roth Capital Maintains Buy on New Era Energy &amp; Digital, Raises Price Target to $17",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T09:54:45.612790-05:00",
-    "symbols": [
-      "VTSI"
-    ],
-    "headline": "Roth Capital Reiterates Buy on VirTra, Maintains $7.5 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:59:29.864100-05:00",
-    "symbols": [
-      "CDNL"
-    ],
-    "headline": "Truist Securities Maintains Buy on Cardinal Infrastructure, Lowers Price Target to $10",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T09:59:30.084816-05:00",
-    "symbols": [
-      "ADIG"
-    ],
-    "headline": "Evercore ISI Group Maintains In-Line on ADI Global Distribution, Lowers Price Target to $12",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T09:59:30.302059-05:00",
-    "symbols": [
-      "ENGN"
-    ],
-    "headline": "Leerink Partners Upgrades enGene Therapeutics to Outperform, Announces $5 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T09:59:30.529969-05:00",
-    "symbols": [
-      "CURI"
-    ],
-    "headline": "Needham Adjusts CuriosityStream Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:59:30.533161-05:00",
-    "symbols": [
-      "CURI"
-    ],
-    "headline": "Barrington Maintains Buy Rating on CuriosityStream",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T09:59:30.749856-05:00",
-    "symbols": [
-      "HWC"
-    ],
-    "headline": "Piper Sandler Downgrades Hancock Whitney to Neutral, Lowers Price Target to $71.5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T09:59:30.976067-05:00",
-    "symbols": [
-      "PSFE"
-    ],
-    "headline": "BTIG Downgrades Paysafe to Neutral",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T09:59:31.200307-05:00",
-    "symbols": [
-      "OPRX"
-    ],
-    "headline": "Lake Street Maintains Buy on OptimizeRx, Lowers Price Target to $10",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-11-13T09:59:31.440224-05:00",
     "symbols": [
       "MANE"
@@ -4998,5 +4728,275 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T11:55:14.735910-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Says Discussed Potential Purchase Of ~1,200 Acres Managed By Texas Parks And Wildlife Department Surrounding SpaceX\u2019s Launch Facility; Boca Chica Beach Is Not Part Of Proposed Sale",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T11:55:14.741780-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX&#39;s Historic Starship Flight 15 Still Awaiting FAA Approval Hours Before Launch",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T11:55:17.143405-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "UBS Maintains Buy on Applied Materials, Lowers Price Target to $640",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T11:55:17.150526-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Jefferies Maintains Buy on Applied Materials, Lowers Price Target to $580",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T11:55:17.505910-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "What Is Going on With Marvell Tech Stock on Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T11:55:17.958268-05:00",
+    "symbols": [
+      "RBLX"
+    ],
+    "headline": "Citigroup Downgrades Roblox to Neutral, Maintains Price Target to $55",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T11:55:18.650896-05:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Cloudflare Placed in 2026 Gartner\u00ae Magic Quadrant\u2122 for Edge Distribution Platforms",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T11:55:20.934120-05:00",
+    "symbols": [
+      "ISRG"
+    ],
+    "headline": "If You Invested $100 In Intuitive Surgical Stock 20 Years Ago, You Would Have This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T11:55:21.354629-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Nvidia Crisis Fails to Stop ETF Buying Frenzy: VOO, QQQ, SOXL Leads $37.5B ETF Inflow Surge",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T11:55:22.171422-05:00",
+    "symbols": [
+      "ENVX"
+    ],
+    "headline": "B. Riley Securities Downgrades Enovix to Neutral, Lowers Price Target to $2",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:55:24.725778-05:00",
+    "symbols": [
+      "ZBAO"
+    ],
+    "headline": "Zhibao Technology FY EPS $(0.58) Up From $(13.50) YoY, Sales $47.149M Up From $38.569M YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T11:55:24.800896-05:00",
+    "symbols": [
+      "ONFO"
+    ],
+    "headline": "Onfolio Holdings Reports Stockholders\u2019 Equity Above $2.5M Minimum Required For Continued Listing On Nasdaq",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T11:55:24.922732-05:00",
+    "symbols": [
+      "SHIM"
+    ],
+    "headline": "Shimmick Q3 Adj. EPS $0.08 Beats $0.04 Estimate, Sales $135.798M Miss $139.850M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:55:24.928162-05:00",
+    "symbols": [
+      "SHIM"
+    ],
+    "headline": "Shimmick Lowers FY2026 Sales Guidance from $525.000M-$575.000M to $500.000M-$525.000M vs $499.800M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:55:24.997900-05:00",
+    "symbols": [
+      "MOD"
+    ],
+    "headline": "Reported On November 12: \u201cSamsung Is In Talks To Acquire Data Center Cooling Firm Modine\u201d",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:55:26.063756-05:00",
+    "symbols": [
+      "MITQ"
+    ],
+    "headline": "Moving iMage Technologies Q1 EPS $0.02 Down From $0.05 YoY, Sales $6.094M Up From $5.582M YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T11:55:26.400475-05:00",
+    "symbols": [
+      "CBRS"
+    ],
+    "headline": "UBS Maintains Buy on Cerebras Systems, Lowers Price Target to $155",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:55:26.666958-05:00",
+    "symbols": [
+      "CNVS"
+    ],
+    "headline": "Cineverse Q2 EPS $0.11 Beats $(0.09) Estimate, Sales $25.955M Beat $24.305M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T11:55:26.672752-05:00",
+    "symbols": [
+      "CNVS"
+    ],
+    "headline": "Cineverse Affirms FY2027 Sales Guidance of $115.000M-$120.000M vs $120.537M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T11:55:26.677486-05:00",
+    "symbols": [
+      "CNVS"
+    ],
+    "headline": "Cineverse Q2 GAAP EPS $0.11 Beats $(0.09) Estimate, Sales $25.955M Beat $24.306M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T11:55:26.743071-05:00",
+    "symbols": [
+      "ARAI"
+    ],
+    "headline": "Arrive AI Q3 EPS $(3.37) Beats $(3.84) Estimate, Sales $39.700K May Not Be Comparable To $300.000K Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T11:55:26.952734-05:00",
+    "symbols": [
+      "KTTA"
+    ],
+    "headline": "Pasithea\u2019s PAS-004 Reduces Cutaneous Neurofibromas In All 15 Evaluable Participants, 41% Median Best Reduction, 46% At Planned Phase 2 Doses, With No Treatment-Related Serious Adverse Events",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T11:55:27.144547-05:00",
+    "symbols": [
+      "VNRX"
+    ],
+    "headline": "VolitionRX Q3 EPS $(0.21) Beats $(0.40) Estimate, Sales $1.614M Beat $706.500K Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T11:55:27.333648-05:00",
+    "symbols": [
+      "WSE"
+    ],
+    "headline": "UBS Maintains Buy on Wise Group, Raises Price Target to $18",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T11:55:27.732687-05:00",
+    "symbols": [
+      "CDNL"
+    ],
+    "headline": "Truist Securities Maintains Buy on Cardinal Infrastructure, Lowers Price Target to $10",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T11:55:27.801256-05:00",
+    "symbols": [
+      "ALM"
+    ],
+    "headline": "Stifel Maintains Buy on Almonty Indus, Lowers Price Target to $18",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T11:55:27.806602-05:00",
+    "symbols": [
+      "ALM"
+    ],
+    "headline": "Almonty Indus Q3 EPS $0.12 Misses $0.16 Estimate, Sales $29.934M Miss $48.790M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,415 +1,5 @@
 [
   {
-    "ts": "2026-11-12T14:01:52.495257-05:00",
-    "symbols": [
-      "ATEX"
-    ],
-    "headline": "B. Riley Securities Upgrades Anterix to Buy, Raises Price Target to $103",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:01:52.612277-05:00",
-    "symbols": [
-      "EZPW"
-    ],
-    "headline": "EZCORP Q4 2026 Earnings Call Transcript",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:01:52.745662-05:00",
-    "symbols": [
-      "SGMT"
-    ],
-    "headline": "Sagimet Expects Topline Data From US Phase 3 AURORA Acne Trial In 2H 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:01:52.748340-05:00",
-    "symbols": [
-      "SGMT"
-    ],
-    "headline": "Sagimet Says Cash Runway Into Mid-2029; Pro Forma Cash &amp; Investments About $356M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:01:52.750736-05:00",
-    "symbols": [
-      "SGMT"
-    ],
-    "headline": "Sagimet Biosciences Q3 EPS $(0.31) Vs $(0.40) YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:01:52.886355-05:00",
-    "symbols": [
-      "FVRR"
-    ],
-    "headline": "Fiverr Releases 'Next Era of Work' Report on Freelance Trends",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:01:53.052455-05:00",
-    "symbols": [
-      "HLP"
-    ],
-    "headline": "Intuitive Machines, Mobility Global, Fermi And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:01:53.206197-05:00",
-    "symbols": [
-      "ATEC"
-    ],
-    "headline": "Alphatec Holdings Announces Participation in Upcoming Investor Conferences",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:01:53.362894-05:00",
-    "symbols": [
-      "INMD"
-    ],
-    "headline": "Baird Maintains Neutral on InMode, Lowers Price Target to $15",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:01:53.519192-05:00",
-    "symbols": [
-      "PARA"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:01:53.895353-05:00",
-    "symbols": [
-      "ADXN"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:01:54.920226-05:00",
-    "symbols": [
-      "JXG"
-    ],
-    "headline": "JX Luxventure Group H1 EPS $(1.99) Down From $0.33 YoY, Sales $68.484M Up From $25.179M YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:01:55.073617-05:00",
-    "symbols": [
-      "MYPS"
-    ],
-    "headline": "12 Communication Services Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:01:55.354558-05:00",
-    "symbols": [
-      "AVEX"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:01:55.479204-05:00",
-    "symbols": [
-      "GP"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:01:55.689908-05:00",
-    "symbols": [
-      "QTEX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:01:55.998270-05:00",
-    "symbols": [
-      "AGBK"
-    ],
-    "headline": "Intuitive Machines, Mobility Global, Fermi And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:01:56.000989-05:00",
-    "symbols": [
-      "AGBK"
-    ],
-    "headline": "Oppenheimer Maintains Outperform on AGI, Lowers Price Target to $8",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:01:56.129102-05:00",
-    "symbols": [
-      "MBRX"
-    ],
-    "headline": "Moleculin Biotech And University Of Texas Receive Australian Patent Covering The Preparation Of Preliposomal Annamycin Lyophilizate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:01:56.415958-05:00",
-    "symbols": [
-      "ENGN"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:01:56.692401-05:00",
-    "symbols": [
-      "SOS"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:01:57.016732-05:00",
-    "symbols": [
-      "PLBL"
-    ],
-    "headline": "Polibeli Enters AI Agreement With Taiwanese Customer For Cloud Computing, Model Access, AI Model Hosting And Inference, Model Deployment And Related Technical Support",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:01:57.128097-05:00",
-    "symbols": [
-      "CHA"
-    ],
-    "headline": "Chagee Declares Special Cash Dividend Of ~$1.95/Share Or ADS; Board Also Approves Three-Year Annual Dividend Policy Of No Less Than 50% Of Its Net Income From Fiscal Year Ending December 31, 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:01:57.284896-05:00",
-    "symbols": [
-      "FRMI"
-    ],
-    "headline": "Why Is Fermi Stock Gaining Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:02:20.720103-05:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "Doncasters Acquires 50% Stake in Montana Precision Products",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:02:20.727628-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "BetterUp Announces Collaboration with Microsoft to Support Managers",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:02:20.731654-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Provides One-Year Update on Future Ready 2030 Commitment",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T14:02:20.735363-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Releases Muse Ember AI Model",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T14:02:20.739012-05:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Robinhood Recognized in TRM Labs Disruption Awards",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:02:20.744573-05:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Marvell Technology, Inc. Appoints Three New Independent Directors",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:02:20.748260-05:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs Alternatives Leads $345 Million Financing for Exus Renewables North America",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T14:02:35.987382-05:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "XYZ Reality Releases Case-Study Documentary Featuring Applied Digital's Polaris Forge 1 Build",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:02:36.006292-05:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "What&#39;s Going On With Super Micro Computer Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:02:36.011630-05:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "SanDisk, Western Digital Are Down 60% \u2014 Are Memory Investors Getting a Second Chance?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:02:36.020846-05:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "Piper Sandler Maintains Buy Rating on Arm Holdings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:02:36.041352-05:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Wall Street Now Values Nvidia Like a Package-Delivery Company, Data Shows",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:02:36.049850-05:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Vivani Medical Advances Long-Acting Semaglutide Implant Toward Phase 2 Trial in 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T14:02:36.056359-05:00",
-    "symbols": [
-      "FDX"
-    ],
-    "headline": "Wall Street Now Values Nvidia Like a Package-Delivery Company, Data Shows",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:02:36.068928-05:00",
-    "symbols": [
-      "ENGS"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-12T14:02:36.071981-05:00",
-    "symbols": [
-      "ENVX"
-    ],
-    "headline": "Enovix Stock Sinks After Wider Q3 Loss, Smartphone Testing Exit",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T14:02:36.082122-05:00",
-    "symbols": [
-      "JBI"
-    ],
-    "headline": "Keybanc Lowers Price Target for Janus International Group",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-12T14:02:36.092155-05:00",
     "symbols": [
       "STLA"
@@ -4995,6 +4585,416 @@
       "GGB"
     ],
     "headline": "Gerdau S.A. Ex-Dividend Date",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T17:32:20.826718-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft 365 Experiences Service Outage",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T17:32:21.060493-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "XTI Aerospace Secures Credit Facility Amendment with JPMorgan Chase Bank",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T17:32:21.286890-05:00",
+    "symbols": [
+      "SOUN"
+    ],
+    "headline": "American Heritage Credit Union's AI Agent Surpasses 500,000 Conversations with SoundHound AI",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T17:32:21.518745-05:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Caterpillar Awarded $50 Million Annualized Contract for Data Center Energy Storage",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T17:32:21.750465-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Tampa General Hospital Partners with Palantir for Reliability Management System",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T17:32:21.757756-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir Officer Shyam Sankar Files Notice of Proposed Stock Sale",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T17:32:22.038872-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Breaks Ground on $3.5 Billion Manufacturing Facility in Pennsylvania",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T17:32:22.342676-05:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Mastercard Completes Live AI-Powered Travel Booking",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T17:32:22.620169-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa Direct Integrates with AviaGames for Real-Time Payouts",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T17:32:22.899608-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Reports Emerge of Potential Merger Negotiations Between SpaceX and Tesla",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T17:32:22.904411-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa Expands Stablecoin Settlement Capabilities with Anchorage Digital",
+    "source": "fiscal.ai",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T17:32:23.134143-05:00",
+    "symbols": [
+      "SVRA"
+    ],
+    "headline": "Savara Announces New Employment Inducement Grant",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T17:32:23.367762-05:00",
+    "symbols": [
+      "TMC"
+    ],
+    "headline": "TMC the metals company Inc. Provides Corporate Update and Third Quarter 2026 Financial Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T17:33:20.768862-05:00",
+    "symbols": [
+      "DCH"
+    ],
+    "headline": "Dauch Corporation to Participate in Barclays 17th Annual Global Automotive and Mobility Tech Conference",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T17:33:21.043467-05:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Markets, Inc. Reports October 2026 Operating Data",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T17:33:21.271449-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "ExxonMobil Advances Next Phase of Guyana Development with Longtail",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T17:33:21.498279-05:00",
+    "symbols": [
+      "EOSE"
+    ],
+    "headline": "Eos Energy Options Activity Reported for November 11, 2026",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T17:33:21.771812-05:00",
+    "symbols": [
+      "PRME"
+    ],
+    "headline": "Prime Medicine Reports Third Quarter 2026 Financial Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T17:33:22.001547-05:00",
+    "symbols": [
+      "WVE"
+    ],
+    "headline": "Citi Maintains Buy Rating on Wave Life Sciences, Adjusts Price Target",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T17:33:22.225329-05:00",
+    "symbols": [
+      "WOOF"
+    ],
+    "headline": "Nulo Announces Winners of the Nulo Summer Games Presented by Petco",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T17:33:22.459877-05:00",
+    "symbols": [
+      "UAMY"
+    ],
+    "headline": "United States Antimony Corporation Reports Third Quarter 2026 Financial Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T17:33:22.684967-05:00",
+    "symbols": [
+      "ADTN"
+    ],
+    "headline": "Goldman Sachs Group, Inc. Reports Change in Voting Rights in ADTRAN Holdings, Inc.",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T17:33:22.689899-05:00",
+    "symbols": [
+      "ADTN"
+    ],
+    "headline": "CEO Thomas R. Stanton Acquires 150,000 Shares of ADTRAN Holdings, Inc.",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T17:33:22.925463-05:00",
+    "symbols": [
+      "ARI"
+    ],
+    "headline": "Apollo Commercial Real Estate Finance, Inc. Completes Asset Transfer to Liquidating Trust",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T17:33:23.156120-05:00",
+    "symbols": [
+      "ENVX"
+    ],
+    "headline": "Block & Leviton Investigates Enovix Corporation for Potential Securities Law Violations",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T17:33:23.379573-05:00",
+    "symbols": [
+      "JBI"
+    ],
+    "headline": "UBS Adjusts Price Target for Janus International Group",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T17:34:20.805030-05:00",
+    "symbols": [
+      "CTMX"
+    ],
+    "headline": "CytomX Therapeutics Maintained at Overweight by JP Morgan",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T18:02:20.864928-05:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Supermicro Faces DOJ Investigation Over Alleged Smuggling to China",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T18:03:20.859812-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Rocket Lab Announces Upcoming 100th Electron Rocket Launch",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T18:03:21.146461-05:00",
+    "symbols": [
+      "JOBY"
+    ],
+    "headline": "Joby and Archer Push Initial Passenger Operations to 2027",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T18:03:21.373465-05:00",
+    "symbols": [
+      "SNAP"
+    ],
+    "headline": "Seller Snap Launches MCP Server for AI Integration",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T18:03:21.609547-05:00",
+    "symbols": [
+      "SMR"
+    ],
+    "headline": "Rosen Law Firm Announces Class Action Lawsuit Against NuScale Power Corporation",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T19:02:20.818465-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Presents New Clinical Data at ACR Convergence 2026",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T19:02:21.058798-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs International Discloses Dealings in DCC Energy PLC",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T19:03:20.776948-05:00",
+    "symbols": [
+      "ABNB"
+    ],
+    "headline": "Airbnb Releases Q3 2026 Holiday Travel Trends",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T20:02:20.847389-05:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Veylo and Thunderyard Solutions Continue Strategic Partnership for Federal AI Modernization",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T20:02:21.084485-05:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Telit Cinterion Launches Smart Module Powered by Qualcomm Processor",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-12T20:02:21.366338-05:00",
+    "symbols": [
+      "NWGL"
+    ],
+    "headline": "CL Workshop Group Reports Fiscal Year Financial Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T20:02:21.639671-05:00",
+    "symbols": [
+      "MLCO"
+    ],
+    "headline": "UBS Downgrades Melco Resorts & Entertainment to Sell From Buy",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-12T20:02:21.871175-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Snowflake Executive Discusses AI and Data Strategy",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-12T20:02:22.098973-05:00",
+    "symbols": [
+      "YMAT"
+    ],
+    "headline": "J-Star Holding Announces Executive Debt-to-Equity Conversion and Strategic Carbon Fiber Supply Collaboration",
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": null

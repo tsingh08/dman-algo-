@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-13T10:11:00.738331-05:00",
-    "symbols": [
-      "VIR"
-    ],
-    "headline": "Why Is Vir Biotechnology Stock Falling Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-13T10:11:00.743745-05:00",
     "symbols": [
       "VIR"
@@ -4996,6 +4986,16 @@
     ],
     "headline": "Pasithea&#39;s PAS-004 Shrinks Skin Tumors in All 15 Evaluable Patients",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T13:02:20.557613-05:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Novo Nordisk Receives EU Approval for Hemophilia Drug Frehemgo",
+    "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"
   }

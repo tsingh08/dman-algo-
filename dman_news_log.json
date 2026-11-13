@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-11-13T11:13:04.015458-05:00",
-    "symbols": [
-      "SNAL"
-    ],
-    "headline": "Snail Q3 EBITDA $7.2M Vs $(9.7)M YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T11:13:04.020226-05:00",
-    "symbols": [
-      "SNAL"
-    ],
-    "headline": "Snail Q3 ARK: Survival Ascended Units Sold ~1.2M; Total Units 2.0M, Up 73% YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T11:13:04.025351-05:00",
-    "symbols": [
-      "SNAL"
-    ],
-    "headline": "Snail Q3 EPS $0.75 Vs $(1.05) YoY, Rev $33.1M Vs $13.8M YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T11:13:04.169310-05:00",
-    "symbols": [
-      "CDXS"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T11:13:04.173875-05:00",
-    "symbols": [
-      "CDXS"
-    ],
-    "headline": "Codexis Q3 EPS $(0.08) Beats $(0.10) Estimate, Sales $19.262M Beat $18.720M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-13T11:13:04.178379-05:00",
     "symbols": [
       "CDXS"
@@ -4998,5 +4948,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T14:50:01.297471-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Elon Musk&#39;s SpaceX\u2013Tesla Merger &#39;Almost Inconceivable&#39; to Avoid, Biographer Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T14:50:02.748590-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Elon Musk&#39;s SpaceX\u2013Tesla Merger &#39;Almost Inconceivable&#39; to Avoid, Biographer Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-13T14:50:04.563840-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Elon Musk&#39;s SpaceX\u2013Tesla Merger &#39;Almost Inconceivable&#39; to Avoid, Biographer Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T14:50:19.920005-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Hassett Denies Report He\u2019s Leaving White House: \u2018Not True&#39;- CNBC",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T14:50:31.632035-05:00",
+    "symbols": [
+      "CDXS"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

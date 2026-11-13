@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-11-13T10:11:00.743745-05:00",
-    "symbols": [
-      "VIR"
-    ],
-    "headline": "Reported Earlier, Vir Biotechnology Prices Public Offering Of 15M Common Shares At $10.00 Per Share For $150M Gross Proceeds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T10:11:00.748210-05:00",
-    "symbols": [
-      "VIR"
-    ],
-    "headline": "Vir Biotechnology Announces Proposed Public Offering Of Common Stock; Size Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T10:20:48.655119-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Michael Burry Posts On X &#34;My Thesis On NVIDIA Was Not About Illicit Affairs Because It Goes Far Beyond Illicit Affairs.&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T10:20:49.773469-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron, Moody\u2019s, Digital Realty and a Health Care Stock on CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T10:20:50.035715-05:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Jensen Huang Scandal Widens: Former Nvidia CEO Linked to Second Employee",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T10:20:50.710030-05:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "Jensen Huang Scandal Widens: Former Nvidia CEO Linked to Second Employee",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T10:20:50.849622-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Palo Alto, CrowdStrike Stocks Reverse Lower Despite Analyst Upgrade, Rosenblatt Price Target Hike",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T10:20:50.919045-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Palo Alto, CrowdStrike Stocks Reverse Lower Despite Analyst Upgrade, Rosenblatt Price Target Hike",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T10:20:51.135102-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Why Is Bitcoin&#39;s Decline Accelerating? Mark Yusko Weighs In",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T10:20:51.834439-05:00",
-    "symbols": [
-      "LUNR"
-    ],
-    "headline": "Roth Capital Maintains Buy on Intuitive Machines, Lowers Price Target to $20",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-13T10:20:51.905029-05:00",
     "symbols": [
       "ACHR"
@@ -4998,5 +4898,105 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T13:13:46.329440-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "CNBC Halftime Report Final: Caterpillar, Amazon, eBay",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T13:13:57.721756-05:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "CNBC Halftime Report Final: Caterpillar, Amazon, eBay",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T13:14:00.009011-05:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Novo Nordisk Scores EU Win For Hemophilia Drug, Advances Sickle Cell Treatment Toward Approval",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T13:14:00.958135-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "BZ Analysis: Long Non-Dealer Positioning In US Equity Futures Is Up To +$330B, Its 2nd-highest On Record",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T13:14:00.961847-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Trump to Extend Shipping Waiver for Oil, Fertilizer for 90 Days&#39;- Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T13:14:08.988013-05:00",
+    "symbols": [
+      "SPCE"
+    ],
+    "headline": "Virgin Galactic Faces Cash Burn, Dilution Risks Ahead of 2027 Spaceflight Comeback",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T13:14:10.366007-05:00",
+    "symbols": [
+      "USAS"
+    ],
+    "headline": "Americas Gold and Silver Breaks 28-Year Production Record",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T13:14:10.369817-05:00",
+    "symbols": [
+      "USAS"
+    ],
+    "headline": "CORRECTION: Americas Gold And Silver Q3 Adj. EPS $(0.02) Misses $0.05 Estimate, Sales $51.400M Miss $68.365M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T13:14:15.447411-05:00",
+    "symbols": [
+      "ACCV"
+    ],
+    "headline": "Accelevation Holdings Corp. Reports Third Quarter 2026 Financial Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-13T13:14:22.469590-05:00",
+    "symbols": [
+      "LUCK"
+    ],
+    "headline": "11 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

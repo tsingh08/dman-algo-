@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-11-12T15:02:20.522313-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Lawsuit Filed Against Tesla Over San Mateo Street-Racing Incident",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T15:02:20.529671-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Announces Over $74 Billion Investment in Texas and Arizona Data Centers",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T15:02:20.534608-05:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Jackery Launches FridgeGuard Power Solution at Costco",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T15:02:20.731002-05:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Cloudflare Joins Founding Members of New SGLang Consortium",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T15:02:20.733946-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Wall Street Analysts Update Ratings and Price Targets for Palo Alto Networks",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-12T15:02:20.736733-05:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Evercore Maintains Buy Rating and Raises Snowflake Price Target to $430",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-12T15:25:39.956280-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Jensen Huang Scandal Widens: Former Nvidia CEO Linked to Second Employee",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-12T15:25:40.171362-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Jensen Huang Scandal Widens: Former Nvidia CEO Linked to Second Employee",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-12T15:25:41.995879-05:00",
     "symbols": [
       "AVGO"
@@ -4995,6 +4915,86 @@
       "GRVY"
     ],
     "headline": "Mitsubishi UFJ, Sumitomo Mitsui On Deck Friday As Japanese Banks Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T10:05:47.126625-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "OpenAI Introduces ChatGPT Wallet; Built In Partnership With American Express, MasterCard, And Visa, ChatGPT Wallet Will Initially Be Available Through Dots\u2060 For ChatGPT Pro Subscribers In The US",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T10:05:50.484039-05:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "New Era Energy Stock Booms After Strong Q3 Revenue",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T10:05:51.838583-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "OpenAI Introduces ChatGPT Wallet; Built In Partnership With American Express, MasterCard, And Visa, ChatGPT Wallet Will Initially Be Available Through Dots\u2060 For ChatGPT Pro Subscribers In The US",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T10:05:52.014782-05:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "OpenAI Introduces ChatGPT Wallet; Built In Partnership With American Express, MasterCard, And Visa, ChatGPT Wallet Will Initially Be Available Through Dots\u2060 For ChatGPT Pro Subscribers In The US",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T10:05:52.561858-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Jackery Launches FridgeGuard Power Solution at Costco",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T10:05:54.363499-05:00",
+    "symbols": [
+      "NUAI"
+    ],
+    "headline": "New Era Energy Stock Booms After Strong Q3 Revenue",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-13T10:10:21.577582-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Evercore Maintains Buy Rating and Raises Snowflake Price Target to $430",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-13T10:10:21.615400-05:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Cloudflare Joins Founding Members of New SGLang Consortium",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

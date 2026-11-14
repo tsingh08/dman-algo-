@@ -29682,6 +29682,21 @@ def submit_alpaca_trade(signal: ProSignal) -> tuple[Optional[str], Optional[str]
 
     side      = OrderSide.BUY  if signal.bias == "LONG" else OrderSide.SELL
     limit_px  = round(_entry_limit_price(signal.entry, signal.bias), 2)
+    # The pullback entry keeps the signal's stop. When that stop is inside
+    # the pullback, the limit lands at or through it: Day 2 Continuation's
+    # stop is 3% under Day 1's close, so with price at or below that close a
+    # 3% pullback limit is <= the stop -- the broker rejects the bracket
+    # (stop must be below the entry) or fills it a few cents above its own
+    # stop. Needs at least 1% between them, else rest at the signal price,
+    # where the stop distance is the one the signal was sized on.
+    _s = float(signal.stop or 0)
+    _sig_px = round(float(signal.entry), 2)
+    if _s > 0 and limit_px != _sig_px:
+        _through = (limit_px * 0.99 <= _s) if signal.bias == "LONG" else (limit_px * 1.01 >= _s)
+        if _through:
+            print(f"  ↩️  {signal.ticker}: pullback limit ${limit_px} would sit at/through "
+                  f"the stop ${_s:.2f} — resting at the signal price ${_sig_px:.2f}")
+            limit_px = _sig_px
     _qty, _cap_note = _cap_shares_to_cash(signal.ticker, int(signal.shares or 0), limit_px)
     if _qty < 1:
         return None, f"{signal.ticker}: {_cap_note or 'no affordable share size'}"

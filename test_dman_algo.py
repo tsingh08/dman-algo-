@@ -2060,6 +2060,28 @@ class TestSubmitAlpacaTradeErrorSurfacing(unittest.TestCase):
         self.assertIsNone(oid)
         self.assertIsNotNone(err)
 
+    def _limit_sent(self, entry, stop):
+        mock_order = MagicMock(); mock_order.id = "abc123"
+        mock_client = MagicMock()
+        mock_client.get_account.return_value = MagicMock(cash="100000")
+        mock_client.submit_order.return_value = mock_order
+        sig = self._signal()
+        sig.entry, sig.stop, sig.target1 = entry, stop, entry * 1.1
+        with patch.object(a, "get_alpaca_client", return_value=mock_client), \
+             patch.object(a, "_cash_available_for", return_value=(True, "")), \
+             patch.object(a, "flag", side_effect=lambda n, d: d):
+            a.submit_alpaca_trade(sig)
+        return float(mock_client.submit_order.call_args[0][0].limit_price)
+
+    def test_a_pullback_limit_never_rests_at_or_through_its_own_stop(self):
+        # 2026-11-14: Day 2 Continuation's stop is 3% under Day 1's close.
+        # With the 3% pullback the buy limit landed at or below that stop.
+        self.assertEqual(self._limit_sent(100.0, 97.5), 100.0)   # 97.00 limit <= stop
+        self.assertEqual(self._limit_sent(100.0, 96.5), 100.0)   # only 0.5% of room
+
+    def test_a_wide_stop_still_gets_the_pullback_entry(self):
+        self.assertEqual(self._limit_sent(100.0, 90.0), 97.0)
+
     def test_stop_loss_leg_has_no_limit_price(self):
         # Confirmed live 2026-08-06: a bracket's STOP_LIMIT child leg
         # reliably gets stuck in OrderStatus.HELD on this account after the

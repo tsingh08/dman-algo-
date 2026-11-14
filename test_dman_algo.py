@@ -6534,6 +6534,23 @@ class TestMarketWideScreen(unittest.TestCase):
         self.assertFalse(f({"symbol": "NHYDY", "exchange": "OTC",
                             "name": "Norsk Hydro ASA ADR"}))
 
+    def test_etfs_and_etns_are_dropped_by_name(self):
+        """11-13: leveraged/inverse ETPs (AMDL -7.9%, VIXY -4.9%, EMBJ -3.8%,
+        SBIT/BTCZ inverse-crypto 'Gap & Hold longs') reached the gap screen
+        because only the NASDAQ-listings universe filtered ETFs."""
+        f = a._is_listed_common
+        self.assertFalse(f({"symbol": "AMDL", "exchange": "NASDAQ",
+                            "name": "GraniteShares 2x Long AMD Daily ETF"}))
+        self.assertFalse(f({"symbol": "VIXY", "exchange": "BATS",
+                            "name": "ProShares VIX Short-Term Futures ETF"}))
+        self.assertFalse(f({"symbol": "SBIT", "exchange": "ARCA",
+                            "name": "ProShares UltraShort Bitcoin ETF"}))
+        self.assertFalse(f({"symbol": "AMJB", "exchange": "NYSE",
+                            "name": "JPMorgan Chase Alerian MLP Index ETN"}))
+        # Not an ETF, name merely contains the letters: must be kept.
+        self.assertTrue(f({"symbol": "NETF", "exchange": "NYSE",
+                           "name": "NetFusion Corp Common Stock"}))
+
     def test_partnership_units_and_adr_rights_wording_are_kept(self):
         f = a._is_listed_common
         for sym, ex, name in (
@@ -12094,8 +12111,12 @@ class TestDayStartEquityBaseline(unittest.TestCase):
         self._tmp.close()
         self._patch = patch.object(a, "_DAY_START_EQUITY_FILE", self._tmp.name)
         self._patch.start()
+        # The write path snapshots the operator sleeve (live broker read).
+        self._sleeve = patch.object(a, "_operator_sleeve_intraday_by_symbol", return_value={})
+        self._sleeve.start()
 
     def tearDown(self):
+        self._sleeve.stop()
         self._patch.stop()
         os.unlink(self._tmp.name)
 
@@ -17570,9 +17591,24 @@ class TestOperatorSleeveOutOfDailyLoss(unittest.TestCase):
                 # set once per day: a later call never moves it
                 a._get_day_start_equity(2300.0, sleeve={"OCC": -55.0})
                 self.assertEqual(a._day_start_sleeve(), {"OCC": -177.0})
-            with patch.object(a, "_DAY_START_EQUITY_FILE", os.path.join(d, "none.json")):
-                a._get_day_start_equity(2000.0)          # a no-sleeve caller
+            with patch.object(a, "_DAY_START_EQUITY_FILE", os.path.join(d, "none.json")), \
+                 patch.object(a, "_operator_sleeve_intraday_by_symbol", return_value={}):
+                a._get_day_start_equity(2000.0)          # no sleeve held
                 self.assertEqual(a._day_start_sleeve(), {})
+
+    def test_a_caller_without_a_sleeve_argument_still_snapshots_it(self):
+        # 2026-11-13: the daemon's startup call writes the baseline first and
+        # passes no sleeve. It must take the snapshot itself, or the breaker
+        # takes the sleeve's pre-market move out twice (the 11-12 bug).
+        import tempfile
+        with tempfile.TemporaryDirectory() as d:
+            with patch.object(a, "_DAY_START_EQUITY_FILE", os.path.join(d, "dse.json")), \
+                 patch.object(a, "_operator_sleeve_intraday_by_symbol",
+                              return_value={"OCC": -48.0}) as m:
+                self.assertEqual(a._get_day_start_equity(2274.37), 2274.37)
+                self.assertEqual(a._day_start_sleeve(), {"OCC": -48.0})
+                a._get_day_start_equity(2260.0)          # already set: no re-read
+                self.assertEqual(m.call_count, 1)
 
 
 class TestDailyLossHaltLatches(unittest.TestCase):
@@ -31329,3 +31365,49 @@ class TestFetchSymsDropsNonCommon(unittest.TestCase):
         resp = MagicMock(text=txt)
         with patch.object(a.requests, "get", return_value=resp):
             self.assertEqual(a._fetch_syms("u", "Symbol"), ["AAPL", "ARLP", "AB"])
+
+
+class TestWeekendTapeLines(unittest.TestCase):
+    """2026-11-13: the eve-of-session readiness message gained the weekend
+    tape (index move, BTC since the close, live setups, Day 2 candidates,
+    held earnings). Each block must fail alone and never break the message."""
+
+    def _resp(self, bars):
+        r = MagicMock(); r.status_code = 200; r.json.return_value = {"bars": bars}
+        return r
+
+    def _bar(self, t, o, h, l, c):
+        return {"t": t + "T05:00:00Z", "o": o, "h": h, "l": l, "c": c}
+
+    def test_day2_candidate_and_btc_are_reported(self):
+        idx = [self._bar(f"2026-11-0{i}", 100, 101, 99, 100 + i) for i in range(2, 9)]
+        wl = {"AAA": [self._bar("2026-11-12", 50, 50, 49, 50), self._bar("2026-11-13", 53, 55, 52.5, 54.6)],
+              "BBB": [self._bar("2026-11-12", 50, 50, 49, 50), self._bar("2026-11-13", 53, 55, 52, 53.2)]}
+        btc = {"BTC/USD": [{"o": 70000, "h": 70500, "l": 66000, "c": 70000},
+                           {"o": 70000, "h": 70100, "l": 67000, "c": 68600}]}
+
+        def fake_get(url, headers=None, params=None, timeout=None):
+            if "crypto" in url:
+                return self._resp(btc)
+            if params["symbols"].startswith("SPY"):
+                return self._resp({s: idx for s in ("SPY", "QQQ", "SMH", "IWM")})
+            return self._resp(wl)
+
+        with patch.object(a.requests, "get", side_effect=fake_get), \
+             patch.object(a, "WATCHLIST", ["AAA", "BBB"]), \
+             patch.object(a, "_setup_live_record", return_value={"Day 2 Continuation": {}, "Gap & Hold": {}}), \
+             patch.object(a, "_setup_is_disabled", side_effect=lambda s: (s == "Gap & Hold", "")), \
+             patch.object(a, "get_alpaca_client", return_value=None):
+            out = "\n".join(a._weekend_tape_lines(datetime(2026, 11, 15, 18, 0, tzinfo=a.ET)))
+        self.assertIn("BTC since the close</b>: -2.0%", out)
+        self.assertIn("can open a position</b>: Day 2 Continuation", out)
+        self.assertNotIn("Gap & Hold", out)
+        self.assertIn("AAA gap +6.0% held 80%", out)     # held 1.6 of a 2.0 range
+        self.assertNotIn("BBB", out)                      # held only 10%
+
+    def test_every_block_fails_quietly(self):
+        with patch.object(a.requests, "get", side_effect=RuntimeError("down")), \
+             patch.object(a, "_setup_live_record", side_effect=RuntimeError("x")), \
+             patch.object(a, "get_alpaca_client", side_effect=RuntimeError("y")):
+            out = a._weekend_tape_lines(datetime(2026, 11, 15, 18, 0, tzinfo=a.ET))
+        self.assertIsInstance(out, list)

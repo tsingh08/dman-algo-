@@ -3550,6 +3550,114 @@ def resolve_live_outcomes(verbose: bool = True) -> int:
     return resolved_count
 
 
+def _weekend_tape_lines(now_et: Optional[datetime] = None) -> list[str]:
+    """What moved since the last close, and what that means for the next
+    session, for the eve-of-session readiness message. Added 2026-11-13.
+
+    - last session + 5-session move for SPY/QQQ/SMH/IWM,
+    - BTC since the last 16:00 ET close (crypto trades through the weekend:
+      the one live read of risk appetite before futures matter),
+    - which setups can still open a position (kill switch / retired),
+    - Day 2 Continuation candidates: WATCHLIST names whose last session
+      gapped >= 4% and held >= 60% of the range -- Day 1 of the only live
+      setup, so the operator knows whether Monday can trade at all,
+    - broker holdings reporting earnings within 7 days.
+    Each block fails on its own, silently; the message never depends on it.
+    """
+    now_et = now_et or datetime.now(ET)
+    out: list[str] = []
+    _hdrs = {"APCA-API-KEY-ID": ALPACA_API_KEY, "APCA-API-SECRET-KEY": ALPACA_SECRET_KEY}
+    _start = (now_et.date() - timedelta(days=14)).isoformat()
+
+    def _daily(symbols: list) -> dict:
+        _bars: dict = {}
+        for _i in range(0, len(symbols), 100):
+            r = requests.get("https://data.alpaca.markets/v2/stocks/bars", headers=_hdrs,
+                             params={"symbols": ",".join(symbols[_i:_i + 100]),
+                                     "timeframe": "1Day", "start": _start,
+                                     "feed": _resolve_stock_feed(), "adjustment": "all",
+                                     "limit": 10000}, timeout=30)
+            if r.status_code == 200:
+                _bars.update((r.json() or {}).get("bars") or {})
+        return _bars
+
+    _last_session: Optional[str] = None
+    try:
+        _idx = _daily(["SPY", "QQQ", "SMH", "IWM"])
+        _parts = []
+        for _s in ("SPY", "QQQ", "SMH", "IWM"):
+            _b = _idx.get(_s) or []
+            if len(_b) >= 6:
+                _d = (_b[-1]["c"] / _b[-2]["c"] - 1) * 100
+                _w = (_b[-1]["c"] / _b[-6]["c"] - 1) * 100
+                _parts.append(f"{_s} {_d:+.1f}% (5d {_w:+.1f}%)")
+                _last_session = _last_session or str(_b[-1]["t"])[:10]
+        if _parts:
+            out.append("📈 <b>Last session</b> " + (_last_session or "") + ": " + "  ".join(_parts))
+    except Exception as exc:
+        _log_swallowed("readiness index tape", exc)
+
+    try:
+        if _last_session:
+            _close = datetime.combine(date.fromisoformat(_last_session),
+                                      datetime.min.time().replace(hour=16), tzinfo=ET)
+            if _last_session in {d.isoformat() for d in _EARLY_CLOSE_DATES}:
+                _close = _close.replace(hour=13)
+            r = requests.get("https://data.alpaca.markets/v1beta3/crypto/us/bars", headers=_hdrs,
+                             params={"symbols": "BTC/USD", "timeframe": "1Hour",
+                                     "start": _close.astimezone(zoneinfo.ZoneInfo("UTC")).isoformat(),
+                                     "limit": 1000}, timeout=30)
+            _cb = ((r.json() or {}).get("bars") or {}).get("BTC/USD") or [] if r.status_code == 200 else []
+            if len(_cb) >= 2:
+                _chg = (_cb[-1]["c"] / _cb[0]["o"] - 1) * 100
+                _lo = min(_x["l"] for _x in _cb); _hi = max(_x["h"] for _x in _cb)
+                out.append(f"₿ <b>BTC since the close</b>: {_chg:+.1f}% "
+                           f"(${_cb[-1]['c']:,.0f}, range ${_lo:,.0f}-${_hi:,.0f})")
+    except Exception as exc:
+        _log_swallowed("readiness BTC tape", exc)
+
+    try:
+        _live = [s for s in sorted(_setup_live_record())
+                 if not _setup_retired(s) and not _setup_is_disabled(s)[0]]
+        out.append("🟢 <b>Setups that can open a position</b>: "
+                   + (", ".join(_live) if _live else "none"))
+    except Exception as exc:
+        _log_swallowed("readiness live setups", exc)
+
+    try:
+        _wl = _daily(list(WATCHLIST))
+        _d2 = []
+        for _s, _b in _wl.items():
+            if len(_b) < 2:
+                continue
+            _p3, _p = _b[-2], _b[-1]
+            _gap = (_p["o"] - _p3["c"]) / _p3["c"] * 100
+            _rng = _p["h"] - _p["o"]
+            _held = (_p["c"] - _p["o"]) / _rng if _rng > 0 else 0.0
+            if _gap >= 4.0 and _held >= 0.6:
+                _d2.append((_gap, f"{_s} gap {_gap:+.1f}% held {_held * 100:.0f}% "
+                                  f"(needs open >= {_p['c'] * 0.98:.2f})"))
+        _d2.sort(reverse=True)
+        out.append("🎯 <b>Day 2 candidates</b>: "
+                   + ("; ".join(_t for _, _t in _d2[:6]) if _d2
+                      else "none -- expect no auto entries next session"))
+    except Exception as exc:
+        _log_swallowed("readiness Day 2 candidates", exc)
+
+    try:
+        _c = get_alpaca_client()
+        if _c is not None:
+            _und = sorted({(str(p.symbol)[:-15] if len(str(p.symbol)) > 15 else str(p.symbol))
+                           for p in _c.get_all_positions()})
+            _er = get_upcoming_earnings(_und, days_ahead=7) if _und else []
+            if _er:
+                out.append("⚠️ <b>Held names reporting within 7 days</b>: " + ", ".join(
+                    f"{e['ticker']} {e['earn_date'].strftime('%a %b %d')}" for e in _er))
+    except Exception as exc:
+        _log_swallowed("readiness held earnings", exc)
+    return out
+
+
 def run_readiness_scan() -> None:
     """
     Sunday evening readiness check — scans the watchlist for tickers primed
@@ -3613,14 +3721,24 @@ def run_readiness_scan() -> None:
         if d.weekday() == 4 and d == _get_third_friday(d.year, d.month):
             _macro_notes.append(f"⚡ OPEX {d.strftime('%a %b %d')} — gamma event")
     macro_note = ("\n" + "\n".join(_macro_notes)) if _macro_notes else ""
+    try:
+        _tape = _weekend_tape_lines(now_et)
+    except Exception as exc:
+        _log_swallowed("readiness weekend tape", exc)
+        _tape = []
+    tape_note = ("\n".join(_tape) + "\n\n") if _tape else ""
 
+    # The primed list feeds the gap setups, which the kill switch has had off
+    # since 10-13; the old footer ("watch for >=1.5% gaps") read as a promise
+    # of trades that cannot happen. Said plainly now.
     msg = (
-        f"📋 <b>DMan Sunday Readiness — Week of {(_td + timedelta(days=1)).strftime('%b %d')}</b>\n\n"
-        f"<b>READY FOR MONDAY GAPS ({len(ready)} tickers — MACD+ ✓ green ✓ sector ✓):</b>\n"
+        f"📋 <b>DMan Readiness — week of {(_td + timedelta(days=1)).strftime('%b %d')}</b>\n\n"
+        f"{tape_note}"
+        f"<b>Primed watchlist ({len(ready)} — MACD+ ✓ green ✓ sector ✓):</b>\n"
         f"{ready_str}"
         f"{partial_str}"
         f"{macro_note}\n\n"
-        f"<i>These pass all pre-gap filters. Watch for ≥1.5% gaps at open Monday.</i>"
+        f"<i>Primed names only matter to setups listed as able to open a position.</i>"
     )
     sent = send_telegram(msg)
     print(f"  {'✅ Sent' if sent else '⚠️  Telegram not configured'} — "
@@ -26891,20 +27009,34 @@ MARKET_SCAN_MAX_CANDIDATES = 60
 _LISTED_EXCHANGES = {"NYSE", "NASDAQ", "ARCA", "AMEX", "BATS", "NYSEARCA"}
 _WARRANT_NAME = re.compile(r"\bwarrants?\b", re.I)
 _UNIT_RIGHT_NAME = re.compile(r"\b(units?|rights?)\b", re.I)
+_ETF_ETN_NAME = re.compile(r"\bETFs?\b|\bETNs?\b", re.I)
 
 
 def _is_listed_common(asset: dict) -> bool:
-    """Exchange-listed and not a warrant / SPAC unit / SPAC right.
+    """Exchange-listed and not a warrant / SPAC unit / SPAC right / ETF.
 
     "Units" and "right" alone are NOT enough: MLPs trade as "Common Units"
     (BIP, ARLP, USAC), ADRs say "right to receive" (AMX), UNG is a "Unit".
     So units/rights are dropped only on the SPAC symbol shape -- five letters
     ending U or R. Warrants are dropped by name whatever the symbol.
+
+    ETFs/ETNs are dropped by name: the curated universe builder already
+    excludes ETFs by design (see fetch_nasdaq_listed), but this Alpaca path
+    fed them straight into the gap screen, and leveraged/inverse products
+    gap mechanically every time their underlying moves. By 2026-11-13 the
+    signal log held BITX (2x bitcoin), AMDL twice (2x AMD, -7.9% stop that
+    day), VIXY (-4.9%), EMBJ (-3.8%), plus same-day SBIT/BTCZ pendings --
+    inverse-crypto "Gap & Hold longs" scored with equity catalyst logic.
+    Name-match only (\\bETF/ETN\\b), so UNG/QQQ-style fund names without the
+    acronym still pass; the leveraged single-stock/crypto wrappers that
+    actually reach the gap screen all carry it.
     """
     if str(asset.get("exchange", "")).upper() not in _LISTED_EXCHANGES:
         return False
     _n = str(asset.get("name", "") or "")
     if _WARRANT_NAME.search(_n):
+        return False
+    if _ETF_ETN_NAME.search(_n):
         return False
     _s = str(asset.get("symbol", "") or "")
     if (len(_s) == 5 and _s[-1] in "UR" and _UNIT_RIGHT_NAME.search(_n)
@@ -31053,6 +31185,12 @@ def _get_day_start_equity(current_equity: float, sleeve: Optional[dict] = None) 
         pass
     # `sleeve` is the operator sleeve's intraday P&L at this same moment, kept
     # so get_todays_loss() can take out only its move since the baseline.
+    # Whoever writes first takes the snapshot. 2026-11-13: the daemon's
+    # startup call (no sleeve argument) wrote the 09:2x baseline every day,
+    # so the snapshot never existed and the breaker took the sleeve's
+    # pre-market move out twice again -- faa46a74 was dead on arrival.
+    if sleeve is None:
+        sleeve = _operator_sleeve_intraday_by_symbol()
     _row = {"date": today_str, "equity": current_equity}
     if sleeve:
         _row["sleeve"] = {str(k): round(float(v), 2) for k, v in sleeve.items()}
@@ -34617,7 +34755,14 @@ def main():
         print_live_performance()
 
     elif args.mode == "pnl":
-        send_account_pnl_telegram(label="On-Demand")
+        # The only scheduled caller is dman_scanner.yml's 15:55-16:20 ET
+        # window, which every scan landing in it re-runs: as "On-Demand"
+        # (never deduped) that was 2 extra summaries on 2026-11-13 on top of
+        # the real EOD one. Inside that window it IS the EOD summary.
+        _pt = datetime.now(ET)
+        _ptt = _pt.hour * 100 + _pt.minute
+        send_account_pnl_telegram(
+            label="EOD" if _pt.weekday() < 5 and 1555 <= _ptt <= 1620 else "On-Demand")
 
     elif args.mode == "premarket":
         run_premarket_briefing()

@@ -21148,8 +21148,10 @@ def _mark_alerted(key: str) -> None:
         except Exception:
             _d = {}
         _d[key] = datetime.now(ET).isoformat()
-        with open(_ALERT_DEDUP_FILE, "w") as _f:
-            json.dump(_d, _f)
+        # Atomic: several processes write this file, and a torn write reads
+        # back as "nothing was ever alerted" -- every once-a-day message and
+        # every action keyed on it would repeat.
+        _write_json_atomic(_ALERT_DEDUP_FILE, _d)
     except Exception:
         pass
 
@@ -21507,11 +21509,16 @@ class PositionTracker:
                     _mark_alerted(_k)
             elif stopped:
                 status = "🛑 AT STOP — exit immediately"
-                send_telegram(
-                    f"🛑 <b>STOP HIT</b> — {p.ticker} {p.bias}\n"
-                    f"Entry ${p.entry} → Now ${cur:.2f} | Stop ${p.stop}\n"
-                    f"P&L: {'+' if pnl_pct>=0 else ''}{pnl_pct:.1f}%  Exit NOW."
-                )
+                # Once a day, like T1/T2 above: this was the one branch with
+                # no dedup, so every positions listing re-sent it.
+                _k = f"{p.ticker}_STOPSHOW_{_et_today().isoformat()}"
+                if not _is_alerted_today(_k):
+                    send_telegram(
+                        f"🛑 <b>STOP HIT</b> — {p.ticker} {p.bias}\n"
+                        f"Entry ${p.entry} → Now ${cur:.2f} | Stop ${p.stop}\n"
+                        f"P&L: {'+' if pnl_pct>=0 else ''}{pnl_pct:.1f}%  Exit NOW."
+                    )
+                    _mark_alerted(_k)
             else:
                 status = "⏳ Active"
 

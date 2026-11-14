@@ -11393,6 +11393,7 @@ def _submit_options_close(occ_symbol: str, qty: int, reason: str,
     if _blocked:
         print(f"  🚫 PDT: holding {occ_symbol} — {_blocked}")
         if not _is_duplicate_alert(f"__PDT_HOLD_{occ_symbol}__"):
+            _save_last_alert(f"__PDT_HOLD_{occ_symbol}__")   # mark sent: this check had no mark and re-fired every pass
             send_telegram(
                 f"🚫 <b>PDT hold</b> — {occ_symbol}\n"
                 f"{reason}: exit signalled, but selling today would be day trade "
@@ -12604,6 +12605,7 @@ def _force_close_day_only_positions(_now_et: Optional[datetime] = None) -> int:
                           f"Momentum-watch breakout entry closing per session scope.")
         elif status == "failed":
             if not _is_duplicate_alert(f"__DAYONLY_CLOSE_FAIL_{pos.ticker}_{today_str}__"):
+                _save_last_alert(f"__DAYONLY_CLOSE_FAIL_{pos.ticker}_{today_str}__")   # mark sent: this check had no mark and re-fired every pass
                 send_telegram(f"🚨 <b>{pos.ticker} DAY-ONLY EOD CLOSE FAILED</b> — "
                               f"attempt {_attempts}/{_DAY_ONLY_CLOSE_MAX_ATTEMPTS}. "
                               "Check Alpaca manually NOW.")
@@ -19648,6 +19650,7 @@ def _record_period_pnl(filepath: str, pnl_pct: float, max_age_days: int,
               f"(one trade cannot exceed ±{MAX_SINGLE_TRADE_PNL_PCT}% of equity) "
               f"— {filepath} not written")
         if not _is_duplicate_alert(f"__BAD_PNL_{filepath}__"):
+            _save_last_alert(f"__BAD_PNL_{filepath}__")   # mark sent: this check had no mark and re-fired every pass
             send_telegram(
                 f"🚫 <b>Impossible P&L entry rejected</b> — {pnl_pct:+.2f}% of the "
                 f"account from a single trade is arithmetically impossible "
@@ -33389,6 +33392,7 @@ def _submit_path_options_attempt(_opt_contract, _risk_off_mult, _use_options, _u
             if _agg:
                 print(f"  🧯 {sig.ticker}: options aggregate cap — {_agg}")
                 if not _is_duplicate_alert("__OPT_AGG_CAP__"):
+                    _save_last_alert("__OPT_AGG_CAP__")   # mark sent: this check had no mark and re-fired every pass
                     send_telegram(
                         f"🧯 <b>{sig.ticker} skipped — options exposure cap</b>\n{_agg}.\n"
                         f"A long option has no stop, so concurrent premium is "
@@ -33551,6 +33555,7 @@ def _submit_path_shares(_naked_open, _options_only_overnight, _options_was_attem
                 print(f"  🚫 {sig.ticker}: options unavailable and PDT budget is 0 — "
                       f"no shares ({_naked_why})")
                 if not _is_duplicate_alert(f"__ZEROPDT_NOSHARES_{sig.ticker}__"):
+                    _save_last_alert(f"__ZEROPDT_NOSHARES_{sig.ticker}__")   # mark sent: this check had no mark and re-fired every pass
                     send_telegram(
                         f"🚫 <b>{sig.ticker} skipped</b> — no options available and the "
                         f"day-trade budget is 0.\n{html.escape(_naked_why)}."
@@ -33562,7 +33567,9 @@ def _submit_path_shares(_naked_open, _options_only_overnight, _options_was_attem
             print(f"  ⏭️  {sig.ticker} {sig.setup} skipped — options unavailable/ineligible, "
                   f"not a DMan watchlist ticker, and not Low Float Catalyst (shares reserved "
                   f"for DMan picks and low-float catalysts only)")
-            if _options_was_attempted:
+            _nx_k = f"__NOT_EXECUTED__:{sig.ticker}:{_et_today().isoformat()}"
+            if _options_was_attempted and not _is_alerted_today(_nx_k):
+                _mark_alerted(_nx_k)      # once a day per ticker, not every scan
                 send_telegram(
                     f"⏭️ <b>Signal alerted but not executed</b>: {sig.ticker} {sig.setup}\n"
                     f"Options attempted and unavailable, and shares are reserved for DMan's "
@@ -33912,6 +33919,9 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                     f"Auto-clears once those trades age out of the "
                     f"{TICKER_BENCH_LOOKBACK_DAYS}-day window."
                 )
+                # The check above never had a matching mark, so this went
+                # out on every scan the ticker signalled.
+                _save_last_alert(f"__BENCH_{sig.ticker}__")
             _mark_signal_not_taken(sig.ticker, f"benched: {_bench}")
             continue
 
@@ -33955,6 +33965,7 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
                 send_telegram(f"⛔ <b>{sig.ticker} {html.escape(sig.setup)} skipped — setup retired</b>\n"
                               f"Its live record is why (see RETIRED_SETUPS). Still scored and "
                               f"logged for the dataset; it just cannot take money.")
+            _mark_signal_not_taken(sig.ticker, "setup retired")
             continue
 
         # A zero/negative entry is unusable on its own terms, and both
@@ -33981,17 +33992,26 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
         if not valid:
             print(f"  ⚡ {sig.ticker:<8} entry stale  "
                   f"signal=${sig.entry}  now=${cur}  drift={drift_pct:+.1f}%  — skipped")
-            send_telegram(
-                f"⚡ <b>Signal skipped — stale entry</b>: {sig.ticker} {sig.bias}\n"
-                f"Detected ${sig.entry} → now ${cur:.2f} ({drift_pct:+.1f}% drift)\n"
-                f"Entry re-validation failed — no order placed."
-            )
+            # Once per ticker per day: a signal that stays stale repeats on
+            # every 10-minute scan and this had no dedup at all.
+            _stale_k = f"__STALE_ENTRY__:{sig.ticker}:{_et_today().isoformat()}"
+            if not _is_alerted_today(_stale_k):
+                _mark_alerted(_stale_k)
+                send_telegram(
+                    f"⚡ <b>Signal skipped — stale entry</b>: {sig.ticker} {sig.bias}\n"
+                    f"Detected ${sig.entry} → now ${cur:.2f} ({drift_pct:+.1f}% drift)\n"
+                    f"Entry re-validation failed — no order placed."
+                )
             _mark_signal_not_taken(sig.ticker,
                                    f"stale entry drift {drift_pct:+.1f}%")
             continue
 
         # Apply sizing multiplier — down for risk-off/cold streak, up for hot streak/risk-on
-        if _risk_off_mult != 1.0:
+        # Only a signal that HAS a share size is scaled. shares == 0 means
+        # "one share is over the risk budget, routed to options" (above);
+        # max(1, int(0 * mult)) turned that into 1 share, so a reduction
+        # multiplier could buy exactly the share the sizer had refused.
+        if _risk_off_mult != 1.0 and sig.shares > 0:
             sig.shares = max(1, int(sig.shares * _risk_off_mult))
             sig.cost   = round(sig.shares * sig.entry, 2)
 

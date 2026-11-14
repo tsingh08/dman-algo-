@@ -31658,3 +31658,28 @@ class TestRsiWithNoDownCloses(unittest.TestCase):
                            "Close": [50.0] * n, "Volume": [1_000_000] * n},
                           index=a.pd.date_range("2026-01-02", periods=n, freq="B"))
         self.assertTrue(a.pd.isna(a.compute_indicators(df)["RSI"].iloc[-1]))
+
+
+class TestSubmitLoopSmallFixes(unittest.TestCase):
+    """2026-11-14, found reading _submit_signals_to_alpaca() line by line."""
+
+    def _src(self):
+        return inspect.getsource(a._submit_signals_to_alpaca)
+
+    def test_a_zero_share_signal_is_not_scaled_up_to_one_share(self):
+        # shares == 0 means "one share is over the risk budget"; the size
+        # multiplier's max(1, ...) turned it into 1 share and bypassed the
+        # "even 1 share exceeds the risk budget" guard further down.
+        self.assertIn("if _risk_off_mult != 1.0 and sig.shares > 0:", self._src())
+
+    def test_the_bench_alert_marks_itself_sent(self):
+        src = self._src()
+        i = src.index('_is_duplicate_alert(f"__BENCH_{sig.ticker}__")')
+        self.assertIn('_save_last_alert(f"__BENCH_{sig.ticker}__")', src[i:i + 700])
+
+    def test_the_stale_entry_alert_is_once_a_day_per_ticker(self):
+        src = self._src()
+        i = src.index("__STALE_ENTRY__")
+        self.assertIn("_is_alerted_today(_stale_k)", src[i:i + 200])
+        self.assertLess(src.index("_mark_alerted(_stale_k)"),
+                        src.index("Signal skipped — stale entry"))

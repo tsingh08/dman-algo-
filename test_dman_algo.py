@@ -31553,3 +31553,64 @@ class TestWeekendTapeLines(unittest.TestCase):
              patch.object(a, "get_alpaca_client", side_effect=RuntimeError("y")):
             out = a._weekend_tape_lines(datetime(2026, 11, 15, 18, 0, tzinfo=a.ET))
         self.assertIsInstance(out, list)
+
+
+class TestFridayWeekendSectionCountsRealPositions(unittest.TestCase):
+    """2026-11-14: the Friday briefing called every paper-tracked pending
+    signal an "open position" carrying the weekend."""
+
+    def _friday(self):
+        return datetime(2026, 11, 13, 8, 0, tzinfo=a.ET)
+
+    def test_pending_signals_are_not_positions(self):
+        class _PT:
+            def __init__(self): self.positions = []
+        with patch.object(a, "PositionTracker", _PT):
+            out = a._pmb_weekend_section(self._friday())
+        self.assertIn("no algo-managed positions", out)
+        self.assertNotIn("WEEKEND RISK", out)
+
+    def test_tracked_positions_are_listed(self):
+        pos = MagicMock(); pos.ticker = "ARHS"
+
+        class _PT:
+            def __init__(self): self.positions = [pos]
+        with patch.object(a, "PositionTracker", _PT):
+            out = a._pmb_weekend_section(self._friday())
+        self.assertIn("WEEKEND RISK — 1 open position(s)", out)
+        self.assertIn("ARHS", out)
+
+    def test_other_days_say_nothing(self):
+        self.assertEqual(a._pmb_weekend_section(datetime(2026, 11, 12, 8, 0, tzinfo=a.ET)), "")
+
+
+class TestNfpDatesFollowTheBlsSchedule(unittest.TestCase):
+    """2026-11-14: "first Friday of the month" missed two real jobs reports
+    in 2027 and blacked out two clean sessions instead."""
+
+    def test_the_two_months_the_rule_got_wrong(self):
+        nfp = a._nfp_dates()
+        self.assertIn(date(2027, 1, 8), nfp)
+        self.assertNotIn(date(2027, 1, 1), nfp)      # New Year's Day
+        self.assertIn(date(2027, 10, 8), nfp)
+        self.assertNotIn(date(2027, 10, 1), nfp)
+
+    def test_one_date_per_month_and_a_rule_fallback_past_the_schedule(self):
+        nfp = a._nfp_dates()
+        months = [(d.year, d.month) for d in nfp]
+        self.assertEqual(len(months), len(set(months)))
+        _beyond = max(a._NFP_DATES).year + 1
+        if any(d.year == _beyond for d in nfp):
+            jan = next(d for d in nfp if (d.year, d.month) == (_beyond, 1))
+            self.assertEqual(jan.weekday(), 4)
+            self.assertLessEqual(jan.day, 7)
+
+    def test_the_gate_blocks_the_real_release_morning(self):
+        class _DT(datetime):
+            @classmethod
+            def now(cls, tz=None):
+                return datetime(2027, 1, 8, 9, 40, tzinfo=a.ET)
+        with patch.object(a, "datetime", _DT), \
+             patch.object(a, "_macro_calendar_alert"), \
+             patch.object(a, "_et_today", return_value=date(2027, 1, 8)):
+            self.assertEqual(a.check_macro_safe(), (False, 0))

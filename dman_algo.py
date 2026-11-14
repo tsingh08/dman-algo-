@@ -14151,10 +14151,13 @@ def _pmb_weekend_section(now_et):
     weekend_section = ""
     if now_et.weekday() == 4:  # Friday
         try:
-            _pending_wk = []
-            if os.path.exists(LIVE_SIGNALS_FILE):
-                with open(LIVE_SIGNALS_FILE) as _fw:
-                    _pending_wk = json.load(_fw).get("pending", [])
+            # Positions the tracker actually holds. This read the "pending"
+            # list in dman_live_signals.json, which is every ALERTED signal
+            # still being paper-scored -- so the Friday briefing reported
+            # tracked signals as "open position(s)" carrying the weekend
+            # while the account held none of them (2026-11-13: SBIT/BTCZ
+            # pendings, empty tracker).
+            _pending_wk = [{"ticker": _p.ticker} for _p in PositionTracker().positions]
             # Find nearest upcoming FOMC for context
             _td_wk = now_et.date()
             _fomc_wk_str = ""
@@ -14169,13 +14172,13 @@ def _pmb_weekend_section(now_et):
                 _open_tickers_wk = ", ".join(p.get("ticker", "?") for p in _pending_wk)
                 weekend_section = (
                     f"\n\n🏖 <b>WEEKEND RISK — {len(_pending_wk)} open position(s)</b>\n"
-                    f"Pending: <b>{_open_tickers_wk}</b>\n"
+                    f"Held: <b>{_open_tickers_wk}</b>\n"
                     f"These carry over the weekend.{_fomc_wk_str} "
                     f"Plan your exit before close — hit T1 or tighten stop."
                 )
             else:
                 weekend_section = (
-                    f"\n\n🏖 <b>Friday</b> — no open positions.{_fomc_wk_str} "
+                    f"\n\n🏖 <b>Friday</b> — no algo-managed positions.{_fomc_wk_str} "
                     f"Clean slate heading into the weekend."
                 )
         except Exception:
@@ -16356,8 +16359,7 @@ def run_premarket_briefing() -> None:
             "date": _et_today().isoformat(),
             "tickers": _prebuilt,
         }
-        with open("dman_universe_cache.json", "w") as _ucf:
-            json.dump(_cache_payload, _ucf)
+        _write_json_atomic("dman_universe_cache.json", _cache_payload)
         print(f"  ✅ Universe cached: {len(_prebuilt)} tickers → dman_universe_cache.json "
               f"(9:45 AM scan will use this instead of {len(WATCHLIST)}-name list)")
     except Exception as _ue:
@@ -18505,7 +18507,14 @@ _FOMC_DATES: set[date] = {
     date(2026,  7, 29), date(2026,  9, 16), date(2026, 10, 28),
     date(2026, 12,  9), date(2027,  1, 27), date(2027,  3, 17),
     date(2027,  4, 28), date(2027,  6,  9), date(2027,  7, 28),
-    date(2027,  9, 15), date(2027, 10, 27), date(2027, 12,  8)
+    date(2027,  9, 15), date(2027, 10, 27),
+    # Added 2026-11-14. The Fed's 2027 calendar (last updated 2026-11-12) now
+    # lists a "Monetary Policy Strategy Meeting" on November 16-17 and, for
+    # now, no December meeting. Whether Nov 17 carries a rate decision is not
+    # stated, so it is treated as one: an unneeded blackout costs a session,
+    # a missed one is the event this gate exists for. 12-08 stays for the
+    # same reason until the Fed's page settles (the schedule is tentative).
+    date(2027, 11, 17), date(2027, 12,  8)
 }
 _FOMC_LAST_CONFIRMED_YEAR = 2026  # raise this after verifying new dates
 
@@ -18688,12 +18697,34 @@ _MAJOR_MACRO_EVENT_DATES: set[date] = {
 }
 
 
+# Employment Situation (NFP) release dates as BLS publishes them
+# (bls.gov/schedule/news_release/empsit.htm, read 2026-11-14). "First Friday
+# of the month" is only usually right: BLS moves the release when the first
+# Friday is too early in the month or a holiday. Against this schedule the
+# rule was wrong twice -- 2027-01-08 (rule: Jan 1, New Year's Day) and
+# 2027-10-08 (rule: Oct 1) -- so the gate would have sat out a clean session
+# and traded straight through the real print. A month listed here uses the
+# BLS date; a month not listed yet falls back to the rule.
+# tools/macro_calendar_check.py diffs this against BLS every weekend.
+_NFP_DATES: set[date] = {
+    date(2026, 11,  6), date(2026, 12,  4),
+    date(2027,  1,  8), date(2027,  2,  5), date(2027,  3,  5),
+    date(2027,  4,  2), date(2027,  5,  7), date(2027,  6,  4),
+    date(2027,  7,  2), date(2027,  8,  6), date(2027,  9,  3),
+    date(2027, 10,  8), date(2027, 11,  5), date(2027, 12,  3),
+}
+
+
 def _nfp_dates(years: int = 2) -> set[date]:
-    """Generate NFP dates (first Friday of each month) for the next `years` years."""
+    """NFP release dates for the next `years` years: the BLS-published date
+    for every month in _NFP_DATES, the first Friday for any month beyond it."""
     today = _et_today()
-    result: set[date] = set()
+    _published = {(d.year, d.month) for d in _NFP_DATES}
+    result: set[date] = set(_NFP_DATES)
     for yr in range(today.year, today.year + years + 1):
         for mo in range(1, 13):
+            if (yr, mo) in _published:
+                continue
             first = date(yr, mo, 1)
             days_to_fri = (4 - first.weekday()) % 7
             result.add(first + timedelta(days=days_to_fri))

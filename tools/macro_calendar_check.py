@@ -24,7 +24,7 @@ calendar is loud. A wrong calendar is silent.
     python tools/macro_calendar_check.py --sets   # print corrected date sets
 
 Sources are the agencies themselves:
-  CPI/PPI  bls.gov/schedule/news_release/{cpi,ppi}.htm   (forward schedule)
+  CPI/PPI/NFP  bls.gov/schedule/news_release/{cpi,ppi,empsit}.htm   (forward schedule)
   FOMC     federalreserve.gov/monetarypolicy/fomccalendars.htm
 Only FORWARD dates are published, so past entries cannot be rechecked here --
 which is fine, because only future ones can still gate a trade.
@@ -140,6 +140,11 @@ def main() -> int:
         ("PPI", a._PPI_DATES, lambda: bls_schedule("ppi")),
         ("FOMC", a._FOMC_DATES, fomc_decision_days),
         ("PCE", a._PCE_DATES, bea_pce_schedule),
+        # NFP joined 2026-11-14. The gate used "first Friday of the month",
+        # which BLS does not always follow: 2027-01-08 and 2027-10-08 were
+        # both a week later than the rule said. a._NFP_DATES is the published
+        # schedule; this keeps it honest the same way as the others.
+        ("NFP", a._nfp_dates(), lambda: bls_schedule("empsit")),
     )
     bad = 0
     corrected = {}

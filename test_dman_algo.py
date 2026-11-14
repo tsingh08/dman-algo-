@@ -10968,6 +10968,24 @@ class TestIsOnProbation(unittest.TestCase):
             f.write("{not valid json")
         self.assertEqual(a.is_on_probation(), (False, 1.0))
 
+    def test_a_multiplier_above_one_never_sizes_up(self):
+        # 2026-11-14: "/probation 5" (a typo for 0.5) wrote size_mult 5 --
+        # five times the risk with the consec-loss and monthly guards off.
+        for bad in (5, 0, -1):
+            with open(self._tmp.name, "w") as f:
+                json.dump({"active": True, "size_mult": bad}, f)
+            self.assertEqual(a.is_on_probation(), (True, 0.5), bad)
+
+    def test_the_command_refuses_a_multiplier_outside_zero_to_one(self):
+        for bad in ("5", "0", "-0.5", "nan"):
+            with patch.object(a, "send_telegram") as tg:
+                a._tg_cmd_probation(bad, ["/probation", bad])
+            self.assertFalse(os.path.exists(self._tmp.name), bad)
+            self.assertIn("at most 1", tg.call_args[0][0])
+        with patch.object(a, "send_telegram"):
+            a._tg_cmd_probation("0.35", ["/probation", "0.35"])
+        self.assertEqual(a.is_on_probation(), (True, 0.35))
+
     def test_missing_started_field_does_not_force_expire(self):
         # Pre-2026-08-22 probation files (or a hand-written one) have no
         # "started" field at all -- must fail safe to NOT expired, not
@@ -18127,6 +18145,29 @@ class TestBreakoutTopPick(unittest.TestCase):
         self.assertIn("#2 CCC", out)          # runners-up are explained, not traded
         self.assertIn("#3 AAA", out)
 
+    def test_auto_executed_is_only_said_when_a_position_was_opened(self):
+        # 2026-11-13: GRAB was reported AUTO-EXECUTED here and "not
+        # auto-traded" by the order path in the same minute.
+        class _PT:
+            held: list = []
+            def __init__(self): self.positions = list(_PT.held)
+        pos = MagicMock(); pos.ticker = "BBB"
+
+        def _refuse(sigs, size_mult=1.0):
+            return None
+
+        def _fill(sigs, size_mult=1.0):
+            _PT.held = [pos]
+
+        for submit, said in ((_refuse, False), (_fill, True)):
+            _PT.held = []
+            with patch.object(a, "_build_momentum_signal", return_value="SIG"), \
+                 patch.object(a, "PositionTracker", _PT), \
+                 patch.object(a, "_submit_signals_to_alpaca", side_effect=submit):
+                out = "\n".join(a._mw_pick_and_execute([self._cand("BBB", 80)]))
+            self.assertEqual("AUTO-EXECUTED" in out, said)
+            self.assertEqual("no order was placed" in out, not said)
+
     def test_a_low_score_winner_is_alerted_not_traded(self):
         with patch.object(a, "_submit_signals_to_alpaca") as sub:
             out = "\n".join(a._mw_pick_and_execute([self._cand("AAA", 20)]))
@@ -21440,6 +21481,15 @@ class TestPremarketAutoSubmitRespectsRiskLimits(unittest.TestCase):
         self.assertIn("is_on_probation()", blk)
         self.assertIn("_risk_pct *= _pm_prob_mult", blk)
 
+    def test_halt_breakers_and_macro_gate_come_before_any_order(self):
+        # 2026-11-14: this path checked the PDT count only -- not /halt, not
+        # the daily/monthly breakers, not the macro blackout.
+        src = self._src()
+        self.assertIn("_entry_circuit_breakers_ok()", src)
+        self.assertIn("check_macro_safe()", src)
+        self.assertLess(src.index("_entry_circuit_breakers_ok()"),
+                        src.index("_client.submit_order("))
+
     def test_one_shared_heat_budget_not_one_per_trade(self):
         src = self._src()
         blk = src[src.index("Pre-market auto-submit"):]
@@ -23007,6 +23057,18 @@ class TestSignalFeatureDedup(unittest.TestCase):
         out = a._dedupe_feature_rows(rows)
         self.assertAlmostEqual(out[0]["entry_min"], 47.14)
         self.assertAlmostEqual(out[0]["entry_max"], 48.59)
+
+    def test_a_label_on_a_later_copy_carries_its_pnl_across(self):
+        # 2026-11-14: the merge copied label_outcome but not label_pnl_pct /
+        # label_mfe_pct / label_mae_pct, so the merged row was dropped by
+        # every report that reads the P&L.
+        rows = [self._row(ts="2026-09-21T09:57:00"),
+                self._row(ts="2026-09-21T16:03:00", label_outcome="WIN",
+                          label_pnl_pct=4.2, label_mfe_pct=6.0, label_mae_pct=-1.1)]
+        out = a._dedupe_feature_rows(rows)[0]
+        self.assertEqual((out["label_outcome"], out["label_pnl_pct"],
+                          out["label_mfe_pct"], out["label_mae_pct"]),
+                         ("WIN", 4.2, 6.0, -1.1))
 
     def test_distinct_signals_are_not_merged(self):
         rows = [self._row(), self._row(ticker="AMD"),

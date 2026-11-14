@@ -3959,7 +3959,10 @@ def is_on_probation() -> tuple[bool, float]:
                 )
                 _save_last_alert("__PROBATION_EXPIRED__")
             return False, 1.0
-        return True, float(state.get("size_mult", 1.0))
+        # Never above full size, whatever the file says (hand edit, old
+        # version): probation may only shrink a position.
+        _pm = float(state.get("size_mult", 1.0))
+        return True, (_pm if 0.0 < _pm <= 1.0 else 0.5)
     except Exception:
         return False, 1.0
 
@@ -4693,6 +4696,13 @@ def _tg_cmd_probation(_arg, _parts):
     """
     try:
         _mult = float(_arg) if _arg else 0.5
+        # Probation is REDUCED size with two guards bypassed. Unbounded, a
+        # typo ("/probation 5" for 0.5) multiplied every position's risk by
+        # five with the consecutive-loss and monthly halts off.
+        if not (0.0 < _mult <= 1.0):
+            send_telegram(f"❌ /probation: size must be above 0 and at most 1 "
+                          f"(got {_arg}). Example: /probation 0.5")
+            return
         with open(PROBATION_FILE, "w") as _f:
             json.dump({"active": True, "size_mult": _mult,
                        "started": datetime.now(ET).isoformat(),
@@ -6803,8 +6813,7 @@ def _stocktwits_inject_tickers(tickers_to_add: list[str]) -> list[str]:
 
     if _added:
         try:
-            with open(SMALLCAP_WATCHLIST_FILE, "w") as _f:
-                json.dump(_data, _f, indent=2)
+            _write_json_atomic(SMALLCAP_WATCHLIST_FILE, _data, indent=2)
             # Update the in-memory list so this run's scans see them too
             DMAN_SMALLCAP_WATCHLIST.extend(_added)
             DMAN_CALLED_TICKERS.update(_added)
@@ -7396,8 +7405,7 @@ def run_stocktwits_monitor() -> None:
 
     # Persist seen cache
     try:
-        with open(_SEEN_FILE, "w") as _f:
-            json.dump(_seen, _f)
+        _write_json_atomic(_SEEN_FILE, _seen)
     except Exception:
         pass
 
@@ -9410,8 +9418,12 @@ def _dedupe_feature_rows(rows: list) -> list:
             cur["taken"] = True
             cur["reject"] = ""
         # Never let a merge discard a label that replay already computed.
-        for _lf in ("label_outcome", "label_fill", "label_exit_reason",
-                    "label_ret_pct", "label_r"):
+        # Every label_* field, not a hand-kept list: the list named
+        # label_ret_pct / label_r, which nothing writes, and omitted
+        # label_pnl_pct / label_mfe_pct / label_mae_pct, which the labeller
+        # does. A merged row then had an outcome and no P&L, and every report
+        # reading r["label_pnl_pct"] dropped it silently.
+        for _lf in [k for k in r if str(k).startswith("label_")]:
             if r.get(_lf) not in (None, "") and cur.get(_lf) in (None, ""):
                 cur[_lf] = r[_lf]
     return list(out.values())
@@ -10401,6 +10413,20 @@ def run_premarket_early_scan() -> None:
     send_telegram(msg)
 
     # Pre-market auto-submit: place extended-hours limit orders for Tier A/B moon shots
+    # Same gates as every other entry path. This one checked the PDT count
+    # only: /halt, the daily/monthly loss breakers and the macro blackout
+    # were never consulted, so "no new entries will be submitted" was not
+    # true here. Dormant while auto-exec is WATCHLIST-only (this scan is
+    # small caps), which is exactly when a missing gate goes unnoticed.
+    if ENABLE_PREMARKET_SUBMIT and pm_auto_entries:
+        _pm_ok, _pm_why = _entry_circuit_breakers_ok()
+        if _pm_ok and not check_macro_safe()[0]:
+            _pm_ok, _pm_why = False, "macro blackout"
+        if not _pm_ok:
+            print(f"  ⛔ Pre-market submit skipped — {_pm_why}")
+            for _e in pm_auto_entries:
+                _mark_signal_not_taken(_e["ticker"], f"entry gate (pre-market) {_pm_why}")
+            pm_auto_entries = []
     if ENABLE_PREMARKET_SUBMIT and pm_auto_entries:
         _client = get_alpaca_client()
         if _client is None:
@@ -13507,10 +13533,21 @@ def _mw_pick_and_execute(candidates: list) -> list[str]:
             _sig = _build_momentum_signal(best["offer"])
             _mult = MOMENTUM_AUTO_EXEC_SIZE_MULT * (
                 _probation_size_mult() if best.get("probation") else 1.0)
+            # The submit path returns nothing and refuses for many reasons
+            # (halt, off-watchlist, kill switch, PDT, cash). This line used
+            # to say AUTO-EXECUTED whatever happened: on 2026-11-13 the same
+            # GRAB breakout was reported as "not auto-traded". Say what the
+            # tracker shows.
+            _held_before = {p.ticker for p in PositionTracker().positions}
             _submit_signals_to_alpaca([_sig], size_mult=_mult)
-            lines.append(f"   🤖 <b>AUTO-EXECUTED</b> at {_mult:.2f}x size "
-                         f"— day-only, auto-closes ~{MOMENTUM_EOD_CLOSE_HOUR_ET}:"
-                         f"{MOMENTUM_EOD_CLOSE_MINUTE_ET:02d} ET")
+            if (best["ticker"] in {p.ticker for p in PositionTracker().positions}
+                    and best["ticker"] not in _held_before):
+                lines.append(f"   🤖 <b>AUTO-EXECUTED</b> at {_mult:.2f}x size "
+                             f"— day-only, auto-closes ~{MOMENTUM_EOD_CLOSE_HOUR_ET}:"
+                             f"{MOMENTUM_EOD_CLOSE_MINUTE_ET:02d} ET")
+            else:
+                lines.append("   📋 Alert only — no order was placed (the entry "
+                             "gates refused it; see the signal message for why).")
         except Exception as exc:
             lines.append(f"   ⚠️ Auto-execute failed ({exc}) — no order placed")
     elif best["executable"]:

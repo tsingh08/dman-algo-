@@ -26425,8 +26425,13 @@ def run_api_health_check(notify: bool = False) -> list[str]:
         if _m not in _models_probed:
             _models_probed.add(_m)
             _probe("OPTIONAL", _label, _anthropic(_m))
+    # Same request shape as the three production call sites: StockTwits sits
+    # behind Cloudflare, which 403s any request without a browser User-Agent.
+    # This probe sent none, so it read red every week while the monitor job
+    # fetched fine (verified 2026-11-14: both endpoints 403 bare, 200 with it).
     _probe("OPTIONAL", "stocktwits",
-           _http("https://api.stocktwits.com/api/2/streams/symbol/AAPL.json"))
+           _http("https://api.stocktwits.com/api/2/streams/user/ProfessorDman1.json",
+                 headers={"User-Agent": "Mozilla/5.0"}, params={"limit": 1}))
     _probe("OPTIONAL", "benzinga direct (legacy)",
            _http("https://api.benzinga.com/api/v2/news",
                  params={"token": BENZINGA_DIRECT_API_KEY or "none", "pagesize": 1}))
@@ -26580,7 +26585,13 @@ def run_massive_key_drill(notify: bool = False) -> list[str]:
     return _emit()
 
 
-def run_news_source_check(notify: bool = False) -> list[str]:
+def _news_check_should_send(lines: list, notify: bool, failures_only: bool) -> bool:
+    """Telegram the news check? Always on demand; with failures_only, only
+    when some source line is red."""
+    return bool(notify) and (not failures_only or any("❌" in str(_l) for _l in lines))
+
+
+def run_news_source_check(notify: bool = False, failures_only: bool = False) -> list[str]:
     """Probe every news/earnings source and report what each one answers.
 
     Built 2026-09-20 after a key swap could not be verified: the same 32-char
@@ -26745,7 +26756,11 @@ def run_news_source_check(notify: bool = False) -> list[str]:
     print("\n  📰 NEWS SOURCE CHECK")
     for _l in _lines:
         print(_l)
-    if notify:
+    # The weekend workflow runs this up to five times a weekend; an all-green
+    # report each time is noise (the operator asked for fewer messages), and
+    # the Sunday apicheck already reports health weekly. failures_only=True
+    # messages only when a source is red; on-demand runs still always report.
+    if _news_check_should_send(_lines, notify, failures_only):
         send_telegram("📰 <b>News source check</b>\n" + "\n".join(
             html.escape(_l.strip()) for _l in _lines))
     return _lines
@@ -26775,9 +26790,24 @@ def run_weekend_watch(notify: bool = True) -> list[dict]:
     for r in _fresh + _moved:
         print(f"     {r.get('ticker','')}: tier {r.get('tier','')} "
               f"gap {r.get('gap_pct', 0):+.1f}% — {str(r.get('headline',''))[:70]}")
-    if notify and _fresh:
-        _lines = [f"🗓 <b>Weekend catalyst — {len(_fresh)} name(s) not yet moved</b>"]
-        for r in _fresh[:6]:
+    # Up to five runs a weekend, and the Sunday 22:00/23:00 UTC crons are both
+    # delivered around 21:00 ET: 2026-11-08 sent the same MLYS headline twice
+    # within the hour. A headline is reported once per weekend (72h), keyed on
+    # ticker + headline so a NEW catalyst on the same name still gets through.
+    # dman_weekend.yml persists the dedup file between runs.
+    import hashlib
+
+    def _wk_key(r):
+        return ("__WEEKEND_CAT__:" + str(r.get("ticker", "")) + ":"
+                + hashlib.sha1(str(r.get("headline", "")).encode()).hexdigest()[:12])
+    _new = [r for r in _fresh if not _is_duplicate_alert(_wk_key(r), 72 * 60)]
+    if len(_new) < len(_fresh):
+        print(f"     ({len(_fresh) - len(_new)} already reported this weekend)")
+    if notify and _new:
+        for r in _new:
+            _mark_alerted(_wk_key(r))
+        _lines = [f"🗓 <b>Weekend catalyst — {len(_new)} name(s) not yet moved</b>"]
+        for r in _new[:6]:
             _lines.append(f"  <b>{r.get('ticker','')}</b> tier {r.get('tier','')} "
                           f"({r.get('gap_pct', 0):+.1f}% so far)\n   "
                           f"{html.escape(str(r.get('headline',''))[:120])}")
@@ -34797,7 +34827,8 @@ def main():
         run_breakout_zone_manage()
 
     elif args.mode == "newscheck":
-        run_news_source_check(notify=True)
+        run_news_source_check(
+            notify=True, failures_only=os.environ.get("NEWSCHECK_FAILURES_ONLY") == "1")
 
     elif args.mode == "keydrill":
         run_massive_key_drill(notify=True)

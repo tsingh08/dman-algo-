@@ -149,8 +149,12 @@ def setUpModule():
     global _state_write_isolation
     # 2026-11-12: DIP_CANDIDATES_FILE and _OPTIONS_FEED_STATE_FILE joined the
     # list -- every full local run left both modified in the working tree.
+    # 2026-11-14: SIGNAL_FEATURES_FILE too -- run_pro_scanner() labels the
+    # feature log whenever the market is CLOSED, so a weekend run of the
+    # suite rewrote 40 lines of the live dataset.
     for _const in ("LAST_ALERTS_FILE", "_ALERT_DEDUP_FILE", "_DAY_START_EQUITY_FILE",
-                   "DIP_CANDIDATES_FILE", "_OPTIONS_FEED_STATE_FILE"):
+                   "DIP_CANDIDATES_FILE", "_OPTIONS_FEED_STATE_FILE",
+                   "SIGNAL_FEATURES_FILE"):
         _tmp = os.path.join(tempfile.gettempdir(),
                             f"dman_test_isolation{_const.lower()}.json")
         try:
@@ -18678,6 +18682,45 @@ class TestWeekendWatch(unittest.TestCase):
     eighteen crons ran on a weekend, so Friday-night news was first seen on
     Monday, after the gap it caused."""
 
+    def setUp(self):
+        # The watch dedups headlines (2026-11-14); fresh stores per test.
+        self._d = tempfile.TemporaryDirectory()
+        self._ps = [patch.object(a, "_ALERT_DEDUP_FILE", os.path.join(self._d.name, "d.json")),
+                    patch.object(a, "LAST_ALERTS_FILE", os.path.join(self._d.name, "l.json"))]
+        for _p in self._ps:
+            _p.start()
+
+    def tearDown(self):
+        for _p in self._ps:
+            _p.stop()
+        self._d.cleanup()
+
+    def test_a_headline_is_reported_once_per_weekend(self):
+        # 2026-11-08: both Sunday-evening runs sent the same MLYS headline.
+        with patch.object(a, "scan_news_catalysts", return_value=self._rows()), \
+             patch.object(a, "send_telegram") as tg:
+            a.run_weekend_watch()
+            a.run_weekend_watch()
+        self.assertEqual(tg.call_count, 1)
+
+    def test_a_new_headline_on_the_same_name_still_reports(self):
+        with patch.object(a, "scan_news_catalysts", return_value=self._rows()), \
+             patch.object(a, "send_telegram"):
+            a.run_weekend_watch()
+        _new = [dict(self._rows()[0], headline="AAA to be acquired at $40")]
+        with patch.object(a, "scan_news_catalysts", return_value=_new), \
+             patch.object(a, "send_telegram") as tg:
+            a.run_weekend_watch()
+        self.assertEqual(tg.call_count, 1)
+        self.assertIn("acquired", tg.call_args[0][0])
+
+    def test_stocktwits_probe_sends_the_production_user_agent(self):
+        # Cloudflare 403s a bare request; the probe read red every week while
+        # the monitor (which sends a UA) fetched fine.
+        src = inspect.getsource(a.run_api_health_check)
+        _i = src.index('"stocktwits"')
+        self.assertIn('"User-Agent"', src[_i:_i + 300])
+
     def _rows(self):
         return [{"ticker": "AAA", "tier": "A", "gap_pct": 0.2, "reacted": False,
                  "headline": "AAA receives FDA approval"},
@@ -18741,6 +18784,23 @@ class TestNewsSourceCheck(unittest.TestCase):
              patch.object(a, "_fetch_alpaca_news", return_value={}):
             lines = a.run_news_source_check()
         self.assertTrue(any("401" in l and "Unknown API Key" in l for l in lines), lines)
+
+    def test_failures_only_is_quiet_when_green_and_speaks_when_red(self):
+        # 2026-11-14: the weekend workflow ran this up to 5x a weekend and
+        # messaged an all-green report every time.
+        green = ["  ✅ massive reference news  HTTP 200", "  MASSIVE_API_KEY len 32 ...KLMN"]
+        red = green + ["  ❌ massive earnings  HTTP 401"]
+        f = a._news_check_should_send
+        self.assertFalse(f(green, notify=True, failures_only=True))
+        self.assertTrue(f(red, notify=True, failures_only=True))
+        self.assertTrue(f(green, notify=True, failures_only=False))   # on demand: always
+        self.assertFalse(f(red, notify=False, failures_only=False))
+        # And end to end: everything erroring is red, so it must message.
+        with patch.object(a.requests, "get", side_effect=RuntimeError("x")), \
+             patch.object(a, "_fetch_alpaca_news", return_value={}), \
+             patch.object(a, "send_telegram") as tg:
+            a.run_news_source_check(notify=True, failures_only=True)
+        tg.assert_called_once()
 
     def test_an_exception_does_not_stop_the_check(self):
         with patch.object(a.requests, "get", side_effect=OSError("dns")), \

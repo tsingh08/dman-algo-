@@ -24365,6 +24365,12 @@ def _check_stop_coverage() -> Optional[dict]:
             if _pos.asset_class == AssetClass.US_EQUITY
             and sym not in _live_stop_symbols
             and sym.upper() not in _no_stop_syms
+            # Operator core holds carry no stop on purpose (CORE_HOLD_<SYM>).
+            # The orphan check above skipped them; this one did not, so from
+            # 2026-11-10 it sent "NO LIVE STOP PROTECTION: AVGO, GOOGL, META,
+            # TSM" every cooldown -- a standing false alarm on the one alert
+            # that must never be ignored.
+            and not _is_core_hold(sym)
         ]
         if _unprotected:
             # Auto-restore attempt (added 2026-08-15) BEFORE building the

@@ -12717,6 +12717,22 @@ class TestBrokerSideStopCoverageCheck(unittest.TestCase):
     def _messages(self, mock_tg):
         return [c[0][0] for c in mock_tg.call_args_list]
 
+    def test_an_operator_core_hold_is_not_reported_as_unprotected(self):
+        # 2026-11-14: AVGO/GOOGL/META/TSM carry no stop on purpose
+        # (CORE_HOLD_<SYM>); this check alerted on them every cooldown.
+        mock_client = MagicMock()
+        mock_client.get_all_positions.return_value = [
+            self._equity_position("AVGO", "0.4673"), self._equity_position("W")]
+        mock_client.get_orders.return_value = []
+        with patch.object(a, "get_alpaca_client", return_value=mock_client), \
+             patch.object(a, "_is_core_hold", side_effect=lambda s: s == "AVGO"), \
+             patch.object(a, "send_telegram") as mock_tg:
+            a._check_stop_coverage()
+        _no_stop = [m for m in self._messages(mock_tg) if "NO LIVE STOP" in m]
+        self.assertEqual(len(_no_stop), 1)
+        self.assertIn("W:", _no_stop[0])
+        self.assertNotIn("AVGO", "".join(self._messages(mock_tg)))
+
     def test_position_with_no_stop_order_at_all_triggers_alert(self):
         mock_client = MagicMock()
         mock_client.get_account.return_value = MagicMock(cash="100000")   # cap needs real cash

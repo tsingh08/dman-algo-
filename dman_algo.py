@@ -2479,14 +2479,23 @@ def prewarm_alpaca_bars(tickers: list[str], period_days: int = 430,
         if dc is None:
             return 0
         from datetime import timezone as _tz
+        from alpaca.data.enums import Adjustment as _AdjPre
         warmed = 0
         _start = (datetime.today() - timedelta(days=period_days + 5)).replace(tzinfo=_tz.utc)
         for i in range(0, len(tickers), chunk_size):
             chunk = tickers[i:i + chunk_size]
             try:
+                # Same adjustment as _fetch_alpaca_daily(), which this cache
+                # stands in for. The 2026-10-16 split fix reached only that
+                # per-ticker path; this batch path fills the cache FIRST on
+                # every scan, so scans kept reading RAW bars. Measured
+                # 2026-11-14: 27 of 272 names diverged >2%, among them NFLX
+                # (10:1, first bar $1,243.82 raw vs $124.38) and CRWD (4:1) on
+                # the executable watchlist.
                 _req = StockBarsRequest(
                     symbol_or_symbols=chunk,
                     timeframe=TimeFrame.Day,
+                    adjustment=_AdjPre.SPLIT,
                     start=_start,
                     feed=DataFeed(_resolve_stock_feed()),
                 )

@@ -9766,6 +9766,26 @@ class TestPrewarmAlpacaBarsChunking(unittest.TestCase):
         self.assertEqual([len(c) for c in calls], [2, 2, 1])
         self.assertEqual(warmed, 5)
 
+    def test_the_batch_request_is_split_adjusted_like_the_per_ticker_one(self):
+        # 2026-11-14: the 10-16 split fix reached _fetch_alpaca_daily() only.
+        # This path fills the cache first, so every scan read RAW bars (NFLX
+        # 10:1 and CRWD 4:1 among 27 diverging names).
+        from alpaca.data.enums import Adjustment
+        seen = []
+
+        def fake(req):
+            seen.append(req.adjustment)
+            resp = MagicMock()
+            resp.data = {t: [self._fake_bar()] * 25 for t in req.symbol_or_symbols}
+            return resp
+
+        mock_dc = MagicMock()
+        mock_dc.get_stock_bars.side_effect = fake
+        with patch.object(a, "ALPACA_AVAILABLE", True), \
+             patch.object(a, "get_alpaca_data_client", return_value=mock_dc):
+            a.prewarm_alpaca_bars(["TESTA", "TESTB"])
+        self.assertEqual(seen, [Adjustment.SPLIT])
+
     def test_no_alpaca_client_returns_zero(self):
         with patch.object(a, "ALPACA_AVAILABLE", True), \
              patch.object(a, "get_alpaca_data_client", return_value=None):

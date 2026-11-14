@@ -2578,5 +2578,25 @@
 "extension_pct": 42.0,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "PUBM",
+"date": "2026-11-13",
+"close": 20.61,
+"base_days": 68,
+"above_low_pct": 228.2,
+"extension_pct": 20.4,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "FROG",
+"date": "2026-11-13",
+"close": 113.6,
+"base_days": 1,
+"above_low_pct": 226.9,
+"extension_pct": 18.4,
+"fresh_base": false,
+"weak_band": false
 }
 ]

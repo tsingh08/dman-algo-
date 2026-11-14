@@ -14092,56 +14092,14 @@ def _pmb_sector_health():
 
 
 def _pmb_live_suggestion():
-    """Extracted verbatim from run_premarket_briefing() on 2026-09-14 (refx).
-    Returns: suggestion_line.
+    """Removed 2026-11-14. This compared each setup's paper-tracked win rate
+    with hardcoded "backtest baselines" (Gap & Hold 76%, Morning Runner 75%)
+    and suggested raising thresholds, or said "filters on track". Those
+    baselines were the inflated backtest (honest 2-year figure: 41% WR), and
+    the setups it advised on are switched off by the kill switch. The live
+    record is reported by the kill switch and the features report instead.
     """
-    suggestion_line = ""
-    try:
-        if os.path.exists(LIVE_OUTCOMES_FILE):
-            df_live = pd.read_csv(LIVE_OUTCOMES_FILE)
-            if not df_live.empty:
-                total  = len(df_live)
-                wr_all = (df_live["outcome"] == "WIN").mean() * 100
-                last20 = df_live.tail(20)
-                wr_20  = (last20["outcome"] == "WIN").mean() * 100
-                wins   = (df_live["outcome"] == "WIN").sum()
-                losses = (df_live["outcome"] == "LOSS").sum()
-                avg_w  = df_live.loc[df_live["pnl_pct"] > 0,  "pnl_pct"].mean()
-                avg_l  = df_live.loc[df_live["pnl_pct"] < 0,  "pnl_pct"].mean()
-                pf     = (wins * avg_w) / (losses * abs(avg_l)) if losses > 0 and avg_l != 0 else 0
-                live_line = (f"Total: {total} trades  |  WR: {wr_all:.1f}% (last 20: {wr_20:.1f}%)\n"
-                             f"PF: {pf:.2f}x  |  Avg W: {avg_w:+.1f}%  Avg L: {avg_l:+.1f}%\n"
-                             f"Backtest baseline: 76.0% WR | 6.10x PF | Sharpe 12.51")
-
-                setup_lines = []
-                for setup, grp in df_live.groupby("setup"):
-                    g_wr = (grp["outcome"] == "WIN").mean() * 100
-                    setup_lines.append(f"{setup}: {g_wr:.0f}% WR ({len(grp)} trades)")
-                if setup_lines:
-                    live_line += "\n" + "  ".join(setup_lines)
-
-                # Alert if any setup's live WR drops >8 pts below current backtest baseline
-                bt_baseline = {
-                    "Gap & Hold":    76.0,
-                    "Morning Runner": 75.0,
-                    "Vol Breakdown":  50.0,
-                }
-                suggestions = []
-                for setup, grp in df_live.groupby("setup"):
-                    if len(grp) >= 8:
-                        g_wr = (grp["outcome"] == "WIN").mean() * 100
-                        bt   = bt_baseline.get(cast(str, setup), 65.0)
-                        if g_wr < bt - 8:
-                            suggestions.append(
-                                f"⚠️ {setup} live WR {g_wr:.0f}% vs backtest {bt:.0f}% — "
-                                f"consider raising SETUP_MIN_CONFLUENCE to "
-                                f"{SETUP_MIN_CONFLUENCE.get(cast(str, setup), MIN_CONFLUENCE) + 3}"
-                            )
-                suggestion_line = ("\n\n💡 <b>CODE SUGGESTIONS</b>\n" + "\n".join(suggestions)
-                                   if suggestions else "\n\n💡 <b>CODE SUGGESTIONS</b>: None — filters on track.")
-    except Exception as e:
-        live_line = f"Error reading live outcomes: {e}"
-    return suggestion_line
+    return ""
 
 
 def _pmb_weekend_section(now_et):
@@ -16415,8 +16373,8 @@ def print_live_performance() -> None:
             print(f"  {reason:<10} {len(grp):3d} ({len(grp)/total*100:.0f}%)  {g_wr:.0f}% WR")
 
     # Backtest comparison line
-    print(f"\n  Backtest baseline : 60.0% WR | 2.43x PF (115 trades, 2yr walk-forward)")
-    print(f"  Live delta        : WR {wr - 60.0:+.1f}%  |  PF {pf - 2.43:+.2f}x")
+    # No "backtest baseline" line: the 60% / 2.43x figure printed here came
+    # from the hindsight-biased backtest and nothing live has matched it.
     print(f"{'═'*60}\n")
 
 
@@ -16610,6 +16568,9 @@ def compute_indicators(df: pd.DataFrame) -> pd.DataFrame:
     gain  = delta.clip(lower=0).rolling(14).mean()
     loss  = (-delta.clip(upper=0)).rolling(14).mean()
     df["RSI"] = 100 - 100 / (1 + gain / loss.replace(0, np.nan))
+    # 14 sessions with no down close is RSI 100 by definition; the division
+    # left it NaN, and every comparison against NaN is False.
+    df["RSI"] = df["RSI"].mask((loss == 0) & (gain > 0), 100.0)
 
     # MACD (12/26/9)
     ema12 = c.ewm(span=12, adjust=False).mean()
@@ -16708,6 +16669,7 @@ def compute_weekly_indicators(df: pd.DataFrame) -> pd.DataFrame:
     gain  = delta.clip(lower=0).rolling(14).mean()
     loss  = (-delta.clip(upper=0)).rolling(14).mean()
     df["W_RSI"]   = 100 - 100 / (1 + gain / loss.replace(0, np.nan))
+    df["W_RSI"]   = df["W_RSI"].mask((loss == 0) & (gain > 0), 100.0)
     ema12 = c.ewm(span=12, adjust=False).mean()
     ema26 = c.ewm(span=26, adjust=False).mean()
     df["W_MACD"]     = ema12 - ema26
@@ -20962,7 +20924,7 @@ class WinRateTracker:
         avg_loss_r = abs(sum(r.pnl_pct for r in losses)) / len(losses) if losses else 1.0
         consec = 0
         for r in reversed(recent):
-            if r.outcome == "LOSS":
+            if _classify_outcome(r.pnl_pct) == "LOSS":
                 consec += 1
             else:
                 break
@@ -34763,7 +34725,7 @@ def main():
   ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗
   ██╔══██╗████╗ ████║██╔══██╗████╗  ██║   🔥 PRO v3
   ██║  ██║██╔████╔██║███████║██╔██╗ ██║   18 filters
-  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   Target: 80%+ WR
+  ██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║   live record: /status
   ██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║
   ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  @ProfessorDman1
     """)

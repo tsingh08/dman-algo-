@@ -10107,7 +10107,13 @@ class TestStocktwitsQuickTake(unittest.TestCase):
 
     def _uptrend_df(self, n=40, spike_vol=True):
         import pandas as pd
-        closes = [10.0 + i * 0.15 for i in range(n)]   # steady uptrend
+        # Steady uptrend WITH pullbacks (up 0.30, down 0.12). Forty straight
+        # up closes is RSI 100 -- overbought, not "strong" -- and only looked
+        # strong while RSI silently came back NaN for a no-loss window.
+        closes, _c = [], 10.0
+        for i in range(n):
+            _c += 0.30 if i % 2 == 0 else -0.12
+            closes.append(round(_c, 2))
         highs  = [c + 0.1 for c in closes]
         lows   = [c - 0.1 for c in closes]
         vols   = [500_000] * (n - 1) + ([2_000_000] if spike_vol else [500_000])
@@ -31614,3 +31620,25 @@ class TestNfpDatesFollowTheBlsSchedule(unittest.TestCase):
              patch.object(a, "_macro_calendar_alert"), \
              patch.object(a, "_et_today", return_value=date(2027, 1, 8)):
             self.assertEqual(a.check_macro_safe(), (False, 0))
+
+
+class TestRsiWithNoDownCloses(unittest.TestCase):
+    """2026-11-14: 14 sessions without a down close left RSI NaN (0/0), and
+    every gate comparing against it read False."""
+
+    def test_a_straight_run_up_is_rsi_100(self):
+        n = 40
+        px = [100.0 + i for i in range(n)]
+        df = a.pd.DataFrame({"Open": px, "High": [p + 0.5 for p in px],
+                           "Low": [p - 0.5 for p in px], "Close": px,
+                           "Volume": [1_000_000] * n},
+                          index=a.pd.date_range("2026-01-02", periods=n, freq="B"))
+        out = a.compute_indicators(df)
+        self.assertEqual(float(out["RSI"].iloc[-1]), 100.0)
+
+    def test_a_flat_series_stays_undefined(self):
+        n = 40
+        df = a.pd.DataFrame({"Open": [50.0] * n, "High": [50.0] * n, "Low": [50.0] * n,
+                           "Close": [50.0] * n, "Volume": [1_000_000] * n},
+                          index=a.pd.date_range("2026-01-02", periods=n, freq="B"))
+        self.assertTrue(a.pd.isna(a.compute_indicators(df)["RSI"].iloc[-1]))

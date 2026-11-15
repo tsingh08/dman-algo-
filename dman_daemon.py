@@ -435,7 +435,9 @@ def _current_option_occ_symbols() -> list[str]:
     symbols = set()
     for pos in positions:
         setup = pos.get("setup", "")
-        if setup.startswith("Earnings "):
+        # Any spread, not only the "Earnings " ones: a Momentum Call Spread
+        # was tracked and monitored but its legs never got streamed quotes.
+        if algo._is_spread_setup(setup):
             for sym in pos.get("legs", []):
                 if sym:
                     symbols.add(sym)
@@ -620,8 +622,12 @@ def _pull_state() -> bool:
             if os.path.exists(p):
                 os.remove(p)
         elif out != local[p]:
-            with open(p, "w", encoding="utf-8", newline="") as f:
+            # Atomic: the guard, scan and stream threads read these files
+            # while this runs, and a half-written one reads as empty state.
+            _tmp = p + ".pulltmp"
+            with open(_tmp, "w", encoding="utf-8", newline="") as f:
                 f.write(out)
+            os.replace(_tmp, p)
     if merged:
         log(f"  both sides changed, reconciled: {', '.join(merged)}")
     return True
@@ -838,7 +844,7 @@ def _guard_failure(what: str, exc: Exception) -> None:
         if not algo._is_duplicate_alert(_key):
             algo.send_telegram(
                 f"🚨 <b>Daemon {what} is failing</b>\n"
-                f"<code>{str(exc)[:180]}</code>\n"
+                f"<code>{algo.html.escape(str(exc)[:180])}</code>\n"
                 "That check is not running this session. Exits may not be "
                 "enforced — verify positions in Alpaca."
             )
@@ -1848,9 +1854,9 @@ def news_data_stream_loop() -> None:
 
             tag = "🏛 <b>Macro/Fed news</b> —" if is_macro else "🔴 <b>HELD POSITION</b> —"
             sym_str = ', '.join(relevant[:5]) if relevant else ', '.join(symbols[:5])
-            msg = f"{tag} {sym_str}\n{headline}"
+            msg = f"{tag} {sym_str}\n{algo.html.escape(headline)}"
             if source:
-                msg += f"\n<i>{source}</i>"
+                msg += f"\n<i>{algo.html.escape(source)}</i>"
             if held_hit:
                 msg += f"\n💬 <code>/options {held_hit[0]}</code> to review"
             algo.send_telegram(msg)
@@ -2099,7 +2105,7 @@ def _dispatch_successor_session(run_until: str) -> bool:
     # only job is to log "skipped" -- harmless, but it would also cancel
     # nothing and tell us nothing, so don't.
     from datetime import date as _d
-    if datetime.now(algo.ET).weekday() >= 5 or _d.today() in algo._MARKET_HOLIDAYS:
+    if datetime.now(algo.ET).weekday() >= 5 or algo._et_today() in algo._MARKET_HOLIDAYS:
         return False
     try:
         _ok, _msg = algo._trigger_workflow_restart("dman_daemon.yml")
@@ -2134,7 +2140,7 @@ def main() -> None:
 
     if cloud:
         from datetime import date as _date
-        if _date.today() in algo._MARKET_HOLIDAYS:
+        if algo._et_today() in algo._MARKET_HOLIDAYS:      # ET date, not the runner's UTC one
             log("NYSE holiday — cloud daemon session skipped")
             return
         if datetime.now(algo.ET).weekday() >= 5:

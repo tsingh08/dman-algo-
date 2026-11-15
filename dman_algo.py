@@ -1,7 +1,7 @@
 """
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║   D🔥man Trading Algorithm v3 — PRO EDITION                            ║
-║   Target: 80%+ Win Rate  |  @ProfessorDman1 Style                      ║
+║   Live record: /status   |  @ProfessorDman1 Style                      ║
 ╠══════════════════════════════════════════════════════════════════════════╣
 ║  NEW IN v3 (layers on top of v2's 8 signal detectors)                   ║
 ║  ├─ 01. Market Regime Filter   — SPY/QQQ/VIX trend gate                 ║
@@ -27937,7 +27937,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
         return []
 
     print(f"\n{'═'*68}")
-    print(f"  D🔥man PRO Scanner v3  —  {datetime.today().strftime('%A %b %d, %Y')}")
+    print(f"  D🔥man PRO Scanner v3  —  {datetime.now(ET).strftime('%A %b %d, %Y')}")
     _cw = stats.get("consec_wins", 0)
     _cl = stats.get("consec_losses", 0)
     _streak_label = (f"🔥 {_cw}W streak" if _cw >= 2
@@ -28056,10 +28056,13 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
             remaining = len(tickers) - i + 1
             print(f"\n  ⏱  Scan time budget reached — {remaining} tickers skipped "
                   f"({i-1} scanned, {len(signals)} signal(s) found so far)")
-            send_telegram(
-                f"⏱ <b>DMan</b> scan time budget reached — {i-1}/{len(tickers)} tickers scanned, "
-                f"{len(signals)} signal(s) found. Consider reducing universe size."
-            )
+            # Once a day: a universe that is too big is too big on every scan.
+            if not _is_alerted_today("__SCAN_BUDGET__"):
+                _mark_alerted("__SCAN_BUDGET__")
+                send_telegram(
+                    f"⏱ <b>DMan</b> scan time budget reached — {i-1}/{len(tickers)} tickers scanned, "
+                    f"{len(signals)} signal(s) found. Consider reducing universe size."
+                )
             break
         sys.stdout.write(f"\r  {i:>3}/{len(tickers)}: {ticker:<8} ", )
         sys.stdout.flush()
@@ -29697,6 +29700,9 @@ def submit_alpaca_trade(signal: ProSignal) -> tuple[Optional[str], Optional[str]
             print(f"  ↩️  {signal.ticker}: pullback limit ${limit_px} would sit at/through "
                   f"the stop ${_s:.2f} — resting at the signal price ${_sig_px:.2f}")
             limit_px = _sig_px
+    # The "Order placed" message quoted signal.entry as the limit even when the
+    # order rests 3% under it. Carry the real price so the alert can say it.
+    signal.resting_limit = limit_px
     _qty, _cap_note = _cap_shares_to_cash(signal.ticker, int(signal.shares or 0), limit_px)
     if _qty < 1:
         return None, f"{signal.ticker}: {_cap_note or 'no affordable share size'}"
@@ -30098,6 +30104,20 @@ def run_position_reconciliation(notify: bool = True) -> dict:
     for _p in _tracked:
         _is_opt = _is_option_position(getattr(_p, "setup", ""))
         _key = str(_position_identity(_p.ticker, _p.setup) if _is_opt else _p.ticker).upper()
+        # A spread is held at the broker as its LEGS, never under the
+        # underlying's ticker. Keyed by ticker it was reported twice over: the
+        # spread as "tracked but NOT held" and each leg as "held but NOT
+        # tracked". Its size and entry are the spread monitor's to check.
+        _legs = [str(_l).upper() for _l in (getattr(_p, "legs", None) or [])]
+        if _is_spread_setup(getattr(_p, "setup", "")) and _legs:
+            _seen.update(_legs)
+            out["checked"] += 1
+            _gone = [_l for _l in _legs if _l not in _remote]
+            if _gone:
+                out["issues"].append(
+                    f"{_p.ticker}: spread leg(s) {', '.join(_gone)} tracked but NOT "
+                    f"held at the broker ({_p.setup})")
+            continue
         _seen.add(_key)
         _ap = _remote.get(_key)
         out["checked"] += 1
@@ -30161,6 +30181,10 @@ def run_position_reconciliation(notify: bool = True) -> dict:
 
     for _sym, _ap in _remote.items():
         if _sym in _seen:
+            continue
+        # The operator's core sleeve is untracked ON PURPOSE (never managed,
+        # never stopped). Without this the daily report listed all of it.
+        if _is_core_hold(_sym):
             continue
         out["issues"].append(f"{_sym}: held at the broker but NOT tracked — no exit "
                              f"management, no P&L recording, no PDT counting")
@@ -30784,9 +30808,10 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
                 is_live = True,   # a real Alpaca fill, not a simulation
                 entry_date = str(getattr(pos, "entry_date", "") or "")[:10],
                 shares  = float(getattr(pos, "shares", 0) or 0),
-                pnl_usd = round((fill_px - float(pos.entry))
-                                * float(getattr(pos, "shares", 0) or 0)
-                                * (-1 if str(pos.bias).upper() == "SHORT" else 1), 2),
+                # THIS order's dollars. It used the position's full share
+                # count, so a position closed in two tranches booked the whole
+                # size against each fill.
+                pnl_usd = round(dollar_pnl, 2),
                 spy_pct = _spy_return_pct(getattr(pos, "entry_date", ""), fill_date),
             ))
             # Consumes a PDT day trade only if this was a same-day round
@@ -30913,7 +30938,12 @@ def sync_alpaca_fills(tracker: WinRateTracker) -> int:
     # correctly against a legacy naive "...T08:00:00".
     from datetime import timezone as _tz_sync
     state["last_sync"]    = datetime.now(_tz_sync.utc).isoformat()
-    state["recorded_ids"] = list(recorded_ids)[-500:]
+    # Keep the NEWEST 500. recorded_ids is a set, so slicing it dropped an
+    # arbitrary 500-and-over rather than the oldest; the saved order is kept
+    # and this run's ids appended after it.
+    _prev_ids = [i for i in state.get("recorded_ids", []) if i in recorded_ids]
+    _prev_set = set(_prev_ids)
+    state["recorded_ids"] = (_prev_ids + sorted(recorded_ids - _prev_set))[-500:]
     _save_sync_state(state)
     return new_count
 
@@ -32439,7 +32469,10 @@ def _submit_options_put(
         msg = (f"🚫 <b>Put skipped — bullish flow</b>: {ticker}\n"
                f"P/C ratio {l2['pc_ratio']:.2f} (<0.3 = call-heavy). "
                "Market positioned bullish — put entry poor risk/reward.")
-        send_telegram(msg)
+        # Once a day per name: the scan re-reaches this every pass.
+        if not _is_alerted_today(f"__PUT_FLOW_SKIP__:{ticker}"):
+            send_telegram(msg)
+            _mark_alerted(f"__PUT_FLOW_SKIP__:{ticker}")
         print(f"  🚫 P/C={l2['pc_ratio']:.2f} < 0.3 — bullish flow, aborting puts")
         return None, None
 
@@ -32661,7 +32694,9 @@ def _submit_options_call(
         msg = (f"🚫 <b>Options skipped — bearish flow</b>: {ticker}\n"
                f"P/C ratio {l2['pc_ratio']:.2f} (>1.5 = put-heavy hedge demand)\n"
                f"Falling back to equity order.")
-        send_telegram(msg)
+        if not _is_alerted_today(f"__CALL_FLOW_SKIP__:{ticker}"):
+            send_telegram(msg)
+            _mark_alerted(f"__CALL_FLOW_SKIP__:{ticker}")
         print(f"  🚫 P/C={l2['pc_ratio']:.2f} > 1.5 — bearish flow, aborting options")
         return None, None
 
@@ -33322,7 +33357,7 @@ def _try_momentum_call_spread(sig, risk_mult: float) -> bool:
         _open_earnings_spread_position(plan)
     except Exception as exc:
         send_telegram(
-            f"🚨 <b>{sig.ticker} call spread FILLED but NOT TRACKED</b>  id {str(oid)[:8]}…\n"
+            f"🚨 <b>{sig.ticker} call spread SUBMITTED but NOT TRACKED</b>  id {str(oid)[:8]}…\n"
             f"{leg['long_occ']} / {leg['short_occ']}  cost ${_cost:.0f} — tracking failed "
             f"({html.escape(str(exc))}). No automated exit. Close it manually.")
         return True
@@ -33440,6 +33475,7 @@ def _submit_path_options_attempt(_opt_contract, _risk_off_mult, _use_options, _u
             if _agg:
                 print(f"  🧯 {sig.ticker}: options aggregate cap — {_agg}")
                 if not _is_duplicate_alert("__OPT_AGG_CAP__"):
+                    _save_last_alert("__OPT_AGG_CAP__")   # the put branch never marked it either
                     send_telegram(
                         f"🧯 <b>{sig.ticker} skipped — options exposure cap</b>\n{_agg}.\n"
                         f"A long option has no stop, so concurrent premium is "
@@ -33744,14 +33780,14 @@ def _submit_path_record_fill(_opt_contract, _submit_err, _use_options, _use_puts
             if sig.swing_mode:
                 send_telegram(
                     f"🔄 <b>SWING Order placed</b> [{mode_label}] — {sig.ticker} {sig.bias}\n"
-                    f"GTC Limit ${sig.entry}  Stop ${sig.stop}  T1 ${sig.target1} (monitor tomorrow)\n"
+                    f"GTC Limit ${getattr(sig, 'resting_limit', sig.entry)}  Stop ${sig.stop}  T1 ${sig.target1} (monitor tomorrow)\n"
                     f"Shares: {sig.shares}  Score: {sig.confluence_score}/100  ID: {oid[:8]}…\n"
                     f"<i>PDT budget preserved — position held overnight, managed by momentum-watch</i>"
                 )
             else:
                 send_telegram(
                     f"✅ <b>Order placed</b> [{mode_label}] — {sig.ticker} {sig.bias}\n"
-                    f"Limit ${sig.entry}  Stop ${sig.stop}  T1 ${sig.target1}\n"
+                    f"Limit ${getattr(sig, 'resting_limit', sig.entry)}  Stop ${sig.stop}  T1 ${sig.target1}\n"
                     f"Shares: {sig.shares}  Score: {sig.confluence_score}/100  ID: {oid[:8]}…"
                 )
     else:
@@ -34603,7 +34639,7 @@ def main():
     if hasattr(sys.stdout, "reconfigure"):
         cast(Any, sys.stdout).reconfigure(encoding="utf-8", errors="replace")
     parser = argparse.ArgumentParser(
-        description="D🔥man Algorithm v3 PRO — targeting 80%+ win rate"
+        description="D🔥man Algorithm v3 PRO"
     )
     parser.add_argument("--mode", default="scan",
         choices=["scan","backtest","performance","regime","record",
@@ -34728,8 +34764,14 @@ def main():
         run_fallback_guard()
         return
 
+    # Only these modes read `tickers`. Every other mode (pnl, sync, guard,
+    # reconcile, the weekend watch...) used to load the universe cache and
+    # fetch live movers on every run, then never look at the result.
+    _needs_universe = args.mode in ("scan", "alpaca", "watch", "rank", "backtest")
     if args.tickers:
         tickers = args.tickers
+    elif not _needs_universe:
+        tickers = WATCHLIST
     elif args.universe == "all":
         tickers = build_scan_universe()
     else:
@@ -34963,7 +35005,7 @@ if __name__ == "__main__":
         try:
             send_telegram(
                 f"🚨 <b>DMan CRASHED</b>\n"
-                f"<code>{str(_top_exc)[:200]}</code>\n"
+                f"<code>{html.escape(str(_top_exc)[:200])}</code>\n"
                 f"Check GitHub Actions logs for full traceback."
             )
         except Exception:

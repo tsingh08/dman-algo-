@@ -31705,3 +31705,77 @@ class TestSubmitLoopSmallFixes(unittest.TestCase):
         self.assertIn("_is_alerted_today(_stale_k)", src[i:i + 200])
         self.assertLess(src.index("_mark_alerted(_stale_k)"),
                         src.index("Signal skipped — stale entry"))
+
+
+class TestReconciliationKnowsCoreHoldsAndSpreads(unittest.TestCase):
+    """2026-11-14. With an empty tracker and the operator's core sleeve at the
+    broker, the daily reconciliation listed every core holding as "held but
+    NOT tracked". A tracked spread was reported twice over: once as a phantom
+    (keyed by the underlying, which the broker never holds) and once per leg."""
+
+    def _run(self, tracked, remote, core=()):
+        client = MagicMock()
+        client.get_all_positions.return_value = remote
+        client.get_orders.return_value = []
+        with patch.object(a, "get_alpaca_client", return_value=client), \
+             patch.object(a, "PositionTracker", return_value=SimpleNamespace(positions=tracked)), \
+             patch.object(a, "_is_core_hold", side_effect=lambda s: s in core), \
+             patch.object(a, "send_telegram"):
+            return a.run_position_reconciliation(notify=False)
+
+    @staticmethod
+    def _pos(sym, qty=1, avg=10):
+        return SimpleNamespace(symbol=sym, qty=str(qty), avg_entry_price=str(avg))
+
+    def test_core_holds_are_not_reported_untracked(self):
+        out = self._run([], [self._pos("GOOGL"), self._pos("NVDA270115C00195000")],
+                        core={"GOOGL", "NVDA270115C00195000"})
+        self.assertEqual(out["issues"], [])
+
+    def test_a_real_orphan_is_still_reported(self):
+        out = self._run([], [self._pos("GOOGL"), self._pos("XYZ")], core={"GOOGL"})
+        self.assertEqual(len(out["issues"]), 1)
+        self.assertIn("XYZ", out["issues"][0])
+
+    def test_a_tracked_spread_matches_its_legs(self):
+        legs = ["NFLX261120C00100000", "NFLX261120C00110000"]
+        sp = SimpleNamespace(ticker="NFLX", setup="Earnings Call Spread", legs=legs,
+                             entry=2.0, shares=100)
+        out = self._run([sp], [self._pos(legs[0]), self._pos(legs[1], qty=-1)])
+        self.assertEqual(out["issues"], [])
+        self.assertEqual(out["checked"], 1)
+
+    def test_a_missing_spread_leg_is_reported_once(self):
+        legs = ["NFLX261120C00100000", "NFLX261120C00110000"]
+        sp = SimpleNamespace(ticker="NFLX", setup="Earnings Call Spread", legs=legs,
+                             entry=2.0, shares=100)
+        out = self._run([sp], [self._pos(legs[0])])
+        self.assertEqual(len(out["issues"]), 1)
+        self.assertIn(legs[1], out["issues"][0])
+
+
+class TestAuditRoundThreeSmallFixes(unittest.TestCase):
+    def test_close_record_books_this_orders_dollars(self):
+        src = inspect.getsource(a.sync_alpaca_fills)
+        self.assertIn("pnl_usd = round(dollar_pnl, 2)", src)
+
+    def test_recorded_ids_keep_the_newest_not_an_arbitrary_500(self):
+        src = inspect.getsource(a.sync_alpaca_fills)
+        self.assertNotIn("list(recorded_ids)[-500:]", src)
+
+    def test_order_placed_message_quotes_the_resting_limit(self):
+        src = inspect.getsource(a._submit_path_record_fill)
+        self.assertEqual(src.count("getattr(sig, 'resting_limit', sig.entry)"), 2)
+        self.assertIn("signal.resting_limit = limit_px",
+                      inspect.getsource(a.submit_alpaca_trade))
+
+    def test_non_scan_modes_skip_the_universe_build(self):
+        src = inspect.getsource(a.main)
+        self.assertIn("elif not _needs_universe:", src)
+
+    def test_daemon_streams_every_spread_and_writes_state_atomically(self):
+        with open("dman_daemon.py", encoding="utf-8") as f:
+            d = f.read()
+        self.assertIn("if algo._is_spread_setup(setup):", d)
+        self.assertIn("os.replace(_tmp, p)", d)
+        self.assertNotIn("_date.today() in algo._MARKET_HOLIDAYS", d)

@@ -28142,7 +28142,7 @@ class TestASessionHandsOverItself(unittest.TestCase):
         d = self._daemon()
         import datetime as _dt
         with patch.object(a, "_trigger_workflow_restart") as trig, \
-             patch.object(a, "_MARKET_HOLIDAYS", {_dt.date.today()}), \
+             patch.object(a, "_MARKET_HOLIDAYS", {a._et_today()}), \
              patch.object(d, "datetime") as _dtm:
             _dtm.now.return_value = datetime(2026, 10, 19, 12, 55)
             self.assertFalse(d._dispatch_successor_session("1255"))

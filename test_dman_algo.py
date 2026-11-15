@@ -31779,3 +31779,10 @@ class TestAuditRoundThreeSmallFixes(unittest.TestCase):
         self.assertIn("if algo._is_spread_setup(setup):", d)
         self.assertIn("os.replace(_tmp, p)", d)
         self.assertNotIn("_date.today() in algo._MARKET_HOLIDAYS", d)
+
+
+class TestSpreadShortLegIsBeyondTheLong(unittest.TestCase):
+    def test_short_leg_candidates_are_filtered_by_side(self):
+        src = inspect.getsource(a._find_spread_legs)
+        self.assertIn("float(c.strike_price) > long_strike if is_call", src)
+        self.assertNotIn("if float(c.strike_price) != long_strike]", src)

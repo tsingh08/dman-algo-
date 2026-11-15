@@ -32404,7 +32404,13 @@ def _find_spread_legs(client, ticker: str, current_price: float, side: str,
     while width_pct >= min_width_pct - 1e-9:
         long_strike = float(long_c.strike_price)
         short_target = long_strike * (1 + width_pct) if is_call else long_strike * (1 - width_pct)
-        others = [c for c in items if float(c.strike_price) != long_strike]
+        # The short leg must sit BEYOND the long one (above for a call, below
+        # for a put). "Nearest other strike" could pick the wrong side when the
+        # long leg was the outermost strike in the band, which is a credit
+        # spread with the opposite direction, not a narrower debit spread.
+        others = [c for c in items
+                  if (float(c.strike_price) > long_strike if is_call
+                      else float(c.strike_price) < long_strike)]
         if not others:
             width_pct -= width_step
             continue

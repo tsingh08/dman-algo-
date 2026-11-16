@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-11-16T12:03:36.668078-05:00",
-    "symbols": [
-      "BBD"
-    ],
-    "headline": "Itau BBA Downgrades Banco Bradesco to Market Perform",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T12:12:53.645464-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nebius Group Stock Slides Again Monday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T12:12:54.161599-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Jensen Huang Launched Nvidia in a Denny\u2019s: Tribute Plaque Briefly Removed After Scandal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T12:12:54.164924-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Jensen Huang Boasted in 2024 He Managed &#39;Not to Get Fired&#39; in 31 Years at Nvidia \u2014 An Affair Scandal Ended His Run 2 Years Later",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T12:12:54.168151-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Huang Reportedly Weighs Comeback As Bessent Seeks Nvidia Shake-Up; Anthropic&#39;s Upcoming IPO; Trump To Meet Putin And Xi",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T12:12:54.567401-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Global Mofy Stock Nearly Triples as Investors Eye Its Latest AI Investment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T12:12:54.625832-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Jensen Huang Boasted in 2024 He Managed &#39;Not to Get Fired&#39; in 31 Years at Nvidia \u2014 An Affair Scandal Ended His Run 2 Years Later",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T12:12:54.742858-05:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "eGain Launches Trusted Knowledge Service Supporting Salesforce Knowledge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-16T12:12:56.396837-05:00",
     "symbols": [
       "XOM"
@@ -4995,6 +4915,86 @@
       "CYCU"
     ],
     "headline": "Cycurion Q3 EPS $(1.03) Vs $(12.36) YoY; Rev $5.4M Vs $4.37M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:36:46.161758-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA, Home Depot On Deck Tuesday As AI Demand, Consumer Spending Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T15:36:46.165199-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "TSMC Slumps Nearly 6% as Jensen Huang\u2019s Exit and AI Debt Fears Rattle Investors Ahead of Nvidia Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T15:36:46.168588-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Applied Optoelectronics Stock Sinks Amid AI Outlook Fears",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T15:36:54.505684-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning Strategy Stock In The Last 10 Years",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:36:57.137527-05:00",
+    "symbols": [
+      "JD"
+    ],
+    "headline": "NVIDIA, Home Depot On Deck Tuesday As AI Demand, Consumer Spending Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:37:01.822408-05:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "$100 Invested In Freeport-McMoRan 10 Years Ago Would Be Worth This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T15:37:02.300368-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "TSMC Slumps Nearly 6% as Jensen Huang\u2019s Exit and AI Debt Fears Rattle Investors Ahead of Nvidia Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T15:37:04.985284-05:00",
+    "symbols": [
+      "ENVX"
+    ],
+    "headline": "Canaccord Genuity Maintains Buy on Enovix, Lowers Price Target to $2.5",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

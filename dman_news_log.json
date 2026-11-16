@@ -1,565 +1,5 @@
 [
   {
-    "ts": "2026-11-16T09:25:26.762363-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon\u2019s Zoox Robotaxis Now Available On Uber In Las Vegas",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.812810-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla To Invest Additional \u20ac3B In Its Gr\u00fcnheide Gigfactory In Germany - FAZ",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.815926-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla-SpaceX Merger Is &#39;Almost Inconceivable&#39; to Avoid, Says Elon Musk Biographer \u2014 &#39;You&#39;ll Know More&#39; on Dec. 3",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.819088-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "\u2018That Math Is Obvious and Trivial\u2019: Elon Musk Says Solar Will Supply 100% of Civilization\u2019s Energy as SpaceX and Tesla Ramp Up Manufacturing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.822008-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Elon Musk Admits Tesla Cybercab&#39;s $300 Monthly Fee Is Too High \u2014 MKBHD Says His Headshave Bet Isn&#39;t Over as Deliveries Remain Invite-Only",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.824887-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Jensen Huang Could Return to Nvidia as Silicon Valley Plans \u2018War Room,\u2019 While Anthony Scaramucci Says \u2018Not Happening\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.876602-05:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Clarifies Extra Member Pricing and Availability in Kenya",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:25:26.933879-05:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Anthropic IPO Is Coming Up: Top Companies Set to Benefit if ANT Stock Jumps",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.983351-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Elizabeth Warren Takes Aim at Big Tech Billionaires Over China AI Access \u2014 &#39;...Put Our National Security Above Their Bottom Line&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:25:27.038587-05:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Chip Stocks Have &#39;Flushed Out Everybody:&#39; Ryan Detrick Calls the 17% SOXX Rebound a Historic &#39;Buying Thrust&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T09:25:27.186424-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "What&#39;s Going On With Broadcom Stock Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:27.189391-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "&#39;OpenAI Explored $5 Billion\u2013Plus Acquisition of Startup That Decodes How AI \u2018Thinks\u2019&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:27.192308-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "AMD Stock Is Falling Monday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:27.195884-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "NVIDIA Must Now Prove It&#39;s Bigger Than Jensen Huang",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:27.269093-05:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "5 Stock Picks Last Week From Wall Street&#39;s Most Accurate Analysts",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:25:27.321610-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "What&#39;s Going On With Micron Technology Stock Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:27.325051-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Chip Stocks Have &#39;Flushed Out Everybody:&#39; Ryan Detrick Calls the 17% SOXX Rebound a Historic &#39;Buying Thrust&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:27.381181-05:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "SanDisk Shares Decline Following Kioxia Pricing Warning",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:27.432135-05:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "What&#39;s Going On With Micron Technology Stock Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:25:27.435078-05:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "SK Hynix Bets Over $1 Billion on Domestic Chip Suppliers, Commits to $655 Million Testing Center: SKHY Stock Down Over 4% in Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:25:27.486310-05:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Qualcomm Partners with Truepic to Integrate C2PA Certification into Snapdragon Platforms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T09:25:27.540460-05:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Marvell And Penguin Solutions Announce Collaboration On Memory Expansion For AI Data Centers, First Products Expected By End Of 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T09:25:27.596509-05:00",
-    "symbols": [
-      "RIOT"
-    ],
-    "headline": "Piper Sandler Maintains Overweight on Riot Platforms, Raises Price Target to $25",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:25:27.741287-05:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Louisiana Court Issues Temporary Restraining Order Against Robinhood and Other Event Contract Operators",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T09:25:27.789898-05:00",
-    "symbols": [
-      "NIO"
-    ],
-    "headline": "Top 3 Consumer Stocks Which Could Blast Off In Q4",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:25:27.844976-05:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "Evercore ISI Group Maintains In-Line on Enphase Energy, Lowers Price Target to $30",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:25:27.894359-05:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Barclays Adjusts Price Target on AbbVie to $335",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:27.946366-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Biotech ETFs Brace for FDA Showdown: Two Drug Decisions Could Test Investor Sentiment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:27.949328-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Lilly To Acquire Closely Held Neoplasm Therapy Developer Calytrix Bio For Up To $1.5B In Cash",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:27.952255-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Reported Saturday, Lilly Presents Eloralintide Phase 2 Exit Interview Results, With 74% Reporting Fewer Cravings, 52% Less Food Noise, Alongside EloraTZP, Retatrutide, Zepbound And Foundayo Data At ObesityWeek 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:28.012886-05:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "Biotech ETFs Brace for FDA Showdown: Two Drug Decisions Could Test Investor Sentiment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T09:25:28.072299-05:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "Barclays Adjusts Price Target on Gilead Sciences to $160 From $145",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T09:25:28.075808-05:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "HSBC Adjusts Price Target on Gilead Sciences to $190 From $175",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T09:25:28.131605-05:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "Ryan Cohen Wants Someone Who Can \u2018Move Fast\u2019 and \u2018Own Results\u2019 at GameStop as CEO Looks to Build His Next Big Move: Here\u2019s How You Can Apply",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:25:28.189461-05:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "ExxonMobil Tender Priority: Pioneer 1.900% 2030s First, Then Pioneer 2.150% 2031s, Exxon 3.482% 2030s &amp; 4.227% 2040s; Pricing Nov 20 At 14:00 ET",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:25:28.192461-05:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "ExxonMobil Launches Cash Tender Offers For Up To $3B Of Exxon &amp; Pioneer Notes Due 2030\u20132040; Expires Nov 20",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:25:28.251399-05:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100 Futures Trade Fall as Scott Bessent Presses Nvidia Over China Chips \u2014 BIDU, RKLB, MSTR in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:28.254418-05:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Reported November 15, &#39;Rocket from Boeing-Lockheed firm fails mid-flight, destroys payload of Amazon satellites&#39; - Reuters",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:28.257346-05:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Why Is Rocket Lab Stock Falling Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:28.260294-05:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&amp;P 500 Futures Trade Mixed as Scott Bessent Presses Nvidia Over China Chips \u2014 BIDU, RKLB, MSTR in Focus",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:28.263184-05:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Reported Saturday, Rocket Lab Completes 100th Electron Launch, Fastest Commercial Rocket To Reach Milestone, Deploying YAMATSUMI-II SAR Satellite For iQPS",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:28.314206-05:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "Nvidia&#39;s Jensen Huang Controversy Could Backfire on China, Chamath Palihapitiya Says \u2014 Washington May Get the Chip Controls It&#39;s Been Seeking",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T09:25:28.317174-05:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "Scott Bessent Gives Nvidia 10 Days to Explain China Chip Concerns, Calls for External CEO to Replace Jensen Huang: &#39;Dramatic Shakeup&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T09:25:28.320123-05:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T09:25:28.323278-05:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "Jensen Huang Could Return to Nvidia as Silicon Valley Plans \u2018War Room,\u2019 While Anthony Scaramucci Says \u2018Not Happening\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T09:25:28.378641-05:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "Stock of the Day: Will AppLovin Break Out of a Flag Pattern?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:28.435131-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "NVIDIA To $200? Here Are 10 Top Analyst Forecasts For Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:25:28.438366-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Cantor Fitzgerald Maintains Overweight on CrowdStrike Holdings, Raises Price Target to $275",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:25:28.492829-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Cantor Fitzgerald Reiterates Overweight on Palo Alto Networks, Maintains $425 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:25:28.495855-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:25:28.498768-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Palo Alto Networks Slips Into Bear Market as Earnings Loom and Valuation Risks Persist",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:25:28.501701-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Nvidia Earnings Without Jensen Huang Could Trigger $341 Billion Stock Swing As Options Traders Brace For Volatility",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:25:28.554470-05:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "H100 Group Partners With Coinbase for Balance Sheet Management",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:28.557429-05:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase and Broadridge Publish Proposed Standard for Onchain Shareholder Communications",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:28.833875-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Strategy Stock Plunges 8% as Bitcoin Sinks to $64,000, MSCI Exit Looms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:25:28.836811-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100 Futures Trade Fall as Scott Bessent Presses Nvidia Over China Chips \u2014 BIDU, RKLB, MSTR in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-16T09:25:28.839730-05:00",
     "symbols": [
       "MSTR"
@@ -4998,5 +4438,565 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T12:23:15.301824-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Stock to Double? Analyst Says Company Completed \u2018The Missing Piece of the Reusability Puzzle\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T12:23:15.305093-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Bernie Sanders Tells Big Tech Their $3 Trillion in AI Debt Rides on a &#39;High-Stakes Gamble&#39; \u2014 If It Fails, &#39;Don&#39;t Come Begging to Taxpayers&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T12:23:15.473861-05:00",
+    "symbols": [
+      "XBI"
+    ],
+    "headline": "Biotech ETFs Brace for FDA Showdown: Two Drug Decisions Could Test Investor Sentiment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:23:15.570591-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Nvidia Stock&#39;s &#39;Icarus&#39; Fall Isn\u2019t Over Yet, But Microsoft, Apple Show Path to Recovery, Says Top Strategist: &#39;Wildly Profitable&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:15.670295-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Bernie Sanders Tells Big Tech Their $3 Trillion in AI Debt Rides on a &#39;High-Stakes Gamble&#39; \u2014 If It Fails, &#39;Don&#39;t Come Begging to Taxpayers&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:15.674869-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;OpenAI Explored $5 Billion\u2013Plus Acquisition of Startup That Decodes How AI \u2018Thinks\u2019&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:15.678216-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Nebius Group Stock Slides Again Monday: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:15.927171-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Openai CEO Sam Altman Says AI Revolution Without Ex-Nvidia CEO Huang Is \u2018Hard To Imagine\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T12:23:15.930669-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What Is Going on With Supermicro Stock on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T12:23:15.933691-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Bernie Sanders Tells Big Tech Their $3 Trillion in AI Debt Rides on a &#39;High-Stakes Gamble&#39; \u2014 If It Fails, &#39;Don&#39;t Come Begging to Taxpayers&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T12:23:16.013235-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "&#39;OpenAI Explored $5 Billion\u2013Plus Acquisition of Startup That Decodes How AI \u2018Thinks\u2019&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:16.016292-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD Stock Is Falling Monday: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:16.078700-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Bernie Sanders Tells Big Tech Their $3 Trillion in AI Debt Rides on a &#39;High-Stakes Gamble&#39; \u2014 If It Fails, &#39;Don&#39;t Come Begging to Taxpayers&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:16.083214-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;Soft Recession or Something More Dramatic:&#39; Former SEC Chair Gary Gensler Warns AI Boom Could End in Dot-Com-Scale Bust \u2014 &#39;They Loaned Too Much Money, Too Fast&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:16.140624-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Bernie Sanders Tells Big Tech Their $3 Trillion in AI Debt Rides on a &#39;High-Stakes Gamble&#39; \u2014 If It Fails, &#39;Don&#39;t Come Begging to Taxpayers&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:16.145335-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Nvidia Stock&#39;s &#39;Icarus&#39; Fall Isn\u2019t Over Yet, But Microsoft, Apple Show Path to Recovery, Says Top Strategist: &#39;Wildly Profitable&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:16.214336-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Bernie Sanders Tells Big Tech Their $3 Trillion in AI Debt Rides on a &#39;High-Stakes Gamble&#39; \u2014 If It Fails, &#39;Don&#39;t Come Begging to Taxpayers&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T12:23:16.276992-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla To Invest Additional \u20ac3B In Its Gr\u00fcnheide Gigfactory In Germany - FAZ",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T12:23:16.280047-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla-SpaceX Merger Is &#39;Almost Inconceivable&#39; to Avoid, Says Elon Musk Biographer \u2014 &#39;You&#39;ll Know More&#39; on Dec. 3",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T12:23:16.283018-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "\u2018That Math Is Obvious and Trivial\u2019: Elon Musk Says Solar Will Supply 100% of Civilization\u2019s Energy as SpaceX and Tesla Ramp Up Manufacturing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T12:23:16.286264-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Elon Musk Admits Tesla Cybercab&#39;s $300 Monthly Fee Is Too High \u2014 MKBHD Says His Headshave Bet Isn&#39;t Over as Deliveries Remain Invite-Only",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T12:23:16.402430-05:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Anthropic IPO Is Coming Up: Top Companies Set to Benefit if ANT Stock Jumps",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:16.458947-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Elizabeth Warren Takes Aim at Big Tech Billionaires Over China AI Access \u2014 &#39;...Put Our National Security Above Their Bottom Line&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:23:16.662344-05:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "What Is Going on With Supermicro Stock on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:16.666443-05:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Chip Stocks Have &#39;Flushed Out Everybody:&#39; Ryan Detrick Calls the 17% SOXX Rebound a Historic &#39;Buying Thrust&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:16.726613-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "What&#39;s Going On With Broadcom Stock Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:16.729654-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "&#39;OpenAI Explored $5 Billion\u2013Plus Acquisition of Startup That Decodes How AI \u2018Thinks\u2019&#39; - The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:16.787387-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "5 Stock Picks Last Week From Wall Street&#39;s Most Accurate Analysts",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:16.857176-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "What&#39;s Going On With Micron Technology Stock Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:16.860697-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Chip Stocks Have &#39;Flushed Out Everybody:&#39; Ryan Detrick Calls the 17% SOXX Rebound a Historic &#39;Buying Thrust&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:16.974831-05:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "What&#39;s Going On With Micron Technology Stock Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:23:16.978256-05:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "SK Hynix Bets Over $1 Billion on Domestic Chip Suppliers, Commits to $655 Million Testing Center: SKHY Stock Down Over 4% in Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:23:17.057306-05:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Qualcomm Partners with Truepic to Integrate C2PA Certification into Snapdragon Platforms",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T12:23:17.118919-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell And Penguin Solutions Announce Collaboration On Memory Expansion For AI Data Centers, First Products Expected By End Of 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T12:23:17.184878-05:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "Piper Sandler Maintains Overweight on Riot Platforms, Raises Price Target to $25",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:23:17.440313-05:00",
+    "symbols": [
+      "NIO"
+    ],
+    "headline": "Top 3 Consumer Stocks Which Could Blast Off In Q4",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T12:23:17.502063-05:00",
+    "symbols": [
+      "ENPH"
+    ],
+    "headline": "Evercore ISI Group Maintains In-Line on Enphase Energy, Lowers Price Target to $30",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:23:17.769672-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Biotech ETFs Brace for FDA Showdown: Two Drug Decisions Could Test Investor Sentiment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:17.772944-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Lilly To Acquire Closely Held Neoplasm Therapy Developer Calytrix Bio For Up To $1.5B In Cash",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:17.860137-05:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "Biotech ETFs Brace for FDA Showdown: Two Drug Decisions Could Test Investor Sentiment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T12:23:17.975558-05:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "Ryan Cohen Wants Someone Who Can \u2018Move Fast\u2019 and \u2018Own Results\u2019 at GameStop as CEO Looks to Build His Next Big Move: Here\u2019s How You Can Apply",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:23:18.037905-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "ExxonMobil Tender Priority: Pioneer 1.900% 2030s First, Then Pioneer 2.150% 2031s, Exxon 3.482% 2030s &amp; 4.227% 2040s; Pricing Nov 20 At 14:00 ET",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:23:18.041181-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "ExxonMobil Launches Cash Tender Offers For Up To $3B Of Exxon &amp; Pioneer Notes Due 2030\u20132040; Expires Nov 20",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:23:18.109597-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100 Futures Trade Fall as Scott Bessent Presses Nvidia Over China Chips \u2014 BIDU, RKLB, MSTR in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:18.112892-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Reported November 15, &#39;Rocket from Boeing-Lockheed firm fails mid-flight, destroys payload of Amazon satellites&#39; - Reuters",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:18.116054-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Why Is Rocket Lab Stock Falling Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:18.119303-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Stock Market Today: Dow Jones, S&amp;P 500 Futures Trade Mixed as Scott Bessent Presses Nvidia Over China Chips \u2014 BIDU, RKLB, MSTR in Focus",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:18.179402-05:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "Nvidia&#39;s Jensen Huang Controversy Could Backfire on China, Chamath Palihapitiya Says \u2014 Washington May Get the Chip Controls It&#39;s Been Seeking",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T12:23:18.182637-05:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "Scott Bessent Gives Nvidia 10 Days to Explain China Chip Concerns, Calls for External CEO to Replace Jensen Huang: &#39;Dramatic Shakeup&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T12:23:18.244447-05:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "Stock of the Day: Will AppLovin Break Out of a Flag Pattern?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:18.307724-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "NVIDIA To $200? Here Are 10 Top Analyst Forecasts For Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:23:18.310730-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Cantor Fitzgerald Maintains Overweight on CrowdStrike Holdings, Raises Price Target to $275",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:23:18.367332-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Cantor Fitzgerald Reiterates Overweight on Palo Alto Networks, Maintains $425 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:18.370527-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:23:20.370067-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Bernie Sanders Tells Big Tech Their $3 Trillion in AI Debt Rides on a &#39;High-Stakes Gamble&#39; \u2014 If It Fails, &#39;Don&#39;t Come Begging to Taxpayers&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T12:23:20.544930-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Openai CEO Sam Altman Says AI Revolution Without Ex-Nvidia CEO Huang Is \u2018Hard To Imagine\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

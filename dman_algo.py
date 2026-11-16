@@ -16096,6 +16096,13 @@ def run_premarket_briefing() -> None:
     except Exception as _rec_exc:
         print(f"  ⚠️  Reconciliation failed (non-fatal): {_rec_exc}")
 
+    # Hands-off option legs have no exit logic by design, so the one thing
+    # that still has to reach the operator is that they are about to expire.
+    try:
+        _core_hold_expiry_reminder()
+    except Exception as _ce_exc:
+        print(f"  ⚠️  Core-hold expiry reminder failed (non-fatal): {_ce_exc}")
+
     scanner_health_line = ""
     try:
         if os.path.exists(SCAN_LOG_FILE):
@@ -19683,6 +19690,7 @@ def _ai_score_request(prompt: str, max_tokens: int = 40) -> Optional[str]:
             if resp.status_code == 200:
                 break
             sys.stdout.write(f"[ai score HTTP {resp.status_code}] ")
+            _ai_note_key_failure(resp)
             if resp.status_code not in (429, 500, 502, 503, 529) or _try:
                 return None
             time.sleep(2.0)
@@ -19691,6 +19699,29 @@ def _ai_score_request(prompt: str, max_tokens: int = 40) -> Optional[str]:
         return text or None
     except Exception:
         return None
+
+
+def _ai_note_key_failure(resp) -> None:
+    """Once a day, say plainly that the Anthropic key is out of credit or
+    rejected. Until now this showed only as "[ai score HTTP 400]" in a runner
+    log: the veto quietly stopped voting and the daily reviews stopped
+    running, and nothing told the one person who can add funds."""
+    try:
+        code = int(resp.status_code)
+        body = str(resp.text or "")[:600].lower()
+        if not (code in (401, 403) or "credit balance" in body or "billing" in body):
+            return
+        if _is_duplicate_alert("__AI_KEY_DOWN__", cooldown_min=24 * 60):
+            return
+        _save_last_alert("__AI_KEY_DOWN__")
+        send_telegram(
+            f"💳 <b>Anthropic API key is not working</b> (HTTP {code}) — out of credit "
+            f"or rejected.\nTrading continues: with no AI answer a signal is judged on "
+            f"its rule score alone. But the AI veto is not voting and the daily "
+            f"reviews cannot run until this is fixed at console.anthropic.com "
+            f"(add funds, or check the key).")
+    except Exception as exc:
+        _log_swallowed("ai key failure note", exc)
 
 
 def _ai_parse_reply(text: Optional[str], version: int) -> tuple:
@@ -30416,6 +30447,80 @@ def _is_core_hold(symbol: str) -> bool:
     reads equity (breakers, sizing) still sees it -- only management skips it.
     """
     return bool(flag(f"CORE_HOLD_{str(symbol or '').upper()}", False))
+
+
+# Days before expiry on which a hands-off option position is announced; from
+# CORE_HOLD_EXPIRY_DAILY_FROM days out it is announced every session.
+CORE_HOLD_EXPIRY_REMIND_DAYS = (30, 21, 14, 10, 7)
+CORE_HOLD_EXPIRY_DAILY_FROM  = 5
+
+
+def _core_hold_expiry_lines(today: Optional[date] = None, flags: Optional[dict] = None,
+                            held: Optional[set] = None) -> list[tuple]:
+    """[(key, message)] for CORE_HOLD option legs that are close to expiry.
+
+    A CORE_HOLD option leg is skipped by adoption, stop coverage and every
+    exit path -- that is what the flag is for. Nothing therefore closes it,
+    and with the operator away an in-the-money leg would run into expiry on a
+    small account: exercise of one call is 100 shares, far more than the
+    account holds in cash, so the broker liquidates on its own terms on the
+    last day. This cannot trade; it only says so in time.
+
+    `held`: broker symbols currently held, or None when the broker could not
+    be asked. A leg that is known to be gone is not announced; when the
+    broker is unreachable the reminder still goes out.
+    """
+    today = today or _et_today()
+    flags = _load_flags() if flags is None else flags
+    groups: dict = {}
+    for name, on in (flags or {}).items():
+        if not on or not str(name).startswith("CORE_HOLD_"):
+            continue
+        sym = str(name)[len("CORE_HOLD_"):].upper()
+        occ = _parse_occ_symbol(sym)
+        if not occ:
+            continue
+        if held is not None and sym not in held:
+            continue
+        groups.setdefault((occ["underlying"], occ["expiry"]), []).append(occ)
+    out = []
+    for (und, exp), legs in sorted(groups.items()):
+        try:
+            days = (date.fromisoformat(exp) - today).days
+        except ValueError:
+            continue
+        if days < 0:
+            continue
+        if days not in CORE_HOLD_EXPIRY_REMIND_DAYS and days > CORE_HOLD_EXPIRY_DAILY_FROM:
+            continue
+        legs_txt = " / ".join(f"{l['strike']:g}{l['right'][0]}"
+                              for l in sorted(legs, key=lambda l: l["strike"]))
+        when = "TODAY" if days == 0 else f"in {days} day{'s' if days != 1 else ''}"
+        out.append((f"__CORE_EXPIRY__:{und}:{exp}", (
+            f"⏰ <b>{und} option position expires {when}</b> ({exp}) — legs {legs_txt}\n"
+            f"These legs are marked hands-off (CORE_HOLD), so the algo will not exit "
+            f"them. Close the position by hand before the last session; left open, "
+            f"the broker may close or exercise it on its own terms at expiry.")))
+    return out
+
+
+def _core_hold_expiry_reminder() -> int:
+    """Send each due expiry reminder once a day. Returns how many went out."""
+    held = None
+    try:
+        client = get_alpaca_client()
+        if client is not None:
+            held = {str(p.symbol).upper() for p in client.get_all_positions()}
+    except Exception as exc:
+        _log_swallowed("core-hold expiry positions", exc)
+    sent = 0
+    for key, msg in _core_hold_expiry_lines(held=held):
+        if _is_duplicate_alert(key, cooldown_min=20 * 60):
+            continue
+        _save_last_alert(key)
+        send_telegram(msg)
+        sent += 1
+    return sent
 
 
 def adopt_orphan_positions() -> int:

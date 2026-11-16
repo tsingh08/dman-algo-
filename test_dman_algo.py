@@ -2430,6 +2430,88 @@ class TestAiScoreSignalFailureIsNotAZero(unittest.TestCase):
             self.assertEqual(mock_requests.post.call_count, 1)
 
 
+class TestCoreHoldExpiryReminder(unittest.TestCase):
+    """Hands-off option legs have no exit logic; the operator has to hear
+    that they are about to expire."""
+
+    FLAGS = {"CORE_HOLD_NVDA270115C00195000": True, "CORE_HOLD_NVDA270115C00205000": True,
+             "CORE_HOLD_GOOGL": True, "CORE_HOLD_XYZ270115C00010000": False}
+
+    def _lines(self, y, m, d, held=None):
+        return a._core_hold_expiry_lines(today=date(y, m, d), flags=self.FLAGS, held=held)
+
+    def test_quiet_until_a_reminder_day(self):
+        self.assertEqual(self._lines(2026, 11, 16), [])
+        self.assertEqual(self._lines(2027, 1, 2), [])          # 13 days: not a reminder day
+
+    def test_one_message_for_the_spread_on_reminder_days(self):
+        out = self._lines(2027, 1, 8)                           # 7 days
+        self.assertEqual(len(out), 1)
+        key, msg = out[0]
+        self.assertEqual(key, "__CORE_EXPIRY__:NVDA:2027-01-15")
+        self.assertIn("expires in 7 days", msg)
+        self.assertIn("195C / 205C", msg)
+        self.assertTrue(a._telegram_worth_sending(msg))         # survives quiet mode
+
+    def test_every_session_in_the_last_days_and_on_the_day(self):
+        for dd in (10, 11, 12, 13, 14):
+            self.assertEqual(len(self._lines(2027, 1, dd)), 1, dd)
+        self.assertIn("expires TODAY", self._lines(2027, 1, 15)[0][1])
+        self.assertEqual(self._lines(2027, 1, 16), [])          # past expiry: nothing
+
+    def test_a_position_already_closed_is_not_announced(self):
+        self.assertEqual(self._lines(2027, 1, 8, held={"GOOGL"}), [])
+        self.assertEqual(len(self._lines(2027, 1, 8, held={"NVDA270115C00195000"})), 1)
+
+    def test_sent_once_a_day_and_still_sent_when_the_broker_is_unreachable(self):
+        with patch.object(a, "get_alpaca_client", return_value=None), \
+             patch.object(a, "_core_hold_expiry_lines", return_value=[("__K__", "exit msg")]) as ln, \
+             patch.object(a, "_is_duplicate_alert", side_effect=[False, True]), \
+             patch.object(a, "_save_last_alert") as sv, \
+             patch.object(a, "send_telegram") as tg:
+            self.assertEqual(a._core_hold_expiry_reminder(), 1)
+            self.assertEqual(a._core_hold_expiry_reminder(), 0)
+        self.assertIsNone(ln.call_args.kwargs["held"])
+        tg.assert_called_once_with("exit msg")
+        sv.assert_called_once_with("__K__")
+
+    def test_the_briefing_runs_it(self):
+        self.assertIn("_core_hold_expiry_reminder()", inspect.getsource(a.run_premarket_briefing))
+
+
+class TestAiKeyFailureIsAnnounced(unittest.TestCase):
+    def _resp(self, code, text):
+        r = MagicMock(status_code=code)
+        r.text = text
+        return r
+
+    def test_out_of_credit_is_sent_once_and_survives_quiet_mode(self):
+        with patch.object(a, "_is_duplicate_alert", side_effect=[False, True]), \
+             patch.object(a, "_save_last_alert"), patch.object(a, "send_telegram") as tg:
+            a._ai_note_key_failure(self._resp(400, '{"error":{"message":"Your credit balance is too low"}}'))
+            a._ai_note_key_failure(self._resp(400, '{"error":{"message":"Your credit balance is too low"}}'))
+        self.assertEqual(tg.call_count, 1)
+        self.assertTrue(a._telegram_worth_sending(tg.call_args.args[0]))
+        self.assertIn("Trading continues", tg.call_args.args[0])
+
+    def test_a_rejected_key_is_sent_and_a_busy_server_is_not(self):
+        with patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"), patch.object(a, "send_telegram") as tg:
+            a._ai_note_key_failure(self._resp(529, "overloaded"))
+            a._ai_note_key_failure(self._resp(400, "max_tokens: bad value"))
+            self.assertEqual(tg.call_count, 0)
+            a._ai_note_key_failure(self._resp(401, "invalid x-api-key"))
+            self.assertEqual(tg.call_count, 1)
+
+    def test_the_scorer_still_returns_no_opinion(self):
+        with patch.object(a, "ANTHROPIC_API_KEY", "k"), patch.object(a, "requests") as rq, \
+             patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_save_last_alert"), patch.object(a, "send_telegram") as tg:
+            rq.post.return_value = self._resp(400, "Your credit balance is too low")
+            self.assertIsNone(a._ai_score_request("x"))
+        self.assertEqual(tg.call_count, 1)
+
+
 class TestRiskPinsGateForAutoMerge(unittest.TestCase):
     """The nightly review may merge its own fix only if no module-level
     constant moved. This is the checker that decides that."""

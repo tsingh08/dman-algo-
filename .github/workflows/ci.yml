@@ -6,6 +6,10 @@ on:
   push:
     branches: [main]
   pull_request:
+  # The nightly review dispatches this on main after it auto-merges a fix
+  # (a push made with the workflow token starts no run of its own), and
+  # reverts the fix if this run fails.
+  workflow_dispatch:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true

@@ -3018,7 +3018,15 @@ TOGGLEABLE_FLAGS = {
     "beargap": ("ENABLE_BEAR_GAP_HOLD",
                 "Bear Gap Hold put signals (worst setup in the 2026-09-14 "
                 "ablation). OFF by default."),
+    "automerge":("ENABLE_REVIEW_AUTOMERGE",
+                "let the nightly review merge its own small fixes when every "
+                "gate passes (tests, goldens, no risk constant changed). OFF "
+                "= every fix waits as a PR."),
 }
+
+# Read by .github/workflows/dman_review.yml (from dman_flags.json), not by any
+# trading path. The constant is the default the /flags command shows.
+ENABLE_REVIEW_AUTOMERGE = True
 
 
 def _load_flags() -> dict:
@@ -9521,6 +9529,30 @@ def _log_signal_features(sig, regime: dict, taken: bool, reject_reason: str = ""
             if _signal_feature_key(_existing) == _key:
                 _hit = _existing
                 break
+        # Shadow score: the first time a signal is seen, ask the scorer what it
+        # thinks -- whatever the gates decide -- so its answers can be graded
+        # against the label later. Only inside a scan that turned AI on.
+        global _AI_SHADOW_BUDGET
+        if (_hit is None and _AI_SHADOW_BUDGET > 0
+                and not getattr(sig, "ai_score", 0) and getattr(sig, "ai_p_win", None) is None):
+            _AI_SHADOW_BUDGET -= 1
+            try:
+                _s = ai_score_signal(sig, regime)
+                if _s is not None:
+                    sig.ai_score = _s
+            except Exception as exc:
+                _log_swallowed("ai shadow score", exc)
+        _ai_s = int(getattr(sig, "ai_score", 0) or 0)
+        _ai_p = getattr(sig, "ai_p_win", None)
+        if _ai_s > 0:
+            _row["ai_score"] = _ai_s
+            _row["ai_v"] = AI_SCORE_PROMPT_VERSION
+            if _ai_p is not None:
+                _row["ai_p"] = round(float(_ai_p), 3)
+            if _hit is not None and not _hit.get("ai_score"):
+                for _f in ("ai_score", "ai_v", "ai_p"):
+                    if _f in _row:
+                        _hit[_f] = _row[_f]
         if _hit is None:
             _row["seen"] = 1
             _row["last_ts"] = _row["ts"]
@@ -9865,6 +9897,32 @@ def _mfe_capture_lines(rows: list) -> list:
     return _out
 
 
+def _ai_scorecard_lines(rows: list, min_n: int = 10) -> list[str]:
+    """How the AI scorer's logged answers compare with what the signals did.
+    One line of fact per bucket; says so when there is too little to read."""
+    _scored = [r for r in rows if r.get("ai_p") is not None and r.get("label_outcome")]
+    _waiting = sum(1 for r in rows if r.get("ai_p") is not None and not r.get("label_outcome"))
+    if len(_scored) < min_n:
+        return [f"   AI scorer: {len(_scored)} scored signal(s) labelled so far, "
+                f"{_waiting} awaiting a label -- too few to read (needs {min_n})"]
+    def _bucket(g):
+        _p = [float(r.get("label_pnl_pct") or 0) for r in g]
+        return (f"n={len(g)} mean {sum(_p) / len(_p):+.2f}% "
+                f"win {100 * sum(1 for x in _p if x > 0) / len(_p):.0f}%") if g else "n=0"
+    _pass = [r for r in _scored if float(r["ai_p"]) >= AI_VETO_MIN_P_WIN]
+    _veto = [r for r in _scored if float(r["ai_p"]) < AI_VETO_MIN_P_WIN]
+    _out = [f"   AI scorer (v{AI_SCORE_PROMPT_VERSION}, veto below p {AI_VETO_MIN_P_WIN:.2f}): "
+            f"would pass {_bucket(_pass)}  |  would veto {_bucket(_veto)}  "
+            f"({_waiting} awaiting a label)"]
+    if _pass and _veto:
+        _pm = sum(float(r.get("label_pnl_pct") or 0) for r in _pass) / len(_pass)
+        _vm = sum(float(r.get("label_pnl_pct") or 0) for r in _veto) / len(_veto)
+        if _pm <= _vm and len(_pass) >= min_n and len(_veto) >= min_n:
+            _out.append("   ⚠️ AI scorer: the signals it would pass did NO better than the ones "
+                        "it would veto -- the veto is not earning its keep on live data")
+    return _out
+
+
 def report_signal_features(min_n: int = 5) -> list[str]:
     """What the labelled data says so far, as plain comparisons.
 
@@ -9955,6 +10013,10 @@ def report_signal_features(min_n: int = 5) -> list[str]:
         _b = _bucket(_name, _fn)
         if _b:
             lines += _b
+    try:
+        lines += _ai_scorecard_lines(_all)
+    except Exception as exc:
+        _log_swallowed("ai scorecard", exc)
     return lines
 
 
@@ -16825,6 +16887,7 @@ class ProSignal:
     ai_score:          int  = 0   # 0-10 from Claude
     final_score:       float = 0.0  # composite the decision used -- see _composite_score()
     ai_scored:         bool  = False # did the AI actually return a score?
+    ai_p_win:          Optional[float] = None  # v2 scorer's win probability, None = no answer
 
     # Filter verdicts
     regime_ok:   bool = False
@@ -19456,27 +19519,41 @@ def optimize_stop(df: pd.DataFrame, raw_stop: float,
 AI_SCORE_MODEL = "claude-sonnet-5-5"
 
 
-def ai_score_signal(signal: ProSignal, regime: dict) -> Optional[int]:
-    """
-    Send signal details to Claude and get a 1-10 confidence score.
-    Returns None if the API call/response couldn't produce a real score
-    (no key, timeout, rate limit, malformed response) — the caller must
-    treat that as "couldn't get an AI opinion this time," not as a low
-    score. Found 2026-08-16 review: this used to return 0 on every one of
-    those failure paths, and the caller's `sig.ai_score < 6` check couldn't
-    tell "the AI said this is bad" apart from "the AI call itself failed" —
-    a rate-limited or timed-out request silently rejected the signal with
-    "AI score too low" instead of falling back to the confluence-only
-    judgment. Also bumped max_tokens 10->20: a single-digit-or-two answer
-    plus any small amount of response overhead was tight enough to
-    plausibly truncate the actual answer out of the response entirely,
-    which fed the same silent-failure path.
+# Which prompt the live veto uses. tools/llm_scorer_eval.py replays both over
+# the labelled signal log; change this only on that evidence.
+#
+# 2026-11-16 replay, 665 labelled signals / 137 tickers, one row per ticker:
+#   v1  rank correlation with the outcome -0.01; the signals it passed (>=6)
+#       won 13% against 27% for the ones it blocked. No information.
+#   v2  rank correlation +0.33 (price alone +0.18, ATR% alone +0.22). By its
+#       own probability: <=0.10 -> -11.3% (n=11), 0.10-0.20 -> -2.0% (n=58),
+#       0.20-0.30 -> +1.1% (n=57), 0.30+ -> +0.9% (n=11).
+# v2 is underconfident (it never says more than 0.36 where the real win rate
+# of its top buckets was 55%), so its 1-10 score never reaches 6 and the veto
+# reads the probability instead. Thin evidence: the base rates quoted in the
+# prompt came from the first days of the same log, and only 15 of the tickers
+# are names the account can trade. It is a veto and can only block.
+AI_SCORE_PROMPT_VERSION = 2
+AI_VETO_MIN_P_WIN       = 0.20   # v2: block when the model's win probability is below this
+# Every signal the scanner sees for the first time gets a score, taken or not,
+# so the scorer is graded on ~10 signals a day instead of the 6 it had rated
+# in two months. Bounded per scan; 0 outside a scan that asked for AI.
+AI_SHADOW_MAX_PER_SCAN  = 12
+_AI_SHADOW_BUDGET       = 0
 
-    Prompt is concise to minimise tokens; macro env added for context-aware scoring.
-    """
-    if not ANTHROPIC_API_KEY or ANTHROPIC_API_KEY == "":
-        return None   # AI scoring skipped — no key
 
+def _ai_vetoes(sig) -> bool:
+    """True when the AI's answer on this signal is a 'no'. Never True without
+    a real answer."""
+    _p = getattr(sig, "ai_p_win", None)
+    if AI_SCORE_PROMPT_VERSION >= 2 and _p is not None:
+        return float(_p) < AI_VETO_MIN_P_WIN
+    _s = int(getattr(sig, "ai_score", 0) or 0)
+    return 0 < _s < 6
+
+
+def _ai_score_prompt_v1(signal, regime: dict) -> str:
+    """The original prompt: a generic technical-analyst 1-10 rating."""
     det = regime.get("details", {})
     tlt_trend = det.get("TLT Trend", "flat")
     dxy_trend = det.get("DXY Trend", "flat")
@@ -19487,7 +19564,7 @@ def ai_score_signal(signal: ProSignal, regime: dict) -> Optional[int]:
                  else "weak (tailwind)" if dxy_trend == "weak" else "neutral")
     vix_val   = det.get("VIX", "?")
 
-    prompt = f"""You are an expert technical analyst evaluating a US equity swing trade.
+    return f"""You are an expert technical analyst evaluating a US equity swing trade.
 Score this setup from 1-10 based on quality and probability of success.
 Return ONLY a single integer (1-10), nothing else.
 
@@ -19516,12 +19593,62 @@ Score 8-10 only if: textbook setup, trending market, strong volume, clean R/R, m
 Score 5-7 for borderline or mixed signals.
 Score 1-4 for weak setups, macro headwinds, or conflicting signals."""
 
+
+def _ai_score_prompt_v2(signal, regime: dict) -> str:
+    """Calibrated prompt: the trade plan the labels use, the facts that
+    separated winners from losers in this system's own labelled log, and a
+    probability instead of a taste rating. Uses only fields that exist both
+    on a live signal and in a feature-log row, so it can be replayed."""
+    def _f(name, default=0.0):
+        try:
+            return float(getattr(signal, name, default) or default)
+        except (TypeError, ValueError):
+            return float(default)
+    entry, stop, t1 = _f("entry"), _f("stop"), _f("target1")
+    stopw = abs(entry - stop) / entry * 100 if entry else 0.0
+    tgtw  = abs(t1 - entry) / entry * 100 if entry and t1 else 0.0
+    atrp  = _f("atr") / entry * 100 if entry else 0.0
+    det   = regime.get("details", {}) or {}
+    extra = ""
+    if det.get("VIX") not in (None, "", "?"):
+        extra += f" | VIX {det.get('VIX')}"
+    if "QQQ vs EMA20" in det:
+        extra += f" | QQQ {'above' if det.get('QQQ vs EMA20') else 'below'} its 20-day average"
+    reason = str(getattr(signal, "reason", "") or "").strip()
+    notes = ("\n- Rule notes: " + reason[:300]) if reason and reason != "(not logged)" else ""
+    atr_txt = f"{atrp:.1f}% of price" if atrp > 0 else "not available"
+    yn = lambda v: "yes" if v else "no"
+    return f"""You review signals from a rule-based US equity swing system before real money is risked.
+Trade plan: enter at the next session's open, exit at the stop, at target 1, or at the close of the 5th session, whichever comes first.
+
+Signal
+- Ticker {getattr(signal, 'ticker', '?')} | Setup {getattr(signal, 'setup', '?')} | Bias {getattr(signal, 'bias', 'LONG')}
+- Entry ${entry:g} | Stop ${stop:g} ({stopw:.1f}% away) | Target 1 ${t1:g} ({tgtw:.1f}% away)
+- ATR {atr_txt} | RSI(14) {getattr(signal, 'rsi', '?')} | Relative volume {getattr(signal, 'rvol', '?')}x | Beta {getattr(signal, 'beta', '?')}
+- Catalyst tier {getattr(signal, 'catalyst_tier', '') or 'none found'} | Fresh news {yn(getattr(signal, 'news_boost', False))}
+- Weekly trend agrees {yn(getattr(signal, 'mtf_ok', False))} | Free of bearish divergence {yn(getattr(signal, 'divergence_free', False))}
+- Market regime {regime.get('regime', '?')} ({regime.get('score', 0)}/19){extra}{notes}
+
+What this system's own labelled record shows:
+- About 1 signal in 4 ends in profit and the average signal loses. Target 1 is rarely reached; most exits are the stop or the 5-session time-out.
+- Price and volatility dominate. Names under $10, ATR above about 6% of price, or a stop more than about 10% away lost almost every time. Liquid names above $50 with ATR under about 4% roughly broke even or better.
+- Relative volume of 4x or more after the move has marked exhaustion more often than continuation.
+- Signals where the weekly trend disagrees have not won.
+- The system's 0-100 confluence score does not predict outcomes and is deliberately not shown.
+
+Estimate the probability that this trade closes with a profit under the plan. Be calibrated: a typical signal is 0.20-0.30, and only a clean, liquid, low-volatility setup in a supportive market deserves more than 0.50.
+A score of 6 or more means "take it" and should correspond to p_win of about 0.45 or more.
+Reply with this JSON object and nothing else -- no reasoning, no preamble: {{"p_win": <0.00-1.00>, "score": <1-10>}}"""
+
+
+def _ai_score_request(prompt: str, max_tokens: int = 40) -> Optional[str]:
+    """One Messages call. Returns the reply text, or None on any failure."""
+    if not ANTHROPIC_API_KEY:
+        return None
     try:
         # 2026-10-24: only 3 of 93 October signals got a score; the rest were
-        # "API error" with no status recorded. The model ID itself answers 200
-        # from the same key, so the failures are transient (429/529/5xx under
-        # a scan's burst of calls). One short retry on those, and the status
-        # is now logged so the next audit is a grep, not a guess.
+        # transient 429/529/5xx under a scan's burst of calls. One short retry
+        # on those, and the status is logged so the next audit is a grep.
         for _try in range(2):
             resp = requests.post(
                 "https://api.anthropic.com/v1/messages",
@@ -19532,7 +19659,7 @@ Score 1-4 for weak setups, macro headwinds, or conflicting signals."""
                 },
                 json={
                     "model":      AI_SCORE_MODEL,
-                    "max_tokens": 20,
+                    "max_tokens": max_tokens,
                     "messages":   [{"role": "user", "content": prompt}],
                 },
                 timeout=15,
@@ -19545,11 +19672,51 @@ Score 1-4 for weak setups, macro headwinds, or conflicting signals."""
             time.sleep(2.0)
         content = resp.json()["content"]
         text = next((b["text"] for b in content if b.get("type") == "text"), "").strip()
-        if not text:
-            return None
-        m = re.search(r'\b(10|[1-9])\b', text)
-        score = int(m.group(1)) if m else 5
-        return max(1, min(10, score))
+        return text or None
+    except Exception:
+        return None
+
+
+def _ai_parse_reply(text: Optional[str], version: int) -> tuple:
+    """(score 1-10 or None, p_win 0-1 or None) from a model reply."""
+    if not text:
+        return None, None
+    if version >= 2:
+        p = score = None
+        m = re.search(r'"?p_win"?\s*[:=]\s*([01](?:\.\d+)?)', text)
+        if m:
+            p = max(0.0, min(1.0, float(m.group(1))))
+        m = re.search(r'"?score"?\s*[:=]\s*(10|[1-9])\b', text)
+        if m:
+            score = int(m.group(1))
+        if score is None and p is not None:
+            score = max(1, min(10, int(round(p * 10 + 1.5))))
+        return score, p
+    m = re.search(r'\b(10|[1-9])\b', text)
+    return max(1, min(10, int(m.group(1)) if m else 5)), None
+
+
+def ai_score_signal(signal: ProSignal, regime: dict) -> Optional[int]:
+    """
+    Ask Claude for a 1-10 rating of a signal. Returns None when no real
+    answer came back (no key, timeout, rate limit, unparseable reply) -- the
+    caller must read that as "no AI opinion this time", never as a low score.
+    The v2 prompt also returns a win probability, kept on signal.ai_p_win.
+    """
+    if not ANTHROPIC_API_KEY:
+        return None   # AI scoring skipped — no key
+    try:
+        _build = _ai_score_prompt_v2 if AI_SCORE_PROMPT_VERSION >= 2 else _ai_score_prompt_v1
+        # v2 answers in JSON; room for a stray preamble so the answer is not cut off
+        text = _ai_score_request(_build(signal, regime),
+                                 max_tokens=300 if AI_SCORE_PROMPT_VERSION >= 2 else 40)
+        score, p_win = _ai_parse_reply(text, AI_SCORE_PROMPT_VERSION)
+        if p_win is not None:
+            try:
+                signal.ai_p_win = p_win
+            except Exception:
+                pass
+        return score
     except Exception:
         return None
 
@@ -27942,6 +28109,8 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     _cl = stats.get("consec_losses", 0)
     _streak_label = (f"🔥 {_cw}W streak" if _cw >= 2
                      else f"❄️ {_cl}L streak" if _cl >= 1 else "—")
+    global _AI_SHADOW_BUDGET
+    _AI_SHADOW_BUDGET = AI_SHADOW_MAX_PER_SCAN if (use_ai and ANTHROPIC_API_KEY) else 0
     print(f"  Min score : {min_score}/100  |  AI scoring: {'ON' if use_ai else 'OFF'}")
     print(f"  Shorts    : {'ON' if ALLOW_SHORTS else 'OFF'}  |  "
           f"Live WR: {stats['win_rate']*100:.1f}%  ({stats['total']} live trades)  |  Streak: {_streak_label}")
@@ -28179,18 +28348,21 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
         # actually got an AI opinion, indistinguishable in the log from a
         # real low score.
         if use_ai and ANTHROPIC_API_KEY:
-            _ai_result = ai_score_signal(sig, regime)
+            # The shadow pass may already have asked about this signal when it
+            # was first logged; one answer per signal per scan is enough.
+            _ai_result = sig.ai_score if sig.ai_score else ai_score_signal(sig, regime)
             if _ai_result is None:
                 sys.stdout.write("AI score unavailable (API error) — falling back to confluence-only  ")
             else:
                 sig.ai_score = _ai_result
                 sig.final_score, sig.ai_scored = _composite_score(
                     sig.confluence_score, sig.ai_score)
-                if sig.ai_score < 6:
+                if _ai_vetoes(sig):
                     rejected_counts["low_score"] += 1
-                    sys.stdout.write(f"AI score {sig.ai_score}/10 too low\n")
-                    _log_signal_features(sig, regime, taken=False,
-                                         reject_reason=f"ai {sig.ai_score}/10")
+                    _why = (f"ai p_win {sig.ai_p_win:.2f}" if sig.ai_p_win is not None
+                            else f"ai {sig.ai_score}/10")
+                    sys.stdout.write(f"AI veto ({_why})\n")
+                    _log_signal_features(sig, regime, taken=False, reject_reason=_why)
                     continue
 
         # Gap & Hold: suppress alerts in first 15 min of session (9:30–9:44 AM ET).

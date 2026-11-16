@@ -2341,6 +2341,13 @@ class TestAiScoreSignalFailureIsNotAZero(unittest.TestCase):
     of blindly assuming content[0] is text (which breaks if a non-text
     block, e.g. a thinking block, ever precedes it)."""
 
+    def setUp(self):
+        # These pin the v1 reply format (a bare integer). The transport rules
+        # they check are shared by v2, which has its own class below.
+        _p = patch.object(a, "AI_SCORE_PROMPT_VERSION", 1)
+        _p.start()
+        self.addCleanup(_p.stop)
+
     def _signal(self):
         return a.ProSignal(
             ticker="TEST", bias="LONG", setup="Gap & Hold",
@@ -2421,6 +2428,162 @@ class TestAiScoreSignalFailureIsNotAZero(unittest.TestCase):
             mock_requests.post.return_value = MagicMock(status_code=400)
             self.assertIsNone(a.ai_score_signal(self._signal(), _fake_regime()))
             self.assertEqual(mock_requests.post.call_count, 1)
+
+
+class TestRiskPinsGateForAutoMerge(unittest.TestCase):
+    """The nightly review may merge its own fix only if no module-level
+    constant moved. This is the checker that decides that."""
+
+    def _mod(self):
+        import importlib.util
+        root = os.path.dirname(os.path.abspath(a.__file__))
+        spec = importlib.util.spec_from_file_location(
+            "risk_pins_check", os.path.join(root, "tools", "risk_pins_check.py"))
+        m = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(m)
+        return m, root
+
+    def _compare(self, old_src, new_src):
+        import tempfile
+        m, _ = self._mod()
+        with tempfile.TemporaryDirectory() as d:
+            o, n = os.path.join(d, "o.py"), os.path.join(d, "n.py")
+            with open(o, "w", encoding="utf-8") as f:
+                f.write(old_src)
+            with open(n, "w", encoding="utf-8") as f:
+                f.write(new_src)
+            try:
+                probs = m.compare(o, n)
+            except SyntaxError:
+                probs = None
+            return probs, m.main([o, n])
+
+    def test_a_function_body_fix_passes(self):
+        probs, code = self._compare("MAX_POSITIONS = 5\ndef f():\n    return 1\n",
+                                    "MAX_POSITIONS = 5\ndef f():\n    return 2\n")
+        self.assertEqual((probs, code), ([], 0))
+
+    def test_a_changed_limit_is_caught(self):
+        probs, code = self._compare("MAX_POSITIONS = 5\n", "MAX_POSITIONS = 6\n")
+        self.assertEqual((probs, code), (["changed: MAX_POSITIONS"], 1))
+
+    def test_a_removed_or_reassigned_limit_is_caught(self):
+        probs, _ = self._compare("ENABLE_SETUP_KILL = True\nX_PCT: float = 0.1\n", "x = 1\n")
+        self.assertEqual(sorted(probs), ["removed: ENABLE_SETUP_KILL", "removed: X_PCT"])
+        probs, _ = self._compare("LIMIT = 3\n", "LIMIT = 3\nLIMIT = 9\n")
+        self.assertEqual(probs, ["changed: LIMIT"])
+
+    def test_a_new_constant_and_a_comment_change_pass(self):
+        probs, code = self._compare("LIMIT = 3  # old note\n", "LIMIT = 3  # new note\nNEW_THING = 1\n")
+        self.assertEqual((probs, code), ([], 0))
+
+    def test_a_file_that_does_not_parse_is_a_failure_not_a_pass(self):
+        _, code = self._compare("LIMIT = 3\n", "LIMIT = (\n")
+        self.assertEqual(code, 1)
+
+    def test_it_sees_the_real_limits_in_the_real_file(self):
+        m, root = self._mod()
+        consts = m.constants(os.path.join(root, "dman_algo.py"))
+        for name in ("MAX_POSITIONS", "MAX_TRADE_LOSS_PCT", "DAILY_LOSS_LIMIT", "MONTHLY_LOSS_LIMIT",
+                     "ENABLE_SETUP_KILL", "ENABLE_WATCHLIST_ONLY_AUTO", "WATCHLIST",
+                     "AI_VETO_MIN_P_WIN", "SETUP_KILL_CUM_HARD_PCT", "PORTFOLIO_HEAT_LIMIT"):
+            self.assertIn(name, consts, name)
+
+    def test_the_workflow_takes_the_checker_and_the_switch_from_main(self):
+        _, root = self._mod()
+        wf = open(os.path.join(root, ".github", "workflows", "dman_review.yml"), encoding="utf-8").read()
+        self.assertIn("git show origin/main:tools/risk_pins_check.py", wf)
+        self.assertIn("git show origin/main:dman_flags.json", wf)
+        self.assertIn("ENABLE_REVIEW_AUTOMERGE", wf)
+        self.assertEqual(a.TOGGLEABLE_FLAGS["automerge"][0], "ENABLE_REVIEW_AUTOMERGE")
+
+
+class TestAiScorerV2(unittest.TestCase):
+    """The v2 scorer answers with a win probability; the veto reads that, and
+    an answer that cannot be read is never a 'no'."""
+
+    def _signal(self, **kw):
+        base = dict(ticker="TEST", bias="LONG", setup="Day 2 Continuation",
+                    entry=100.0, stop=96.0, target1=108.0, target2=112.0,
+                    rr=2.0, rsi=62.0, rvol=2.1, reason="test")
+        base.update(kw)
+        return a.ProSignal(**base)
+
+    def _reply(self, text):
+        resp = MagicMock(status_code=200)
+        resp.json.return_value = {"content": [{"type": "text", "text": text}]}
+        return resp
+
+    def test_live_version_is_two_and_the_bar_is_a_probability(self):
+        self.assertEqual(a.AI_SCORE_PROMPT_VERSION, 2)
+        self.assertGreater(a.AI_VETO_MIN_P_WIN, 0.0)
+        self.assertLess(a.AI_VETO_MIN_P_WIN, 0.5)
+
+    def test_json_reply_sets_score_and_probability(self):
+        sig = self._signal()
+        with patch.object(a, "ANTHROPIC_API_KEY", "k"), patch.object(a, "requests") as rq:
+            rq.post.return_value = self._reply('{"p_win": 0.27, "score": 3}')
+            self.assertEqual(a.ai_score_signal(sig, _fake_regime()), 3)
+        self.assertAlmostEqual(sig.ai_p_win, 0.27)
+        self.assertFalse(a._ai_vetoes(sig))
+
+    def test_reply_with_a_preamble_is_still_read(self):
+        s, p = a._ai_parse_reply('Weighing it up:\n{"p_win": 0.08, "score": 1}', 2)
+        self.assertEqual((s, p), (1, 0.08))
+
+    def test_low_probability_is_a_veto(self):
+        sig = self._signal()
+        sig.ai_score, sig.ai_p_win = 2, a.AI_VETO_MIN_P_WIN - 0.01
+        self.assertTrue(a._ai_vetoes(sig))
+
+    def test_unreadable_reply_is_no_opinion_not_a_veto(self):
+        sig = self._signal()
+        with patch.object(a, "ANTHROPIC_API_KEY", "k"), patch.object(a, "requests") as rq:
+            rq.post.return_value = self._reply("I cannot say")
+            self.assertIsNone(a.ai_score_signal(sig, _fake_regime()))
+        self.assertIsNone(sig.ai_p_win)
+        self.assertFalse(a._ai_vetoes(sig))
+
+    def test_prompt_never_shows_the_confluence_score(self):
+        sig = self._signal()
+        sig.confluence_score = 97
+        text = a._ai_score_prompt_v2(sig, _fake_regime())
+        self.assertNotIn("97", text)
+        self.assertIn("4.0% away", text)        # stop distance is stated
+        self.assertIn('"p_win"', text)
+
+    def test_shadow_score_is_logged_once_and_only_inside_an_ai_scan(self):
+        import tempfile
+        sig = self._signal()
+        with tempfile.TemporaryDirectory() as d, \
+             patch.object(a, "SIGNAL_FEATURES_FILE", os.path.join(d, "f.json")), \
+             patch.object(a, "ANTHROPIC_API_KEY", "k"), \
+             patch.object(a, "requests") as rq:
+            rq.post.return_value = self._reply('{"p_win": 0.31, "score": 4}')
+            with patch.object(a, "_AI_SHADOW_BUDGET", 0):
+                a._log_signal_features(self._signal(ticker="OFF"), _fake_regime(), False, "hard gate")
+            self.assertEqual(rq.post.call_count, 0)        # no scan asked for AI
+            with patch.object(a, "_AI_SHADOW_BUDGET", 5):
+                a._log_signal_features(sig, _fake_regime(), False, "hard gate")
+                a._log_signal_features(sig, _fake_regime(), False, "mtf: weekly disagrees")
+            self.assertEqual(rq.post.call_count, 1)        # first sighting only
+            with open(os.path.join(d, "f.json")) as f:
+                rows = json.load(f)
+        row = [r for r in rows if r["ticker"] == "TEST"][0]
+        self.assertEqual((row["ai_score"], row["ai_p"], row["ai_v"]), (4, 0.31, 2))
+        self.assertNotIn("ai_p", [r for r in rows if r["ticker"] == "OFF"][0])
+
+    def test_scorecard_says_too_few_then_reports_the_split(self):
+        few = a._ai_scorecard_lines([{"ai_p": 0.3, "label_outcome": "WIN", "label_pnl_pct": 2.0}])
+        self.assertIn("too few", few[0])
+        rows = ([{"ai_p": 0.30, "label_outcome": "WIN", "label_pnl_pct": 3.0}] * 12
+                + [{"ai_p": 0.10, "label_outcome": "LOSS", "label_pnl_pct": -5.0}] * 12)
+        out = a._ai_scorecard_lines(rows)
+        self.assertIn("would pass n=12 mean +3.00%", out[0])
+        self.assertIn("would veto n=12 mean -5.00%", out[0])
+        self.assertEqual(len(out), 1)
+        flipped = a._ai_scorecard_lines([dict(r, label_pnl_pct=-r["label_pnl_pct"]) for r in rows])
+        self.assertIn("not earning its keep", flipped[1])
 
 
 class TestNewsKeywordFreshnessCheck(unittest.TestCase):

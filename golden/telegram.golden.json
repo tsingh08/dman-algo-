@@ -13,11 +13,13 @@
   "_handle_options_command",
   "_interpret_plain_english",
   "_is_bzone_position",
+  "_is_core_hold",
   "_is_option_position",
   "_is_spread_setup",
   "_load_earnings_state",
   "_load_setup_probation",
   "_log_swallowed",
+  "_parse_occ_symbol",
   "_position_identity",
   "_resolve_ticker_alias",
   "_save_earnings_state",
@@ -122,6 +124,11 @@
      "[]"
     ],
     [
+     "flag",
+     "('ENABLE_REVIEW_AUTOMERGE', True)",
+     "[]"
+    ],
+    [
      "send_telegram",
      "(\"🎛️ <b>Feature flags</b>\\n\\n✅ <b>rvol</b> — ON\\n    <i>intraday RVOL projection — makes live RVOL comparable to the backtest's. OFF reverts to the raw partial-",
      "[]"
@@ -205,6 +212,11 @@
     [
      "flag",
      "('ENABLE_BEAR_GAP_HOLD', False)",
+     "[]"
+    ],
+    [
+     "flag",
+     "('ENABLE_REVIEW_AUTOMERGE', True)",
      "[]"
     ],
     [
@@ -306,7 +318,7 @@
    "calls": [
     [
      "send_telegram",
-     "('❓ Unknown flag <b>bogus</b>. Known: accum, beargap, dipauto, english, market, mspread, options, quiet, rvol, setupkill, shadow, shares, smallcap, strangle, wa",
+     "('❓ Unknown flag <b>bogus</b>. Known: accum, automerge, beargap, dipauto, english, market, mspread, options, quiet, rvol, setupkill, shadow, shares, smallcap, s",
      "[]"
     ]
    ],
@@ -317,7 +329,7 @@
    "calls": [
     [
      "send_telegram",
-     "('❓ Unknown flag <b>bogus</b>. Known: accum, beargap, dipauto, english, market, mspread, options, quiet, rvol, setupkill, shadow, shares, smallcap, strangle, wa",
+     "('❓ Unknown flag <b>bogus</b>. Known: accum, automerge, beargap, dipauto, english, market, mspread, options, quiet, rvol, setupkill, shadow, shares, smallcap, s",
      "[]"
     ]
    ],

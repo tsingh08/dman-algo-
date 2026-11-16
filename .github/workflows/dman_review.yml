@@ -46,6 +46,16 @@ name: DMan Session Review
 #      the same process every other change in this repo already goes
 #      through. If Claude proposed nothing (the common case most nights),
 #      no branch is ever pushed and no PR is opened.
+#   2b. (2026-11-16, direct instruction, reversing the 11-09 "PR-only"
+#      choice because the operator is away and nobody merges PRs.) The same
+#      plain script may push the branch's commits to main INSTEAD of opening
+#      a PR -- only when the "Auto-merge gate" step says every condition
+#      holds: only the three code files touched, no existing test line
+#      edited, a small diff, no module-level constant changed (checked by
+#      main's own copy of tools/risk_pins_check.py), suite + goldens green.
+#      The agent still has no push tool; the gate and the merge are shell.
+#      After a merge the job dispatches ci.yml on main and reverts the
+#      commits if it fails. Off switch: /flags automerge off.
 #   3. main itself is never protected against direct pushes (the always-on
 #      daemon depends on pushing its own state-sync commits straight to
 #      main continuously through the trading day — branch-protecting main
@@ -62,6 +72,16 @@ on:
     # scans' own :34 slots (offset to :34 like those, same GitHub-queue-
     # congestion reasoning as every other cron here).
     - cron: '34 16 * * 1-5'
+    # Two more intraday check-ins (added 2026-11-16, direct instruction: the
+    # operator is away from 11-17 and wants the system reviewed through the
+    # session, not once). ~10:14 and ~14:40 ET on winter time; an hour later
+    # on summer time, where the last one (15:40) falls after the 15:15
+    # cut-off below and skips -- summer gets two check-ins unless this is
+    # re-timed at the March clock change.
+    # All three are silent on Telegram unless they find something that needs
+    # a human -- see the "Post report" step.
+    - cron: '14 15 * * 1-5'
+    - cron: '40 19 * * 1-5'
     # ~4:20 PM ET weekdays (20:20 UTC) — after the 4:04 PM EOD P&L summary
     # and momentum-watch have both settled, so today's real close-of-day
     # state is fully synced before the review reads it. Offset from :00
@@ -89,12 +109,16 @@ jobs:
     runs-on: ubuntu-latest
     # 20 -> 25: the EOD run now also installs deps and runs the full suite
     # after the review session (which alone has measured up to ~8.5 min).
-    timeout-minutes: 25
+    # 25 -> 50: an auto-merged fix is followed by a CI run on main that this
+    # job waits for (up to 15 min) so it can revert a red one.
+    timeout-minutes: 50
     permissions:
-      contents: write        # needed to push the review/* branch created below --
-                               # see the file header for why this can't reach main
+      contents: write        # pushes the review/* branch, and -- only from the
+                               # plain-shell merge step, never from the agent --
+                               # a gate-passing fix to main (see "Auto-merge gate")
       pull-requests: write   # needed for the "open PR" step's `gh pr create`
-      actions: read          # the kind step asks whether today's EOD review already ran
+      actions: write         # the kind step reads today's runs; the post-merge
+                               # step dispatches ci.yml on main
 
     steps:
       - name: Checkout repo
@@ -111,9 +135,13 @@ jobs:
           # the review-session step agree on which kind this run is,
           # instead of recomputing (and risking drifting from) it twice.
           ET_HHMM=$(TZ="America/New_York" date +%H%M)
-          if [ "$ET_HOUR" -ge 10 ] && [ "$ET_HOUR" -lt 15 ]; then
+          # 10#: a leading zero ("0945") must not be read as octal.
+          # 15:15, not 15:00: the 19:40 UTC check-in is 14:40 ET in winter and
+          # must run; the summer EOD cron (20:24 UTC) is 15:24 ET in winter
+          # and must still skip.
+          if [ "$((10#$ET_HHMM))" -ge 1000 ] && [ "$((10#$ET_HHMM))" -lt 1515 ]; then
             echo "kind=midday" >> "$GITHUB_OUTPUT"
-          elif [ "$ET_HHMM" -ge 1605 ]; then
+          elif [ "$((10#$ET_HHMM))" -ge 1605 ]; then
             # Any time after the close counts, not just 16:05-17:00. GitHub
             # starts these crons up to 3.5h late: on 10-20 and 10-23 every
             # run landed at 16:00-16:04 or after 19:00 ET and NO EOD review
@@ -217,7 +245,19 @@ jobs:
 
           Do not spend much space on code recommendations here -- that is
           what the end-of-day review is for. Only mention one if it is
-          urgent enough to matter before tomorrow.'
+          urgent enough to matter before tomorrow.
+
+          The operator is away and reads Telegram rarely. The FIRST LINE of
+          your reply must be exactly one of:
+            STATUS: OK
+            STATUS: ATTENTION
+          Use ATTENTION only when a human should act or know TODAY: a
+          position with no stop, state files that contradict each other, a
+          scan or the daemon that has silently stopped, a halt or breaker in
+          a state the day does not explain, an error repeating in the logs.
+          A quiet day with no signals and no trades is STATUS: OK -- that is
+          the normal day here. An OK report is filed in the run log and NOT
+          sent to the phone, so do not pad it.'
           else
             # EOD only, added 2026-08-24: real Edit/Write/local-commit
             # access, deliberately still missing git checkout/push/gh --
@@ -270,6 +310,34 @@ jobs:
           improves toward 0 or the target count rises, say so; that is
           currently the largest known lever on performance and nothing else
           watches it.
+
+          That same report now ends with an "AI scorer" line: how the signals
+          the live AI veto would pass have done against the ones it would
+          block. Quote it verbatim. If it carries the warning that the veto
+          is not earning its keep, say so at the top of your report.
+
+          HOW YOUR COMMITS REACH MAIN (changed 2026-11-16: the operator is
+          away and nobody is merging PRs). After you exit, a plain script --
+          not you -- decides. Your branch is merged to main automatically
+          ONLY if every one of these holds; otherwise it becomes a PR that
+          may wait weeks:
+            - it changes only dman_algo.py, dman_daemon.py, test_dman_algo.py
+            - it adds tests but does not edit or delete a single existing
+              line of test_dman_algo.py
+            - the code change is at most 120 lines added+removed
+            - no module-level UPPER_CASE constant is changed or removed
+              (every risk limit, flag, watchlist and calendar is one)
+            - the full suite and the five golden harnesses pass unchanged
+          So: a genuine bug fix with a new test that fails before it and
+          passes after is the kind of change that ships tonight. Anything
+          that changes how much is risked, what may trade, a threshold, a
+          calendar or a golden is a strategy decision -- write it up in the
+          report and, if you commit it, expect it to wait as a PR. Never
+          work around a gate (for example by moving a limit out of a
+          constant, or by weakening behaviour a test or golden pins): a
+          merged fix that fails CI on main is reverted automatically and
+          reported to the operator as such. One focused fix per night beats
+          several; if nothing is clearly broken, commit nothing.
 
           Prioritize the most important 3-5 findings over an exhaustive
           list.'
@@ -409,6 +477,65 @@ jobs:
           # Explicit: the step's status must never be what reports a finding.
           exit 0
 
+      - name: Auto-merge gate
+        # Decides whether tonight's commits may go straight to main. Every
+        # input it trusts comes from origin/main, not from the branch: the
+        # off switch, the constant checker, and the "before" copies of the
+        # code. Never fails the job; anything unexpected means "not eligible".
+        if: steps.kind.outputs.kind == 'eod' && steps.validate.outputs.verdict == 'pass'
+        id: gate
+        env:
+          PYTHONIOENCODING: utf-8
+          BRANCH: ${{ steps.branch.outputs.branch }}
+        run: |
+          set +e
+          REASONS=""
+          no() { REASONS="${REASONS}$1; "; }
+
+          ON=$(git show origin/main:dman_flags.json 2>/dev/null | python -c "import json,sys; print(json.load(sys.stdin).get('ENABLE_REVIEW_AUTOMERGE', True))" 2>/dev/null)
+          [ "$ON" = "True" ] || no "auto-merge is switched off (or the flag file could not be read)"
+
+          for f in $(git diff --name-only origin/main "$BRANCH"); do
+            case "$f" in
+              dman_algo.py|dman_daemon.py|test_dman_algo.py) ;;
+              *) no "touches $f" ;;
+            esac
+          done
+
+          DEL=$(git diff --numstat origin/main "$BRANCH" -- test_dman_algo.py | awk '{s+=$2} END{print s+0}')
+          [ "$DEL" -eq 0 ] || no "edits or removes $DEL existing test line(s)"
+
+          CHURN=$(git diff --numstat origin/main "$BRANCH" -- dman_algo.py dman_daemon.py | awk '{s+=$1+$2} END{print s+0}')
+          [ "$CHURN" -le 120 ] || no "code diff is $CHURN lines (limit 120)"
+
+          mkdir -p /tmp/pins
+          git show origin/main:tools/risk_pins_check.py > /tmp/pins/check.py 2>/dev/null
+          git show origin/main:dman_algo.py   > /tmp/pins/algo_main.py   2>/dev/null
+          git show origin/main:dman_daemon.py > /tmp/pins/daemon_main.py 2>/dev/null
+          python /tmp/pins/check.py /tmp/pins/algo_main.py dman_algo.py \
+                                    /tmp/pins/daemon_main.py dman_daemon.py > /tmp/pins/out.txt 2>&1
+          [ $? -eq 0 ] || no "$(head -4 /tmp/pins/out.txt | tr '\n' ' ' | cut -c1-200)"
+
+          # The same five harnesses ci.yml runs; they pin the order and exit paths.
+          G=0
+          python golden/submit_signals_harness.py check       2>&1 | grep -q "GOLDEN: IDENTICAL" || G=1
+          python golden/monitor_option_harness.py check       2>&1 | grep -q "GOLDEN: IDENTICAL" || G=1
+          python golden/callee_harness.py telegram check      2>&1 | grep -q "GOLDEN: IDENTICAL" || G=1
+          python golden/scanner_harness.py check              2>&1 | grep -q "GOLDEN: IDENTICAL" || G=1
+          python golden/premarket_briefing_harness.py check   2>&1 | grep -q "GOLDEN: IDENTICAL" || G=1
+          [ "$G" -eq 0 ] || no "a golden harness changed"
+          git checkout -- . 2>/dev/null || true
+
+          if [ -z "$REASONS" ]; then
+            echo "eligible=true" >> "$GITHUB_OUTPUT"
+            echo "  Auto-merge gate: ELIGIBLE"
+          else
+            echo "eligible=false" >> "$GITHUB_OUTPUT"
+            echo "reasons=$(echo "$REASONS" | tr -d '\r\n' | cut -c1-400)" >> "$GITHUB_OUTPUT"
+            echo "  Auto-merge gate: not eligible -- $REASONS"
+          fi
+          exit 0
+
       - name: Push review branch and open PR
         # EOD only. Deliberately a plain script, not the agent -- see the
         # file header. Runs even if the review step's OWN exit code was
@@ -428,12 +555,45 @@ jobs:
           BRANCH: ${{ steps.branch.outputs.branch }}
           VERDICT: ${{ steps.validate.outputs.verdict }}
           VDETAIL: ${{ steps.validate.outputs.detail }}
+          ELIGIBLE: ${{ steps.gate.outputs.eligible }}
         run: |
           COMMIT_COUNT=$(git rev-list --count origin/main.."$BRANCH" 2>/dev/null || echo 0)
           if [ "$COMMIT_COUNT" -eq 0 ]; then
             echo "  No commits on $BRANCH -- nothing to push, no PR."
             echo "pr_url=" >> "$GITHUB_OUTPUT"
             exit 0
+          fi
+
+          # Gate passed: put the commits on main instead of opening a PR.
+          # Rebased onto whatever main is NOW (the evening daemon keeps
+          # pushing state commits), re-compiled, pushed; up to 3 tries. Any
+          # failure falls through to the PR path below, so the work is never
+          # lost and never half-applied.
+          if [ "$ELIGIBLE" = "true" ]; then
+            set +e
+            SUBJECTS=$(git log --format='%s' origin/main.."$BRANCH" | head -5 | tr '\n' '|' | cut -c1-300)
+            merged=0
+            for attempt in 1 2 3; do
+              git fetch origin main || continue
+              if ! git rebase origin/main; then git rebase --abort; break; fi
+              python -m py_compile dman_algo.py dman_daemon.py test_dman_algo.py || break
+              BEFORE=$(git rev-parse origin/main)
+              if git push origin HEAD:main; then merged=1; break; fi
+              echo "  push to main rejected (attempt $attempt/3) -- refetching"
+            done
+            set -e
+            if [ "$merged" = 1 ]; then
+              echo "  Auto-merged $COMMIT_COUNT commit(s) to main: $SUBJECTS"
+              {
+                echo "pr_url="
+                echo "merged=true"
+                echo "merged_before=$BEFORE"
+                echo "merged_after=$(git rev-parse HEAD)"
+                echo "merged_subjects=$SUBJECTS"
+              } >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "  Auto-merge could not complete -- opening a PR instead."
           fi
 
           # GITHUB_TOKEN-opened PRs get no CI run (see the validate step), so
@@ -466,6 +626,59 @@ jobs:
           echo "  PR opened: $PR_URL"
           echo "pr_url=$PR_URL" >> "$GITHUB_OUTPUT"
 
+      - name: Verify main after auto-merge (revert on red)
+        # A push made with the workflow's own token starts no CI run (GitHub's
+        # loop-prevention rule), so the merged commits would otherwise sit on
+        # main checked only by the branch run above. workflow_dispatch IS
+        # allowed from that token: run ci.yml on main, wait for it, and take
+        # the commits back out if it fails. A red or unknown result never
+        # leaves an unverified change live without saying so.
+        if: always() && steps.pr.outputs.merged == 'true'
+        id: postci
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BEFORE: ${{ steps.pr.outputs.merged_before }}
+          AFTER:  ${{ steps.pr.outputs.merged_after }}
+        run: |
+          set +e
+          START=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          if ! gh workflow run ci.yml --ref main -R "$GITHUB_REPOSITORY"; then
+            echo "result=ci-not-started" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          RID=""
+          for i in 1 2 3 4 5 6; do
+            sleep 10
+            RID=$(gh run list -R "$GITHUB_REPOSITORY" --workflow ci.yml --event workflow_dispatch --limit 5 \
+                    --json databaseId,createdAt -q "[.[] | select(.createdAt >= \"$START\")][0].databaseId")
+            [ -n "$RID" ] && break
+          done
+          if [ -z "$RID" ]; then echo "result=ci-not-started" >> "$GITHUB_OUTPUT"; exit 0; fi
+          timeout 900 gh run watch "$RID" -R "$GITHUB_REPOSITORY" --interval 20 > /dev/null 2>&1
+          CONC=$(gh run view "$RID" -R "$GITHUB_REPOSITORY" --json conclusion -q .conclusion)
+          echo "  CI run $RID on main: ${CONC:-unfinished}"
+          if [ "$CONC" = "success" ]; then
+            echo "result=green" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          if [ "$CONC" != "failure" ]; then
+            echo "result=ci-${CONC:-unfinished}" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          # Red: revert exactly the merged commits, newest first, on top of
+          # whatever main is now. They touch code files only, so the state
+          # commits pushed since cannot conflict with the revert.
+          reverted=0
+          for attempt in 1 2 3; do
+            git fetch origin main || continue
+            git checkout -q -B automerge-revert origin/main || continue
+            if ! git revert --no-edit "$BEFORE..$AFTER"; then git revert --abort; break; fi
+            if git push origin HEAD:main; then reverted=1; break; fi
+          done
+          if [ "$reverted" = 1 ]; then
+            echo "result=reverted" >> "$GITHUB_OUTPUT"
+          else
+            echo "result=revert-failed" >> "$GITHUB_OUTPUT"
+          fi
+          exit 0
+
       - name: Post report to Telegram
         if: always() && steps.kind.outputs.kind != 'skip'
         env:
@@ -475,6 +688,10 @@ jobs:
           PR_URL:        ${{ steps.pr.outputs.pr_url }}
           PR_VERDICT:    ${{ steps.validate.outputs.verdict }}
           PR_VDETAIL:    ${{ steps.validate.outputs.detail }}
+          GATE_REASONS:  ${{ steps.gate.outputs.reasons }}
+          MERGED:        ${{ steps.pr.outputs.merged }}
+          MERGED_SUBJ:   ${{ steps.pr.outputs.merged_subjects }}
+          POSTCI:        ${{ steps.postci.outputs.result }}
           RUN_URL:       ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           TELEGRAM_TOKEN:   ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -490,6 +707,15 @@ jobs:
           header = (f"🔎 <b>DMan {label}</b>" if status == "0" else
                      f"⚠️ <b>DMan {label} — the run itself hit an error, showing what it captured</b>")
           body = os.environ.get("REVIEW_OUTPUT", "").strip() or "(no output captured)"
+          # Intraday check-ins are silent unless they ask for attention
+          # (operator away from 2026-11-17; "fewer Telegram messages"). The
+          # report is still in this run's log. Anything other than a clean
+          # run that opens with STATUS: OK is sent -- including a reply that
+          # forgot the status line, so a format slip cannot hide a problem.
+          if kind == "midday" and status == "0" and body.upper().startswith("STATUS: OK"):
+              print("Intraday check-in: STATUS OK -- not sent to Telegram.\n")
+              print(body)
+              raise SystemExit(0)
           # Confirmed live 2026-09-02: a real Anthropic account credit
           # exhaustion surfaces here as the bare CLI error string with zero
           # context -- technically "sent to Telegram" but genuinely
@@ -511,6 +737,23 @@ jobs:
                   "this today."
               )
           footer = ""
+          if kind == "eod" and os.environ.get("MERGED", "") == "true":
+              subj = html.escape(os.environ.get("MERGED_SUBJ", "").strip("|").replace("|", "; "))
+              postci = os.environ.get("POSTCI", "").strip()
+              if postci == "green":
+                  footer += f"\n\n✅ <b>Fix merged to main automatically</b> (all gates + CI on main green): {subj}"
+              elif postci == "reverted":
+                  footer += (f"\n\n⛔ <b>Auto-merged fix FAILED CI on main and was REVERTED</b> — "
+                             f"main is back to the previous code: {subj}")
+              elif postci == "revert-failed":
+                  footer += (f"\n\n🚨 <b>Auto-merged fix FAILED CI on main and the revert did NOT go "
+                             f"through — main needs a human</b>: {subj}")
+              else:
+                  footer += (f"\n\n⚠️ <b>Fix merged to main automatically</b>, but the follow-up CI run "
+                             f"on main did not report ({html.escape(postci or 'no result')}): {subj}")
+          elif kind == "eod" and pr_url and os.environ.get("GATE_REASONS", "").strip():
+              footer += ("\n\n📝 <b>Kept as a PR, not auto-merged</b> — "
+                         + html.escape(os.environ.get("GATE_REASONS", "").strip()))
           if kind == "eod" and pr_url:
               footer += f"\n\n📤 <b>PR opened:</b> {html.escape(pr_url)}"
               # GitHub runs no CI on an Actions-token PR, so this branch

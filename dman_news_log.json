@@ -1,165 +1,5 @@
 [
   {
-    "ts": "2026-11-16T09:38:51.244491-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Steve Eisman Says Slower AI Spending Could Help Big Tech and Hurt CoreWeave",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:38:56.019781-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Says He May Have North Korea&#39;s Kim Attend China Meeting, Depends On China",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T09:38:56.022944-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Says &#39;China Plays Games With Us, And We Play Games With China-",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T09:38:56.026567-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Trump Says Nvidia\u2019s Huang Learned A Lesson; Says Wouldn\u2019t Mind Seeing Huang\u2019s Reinstatement",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T09:38:56.164297-05:00",
-    "symbols": [
-      "ACRS"
-    ],
-    "headline": "Why is Aclaris Therapeutics Stock Trading Lower on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:38:59.169341-05:00",
-    "symbols": [
-      "DRTS"
-    ],
-    "headline": "Alpha Dart Therapy Shows Complete Tumor Clearance in Five Brain Cancer Patients",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:47:05.886558-05:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "What's Going On with Robinhood Stock Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T09:47:06.546273-05:00",
-    "symbols": [
-      "RPID"
-    ],
-    "headline": "Rapid Micro Biosystems Q3 EPS $(0.23) Misses $(0.20) Estimate, Sales $9.528M Miss $10.000M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:47:06.874212-05:00",
-    "symbols": [
-      "BEKE"
-    ],
-    "headline": "KE Holdings Q3 Adj. EPS $0.35 Beats $0.23 Estimate, Sales $3.131B Beat $3.070B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:47:06.878043-05:00",
-    "symbols": [
-      "BEKE"
-    ],
-    "headline": "KE Holdings Repurchased ~$162M Of Shares In Q3; $609M YTD",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:47:06.881077-05:00",
-    "symbols": [
-      "BEKE"
-    ],
-    "headline": "KE Holdings Q3 Gross Margin 27.7% vs 21.4% Prior",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:47:06.885213-05:00",
-    "symbols": [
-      "BEKE"
-    ],
-    "headline": "KE Holdings Q3 GTV $114.8B, Up 4.5% YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:47:06.888181-05:00",
-    "symbols": [
-      "BEKE"
-    ],
-    "headline": "KE Holdings Q3 Adj Net Income $389M, Up 103% YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:57:09.617570-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "&#39;US moves to tighten AI chip export rules&#39; - Financial Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T09:57:09.808894-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;US moves to tighten AI chip export rules&#39; - Financial Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:57:09.879082-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;US moves to tighten AI chip export rules&#39; - Financial Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-11-16T09:57:09.882442-05:00",
     "symbols": [
       "NVDA"
@@ -4998,5 +4838,165 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T13:54:25.150357-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Bitcoin Faces Crucial Weeks Before a \u2018Very Good 2027,\u2019 Bitwise Exec Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T13:54:33.625481-05:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "AppLovin Stock Moves Higher: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T13:54:43.846865-05:00",
+    "symbols": [
+      "SMMT"
+    ],
+    "headline": "Citigroup Maintains Buy on Summit Therapeutics, Lowers Price Target to $42",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T13:54:44.069251-05:00",
+    "symbols": [
+      "BXDC"
+    ],
+    "headline": "Blackstone Digital Infrastructure Expands Data Center Portfolio Through $5 Billion AWS Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T13:54:44.510328-05:00",
+    "symbols": [
+      "PERI"
+    ],
+    "headline": "Perion Network Q3 Adj. EPS $0.28 Beats $(0.02) Estimate, Sales $90.800M Miss $118.246M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T13:54:44.513631-05:00",
+    "symbols": [
+      "PERI"
+    ],
+    "headline": "Perion Q3 Cash, Deposits &amp; Securities $227.1M Vs $312.9M At End Of 2025",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T13:54:44.516644-05:00",
+    "symbols": [
+      "PERI"
+    ],
+    "headline": "Perion Q3 Adj EBITDA $10.9M Vs $12.1M YoY; Contribution Ex-TAC $39.5M Vs $51.0M YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T13:54:44.519652-05:00",
+    "symbols": [
+      "PERI"
+    ],
+    "headline": "Perion Suspends Share Buyback Amid Affle Deal; Repurchased 2.8M Shares For $26.0M In Q3",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T13:54:44.522607-05:00",
+    "symbols": [
+      "PERI"
+    ],
+    "headline": "Perion Analyzing Goodwill Impairment Tied To Affle Deal; Expects Non-Cash Charge To Hit Q4 GAAP Net Income",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T13:54:45.396559-05:00",
+    "symbols": [
+      "RMIX"
+    ],
+    "headline": "Baird Maintains Outperform on Suncrete, Lowers Price Target to $9",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T13:54:45.610117-05:00",
+    "symbols": [
+      "FENC"
+    ],
+    "headline": "B. Riley Securities Reiterates Buy on Fennec Pharmaceuticals, Raises Price Target to $19",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T13:54:46.040932-05:00",
+    "symbols": [
+      "CLW"
+    ],
+    "headline": "Clearwater Paper Estimates Capital Expenditures In 2026 To Be $50M-$55M, Partly Due To Postponement Of Augusta Annual Outage To Early 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T13:54:46.044279-05:00",
+    "symbols": [
+      "CLW"
+    ],
+    "headline": "Clearwater Paper Sees FY26 Capex $50M-$55M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T13:54:46.047266-05:00",
+    "symbols": [
+      "CLW"
+    ],
+    "headline": "Clearwater Paper Says Augusta Mill Returning To Normal Operations After Repairs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T13:54:46.050244-05:00",
+    "symbols": [
+      "CLW"
+    ],
+    "headline": "Clearwater Paper Reaffirms Q4 2026 Guidance Of $10M-$20M Of Adjusted EBITDA",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T13:54:46.053224-05:00",
+    "symbols": [
+      "CLW"
+    ],
+    "headline": "Clearwater Paper Appoints Matt Passarello As CFO, Effective November 14",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

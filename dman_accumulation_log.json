@@ -4426,5 +4426,23 @@
   "drift_pct": 0.04,
   "range_ratio": 0.4,
   "near_high": 1.0
+ },
+ {
+  "ts": "2026-11-16T09:39:21.253267-05:00",
+  "ticker": "SOMN",
+  "price": 48.59,
+  "rvol": 1.98,
+  "drift_pct": 0.23,
+  "range_ratio": 0.28,
+  "near_high": 0.988
+ },
+ {
+  "ts": "2026-11-16T09:39:21.253282-05:00",
+  "ticker": "DV",
+  "price": 13.57,
+  "rvol": 1.64,
+  "drift_pct": 0.0,
+  "range_ratio": 0.4,
+  "near_high": 1.0
  }
 ]

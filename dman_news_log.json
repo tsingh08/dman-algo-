@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-11-13T17:32:36.935244-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Epic Games Files Response Brief in Supreme Court Contempt Case Against Apple",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T17:32:37.188589-05:00",
-    "symbols": [
-      "LUNR"
-    ],
-    "headline": "LunR Royalties Corp. Announces Q3 2026 Financial and Operating Results",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T17:32:37.475896-05:00",
-    "symbols": [
-      "KOS"
-    ],
-    "headline": "Subsea 7 Awarded Contract for Kosmos Energy's Tiberius Project",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T17:32:37.731142-05:00",
-    "symbols": [
-      "JBLU"
-    ],
-    "headline": "JetBlue Operations Impacted by FAA Ground Stop",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T17:32:37.981218-05:00",
-    "symbols": [
-      "TE"
-    ],
-    "headline": "T1 Energy Discloses SEC Investigation into Accounting and Tax Credit Disclosures",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T17:32:38.208155-05:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Costco Wholesale Insider Executes Share Sale",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T17:32:38.478465-05:00",
-    "symbols": [
-      "NB"
-    ],
-    "headline": "U.S. Export-Import Bank Features NioCorp's Elk Creek Critical Minerals Project in EXIM's Factory Floor Fridays Initiative",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T17:33:36.898443-05:00",
-    "symbols": [
-      "SPCE"
-    ],
-    "headline": "Virgin Galactic Increases Ticket Prices to $850,000",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-13T17:33:37.155756-05:00",
     "symbols": [
       "AMD"
@@ -4998,5 +4918,85 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T11:42:53.579130-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX&#39;s IPO Playbook Could Give Anthropic A $19B Buying Cushion\u2014But There&#39;s A Catch",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T11:42:54.122339-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What Is Going on With CoreWeave Stock on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T11:42:54.125703-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Jensen Huang Said &#39;I Don&#39;t Have an Endgame&#39; Weeks Before Quitting Nvidia After 33 Years \u2014 Now Allies Are Building a &#39;War Room&#39; for His Comeback",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T11:42:56.691102-05:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "What&#39;s Going On With Arm Stock Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T11:42:57.900881-05:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "IonQ Stock Dives Monday: What&#39;s Driving the Action?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T11:42:58.858421-05:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "Occidental Petroleum Analyst Turns Bearish Due To Limited Volume Upside",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T11:42:59.538170-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "The Social Security Timing Decision That Could Cost You $100,000",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T11:43:01.237611-05:00",
+    "symbols": [
+      "SPCE"
+    ],
+    "headline": "Morgan Stanley Maintains Underweight on Virgin Galactic Holdings, Lowers Price Target to $1.75",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

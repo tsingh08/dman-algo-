@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-16T14:25:17.522537-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Citigroup Maintains Buy on Nebius Group, Lowers Price Target to $215",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T14:25:17.526443-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "IREN Stock Is Falling Monday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T14:25:26.052682-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "TD Cowen Reiterates Buy on CrowdStrike Holdings, Maintains $280 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T14:25:27.763187-05:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "Here&#39;s How Much $100 Invested In Vistra 5 Years Ago Would Be Worth Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T14:25:34.337909-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Hammack Says Businesses Are Passing On More Price Increases; Says Job Market Has Been Largely In Balance, But Is Not Dynamic",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T14:25:34.341608-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Fed&#39;s Hamack Says Worried Businesses Are More Accepting Of Price Rises; Says \u2018I Like Moving In Smaller Increments\u2019 To Allow Economy To Adjust To Policy Changes&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-16T14:25:42.371790-05:00",
     "symbols": [
       "CGON"
@@ -4998,5 +4938,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T16:32:35.100525-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Appoints 26-Year Veteran Corey Fugman to Lead Payments and Wallet Unit",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T16:32:35.104268-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Releases iOS 27.3 Developer Beta Featuring 'Face Unlock' for iPhone Duo",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T16:32:35.318042-05:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Northrop Grumman Secures $1.6 Billion Contract for PAC-3 MSE Interceptor Components",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T16:32:35.533075-05:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "Wild Energy and EZ Meter Integrate Smart Metering with Eaton Pedestals",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T16:32:35.748441-05:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Gilead Sciences Signs Voluntary Licensing Agreements for Investigational Antiviral Obeldesivir",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T16:32:35.966675-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Chevron Nears $5 Billion Purchase of Majority Stake in Blackstone-Backed Beacon Offshore",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,535 +1,5 @@
 [
   {
-    "ts": "2026-11-16T12:23:16.726613-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "What&#39;s Going On With Broadcom Stock Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T12:23:16.729654-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "&#39;OpenAI Explored $5 Billion\u2013Plus Acquisition of Startup That Decodes How AI \u2018Thinks\u2019&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T12:23:16.787387-05:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "5 Stock Picks Last Week From Wall Street&#39;s Most Accurate Analysts",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T12:23:16.857176-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "What&#39;s Going On With Micron Technology Stock Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T12:23:16.860697-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Chip Stocks Have &#39;Flushed Out Everybody:&#39; Ryan Detrick Calls the 17% SOXX Rebound a Historic &#39;Buying Thrust&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T12:23:16.974831-05:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "What&#39;s Going On With Micron Technology Stock Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T12:23:16.978256-05:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "SK Hynix Bets Over $1 Billion on Domestic Chip Suppliers, Commits to $655 Million Testing Center: SKHY Stock Down Over 4% in Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T12:23:17.057306-05:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Qualcomm Partners with Truepic to Integrate C2PA Certification into Snapdragon Platforms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T12:23:17.118919-05:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Marvell And Penguin Solutions Announce Collaboration On Memory Expansion For AI Data Centers, First Products Expected By End Of 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T12:23:17.184878-05:00",
-    "symbols": [
-      "RIOT"
-    ],
-    "headline": "Piper Sandler Maintains Overweight on Riot Platforms, Raises Price Target to $25",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T12:23:17.440313-05:00",
-    "symbols": [
-      "NIO"
-    ],
-    "headline": "Top 3 Consumer Stocks Which Could Blast Off In Q4",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T12:23:17.502063-05:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "Evercore ISI Group Maintains In-Line on Enphase Energy, Lowers Price Target to $30",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T12:23:17.769672-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Biotech ETFs Brace for FDA Showdown: Two Drug Decisions Could Test Investor Sentiment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T12:23:17.772944-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Lilly To Acquire Closely Held Neoplasm Therapy Developer Calytrix Bio For Up To $1.5B In Cash",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T12:23:17.860137-05:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "Biotech ETFs Brace for FDA Showdown: Two Drug Decisions Could Test Investor Sentiment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T12:23:17.975558-05:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "Ryan Cohen Wants Someone Who Can \u2018Move Fast\u2019 and \u2018Own Results\u2019 at GameStop as CEO Looks to Build His Next Big Move: Here\u2019s How You Can Apply",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T12:23:18.037905-05:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "ExxonMobil Tender Priority: Pioneer 1.900% 2030s First, Then Pioneer 2.150% 2031s, Exxon 3.482% 2030s &amp; 4.227% 2040s; Pricing Nov 20 At 14:00 ET",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T12:23:18.041181-05:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "ExxonMobil Launches Cash Tender Offers For Up To $3B Of Exxon &amp; Pioneer Notes Due 2030\u20132040; Expires Nov 20",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T12:23:18.109597-05:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100 Futures Trade Fall as Scott Bessent Presses Nvidia Over China Chips \u2014 BIDU, RKLB, MSTR in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T12:23:18.112892-05:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Reported November 15, &#39;Rocket from Boeing-Lockheed firm fails mid-flight, destroys payload of Amazon satellites&#39; - Reuters",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T12:23:18.116054-05:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Why Is Rocket Lab Stock Falling Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T12:23:18.119303-05:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&amp;P 500 Futures Trade Mixed as Scott Bessent Presses Nvidia Over China Chips \u2014 BIDU, RKLB, MSTR in Focus",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T12:23:18.179402-05:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "Nvidia&#39;s Jensen Huang Controversy Could Backfire on China, Chamath Palihapitiya Says \u2014 Washington May Get the Chip Controls It&#39;s Been Seeking",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T12:23:18.182637-05:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "Scott Bessent Gives Nvidia 10 Days to Explain China Chip Concerns, Calls for External CEO to Replace Jensen Huang: &#39;Dramatic Shakeup&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T12:23:18.244447-05:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "Stock of the Day: Will AppLovin Break Out of a Flag Pattern?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T12:23:18.307724-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "NVIDIA To $200? Here Are 10 Top Analyst Forecasts For Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T12:23:18.310730-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Cantor Fitzgerald Maintains Overweight on CrowdStrike Holdings, Raises Price Target to $275",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T12:23:18.367332-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Cantor Fitzgerald Reiterates Overweight on Palo Alto Networks, Maintains $425 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T12:23:18.370527-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T12:23:20.370067-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Bernie Sanders Tells Big Tech Their $3 Trillion in AI Debt Rides on a &#39;High-Stakes Gamble&#39; \u2014 If It Fails, &#39;Don&#39;t Come Begging to Taxpayers&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T12:23:20.544930-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Openai CEO Sam Altman Says AI Revolution Without Ex-Nvidia CEO Huang Is \u2018Hard To Imagine\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T12:33:39.628494-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is Cerebras Systems Stock Falling on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T12:33:39.631899-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "OpenAI CEO Altman Says AI Industry Made &#39;Terrible Pitch&#39; To Public About AI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T12:33:42.121079-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Strategy Stock Plunges 8% as Bitcoin Sinks to $64,000, MSCI Exit Looms",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T12:33:42.175421-05:00",
-    "symbols": [
-      "MARA"
-    ],
-    "headline": "Bitcoin Drops to $64,000 After Brutal Weekend Selloff: What Is Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T12:33:42.178811-05:00",
-    "symbols": [
-      "MARA"
-    ],
-    "headline": "Piper Sandler Maintains Overweight on MARA Holdings, Lowers Price Target to $10",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T12:33:42.181988-05:00",
-    "symbols": [
-      "MARA"
-    ],
-    "headline": "MARA Holdings Unit Offers $185M Of 8.750% Senior Secured Notes Due 2032 Of Long Ridge Energy To Help Fund ~$1.5B Acquisition",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T12:33:42.242556-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Uber Riders in Vegas Can Now Get Driverless Zoox Robotaxi",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T12:33:42.246035-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Amazon\u2019s Zoox Robotaxis Now Available On Uber In Las Vegas",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T12:33:42.249006-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Uber Eats partners with Best Buy Canada to offer on-demand electronics delivery",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T12:33:42.252292-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Uber Partners With Mahindra Last Mile Mobility To Support Adoption Of 5000 Electric Three-Wheelers Over Next 12 Months Via EV Auto Advantage",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T12:33:43.049142-05:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "BMO Capital Maintains Outperform on Constellation Energy, Raises Price Target to $335",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T12:33:44.465488-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "OpenAI CEO Altman Says AI Industry Made &#39;Terrible Pitch&#39; To Public About AI",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T12:43:59.921274-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Huang Reportedly Weighs Comeback As Bessent Seeks Nvidia Shake-Up; Anthropic&#39;s Upcoming IPO; Trump To Meet Putin And Xi",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T12:43:59.988697-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Huang Reportedly Weighs Comeback As Bessent Seeks Nvidia Shake-Up; Anthropic&#39;s Upcoming IPO; Trump To Meet Putin And Xi",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T12:44:00.051333-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;Nvidia board is not considering bringing Jensen Huang back as CEO&#39; -CNBC Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T12:44:00.054656-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "9 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T12:44:00.192604-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "4 Communication Services Stocks With Whale Alerts In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T12:44:00.196434-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Huang Reportedly Weighs Comeback As Bessent Seeks Nvidia Shake-Up; Anthropic&#39;s Upcoming IPO; Trump To Meet Putin And Xi",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T12:44:00.328386-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Huang Reportedly Weighs Comeback As Bessent Seeks Nvidia Shake-Up; Anthropic&#39;s Upcoming IPO; Trump To Meet Putin And Xi",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T12:44:00.410350-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Huang Reportedly Weighs Comeback As Bessent Seeks Nvidia Shake-Up; Anthropic&#39;s Upcoming IPO; Trump To Meet Putin And Xi",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T12:44:00.685274-05:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "9 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T12:44:00.860611-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "9 Information Technology Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-16T12:44:02.360814-05:00",
     "symbols": [
       "RBLX"
@@ -4995,6 +4465,536 @@
       "DMRC"
     ],
     "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:56:36.296209-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Stock to Double? Analyst Says Company Completed \u2018The Missing Piece of the Reusability Puzzle\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T15:56:36.300387-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Bernie Sanders Tells Big Tech Their $3 Trillion in AI Debt Rides on a &#39;High-Stakes Gamble&#39; \u2014 If It Fails, &#39;Don&#39;t Come Begging to Taxpayers&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T15:56:36.528513-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nebius Group Stock Slides Again Monday: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T15:56:36.975165-05:00",
+    "symbols": [
+      "XBI"
+    ],
+    "headline": "Biotech ETFs Brace for FDA Showdown: Two Drug Decisions Could Test Investor Sentiment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:56:37.489729-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Bernie Sanders Tells Big Tech Their $3 Trillion in AI Debt Rides on a &#39;High-Stakes Gamble&#39; \u2014 If It Fails, &#39;Don&#39;t Come Begging to Taxpayers&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T15:56:37.720151-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Tech Stocks Wipe Out $960 Billion as Washington Shuts China&#39;s AI Chip Back Door in 5 Countries",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T15:56:37.723916-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Stock Looks \u2018Compelling\u2019 Ahead of Q3 Earnings: Analyst Sees 60% Chance of Beat and Raise",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T15:56:37.988578-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Tech Stocks Wipe Out $960 Billion as Washington Shuts China&#39;s AI Chip Back Door in 5 Countries",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T15:56:38.585192-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Tech Stocks Wipe Out $960 Billion as Washington Shuts China&#39;s AI Chip Back Door in 5 Countries",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T15:56:38.839597-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Tech Stocks Wipe Out $960 Billion as Washington Shuts China&#39;s AI Chip Back Door in 5 Countries",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T15:56:39.070298-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Jensen Huang Boasted in 2024 He Managed &#39;Not to Get Fired&#39; in 31 Years at Nvidia \u2014 An Affair Scandal Ended His Run 2 Years Later",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T15:56:40.252327-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Tech Stocks Wipe Out $960 Billion as Washington Shuts China&#39;s AI Chip Back Door in 5 Countries",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T15:56:40.710134-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Tech Stocks Wipe Out $960 Billion as Washington Shuts China&#39;s AI Chip Back Door in 5 Countries",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T15:56:40.941815-05:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Tech Stocks Wipe Out $960 Billion as Washington Shuts China&#39;s AI Chip Back Door in 5 Countries",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T15:56:44.609031-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "What&#39;s Going On With ExxonMobil Stock Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:56:45.063555-05:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "Tech Stocks Wipe Out $960 Billion as Washington Shuts China&#39;s AI Chip Back Door in 5 Countries",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:56:54.375213-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Tech Stocks Wipe Out $960 Billion as Washington Shuts China&#39;s AI Chip Back Door in 5 Countries",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T15:56:55.959227-05:00",
+    "symbols": [
+      "CLRO"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:56:56.184856-05:00",
+    "symbols": [
+      "WENN"
+    ],
+    "headline": "Our Next Energy to Go Public Through Business Combination With Wen Acquisition, Combined Company to Trade as ONEE on Nasdaq",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:56:56.188624-05:00",
+    "symbols": [
+      "WENN"
+    ],
+    "headline": "WEN Acquisition Corp Agrees To Merge With Battery Maker Our Next Energy (ONE); Expected To Close In H1 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:56:56.641563-05:00",
+    "symbols": [
+      "TU"
+    ],
+    "headline": "Crude Oil Down Over 2%; NY Manufacturing Activity Declines In November",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:56:57.310189-05:00",
+    "symbols": [
+      "CGON"
+    ],
+    "headline": "Crude Oil Down Over 2%; NY Manufacturing Activity Declines In November",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:56:57.763185-05:00",
+    "symbols": [
+      "AKAN"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:57:01.647968-05:00",
+    "symbols": [
+      "AIRJ"
+    ],
+    "headline": "AirJoule Sees Preliminary FY27 BitSink Revenue $15M-$20M; Reaffirms 2026 Cash Spend $27M-$28M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:57:01.651819-05:00",
+    "symbols": [
+      "AIRJ"
+    ],
+    "headline": "Montana Technologies Q3 EPS $(0.27) Misses $(0.08) Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:57:03.046070-05:00",
+    "symbols": [
+      "HTHT"
+    ],
+    "headline": "Crude Oil Down Over 2%; NY Manufacturing Activity Declines In November",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T15:57:03.787465-05:00",
+    "symbols": [
+      "KLAR"
+    ],
+    "headline": "NVIDIA, Home Depot On Deck Tuesday As AI Demand, Consumer Spending Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:57:04.251772-05:00",
+    "symbols": [
+      "LRMR"
+    ],
+    "headline": "Larimar Therapeutics Q3 EPS $(0.29) Beats $(0.35) Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:57:04.255833-05:00",
+    "symbols": [
+      "LRMR"
+    ],
+    "headline": "Larimar Therapeutics Completes BLA Submission Seeking Accelerated Approval For Nomlabofusp In Friedreich\u2019s Ataxia",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:57:04.573181-05:00",
+    "symbols": [
+      "GXO"
+    ],
+    "headline": "GXO Logistics Unveils 2030 Financial Targets, Sees Over 5.5% Organic Growth in 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:57:04.576972-05:00",
+    "symbols": [
+      "GXO"
+    ],
+    "headline": "GXO Logistics Sees 2030 Free Cash Flow Conversion Of 40%-50% Of Adj EBITDA",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:57:04.580459-05:00",
+    "symbols": [
+      "GXO"
+    ],
+    "headline": "GXO Logistics Sets 2030 Targets: Organic Revenue CAGR Above 7%, Adj EBITA Margin Above 6.5%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:57:04.583975-05:00",
+    "symbols": [
+      "GXO"
+    ],
+    "headline": "GXO Logistics Sees FY27 Organic Revenue Growth Above 5.5%, Adj EBITDA Margin Above 7.1%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:57:04.810608-05:00",
+    "symbols": [
+      "FUBO"
+    ],
+    "headline": "Home Depot Could Swing $15.5 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:57:05.265342-05:00",
+    "symbols": [
+      "FANG"
+    ],
+    "headline": "Diamondback Energy Acquires Double Eagle Assets In $2.15 Billion Deal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:57:05.269127-05:00",
+    "symbols": [
+      "FANG"
+    ],
+    "headline": "Diamondback Energy To Acquire Certain Subsidiaries Of Double Eagle For ~15.56M FANG Shares Worth ~$2.84B And $2.15B In Cash",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:57:05.272612-05:00",
+    "symbols": [
+      "FANG"
+    ],
+    "headline": "Reported Sunday, &#39;Diamondback Nears $5bn Deal to Expand Drilling in Oil-Rich Permian Basin&#39; - FT",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:57:05.723820-05:00",
+    "symbols": [
+      "TME"
+    ],
+    "headline": "NVIDIA, Home Depot On Deck Tuesday As AI Demand, Consumer Spending Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:57:06.389244-05:00",
+    "symbols": [
+      "ASO"
+    ],
+    "headline": "Evercore ISI Group Maintains In-Line on Academy Sports, Raises Price Target to $65",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:57:06.613754-05:00",
+    "symbols": [
+      "SVIA"
+    ],
+    "headline": "Silvia Announces Pilot Partnership With Direxion; Collaboration To Provide ETF And Income-Strategy Educational Content To Users While Creating New Revenue Stream For The Company.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:57:06.840736-05:00",
+    "symbols": [
+      "RLMD"
+    ],
+    "headline": "Relmada Therapeutics Appoints J\u00f8rn Skibsted Jakobsen as Chief Development Officer, Urology & Uro-Oncology",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:57:07.070173-05:00",
+    "symbols": [
+      "ARMK"
+    ],
+    "headline": "Aramark Hikes Dividend, Unveils $1 Billion Stock Buyback",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T15:57:07.073964-05:00",
+    "symbols": [
+      "ARMK"
+    ],
+    "headline": "Aramark Q4 Organic Revenue Up 12%; FY26 Record Gross New Business $1.9B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T15:57:07.077560-05:00",
+    "symbols": [
+      "ARMK"
+    ],
+    "headline": "Aramark Sees FY27 Organic Revenue Growth +9%-10%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T15:57:07.081151-05:00",
+    "symbols": [
+      "ARMK"
+    ],
+    "headline": "Aramark Raises Quarterly Dividend 17% To $0.14/Share",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T15:57:07.084650-05:00",
+    "symbols": [
+      "ARMK"
+    ],
+    "headline": "Aramark Board Authorizes New $1B Share Repurchase Program",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T15:57:07.325312-05:00",
+    "symbols": [
+      "PAL"
+    ],
+    "headline": "Palfinger Included in New \u20ac64 Million Export Financing Partnership",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:57:07.580170-05:00",
+    "symbols": [
+      "UNCY"
+    ],
+    "headline": "Unicycive Therapeutics Q3 EPS $(0.25) Beats $(0.31) Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:57:07.806877-05:00",
+    "symbols": [
+      "USDE"
+    ],
+    "headline": "StableCoinX Q3 Adj. EPS $(0.08), Sales $477.993K",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:57:08.029943-05:00",
+    "symbols": [
+      "LCLN"
+    ],
+    "headline": "Lincoln International Serves as Financial Advisor to DRT Holdings LLC",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:57:08.251482-05:00",
+    "symbols": [
+      "BTI"
+    ],
+    "headline": "British American Tobacco Announces Share Repurchase Transaction",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:57:08.554693-05:00",
+    "symbols": [
+      "UTG"
+    ],
+    "headline": "Director/PDMR Shareholding Notification",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T15:57:08.781805-05:00",
+    "symbols": [
+      "SWMR"
+    ],
+    "headline": "Swarmer Completes Acquisition of Vataga Drone Intellectual Property",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

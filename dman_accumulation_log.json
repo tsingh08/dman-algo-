@@ -4480,5 +4480,23 @@
   "drift_pct": 0.19,
   "range_ratio": 0.46,
   "near_high": 1.0
+ },
+ {
+  "ts": "2026-11-16T15:58:09.409766-05:00",
+  "ticker": "WENN",
+  "price": 10.485,
+  "rvol": 5.11,
+  "drift_pct": 0.14,
+  "range_ratio": 0.46,
+  "near_high": 1.0
+ },
+ {
+  "ts": "2026-11-16T15:58:09.409788-05:00",
+  "ticker": "SSTI",
+  "price": 8.27,
+  "rvol": 3.0,
+  "drift_pct": 0.0,
+  "range_ratio": 0.52,
+  "near_high": 0.98
  }
 ]

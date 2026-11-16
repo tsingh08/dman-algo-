@@ -49931,7 +49931,13 @@
 "seen": 20,
 "last_ts": "2026-11-11T12:54:58.568456-05:00",
 "entry_min": 529.63,
-"entry_max": 529.63
+"entry_max": 529.63,
+"label_fill": 569.28,
+"label_exit_reason": "stop",
+"label_pnl_pct": -1.67,
+"label_outcome": "LOSS",
+"label_mfe_pct": 4.34,
+"label_mae_pct": -2.53
 },
 {
 "ts": "2026-11-11T09:42:27.335739-05:00",
@@ -49993,7 +49999,13 @@
 "seen": 40,
 "last_ts": "2026-11-11T12:54:58.827718-05:00",
 "entry_min": 351.57,
-"entry_max": 351.57
+"entry_max": 351.57,
+"label_fill": 356.8,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.43,
+"label_outcome": "LOSS",
+"label_mfe_pct": 3.65,
+"label_mae_pct": -5.36
 },
 {
 "ts": "2026-11-11T09:53:49.734665-05:00",
@@ -50055,7 +50067,13 @@
 "seen": 22,
 "last_ts": "2026-11-11T12:44:01.336664-05:00",
 "entry_min": 56.39,
-"entry_max": 61.2
+"entry_max": 61.2,
+"label_fill": 50.905,
+"label_exit_reason": "target",
+"label_pnl_pct": 13.85,
+"label_outcome": "WIN",
+"label_mfe_pct": 15.04,
+"label_mae_pct": -1.44
 },
 {
 "ts": "2026-11-11T11:39:30.291711-05:00",
@@ -50117,7 +50135,13 @@
 "seen": 30,
 "last_ts": "2026-11-11T15:04:56.845853-05:00",
 "entry_min": 7.09,
-"entry_max": 7.28
+"entry_max": 7.28,
+"label_fill": 4.81,
+"label_exit_reason": "horizon",
+"label_pnl_pct": 11.64,
+"label_outcome": "WIN",
+"label_mfe_pct": 37.42,
+"label_mae_pct": -5.61
 },
 {
 "ts": "2026-11-11T13:22:27.992297-05:00",
@@ -50179,7 +50203,13 @@
 "seen": 25,
 "last_ts": "2026-11-11T15:52:42.704657-05:00",
 "entry_min": 16.95,
-"entry_max": 17.06
+"entry_max": 17.06,
+"label_fill": 16.22,
+"label_exit_reason": "stop",
+"label_pnl_pct": -9.03,
+"label_outcome": "LOSS",
+"label_mfe_pct": 0.31,
+"label_mae_pct": -12.95
 },
 {
 "ts": "2026-11-12T10:56:32.668298-05:00",
@@ -50241,7 +50271,13 @@
 "seen": 23,
 "last_ts": "2026-11-12T14:14:43.309034-05:00",
 "entry_min": 60.71,
-"entry_max": 62.44
+"entry_max": 62.44,
+"label_fill": 58.53,
+"label_exit_reason": "stop",
+"label_pnl_pct": -7.87,
+"label_outcome": "LOSS",
+"label_mfe_pct": 1.73,
+"label_mae_pct": -16.95
 },
 {
 "ts": "2026-11-12T11:19:43.275132-05:00",
@@ -50303,7 +50339,13 @@
 "seen": 4,
 "last_ts": "2026-11-12T12:09:14.597631-05:00",
 "entry_min": 14.09,
-"entry_max": 14.29
+"entry_max": 14.29,
+"label_fill": 13.2,
+"label_exit_reason": "stop",
+"label_pnl_pct": -4.76,
+"label_outcome": "LOSS",
+"label_mfe_pct": 2.05,
+"label_mae_pct": -9.09
 },
 {
 "ts": "2026-11-13T10:00:04.202549-05:00",

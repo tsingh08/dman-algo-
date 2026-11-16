@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-11-16T09:37:39.068567-05:00",
-    "symbols": [
-      "SPXC"
-    ],
-    "headline": "TD Cowen Upgrades SPX Technologies to Buy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:37:39.073169-05:00",
-    "symbols": [
-      "SPXC"
-    ],
-    "headline": "Sensors & Software Announces Technical Collaboration with ProStar Holdings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:37:39.077527-05:00",
-    "symbols": [
-      "SPXC"
-    ],
-    "headline": "SPX Cooling Technologies Receives CTI Certification for Marley OlympusMAX\u00ae Fluid Cooler",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:37:39.292716-05:00",
-    "symbols": [
-      "RMR"
-    ],
-    "headline": "Rome Resources Commences Tin Concentrate Production at Kalayi",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:37:39.501648-05:00",
-    "symbols": [
-      "DUK"
-    ],
-    "headline": "Evercore ISI Group Maintains In-Line on Duke Energy, Raises Price Target to $141",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:37:39.706799-05:00",
-    "symbols": [
-      "BRUN"
-    ],
-    "headline": "D.A. Davidson Lowers Price Target for Boost Run Inc.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:37:40.120693-05:00",
-    "symbols": [
-      "WEC"
-    ],
-    "headline": "HSBC Adjusts Price Target on WEC Energy Group",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-16T09:37:40.530183-05:00",
     "symbols": [
       "RLMD"
@@ -4998,5 +4928,75 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T13:41:10.541912-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Elon Musk Backs Jensen Huang With One Word After Saying Hiring Him Would Be &#39;An Honor&#39; and Signing a Petition to Reinstate the Ousted Nvidia CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T13:41:11.417058-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "NVDA? \u2018I Wouldn\u2019t Touch It With a Barge Pole,\u2019 Says Quantum Strategy\u2019s David Roche",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T13:41:11.995281-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Board Not Considering Jensen Huang Comeback, Source Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T13:41:11.998852-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVDA? \u2018I Wouldn\u2019t Touch It With a Barge Pole,\u2019 Says Quantum Strategy\u2019s David Roche",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T13:41:12.001885-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Vice President Vance Confirms Earlier Comments From President Trump, Says U.S. Cannot Confirm Whether Alice Huang Is A Chinese Spy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T13:41:12.004916-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Elon Musk Backs Jensen Huang With One Word After Saying Hiring Him Would Be &#39;An Honor&#39; and Signing a Petition to Reinstate the Ousted Nvidia CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T13:41:13.265030-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Elon Musk Backs Jensen Huang With One Word After Saying Hiring Him Would Be &#39;An Honor&#39; and Signing a Petition to Reinstate the Ousted Nvidia CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

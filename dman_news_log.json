@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-11-13T15:01:52.461060-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "QUICK SPARK: Broadcom Scores Historic Win Over Nvidia as AVGO-NVDA Gap Explodes",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T15:01:52.694586-05:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "JP Morgan Maintains Overweight on Applied Materials, Lowers Price Target to $500",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T15:02:00.510003-05:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "&#39;Meta Testing New Prediction-Market App With Employees&#39;- WSJ",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T15:02:20.538760-05:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs Advises TruGreen and CD&R on Transaction",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T15:02:20.545018-05:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Renews 'Virgin River' for Ninth Season",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T15:02:20.548813-05:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Announces New Animated Series 'PLANESWALKER' Based on Magic: The Gathering",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T15:02:20.562858-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Texas Attorney General Threatens Potential Tesla-SpaceX Merger",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-13T15:02:20.566748-05:00",
     "symbols": [
       "UBER"
@@ -4995,6 +4925,76 @@
       "FENC"
     ],
     "headline": "H World Group Posts Upbeat Q3 Earnings, Joins CG Oncology, TELUS And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T10:47:46.643718-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Why Is Applied Digital Stock Falling on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T10:47:46.712881-05:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Why Is Applied Digital Stock Falling on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T10:47:46.995100-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is Applied Digital Stock Falling on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T10:47:48.870275-05:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Barclays Maintains Equal-Weight on Gilead Sciences, Raises Price Target to $160",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T10:47:51.164524-05:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Novo Nordisk Showcases CagriSema Trial Gains and Wegovy Food Noise Reductions Ahead of FDA Decision",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T10:47:54.154881-05:00",
+    "symbols": [
+      "PAVM"
+    ],
+    "headline": "PAVmed Reports Third Quarter 2026 Financial Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T10:47:54.696028-05:00",
+    "symbols": [
+      "IRLA"
+    ],
+    "headline": "Citizens Maintains Market Outperform on IRulya Therapeutics, Raises Price Target to $86",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

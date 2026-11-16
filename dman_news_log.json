@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-13T15:56:50.539727-05:00",
-    "symbols": [
-      "CLBT"
-    ],
-    "headline": "JP Morgan Maintains Overweight on Cellebrite DI, Lowers Price Target to $15",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T15:56:50.960215-05:00",
-    "symbols": [
-      "EZPW"
-    ],
-    "headline": "7 Financials Stocks Whale Activity In Today\u2019s Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T15:56:50.964649-05:00",
-    "symbols": [
-      "EZPW"
-    ],
-    "headline": "Roth Capital Reiterates Buy on EZCORP, Maintains $40 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-13T15:56:50.968600-05:00",
     "symbols": [
       "EZPW"
@@ -4995,6 +4965,36 @@
       "GDS"
     ],
     "headline": "&#39;US moves to tighten AI chip export rules&#39; - Financial Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T11:23:16.486707-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Michael Burry Smells a Rat in Nvidia\u2019s Vanishing Singapore Revenue",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T11:23:16.490181-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "UBS Maintains Buy on NVIDIA, Lowers Price Target to $240",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T11:23:19.070564-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "BitMine Hits 6M ETH Holdings but BMNR Drops 5%: What&#39;s Going On?",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

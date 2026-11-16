@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-11-16T09:37:40.530183-05:00",
-    "symbols": [
-      "RLMD"
-    ],
-    "headline": "Relmada Therapeutics Appoints J\u00f8rn Skibsted Jakobsen as Chief Development Officer, Urology & Uro-Oncology",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:37:40.941603-05:00",
-    "symbols": [
-      "WSM"
-    ],
-    "headline": "Barclays Adjusts Price Target on Williams-Sonoma to $240 From $190",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:37:41.151747-05:00",
-    "symbols": [
-      "ADIG"
-    ],
-    "headline": "Truist Securities Maintains Hold on ADI Global Distribution, Lowers Price Target to $11",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:37:41.356778-05:00",
-    "symbols": [
-      "SNPS"
-    ],
-    "headline": "Coatue Management LLC Reduces Stake in Synopsys",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-16T09:37:41.562647-05:00",
     "symbols": [
       "CYAB"
@@ -4998,5 +4958,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T13:41:18.176291-05:00",
+    "symbols": [
+      "RXRX"
+    ],
+    "headline": "JP Morgan Maintains Overweight on Recursion Pharmaceuticals, Lowers Price Target to $7",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T13:41:28.669169-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Vice President Vance Confirms Earlier Comments From President Trump, Says U.S. Cannot Confirm Whether Alice Huang Is A Chinese Spy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T13:41:36.501732-05:00",
+    "symbols": [
+      "LXEO"
+    ],
+    "headline": "Lexeo Therapeutics Cuts Arrhythmia Burden by 80% in Genetic Heart Disease Study",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T13:41:41.181501-05:00",
+    "symbols": [
+      "OCS"
+    ],
+    "headline": "Oculis Wins FDA IND Clearance For Privosegtor In Acute MS Relapses, Including Optic Neuritis And Ambulatory Relapses, With Primary Endpoint As Early As Three Months",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

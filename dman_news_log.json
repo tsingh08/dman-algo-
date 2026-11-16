@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-13T14:03:21.040693-05:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce Ventures Participates in LangChain Funding Round",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T14:03:21.044370-05:00",
-    "symbols": [
-      "OXY"
-    ],
-    "headline": "Barclays and J.P. Morgan Adjust Price Targets for Occidental Petroleum",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T14:04:20.834013-05:00",
-    "symbols": [
-      "HIMS"
-    ],
-    "headline": "Evercore ISI Raises Price Target for Hims & Hers Health",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-13T14:04:21.111477-05:00",
     "symbols": [
       "RXRX"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T10:06:27.167496-05:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Barclays Maintains Overweight on AbbVie, Raises Price Target to $335",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T10:06:27.379020-05:00",
+    "symbols": [
+      "XPEV"
+    ],
+    "headline": "XPeng Sees Q4 Sales $4.509B-$4.717B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T10:06:27.382081-05:00",
+    "symbols": [
+      "XPEV"
+    ],
+    "headline": "XPeng Q3 Adj. EPS $(0.14) Down From $(0.02) YoY, Sales $3.621B Up From $2.862B YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -32074,3 +32074,41 @@ class TestSpreadShortLegIsBeyondTheLong(unittest.TestCase):
         src = inspect.getsource(a._find_spread_legs)
         self.assertIn("float(c.strike_price) > long_strike if is_call", src)
         self.assertNotIn("if float(c.strike_price) != long_strike]", src)
+
+
+class TestMockEquityCannotPoisonTheCache(unittest.TestCase):
+    """float(MagicMock) is 1.0, so a mocked Alpaca client whose get_account()
+    was never given an explicit equity used to slip $1 into the module-level
+    _live_equity_cache (fresh ts, 300s lifetime) the first time any code under
+    test reached a cache writer. Every sizing gate that ran in the following
+    five minutes then saw a $1 account: on a clean 2026-11-16 checkout the
+    full suite failed in TestBreakoutZoneTrading ("no room" against 40% of
+    $1) while the same class passed in isolation. Both writers must accept
+    only real broker payload types (str/int/float) — see
+    _equity_payload_float()."""
+
+    def setUp(self):
+        self._orig = dict(a._live_equity_cache)
+        a._live_equity_cache["equity"] = 0.0
+        a._live_equity_cache["ts"] = 0.0
+
+    def tearDown(self):
+        a._live_equity_cache.clear()
+        a._live_equity_cache.update(self._orig)
+
+    def test_get_effective_account_does_not_cache_a_mock_equity(self):
+        with patch.object(a, "get_alpaca_client", return_value=MagicMock()):
+            a.get_effective_account()
+        self.assertEqual(a._live_equity_cache["equity"], 0.0)
+
+    def test_live_equity_no_fallback_rejects_a_mock_equity(self):
+        with patch.object(a, "get_alpaca_client", return_value=MagicMock()):
+            self.assertIsNone(a._live_equity_no_fallback())
+        self.assertEqual(a._live_equity_cache["equity"], 0.0)
+
+    def test_a_real_string_payload_still_caches(self):
+        _client = MagicMock()
+        _client.get_account.return_value = MagicMock(equity="2200.23")
+        with patch.object(a, "get_alpaca_client", return_value=_client):
+            self.assertEqual(a.get_effective_account(), 2200.23)
+        self.assertEqual(a._live_equity_cache["equity"], 2200.23)

@@ -19885,6 +19885,19 @@ def _record_period_pnl(filepath: str, pnl_pct: float, max_age_days: int,
     _write_json_atomic(filepath, {"entries": entries}, indent=2)
 
 
+def _equity_payload_float(v: Any) -> float:
+    """float(v) only when v is a real broker payload (str/int/float — Alpaca
+    types equity Optional[str]); 0.0 for anything else. float() alone is not
+    that check: a MagicMock converts to 1.0, and one test double reaching a
+    writer of _live_equity_cache cached $1 equity for 300s, starving every
+    sizing gate the rest of the suite ran (TestBreakoutZoneTrading failed on
+    a clean checkout 2026-11-16 with "40% of $1")."""
+    try:
+        return float(v) if isinstance(v, (str, int, float)) else 0.0
+    except (TypeError, ValueError):
+        return 0.0
+
+
 def _live_equity_no_fallback() -> Optional[float]:
     """
     Live Alpaca equity, or None if it can't be read right now.
@@ -19902,7 +19915,7 @@ def _live_equity_no_fallback() -> Optional[float]:
         _c = get_alpaca_client()
         if _c is None:
             return None
-        _eq = float(getattr(_c.get_account(), "equity", 0) or 0)
+        _eq = _equity_payload_float(getattr(_c.get_account(), "equity", 0) or 0)
         if _eq > 0:
             _live_equity_cache["equity"] = _eq
             _live_equity_cache["ts"]     = time.time()
@@ -20082,7 +20095,7 @@ def get_effective_account() -> float:
         if time.time() - _live_equity_cache["ts"] > 300:
             _client = get_alpaca_client()
             if _client is not None:
-                _eq = float(getattr(_client.get_account(), "equity", 0) or 0)
+                _eq = _equity_payload_float(getattr(_client.get_account(), "equity", 0) or 0)
                 if _eq > 0:
                     _live_equity_cache["equity"] = _eq
                     _live_equity_cache["ts"]     = time.time()

@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-11-13T15:02:22.696431-05:00",
-    "symbols": [
-      "CBRS"
-    ],
-    "headline": "Cerebras Stock Jumps on Q3 Cloud Revenue Up 265%, Raised Outlook (CORRECTED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T15:02:28.075255-05:00",
-    "symbols": [
-      "WWW"
-    ],
-    "headline": "UBS Maintains Buy on Wolverine World Wide, Raises Price Target to $33",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T15:02:28.079146-05:00",
-    "symbols": [
-      "WWW"
-    ],
-    "headline": "Keybanc Maintains Overweight on Wolverine World Wide, Raises Price Target to $27",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T15:02:28.082773-05:00",
-    "symbols": [
-      "WWW"
-    ],
-    "headline": "Stifel Maintains Buy on Wolverine World Wide, Raises Price Target to $28",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T15:02:28.149032-05:00",
-    "symbols": [
-      "WWW"
-    ],
-    "headline": "Baird Maintains Outperform on Wolverine World Wide, Raises Price Target to $27",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T15:03:17.180830-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Stock in Focus as Massive 365 Outage Hits Outlook, Teams and Copilot: What Investors Should Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T15:03:17.217181-05:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Goldman Sachs Maintains Buy on Robinhood Markets, Lowers Price Target to $115",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T15:03:17.222861-05:00",
-    "symbols": [
-      "VRTX"
-    ],
-    "headline": "Here\u2019s How Much You Would Have Made Owning Vertex Pharmaceuticals Stock In The Last 10 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T15:03:17.318580-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Michael Burry Says WSJ Missed the Real Nvidia Story",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-13T15:03:17.364510-05:00",
     "symbols": [
       "RZLT"
@@ -4998,5 +4908,95 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T11:02:36.588806-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Addresses Recent 365 Service Disruption",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T11:02:36.596021-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Announces \u20ac3 Billion Expansion of German Gigafactory",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T11:02:36.600814-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Chevron Charters Supertanker to Transport Strategic Petroleum Reserve Crude to California",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T11:02:36.604945-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir Technologies Faces Potential Competition for NHS Data Contract",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T11:02:36.608528-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "ExxonMobil Commences Production at Uaru Development in Guyana",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T11:02:36.617929-05:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Weatherford Awarded Deepwater Managed Pressure Drilling Contract by Constellation",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T11:02:41.370146-05:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "Defensives Lead Sectors Monday As Growth Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T11:02:41.440068-05:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Defensives Lead Sectors Monday As Growth Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T11:03:36.619423-05:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "FedEx Opens New International Cargo Terminal at Guangzhou Baiyun Airport",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

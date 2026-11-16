@@ -1,245 +1,5 @@
 [
   {
-    "ts": "2026-11-13T14:04:41.839116-05:00",
-    "symbols": [
-      "TCRT"
-    ],
-    "headline": "Alaunos Therapeutics Registered 382,090,789 Shares Of Common Stock For Resale",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T14:04:41.842627-05:00",
-    "symbols": [
-      "TMC"
-    ],
-    "headline": "HC Wainwright &amp; Co. Maintains Buy on TMC The Metals Co, Lowers Price Target to $5.5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T14:04:41.846070-05:00",
-    "symbols": [
-      "UAMY"
-    ],
-    "headline": "HC Wainwright &amp; Co. Maintains Buy on United States Antimony, Lowers Price Target to $6.5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T14:04:41.874121-05:00",
-    "symbols": [
-      "ACCV"
-    ],
-    "headline": "Goldman Sachs Downgrades Accelevation Holdings to Neutral",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T14:05:20.554573-05:00",
-    "symbols": [
-      "MARA"
-    ],
-    "headline": "Macquarie Adjusts MARA Holdings Price Target to $20 from $26",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T14:15:51.925379-05:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "&#39;US Supreme Court to consider lawsuit over Robinhood&#39;s 2021 IPO&#39;- Reuters",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T14:16:03.140484-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Hassett expected to depart White House&#39;- Semafor",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T14:16:10.863614-05:00",
-    "symbols": [
-      "USAS"
-    ],
-    "headline": "Americas Gold And Silver Q3 Adj. EPS $0.02 Misses $0.05 Estimate, Sales $51.400M Miss $68.365M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T14:16:11.099435-05:00",
-    "symbols": [
-      "WVE"
-    ],
-    "headline": "Wave Life Sciences Highlights WVE-007 Progress at ObesityWeek\u00ae 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T14:16:11.323944-05:00",
-    "symbols": [
-      "XLAB"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T14:16:11.557191-05:00",
-    "symbols": [
-      "XNDU"
-    ],
-    "headline": "RBC Capital Adjusts Price Target for Xanadu Quantum Technologies",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T14:16:12.682116-05:00",
-    "symbols": [
-      "MOD"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T14:16:12.686486-05:00",
-    "symbols": [
-      "MOD"
-    ],
-    "headline": "This AI Cooling Company Just Caught Samsung&#39;s Eye",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T14:16:12.916071-05:00",
-    "symbols": [
-      "VTSI"
-    ],
-    "headline": "Why Is VirTra Stock Surging Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T14:16:12.920545-05:00",
-    "symbols": [
-      "VTSI"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T14:16:13.144292-05:00",
-    "symbols": [
-      "MRLN"
-    ],
-    "headline": "12 Industrials Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T14:16:13.148055-05:00",
-    "symbols": [
-      "MRLN"
-    ],
-    "headline": "Merlin (MRLN) Stock Jumps Over 54% After Hours: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T14:27:07.680168-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Jensen Huang Joins Wall Street\u2019s Fallen-Founder Hall of Fame: 13 Founders Who Fell Before Him",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T14:27:07.683940-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "CNBC Reporter Seema Mody Posts On X &#34;Nvidia board to @CNBC:&#34;We are in the process of selecting a search firm for the NVIDIA CEO role. We have not formally engaged any potential candidates. Any speculation regarding individual candidates, whether internal or external, is premature.&#34;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T14:27:08.732983-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Issues An Update On Labour Proceedings In Delta, BC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T14:27:16.991473-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Jensen Huang Joins Wall Street\u2019s Fallen-Founder Hall of Fame: 13 Founders Who Fell Before Him",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T14:27:21.137120-05:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Jensen Huang Joins Wall Street\u2019s Fallen-Founder Hall of Fame: 13 Founders Who Fell Before Him",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T14:27:33.906236-05:00",
-    "symbols": [
-      "LFTO"
-    ],
-    "headline": "Piper Sandler Maintains Neutral on Liftoff Mobile, Raises Price Target to $24",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T14:27:34.130811-05:00",
-    "symbols": [
-      "NMAX"
-    ],
-    "headline": "Newsmax Delivers Its Strongest Quarter Since Going Public",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-13T14:27:34.134696-05:00",
     "symbols": [
       "NMAX"
@@ -4995,6 +4755,246 @@
       "NVO"
     ],
     "headline": "Novo Nordisk Says Wegovy Resulted In BMI Reduction Of 10% Or More In Almost 80% Of Children With Obesity Aged 6 To Under 12, Compared To 0% With Placebo In Step Young Trial, Published In The New England Journal Of Medicine",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T10:26:59.684086-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Reported Earlier, U.S. Department Of Commerce&#39;s Bureau of Industry and Security Interim Final Rule To Address Remote Access To Advanced Super Intelligence Chips And Servers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T10:26:59.747711-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Reported Earlier, U.S. Department Of Commerce&#39;s Bureau of Industry and Security Interim Final Rule To Address Remote Access To Advanced Super Intelligence Chips And Servers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T10:26:59.751011-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Bloom Energy Shares Drop: What\u2019s Going On With the AI Power Stock Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T10:26:59.754087-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on NVIDIA, Lowers Price Target to $267",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T10:26:59.817028-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Reported Earlier, U.S. Department Of Commerce&#39;s Bureau of Industry and Security Interim Final Rule To Address Remote Access To Advanced Super Intelligence Chips And Servers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T10:26:59.888916-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Reported Earlier, U.S. Department Of Commerce&#39;s Bureau of Industry and Security Interim Final Rule To Address Remote Access To Advanced Super Intelligence Chips And Servers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T10:27:00.077445-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Reported Earlier, U.S. Department Of Commerce&#39;s Bureau of Industry and Security Interim Final Rule To Address Remote Access To Advanced Super Intelligence Chips And Servers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T10:27:00.498940-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Reported Earlier, U.S. Department Of Commerce&#39;s Bureau of Industry and Security Interim Final Rule To Address Remote Access To Advanced Super Intelligence Chips And Servers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T10:27:01.577289-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Barclays Maintains Overweight on Eli Lilly, Raises Price Target to $1550",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T10:27:01.819998-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "ExxonMobil Starts Production At Uaru, Raising Guyana\u2019s Installed Capacity To 1.1M Barrels Per Day",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T10:27:02.168076-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "TD Cowen Reiterates Buy on Palo Alto Networks, Maintains $440 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T10:27:03.733511-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "ExxonMobil Starts Production At Uaru, Raising Guyana\u2019s Installed Capacity To 1.1M Barrels Per Day",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T10:27:04.251083-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Reported Earlier, U.S. Department Of Commerce&#39;s Bureau of Industry and Security Interim Final Rule To Address Remote Access To Advanced Super Intelligence Chips And Servers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T10:27:04.427904-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Reported Earlier, U.S. Department Of Commerce&#39;s Bureau of Industry and Security Interim Final Rule To Address Remote Access To Advanced Super Intelligence Chips And Servers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T10:27:04.491275-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Reported Earlier, U.S. Department Of Commerce&#39;s Bureau of Industry and Security Interim Final Rule To Address Remote Access To Advanced Super Intelligence Chips And Servers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T10:27:06.270458-05:00",
+    "symbols": [
+      "XXII"
+    ],
+    "headline": "Nasdaq Down Over 1%; Tyson Foods Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T10:27:06.519943-05:00",
+    "symbols": [
+      "CYAB"
+    ],
+    "headline": "Nasdaq Down Over 1%; Tyson Foods Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T10:27:06.579178-05:00",
+    "symbols": [
+      "AKAN"
+    ],
+    "headline": "Nasdaq Down Over 1%; Tyson Foods Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T10:27:07.453006-05:00",
+    "symbols": [
+      "KPLT"
+    ],
+    "headline": "Stephens Upgrades Katapult Holdings (KPLT) to Overweight",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T10:27:07.747089-05:00",
+    "symbols": [
+      "GAME"
+    ],
+    "headline": "Update: GameSquare Holdings Q3 Adj. EPS $(0.32) Misses $(0.12) Estimate, Sales $19.011M Miss $21.400M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T10:27:07.750520-05:00",
+    "symbols": [
+      "GAME"
+    ],
+    "headline": "GameSquare Holdings Q3 EPS $0.79 Beats $(0.12) Estimate, Sales $19.011M Miss $21.400M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T10:27:07.753520-05:00",
+    "symbols": [
+      "GAME"
+    ],
+    "headline": "GameSquare Holdings Affirms FY2026 Sales Guidance of $85.000M-$90.000M vs $85.000M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T10:27:08.012296-05:00",
+    "symbols": [
+      "TTWO"
+    ],
+    "headline": "Take-Two Shares Rise Monday: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T10:27:08.015428-05:00",
+    "symbols": [
+      "TTWO"
+    ],
+    "headline": "Why Take-Two Interactive Software Shares Are Trading Higher; Here Are 20 Stocks Moving Premarket",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

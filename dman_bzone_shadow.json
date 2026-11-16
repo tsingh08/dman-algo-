@@ -2598,5 +2598,15 @@
 "extension_pct": 18.4,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "CGON",
+"date": "2026-11-16",
+"close": 84.78,
+"base_days": 61,
+"above_low_pct": 126.9,
+"extension_pct": 28.1,
+"fresh_base": true,
+"weak_band": false
 }
 ]

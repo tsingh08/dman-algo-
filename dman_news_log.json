@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-16T09:25:26.054509-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk Says SpaceX\u2019s Recovered Starship Could Fly Again After Weeks of Refurbishment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.057705-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Tesla-SpaceX Merger Is &#39;Almost Inconceivable&#39; to Avoid, Says Elon Musk Biographer \u2014 &#39;You&#39;ll Know More&#39; on Dec. 3",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.060746-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "\u2018That Math Is Obvious and Trivial\u2019: Elon Musk Says Solar Will Supply 100% of Civilization\u2019s Energy as SpaceX and Tesla Ramp Up Manufacturing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.063646-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Reported November 15, &#39;Rocket from Boeing-Lockheed firm fails mid-flight, destroys payload of Amazon satellites&#39; - Reuters",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.066530-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk Says Starship V4 Will Be 40% Longer, Carry 60% More Fuel \u2014 Payload Could Top 200 Tons as Launch Costs Fall Below $500K",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.134596-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nebius Group Stock Slides Again Monday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-16T09:25:26.137519-05:00",
     "symbols": [
       "NBIS"
@@ -4996,6 +4936,66 @@
     ],
     "headline": "Vivani Medical announces $5.1M private placement of common stock at $1.01/Share",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:02:36.622923-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nebius Participates in WEKA Inference Economics Scorecard Benchmark",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:02:36.632735-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nebius Submits Results for MLPerf Training v6.1 Benchmark",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:02:41.489743-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Elon Musk Says SpaceX\u2019s Recovered Starship Could Fly Again After Weeks of Refurbishment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T12:02:41.493410-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Tesla-SpaceX Merger Is &#39;Almost Inconceivable&#39; to Avoid, Says Elon Musk Biographer \u2014 &#39;You&#39;ll Know More&#39; on Dec. 3",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T12:03:36.664182-05:00",
+    "symbols": [
+      "BBD"
+    ],
+    "headline": "Inovabra Partners with Merz Aesthetics LATAM for Startup Curation",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:03:36.668078-05:00",
+    "symbols": [
+      "BBD"
+    ],
+    "headline": "Itau BBA Downgrades Banco Bradesco to Market Perform",
+    "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": null
   }

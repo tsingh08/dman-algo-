@@ -1,445 +1,5 @@
 [
   {
-    "ts": "2026-11-16T09:57:09.882442-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "President Trump Says No One Has Proved Alice Huang Is A Chinese Spy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T09:57:09.885520-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "President Trump Says May Talk To Xi About Nvidia",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T09:57:09.888538-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "President Trump Says Lutnick Might Have Delayed Putting Megaspeed On List",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T09:57:09.891675-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Is the AI Chatbots\u2019 Top Stock Pick As Earnings Land This Week",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T09:57:09.958358-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "&#39;US moves to tighten AI chip export rules&#39; - Financial Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:57:10.090601-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "&#39;US moves to tighten AI chip export rules&#39; - Financial Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:57:10.207353-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#39;US moves to tighten AI chip export rules&#39; - Financial Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:57:10.675410-05:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "&#39;US moves to tighten AI chip export rules&#39; - Financial Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T09:57:10.754396-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "&#39;US moves to tighten AI chip export rules&#39; - Financial Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:57:10.923504-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "&#39;US moves to tighten AI chip export rules&#39; - Financial Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:57:11.401865-05:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "What&#39;s Going On with Robinhood Stock Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T09:57:12.577195-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Nvidia Is the AI Chatbots\u2019 Top Stock Pick As Earnings Land This Week",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:57:12.794297-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "MSTR Plunges 6% Despite Strategy\u2019s $33 Million Bitcoin Buy: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:57:12.797955-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "What&#39;s Going On with Robinhood Stock Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:57:13.150801-05:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "&#39;US moves to tighten AI chip export rules&#39; - Financial Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T09:57:14.670429-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "&#39;US moves to tighten AI chip export rules&#39; - Financial Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T09:57:14.891600-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;US moves to tighten AI chip export rules&#39; - Financial Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T09:57:14.895027-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Says No One Has Proved Alice Huang Is A Chinese Spy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T09:57:14.898267-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Says May Talk To Xi About Nvidia",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T09:57:14.901416-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Says Lutnick Might Have Delayed Putting Megaspeed On List",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T09:57:14.904725-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Says Putin Is &#39;Backing Down&#39; From War In Ukraine",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T10:06:27.167496-05:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "Barclays Maintains Overweight on AbbVie, Raises Price Target to $335",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T10:06:27.379020-05:00",
-    "symbols": [
-      "XPEV"
-    ],
-    "headline": "XPeng Sees Q4 Sales $4.509B-$4.717B",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T10:06:27.382081-05:00",
-    "symbols": [
-      "XPEV"
-    ],
-    "headline": "XPeng Q3 Adj. EPS $(0.14) Down From $(0.02) YoY, Sales $3.621B Up From $2.862B YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T10:16:39.414132-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "RBC Capital Reiterates Outperform on SpaceX, Maintains $225 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T10:16:39.417828-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Rocket Lab, Firefly, AST SpaceMobile Stocks Drop: What\u2019s Going On With Space Stocks Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T10:16:39.727253-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Rocket Lab, Firefly, AST SpaceMobile Stocks Drop: What\u2019s Going On With Space Stocks Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T10:16:40.135276-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Robert Pattinson Named As New James Bond",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T10:16:41.738058-05:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Rocket Lab, Firefly, AST SpaceMobile Stocks Drop: What\u2019s Going On With Space Stocks Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T10:16:42.045040-05:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Bitcoin\u2019s Chart Is Flashing Red \u2014 One Strategist Sees $38,000",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T10:16:43.685731-05:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Novo Nordisk Says Wegovy Resulted In BMI Reduction Of 10% Or More In Almost 80% Of Children With Obesity Aged 6 To Under 12, Compared To 0% With Placebo In Step Young Trial, Published In The New England Journal Of Medicine",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T10:26:59.684086-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Reported Earlier, U.S. Department Of Commerce&#39;s Bureau of Industry and Security Interim Final Rule To Address Remote Access To Advanced Super Intelligence Chips And Servers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T10:26:59.747711-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Reported Earlier, U.S. Department Of Commerce&#39;s Bureau of Industry and Security Interim Final Rule To Address Remote Access To Advanced Super Intelligence Chips And Servers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T10:26:59.751011-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Bloom Energy Shares Drop: What\u2019s Going On With the AI Power Stock Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T10:26:59.754087-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Morgan Stanley Maintains Overweight on NVIDIA, Lowers Price Target to $267",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T10:26:59.817028-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Reported Earlier, U.S. Department Of Commerce&#39;s Bureau of Industry and Security Interim Final Rule To Address Remote Access To Advanced Super Intelligence Chips And Servers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T10:26:59.888916-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Reported Earlier, U.S. Department Of Commerce&#39;s Bureau of Industry and Security Interim Final Rule To Address Remote Access To Advanced Super Intelligence Chips And Servers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T10:27:00.077445-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Reported Earlier, U.S. Department Of Commerce&#39;s Bureau of Industry and Security Interim Final Rule To Address Remote Access To Advanced Super Intelligence Chips And Servers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T10:27:00.498940-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Reported Earlier, U.S. Department Of Commerce&#39;s Bureau of Industry and Security Interim Final Rule To Address Remote Access To Advanced Super Intelligence Chips And Servers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T10:27:01.577289-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Barclays Maintains Overweight on Eli Lilly, Raises Price Target to $1550",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T10:27:01.819998-05:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "ExxonMobil Starts Production At Uaru, Raising Guyana\u2019s Installed Capacity To 1.1M Barrels Per Day",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T10:27:02.168076-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "TD Cowen Reiterates Buy on Palo Alto Networks, Maintains $440 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T10:27:03.733511-05:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "ExxonMobil Starts Production At Uaru, Raising Guyana\u2019s Installed Capacity To 1.1M Barrels Per Day",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T10:27:04.251083-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Reported Earlier, U.S. Department Of Commerce&#39;s Bureau of Industry and Security Interim Final Rule To Address Remote Access To Advanced Super Intelligence Chips And Servers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-16T10:27:04.427904-05:00",
     "symbols": [
       "SPY"
@@ -4995,6 +4555,446 @@
       "CLW"
     ],
     "headline": "Clearwater Paper Appoints Matt Passarello As CFO, Effective November 14",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T14:02:36.878606-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Thread AI Joins Microsoft for Startups Pegasus Program",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T14:02:37.152790-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Graid Technology Announces VROC Support for AMD EPYC Platforms",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T14:02:37.371595-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA Launches Vera CPU Platform for High-Performance Computing",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T14:02:37.375239-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA Introduces Nemotron for Science Platform",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T14:02:37.378705-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA Announces Quantum Computing Collaborations with IBM and Fermilab",
+    "source": "fiscal.ai",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T14:02:37.603005-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Court Grants Intervention in Broadcom and VMware Legal Case",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T14:02:37.822488-05:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Mubadala Investment Co. Dissolves Stake in Gilead Sciences",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T14:02:38.035596-05:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Monotype Launches Brand Font Panel for Adobe Creative Apps",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T14:02:38.301097-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amnesty International Reports Continued Labor Issues at Amazon Saudi Arabia Facilities",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T14:02:38.519463-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto Networks Releases State of Cloud Security Report 2026",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T14:02:38.737905-05:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "Philippine Airlines Finalizes Order for 15 Boeing 787-10 Aircraft and GEnx-1B Engines",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T14:02:38.964762-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple and OpenEvidence Launch Virtual Health AI Research Study",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T14:02:39.183849-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike Named Visionary Leader in Frost Radar\u2122: AI Security Operations Centers, 2026",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T14:02:39.400225-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Goldman Sachs Adjusts Rocket Lab Price Target to $68",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T14:02:39.622645-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Chase and Other Major Banks Experience Online Banking Outages",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T14:02:39.837081-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell Technology and Penguin Solutions Collaborate on AI Memory Demands",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T14:02:40.055800-05:00",
+    "symbols": [
+      "RBLX"
+    ],
+    "headline": "Piper Sandler Maintains Hold Rating and Raises Price Target for Roblox",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T14:02:40.273619-05:00",
+    "symbols": [
+      "ELF"
+    ],
+    "headline": "Ekta Chopra of e.l.f. Beauty Honored with 2026 NewYorkCIO ORBIE Award",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T14:03:13.075067-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "&#39;US moves to tighten AI chip export rules&#39; - Financial Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T14:03:13.515380-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "&#39;US moves to tighten AI chip export rules&#39; - Financial Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T14:03:15.154622-05:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "&#39;US moves to tighten AI chip export rules&#39; - Financial Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T14:03:15.159276-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "&#39;US moves to tighten AI chip export rules&#39; - Financial Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T14:03:15.602428-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "&#39;US moves to tighten AI chip export rules&#39; - Financial Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T14:03:16.689285-05:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "What&#39;s Going On with Robinhood Stock Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T14:03:17.564431-05:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Barclays Maintains Overweight on AbbVie, Raises Price Target to $335",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T14:03:19.117410-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Nvidia Is the AI Chatbots\u2019 Top Stock Pick As Earnings Land This Week",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T14:03:19.766075-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "MSTR Plunges 6% Despite Strategy\u2019s $33 Million Bitcoin Buy: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T14:03:19.769402-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "What&#39;s Going On with Robinhood Stock Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T14:03:21.060777-05:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "&#39;US moves to tighten AI chip export rules&#39; - Financial Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T14:03:25.907071-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "&#39;US moves to tighten AI chip export rules&#39; - Financial Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T14:03:27.196006-05:00",
+    "symbols": [
+      "ACRS"
+    ],
+    "headline": "Why is Aclaris Therapeutics Stock Trading Lower on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T14:03:35.386671-05:00",
+    "symbols": [
+      "RPID"
+    ],
+    "headline": "Rapid Micro Biosystems Q3 EPS $(0.23) Misses $(0.20) Estimate, Sales $9.528M Miss $10.000M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T14:03:36.663454-05:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Supermicro Participates in MLPerf Training v6.1 Benchmarks",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T14:03:36.817490-05:00",
+    "symbols": [
+      "RXRX"
+    ],
+    "headline": "J.P. Morgan Maintains Buy Rating for Recursion Pharmaceuticals",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T14:03:37.113822-05:00",
+    "symbols": [
+      "DRTS"
+    ],
+    "headline": "Alpha Dart Therapy Shows Complete Tumor Clearance in Five Brain Cancer Patients",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T14:03:37.328523-05:00",
+    "symbols": [
+      "ECX"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Monday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T14:03:37.971486-05:00",
+    "symbols": [
+      "XPEV"
+    ],
+    "headline": "XPeng Sees Q4 Sales $4.509B-$4.717B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T14:03:37.975251-05:00",
+    "symbols": [
+      "XPEV"
+    ],
+    "headline": "XPeng Q3 Adj. EPS $(0.14) Down From $(0.02) YoY, Sales $3.621B Up From $2.862B YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T14:03:38.409585-05:00",
+    "symbols": [
+      "ZYME"
+    ],
+    "headline": "Zymeworks authorizes second 2026 share repurchase program of up to $200M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T14:03:40.544734-05:00",
+    "symbols": [
+      "BEKE"
+    ],
+    "headline": "KE Holdings Q3 Adj. EPS $0.35 Beats $0.23 Estimate, Sales $3.131B Beat $3.070B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T14:03:40.548283-05:00",
+    "symbols": [
+      "BEKE"
+    ],
+    "headline": "KE Holdings Repurchased ~$162M Of Shares In Q3; $609M YTD",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T14:03:40.551510-05:00",
+    "symbols": [
+      "BEKE"
+    ],
+    "headline": "KE Holdings Q3 Gross Margin 27.7% vs 21.4% Prior",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T14:03:40.554482-05:00",
+    "symbols": [
+      "BEKE"
+    ],
+    "headline": "KE Holdings Q3 GTV $114.8B, Up 4.5% YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T14:03:40.557421-05:00",
+    "symbols": [
+      "BEKE"
+    ],
+    "headline": "KE Holdings Q3 Adj Net Income $389M, Up 103% YoY",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

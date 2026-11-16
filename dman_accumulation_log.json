@@ -4444,5 +4444,14 @@
   "drift_pct": 0.0,
   "range_ratio": 0.4,
   "near_high": 1.0
+ },
+ {
+  "ts": "2026-11-16T11:19:15.333072-05:00",
+  "ticker": "WENN",
+  "price": 10.48,
+  "rvol": 4.5,
+  "drift_pct": 0.1,
+  "range_ratio": 0.46,
+  "near_high": 1.0
  }
 ]

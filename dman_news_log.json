@@ -1,275 +1,5 @@
 [
   {
-    "ts": "2026-11-16T09:25:26.137519-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nebius Shares Rise 8% After Key Trading Signal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.186547-05:00",
-    "symbols": [
-      "XBI"
-    ],
-    "headline": "Biotech ETFs Brace for FDA Showdown: Two Drug Decisions Could Test Investor Sentiment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:25:26.248253-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Nvidia Stock&#39;s &#39;Icarus&#39; Fall Isn\u2019t Over Yet, But Microsoft, Apple Show Path to Recovery, Says Top Strategist: &#39;Wildly Profitable&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.312311-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;OpenAI Explored $5 Billion\u2013Plus Acquisition of Startup That Decodes How AI \u2018Thinks\u2019&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.315211-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Nebius Group Stock Slides Again Monday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.318395-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Nvidia Stock&#39;s &#39;Icarus&#39; Fall Isn\u2019t Over Yet, But Microsoft, Apple Show Path to Recovery, Says Top Strategist: &#39;Wildly Profitable&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.321525-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "From Coding to Finance and Life Sciences: Box CEO Aaron Levie Says AI Agents Are Getting the Skills to Transform Professional Work",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.324675-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Elizabeth Warren Takes Aim at Big Tech Billionaires Over China AI Access \u2014 &#39;...Put Our National Security Above Their Bottom Line&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.376670-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Gets 10 Bank Downgrades After Huang Exit: What to Expect Ahead of Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.379575-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "NVIDIA To $200? Here Are 10 Top Analyst Forecasts For Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.382504-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "EXCLUSIVE: Huang\u2019s Exit Echoes Profumo, but Intelligence Expert Says Chip CEOs Are the New Spy Targets",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.385383-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;OpenAI Explored $5 Billion\u2013Plus Acquisition of Startup That Decodes How AI \u2018Thinks\u2019&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.388248-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "What&#39;s Going On With Micron Technology Stock Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.440026-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "&#39;OpenAI Explored $5 Billion\u2013Plus Acquisition of Startup That Decodes How AI \u2018Thinks\u2019&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.443234-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "AMD Stock Is Falling Monday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.446780-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "NVIDIA Must Now Prove It&#39;s Bigger Than Jensen Huang",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.449908-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Nvidia&#39;s Jensen Huang Controversy Could Backfire on China, Chamath Palihapitiya Says \u2014 Washington May Get the Chip Controls It&#39;s Been Seeking",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.503653-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#39;Soft Recession or Something More Dramatic:&#39; Former SEC Chair Gary Gensler Warns AI Boom Could End in Dot-Com-Scale Bust \u2014 &#39;They Loaned Too Much Money, Too Fast&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.506640-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Fallout From Last Week&#39;s News May Be More Severe Than Market Action Suggests",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.680379-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Nvidia Stock&#39;s &#39;Icarus&#39; Fall Isn\u2019t Over Yet, But Microsoft, Apple Show Path to Recovery, Says Top Strategist: &#39;Wildly Profitable&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.683306-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "NVIDIA Must Now Prove It&#39;s Bigger Than Jensen Huang",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.686181-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "From Coding to Finance and Life Sciences: Box CEO Aaron Levie Says AI Agents Are Getting the Skills to Transform Professional Work",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.689278-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Nvidia&#39;s Jensen Huang Controversy Could Backfire on China, Chamath Palihapitiya Says \u2014 Washington May Get the Chip Controls It&#39;s Been Seeking",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.692171-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Anthropic IPO Is Coming Up: Top Companies Set to Benefit if ANT Stock Jumps",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.752905-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "&#39;OpenAI Explored $5 Billion\u2013Plus Acquisition of Startup That Decodes How AI \u2018Thinks\u2019&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.755846-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Uber Riders in Vegas Can Now Get Driverless Zoox Robotaxi",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:25:26.759444-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "EBay, Amazon, Caterpillar and More on CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-16T09:25:26.762363-05:00",
     "symbols": [
       "AMZN"
@@ -4998,5 +4728,275 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:12:53.645464-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nebius Group Stock Slides Again Monday: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:12:54.161599-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Jensen Huang Launched Nvidia in a Denny\u2019s: Tribute Plaque Briefly Removed After Scandal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T12:12:54.164924-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Jensen Huang Boasted in 2024 He Managed &#39;Not to Get Fired&#39; in 31 Years at Nvidia \u2014 An Affair Scandal Ended His Run 2 Years Later",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T12:12:54.168151-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Huang Reportedly Weighs Comeback As Bessent Seeks Nvidia Shake-Up; Anthropic&#39;s Upcoming IPO; Trump To Meet Putin And Xi",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T12:12:54.567401-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Global Mofy Stock Nearly Triples as Investors Eye Its Latest AI Investment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T12:12:54.625832-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Jensen Huang Boasted in 2024 He Managed &#39;Not to Get Fired&#39; in 31 Years at Nvidia \u2014 An Affair Scandal Ended His Run 2 Years Later",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T12:12:54.742858-05:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "eGain Launches Trusted Knowledge Service Supporting Salesforce Knowledge",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T12:12:56.396837-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "What&#39;s Going On With ExxonMobil Stock Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:12:59.101678-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Warsh Outlines Potential Outcomes Ranging From Broad Productivity Gains To High Unemployment And Economic Slowdowns If AI Fails To Meet Expectations And Equity Valuations Decline",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:12:59.105198-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed Chair Warsh Warns AI Could Trigger Major Economic Disruption; Says Emerging Technologies, Including Superintelligence, Could Fundamentally Reshape The Economy And Monetary Policy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:12:59.473161-05:00",
+    "symbols": [
+      "CLRO"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:12:59.761723-05:00",
+    "symbols": [
+      "GP"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:12:59.819984-05:00",
+    "symbols": [
+      "IEP"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:13:00.872774-05:00",
+    "symbols": [
+      "SAIQ"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:13:01.487523-05:00",
+    "symbols": [
+      "TE"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:13:01.725905-05:00",
+    "symbols": [
+      "XTND"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:13:01.783754-05:00",
+    "symbols": [
+      "XXII"
+    ],
+    "headline": "Crude Oil Down Over 2%; NY Manufacturing Activity Declines In November",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:13:01.840575-05:00",
+    "symbols": [
+      "CYAB"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:13:01.994506-05:00",
+    "symbols": [
+      "AKAN"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:13:02.057105-05:00",
+    "symbols": [
+      "HIHO"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:13:02.121617-05:00",
+    "symbols": [
+      "POLA"
+    ],
+    "headline": "12 Industrials Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:13:02.385751-05:00",
+    "symbols": [
+      "CGON"
+    ],
+    "headline": "Crude Oil Down Over 2%; NY Manufacturing Activity Declines In November",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:13:02.825627-05:00",
+    "symbols": [
+      "TU"
+    ],
+    "headline": "Crude Oil Down Over 2%; NY Manufacturing Activity Declines In November",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:13:02.881471-05:00",
+    "symbols": [
+      "CRDF"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:13:02.948537-05:00",
+    "symbols": [
+      "AMST"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:13:03.756749-05:00",
+    "symbols": [
+      "IZM"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T12:13:04.328727-05:00",
+    "symbols": [
+      "HTHT"
+    ],
+    "headline": "Crude Oil Down Over 2%; NY Manufacturing Activity Declines In November",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

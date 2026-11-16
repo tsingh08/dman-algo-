@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-11-16T09:37:38.021596-05:00",
-    "symbols": [
-      "UPS"
-    ],
-    "headline": "UPS Cargo Plane Involved in Minor Collision at Miami International Airport",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:37:38.449466-05:00",
-    "symbols": [
-      "HSIC"
-    ],
-    "headline": "Henry Schein To Exclude Gains Resulting From Remeasurement To Fair Value Of Previously Held Equity Interests From Its Non-GAAP Financial Results; Updates FY26 Adjusted EPS Guidance To $5.42-$5.48 To Reflect The Change",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:37:38.653884-05:00",
-    "symbols": [
-      "RDY"
-    ],
-    "headline": "Dr. Reddy\u2019s Says FDA Classifies FTO-3 Hyderabad Plant Inspection As VAI, Closes Inspection",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:37:38.864106-05:00",
-    "symbols": [
-      "FENC"
-    ],
-    "headline": "B. Riley Securities Reiterates Buy on Fennec Pharmaceuticals, Raises Price Target to $19",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-16T09:37:39.068567-05:00",
     "symbols": [
       "SPXC"
@@ -4995,6 +4955,46 @@
       "TU"
     ],
     "headline": "TELUS Shares Rise After Qu\u00e9becor Submits Unsolicited Acquisition Proposal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T13:29:59.844929-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "IBM Stock Moves Lower: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T13:30:01.230704-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon\u2019s Big Week: First a New James Bond, Then Anthropic\u2019s IPO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T13:30:29.900861-05:00",
+    "symbols": [
+      "TSN"
+    ],
+    "headline": "Tyson Foods Raises Quarterly Dividend By ~2% To $0.52/Share ($0.51 Prior)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T13:30:29.904141-05:00",
+    "symbols": [
+      "TSN"
+    ],
+    "headline": "Tyson Foods Sees FY2027 Sales $53.316B-$54.444B vs $55.574B Est",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

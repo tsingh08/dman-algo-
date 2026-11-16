@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-13T17:33:37.155756-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "AMD Insider Sells Shares Worth Over $5 Million",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T17:33:37.468206-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon YVR2 Fulfillment Center Workers Covered by Binding Collective Agreement",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T17:33:37.733258-05:00",
-    "symbols": [
-      "TLRY"
-    ],
-    "headline": "BrewDog Recognized at Scottish Beer Awards",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T18:02:36.960196-05:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "Vistra Maintains Growth Outlook Amid Market Volatility Following Texas Midterm Elections",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T18:02:37.213889-05:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "South Korea's National Pension Service Increases Stake in Rivian",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T19:02:36.912297-05:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Chase Declares Dividends on Series II, OO, and PP Preferred Stock",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-16T09:25:26.054509-05:00",
     "symbols": [
       "SPCX"
@@ -4998,5 +4938,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T11:53:18.535199-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Forget Nvidia\u2014Wall Street Sees S&amp;P 500 at 8,900, Putting These ETFs in Play",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T11:53:18.538551-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Goodbye, Petrodollar. Meet the \u2018Chip-Dollar,\u2019 the $1 Trillion Flow Now Holding Up the Greenback",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T11:53:21.723504-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning Strategy Stock In The Last 10 Years",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T11:53:24.373722-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Forget Nvidia\u2014Wall Street Sees S&amp;P 500 at 8,900, Putting These ETFs in Play",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T11:53:32.188510-05:00",
+    "symbols": [
+      "XPEV"
+    ],
+    "headline": "XPeng CEO Bets Its Humanoid Robots Could Outsell Industry&#39;s Hottest Luxury EVs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T11:53:32.545466-05:00",
+    "symbols": [
+      "VANI"
+    ],
+    "headline": "Vivani Medical announces $5.1M private placement of common stock at $1.01/Share",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-11-16T09:25:34.066819-05:00",
-    "symbols": [
-      "LRMR"
-    ],
-    "headline": "Larimar Therapeutics Completes BLA Submission Seeking Accelerated Approval For Nomlabofusp In Friedreich\u2019s Ataxia",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:25:34.122463-05:00",
-    "symbols": [
-      "NCMI"
-    ],
-    "headline": "NVIDIA To $200? Here Are 10 Top Analyst Forecasts For Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:25:34.125424-05:00",
-    "symbols": [
-      "NCMI"
-    ],
-    "headline": "B. Riley Securities Upgrades National CineMedia to Buy, Raises Price Target to $3",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:25:34.181472-05:00",
-    "symbols": [
-      "CDNL"
-    ],
-    "headline": "Stifel Downgrades Cardinal Infrastructure Group to Hold",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:25:34.237096-05:00",
-    "symbols": [
-      "CDXS"
-    ],
-    "headline": "Stephens &amp; Co. Reiterates Overweight on Codexis, Maintains $5 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:25:34.292596-05:00",
-    "symbols": [
-      "KLAR"
-    ],
-    "headline": "Klarna Updates App Data Collection to Comply with New Swedish Consumer Credit Act",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:25:34.342370-05:00",
-    "symbols": [
-      "VKTX"
-    ],
-    "headline": "Reported Sunday, Viking Therapeutics Reports 74% Of Subcutaneous VK2735 Participants Improved BMI Category Versus 15% On Placebo After 13 Weeks, With Improved Cardiometabolic Markers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:25:34.390973-05:00",
-    "symbols": [
-      "JCAP"
-    ],
-    "headline": "Keefe, Bruyette &amp; Woods Maintains Outperform on Jefferson Capital, Raises Price Target to $32",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:32:36.590323-05:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "ExxonMobil Announces Cash Tender Offers for Outstanding Notes",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T09:32:36.596689-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Secures Multi-Year Agreements for Low-Carbon Data Center Materials",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T09:32:36.602022-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Blackstone Digital Infrastructure Trust to Acquire 75% Interest in AWS Data Center Joint Ventures",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-16T09:32:36.606089-05:00",
     "symbols": [
       "PANW"
@@ -4995,6 +4885,116 @@
       "TSN"
     ],
     "headline": "Tyson Foods CEO Calls Protein the &#39;Biggest Opportunity in Food&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T13:07:52.249709-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "EXCLUSIVE: Anthropic IPO Could Trigger a SpaceX-Style ETF Frenzy: Direxion Reveals What It\u2019s Seeing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T13:07:53.437677-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "EXCLUSIVE: Anthropic IPO Could Trigger a SpaceX-Style ETF Frenzy: Direxion Reveals What It\u2019s Seeing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T13:07:53.704176-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "EXCLUSIVE: Anthropic IPO Could Trigger a SpaceX-Style ETF Frenzy: Direxion Reveals What It\u2019s Seeing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T13:07:53.708020-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Semiconductor Sell-Off Slams TSMC Stock: What Investors Should Know",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T13:07:54.195879-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Why Is DraftKings Stock Falling on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T13:07:54.420158-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "EXCLUSIVE: Anthropic IPO Could Trigger a SpaceX-Style ETF Frenzy: Direxion Reveals What It\u2019s Seeing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T13:07:55.563294-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Phillip Securities Upgrades Palantir Technologies to Buy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T13:07:55.566920-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Elizabeth Warren Takes Aim at Big Tech Billionaires Over China AI Access \u2014 '...Put Our National Security Above Their Bottom Line'",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T13:07:58.856015-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Berkshire Hathaway, Eli Lilly, Cisco Systems",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T13:08:02.854981-05:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "Why Is DraftKings Stock Falling on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T13:08:20.388073-05:00",
+    "symbols": [
+      "MMED"
+    ],
+    "headline": "FDA Clears MiniMed Fit Tubeless Insulin Pump with Seven-Day Wear",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

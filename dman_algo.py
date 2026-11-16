@@ -9540,13 +9540,22 @@ def _log_signal_features(sig, regime: dict, taken: bool, reject_reason: str = ""
         # thinks -- whatever the gates decide -- so its answers can be graded
         # against the label later. Only inside a scan that turned AI on.
         global _AI_SHADOW_BUDGET
-        if (_hit is None and _AI_SHADOW_BUDGET > 0
+        # "No answer on file yet", not "first sighting": the daemon scans
+        # without AI and usually logs a signal before the AI scan sees it, so
+        # the row is already there -- unscored -- when this runs.
+        if ((_hit is None or not _hit.get("ai_score")) and _AI_SHADOW_BUDGET > 0
                 and not getattr(sig, "ai_score", 0) and getattr(sig, "ai_p_win", None) is None):
             _AI_SHADOW_BUDGET -= 1
             try:
                 _s = ai_score_signal(sig, regime)
                 if _s is not None:
                     sig.ai_score = _s
+                else:
+                    # No answer (outage, rate limit, no credits): stop asking
+                    # for the rest of this scan. Each miss can cost a 15 s
+                    # timeout, and a dozen of them would eat the scan's time
+                    # budget for a number that is only being collected.
+                    _AI_SHADOW_BUDGET = 0
             except Exception as exc:
                 _log_swallowed("ai shadow score", exc)
         _ai_s = int(getattr(sig, "ai_score", 0) or 0)

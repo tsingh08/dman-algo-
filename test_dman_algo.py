@@ -2573,6 +2573,39 @@ class TestAiScorerV2(unittest.TestCase):
         self.assertEqual((row["ai_score"], row["ai_p"], row["ai_v"]), (4, 0.31, 2))
         self.assertNotIn("ai_p", [r for r in rows if r["ticker"] == "OFF"][0])
 
+    def test_a_row_the_daemon_logged_first_still_gets_scored_once(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as d, \
+             patch.object(a, "SIGNAL_FEATURES_FILE", os.path.join(d, "f.json")), \
+             patch.object(a, "ANTHROPIC_API_KEY", "k"), \
+             patch.object(a, "requests") as rq:
+            rq.post.return_value = self._reply('{"p_win": 0.24, "score": 3}')
+            with patch.object(a, "_AI_SHADOW_BUDGET", 0):          # the daemon: no AI
+                a._log_signal_features(self._signal(), _fake_regime(), False, "hard gate")
+            with patch.object(a, "_AI_SHADOW_BUDGET", 5):          # the AI scan, later
+                a._log_signal_features(self._signal(), _fake_regime(), False, "hard gate")
+                a._log_signal_features(self._signal(), _fake_regime(), False, "hard gate")
+            self.assertEqual(rq.post.call_count, 1)                # scored, then left alone
+            with open(os.path.join(d, "f.json")) as f:
+                rows = json.load(f)
+        self.assertEqual(len(rows), 1)
+        self.assertEqual((rows[0]["ai_p"], rows[0]["seen"]), (0.24, 3))
+
+    def test_shadow_scoring_stops_for_the_scan_after_one_failed_call(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as d, \
+             patch.object(a, "SIGNAL_FEATURES_FILE", os.path.join(d, "f.json")), \
+             patch.object(a, "ANTHROPIC_API_KEY", "k"), \
+             patch.object(a, "_AI_SHADOW_BUDGET", 5), \
+             patch.object(a, "requests") as rq:
+            rq.post.side_effect = Exception("timeout")
+            for tk in ("AAA", "BBB", "CCC"):
+                a._log_signal_features(self._signal(ticker=tk), _fake_regime(), False, "hard gate")
+            self.assertEqual(rq.post.call_count, 1)
+            self.assertEqual(a._AI_SHADOW_BUDGET, 0)
+            with open(os.path.join(d, "f.json")) as f:
+                self.assertEqual(len(json.load(f)), 3)      # rows still logged
+
     def test_a_merge_keeps_the_answer_from_the_later_copy(self):
         base = {"ticker": "TEST", "date": "2026-11-16", "setup": "Day 2 Continuation",
                 "entry": 100.0, "stop": 96.0}

@@ -1,205 +1,5 @@
 [
   {
-    "ts": "2026-11-13T13:52:02.712526-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "AMD Sinks 10.5% as Chip Rally Unwinds, Nasdaq 100 Falls 1.7%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T13:52:05.388065-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "AMD Bulls Make a Killing With 2X ETFs, But Friday\u2019s 20% Rout Delivers a Reality Check",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T13:52:08.352540-05:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Klarna Hires Robinhood Executive As CFO",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T13:52:09.753774-05:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "Barclays Maintains Overweight on ExxonMobil Holdings, Raises Price Target to $206",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T13:52:14.727562-05:00",
-    "symbols": [
-      "SMR"
-    ],
-    "headline": "Rosen Law Firm Announces Class Action Lawsuit Against NuScale Power Corporation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T13:52:15.180260-05:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "&#39;Senate Republicans eye defense-only spending bill&#39; - Semafor",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T13:52:15.406741-05:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "&#39;Senate Republicans eye defense-only spending bill&#39; - Semafor",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T13:52:17.299755-05:00",
-    "symbols": [
-      "OXY"
-    ],
-    "headline": "Barclays Maintains Overweight on Occidental Petroleum, Raises Price Target to $73",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T13:52:19.132335-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "AMD Sinks 10.5% as Chip Rally Unwinds, Nasdaq 100 Falls 1.7%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T13:52:19.360409-05:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "AMD Sinks 10.5% as Chip Rally Unwinds, Nasdaq 100 Falls 1.7%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T13:52:19.821242-05:00",
-    "symbols": [
-      "LFTO"
-    ],
-    "headline": "Barclays Maintains Overweight on Liftoff Mobile, Lowers Price Target to $30",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T13:52:21.184513-05:00",
-    "symbols": [
-      "MOD"
-    ],
-    "headline": "AMD Sinks 10.5% as Chip Rally Unwinds, Nasdaq 100 Falls 1.7%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T13:52:23.681259-05:00",
-    "symbols": [
-      "NU"
-    ],
-    "headline": "AMD Sinks 10.5% as Chip Rally Unwinds, Nasdaq 100 Falls 1.7%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-13T13:52:25.246824-05:00",
-    "symbols": [
-      "ZVRA"
-    ],
-    "headline": "BTIG Maintains Buy on Zevra Therapeutics, Lowers Price Target to $21",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T13:52:25.765345-05:00",
-    "symbols": [
-      "VKTX"
-    ],
-    "headline": "AMD Sinks 10.5% as Chip Rally Unwinds, Nasdaq 100 Falls 1.7%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-13T13:52:26.885286-05:00",
-    "symbols": [
-      "KLAR"
-    ],
-    "headline": "Klarna Hires Robinhood Executive As CFO",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T13:52:27.116266-05:00",
-    "symbols": [
-      "FLO"
-    ],
-    "headline": "Flowers Foods Feels the Squeeze As Americans Put Affordability First",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T13:52:27.120032-05:00",
-    "symbols": [
-      "FLO"
-    ],
-    "headline": "Cisco, Applied Materials And 3 Stocks To Watch Heading Into Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-13T13:52:27.355011-05:00",
-    "symbols": [
-      "KEP"
-    ],
-    "headline": "Korea Electric Power Corporation Shares Decline Following Earnings Miss",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-13T13:59:32.854932-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "DA Davidson Maintains Neutral on Nebius Group, Lowers Price Target to $125",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-13T13:59:33.892328-05:00",
     "symbols": [
       "NVDA"
@@ -4995,6 +4795,206 @@
       "JCAP"
     ],
     "headline": "Keefe, Bruyette &amp; Woods Maintains Outperform on Jefferson Capital, Raises Price Target to $32",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T09:32:36.590323-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "ExxonMobil Announces Cash Tender Offers for Outstanding Notes",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T09:32:36.596689-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Secures Multi-Year Agreements for Low-Carbon Data Center Materials",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T09:32:36.602022-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Blackstone Digital Infrastructure Trust to Acquire 75% Interest in AWS Data Center Joint Ventures",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T09:32:36.606089-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto Networks' Unit 42 Investigates Fireworks AI Security Breach",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T09:32:36.612281-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Corvex Signs $103 Million Agreement for NVIDIA Blackwell Capacity",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T09:32:36.622635-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Shore Medical Center and Shore Physicians Group Select Oracle Health's AI-Powered EHR",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T09:32:36.626421-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Pesta & Pesta Wealth Management Adds Goldman Sachs Custody Solutions",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T09:32:36.695791-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "TD Cowen Adjusts Broadcom Price Target to $425 From $475",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T09:32:36.761047-05:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Qualcomm Survey Highlights Performance and AI as Key Drivers for Indian Laptop Buyers",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T09:32:36.765560-05:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Caterpillar Standardizes Advanced Safety Technologies on Construction Equipment",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T09:32:36.855770-05:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "Citi Maintains Hold Rating on Rivian Automotive, Lowers Price Target to $14.50",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T09:32:36.859137-05:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Walmart Appoints Caterpillar CEO Joe Creed to Board",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T09:32:36.862278-05:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "BofA Adjusts Price Target on Coinbase Global",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T09:33:36.847523-05:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "Piper Sandler Raises Riot Platforms Price Target to $25.00",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T09:33:36.851696-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa and Samsung Launch Scan to Pay QR Functionality in Asia Pacific",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T09:33:36.960532-05:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "BofA Securities Adjusts Robinhood Markets PT to $151 From $156, Maintains Buy Rating",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T09:33:36.989212-05:00",
+    "symbols": [
+      "ENPH"
+    ],
+    "headline": "Enphase Energy Announces New Product Lineup for RE+ 2026",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T09:33:37.157208-05:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "BMO Capital Adjusts Constellation Energy Price Target",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T09:34:56.442080-05:00",
+    "symbols": [
+      "CSGP"
+    ],
+    "headline": "Apartments.com Launches \"Free Rent for a Year Sweepstakes\"",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T09:34:56.501638-05:00",
+    "symbols": [
+      "STN"
+    ],
+    "headline": "Stifel Downgrades Stantec to Hold",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

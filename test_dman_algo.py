@@ -2573,6 +2573,16 @@ class TestAiScorerV2(unittest.TestCase):
         self.assertEqual((row["ai_score"], row["ai_p"], row["ai_v"]), (4, 0.31, 2))
         self.assertNotIn("ai_p", [r for r in rows if r["ticker"] == "OFF"][0])
 
+    def test_a_merge_keeps_the_answer_from_the_later_copy(self):
+        base = {"ticker": "TEST", "date": "2026-11-16", "setup": "Day 2 Continuation",
+                "entry": 100.0, "stop": 96.0}
+        early = dict(base, ts="2026-11-16T10:00:00")
+        late = dict(base, ts="2026-11-16T11:00:00", ai_score=4, ai_p=0.31, ai_v=2)
+        out = a._dedupe_feature_rows([late, early])
+        self.assertEqual(len(out), 1)
+        self.assertEqual((out[0]["ts"], out[0]["ai_score"], out[0]["ai_p"]),
+                         ("2026-11-16T10:00:00", 4, 0.31))
+
     def test_scorecard_says_too_few_then_reports_the_split(self):
         few = a._ai_scorecard_lines([{"ai_p": 0.3, "label_outcome": "WIN", "label_pnl_pct": 2.0}])
         self.assertIn("too few", few[0])

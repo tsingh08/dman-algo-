@@ -9434,6 +9434,13 @@ def _dedupe_feature_rows(rows: list) -> list:
         for _lf in [k for k in r if str(k).startswith("label_")]:
             if r.get(_lf) not in (None, "") and cur.get(_lf) in (None, ""):
                 cur[_lf] = r[_lf]
+        # Nor the AI scorer's answer: the daemon's copy of a row carries none
+        # (only an AI scan asks), and when it is the earlier copy the answer
+        # would be dropped with the later one.
+        if not cur.get("ai_score") and r.get("ai_score"):
+            for _af in ("ai_score", "ai_p", "ai_v"):
+                if _af in r:
+                    cur[_af] = r[_af]
     return list(out.values())
 
 

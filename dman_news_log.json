@@ -1,185 +1,5 @@
 [
   {
-    "ts": "2026-11-16T10:58:08.103247-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Bill Ackman Is Betting on This Battered FAANG Giant Again After a Famous $400 Million Loss",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T10:58:08.174001-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Bill Ackman Is Betting on This Battered FAANG Giant Again After a Famous $400 Million Loss",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T10:58:08.240425-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Bill Ackman Is Betting on This Battered FAANG Giant Again After a Famous $400 Million Loss",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T10:58:08.383734-05:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Bill Ackman Is Betting on This Battered FAANG Giant Again After a Famous $400 Million Loss",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T10:58:09.654765-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly Agrees to Buy Calytrix Bio for Up to $1.5 Billion As ObesityWeek Data Roll In",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T10:58:13.686025-05:00",
-    "symbols": [
-      "JBLU"
-    ],
-    "headline": "Shares of airline companies are trading lower as U.S. flight disruptions enter a fourth day, with 26,500+ flights canceled or delayed following an FAA router failure.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T10:58:15.137176-05:00",
-    "symbols": [
-      "LXEO"
-    ],
-    "headline": "Cantor Fitzgerald Maintains Overweight on Lexeo Therapeutics, Raises Price Target to $37",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T11:02:36.588806-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Addresses Recent 365 Service Disruption",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T11:02:36.596021-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla Announces \u20ac3 Billion Expansion of German Gigafactory",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T11:02:36.600814-05:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Chevron Charters Supertanker to Transport Strategic Petroleum Reserve Crude to California",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T11:02:36.604945-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Palantir Technologies Faces Potential Competition for NHS Data Contract",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T11:02:36.608528-05:00",
-    "symbols": [
-      "XOM"
-    ],
-    "headline": "ExxonMobil Commences Production at Uaru Development in Guyana",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T11:02:36.617929-05:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "Weatherford Awarded Deepwater Managed Pressure Drilling Contract by Constellation",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T11:02:41.370146-05:00",
-    "symbols": [
-      "SLB"
-    ],
-    "headline": "Defensives Lead Sectors Monday As Growth Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T11:02:41.440068-05:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Defensives Lead Sectors Monday As Growth Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T11:03:36.619423-05:00",
-    "symbols": [
-      "FDX"
-    ],
-    "headline": "FedEx Opens New International Cargo Terminal at Guangzhou Baiyun Airport",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T11:12:55.127335-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "IBM, Fermilab, NVIDIA Announce Plans For New Co-Design Platform To Accelerate The Development Of Next-Generation, Modular Quantum Computers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-16T11:12:55.131149-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Defensives Lead Sectors Monday As Growth Trails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-11-16T11:12:55.276330-05:00",
     "symbols": [
       "META"
@@ -4998,5 +4818,185 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T14:36:19.058608-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Why Is Applied Digital Stock Falling on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T14:36:19.278602-05:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Why Is Applied Digital Stock Falling on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T14:36:19.742413-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Bill Ackman Is Betting on This Battered FAANG Giant Again After a Famous $400 Million Loss",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T14:36:20.226424-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia China Trouble Could Spill Over to These AI Chip Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-16T14:36:20.494855-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Nvidia China Trouble Could Spill Over to These AI Chip Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T14:36:21.739980-05:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Bill Ackman Is Betting on This Battered FAANG Giant Again After a Famous $400 Million Loss",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T14:36:22.650984-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Nvidia China Trouble Could Spill Over to These AI Chip Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T14:36:22.873032-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Applied Materials Announces Participation in Upcoming Investor Conferences",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T14:36:22.876309-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "5 Stock Picks Last Week From Wall Street's Most Accurate Analysts",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T14:36:25.686618-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Agrees to Buy Calytrix Bio for Up to $1.5 Billion As ObesityWeek Data Roll In",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T14:36:26.131546-05:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Barclays Maintains Equal-Weight on Gilead Sciences, Raises Price Target to $160",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-16T14:36:34.840760-05:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Novo Nordisk Showcases CagriSema Trial Gains and Wegovy Food Noise Reductions Ahead of FDA Decision",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-16T14:36:36.131517-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Goldman Sachs Research Expects Steady Global Economic Growth In 2027 Amid Lower Energy Prices And Ongoing Investment In AI",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T14:36:36.135085-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "BZ Analysis: Global Equity Funds Attracted +$98B In Inflows In The Week Ending November 11th, Their 2nd-largest Weekly Inflow On Record; The 4-Week Moving Average Of Inflows Is Up To ~$75B , Its Largest Reading On Record",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T14:36:36.138307-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "BZ Analysis: The NASDAQ 100 Has Recorded An Average Daily Swing Of 2.4% So Far In November, Putting It On Track For Its Most Volatile Month Since April 2025",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T14:36:36.141699-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "EXCLUSIVE: Ryan Detrick Isn\u2019t Worried About Midterm Election Outcome \u2013 \u2018Focus on the Fundamentals\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T14:36:36.580883-05:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Defensives Lead Sectors Monday As Growth Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-16T14:36:39.301407-05:00",
+    "symbols": [
+      "JBLU"
+    ],
+    "headline": "Shares of airline companies are trading lower as U.S. flight disruptions enter a fourth day, with 26,500+ flights canceled or delayed following an FAA router failure.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

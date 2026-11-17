@@ -1,125 +1,5 @@
 [
   {
-    "ts": "2026-11-17T10:37:49.206946-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;How Jensen Huang\u2019s family shaped Nvidia\u2019s Singapore dealings&#39; -FT Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T10:37:49.922080-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "UBS Assumes Alphabet at Neutral, Lowers Price Target of $320",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T10:38:00.632394-05:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Stock Slides: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T10:38:02.725880-05:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Mizuho Maintains Outperform on Costco Wholesale, Raises Price Target to $1150",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T10:38:03.324749-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Highly classified US national security communications network goes down, sources say&#39; -CNN Exclusive Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T10:38:04.108277-05:00",
-    "symbols": [
-      "ACRS"
-    ],
-    "headline": "Canaccord Genuity Maintains Buy on Aclaris Therapeutics, Lowers Price Target to $12",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T10:38:14.273252-05:00",
-    "symbols": [
-      "PNRG"
-    ],
-    "headline": "PrimeEnergy Resources Q3 EPS $3.11 Beats $3.01 Estimate, Sales $45.286M Beat $42.000M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T10:38:15.067322-05:00",
-    "symbols": [
-      "COHR"
-    ],
-    "headline": "Marvell Stock Rises as Citadel Discloses 729% Stake Boost, Slashes SpaceX, Amazon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T10:38:15.072375-05:00",
-    "symbols": [
-      "COHR"
-    ],
-    "headline": "Lumentum Stock Climbs on Report of Looming U.S. Curbs on Chinese Data Center Gear",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T10:38:15.077628-05:00",
-    "symbols": [
-      "COHR"
-    ],
-    "headline": "Wall Street Is Trading Chips for Chicken: Staples See Best Run Against Tech Since 2001",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T10:38:15.082437-05:00",
-    "symbols": [
-      "COHR"
-    ],
-    "headline": "Trump Administration Shrugs Off Big Tech Warnings, Advances Plan to Restrict Chinese Data Center Gear Despite Compliance Woes: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T10:38:15.087661-05:00",
-    "symbols": [
-      "COHR"
-    ],
-    "headline": "Applied Optoelectronics Stock Sinks Amid AI Outlook Fears",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-17T10:38:16.073164-05:00",
     "symbols": [
       "AREC"
@@ -4995,6 +4875,126 @@
       "SLS"
     ],
     "headline": "SELLAS Stock Triples on Cancer Vaccine Cutting Death Risk by 41% in Pivotal Leukemia Trial,",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T13:41:03.005910-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Intel Extends Slide as Nvidia Trims Stake 25%, Shareholder Suit Adds Pressure",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T13:41:03.702761-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "NSA Hit by Major Network Outage as Tech Glitches Pile Up",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T13:41:03.706525-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "JPMorgan Stock Slides: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T13:41:03.860568-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What&#39;s Going On With Supermicro Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T13:41:03.863483-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Rackspace Integrates Palantir AI Software With Dell AI Factory And NVIDIA Technologies",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T13:41:04.340133-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "UBS Assumes Alphabet at Neutral, Lowers Price Target of $320",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T13:41:05.416920-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Rackspace Integrates Palantir AI Software With Dell AI Factory And NVIDIA Technologies",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T13:41:05.573278-05:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "What&#39;s Going On With Supermicro Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T13:41:07.441228-05:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "JP Morgan Maintains Underweight on Moderna, Raises Price Target to $102",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T13:41:13.003847-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Stock Slides: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T13:41:13.158941-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Raises WPP Price Target, Maintains Sell Rating",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T13:41:13.862201-05:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Medicare, Medicaid Overhaul Targets Fraudulent Billing and Unauthorized Marketplace Enrollments",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

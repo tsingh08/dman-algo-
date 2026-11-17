@@ -1,145 +1,5 @@
 [
   {
-    "ts": "2026-11-16T16:01:47.454611-05:00",
-    "symbols": [
-      "PSQL"
-    ],
-    "headline": "Pasqal Named a Market Shaper in Inaugural Gartner Emerging Market Quadrant for Quantum Computing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T16:01:47.885217-05:00",
-    "symbols": [
-      "WEC"
-    ],
-    "headline": "WEC Energy Group Insider Sells Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T16:01:47.888388-05:00",
-    "symbols": [
-      "WEC"
-    ],
-    "headline": "HSBC Adjusts Price Target on WEC Energy Group",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T16:01:48.313192-05:00",
-    "symbols": [
-      "TBBB"
-    ],
-    "headline": "Itau BBA Downgrades BBB Foods to Market Perform, Announces $74 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T16:01:48.528135-05:00",
-    "symbols": [
-      "VRNS"
-    ],
-    "headline": "JPMorgan Chase Leads Debt Financing for Proofpoint's Varonis Acquisition",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T16:01:48.745732-05:00",
-    "symbols": [
-      "RYAN"
-    ],
-    "headline": "Morgan Stanley Maintains Overweight on Ryan Specialty Holdings, Raises Price Target to $55",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-16T16:01:48.956662-05:00",
-    "symbols": [
-      "RLMD"
-    ],
-    "headline": "Relmada Therapeutics Appoints J\u00f8rn Skibsted Jakobsen as Chief Development Officer, Urology & Uro-Oncology",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T16:01:49.170172-05:00",
-    "symbols": [
-      "BZ"
-    ],
-    "headline": "JP Morgan Maintains Overweight on Kanzhun, Lowers Price Target to $18",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T16:01:49.603515-05:00",
-    "symbols": [
-      "WSM"
-    ],
-    "headline": "Telsey Advisory Group Maintains Outperform on Williams-Sonoma, Raises Price Target to $285",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T16:01:49.816702-05:00",
-    "symbols": [
-      "ADIG"
-    ],
-    "headline": "Truist Securities Maintains Hold on ADI Global Distribution, Lowers Price Target to $11",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T16:01:50.031755-05:00",
-    "symbols": [
-      "NTSK"
-    ],
-    "headline": "TD Cowen Maintains Buy on Netskope, Raises Price Target to $25",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T16:01:50.247456-05:00",
-    "symbols": [
-      "SNPS"
-    ],
-    "headline": "Coatue Management LLC Reduces Stake in Synopsys",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-16T16:01:52.168747-05:00",
-    "symbols": [
-      "PAVM"
-    ],
-    "headline": "PAVmed Reports Third Quarter 2026 Financial Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-16T16:01:57.984654-05:00",
-    "symbols": [
-      "SWRD"
-    ],
-    "headline": "Stewards Q3 EPS $(0.09) Down From $(0.04) YoY, Sales $3.420M Down From $5.334M YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-16T16:02:36.620715-05:00",
     "symbols": [
       "NVO"
@@ -4998,5 +4858,145 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T09:32:34.867629-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Lilly Announces New Office Location in Florence, Italy",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T09:32:34.877881-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Commences Ignite 2026 Conference",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T09:32:34.886371-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Chase Announces CFO Transition",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T09:32:34.923179-05:00",
+    "symbols": [
+      "NRG"
+    ],
+    "headline": "NRG Energy Comments on Grid Cost Allocation and Peak Shaving",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T09:32:34.938013-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Chevron Technical Center Enters Three-Year Commercial Agreement with UptimeAI",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T09:32:34.963150-05:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "Biogen Inc. Announces Proposed Class Action Settlement",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T09:32:35.006627-05:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "StreamWork Launches on Adobe Marketplace",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T09:32:35.052290-05:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "BNP Paribas Adjusts Price Target on RTX to $225 From $220",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T09:33:34.971893-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Expands Grocery Delivery to Include Prepared Meals",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T09:33:34.977895-05:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "Homer City Generation Completes Delivery of First Two GE Vernova 7HA.02 Turbines",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T09:33:34.986397-05:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "Aegis Critical Energy Defence Corp. Announces Strategic Partnership with GE Vernova and SK On",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T09:33:35.057559-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Raises WPP Price Target, Maintains Sell Rating",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T09:33:42.773321-05:00",
+    "symbols": [
+      "KVYO"
+    ],
+    "headline": "Morgan Stanley Maintains Buy Rating on Klaviyo",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T09:33:43.068639-05:00",
+    "symbols": [
+      "SRRK"
+    ],
+    "headline": "Scholar Rock Announces Participation in Upcoming Investor Conference",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

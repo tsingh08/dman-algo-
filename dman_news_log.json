@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-11-17T14:14:08.245429-05:00",
-    "symbols": [
-      "BILL"
-    ],
-    "headline": "BILL Holdings Hits 52-Week High As TPG Eyes Buyout",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T14:18:00.727995-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Nvidia Earnings\u2014First Without Huang\u2014Options Market Signals 8.5% Stock Move",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T14:18:00.956959-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "California Attorney General Office Looking Into Aspects Of Scandal Involving Nvidia, Ex-CEO Jensen Huang - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T14:18:01.212211-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Nvidia Earnings\u2014First Without Huang\u2014Options Market Signals 8.5% Stock Move",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T14:18:01.624858-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Nvidia Earnings\u2014First Without Huang\u2014Options Market Signals 8.5% Stock Move",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T14:18:05.665956-05:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "&#39;Kalshi takes down controversial Trump \u2018mention\u2019 markets at CFTC\u2019s request&#39; -CNBC Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T14:18:06.353550-05:00",
-    "symbols": [
-      "RCAT"
-    ],
-    "headline": "Red Cat Q3 Revenue Contracts 42% in Q3, Analysts Cut Price Targets",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T14:18:06.876999-05:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Chase\u2019s Outage Shows Bitcoin\u2019s Value Beyond Price: \u2018It Just Kept Working,\u2019 Scott Melker Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T14:18:07.800776-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Kalshi takes down controversial Trump \u2018mention\u2019 markets at CFTC\u2019s request&#39; -CNBC Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T14:18:07.804472-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;FAA Has Had Brisk Schedule for Modernizing Aging Communications Network, Sources Say&#39; -WSJ Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T14:18:07.931265-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Nvidia Earnings\u2014First Without Huang\u2014Options Market Signals 8.5% Stock Move",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-17T14:18:08.568827-05:00",
     "symbols": [
       "PICS"
@@ -4998,5 +4888,115 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T15:38:34.548936-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Apollo CEO Marc Rowan Says AI Boom Could Require Up to $8 Trillion, Reshape US Credit Markets",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T15:38:35.462592-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Apollo CEO Marc Rowan Says AI Boom Could Require Up to $8 Trillion, Reshape US Credit Markets",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T15:38:35.892538-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Apollo CEO Marc Rowan Says AI Boom Could Require Up to $8 Trillion, Reshape US Credit Markets",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T15:38:36.248381-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Apollo CEO Marc Rowan Says AI Boom Could Require Up to $8 Trillion, Reshape US Credit Markets",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T15:38:40.782922-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto Networks Could Swing $26.2 Billion After Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T15:38:40.785593-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto Networks, TJX On Deck Wednesday As Security, Retail Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T15:38:42.728109-05:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "&#39;Kalshi takes down controversial Trump \u2018mention\u2019 markets at CFTC\u2019s request&#39; -CNBC Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T15:38:44.361011-05:00",
+    "symbols": [
+      "RCAT"
+    ],
+    "headline": "Red Cat Q3 Revenue Contracts 42% in Q3, Analysts Cut Price Targets",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T15:38:45.678191-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Chase\u2019s Outage Shows Bitcoin\u2019s Value Beyond Price: \u2018It Just Kept Working,\u2019 Scott Melker Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T15:38:53.228076-05:00",
+    "symbols": [
+      "GLAS"
+    ],
+    "headline": "Lake Street Maintains Buy on Glass House Brands, Lowers Price Target to $3",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T15:38:57.192730-05:00",
+    "symbols": [
+      "ELA"
+    ],
+    "headline": "Lake Street Maintains Buy on Envela, Lowers Price Target to $16",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

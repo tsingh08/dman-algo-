@@ -1,235 +1,5 @@
 [
   {
-    "ts": "2026-11-17T09:46:18.616434-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Names 26-Year Veteran Corey Fugman To Run Apple Pay and Wallet As Jennifer Bailey Exits: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.620849-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Gene Munster Says Nvidia Could Be the Next Apple if Investors \u2018Sleep Well at Night\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.625278-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Berkshire Hathaway Takes Stake In AOL Owner Bending Spoons, Nearly Doubles Lennar Holding",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.629627-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Lumentum Stock Climbs on Report of Looming U.S. Curbs on Chinese Data Center Gear",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.633757-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Homeland Security Director Mullin Says Issues At Microsoft, Chase, United Had To Do With New Tech Being Pushed On Top Of Old Computer Systems",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.638551-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Trump Administration Shrugs Off Big Tech Warnings, Advances Plan to Restrict Chinese Data Center Gear Despite Compliance Woes: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.643308-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Trump Fires Back at Critics Over FAA Outages, White House Construction, Says It Takes 10 Minutes of His Day: &#39;Losers Like You Come Out...&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.648003-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Trump Administration Proposes First Major Green Card Hiring Overhaul in Nearly 20 Years: \u2018American Workers Are First In Line\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.652531-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Marvell Stock Rises as Citadel Discloses 729% Stake Boost, Slashes SpaceX, Amazon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.656871-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Wall Street Is Trading Chips for Chicken: Staples See Best Run Against Tech Since 2001",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.661216-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100 Futures Trade Mixed Ahead of Nvidia\u2019s Q3 Earnings\u2014 CBRS, AMZN, RCAT in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.665687-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Gene Munster Boosts Nvidia Stake 4-Fold After Jensen Huang Exit, Predicts NVDA Will Be AI Sector&#39;s &#39;Best-Performing Stock&#39; Over the Next Year",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.670096-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Bitcoin at $64,000? \u2018Attractive Entry\u2019 for Long-Term Investors, Grayscale Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.674866-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Marvell Stock Rises as Citadel Discloses 729% Stake Boost, Slashes SpaceX, Amazon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.679180-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Stanley Druckenmiller\u2019s Duquesne Bets Big on Storage, Nearly Triples Seagate Stake As He Reverses Some Q2 Tech Bets, Slashes TSMC and Exits AMD, Google",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.683803-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "David Tepper&#39;s Appaloosa Boosts SpaceX Stake by 1,626%, Exits Chip Stocks AMD and Broadcom In Q3 Portfolio Shake-Up",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.688785-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Ken Griffin Dumps SpaceX, Amazon; Buys ARKK and Bets Big on Marvell",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.693543-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "&#39;Clampdown on China Chip Loophole Puts Billions in Loans at Risk&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.698233-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Marvell Stock Rises as Citadel Discloses 729% Stake Boost, Slashes SpaceX, Amazon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.702742-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Lumentum Stock Climbs on Report of Looming U.S. Curbs on Chinese Data Center Gear",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.707483-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "UBS Assumes Meta Platforms at Buy, Lowers Price Target of $815",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.711942-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Trump Administration Shrugs Off Big Tech Warnings, Advances Plan to Restrict Chinese Data Center Gear Despite Compliance Woes: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.716091-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Ken Griffin Dumps SpaceX, Amazon; Buys ARKK and Bets Big on Marvell",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-17T09:46:18.721664-05:00",
     "symbols": [
       "GOOGL"
@@ -4998,5 +4768,235 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T12:11:52.824834-05:00",
+    "symbols": [
+      "EDSA"
+    ],
+    "headline": "Edesa Biotech Receives European Commission Orphan Designation For Paridiprubart To Treat Acute Respiratory Distress Syndrome",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T12:11:53.461042-05:00",
+    "symbols": [
+      "GP"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T12:11:53.468433-05:00",
+    "symbols": [
+      "GP"
+    ],
+    "headline": "S&amp;P 500 Down 1%; Disney Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T12:11:57.007625-05:00",
+    "symbols": [
+      "TROX"
+    ],
+    "headline": "Tronox Creditors Engage Restructuring Advisors as Debt, Equity Dro",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T12:11:58.020529-05:00",
+    "symbols": [
+      "XXI"
+    ],
+    "headline": "Michael Saylor Compliments Twenty One as Bitcoin Treasury Race Heats Up",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T12:11:58.642532-05:00",
+    "symbols": [
+      "FRTT"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T12:11:58.852068-05:00",
+    "symbols": [
+      "AYTU"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T12:11:59.061879-05:00",
+    "symbols": [
+      "TCX"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T12:12:00.301453-05:00",
+    "symbols": [
+      "GLSI"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T12:12:00.307627-05:00",
+    "symbols": [
+      "GLSI"
+    ],
+    "headline": "Greenwich Lifesciences To Present Two FLAMINGO-01 Trial Abstracts At SABCS 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T12:12:00.530288-05:00",
+    "symbols": [
+      "SMWB"
+    ],
+    "headline": "S&amp;P 500 Down 1%; Disney Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T12:12:00.945456-05:00",
+    "symbols": [
+      "CING"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T12:12:01.156523-05:00",
+    "symbols": [
+      "USDE"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T12:12:01.369824-05:00",
+    "symbols": [
+      "CVM"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T12:12:03.060545-05:00",
+    "symbols": [
+      "ARBK"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T12:12:04.172088-05:00",
+    "symbols": [
+      "SMTK"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T12:12:05.828612-05:00",
+    "symbols": [
+      "NKE"
+    ],
+    "headline": "Nike CEO Says Co Aims To Double The Units Of Product Created In Under 14 Months By FY31",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T12:12:07.320203-05:00",
+    "symbols": [
+      "GANX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T12:12:07.534660-05:00",
+    "symbols": [
+      "MGRT"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T12:12:07.754036-05:00",
+    "symbols": [
+      "SLS"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T12:12:07.759578-05:00",
+    "symbols": [
+      "SLS"
+    ],
+    "headline": "S&amp;P 500 Down 1%; Disney Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T12:12:07.968778-05:00",
+    "symbols": [
+      "LVWR"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T12:12:08.185382-05:00",
+    "symbols": [
+      "BILL"
+    ],
+    "headline": "Truist Securities Maintains Hold on BILL Holdings, Raises Price Target to $58",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

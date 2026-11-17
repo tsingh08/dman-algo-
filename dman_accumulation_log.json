@@ -1,23 +1,5 @@
 [
  {
-  "ts": "2026-09-23T14:07:28.349438-04:00",
-  "ticker": "NEAR",
-  "price": 49.985,
-  "rvol": 1.56,
-  "drift_pct": 0.31,
-  "range_ratio": 0.32,
-  "near_high": 0.987
- },
- {
-  "ts": "2026-09-23T14:07:28.349442-04:00",
-  "ticker": "TDTF",
-  "price": 22.755,
-  "rvol": 2.01,
-  "drift_pct": 0.81,
-  "range_ratio": 0.41,
-  "near_high": 0.957
- },
- {
   "ts": "2026-09-23T14:07:28.349445-04:00",
   "ticker": "IUSB",
   "price": 44.485,
@@ -4498,5 +4480,23 @@
   "drift_pct": 0.83,
   "range_ratio": 0.25,
   "near_high": 0.996
+ },
+ {
+  "ts": "2026-11-17T09:38:15.441229-05:00",
+  "ticker": "WENN",
+  "price": 10.49,
+  "rvol": 4.55,
+  "drift_pct": 0.19,
+  "range_ratio": 0.31,
+  "near_high": 1.0
+ },
+ {
+  "ts": "2026-11-17T09:38:15.441255-05:00",
+  "ticker": "SSTI",
+  "price": 8.28,
+  "rvol": 1.99,
+  "drift_pct": 0.61,
+  "range_ratio": 0.42,
+  "near_high": 0.981
  }
 ]

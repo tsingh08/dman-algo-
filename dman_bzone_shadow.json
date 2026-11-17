@@ -2608,5 +2608,35 @@
 "extension_pct": 28.1,
 "fresh_base": true,
 "weak_band": false
+},
+{
+"ticker": "SLS",
+"date": "2026-11-17",
+"close": 19.15,
+"base_days": 98,
+"above_low_pct": 1277.7,
+"extension_pct": 99.1,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "FENC",
+"date": "2026-11-17",
+"close": 13.58,
+"base_days": 68,
+"above_low_pct": 135.4,
+"extension_pct": 28.0,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "BILL",
+"date": "2026-11-17",
+"close": 64.88,
+"base_days": 0,
+"above_low_pct": 103.0,
+"extension_pct": 26.4,
+"fresh_base": false,
+"weak_band": false
 }
 ]

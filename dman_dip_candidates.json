@@ -1,26 +1,26 @@
 {
- "bar": "2026-11-16",
+ "bar": "2026-11-17",
  "entered": null,
  "tickers": [
   {
    "ticker": "XBI",
-   "close": 145.88
+   "close": 145.28
   },
   {
    "ticker": "PLTR",
-   "close": 160.39
+   "close": 156.56
   },
   {
    "ticker": "MRNA",
-   "close": 215.27
+   "close": 206.8
+  },
+  {
+   "ticker": "GME",
+   "close": 25.36
   },
   {
    "ticker": "ANET",
-   "close": 187.02
-  },
-  {
-   "ticker": "ZS",
-   "close": 190.84
+   "close": 186.42
   }
  ]
 }

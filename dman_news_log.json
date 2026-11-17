@@ -1,205 +1,5 @@
 [
   {
-    "ts": "2026-11-17T14:03:25.908622-05:00",
-    "symbols": [
-      "SLS"
-    ],
-    "headline": "Amer Sports, Sellas Life Sciences, Similarweb And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T14:03:34.868314-05:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Adobe Joins Industry Coalition to Advance AI Transparency and Governance",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T14:03:34.904652-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "JPMorgan Blocks Meta's 'Muse' AI Agent from Customer Accounts",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T14:03:34.907860-05:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "MongoDB Announces Acquisition of Firebolt",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T14:03:35.002862-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Launches AI Transparency Initiative",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T14:03:35.013662-05:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "Bernstein Adjusts Price Target on Vistra to $182",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T14:03:35.022602-05:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan-Led Banks Reduce Borrowing Costs for CCC Intelligent Solutions Debt Deal",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T14:03:35.060703-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Viking Global Investors Increases Stake in Tesla",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T14:04:34.865485-05:00",
-    "symbols": [
-      "ACHR"
-    ],
-    "headline": "Archer Aviation Advances ZEE AI Integration With Jeppesen ForeFlight",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T14:13:45.241343-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Nvidia Earnings\u2014First Without Huang\u2014Options Market Signals 8.5% Stock Move",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T14:13:45.566850-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "California Attorney General Office Looking Into Aspects Of Scandal Involving Nvidia, Ex-CEO Jensen Huang - Bloomberg News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T14:13:45.876583-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Nvidia Earnings\u2014First Without Huang\u2014Options Market Signals 8.5% Stock Move",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T14:13:46.418604-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Nvidia Earnings\u2014First Without Huang\u2014Options Market Signals 8.5% Stock Move",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T14:13:52.492578-05:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "&#39;Kalshi takes down controversial Trump \u2018mention\u2019 markets at CFTC\u2019s request&#39; -CNBC Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T14:13:54.860186-05:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Chase\u2019s Outage Shows Bitcoin\u2019s Value Beyond Price: \u2018It Just Kept Working,\u2019 Scott Melker Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T14:13:56.671872-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Kalshi takes down controversial Trump \u2018mention\u2019 markets at CFTC\u2019s request&#39; -CNBC Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T14:13:56.674717-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;FAA Has Had Brisk Schedule for Modernizing Aging Communications Network, Sources Say&#39; -WSJ Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T14:13:56.862315-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Nvidia Earnings\u2014First Without Huang\u2014Options Market Signals 8.5% Stock Move",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T14:14:03.030543-05:00",
-    "symbols": [
-      "GLAS"
-    ],
-    "headline": "Lake Street Maintains Buy on Glass House Brands, Lowers Price Target to $3",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T14:14:06.933751-05:00",
-    "symbols": [
-      "ELA"
-    ],
-    "headline": "Lake Street Maintains Buy on Envela, Lowers Price Target to $16",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-17T14:14:08.245429-05:00",
     "symbols": [
       "BILL"
@@ -4998,5 +4798,205 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T15:27:48.623594-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Why Is Nebius Group Stock Falling Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T15:27:48.626820-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Jensen Huang Became AI&#39;s Insurer of Last Resort: Can Nvidia Now Fulfill a $400 Billion Promise?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T15:27:49.324196-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "These 9 Congress Members Could Have Increased Interest in Nvidia\u2019s Q3 Earnings as 2026 Shareholders",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T15:27:49.547799-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "What&#39;s Going On With AMD Stock Tuesday? (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T15:27:52.097273-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Jensen Huang Became AI&#39;s Insurer of Last Resort: Can Nvidia Now Fulfill a $400 Billion Promise?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T15:27:52.236779-05:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "RIOT, WULF Have Significant Upside Left: Bernstein",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T15:27:52.912499-05:00",
+    "symbols": [
+      "NIO"
+    ],
+    "headline": "Amer Sports, Sellas Life Sciences, Similarweb And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T15:27:53.380385-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Short Interest Rises, Remains Below August Peak",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T15:27:54.042615-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "9 Of 11 Sectors Fall In Tuesday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T15:27:55.552822-05:00",
+    "symbols": [
+      "CLSK"
+    ],
+    "headline": "RIOT, WULF Have Significant Upside Left: Bernstein",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T15:28:00.467327-05:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "9 Of 11 Sectors Fall In Tuesday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T15:28:00.773789-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "9 Of 11 Sectors Fall In Tuesday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T15:28:01.434970-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "9 Of 11 Sectors Fall In Tuesday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T15:28:01.591913-05:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "9 Of 11 Sectors Fall In Tuesday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T15:28:09.390777-05:00",
+    "symbols": [
+      "INVZ"
+    ],
+    "headline": "Goldman Sachs Analyst Adjusts Innoviz Technologies Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T15:28:10.765392-05:00",
+    "symbols": [
+      "MFP"
+    ],
+    "headline": "UPDATE: Midera Food Processing Q3 Adj. EPS $0.54 Beats $0.52 Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T15:28:10.768182-05:00",
+    "symbols": [
+      "MFP"
+    ],
+    "headline": "Midera Food Processing Q3 EPS $0.46 Misses $0.52 Estimate, Sales $229.000M Beat $219.940M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T15:28:10.770845-05:00",
+    "symbols": [
+      "MFP"
+    ],
+    "headline": "Midera Food Processing Q3 EPS $0.46 Up From $0.32 YoY, Sales $229M Up From $2.02.3M YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T15:28:10.773496-05:00",
+    "symbols": [
+      "MFP"
+    ],
+    "headline": "Midera Food Processing Raises FY2026 Sales Guidance from $935.000M-$965.000M to $953.000M-$973.000M vs $952.144M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T15:28:11.862455-05:00",
+    "symbols": [
+      "SLS"
+    ],
+    "headline": "Amer Sports, Sellas Life Sciences, Similarweb And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-11-17T09:36:33.195316-05:00",
-    "symbols": [
-      "UNP"
-    ],
-    "headline": "Seth Klarman\u2019s Baupost Group Takes New Position in Honeywell Aerospace in Q3",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:33.338391-05:00",
-    "symbols": [
-      "JCAP"
-    ],
-    "headline": "Jefferson Capital, Inc. Announces Ex-Dividend Date for Upcoming Cash Dividend",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:33.342080-05:00",
-    "symbols": [
-      "JCAP"
-    ],
-    "headline": "Keefe, Bruyette & Woods Raises Price Target for Jefferson Capital",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:33.413692-05:00",
-    "symbols": [
-      "DIS"
-    ],
-    "headline": "Disney&#39;s Winning Formula: Blockbusters, Packed Parks and Football",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:36:33.417957-05:00",
-    "symbols": [
-      "DIS"
-    ],
-    "headline": "Disney Exec Says On Conference Call Q1 Forward Resort Bookings At Walt Disney World Are Pacing Up vs. Prior Year",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:36:33.421506-05:00",
-    "symbols": [
-      "DIS"
-    ],
-    "headline": "Disney Sees Q1 FY27 Total Segment Operating Income About $5.4B",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:36:33.425073-05:00",
-    "symbols": [
-      "DIS"
-    ],
-    "headline": "Disney Sees FY27 Total Segment Operating Income Up About 8%; Entertainment, Experiences Up High-Single Digits",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:36:33.561101-05:00",
-    "symbols": [
-      "PG"
-    ],
-    "headline": "Marvell Stock Rises as Citadel Discloses 729% Stake Boost, Slashes SpaceX, Amazon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-17T09:36:33.564845-05:00",
     "symbols": [
       "PG"
@@ -4998,5 +4918,85 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T11:02:34.869517-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Testing Internal Prediction Market App 'Takes'",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T11:02:34.883368-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Rockwell Automation Launches GPU-Enabled Industrial Computing with NVIDIA",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T11:02:34.902323-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa Canada Releases Agentic Commerce Readiness Report",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T11:02:34.908614-05:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "GE Vernova Enters Strategic Partnership for AI Data Center Infrastructure",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T11:02:34.920636-05:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Uber and Kohl's Announce Nationwide On-Demand Delivery Partnership",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T11:02:35.145064-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "ExxonMobil Authorizes Saipem to Proceed with Longtail Project in Guyana",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T11:03:34.865789-05:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "Arista Networks Expands Etherlink Portfolio With New R4 Platforms",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T11:04:35.083942-05:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "Unison Named One of Newsweek's America's Greatest Workplaces in Manufacturing 2026",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

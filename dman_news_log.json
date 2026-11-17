@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-11-17T14:18:08.568827-05:00",
-    "symbols": [
-      "PICS"
-    ],
-    "headline": "RBC Capital Maintains Outperform on PicS, Lowers Price Target to $9",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T14:18:08.635468-05:00",
-    "symbols": [
-      "BILL"
-    ],
-    "headline": "BILL Holdings Hits 52-Week High As TPG Eyes Buyout",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T14:18:08.832390-05:00",
-    "symbols": [
-      "OMER"
-    ],
-    "headline": "HC Wainwright &amp; Co. Reiterates Buy on Omeros, Maintains $33 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T14:18:08.836111-05:00",
-    "symbols": [
-      "OMER"
-    ],
-    "headline": "Red Cat Downbeat Q3 Results, Joins Omeros, Deutsche Bank And Other Big Stocks Moving Lower In Tuesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T14:18:09.014828-05:00",
-    "symbols": [
-      "DUOT"
-    ],
-    "headline": "Cantor Fitzgerald Maintains Overweight on Duos Technologies Group, Lowers Price Target to $15",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T14:18:09.278309-05:00",
-    "symbols": [
-      "DLO"
-    ],
-    "headline": "CORRECTION: DLocal Reported Q3 Financial Results On Nov. 12",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T14:18:09.523749-05:00",
-    "symbols": [
-      "OPRA"
-    ],
-    "headline": "Opera Q3 Adj. EPS $0.34 Beats $0.33 Estimate, Sales $182.833M Beat $182.395M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-17T14:18:09.527454-05:00",
     "symbols": [
       "OPRA"
@@ -4998,5 +4928,75 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T15:49:30.483526-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Nvidia Earnings\u2014First Without Huang\u2014Options Market Signals 8.5% Stock Move",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T15:49:31.743849-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Nvidia Earnings\u2014First Without Huang\u2014Options Market Signals 8.5% Stock Move",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T15:49:33.463911-05:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Anduril Says It Could Hit Public Markets In Next Few Years",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T15:49:42.295381-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Nvidia Earnings\u2014First Without Huang\u2014Options Market Signals 8.5% Stock Move",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T15:49:53.351881-05:00",
+    "symbols": [
+      "BILL"
+    ],
+    "headline": "BILL Holdings Hits 52-Week High As TPG Eyes Buyout",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T15:49:54.281748-05:00",
+    "symbols": [
+      "VIK"
+    ],
+    "headline": "Viking Stock Turns Higher Despite Q3 Earnings Miss, European River Disruptions Hit Profits",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T15:49:54.284378-05:00",
+    "symbols": [
+      "VIK"
+    ],
+    "headline": "Viking Holdings Q3 Adj. EPS $1.11 Misses $1.27 Estimate, Sales $2.184B Miss $2.201B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

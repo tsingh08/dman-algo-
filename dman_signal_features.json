@@ -51072,7 +51072,7 @@
 "setup": "Gap & Hold",
 "bias": "LONG",
 "taken": false,
-"reject": "regime: LONG in BEAR",
+"reject": "setup disabled: 19W/52L over 71 live trades (27% WR, -88.6% ",
 "score": 100,
 "final_score": 100.0,
 "ai_scored": false,
@@ -51122,8 +51122,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 19,
-"last_ts": "2026-11-17T15:39:04.390663-05:00",
+"seen": 20,
+"last_ts": "2026-11-17T16:00:45.927799-05:00",
 "entry_min": 81.7,
 "entry_max": 81.7
 }

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-11-17T14:18:09.527454-05:00",
-    "symbols": [
-      "OPRA"
-    ],
-    "headline": "Opera Sees Q4 Sales $198.000M-$205.000M vs $203.870M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T14:18:09.530955-05:00",
-    "symbols": [
-      "OPRA"
-    ],
-    "headline": "Opera Raises FY2026 Sales Guidance from $734.000M-$742.000M to $735.000M-$742.000M vs $740.045M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-17T14:18:09.537137-05:00",
     "symbols": [
       "OPRA"
@@ -4995,6 +4975,26 @@
       "VIK"
     ],
     "headline": "Viking Holdings Q3 Adj. EPS $1.11 Misses $1.27 Estimate, Sales $2.184B Miss $2.201B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T16:00:16.178693-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;SEC Is Probing Nvidia Amid Departure of CEO Jensen Huang&#39;- WSJ",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T16:00:16.181473-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Bitcoin Sank Ahead of SpaceX&#39;s IPO. Now It&#39;s Falling Before Anthropic&#39;s \u2014 But for a Different Reason",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"

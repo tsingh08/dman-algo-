@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-17T09:36:38.163614-05:00",
-    "symbols": [
-      "ED"
-    ],
-    "headline": "Consolidated Edison Announces The Public Offering Of 6,000,000 Of Its Common Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:36:38.227350-05:00",
-    "symbols": [
-      "VSTS"
-    ],
-    "headline": "Vestis Announces Date for Fiscal Fourth Quarter and Full Year 2026 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:38.291292-05:00",
-    "symbols": [
-      "COP"
-    ],
-    "headline": "Mazama Energy Announces Successful Field Demonstration of Carbon Chill\u2122 Technology",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:36:38.364576-05:00",
-    "symbols": [
-      "HLF"
-    ],
-    "headline": "Seth Klarman\u2019s Baupost Group Takes New Position in Honeywell Aerospace in Q3",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:38.423758-05:00",
-    "symbols": [
-      "ZBIO"
-    ],
-    "headline": "Zenas BioPharma Announces 'The Distance Between' Platform and New IgG4-Related Disease Patient Survey Findings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:38.541319-05:00",
-    "symbols": [
-      "RTO"
-    ],
-    "headline": "Trian Fund Management Takes New Stake In Rentokil Initial With 596,811 Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-17T09:36:38.601972-05:00",
     "symbols": [
       "SPG"
@@ -4998,5 +4938,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T11:49:07.183307-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Apollo CEO Says If Nvidia\u2019s Banking Function Gets Taken Away, Access To Capital For A Large Number Of Neo Clouds Is Going To Disappear",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T11:49:07.190341-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Apollo CEO Marc Rowan Says Nvidia Has Been The Bank Or The Guarantor Of The AI Ecosystem",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T11:49:17.902994-05:00",
+    "symbols": [
+      "RCAT"
+    ],
+    "headline": "These Analysts Slash Their Forecasts On Red Cat After Weak Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T11:49:17.908563-05:00",
+    "symbols": [
+      "RCAT"
+    ],
+    "headline": "Piper Sandler Maintains Neutral on Red Cat Holdings, Lowers Price Target to $3",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T11:49:18.119149-05:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Bernstein Maintains Outperform on Constellation Energy, Lowers Price Target to $293",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T11:49:22.272620-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Apollo CEO Says If Nvidia\u2019s Banking Function Gets Taken Away, Access To Capital For A Large Number Of Neo Clouds Is Going To Disappear",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

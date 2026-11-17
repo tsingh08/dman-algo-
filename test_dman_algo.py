@@ -28595,12 +28595,14 @@ class TestEodSummaryWaitsForTheClose(unittest.TestCase):
 
     # -- the daemon is the sender of last resort ---------------------------
 
-    def _backstop(self, now):
+    def _backstop(self, now, busy=False, token="tok"):
         import dman_daemon as d
         d._eod_backstop_done.clear()
         self.addCleanup(d._eod_backstop_done.clear)
         calls = []
         with patch.object(a, "_MARKET_HOLIDAYS", set()), \
+             patch.object(a, "GITHUB_TOKEN", token), \
+             patch.object(d, "_scanner_may_hold_summary", return_value=busy), \
              patch.object(d, "git_sync", side_effect=lambda: calls.append("sync")), \
              patch.object(a, "send_account_pnl_telegram",
                           side_effect=lambda label: calls.append(label)):
@@ -28634,11 +28636,51 @@ class TestEodSummaryWaitsForTheClose(unittest.TestCase):
         self.assertFalse(first)
         self.assertEqual(calls, [])
 
+    def test_it_waits_for_a_scanner_run_that_may_have_sent_it(self):
+        """A scanner run sends the summary at up to 16:20 but pushes the
+        alert file only at the end of the run -- Monday's took up to 12
+        minutes. Sending at 16:21 would duplicate it. Waits (also when
+        GitHub does not answer) until 16:50, then sends regardless."""
+        for busy in (True, None):
+            first, second, calls = self._backstop(self._et(16, 21), busy=busy)
+            self.assertFalse(first, busy)
+            self.assertFalse(second, busy)
+            self.assertEqual(calls, [])
+            first, _, calls = self._backstop(self._et(16, 50), busy=busy)
+            self.assertTrue(first, busy)
+            self.assertEqual(calls, ["sync", "EOD", "sync"])
+        # No token: nothing to ask, send at 16:21 as before.
+        first, _, _ = self._backstop(self._et(16, 21), busy=True, token="")
+        self.assertTrue(first)
+
+    def test_scanner_lookup_reads_in_progress_runs_started_in_the_window(self):
+        import dman_daemon as d
+        cutoff = datetime(2026, 11, 17, 21, 20, tzinfo=_dt_timezone.utc)   # 16:20 ET
+        def _resp(runs, code=200):
+            r = MagicMock(status_code=code)
+            r.json.return_value = {"workflow_runs": runs}
+            return r
+        with patch.object(a, "GITHUB_TOKEN", "tok"):
+            with patch.object(a.requests, "get",
+                              return_value=_resp([{"run_started_at": "2026-11-17T21:14:00Z"}])) as g:
+                self.assertTrue(d._scanner_may_hold_summary(cutoff))
+                self.assertEqual(g.call_args.kwargs["params"]["status"], "in_progress")
+            with patch.object(a.requests, "get",
+                              return_value=_resp([{"run_started_at": "2026-11-17T21:25:00Z"}])):
+                self.assertFalse(d._scanner_may_hold_summary(cutoff))
+            with patch.object(a.requests, "get", return_value=_resp([])):
+                self.assertFalse(d._scanner_may_hold_summary(cutoff))
+            with patch.object(a.requests, "get", return_value=_resp([], code=503)):
+                self.assertIsNone(d._scanner_may_hold_summary(cutoff))
+            with patch.object(a.requests, "get", side_effect=RuntimeError("down")):
+                self.assertIsNone(d._scanner_may_hold_summary(cutoff))
+
     def test_a_failed_pull_does_not_cost_the_summary(self):
         import dman_daemon as d
         d._eod_backstop_done.clear()
         self.addCleanup(d._eod_backstop_done.clear)
         with patch.object(a, "_MARKET_HOLIDAYS", set()), \
+             patch.object(d, "_scanner_may_hold_summary", return_value=False), \
              patch.object(d, "git_sync", side_effect=RuntimeError("push rejected")), \
              patch.object(a, "send_account_pnl_telegram") as send:
             self.assertTrue(d._eod_summary_backstop(self._et(16, 21)))
@@ -28697,7 +28739,8 @@ class TestDaemonDispatchesTheSessionReview(unittest.TestCase):
                 self.assertLess(int(last), 1515)
             else:
                 self.assertGreaterEqual(int(start), 1605)
-        yml = io.open(".github/workflows/dman_review.yml", encoding="utf-8").read()
+        with io.open(".github/workflows/dman_review.yml", encoding="utf-8") as f:
+            yml = f.read()
         self.assertIn('-ge 1000 ] && [ "$((10#$ET_HHMM))" -lt 1515 ]', yml)
         self.assertIn('-ge 1605 ]', yml)
 
@@ -28792,7 +28835,8 @@ class TestDaemonDispatchesTheSessionReview(unittest.TestCase):
                 datetime(2026, 11, 17, 15, 15, tzinfo=_dt_timezone.utc)))
 
     def test_the_session_loop_calls_it(self):
-        src = io.open("dman_daemon.py", encoding="utf-8").read()
+        with io.open("dman_daemon.py", encoding="utf-8") as f:
+            src = f.read()
         self.assertIn("_dispatch_due_review(now)", src)
 
 class TestWhyNamesTheBarTheScannerApplied(unittest.TestCase):

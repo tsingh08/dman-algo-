@@ -2227,6 +2227,30 @@ def _dispatch_due_review(now_et: Optional[datetime] = None) -> bool:
 _eod_backstop_done: set = set()
 
 
+def _scanner_may_hold_summary(cutoff_utc: datetime) -> Optional[bool]:
+    """True if a dman_scanner.yml run that started at/before `cutoff_utc` is
+    still running -- it may have sent the EOD summary and not yet pushed the
+    alert file that says so. None when GitHub did not answer."""
+    try:
+        resp = algo.requests.get(
+            f"https://api.github.com/repos/{algo.GITHUB_REPO}/actions/workflows/dman_scanner.yml/runs",
+            headers={"Authorization": f"Bearer {algo.GITHUB_TOKEN}",
+                     "Accept": "application/vnd.github+json"},
+            params={"status": "in_progress", "per_page": 10}, timeout=10,
+        )
+        if resp.status_code != 200:
+            return None
+        for _run in resp.json().get("workflow_runs", []):
+            _s = _run.get("run_started_at") or _run.get("created_at")
+            if not _s:
+                continue
+            if datetime.fromisoformat(str(_s).replace("Z", "+00:00")) <= cutoff_utc:
+                return True
+        return False
+    except Exception:
+        return None
+
+
 def _eod_summary_backstop(now_et: Optional[datetime] = None) -> bool:
     """Send the end-of-day account summary if no scanner run has. True if
     this call attempted it.
@@ -2251,6 +2275,22 @@ def _eod_summary_backstop(now_et: Optional[datetime] = None) -> bool:
     _mins = (now_et.hour - _ch) * 60 + (now_et.minute - _cm)
     if not (21 <= _mins <= 59):
         return False
+    # A scanner run sends the summary inside its 15:55-16:20 window but only
+    # pushes the alert file at the END of the run, after the breakout-zone
+    # and ORB steps -- Monday's afternoon runs took up to 12 minutes. Pulling
+    # at 16:21 would not see that mark yet and send a second copy. Wait for
+    # any run that started inside the window (or GitHub not answering) until
+    # 50 minutes after the close, then send regardless: one late summary
+    # beats none.
+    if _mins < 50 and algo.GITHUB_TOKEN:
+        _window_end = now_et.replace(hour=_ch, minute=_cm, second=0, microsecond=0) \
+            + timedelta(minutes=20)
+        _busy = _scanner_may_hold_summary(_window_end.astimezone(timezone.utc))
+        if _busy is not False:
+            if _busy:
+                log("EOD summary backstop: a scanner run from the summary window is "
+                    "still running — waiting for its push")
+            return False
     _eod_backstop_done.add(_today.isoformat())
     try:
         git_sync()

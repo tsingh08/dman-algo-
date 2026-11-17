@@ -1,125 +1,5 @@
 [
   {
-    "ts": "2026-11-17T09:32:34.886371-05:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Chase Announces CFO Transition",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:32:34.923179-05:00",
-    "symbols": [
-      "NRG"
-    ],
-    "headline": "NRG Energy Comments on Grid Cost Allocation and Peak Shaving",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:32:34.938013-05:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Chevron Technical Center Enters Three-Year Commercial Agreement with UptimeAI",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:32:34.963150-05:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "Biogen Inc. Announces Proposed Class Action Settlement",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:32:35.006627-05:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "StreamWork Launches on Adobe Marketplace",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:32:35.052290-05:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "BNP Paribas Adjusts Price Target on RTX to $225 From $220",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:33:34.971893-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Expands Grocery Delivery to Include Prepared Meals",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:33:34.977895-05:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "Homer City Generation Completes Delivery of First Two GE Vernova 7HA.02 Turbines",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:33:34.986397-05:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "Aegis Critical Energy Defence Corp. Announces Strategic Partnership with GE Vernova and SK On",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:33:35.057559-05:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs Raises WPP Price Target, Maintains Sell Rating",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:33:42.773321-05:00",
-    "symbols": [
-      "KVYO"
-    ],
-    "headline": "Morgan Stanley Maintains Buy Rating on Klaviyo",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:33:43.068639-05:00",
-    "symbols": [
-      "SRRK"
-    ],
-    "headline": "Scholar Rock Announces Participation in Upcoming Investor Conference",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-17T09:36:24.433846-05:00",
     "symbols": [
       "HOOD"
@@ -4998,5 +4878,125 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T10:20:27.606364-05:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Applied Digital Enters Subscription Agreement for AI Data Center Capacity",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T10:20:28.225985-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Jensen Huang Will Appear Before The Committees On Dec. 1st",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T10:20:28.230799-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Jensen Huang, Nvidia Agree To Appear Before Congress, Committee Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T10:20:28.235426-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "TSMC Fell 7.7% in Two Days. Joseph Carlson Thinks Its Business Is More Durable Than Nvidia\u2019s",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T10:20:28.478440-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "TSMC Fell 7.7% in Two Days. Joseph Carlson Thinks Its Business Is More Durable Than Nvidia\u2019s",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T10:20:29.426600-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Short Interest Falls As Bears Retreat From August Peak",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T10:20:36.881936-05:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "BMO Capital Maintains Outperform on Vistra, Raises Price Target to $196",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T10:20:40.324922-05:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "BNP Paribas Adjusts Price Target on RTX to $225 From $220",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T10:20:43.525465-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Jensen Huang Will Appear Before The Committees On Dec. 1st",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T10:20:43.530867-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Jensen Huang, Nvidia Agree To Appear Before Congress, Committee Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T10:20:46.841413-05:00",
+    "symbols": [
+      "GP"
+    ],
+    "headline": "Dow Falls Over 200 Points; US Retail Sales Rise 0.2% In October",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T10:20:49.199056-05:00",
+    "symbols": [
+      "SMX"
+    ],
+    "headline": "Dow Falls Over 200 Points; US Retail Sales Rise 0.2% In October",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

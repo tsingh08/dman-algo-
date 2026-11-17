@@ -35,7 +35,7 @@ import sys
 import threading
 import time
 from typing import Optional
-from datetime import datetime
+from datetime import datetime, timezone
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -2120,6 +2120,135 @@ def _dispatch_successor_session(run_until: str) -> bool:
     return bool(_ok)
 
 
+# When the session review should run, ET: (start, last minute still worth
+# sending, kind). The three intraday windows all sit inside dman_review.yml's
+# own 10:00-15:15 "midday" window, and the last one after its 16:05 "eod" bar.
+_REVIEW_SLOTS = (
+    ("1015", "1055", "midday"),
+    ("1235", "1315", "midday"),
+    ("1440", "1510", "midday"),
+    ("1630", "1730", "eod"),
+)
+_review_slots_sent: set = set()
+
+
+def _review_run_since(since_utc: datetime) -> Optional[bool]:
+    """True if a dman_review.yml run was created at/after `since_utc`, False
+    if not, None when GitHub did not answer (the caller then waits a tick)."""
+    try:
+        resp = algo.requests.get(
+            f"https://api.github.com/repos/{algo.GITHUB_REPO}/actions/workflows/dman_review.yml/runs",
+            headers={"Authorization": f"Bearer {algo.GITHUB_TOKEN}",
+                     "Accept": "application/vnd.github+json"},
+            params={"per_page": 10}, timeout=10,
+        )
+        if resp.status_code != 200:
+            return None
+        for _run in resp.json().get("workflow_runs", []):
+            _at = datetime.fromisoformat(str(_run["created_at"]).replace("Z", "+00:00"))
+            if _at >= since_utc:
+                return True
+        return False
+    except Exception:
+        return None
+
+
+def _dispatch_due_review(now_et: Optional[datetime] = None) -> bool:
+    """Dispatch the session review when one of its clock slots is due. True
+    if a dispatch was sent.
+
+    dman_review.yml asks GitHub's scheduler for three intraday check-ins and
+    one after the close. On Monday 2026-11-16 -- the first day the intraday
+    ones existed -- GitHub delivered all three AFTER the close (19:21, 21:35
+    and 22:00 ET), where the workflow correctly skipped them, and the
+    end-of-day review at 18:44 ET. So the session was reviewed zero times
+    while it was open. Same platform behaviour as the daemon handover above,
+    same answer: this process is alive through the whole session and knows
+    what time it is, so it sends the dispatch itself. The crons stay as a
+    fallback; a review run already created since the slot opened (by a cron
+    that did arrive, by /review, or by the previous daemon session before a
+    handover) counts as this slot's review.
+    """
+    now_et = now_et or datetime.now(algo.ET)
+    _today = now_et.date()
+    if now_et.weekday() >= 5 or _today in algo._MARKET_HOLIDAYS:
+        return False
+    if not algo.GITHUB_TOKEN:
+        return False
+    _hm = now_et.hour * 100 + now_et.minute
+    _close = algo._session_close_hm(_today)
+    _close_hm = _close[0] * 100 + _close[1]
+    for _start, _last, _kind in _REVIEW_SLOTS:
+        _key = (_today.isoformat(), _start)
+        if _key in _review_slots_sent or not (int(_start) <= _hm <= int(_last)):
+            continue
+        # A 1 PM close: the workflow would still label a 14:40 run "midday".
+        if _kind == "midday" and int(_start) >= _close_hm:
+            _review_slots_sent.add(_key)
+            continue
+        _slot_open = now_et.replace(hour=int(_start[:2]), minute=int(_start[2:]),
+                                    second=0, microsecond=0)
+        _ran = _review_run_since(_slot_open.astimezone(timezone.utc))
+        if _ran is None:
+            return False                 # GitHub did not answer; try next tick
+        if _ran:
+            _review_slots_sent.add(_key)
+            log(f"review slot {_start} ET: a run already exists — not dispatching")
+            return False
+        try:
+            _ok, _msg = algo._trigger_workflow_restart("dman_review.yml")
+        except Exception as _exc:
+            log(f"review dispatch raised (non-fatal): {_exc}")
+            return False
+        if _ok:
+            _review_slots_sent.add(_key)
+            log(f"Dispatched the {_start} ET session review ({_kind})")
+        else:
+            log(f"review dispatch for the {_start} ET slot FAILED ({_msg}) — retrying next tick")
+        return bool(_ok)
+    return False
+
+
+_eod_backstop_done: set = set()
+
+
+def _eod_summary_backstop(now_et: Optional[datetime] = None) -> bool:
+    """Send the end-of-day account summary if no scanner run has. True if
+    this call attempted it.
+
+    The summary's only senders were scanner runs, and the only one of those
+    guaranteed to exist is none: GitHub delivers the after-close cron when it
+    likes. Until 2026-11-16 a pre-close scan covered for that by sending the
+    "EOD" number as early as 15:25 ET; now that the summary waits for the
+    close (algo._eod_summary_before_close), something has to be certain to
+    send it afterwards. From 21 minutes after the close -- one minute past
+    the scanner's own 15:55-16:20 window -- this session does, after pulling
+    state so a summary a scanner run already sent is seen and not repeated
+    (send_account_pnl_telegram dedups on the pulled alert file).
+    """
+    now_et = now_et or datetime.now(algo.ET)
+    _today = now_et.date()
+    if now_et.weekday() >= 5 or _today in algo._MARKET_HOLIDAYS:
+        return False
+    if _today.isoformat() in _eod_backstop_done:
+        return False
+    _ch, _cm = algo._session_close_hm(_today)
+    _mins = (now_et.hour - _ch) * 60 + (now_et.minute - _cm)
+    if not (21 <= _mins <= 59):
+        return False
+    _eod_backstop_done.add(_today.isoformat())
+    try:
+        git_sync()
+    except Exception as _exc:
+        log(f"EOD summary backstop: state pull failed ({_exc}) — sending anyway")
+    algo.send_account_pnl_telegram("EOD")
+    try:
+        git_sync()      # push the sent-mark so a late scanner run skips
+    except Exception:
+        pass
+    return True
+
+
 def main() -> None:
     signal.signal(signal.SIGTERM, _handle_sigterm)
     if not algo.ALPACA_API_KEY or not algo.ALPACA_SECRET_KEY:
@@ -2220,6 +2349,14 @@ def main() -> None:
                     # streams are closed and the state is pushed.
                     _dispatch_successor_session(run_until)
                     return
+                try:
+                    _dispatch_due_review(now)
+                except Exception as _rv_exc:   # never let a review take the daemon down
+                    log(f"review dispatch check failed (non-fatal): {_rv_exc}")
+                try:
+                    _eod_summary_backstop(now)
+                except Exception as _eod_exc:
+                    log(f"EOD summary backstop failed (non-fatal): {_eod_exc}")
             hb += 1
             if hb % 60 == 0:
                 log("heartbeat — daemon alive"

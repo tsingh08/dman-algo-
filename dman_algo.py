@@ -854,6 +854,23 @@ _TELEGRAM_KEEP = (
     # and earnings timing, and looks exactly like a quiet news day.
     "api key", "feed is down",
 )
+# Commentary that names a keep-word by accident. Monday 2026-11-16, quiet
+# mode on, 17 messages still went out and 9 of them were these: six Momentum
+# Watch digests holding nothing but an alert-only breakout pick (kept by
+# "exit"/"trail" in the footer), a second daemon-is-up notice ("guard"), the
+# market-tone recap and a retired setup's "not traded" note ("position").
+# None asks for anything. (The dip list is NOT here: it is an offer /enter
+# can take, kept on purpose since 2026-10-23.) Checked BEFORE the keep
+# list; a message that also carries one of _TELEGRAM_MUTE_UNLESS is real
+# (an auto-execution, or the status of something held) and still goes out.
+_TELEGRAM_MUTE = (
+    "<b>dman momentum watch</b>", "<b>daemon active</b>", "<b>global context</b>",
+    "(retired, not traded)",
+)
+_TELEGRAM_MUTE_UNLESS = (
+    "auto-exec", "order placed", "order submitted", "stale positions",
+    "options positions", "position status", "failed", "reply yes",
+)
 _TELEGRAM_REPLY_DEPTH = [0]      # >0 while handling a command you sent
 _TELEGRAM_SUPPRESSED = [0]       # counted so the EOD note can mention them
 # Orphan adoption — see adopt_orphan_positions(). A position held at the
@@ -2650,6 +2667,9 @@ def _telegram_worth_sending(message: str) -> bool:
     if not flag("ENABLE_TELEGRAM_QUIET", ENABLE_TELEGRAM_QUIET):
         return True
     low = (message or "").lower()
+    if (any(k in low[:400] for k in _TELEGRAM_MUTE)
+            and not any(k in low for k in _TELEGRAM_MUTE_UNLESS)):
+        return False
     return any(k in low for k in _TELEGRAM_KEEP)
 
 
@@ -31638,6 +31658,21 @@ class _SkipSummary(Exception):
     """Control flow only: send_account_pnl_telegram() skipping a duplicate EOD."""
 
 
+def _eod_summary_before_close(now_et: Optional[datetime] = None) -> bool:
+    """True while today's regular session is still open (13:00 close on a
+    half day) -- too early for a summary that calls itself end-of-day.
+
+    The scan path's "safety" caller opens at 15:25 ET and the summary is sent
+    once a day, so the first scan to land in that window wins. On 2026-11-16
+    that was 15:41: the one EOD number of the day was a mid-afternoon mark,
+    19 minutes of an NVDA-driven selloff short of the close, and the real
+    16:15 run then skipped as a duplicate."""
+    now_et = now_et or datetime.now(ET)
+    if now_et.weekday() >= 5:
+        return False
+    return (now_et.hour, now_et.minute) < _session_close_hm(now_et.date())
+
+
 def send_account_pnl_telegram(label: str = "EOD") -> None:
     """
     Fetch live Alpaca account snapshot and send a P&L summary to Telegram.
@@ -31655,6 +31690,11 @@ def send_account_pnl_telegram(label: str = "EOD") -> None:
     _skip_summary = label == "EOD" and _is_duplicate_alert(_eod_key, 24 * 60)
     if _skip_summary:
         print("  📊 EOD P&L summary already sent today — skipping duplicate")
+    elif label == "EOD" and _eod_summary_before_close():
+        # Not marked as sent: the first caller after the close sends it, and
+        # the daemon does at 16:21 ET if no scanner run turned up by then.
+        print("  📊 EOD P&L summary waits for the close — not sent yet")
+        _skip_summary = True
     try:
         if _skip_summary:
             raise _SkipSummary()

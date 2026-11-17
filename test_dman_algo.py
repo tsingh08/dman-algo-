@@ -177,6 +177,13 @@ def setUpModule():
     _p = patch.object(a, "_bzone_shock_pause", lambda *_a, **_k: (False, ""))
     _p.start()
     _state_write_isolation.append(_p)
+    # The EOD summary waits for the close (2026-11-16), by the wall clock:
+    # un-isolated, every test that expects a summary would fail whenever the
+    # suite runs on a weekday before 16:00 ET. Covered directly in
+    # TestEodSummaryWaitsForTheClose.
+    _p = patch.object(a, "_eod_summary_before_close", lambda *_a, **_k: False)
+    _p.start()
+    _state_write_isolation.append(_p)
 
 
 def tearDownModule():
@@ -1523,6 +1530,7 @@ class TestSyncWinRateWithRemote(unittest.TestCase):
 
 _REAL_CLOSE_KEY_ON_ORIGIN = a._close_key_on_origin   # before setUpModule's patch
 _REAL_BZONE_SHOCK_PAUSE = a._bzone_shock_pause         # before setUpModule's patch
+_REAL_EOD_BEFORE_CLOSE = a._eod_summary_before_close   # likewise
 
 
 class TestCloseKeyOnOrigin(unittest.TestCase):
@@ -18436,6 +18444,43 @@ class TestTelegramQuietMode(unittest.TestCase):
                   "  Seasonal : September — weak month"):
             self.assertFalse(a._telegram_worth_sending(m), m)
 
+    _MW_ALERT_ONLY = (
+        "📡 <b>DMan Momentum Watch</b>  12:56 PM MT\n\n"
+        "🔔 <b>BREAKOUT — 121 candidate(s), one pick</b>\n\n"
+        "🏆 <b>#1 JBLU</b> — 80/90  <b>THE PICK</b>\n"
+        "   Entry: $3.7300  Stop: $3.6347\n"
+        "   📋 Alert only — no order was placed (the entry gates refused it; "
+        "see the signal message for why).\n\n"
+        "<i>Trailing model: T1(+30%)→move stop to break-even | "
+        "T2(+50%)→trail 2-bar low | EXIT signal→market out</i>")
+
+    def test_commentary_that_names_a_keep_word_by_accident_is_dropped(self):
+        """2026-11-16: 9 of the 17 messages delivered with quiet mode on."""
+        for m in (self._MW_ALERT_ONLY,
+                  "🛡 <b>Daemon active</b> — real-time options guard + fill "
+                  "stream running for today's session.",
+                  "🌍 <b>GLOBAL CONTEXT</b>  [🔴 RISK-OFF]  Score: -4\n   ES: -0.6%",
+                  a._retired_signal_alert(SimpleNamespace(
+                      ticker="CHYM", setup="Gap & Hold", confluence_score=100))):
+            self.assertFalse(a._telegram_worth_sending(m), m)
+
+    def test_a_momentum_digest_that_did_or_holds_something_still_sends(self):
+        for extra in ("   🤖 <b>AUTO-EXECUTED</b> at 0.50x size — day-only",
+                      "\n📊 <b>POSITION STATUS (1)</b>\nARHS fading under VWAP",
+                      "\n🎯 <b>OPTIONS POSITIONS (1)</b>\nNVDA 195C",
+                      "\n⏳ <b>STALE POSITIONS (1)</b>\nGDYN day 6",
+                      "   ⚠️ Auto-execute failed (timeout) — no order placed",
+                      "Reply YES JBLU to enter"):
+            m = self._MW_ALERT_ONLY + "\n" + extra
+            self.assertTrue(a._telegram_worth_sending(m), extra)
+
+    def test_the_briefing_is_not_muted_by_its_global_context_section(self):
+        """The mute looks at the head of a message; the pre-market briefing
+        carries a GLOBAL CONTEXT section far below its own header."""
+        m = ("🌅 <b>DMan PRO Pre-Market Briefing</b>\n" + "regime line\n" * 60
+             + "🌍 <b>GLOBAL CONTEXT</b>  (risk mult: 0.35x)\nopen positions: none")
+        self.assertTrue(a._telegram_worth_sending(m))
+
     def test_a_reply_to_your_command_always_sends(self):
         a._TELEGRAM_REPLY_DEPTH[0] = 1
         self.assertTrue(a._telegram_worth_sending("🔎 Accumulation — nothing important"))
@@ -28485,6 +28530,248 @@ class TestASessionHandsOverItself(unittest.TestCase):
         # index, not rindex: _close_active_stream() appears again in the
         # KeyboardInterrupt handler further down, which is not this path.
         self.assertGreater(_disp, body.index("_close_active_stream()"))
+
+
+class TestEodSummaryWaitsForTheClose(unittest.TestCase):
+    """2026-11-16: the one EOD summary of the day went out at 15:41 ET from
+    the scan path's 15:25 "safety" caller, and the 16:15 run -- the real
+    close -- skipped as a duplicate."""
+
+    def _et(self, hh, mm, day=17, month=11):
+        return datetime(2026, month, day, hh, mm, tzinfo=a.ET)
+
+    def test_before_the_close_is_too_early(self):
+        self.assertTrue(_REAL_EOD_BEFORE_CLOSE(self._et(15, 41)))
+        self.assertTrue(_REAL_EOD_BEFORE_CLOSE(self._et(15, 59)))
+        self.assertFalse(_REAL_EOD_BEFORE_CLOSE(self._et(16, 0)))
+        self.assertFalse(_REAL_EOD_BEFORE_CLOSE(self._et(16, 15)))
+
+    def test_a_half_day_closes_at_one(self):
+        self.assertTrue(_REAL_EOD_BEFORE_CLOSE(self._et(12, 59, day=27)))
+        self.assertFalse(_REAL_EOD_BEFORE_CLOSE(self._et(13, 0, day=27)))
+
+    def test_a_weekend_is_never_too_early(self):
+        self.assertFalse(_REAL_EOD_BEFORE_CLOSE(self._et(11, 0, day=21)))
+
+    def _send(self, before_close, label="EOD"):
+        acct = MagicMock()
+        acct.equity = "2204.17"; acct.cash = "1523.69"; acct.buying_power = "1523.69"
+        acct.last_equity = "2274.81"
+        client = MagicMock()
+        client.get_account.return_value = acct
+        client.get_all_positions.return_value = []
+        tg = MagicMock(return_value=True)
+        d = tempfile.mkdtemp()
+        with patch.object(a, "_eod_summary_before_close", return_value=before_close), \
+             patch.object(a, "LAST_ALERTS_FILE", os.path.join(d, "la.json")), \
+             patch.object(a, "_ALERT_DEDUP_FILE", os.path.join(d, "dd.json")), \
+             patch.object(a, "_get_day_start_equity", return_value=2274.81), \
+             patch.object(a, "_net_transfers_today", return_value=0.0), \
+             patch("alpaca.trading.client.TradingClient", return_value=client), \
+             patch.object(a, "ALPACA_API_KEY", "k"), \
+             patch.object(a, "ALPACA_SECRET_KEY", "s"), \
+             patch.object(a, "send_telegram", tg):
+            a.send_account_pnl_telegram(label)
+            sent_now = [c[0][0] for c in tg.call_args_list if "Account Summary" in c[0][0]]
+            tg.reset_mock()
+            with patch.object(a, "_eod_summary_before_close", return_value=False):
+                a.send_account_pnl_telegram("EOD")
+            sent_after = [c[0][0] for c in tg.call_args_list if "Account Summary" in c[0][0]]
+        return sent_now, sent_after
+
+    def test_a_pre_close_eod_is_not_sent_and_does_not_use_up_the_day(self):
+        sent_now, sent_after = self._send(before_close=True)
+        self.assertEqual(sent_now, [])
+        self.assertEqual(len(sent_after), 1)        # the post-close caller still sends
+
+    def test_after_the_close_it_sends_once(self):
+        sent_now, sent_after = self._send(before_close=False)
+        self.assertEqual(len(sent_now), 1)
+        self.assertEqual(sent_after, [])
+
+    def test_an_on_demand_summary_is_never_held_back(self):
+        sent_now, _ = self._send(before_close=True, label="On-Demand")
+        self.assertEqual(len(sent_now), 1)
+
+    # -- the daemon is the sender of last resort ---------------------------
+
+    def _backstop(self, now):
+        import dman_daemon as d
+        d._eod_backstop_done.clear()
+        self.addCleanup(d._eod_backstop_done.clear)
+        calls = []
+        with patch.object(a, "_MARKET_HOLIDAYS", set()), \
+             patch.object(d, "git_sync", side_effect=lambda: calls.append("sync")), \
+             patch.object(a, "send_account_pnl_telegram",
+                          side_effect=lambda label: calls.append(label)):
+            first = d._eod_summary_backstop(now)
+            second = d._eod_summary_backstop(now + timedelta(minutes=1))
+        return first, second, calls
+
+    def test_the_daemon_sends_it_21_minutes_after_the_close_once(self):
+        first, second, calls = self._backstop(self._et(16, 21))
+        self.assertTrue(first)
+        self.assertFalse(second)
+        # State is pulled BEFORE the send (so a scanner's summary is seen)
+        # and pushed after it.
+        self.assertEqual(calls, ["sync", "EOD", "sync"])
+
+    def test_the_daemon_stays_out_of_the_scanners_window_and_the_evening(self):
+        # (_backstop also tries one minute later, so 16:19 covers 16:20.)
+        for hh, mm in ((15, 58), (16, 0), (16, 19), (17, 0), (19, 30)):
+            first, _, calls = self._backstop(self._et(hh, mm))
+            self.assertFalse(first, (hh, mm))
+            self.assertEqual(calls, [])
+
+    def test_the_daemon_follows_a_one_pm_close(self):
+        first, _, calls = self._backstop(self._et(13, 21, day=27))
+        self.assertTrue(first)
+        first, _, calls = self._backstop(self._et(16, 21, day=27))
+        self.assertFalse(first)
+
+    def test_the_daemon_skips_weekends(self):
+        first, _, calls = self._backstop(self._et(16, 21, day=21))
+        self.assertFalse(first)
+        self.assertEqual(calls, [])
+
+    def test_a_failed_pull_does_not_cost_the_summary(self):
+        import dman_daemon as d
+        d._eod_backstop_done.clear()
+        self.addCleanup(d._eod_backstop_done.clear)
+        with patch.object(a, "_MARKET_HOLIDAYS", set()), \
+             patch.object(d, "git_sync", side_effect=RuntimeError("push rejected")), \
+             patch.object(a, "send_account_pnl_telegram") as send:
+            self.assertTrue(d._eod_summary_backstop(self._et(16, 21)))
+        send.assert_called_once_with("EOD")
+
+    def test_the_session_loop_calls_it(self):
+        with io.open("dman_daemon.py", encoding="utf-8") as f:
+            self.assertIn("_eod_summary_backstop(now)", f.read())
+
+
+class TestDaemonDispatchesTheSessionReview(unittest.TestCase):
+    """Monday 2026-11-16: GitHub delivered all three intraday review crons
+    after the close (19:21, 21:35, 22:00 ET) and the end-of-day one at 18:44,
+    so the open session was reviewed zero times. The daemon is alive through
+    the session, so it sends the dispatch on the clock itself."""
+
+    def setUp(self):
+        import dman_daemon
+        self.d = dman_daemon
+        self.d._review_slots_sent.clear()
+        self.addCleanup(self.d._review_slots_sent.clear)
+
+    def _at(self, hh, mm, day=17):
+        return datetime(2026, 11, day, hh, mm, tzinfo=a.ET)   # 11-17 = Tuesday
+
+    def _run(self, now, ran=False, trig=(True, "dispatched")):
+        with patch.object(a, "_trigger_workflow_restart", return_value=trig) as t, \
+             patch.object(a, "GITHUB_TOKEN", "tok"), \
+             patch.object(a, "_MARKET_HOLIDAYS", set()), \
+             patch.object(self.d, "_review_run_since", return_value=ran) as since:
+            out = self.d._dispatch_due_review(now)
+        return out, t, since
+
+    def test_each_slot_dispatches_once(self):
+        for hh, mm in ((10, 15), (12, 35), (14, 40), (16, 30)):
+            out, t, _ = self._run(self._at(hh, mm))
+            self.assertTrue(out, (hh, mm))
+            t.assert_called_once_with("dman_review.yml")
+            out, t, _ = self._run(self._at(hh, mm + 1))
+            self.assertFalse(out)
+            t.assert_not_called()
+
+    def test_nothing_is_sent_between_slots(self):
+        for hh, mm in ((9, 31), (10, 14), (11, 30), (15, 11), (16, 4), (17, 31)):
+            out, t, since = self._run(self._at(hh, mm))
+            self.assertFalse(out, (hh, mm))
+            t.assert_not_called()
+            since.assert_not_called()
+
+    def test_every_intraday_slot_sits_inside_the_workflows_midday_window(self):
+        """dman_review.yml labels a run 'midday' from 10:00 to 15:14 ET and
+        'eod' from 16:05. A dispatch outside those is a skipped run."""
+        for start, last, kind in self.d._REVIEW_SLOTS:
+            if kind == "midday":
+                self.assertGreaterEqual(int(start), 1000)
+                self.assertLess(int(last), 1515)
+            else:
+                self.assertGreaterEqual(int(start), 1605)
+        yml = io.open(".github/workflows/dman_review.yml", encoding="utf-8").read()
+        self.assertIn('-ge 1000 ] && [ "$((10#$ET_HHMM))" -lt 1515 ]', yml)
+        self.assertIn('-ge 1605 ]', yml)
+
+    def test_a_run_that_already_exists_counts_as_the_slot(self):
+        """A cron that did arrive, /review, or the previous daemon session
+        just before a handover."""
+        out, t, since = self._run(self._at(12, 57), ran=True)
+        self.assertFalse(out)
+        t.assert_not_called()
+        self.assertEqual(since.call_args[0][0],
+                         self._at(12, 35).astimezone(_dt_timezone.utc))
+        out, t, since = self._run(self._at(12, 58))
+        t.assert_not_called()
+        since.assert_not_called()
+
+    def test_no_answer_from_github_waits_and_retries(self):
+        out, t, _ = self._run(self._at(10, 15), ran=None)
+        self.assertFalse(out)
+        t.assert_not_called()
+        out, t, _ = self._run(self._at(10, 16))
+        self.assertTrue(out)
+
+    def test_a_refused_dispatch_is_retried_next_tick(self):
+        out, _, _ = self._run(self._at(10, 15), trig=(False, "HTTP 500"))
+        self.assertFalse(out)
+        out, t, _ = self._run(self._at(10, 16))
+        self.assertTrue(out)
+        t.assert_called_once()
+
+    def test_weekend_holiday_and_missing_token_send_nothing(self):
+        out, t, _ = self._run(self._at(10, 15, day=21))            # Saturday
+        self.assertFalse(out)
+        t.assert_not_called()
+        with patch.object(a, "_trigger_workflow_restart") as t, \
+             patch.object(a, "GITHUB_TOKEN", "tok"), \
+             patch.object(a, "_MARKET_HOLIDAYS", {self._at(10, 15).date()}), \
+             patch.object(self.d, "_review_run_since", return_value=False):
+            self.assertFalse(self.d._dispatch_due_review(self._at(10, 15)))
+        t.assert_not_called()
+        with patch.object(a, "_trigger_workflow_restart") as t, \
+             patch.object(a, "GITHUB_TOKEN", ""), \
+             patch.object(a, "_MARKET_HOLIDAYS", set()):
+            self.assertFalse(self.d._dispatch_due_review(self._at(10, 15)))
+        t.assert_not_called()
+
+    def test_a_one_pm_close_drops_the_afternoon_check_in_but_keeps_the_eod(self):
+        early = datetime(2026, 11, 27, 14, 40, tzinfo=a.ET)
+        out, t, _ = self._run(early)
+        self.assertFalse(out)
+        t.assert_not_called()
+        out, t, _ = self._run(early.replace(hour=12, minute=35))
+        self.assertTrue(out)
+        out, t, _ = self._run(early.replace(hour=16, minute=30))
+        self.assertTrue(out)
+
+    def test_review_run_since_reads_created_at(self):
+        resp = MagicMock(status_code=200)
+        resp.json.return_value = {"workflow_runs": [
+            {"created_at": "2026-11-17T15:20:00Z"}, {"created_at": "2026-11-17T02:00:00Z"}]}
+        with patch.object(a.requests, "get", return_value=resp):
+            self.assertTrue(self.d._review_run_since(
+                datetime(2026, 11, 17, 15, 15, tzinfo=_dt_timezone.utc)))
+            self.assertFalse(self.d._review_run_since(
+                datetime(2026, 11, 17, 15, 21, tzinfo=_dt_timezone.utc)))
+        with patch.object(a.requests, "get", return_value=MagicMock(status_code=502)):
+            self.assertIsNone(self.d._review_run_since(
+                datetime(2026, 11, 17, 15, 15, tzinfo=_dt_timezone.utc)))
+        with patch.object(a.requests, "get", side_effect=RuntimeError("down")):
+            self.assertIsNone(self.d._review_run_since(
+                datetime(2026, 11, 17, 15, 15, tzinfo=_dt_timezone.utc)))
+
+    def test_the_session_loop_calls_it(self):
+        src = io.open("dman_daemon.py", encoding="utf-8").read()
+        self.assertIn("_dispatch_due_review(now)", src)
 
 class TestWhyNamesTheBarTheScannerApplied(unittest.TestCase):
     """_effective_min_score() exempts SEASONAL_EXEMPT_SETUPS from the weak-month

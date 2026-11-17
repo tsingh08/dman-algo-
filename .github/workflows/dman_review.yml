@@ -140,7 +140,26 @@ jobs:
           # must run; the summer EOD cron (20:24 UTC) is 15:24 ET in winter
           # and must still skip.
           if [ "$((10#$ET_HHMM))" -ge 1000 ] && [ "$((10#$ET_HHMM))" -lt 1515 ]; then
-            echo "kind=midday" >> "$GITHUB_OUTPUT"
+            # The daemon now dispatches the check-ins on the clock (10:15,
+            # 12:35, 14:40 ET -- dman_daemon.py _dispatch_due_review), because
+            # on 2026-11-16 GitHub delivered all three of these crons after
+            # the close. A cron that does turn up inside the session is only
+            # a fallback: it skips when another review started within the
+            # last 75 minutes. A dispatch (the daemon's, or /review) always runs.
+            RECENT=""
+            if [ "$GITHUB_EVENT_NAME" != "workflow_dispatch" ]; then
+              SINCE=$(date -u -d '75 minutes ago' +%Y-%m-%dT%H:%M:%SZ)
+              RECENT=$(gh run list -R "$GITHUB_REPOSITORY" --workflow dman_review.yml --limit 10 \
+                         --json databaseId,createdAt \
+                         -q ".[] | select(.createdAt >= \"$SINCE\" and (.databaseId|tostring) != \"$GITHUB_RUN_ID\") | .databaseId" \
+                         2>/dev/null | head -1)
+            fi
+            if [ -n "$RECENT" ]; then
+              echo "A review started within the last 75 min (run $RECENT) -- skipping this cron."
+              echo "kind=skip" >> "$GITHUB_OUTPUT"
+            else
+              echo "kind=midday" >> "$GITHUB_OUTPUT"
+            fi
           elif [ "$((10#$ET_HHMM))" -ge 1605 ]; then
             # Any time after the close counts, not just 16:05-17:00. GitHub
             # starts these crons up to 3.5h late: on 10-20 and 10-23 every

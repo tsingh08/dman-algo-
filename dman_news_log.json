@@ -1,235 +1,5 @@
 [
   {
-    "ts": "2026-11-17T11:38:22.468658-05:00",
-    "symbols": [
-      "DCH"
-    ],
-    "headline": "David Einhorn Bets on Aluminum in Q3: Here Are His New Stock Picks, Fund Changes",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T11:49:07.183307-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Apollo CEO Says If Nvidia\u2019s Banking Function Gets Taken Away, Access To Capital For A Large Number Of Neo Clouds Is Going To Disappear",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T11:49:07.190341-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Apollo CEO Marc Rowan Says Nvidia Has Been The Bank Or The Guarantor Of The AI Ecosystem",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T11:49:17.902994-05:00",
-    "symbols": [
-      "RCAT"
-    ],
-    "headline": "These Analysts Slash Their Forecasts On Red Cat After Weak Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T11:49:17.908563-05:00",
-    "symbols": [
-      "RCAT"
-    ],
-    "headline": "Piper Sandler Maintains Neutral on Red Cat Holdings, Lowers Price Target to $3",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T11:49:18.119149-05:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "Bernstein Maintains Outperform on Constellation Energy, Lowers Price Target to $293",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T11:49:22.272620-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Apollo CEO Says If Nvidia\u2019s Banking Function Gets Taken Away, Access To Capital For A Large Number Of Neo Clouds Is Going To Disappear",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T12:00:28.990234-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Jim Cramer Highlights Importance of Nvidia Earnings for Tech Sector: \u2018Can\u2019t Understate How Huge This Day Is\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T12:00:30.137150-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Jensen Huang Says \u2018I Did Not Live Up to the Standards Expected,\u2019 Would Return as Nvidia CEO if Asked: WSJ",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T12:00:30.143242-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is Cloudflare Stock Falling on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T12:00:30.148084-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Michael Burry Donates Alphabet Shares, Then Buys the Software Stock Wall Street Fears Most",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T12:00:30.152564-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Jim Cramer Highlights Importance of Nvidia Earnings for Tech Sector: \u2018Can\u2019t Understate How Huge This Day Is\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T12:00:30.880048-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Michael Burry Donates Alphabet Shares, Then Buys the Software Stock Wall Street Fears Most",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T12:00:32.086681-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Michael Burry Donates Alphabet Shares, Then Buys the Software Stock Wall Street Fears Most",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T12:00:37.180677-05:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Why Is Cloudflare Stock Falling on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:00:42.956172-05:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "Michael Burry Donates Alphabet Shares, Then Buys the Software Stock Wall Street Fears Most",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T12:00:45.980831-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Michael Burry Donates Alphabet Shares, Then Buys the Software Stock Wall Street Fears Most",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T12:00:46.248786-05:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Michael Burry Donates Alphabet Shares, Then Buys the Software Stock Wall Street Fears Most",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:00:55.050213-05:00",
-    "symbols": [
-      "FRTT"
-    ],
-    "headline": "Fort Technology Q3 EPS $(0.03) Up From $(0.48) YoY, Sales $4.625M Up From $3.127M YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:00:56.512311-05:00",
-    "symbols": [
-      "AEON"
-    ],
-    "headline": "Why Aytu Biopharma Shares Are Trading Higher By 43%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:00:56.519888-05:00",
-    "symbols": [
-      "AEON"
-    ],
-    "headline": "AEON Biopharma Q3 EPS $0.01 Beats $(0.08) Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:00:58.603895-05:00",
-    "symbols": [
-      "VAI"
-    ],
-    "headline": "Valor Energy Inc. Completes Acquisition of Youngstown Project for AI Data Center Development",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:00:59.852841-05:00",
-    "symbols": [
-      "SMTK"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-17T12:00:59.858333-05:00",
     "symbols": [
       "SMTK"
@@ -4995,6 +4765,236 @@
       "BILL"
     ],
     "headline": "BILL Holdings Hits 52-Week High As TPG Eyes Buyout",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T14:18:00.727995-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Nvidia Earnings\u2014First Without Huang\u2014Options Market Signals 8.5% Stock Move",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T14:18:00.956959-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "California Attorney General Office Looking Into Aspects Of Scandal Involving Nvidia, Ex-CEO Jensen Huang - Bloomberg News",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T14:18:01.212211-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Nvidia Earnings\u2014First Without Huang\u2014Options Market Signals 8.5% Stock Move",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T14:18:01.624858-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Nvidia Earnings\u2014First Without Huang\u2014Options Market Signals 8.5% Stock Move",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T14:18:05.665956-05:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "&#39;Kalshi takes down controversial Trump \u2018mention\u2019 markets at CFTC\u2019s request&#39; -CNBC Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T14:18:06.353550-05:00",
+    "symbols": [
+      "RCAT"
+    ],
+    "headline": "Red Cat Q3 Revenue Contracts 42% in Q3, Analysts Cut Price Targets",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T14:18:06.876999-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Chase\u2019s Outage Shows Bitcoin\u2019s Value Beyond Price: \u2018It Just Kept Working,\u2019 Scott Melker Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:18:07.800776-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Kalshi takes down controversial Trump \u2018mention\u2019 markets at CFTC\u2019s request&#39; -CNBC Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T14:18:07.804472-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;FAA Has Had Brisk Schedule for Modernizing Aging Communications Network, Sources Say&#39; -WSJ Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T14:18:07.931265-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Nvidia Earnings\u2014First Without Huang\u2014Options Market Signals 8.5% Stock Move",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T14:18:08.568827-05:00",
+    "symbols": [
+      "PICS"
+    ],
+    "headline": "RBC Capital Maintains Outperform on PicS, Lowers Price Target to $9",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T14:18:08.635468-05:00",
+    "symbols": [
+      "BILL"
+    ],
+    "headline": "BILL Holdings Hits 52-Week High As TPG Eyes Buyout",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T14:18:08.832390-05:00",
+    "symbols": [
+      "OMER"
+    ],
+    "headline": "HC Wainwright &amp; Co. Reiterates Buy on Omeros, Maintains $33 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:18:08.836111-05:00",
+    "symbols": [
+      "OMER"
+    ],
+    "headline": "Red Cat Downbeat Q3 Results, Joins Omeros, Deutsche Bank And Other Big Stocks Moving Lower In Tuesday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:18:09.014828-05:00",
+    "symbols": [
+      "DUOT"
+    ],
+    "headline": "Cantor Fitzgerald Maintains Overweight on Duos Technologies Group, Lowers Price Target to $15",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T14:18:09.278309-05:00",
+    "symbols": [
+      "DLO"
+    ],
+    "headline": "CORRECTION: DLocal Reported Q3 Financial Results On Nov. 12",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T14:18:09.523749-05:00",
+    "symbols": [
+      "OPRA"
+    ],
+    "headline": "Opera Q3 Adj. EPS $0.34 Beats $0.33 Estimate, Sales $182.833M Beat $182.395M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T14:18:09.527454-05:00",
+    "symbols": [
+      "OPRA"
+    ],
+    "headline": "Opera Sees Q4 Sales $198.000M-$205.000M vs $203.870M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T14:18:09.530955-05:00",
+    "symbols": [
+      "OPRA"
+    ],
+    "headline": "Opera Raises FY2026 Sales Guidance from $734.000M-$742.000M to $735.000M-$742.000M vs $740.045M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T14:18:09.537137-05:00",
+    "symbols": [
+      "OPRA"
+    ],
+    "headline": "Opera To Replace ADSs With Ordinary Shares Listed Directly On Nasdaq",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T14:18:09.541600-05:00",
+    "symbols": [
+      "OPRA"
+    ],
+    "headline": "Opera To Replace Nasdaq-Listed ADSs With Ordinary Shares, Maintains OPRA Ticker And Shareholders&#39; Rights",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T14:18:09.605564-05:00",
+    "symbols": [
+      "NKE"
+    ],
+    "headline": "Nike Executive Says 2028 Will Be \u2018A Challenging Year Financially\u2019; Co. Expects Adjusted EPS To Decline Modestly In Fiscal 2028 From Fiscal 2027 Levels",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:18:10.887493-05:00",
+    "symbols": [
+      "SUPV"
+    ],
+    "headline": "Grupo Supervielle Q3 EPS $0.05 Misses $0.18 Estimate, Sales $149.304M Miss $252.530M Estimate",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

@@ -1,395 +1,5 @@
 [
   {
-    "ts": "2026-11-17T09:36:33.564845-05:00",
-    "symbols": [
-      "PG"
-    ],
-    "headline": "Wall Street Is Trading Chips for Chicken: Staples See Best Run Against Tech Since 2001",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:36:33.568383-05:00",
-    "symbols": [
-      "PG"
-    ],
-    "headline": "Ken Griffin Dumps SpaceX, Amazon; Buys ARKK and Bets Big on Marvell",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:36:33.636366-05:00",
-    "symbols": [
-      "VIK"
-    ],
-    "headline": "Viking Holdings Q3 Adj. EPS $1.11 Misses $1.27 Estimate, Sales $2.184B Miss $2.201B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:33.640019-05:00",
-    "symbols": [
-      "VIK"
-    ],
-    "headline": "Home Depot Could Swing $15.5 Billion After Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:33.643552-05:00",
-    "symbols": [
-      "VIK"
-    ],
-    "headline": "NVIDIA, Home Depot On Deck Tuesday As AI Demand, Consumer Spending Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:33.709289-05:00",
-    "symbols": [
-      "PRMB"
-    ],
-    "headline": "Primo Brands Corp Announces Debt Refinancing Plans",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:36:33.926067-05:00",
-    "symbols": [
-      "CNP"
-    ],
-    "headline": "CenterPoint Energy Price Target Reduced by Evercore ISI Group",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:33.988196-05:00",
-    "symbols": [
-      "INFQ"
-    ],
-    "headline": "Canaccord Genuity Maintains Buy on Infleqtion, Lowers Price Target to $17",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:33.991853-05:00",
-    "symbols": [
-      "INFQ"
-    ],
-    "headline": "Wedbush Reiterates Outperform on Infleqtion, Maintains $20 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:33.995377-05:00",
-    "symbols": [
-      "INFQ"
-    ],
-    "headline": "Infleqtion Posts Q3 Results, Delivers 30 Logical Qubits",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:33.998851-05:00",
-    "symbols": [
-      "INFQ"
-    ],
-    "headline": "Infleqtion Q3 EPS $(0.09) Beats $(0.10) Estimate, Sales $9.149M Miss $11.073M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:34.002265-05:00",
-    "symbols": [
-      "INFQ"
-    ],
-    "headline": "Infleqtion Affirms FY2026 Sales Guidance of $45.100M vs $44.766M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:34.068823-05:00",
-    "symbols": [
-      "CDRE"
-    ],
-    "headline": "Cadre Holdings Announces CFO Transition",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:34.129996-05:00",
-    "symbols": [
-      "APPN"
-    ],
-    "headline": "Appian Announces 2026 Partner Award Winners at Appian Europe",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:34.133786-05:00",
-    "symbols": [
-      "APPN"
-    ],
-    "headline": "Appian Advances Control Plane Capabilities for AI Agents",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:34.209298-05:00",
-    "symbols": [
-      "GFF"
-    ],
-    "headline": "Griffon Q4 Adj. EPS $1.61 Beats $1.59 Estimate, Sales $490.888M Beat $480.667M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:34.213121-05:00",
-    "symbols": [
-      "GFF"
-    ],
-    "headline": "Griffon Raises Quarterly Dividend By 14% To $0.25 Per Share, Payable On December 16, 2026.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:34.216614-05:00",
-    "symbols": [
-      "GFF"
-    ],
-    "headline": "Griffon Sees FY2027 Sales $1.850B vs $1.899B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:34.220093-05:00",
-    "symbols": [
-      "GFF"
-    ],
-    "headline": "Griffon Board Authorizes Repurchase Of Additional $400M Worth Of Common Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:34.223583-05:00",
-    "symbols": [
-      "GFF"
-    ],
-    "headline": "NVIDIA, Home Depot On Deck Tuesday As AI Demand, Consumer Spending Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:34.283510-05:00",
-    "symbols": [
-      "JKHY"
-    ],
-    "headline": "Jack Henry Named to Forbes' 2027 Best Companies in America List",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:34.344542-05:00",
-    "symbols": [
-      "CPA"
-    ],
-    "headline": "Copa Airlines Aircraft Involved in Ground Collision at Miami International Airport",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:34.413774-05:00",
-    "symbols": [
-      "SYY"
-    ],
-    "headline": "Sysco Corporation Declares Annual Dividend of $2.17 Per Share",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:34.484814-05:00",
-    "symbols": [
-      "MDLZ"
-    ],
-    "headline": "Mondelez&#39;s Multi-Million Portfolio Shift: Unloads French Bakery and Cereal Bars Business",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:36:34.488438-05:00",
-    "symbols": [
-      "MDLZ"
-    ],
-    "headline": "Princes Group To Acquire Mondel\u0113z International\u2019s French Bread Substitutes And Cereal Bars Businesses For \u20ac80M EV, Including Three Factories And Four Brands",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:36:34.548272-05:00",
-    "symbols": [
-      "OXLC"
-    ],
-    "headline": "Oxford Lane Capital Estimates NAV As Of 31st October 2026 At $8.84-$9.14 Per Share",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:34.616134-05:00",
-    "symbols": [
-      "LHX"
-    ],
-    "headline": "Democratic U.S. Senators Send Letter To FAA Urging An Immediate Pause In Use Of Additional Juniper Devices Until Further Testing Is Completed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:36:34.619846-05:00",
-    "symbols": [
-      "LHX"
-    ],
-    "headline": "Elon Musk Says Sean Duffy Turned Down Free Starlink for FAA: \u2018As It Turns Out, They Were\u2019 Needed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:36:34.793903-05:00",
-    "symbols": [
-      "RZLT"
-    ],
-    "headline": "Wedbush Maintains Outperform on Rezolute, Raises Price Target to $10",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:34.853075-05:00",
-    "symbols": [
-      "FUN"
-    ],
-    "headline": "Disney Says Continued To See Headwinds In Q4 From Lower International Attendance At Domestic Parks; Now Expect Efficiency Program To Realize Annual Run-Rate Operating Expense Savings Of ~$3B By FY29; Efficiencies Will Be Used Primarily To Fund Future Growth, Expect Portion To Drop To Bottom Line Over Time",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:34.856705-05:00",
-    "symbols": [
-      "FUN"
-    ],
-    "headline": "Jana Partners Cashes Out of One Data Center Stock for Another and Buys Trash Company Stock in Q3",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:34.926984-05:00",
-    "symbols": [
-      "PEG"
-    ],
-    "headline": "HSBC Reaffirms Buy Rating and Increases Price Target for Public Service Enterprise Group",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:34.994130-05:00",
-    "symbols": [
-      "BG"
-    ],
-    "headline": "Wall Street Is Trading Chips for Chicken: Staples See Best Run Against Tech Since 2001",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:36:34.997921-05:00",
-    "symbols": [
-      "BG"
-    ],
-    "headline": "Bunge Expands Blockchain-Enabled Soy Traceability With BKP Beyond Thailand To Vietnam, Aiming For Greater Visibility Into Origin, Processing And Delivery Of Soy Products",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:36:35.061134-05:00",
-    "symbols": [
-      "ESS"
-    ],
-    "headline": "Jefferies Adjusts Essex Property Trust Price Target to $304",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:35.131335-05:00",
-    "symbols": [
-      "IBM"
-    ],
-    "headline": "IBM Releases New Study on AI Transformation Challenges in Canada",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:36:35.134989-05:00",
-    "symbols": [
-      "IBM"
-    ],
-    "headline": "IBM Expands Impact Accelerator Program with New 2026 Cohort",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:36:35.138441-05:00",
-    "symbols": [
-      "IBM"
-    ],
-    "headline": "IBM, Fermilab, and NVIDIA Announce New Quantum Computing Co-Design Platform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:36:35.201701-05:00",
-    "symbols": [
-      "TJX"
-    ],
-    "headline": "Adam Schiff Slams Corporate Executives Over Unreturned Trump Tariff Money: \u2018Companies Got Tariff Refunds, Consumers Got\u2026\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-17T09:36:35.268424-05:00",
     "symbols": [
       "BURL"
@@ -4998,5 +4608,395 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T11:15:44.959317-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Why Is Nebius Group Stock Falling Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T11:15:44.966587-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Jensen Huang Became AI&#39;s Insurer of Last Resort: Can Nvidia Now Fulfill a $400 Billion Promise?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T11:15:45.625694-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "9 Of 11 Sectors Fall In Tuesday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T11:15:45.945947-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is Nebius Group Stock Falling Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T11:15:45.953047-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Jensen Huang Became AI&#39;s Insurer of Last Resort: Can Nvidia Now Fulfill a $400 Billion Promise?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T11:15:45.957698-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "9 Of 11 Sectors Fall In Tuesday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T11:15:46.174374-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "What&#39;s Going On With AMD Stock Tuesday? (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T11:15:46.708935-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "What&#39;s Going On With AMD Stock Tuesday? (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T11:15:46.967176-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "What&#39;s Going On With AMD Stock Tuesday? (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T11:15:49.216488-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Jensen Huang Became AI&#39;s Insurer of Last Resort: Can Nvidia Now Fulfill a $400 Billion Promise?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T11:15:49.427864-05:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "RIOT, WULF Have Significant Upside Left: Bernstein",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T11:15:50.235360-05:00",
+    "symbols": [
+      "NIO"
+    ],
+    "headline": "Amer Sports, Sellas Life Sciences, Similarweb And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T11:15:50.890892-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Short Interest Rises, Remains Below August Peak",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T11:15:51.944200-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "9 Of 11 Sectors Fall In Tuesday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T11:15:53.380246-05:00",
+    "symbols": [
+      "MARA"
+    ],
+    "headline": "Piper Sandler Maintains Buy Rating on MARA Holdings, Adjusts Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T11:15:53.593513-05:00",
+    "symbols": [
+      "CLSK"
+    ],
+    "headline": "RIOT, WULF Have Significant Upside Left: Bernstein",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T11:15:56.568205-05:00",
+    "symbols": [
+      "RCAT"
+    ],
+    "headline": "Red Cat Stock Tumbles: First It Lost the Gauntlet, Then Lost Its Guidance",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T11:16:00.325564-05:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "9 Of 11 Sectors Fall In Tuesday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T11:16:00.755151-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "9 Of 11 Sectors Fall In Tuesday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T11:16:01.167237-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Jensen Huang Became AI&#39;s Insurer of Last Resort: Can Nvidia Now Fulfill a $400 Billion Promise?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T11:16:01.173163-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "9 Of 11 Sectors Fall In Tuesday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T11:16:01.429171-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "9 Of 11 Sectors Fall In Tuesday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T11:16:01.638705-05:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "9 Of 11 Sectors Fall In Tuesday Trading As Cyclicals Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T11:16:06.520089-05:00",
+    "symbols": [
+      "PCT"
+    ],
+    "headline": "Amer Sports, Sellas Life Sciences, Similarweb And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T11:16:10.869525-05:00",
+    "symbols": [
+      "LUCK"
+    ],
+    "headline": "Amer Sports, Sellas Life Sciences, Similarweb And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T11:16:11.697931-05:00",
+    "symbols": [
+      "SMWB"
+    ],
+    "headline": "Amer Sports, Sellas Life Sciences, Similarweb And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T11:16:12.315283-05:00",
+    "symbols": [
+      "CVM"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T11:16:13.547438-05:00",
+    "symbols": [
+      "SCZM"
+    ],
+    "headline": "Amer Sports, Sellas Life Sciences, Similarweb And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T11:16:14.760779-05:00",
+    "symbols": [
+      "UNFI"
+    ],
+    "headline": "Amer Sports, Sellas Life Sciences, Similarweb And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T11:16:14.964442-05:00",
+    "symbols": [
+      "IPW"
+    ],
+    "headline": "iPower Inc. Files Quarterly Report (10-Q)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T11:16:15.165401-05:00",
+    "symbols": [
+      "ELA"
+    ],
+    "headline": "B. Riley Securities Maintains Buy on Envela, Lowers Price Target to $21",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T11:16:15.171615-05:00",
+    "symbols": [
+      "ELA"
+    ],
+    "headline": "Envela Q3 EPS $0.15 Beats $0.14 Estimate, Sales $43.439M Miss $52.007M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T11:16:15.374042-05:00",
+    "symbols": [
+      "COHR"
+    ],
+    "headline": "Jensen Huang Became AI&#39;s Insurer of Last Resort: Can Nvidia Now Fulfill a $400 Billion Promise?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T11:16:16.615677-05:00",
+    "symbols": [
+      "MXL"
+    ],
+    "headline": "Applied Optoelectronics Stock Sinks Amid AI Outlook Fears",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T11:16:16.880800-05:00",
+    "symbols": [
+      "LUXE"
+    ],
+    "headline": "CORRECTION: LuxExperience Q1 EPS $(0.28) Misses $(0.21) Estimate, Sales $706.704M Beat $655.900M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T11:16:16.887309-05:00",
+    "symbols": [
+      "LUXE"
+    ],
+    "headline": "LuxExperience Raises FY27 Adj EBITDA Margin Guidance To 2.5%-3.5% From 2%-3%; Narrows FY27 Net Sales Growth Guidance To 6%-9% From Mid- To High-Single Digits",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T11:16:16.892850-05:00",
+    "symbols": [
+      "LUXE"
+    ],
+    "headline": "LuxExperience Q1 EPS $(0.73) Misses $(0.21) Estimate, Sales $660.033M Beat $655.900M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T11:16:17.691784-05:00",
+    "symbols": [
+      "AS"
+    ],
+    "headline": "Amer Sports, Sellas Life Sciences, Similarweb And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T11:16:18.314747-05:00",
+    "symbols": [
+      "SLS"
+    ],
+    "headline": "Amer Sports, Sellas Life Sciences, Similarweb And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

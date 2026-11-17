@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-11-17T09:39:50.548656-05:00",
-    "symbols": [
-      "BILL"
-    ],
-    "headline": "Truist Securities Maintains Hold on BILL Holdings, Raises Price Target to $58",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:46:18.571834-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Marvell Stock Rises as Citadel Discloses 729% Stake Boost, Slashes SpaceX, Amazon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.577962-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Stanley Druckenmiller\u2019s Duquesne Bets Big on Storage, Nearly Triples Seagate Stake As He Reverses Some Q2 Tech Bets, Slashes TSMC and Exits AMD, Google",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.582734-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Cantor Fitzgerald Reiterates Overweight on SpaceX, Maintains $345 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.587832-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "David Tepper&#39;s Appaloosa Boosts SpaceX Stake by 1,626%, Exits Chip Stocks AMD and Broadcom In Q3 Portfolio Shake-Up",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.592304-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Ken Griffin Dumps SpaceX, Amazon; Buys ARKK and Bets Big on Marvell",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.596720-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nebius Shares Rise 4% After Key Trading Signal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.601777-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Citigroup Maintains Buy on Nebius Group, Lowers Price Target to $215",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.607515-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Marvell Stock Rises as Citadel Discloses 729% Stake Boost, Slashes SpaceX, Amazon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.611729-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Ken Griffin Dumps SpaceX, Amazon; Buys ARKK and Bets Big on Marvell",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-17T09:46:18.616434-05:00",
     "symbols": [
       "AAPL"
@@ -4998,5 +4898,105 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T12:11:38.336102-05:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Evercore ISI Group Maintains Outperform on Robinhood Markets, Lowers Price Target to $100",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T12:11:38.545244-05:00",
+    "symbols": [
+      "AFRM"
+    ],
+    "headline": "Truist Securities Maintains Buy on Affirm Holdings, Lowers Price Target to $86",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T12:11:39.379488-05:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Natera Short Interest Rises As Bets Remain Near September Peak",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T12:11:39.657749-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "RBC Capital Reiterates Outperform on Eli Lilly, Maintains $1600 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T12:11:40.080706-05:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Natera Short Interest Rises As Bets Remain Near September Peak",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T12:11:40.296685-05:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "Natera Short Interest Rises As Bets Remain Near September Peak",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T12:11:41.755618-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Why Palo Alto Networks Is Falling Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T12:11:42.547065-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Michael Saylor Compliments Twenty One as Bitcoin Treasury Race Heats Up",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T12:11:46.139657-05:00",
+    "symbols": [
+      "RCAT"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T12:11:46.145623-05:00",
+    "symbols": [
+      "RCAT"
+    ],
+    "headline": "S&amp;P 500 Down 1%; Disney Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

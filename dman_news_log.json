@@ -1,125 +1,5 @@
 [
   {
-    "ts": "2026-11-17T09:36:37.220806-05:00",
-    "symbols": [
-      "CMS"
-    ],
-    "headline": "Consumers Energy Appoints Brian Lewis as Vice President of Transformation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:37.336079-05:00",
-    "symbols": [
-      "RIO"
-    ],
-    "headline": "Rio Tinto Signs 50 MW Power Agreement for New Zealand Smelter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:37.341437-05:00",
-    "symbols": [
-      "RIO"
-    ],
-    "headline": "Goldman Sachs Adjusts Rio Tinto Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:37.472400-05:00",
-    "symbols": [
-      "CMCSA"
-    ],
-    "headline": "Disney Says Continued To See Headwinds In Q4 From Lower International Attendance At Domestic Parks; Now Expect Efficiency Program To Realize Annual Run-Rate Operating Expense Savings Of ~$3B By FY29; Efficiencies Will Be Used Primarily To Fund Future Growth, Expect Portion To Drop To Bottom Line Over Time",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:37.533839-05:00",
-    "symbols": [
-      "RCKT"
-    ],
-    "headline": "Analysts Update Ratings and Price Targets for Rocket Pharmaceuticals",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:37.595209-05:00",
-    "symbols": [
-      "RSG"
-    ],
-    "headline": "Top 3 Industrials Stocks That Are Ticking Portfolio Bombs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:37.655654-05:00",
-    "symbols": [
-      "AON"
-    ],
-    "headline": "Seth Klarman\u2019s Baupost Group Takes New Position in Honeywell Aerospace in Q3",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:37.732561-05:00",
-    "symbols": [
-      "HUBS"
-    ],
-    "headline": "HubSpot Director Brian Halligan Increases Stake in Company Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:37.797381-05:00",
-    "symbols": [
-      "CD"
-    ],
-    "headline": "Chaince Digital Holdings Inc. Reports Third Quarter 2026 Financial Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:37.864856-05:00",
-    "symbols": [
-      "SBUX"
-    ],
-    "headline": "Starbucks Announces Annual Red Cup Day Promotion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:36:37.868582-05:00",
-    "symbols": [
-      "SBUX"
-    ],
-    "headline": "Starbucks Implements First Quarterly Barista Bonuses",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:36:37.936496-05:00",
-    "symbols": [
-      "DVN"
-    ],
-    "headline": "Seaport Global Adjusts Price Target on Devon Energy to $57 From $65",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-17T09:36:38.018026-05:00",
     "symbols": [
       "TSM"
@@ -4998,5 +4878,125 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T11:26:51.138845-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Nvidia Earnings\u2014First Without Huang\u2014Options Market Signals 8.5% Stock Move",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T11:26:51.352249-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Nvidia Earnings\u2014First Without Huang\u2014Options Market Signals 8.5% Stock Move",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T11:26:51.579891-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Earnings\u2014First Without Huang\u2014Options Market Signals 8.5% Stock Move",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T11:26:52.051923-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Nvidia Earnings\u2014First Without Huang\u2014Options Market Signals 8.5% Stock Move",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T11:26:52.539358-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Nvidia Earnings\u2014First Without Huang\u2014Options Market Signals 8.5% Stock Move",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T11:26:52.760503-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Nvidia Earnings\u2014First Without Huang\u2014Options Market Signals 8.5% Stock Move",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T11:26:59.949949-05:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "&#39;Kalshi takes down controversial Trump \u2018mention\u2019 markets at CFTC\u2019s request&#39; -CNBC Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T11:27:01.631519-05:00",
+    "symbols": [
+      "LUNR"
+    ],
+    "headline": "Canaccord Genuity Adjusts Intuitive Machines Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T11:27:06.643495-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Kalshi takes down controversial Trump \u2018mention\u2019 markets at CFTC\u2019s request&#39; -CNBC Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T11:27:06.648887-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;FAA Has Had Brisk Schedule for Modernizing Aging Communications Network, Sources Say&#39; -WSJ Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T11:27:06.653545-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Nvidia Earnings\u2014First Without Huang\u2014Options Market Signals 8.5% Stock Move",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T11:27:06.896689-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Nvidia Earnings\u2014First Without Huang\u2014Options Market Signals 8.5% Stock Move",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,14 +1,5 @@
 [
  {
-  "ts": "2026-09-23T14:07:28.349445-04:00",
-  "ticker": "IUSB",
-  "price": 44.485,
-  "rvol": 7.42,
-  "drift_pct": 0.99,
-  "range_ratio": 0.47,
-  "near_high": 0.964
- },
- {
   "ts": "2026-09-23T14:07:28.349448-04:00",
   "ticker": "IALT",
   "price": 29.74,
@@ -4498,5 +4489,14 @@
   "drift_pct": 0.61,
   "range_ratio": 0.42,
   "near_high": 0.981
+ },
+ {
+  "ts": "2026-11-17T10:02:28.846235-05:00",
+  "ticker": "IRWD",
+  "price": 4.85,
+  "rvol": 1.6,
+  "drift_pct": 0.83,
+  "range_ratio": 0.25,
+  "near_high": 0.996
  }
 ]

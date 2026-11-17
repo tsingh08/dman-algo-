@@ -1,225 +1,5 @@
 [
   {
-    "ts": "2026-11-17T09:46:18.988545-05:00",
-    "symbols": [
-      "VRTX"
-    ],
-    "headline": "Vertex Pharmaceuticals Officer Sells $8.37 Million in Common Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:18.993565-05:00",
-    "symbols": [
-      "RXRX"
-    ],
-    "headline": "J.P. Morgan Maintains Buy Rating for Recursion Pharmaceuticals",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:46:18.998679-05:00",
-    "symbols": [
-      "RBLX"
-    ],
-    "headline": "&#39;Roblox Focus of Child Safety Hearing Tuesday in Senate&#39;- Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:46:19.003444-05:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Marvell Stock Rises as Citadel Discloses 729% Stake Boost, Slashes SpaceX, Amazon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:19.007908-05:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Ken Griffin Dumps SpaceX, Amazon; Buys ARKK and Bets Big on Marvell",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:19.013539-05:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "Stanley Druckenmiller\u2019s Duquesne Bets Big on Storage, Nearly Triples Seagate Stake As He Reverses Some Q2 Tech Bets, Slashes TSMC and Exits AMD, Google",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T09:46:19.017786-05:00",
-    "symbols": [
-      "ANET"
-    ],
-    "headline": "Barclays Maintains Bullish Rating on Arista Networks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:46:19.022457-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "CrowdStrike Named Visionary Leader in Frost Radar\u2122: AI Security Operations Centers, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:46:19.026959-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Palo Alto Networks Releases State of Cloud Security Report 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:19.031657-05:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Bitwise Shares Ultra-Bullish SOL Price Prediction: $1,100 by 2031 in Best Case",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:19.036631-05:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase Stock Slides as Bitcoin Hits August Lows",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:19.042505-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin at $64,000? \u2018Attractive Entry\u2019 for Long-Term Investors, Grayscale Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:46:19.046713-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin, XRP, Dogecoin Slide, Ethereum Steady as \u2018Extreme Fear\u2019 Persists: Analyst Says \u2018Selling Hasn\u2019t Stopped Yet\u2019 as Whales Offload BTC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:46:19.050913-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Coinbase Stock Slides as Bitcoin Hits August Lows",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:46:19.055094-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Former UK PM Boris Johnson Says Bitcoin Is a &#39;Mystery&#39; but Blockchain Tech Is &#39;Fantastic&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:46:19.060840-05:00",
-    "symbols": [
-      "MARA"
-    ],
-    "headline": "Coinbase Stock Slides as Bitcoin Hits August Lows",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:46:19.066847-05:00",
-    "symbols": [
-      "CLSK"
-    ],
-    "headline": "Coinbase Stock Slides as Bitcoin Hits August Lows",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T09:46:19.072523-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "&#39;Coming Soon&#39;: Elon Musk Hints Tesla Owners Could Put Their Model Ys to Work as Robotaxis Without Driving",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:46:19.077488-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Nvidia Director Reportedly Warns of \u2018Irreplaceable Talent\u2019 Loss: Board Urged to Bring Back Jensen Huang as NVDA Stock Slips",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:46:19.082729-05:00",
-    "symbols": [
-      "ELF"
-    ],
-    "headline": "Ekta Chopra of e.l.f. Beauty Honored with 2026 NewYorkCIO ORBIE Award",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:46:19.087841-05:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "MongoDB Acquires Firebolt; Terms Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T09:46:19.093664-05:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Airbnb Co-Founder Joe Gebbia Says He Modernized Federal Retirement System In 6 Months for $1.5 Million After Contractors Spent $100 Million",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-17T09:46:19.098662-05:00",
     "symbols": [
       "ABNB"
@@ -4995,6 +4775,226 @@
       "TMC"
     ],
     "headline": "&#39;First US Deep-Sea Mining Lease Sale Succumbs to Legal Challenge&#39; - Bloomberg Law",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T12:44:34.053658-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T12:44:34.969706-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What&#39;s Going On With Penguin Solutions Stock Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T12:44:37.234667-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T12:44:38.682084-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T12:44:39.931700-05:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Live On CNBC, Josh Brown Hosts Segment Titled \u201cJosh\u2019s Best Stocks Update: Moderna\u201d",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T12:44:41.665027-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "5 Industrials Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T12:44:41.674379-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Marvell Stock Rises as Citadel Discloses 729% Stake Boost, Slashes SpaceX, Amazon",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T12:44:41.680143-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Ken Griffin Dumps SpaceX, Amazon; Buys ARKK and Bets Big on Marvell",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T12:44:42.096413-05:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "Stanley Druckenmiller\u2019s Duquesne Bets Big on Storage, Nearly Triples Seagate Stake As He Reverses Some Q2 Tech Bets, Slashes TSMC and Exits AMD, Google",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T12:44:42.310359-05:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "Barclays Maintains Bullish Rating on Arista Networks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T12:44:42.927999-05:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Bitwise Shares Ultra-Bullish SOL Price Prediction: $1,100 by 2031 in Best Case",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T12:44:47.297946-05:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "5 Industrials Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T12:44:49.253280-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Reported Earlier, &#39;Democrats Plan Probes of Trump\u2019s $100 Billion Venezuela Oil Deal&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T12:44:49.459832-05:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "Reported Earlier, &#39;Democrats Plan Probes of Trump\u2019s $100 Billion Venezuela Oil Deal&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T12:44:50.706478-05:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T12:44:55.196927-05:00",
+    "symbols": [
+      "OPEN"
+    ],
+    "headline": "Opendoor Stock Gains as FSBO.com Integration Boosts Turnaround Hopes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T12:44:59.231463-05:00",
+    "symbols": [
+      "AYTU"
+    ],
+    "headline": "Maxim Group Downgrades Aytu BioPharma to Hold",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T12:45:06.926647-05:00",
+    "symbols": [
+      "NKE"
+    ],
+    "headline": "Nike Targets $5 Billion Incremental Revenue Growth By Fiscal 2031",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T12:45:06.933663-05:00",
+    "symbols": [
+      "NKE"
+    ],
+    "headline": "Nike Executive Says Co Expects Sportswear Footwear Revenue From New Models, Updates To Be About 40% In Fiscal 2031",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T12:45:06.939230-05:00",
+    "symbols": [
+      "NKE"
+    ],
+    "headline": "Nike shares are trading higher after the company reaffirmed its fiscal 2027 financial guidance. Also, the company announced it expects approximately $12 billion of cumulative capital returns through dividends to shareholders from fiscal 2027 through fiscal 2031.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T12:45:09.066266-05:00",
+    "symbols": [
+      "MNSO"
+    ],
+    "headline": "Amer Sports, Sellas Life Sciences, Similarweb And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T12:45:09.075127-05:00",
+    "symbols": [
+      "MNSO"
+    ],
+    "headline": "MINISO Group Holding Q3 Adj. EPS $0.35 Misses $0.38 Estimate, Sales $988.187M Miss $1.010B Estimate",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

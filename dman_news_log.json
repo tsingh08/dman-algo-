@@ -1,485 +1,5 @@
 [
   {
-    "ts": "2026-11-17T12:55:22.110719-05:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "&#39;Clampdown on China Chip Loophole Puts Billions in Loans at Risk&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T12:55:22.161849-05:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "StoneX Maintains Buy on Baidu, Lowers Price Target to $125",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:55:22.166038-05:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Why Is Alibaba Stock Falling Ahead of Earnings?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:55:22.169791-05:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "&#39;Clampdown on China Chip Loophole Puts Billions in Loans at Risk&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:55:22.215686-05:00",
-    "symbols": [
-      "PDD"
-    ],
-    "headline": "European Commission Issues Preliminary Warning to Temu Over Illegal Product Sales",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:55:22.267617-05:00",
-    "symbols": [
-      "JD"
-    ],
-    "headline": "JD Q3 JD Logistics Rev RMB63.95B, Up 16% Y/Y",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:55:22.271453-05:00",
-    "symbols": [
-      "JD"
-    ],
-    "headline": "JD Q3 Free Cash Flow Negative RMB23.86B Vs Negative RMB11.25B Prior",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:55:22.274968-05:00",
-    "symbols": [
-      "JD"
-    ],
-    "headline": "JD Q3 JD Retail Rev RMB257.97B Vs RMB250.58B Prior; Operating Margin 5.8% Vs 5.9% Prior",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:55:22.278445-05:00",
-    "symbols": [
-      "JD"
-    ],
-    "headline": "JD Q3 Non-GAAP Operating Income RMB7.35B Vs RMB211M Prior",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:55:22.333123-05:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "Quantum X Labs Validates Qatacomb Cybersecurity Technology Using IonQ Infrastructure",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T12:55:22.396275-05:00",
-    "symbols": [
-      "SOUN"
-    ],
-    "headline": "HC Wainwright &amp; Co. Assumes SoundHound AI at Buy, Announces Price Target of $7",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T12:55:22.522303-05:00",
-    "symbols": [
-      "BBAI"
-    ],
-    "headline": "HC Wainwright &amp; Co. Assumes BigBear.ai Holdings at Buy, Announces Price Target of $4",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:55:22.624161-05:00",
-    "symbols": [
-      "ACHR"
-    ],
-    "headline": "Archer Aviation And Jeppesen Foreflight Begin First Phase Of Integrating Archer\u2019s ZEE AI Foundation Model Into Foreflight Mobile For Real-Time Air Traffic Control Transcription",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T12:55:22.857837-05:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "GE Vernova Expands GRiDEA Portfolio With SF\u2086-Free HYpact-145g Compact Switchgear, Now Available To Order And Planned For Manufacture In Kassel, Germany",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T12:55:22.911253-05:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Nozomi Networks and Lockheed Martin Announce Strategic Cybersecurity Collaboration",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T12:55:22.963466-05:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "RTX's Collins Aerospace Breaks Ground on New Propeller MRO Facility in India",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T12:55:23.789144-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "OpenAI Introduces GPT-6.2 And SOL",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T12:55:24.084042-05:00",
-    "symbols": [
-      "ABX"
-    ],
-    "headline": "Abacus Global Management Says Internal Controls May Be Deemed Ineffective; Does Not Expect To File 10-Q Within Extended Deadline",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:55:24.087844-05:00",
-    "symbols": [
-      "ABX"
-    ],
-    "headline": "Abacus Global Management Delays Q3 10-Q Amid Review Of Accounting For Private Fund LP Capital Credits &amp; Related-Party Transactions; Says Prior Reports Back To June 2025 May Need Correction",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:55:24.139389-05:00",
-    "symbols": [
-      "TRI"
-    ],
-    "headline": "Thomson Reuters Announces Ex-Dividend Date",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:55:24.143428-05:00",
-    "symbols": [
-      "TRI"
-    ],
-    "headline": "Trifast PLC Reports First-Half Revenue of \u00a3101.3 Million",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:55:24.196949-05:00",
-    "symbols": [
-      "PICS"
-    ],
-    "headline": "S&amp;P 500 Down 1%; Disney Posts Upbeat Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:55:24.408315-05:00",
-    "symbols": [
-      "DUOT"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Tuesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T12:55:24.646397-05:00",
-    "symbols": [
-      "FRSH"
-    ],
-    "headline": "Freshworks Shares Down 3.8%; Traders Circulate Unconfirmed M&amp;A Rumors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:55:24.793383-05:00",
-    "symbols": [
-      "HUYA"
-    ],
-    "headline": "HUYA Inc. Reports Third Quarter 2026 Unaudited Financial Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:55:24.838164-05:00",
-    "symbols": [
-      "SITE"
-    ],
-    "headline": "SiteOne Landscape Supply to Join S&P SmallCap 600",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:55:24.907784-05:00",
-    "symbols": [
-      "NKE"
-    ],
-    "headline": "Nike Executive Says Advanced Innovation To Contribute Approximately 10% Of Annual Revenue On Average",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T12:55:24.956679-05:00",
-    "symbols": [
-      "IDYA"
-    ],
-    "headline": "RBC Capital Reiterates Outperform on IDEAYA Biosciences, Maintains $45 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:55:25.004138-05:00",
-    "symbols": [
-      "CPRI"
-    ],
-    "headline": "Capri Holdings Insider Sold Shares Worth $46.9 Million",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:55:25.060246-05:00",
-    "symbols": [
-      "WB"
-    ],
-    "headline": "Weibo Q3 Adj. EPS $0.06 Misses $0.24 Estimate, Sales $410.230M Miss $417.238M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:55:25.109979-05:00",
-    "symbols": [
-      "DQ"
-    ],
-    "headline": "Daqo New Energy Corp. to Hold Annual General Meeting on December 10, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:56:25.087185-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Dow Slides 1.4% as Salesforce Leads Software Rout Before Anthropic IPO: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T12:56:25.239384-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Dow Slides 1.4% as Salesforce Leads Software Rout Before Anthropic IPO: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T12:56:25.242288-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Amazon&#39;s Jassy Says Don\u2019t Foresee A Day Where We\u2019re Not Partners With Nvidia, Says Believe Nvidia\u2019s Business Will Be Very Strong For As Long As Can Foresee",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T12:56:25.244925-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "ServiceNow Stock Drops 7% As Software Sell-Off Deepens",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T12:56:25.247756-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "OpenAI Introduces GPT-6.2 And SOL",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T12:56:25.952420-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon&#39;s Jassy Says We\u2019ve Learned A Lot From Partnering With Anthropic",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T12:56:25.955436-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon&#39;s Jassy Says Don\u2019t Foresee A Day Where We\u2019re Not Partners With Nvidia, Says Believe Nvidia\u2019s Business Will Be Very Strong For As Long As Can Foresee",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T12:56:26.473281-05:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Dow Slides 1.4% as Salesforce Leads Software Rout Before Anthropic IPO: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T12:56:26.476009-05:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "ServiceNow Stock Drops 7% As Software Sell-Off Deepens",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T12:56:27.692057-05:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Qualcomm China Chairman Participates in 17th Caixin Summit",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:56:27.695095-05:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Getac Launches MX60 and MX60W End User Devices Powered by Qualcomm",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:56:30.912192-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin at $64,000? \u2018Attractive Entry\u2019 for Long-Term Investors, Grayscale Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:56:30.915041-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin, XRP, Dogecoin Slide, Ethereum Steady as \u2018Extreme Fear\u2019 Persists: Analyst Says \u2018Selling Hasn\u2019t Stopped Yet\u2019 as Whales Offload BTC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:56:31.389439-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "&#39;Coming Soon&#39;: Elon Musk Hints Tesla Owners Could Put Their Model Ys to Work as Robotaxis Without Driving",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:56:31.392308-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Nvidia Director Reportedly Warns of \u2018Irreplaceable Talent\u2019 Loss: Board Urged to Bring Back Jensen Huang as NVDA Stock Slips",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T12:56:31.612722-05:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "MongoDB Acquires Firebolt; Terms Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T12:56:31.726017-05:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Airbnb Co-Founder Joe Gebbia Says He Modernized Federal Retirement System In 6 Months for $1.5 Million After Contractors Spent $100 Million",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-17T12:56:31.728684-05:00",
     "symbols": [
       "ABNB"
@@ -4995,6 +4515,486 @@
       "SUPV"
     ],
     "headline": "Grupo Supervielle Reports Third Quarter 2026 Financial Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T14:57:03.648847-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Billionaire Daniel Loeb Swaps Amazon for Meta, Nvidia and Microsoft in Q3 \u2014 Meta Now Third Point&#39;s Top Holding",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:57:03.651808-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Stock Lands in Stanley Druckenmiller\u2019s Duquesne Portfolio",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:57:03.827239-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:57:03.938527-05:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Billionaire Daniel Loeb Swaps Amazon for Meta, Nvidia and Microsoft in Q3 \u2014 Meta Now Third Point&#39;s Top Holding",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T14:57:04.354373-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Billionaire Daniel Loeb Swaps Amazon for Meta, Nvidia and Microsoft in Q3 \u2014 Meta Now Third Point&#39;s Top Holding",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T14:57:04.357148-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Oracle Stock Drops Amid AI, Cybersecurity and Outage Concerns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T14:57:04.482182-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Muddy Waters Research Issues Report On Nvidia",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T14:57:04.484996-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Billionaire Daniel Loeb Swaps Amazon for Meta, Nvidia and Microsoft in Q3 \u2014 Meta Now Third Point&#39;s Top Holding",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T14:57:04.487550-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Oracle Stock Drops Amid AI, Cybersecurity and Outage Concerns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T14:57:05.031211-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Billionaire Daniel Loeb Swaps Amazon for Meta, Nvidia and Microsoft in Q3 \u2014 Meta Now Third Point&#39;s Top Holding",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T14:57:05.035308-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "SpaceX Stock Lands in Stanley Druckenmiller\u2019s Duquesne Portfolio",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T14:57:05.272390-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Billionaire Daniel Loeb Swaps Amazon for Meta, Nvidia and Microsoft in Q3 \u2014 Meta Now Third Point&#39;s Top Holding",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:57:05.275234-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "SpaceX Stock Lands in Stanley Druckenmiller\u2019s Duquesne Portfolio",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:57:05.277738-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Oracle Stock Drops Amid AI, Cybersecurity and Outage Concerns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:57:05.459303-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Billionaire Daniel Loeb Swaps Amazon for Meta, Nvidia and Microsoft in Q3 \u2014 Meta Now Third Point&#39;s Top Holding",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:57:05.462053-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "SpaceX Stock Lands in Stanley Druckenmiller\u2019s Duquesne Portfolio",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:57:05.595187-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "SpaceX Stock Lands in Stanley Druckenmiller\u2019s Duquesne Portfolio",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T14:57:06.228854-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "SpaceX Stock Lands in Stanley Druckenmiller\u2019s Duquesne Portfolio",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T14:57:06.513590-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T14:57:07.234870-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:57:07.238052-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell Stock Rises as Citadel Discloses 729% Stake Boost, Slashes SpaceX, Amazon",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:57:07.240640-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Lumentum Stock Climbs on Report of Looming U.S. Curbs on Chinese Data Center Gear",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:57:07.243278-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Wall Street Is Trading Chips for Chicken: Staples See Best Run Against Tech Since 2001",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:57:07.408180-05:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "Billionaire Daniel Loeb Swaps Amazon for Meta, Nvidia and Microsoft in Q3 \u2014 Meta Now Third Point&#39;s Top Holding",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:57:07.570257-05:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Bitwise Shares Ultra-Bullish SOL Price Prediction: $1,100 by 2031 in Best Case",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T14:57:07.888321-05:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "StoneX Maintains Buy on Rivian Automotive, Lowers Price Target to $20",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T14:57:08.180287-05:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Live On CNBC, Josh Brown Hosts Segment Titled \u201cJosh\u2019s Best Stocks Update: Moderna\u201d",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:57:08.470157-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Berkshire Hathaway, Cisco And A Health Care Stock: CNBC\u2019s \u2018Final Trades\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T14:57:09.364888-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "5 Industrials Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:57:09.367766-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Marvell Stock Rises as Citadel Discloses 729% Stake Boost, Slashes SpaceX, Amazon",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:57:09.626503-05:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "SpaceX Stock Lands in Stanley Druckenmiller\u2019s Duquesne Portfolio",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T14:57:09.629385-05:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "Stanley Druckenmiller\u2019s Duquesne Bets Big on Storage, Nearly Triples Seagate Stake As He Reverses Some Q2 Tech Bets, Slashes TSMC and Exits AMD, Google",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T14:57:09.819269-05:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "Barclays Maintains Bullish Rating on Arista Networks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:57:09.994410-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "SpaceX Stock Lands in Stanley Druckenmiller\u2019s Duquesne Portfolio",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T14:57:10.455308-05:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Bitwise Shares Ultra-Bullish SOL Price Prediction: $1,100 by 2031 in Best Case",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:57:13.347416-05:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "5 Industrials Stocks With Whale Alerts In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:57:14.108866-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Oracle Stock Drops Amid AI, Cybersecurity and Outage Concerns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:57:14.697765-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Reported Earlier, &#39;Democrats Plan Probes of Trump\u2019s $100 Billion Venezuela Oil Deal&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:57:14.842736-05:00",
+    "symbols": [
+      "SLB"
+    ],
+    "headline": "Reported Earlier, &#39;Democrats Plan Probes of Trump\u2019s $100 Billion Venezuela Oil Deal&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:57:15.623340-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Stock Drops Amid AI, Cybersecurity and Outage Concerns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T14:57:15.789674-05:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "10 Information Technology Stocks Whale Activity In Today\u2019s Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T14:57:15.939282-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Transportation Secretary Duffy Says Still No Root Cause Determined For Router That Failed Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T14:57:19.150515-05:00",
+    "symbols": [
+      "OPEN"
+    ],
+    "headline": "Opendoor Stock Gains as FSBO.com Integration Boosts Turnaround Hopes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T14:57:21.807950-05:00",
+    "symbols": [
+      "AYTU"
+    ],
+    "headline": "Maxim Group Downgrades Aytu BioPharma to Hold",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T14:57:27.048024-05:00",
+    "symbols": [
+      "NKE"
+    ],
+    "headline": "Nike Targets $5 Billion Incremental Revenue Growth By Fiscal 2031",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:57:27.050964-05:00",
+    "symbols": [
+      "NKE"
+    ],
+    "headline": "Nike Executive Says Co Expects Sportswear Footwear Revenue From New Models, Updates To Be About 40% In Fiscal 2031",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T14:57:28.258952-05:00",
+    "symbols": [
+      "MNSO"
+    ],
+    "headline": "Amer Sports, Sellas Life Sciences, Similarweb And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T14:57:28.262138-05:00",
+    "symbols": [
+      "MNSO"
+    ],
+    "headline": "MINISO Group Holding Q3 Adj. EPS $0.35 Misses $0.38 Estimate, Sales $988.187M Miss $1.010B Estimate",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

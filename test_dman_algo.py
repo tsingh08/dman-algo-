@@ -28708,10 +28708,32 @@ class TestDaemonDispatchesTheSessionReview(unittest.TestCase):
         self.assertFalse(out)
         t.assert_not_called()
         self.assertEqual(since.call_args[0][0],
-                         self._at(12, 35).astimezone(_dt_timezone.utc))
+                         self._at(11, 20).astimezone(_dt_timezone.utc))
         out, t, since = self._run(self._at(12, 58))
         t.assert_not_called()
         since.assert_not_called()
+
+    def test_a_cron_that_arrived_just_before_the_slot_is_not_repeated(self):
+        """The workflow's crons sit at 10:14 and 16:24 ET on winter time, a
+        minute and six minutes ahead of these slots, and a dispatch always
+        runs: looking back only to the slot's own opening would follow an
+        on-time cron with a second review -- at the close, a second
+        auto-merge attempt. Midday reaches back 75 minutes but not before
+        10:00; end-of-day to the workflow's 16:05 bar."""
+        for now, since_hm in (((10, 15), (10, 0)), ((14, 40), (13, 25)),
+                              ((16, 30), (16, 5)), ((17, 10), (16, 5))):
+            self.d._review_slots_sent.clear()
+            _, _, since = self._run(self._at(*now))
+            self.assertEqual(since.call_args[0][0],
+                             self._at(*since_hm).astimezone(_dt_timezone.utc), now)
+
+    def test_a_cancelled_run_reviewed_nothing(self):
+        resp = MagicMock(status_code=200)
+        resp.json.return_value = {"workflow_runs": [
+            {"created_at": "2026-11-17T15:20:00Z", "conclusion": "cancelled"}]}
+        with patch.object(a.requests, "get", return_value=resp):
+            self.assertFalse(self.d._review_run_since(
+                datetime(2026, 11, 17, 15, 15, tzinfo=_dt_timezone.utc)))
 
     def test_no_answer_from_github_waits_and_retries(self):
         out, t, _ = self._run(self._at(10, 15), ran=None)

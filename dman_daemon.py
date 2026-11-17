@@ -35,7 +35,7 @@ import sys
 import threading
 import time
 from typing import Optional
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -2145,6 +2145,8 @@ def _review_run_since(since_utc: datetime) -> Optional[bool]:
         if resp.status_code != 200:
             return None
         for _run in resp.json().get("workflow_runs", []):
+            if _run.get("conclusion") == "cancelled":
+                continue                 # superseded in the queue; reviewed nothing
             _at = datetime.fromisoformat(str(_run["created_at"]).replace("Z", "+00:00"))
             if _at >= since_utc:
                 return True
@@ -2188,7 +2190,20 @@ def _dispatch_due_review(now_et: Optional[datetime] = None) -> bool:
             continue
         _slot_open = now_et.replace(hour=int(_start[:2]), minute=int(_start[2:]),
                                     second=0, microsecond=0)
-        _ran = _review_run_since(_slot_open.astimezone(timezone.utc))
+        # "Already reviewed" reaches back before the slot opens. The workflow
+        # runs every dispatch unconditionally, and its own crons sit minutes
+        # ahead of these slots (10:14 and 16:24 ET on winter time): a cron
+        # that arrived on time would be followed by a second, identical
+        # review -- at the close, a second auto-merge attempt. Midday: the
+        # same 75 minutes the workflow uses to skip a cron behind a dispatch,
+        # but never before 10:00, where a run is not a midday review. EOD:
+        # anything created from 16:05, the workflow's own end-of-day bar.
+        if _kind == "eod":
+            _since = now_et.replace(hour=16, minute=5, second=0, microsecond=0)
+        else:
+            _since = max(_slot_open - timedelta(minutes=75),
+                         now_et.replace(hour=10, minute=0, second=0, microsecond=0))
+        _ran = _review_run_since(_since.astimezone(timezone.utc))
         if _ran is None:
             return False                 # GitHub did not answer; try next tick
         if _ran:

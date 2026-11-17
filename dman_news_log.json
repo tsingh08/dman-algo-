@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-11-17T09:36:30.972622-05:00",
-    "symbols": [
-      "AIRJ"
-    ],
-    "headline": "B. Riley Adjusts AirJoule Technologies Price Target to $6",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:31.123556-05:00",
-    "symbols": [
-      "MMED"
-    ],
-    "headline": "MiniMed Launches MiniMed Flex\u2122 Insulin Pump in Europe",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:31.187275-05:00",
-    "symbols": [
-      "KLAR"
-    ],
-    "headline": "Klarna Affirms FY2026 GMV Guidance Of $149B-$151B; Sees Q4 GMV $42.6B-$44.6B",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:31.190880-05:00",
-    "symbols": [
-      "KLAR"
-    ],
-    "headline": "Klarna Affirms FY2026 Adj. Operating Income Guidance Of $280M-$300M; Sees Q4 Adj. Operating Income $100M-$120M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:31.194606-05:00",
-    "symbols": [
-      "KLAR"
-    ],
-    "headline": "Klarna Affirms FY2026 Transaction Margin Dollars Guidance Of $1.62B-$1.65B; Sees Q4 TMD $414M-$444M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:31.198065-05:00",
-    "symbols": [
-      "KLAR"
-    ],
-    "headline": "Klarna Q3 GMV $36.1B, Up 10% YoY; U.S. GMV Up 24%; Transaction Margin Dollars $371M, Up 32%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T09:36:31.201497-05:00",
-    "symbols": [
-      "KLAR"
-    ],
-    "headline": "Klarna Q3 Credit Loss Provisions 0.56% Of GMV vs 0.72% Last Year; Active Consumers 122M, Up 7%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-17T09:36:31.330891-05:00",
     "symbols": [
       "HUBG"
@@ -4995,6 +4925,76 @@
       "NMAD"
     ],
     "headline": "Nomad Power Solutions Q3 EPS $(0.74) Up From $(1.30) YoY, Sales $472.000K Down From $652.000K YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-17T10:48:46.390075-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "What&#39;s Going on With AST SpaceMobile Stock on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T10:48:47.475374-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What&#39;s Going on With AST SpaceMobile Stock on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T10:48:47.763813-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Druckenmiller&#39;s Duquesne Gives Chip Stocks the Boot: Exits AMD, Sandisk and More",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T10:48:50.171781-05:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Druckenmiller&#39;s Duquesne Gives Chip Stocks the Boot: Exits AMD, Sandisk and More",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T10:48:52.838604-05:00",
+    "symbols": [
+      "RBLX"
+    ],
+    "headline": "Roblox Focus Of Child Safety Hearing On Nov. 17",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T10:48:53.267845-05:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "Druckenmiller&#39;s Duquesne Gives Chip Stocks the Boot: Exits AMD, Sandisk and More",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-17T10:49:00.100831-05:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Reported November 16, U.S. CMS Issues Proposed Rule To Target Fraud Across Medicare, Medicaid/CHIP, And The Marketplace; Sees Possible Savings Of $90B Over Next 10 Years",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

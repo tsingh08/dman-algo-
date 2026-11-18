@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-11-18T14:27:37.655143-05:00",
-    "symbols": [
-      "NXT"
-    ],
-    "headline": "Nextpower Secures New US Patent For Technology Used In Its NX Horizon-XTR Terrain-Following Solar Tracker",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T14:27:37.659798-05:00",
-    "symbols": [
-      "NXT"
-    ],
-    "headline": "Mizuho Maintains Neutral on Nextpower, Raises Price Target to $104",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T14:27:37.852877-05:00",
-    "symbols": [
-      "SHAZ"
-    ],
-    "headline": "Can Anthropic\u2019s IPO Revive Situational Awareness?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T14:27:38.048759-05:00",
-    "symbols": [
-      "EVR"
-    ],
-    "headline": "Evercore ISI Adjusts Price Target on Nike",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T14:27:38.053193-05:00",
-    "symbols": [
-      "EVR"
-    ],
-    "headline": "Evercore ISI Adjusts Price Target on The Home Depot",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T14:27:38.057505-05:00",
-    "symbols": [
-      "EVR"
-    ],
-    "headline": "Evercore Served as Financial Advisor in Litmus Music Capital Commitment Transaction",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T14:27:38.254322-05:00",
-    "symbols": [
-      "RBRK"
-    ],
-    "headline": "Rubrik Expands Cloud Data Protection To Microsoft Azure Cosmos DB",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T14:27:38.447959-05:00",
-    "symbols": [
-      "GBDC"
-    ],
-    "headline": "&#39;Higher Rates Will Push Firms to Private Credit as Stress Rises&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T14:27:38.641889-05:00",
-    "symbols": [
-      "WIT"
-    ],
-    "headline": "SDVerse, Co-Founded by Wipro, Named CES Innovation Awards 2027 Honoree",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T14:27:38.841645-05:00",
-    "symbols": [
-      "CHKP"
-    ],
-    "headline": "Check Point Software Technologies Insider Sells Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-18T14:27:39.036000-05:00",
     "symbols": [
       "PIPR"
@@ -4996,6 +4896,106 @@
     ],
     "headline": "Qualcomm and Cirrascale Collaborate on AI Inference Solutions",
     "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T15:12:55.499902-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Bessent Wants an Outside CEO. Brad Gerstner Says Nvidia Should Wait on Jensen Huang",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T15:12:55.503190-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Freedom Broker Maintains Buy on NVIDIA, Lowers Price Target to $230",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T15:12:58.272708-05:00",
+    "symbols": [
+      "JD"
+    ],
+    "headline": "Freedom Broker Maintains Buy on JD.com, Lowers Price Target to $40",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T15:13:00.600605-05:00",
+    "symbols": [
+      "IAUX"
+    ],
+    "headline": "Freedom Broker Maintains Buy on i-80 Gold, Lowers Price Target to $2.8",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T15:13:03.733259-05:00",
+    "symbols": [
+      "JJSF"
+    ],
+    "headline": "J&amp;J Snack Foods Q4 Adj. EPS $1.39 Beats $1.33 Estimate, Sales $406.017M Beat $398.822M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T15:13:03.841360-05:00",
+    "symbols": [
+      "DIS"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Fortinet, UnitedHealth Group, CrowdStrike, Walt Disney",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T15:13:03.845691-05:00",
+    "symbols": [
+      "DIS"
+    ],
+    "headline": "Disney Stock Moves Higher: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T15:13:03.848608-05:00",
+    "symbols": [
+      "DIS"
+    ],
+    "headline": "B of A Securities Maintains Buy on Walt Disney, Raises Price Target to $135",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T15:13:03.852357-05:00",
+    "symbols": [
+      "DIS"
+    ],
+    "headline": "JP Morgan Maintains Overweight on Walt Disney, Raises Price Target to $140",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T15:13:03.855424-05:00",
+    "symbols": [
+      "DIS"
+    ],
+    "headline": "Growth Leads Sectors In Wednesday Trading As Cyclicals Trail",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

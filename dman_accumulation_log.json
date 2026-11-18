@@ -1,23 +1,5 @@
 [
  {
-  "ts": "2026-09-23T14:39:28.822808-04:00",
-  "ticker": "IUSB",
-  "price": 44.485,
-  "rvol": 7.54,
-  "drift_pct": 0.99,
-  "range_ratio": 0.47,
-  "near_high": 0.964
- },
- {
-  "ts": "2026-09-23T14:39:28.822812-04:00",
-  "ticker": "IALT",
-  "price": 29.74,
-  "rvol": 6.14,
-  "drift_pct": 0.07,
-  "range_ratio": 0.47,
-  "near_high": 0.995
- },
- {
   "ts": "2026-09-23T14:39:28.822815-04:00",
   "ticker": "TDTF",
   "price": 22.74,
@@ -4498,5 +4480,23 @@
   "drift_pct": 0.9,
   "range_ratio": 0.34,
   "near_high": 0.99
+ },
+ {
+  "ts": "2026-11-18T11:17:49.152575-05:00",
+  "ticker": "AES",
+  "price": 15.015,
+  "rvol": 2.37,
+  "drift_pct": 0.7,
+  "range_ratio": 0.59,
+  "near_high": 0.998
+ },
+ {
+  "ts": "2026-11-18T11:17:49.152592-05:00",
+  "ticker": "SSTI",
+  "price": 8.24,
+  "rvol": 3.58,
+  "drift_pct": 0.12,
+  "range_ratio": 0.5,
+  "near_high": 0.976
  }
 ]

@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-11-18T14:27:39.036000-05:00",
-    "symbols": [
-      "PIPR"
-    ],
-    "headline": "Piper Sandler Initiates Coverage on Innoviva",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T14:27:39.040358-05:00",
-    "symbols": [
-      "PIPR"
-    ],
-    "headline": "Piper Sandler Adjusts Price Target on Nvidia",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T14:27:39.232622-05:00",
-    "symbols": [
-      "YALA"
-    ],
-    "headline": "Yalla Sees Double-Digit Revenue Growth Next Year As Gaming Business Shows Promise",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T14:27:39.428609-05:00",
-    "symbols": [
-      "IMRX"
-    ],
-    "headline": "Immuneering Presents Preclinical Data Demonstrating Potential Of Atebimetinib; Phase 2 Results Include Long Survival And Outstanding Tolerability Profile In First-Line Pancreatic Cancer Patients",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-18T14:27:39.667234-05:00",
     "symbols": [
       "TSM"
@@ -4995,6 +4955,46 @@
       "DIS"
     ],
     "headline": "Growth Leads Sectors In Wednesday Trading As Cyclicals Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T15:23:17.664804-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Hearing Nvidia Chair Says Jensen Huang Not Coming Back",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T15:23:17.668259-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "House Select Committee On China Has Requested A Bipartisan Briefing From Microsoft On Reported Deal To Sell AI To Bytedance",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T15:23:19.125486-05:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "Here\u2019s How Much You Would Have Made Owning KLA Stock In The Last 20 Years",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T15:23:24.279460-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "House Select Committee On China Has Requested A Bipartisan Briefing From Microsoft On Reported Deal To Sell AI To Bytedance",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

@@ -1,50 +1,5 @@
 [
  {
-  "ts": "2026-09-23T14:07:28.349461-04:00",
-  "ticker": "TBPH",
-  "price": 17.045,
-  "rvol": 4.54,
-  "drift_pct": 0.03,
-  "range_ratio": 0.2,
-  "near_high": 0.998
- },
- {
-  "ts": "2026-09-23T14:39:28.822790-04:00",
-  "ticker": "GGOV",
-  "price": 50.179,
-  "rvol": 17.22,
-  "drift_pct": 0.06,
-  "range_ratio": 0.39,
-  "near_high": 0.996
- },
- {
-  "ts": "2026-09-23T14:39:28.822799-04:00",
-  "ticker": "NEAR",
-  "price": 49.985,
-  "rvol": 1.59,
-  "drift_pct": 0.31,
-  "range_ratio": 0.32,
-  "near_high": 0.987
- },
- {
-  "ts": "2026-09-23T14:39:28.822802-04:00",
-  "ticker": "CLOI",
-  "price": 52.9096,
-  "rvol": 3.04,
-  "drift_pct": 0.06,
-  "range_ratio": 0.35,
-  "near_high": 0.998
- },
- {
-  "ts": "2026-09-23T14:39:28.822806-04:00",
-  "ticker": "ACWX",
-  "price": 76.57,
-  "rvol": 7.32,
-  "drift_pct": 0.21,
-  "range_ratio": 0.61,
-  "near_high": 0.975
- },
- {
   "ts": "2026-09-23T14:39:28.822808-04:00",
   "ticker": "IUSB",
   "price": 44.485,
@@ -4498,5 +4453,50 @@
   "drift_pct": 0.83,
   "range_ratio": 0.25,
   "near_high": 0.996
+ },
+ {
+  "ts": "2026-11-18T09:39:30.255699-05:00",
+  "ticker": "CHYM",
+  "price": 33.16,
+  "rvol": 3.38,
+  "drift_pct": 0.39,
+  "range_ratio": 0.37,
+  "near_high": 0.96
+ },
+ {
+  "ts": "2026-11-18T09:39:30.255714-05:00",
+  "ticker": "AES",
+  "price": 15.015,
+  "rvol": 1.83,
+  "drift_pct": 0.7,
+  "range_ratio": 0.55,
+  "near_high": 0.998
+ },
+ {
+  "ts": "2026-11-18T09:39:30.255718-05:00",
+  "ticker": "SSTI",
+  "price": 8.24,
+  "rvol": 3.58,
+  "drift_pct": 0.12,
+  "range_ratio": 0.5,
+  "near_high": 0.976
+ },
+ {
+  "ts": "2026-11-18T09:39:30.255722-05:00",
+  "ticker": "TXNM",
+  "price": 58.97,
+  "rvol": 1.66,
+  "drift_pct": 0.26,
+  "range_ratio": 0.31,
+  "near_high": 1.0
+ },
+ {
+  "ts": "2026-11-18T09:39:30.255725-05:00",
+  "ticker": "XEL",
+  "price": 80.77,
+  "rvol": 1.67,
+  "drift_pct": 0.9,
+  "range_ratio": 0.34,
+  "near_high": 0.99
  }
 ]

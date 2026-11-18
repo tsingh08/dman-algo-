@@ -10050,7 +10050,11 @@ def report_signal_features(min_n: int = 5) -> list[str]:
         if _b:
             lines += _b
     try:
-        lines += _ai_scorecard_lines(_all)
+        # Deduped like every other bucket above: the scorecard's min_n and its
+        # pass/veto means must count signals, not re-scored copies of one.
+        # _dedupe_feature_rows() carries ai_* and label_* across merged copies,
+        # and unlabelled rows stay in so the "awaiting a label" count is real.
+        lines += _ai_scorecard_lines(_dedupe_feature_rows(_all))
     except Exception as exc:
         _log_swallowed("ai scorecard", exc)
     return lines

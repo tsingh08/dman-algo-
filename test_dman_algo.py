@@ -32492,3 +32492,65 @@ class TestZonesOffNoticeIsSentOnce(unittest.TestCase):
 
     def test_a_week_old_notice_is_not_repeated(self):
         self.assertEqual(len(self._manage(datetime.now(a.ET) - timedelta(days=8))), 0)
+
+
+class TestAiScorecardCountsSignalsNotRows(unittest.TestCase):
+    """The AI scorecard inside report_signal_features() must read DEDUPED
+    rows, like every other bucket in that report.
+
+    Until 2026-11-18 it was the one reader handed the raw file (`_all`), so
+    re-scored copies of a single signal could satisfy its min_n=10 gate by
+    themselves and its pass/veto means were weighted by scan cadence -- the
+    exact bug class _dedupe_feature_rows() was written for (2026-09-28: one
+    MSTU signal held 25 rows). _dedupe_feature_rows() carries ai_* and
+    label_* fields across merged copies, so deduping loses nothing."""
+
+    def _row(self, i, **kw):
+        base = dict(ts=f"2026-11-17T10:{i:02d}:00", date="2026-11-17",
+                    ticker="MSTU", setup="Gap & Hold", entry=48.0, stop=45.8,
+                    score=100, taken=False, reject="score", atr=4.0,
+                    ai_score=8, ai_p=0.9, ai_v=1,
+                    label_outcome="WIN", label_pnl_pct=5.0,
+                    label_mfe_pct=6.0, label_mae_pct=-1.0,
+                    label_exit_reason="target")
+        base.update(kw)
+        return base
+
+    def test_copies_of_one_scored_signal_cannot_clear_the_min_n_gate(self):
+        # 12 copies of ONE scored, labelled signal: raw rows would count 12
+        # scored signals (>= min_n 10) and print the full scorecard; deduped
+        # they are 1, which must report as too few to read.
+        rows = [self._row(i) for i in range(12)]
+        with tempfile.TemporaryDirectory() as d:
+            f = os.path.join(d, "feat.json")
+            io.open(f, "w", encoding="utf-8").write(json.dumps(rows))
+            with patch.object(a, "SIGNAL_FEATURES_FILE", f):
+                out = chr(10).join(a.report_signal_features(min_n=1))
+        self.assertIn("too few to read", out)
+        self.assertNotIn("would pass", out)
+
+    def test_distinct_scored_signals_still_reach_the_scorecard(self):
+        # The same 12 rows as distinct tickers must still print the full
+        # scorecard -- deduping must not suppress real sample size.
+        rows = [self._row(i, ticker=f"T{i}") for i in range(12)]
+        with tempfile.TemporaryDirectory() as d:
+            f = os.path.join(d, "feat.json")
+            io.open(f, "w", encoding="utf-8").write(json.dumps(rows))
+            with patch.object(a, "SIGNAL_FEATURES_FILE", f):
+                out = chr(10).join(a.report_signal_features(min_n=1))
+        self.assertIn("would pass", out)
+
+    def test_awaiting_label_count_is_per_signal_after_dedupe(self):
+        # 5 unlabelled copies of one scored signal are ONE signal awaiting a
+        # label, not five. One labelled-but-unscored signal keeps the report
+        # from returning early.
+        rows = ([self._row(i, ai_p=0.4, label_outcome=None, label_pnl_pct=None,
+                           label_mfe_pct=None, label_mae_pct=None,
+                           label_exit_reason=None) for i in range(5)]
+                + [self._row(50, ticker="OTHR", ai_score=0, ai_p=None)])
+        with tempfile.TemporaryDirectory() as d:
+            f = os.path.join(d, "feat.json")
+            io.open(f, "w", encoding="utf-8").write(json.dumps(rows))
+            with patch.object(a, "SIGNAL_FEATURES_FILE", f):
+                out = chr(10).join(a.report_signal_features(min_n=1))
+        self.assertIn("1 awaiting a label", out)

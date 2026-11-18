@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-11-18T10:08:40.198830-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Druckenmiller Buys Miners, Warns &#39;27 Could Be &#39;Disappointing&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T10:08:40.202232-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Google Gets Court Approval to Buy Bankrupt Spirit Airlines\u2019 Internal Data for $10 Million to Train AI Models Despite Employee Privacy Concerns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T10:08:40.205140-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "\u2018The Noise Will Work Itself Out in Time\u2019: AMD CEO Lisa Su Says Nvidia a \u2018Phenomenal Company\u2019 After Jensen Huang Exits",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T10:08:40.259446-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Nvidia\u2019s New AI Customers Are Growing 3X Faster Than Big Tech",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T10:08:40.262759-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon, Marriott, Berkshire Hathaway And A Health Care Stock: CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T10:08:40.265734-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Bill Ackman Sold Over 2 Million Microsoft Shares In Q3 Months After Calling It &#39;Compellingly Cheap&#39;: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T10:08:40.269288-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Nvidia Says Meta, OpenAI and CoreWeave Adopt Vera, Expects CPU Revenue to More Than Double in 2028 as Physical AI Revenue Nears $25 Billion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-18T10:08:40.272654-05:00",
     "symbols": [
       "AMZN"
@@ -4998,5 +4928,75 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T13:48:26.789047-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "SoftBank Chose OpenAI Over &#39;Wonderful&#39; Anthropic, Now Masayoshi Son Regrets Picking Only One: &#39;I Wish I Had Invested Back Then&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T13:48:26.792147-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "U.S. Department Of Commerce Issues Interim Final Rule To Prevent Certain Foreign Actors From Leveraging Advanced Computing Power Based On U.S. Technology To Threaten U.S. National Security And Foreign Policy Interests",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T13:48:26.845690-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Loblaw Announces Its Customers Can Go From Store Selection To Checkout Using Meta&#39;s Muse Agent",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T13:48:26.848820-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Bill Ackman Sold Over 2 Million Microsoft Shares In Q3 Months After Calling It &#39;Compellingly Cheap&#39;: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T13:48:26.851906-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Nvidia Says Meta, OpenAI and CoreWeave Adopt Vera, Expects CPU Revenue to More Than Double in 2028 as Physical AI Revenue Nears $25 Billion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T13:48:26.902349-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Nvidia\u2019s New AI Customers Are Growing 3X Faster Than Big Tech",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T13:48:26.905617-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Coinbase CEO Wants AI Agents to Hire and Pay Each Other In Decentralized Economy: &#39;Freedom of Choice and Real Competition&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

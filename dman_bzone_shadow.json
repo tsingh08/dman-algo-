@@ -2638,5 +2638,25 @@
 "extension_pct": 26.4,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "XERS",
+"date": "2026-11-18",
+"close": 16.99,
+"base_days": 3,
+"above_low_pct": 221.2,
+"extension_pct": 31.3,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "BILL",
+"date": "2026-11-18",
+"close": 66.01,
+"base_days": 0,
+"above_low_pct": 106.5,
+"extension_pct": 26.7,
+"fresh_base": false,
+"weak_band": false
 }
 ]

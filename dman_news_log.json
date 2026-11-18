@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-11-17T19:02:35.382817-05:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Netflix Partners with Wonder for Branded Restaurant Concept",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T20:02:35.150267-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Teamsters Rally Following Amazon's Termination of Delivery Partner",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T09:25:25.755051-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk Recruited SpaceX&#39;s First Engineers With 90% Odds of Failing by Telling Them &#39;We&#39;re Probably Going to Die&#39; \u2014 He Says &#39;That&#39;s How It Happened&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:25:25.758220-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Nvidia Says Meta, OpenAI and CoreWeave Adopt Vera, Expects CPU Revenue to More Than Double in 2028 as Physical AI Revenue Nears $25 Billion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:25:25.761293-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk Predicts AI Will \u2018Hack\u2019 the Human Limbic System \u2014 Here\u2019s What It Could Mean",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-18T09:25:25.764737-05:00",
     "symbols": [
       "SPCX"
@@ -4995,6 +4945,56 @@
       "PRVA"
     ],
     "headline": "Privia Health Gr Raises FY2026 Sales Guidance from $2.500B-$2.550B to $2.550B-$2.600B vs $2.457B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T09:58:17.845779-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Exclusive: Yorkville CEO Says SpaceX Won\u2019t Dominate Launch Forever as New Space ETF Debuts",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T09:58:18.089199-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "TD Cowen Reiterates Buy on Microsoft, Maintains $650 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T09:58:20.978179-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Exclusive: Yorkville CEO Says SpaceX Won\u2019t Dominate Launch Forever as New Space ETF Debuts",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T09:58:22.834073-05:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Exclusive: Yorkville CEO Says SpaceX Won\u2019t Dominate Launch Forever as New Space ETF Debuts",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T09:58:24.725888-05:00",
+    "symbols": [
+      "DCH"
+    ],
+    "headline": "TD Cowen Reiterates Buy on Dauch, Maintains $10 Price Target",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-11-18T09:47:35.896514-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Oppenheimer Maintains Bullish Rating on Zscaler",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T09:47:35.997944-05:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "MongoDB Announces Acquisition of Firebolt",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:47:36.572079-05:00",
-    "symbols": [
-      "RCAT"
-    ],
-    "headline": "Red Cat Q3 Revenue Contracts 42% in Q3, Analysts Cut Price Targets",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T09:47:40.280847-05:00",
-    "symbols": [
-      "UAMY"
-    ],
-    "headline": "B. Riley Securities Maintains Buy on United States Antimony, Lowers Price Target to $6",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:47:40.503258-05:00",
-    "symbols": [
-      "SVRE"
-    ],
-    "headline": "Dow Falls Over 300 Points; Nvidia Posts Upbeat Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:47:40.545780-05:00",
-    "symbols": [
-      "HIHO"
-    ],
-    "headline": "Highway Holdings Q2 EPS $0.00 vs $(0.08) YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:47:40.676287-05:00",
-    "symbols": [
-      "CUE"
-    ],
-    "headline": "Dow Falls Over 300 Points; Nvidia Posts Upbeat Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:47:41.287195-05:00",
-    "symbols": [
-      "PRVA"
-    ],
-    "headline": "Privia Health Gr Raises FY2026 Sales Guidance from $2.500B-$2.550B to $2.550B-$2.600B vs $2.457B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:58:17.845779-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Exclusive: Yorkville CEO Says SpaceX Won\u2019t Dominate Launch Forever as New Space ETF Debuts",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-18T09:58:18.089199-05:00",
     "symbols": [
       "MSFT"
@@ -4998,5 +4908,95 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T13:27:39.174461-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Marvell Stock Reverses Early Gains as Chipmakers Weigh Nvidia Earnings Against Export Risks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T13:27:39.177955-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Jefferies Maintains Buy on NVIDIA, Lowers Price Target to $250",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T13:27:40.058660-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell Stock Reverses Early Gains as Chipmakers Weigh Nvidia Earnings Against Export Risks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T13:27:42.040098-05:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "AppLovin-Criteo Deal Would Fit Consumer Strategy, Analyst Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T13:27:42.285758-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Strategy Stock Drops as Bitcoin Falls Below $63,000",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T13:27:50.787446-05:00",
+    "symbols": [
+      "UAMY"
+    ],
+    "headline": "B. Riley Securities Maintains Buy on United States Antimony, Lowers Price Target to $6",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T13:27:51.165931-05:00",
+    "symbols": [
+      "SVRE"
+    ],
+    "headline": "Dow Falls Over 300 Points; Nvidia Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T13:27:51.217413-05:00",
+    "symbols": [
+      "HIHO"
+    ],
+    "headline": "Highway Holdings Q2 EPS $0.00 vs $(0.08) YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T13:27:51.366035-05:00",
+    "symbols": [
+      "CUE"
+    ],
+    "headline": "Dow Falls Over 300 Points; Nvidia Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

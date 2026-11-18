@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-11-18T09:38:17.956276-05:00",
-    "symbols": [
-      "ZIM"
-    ],
-    "headline": "Palo Alto Networks, TJX On Deck Wednesday As Security, Retail Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:38:46.361803-05:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Wall Street Giants Loaded Up on Bitcoin Before 20% Crash\u2014What Now?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T09:47:33.355491-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Dow Falls Over 300 Points; Nvidia Posts Upbeat Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:47:35.559408-05:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Datadog Named a Leader in 2026 Gartner Magic Quadrant for Observability Pipelines",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:47:35.892822-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Zscaler Included in New Bitwise AI Cyber Defense ETF",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-18T09:47:35.896514-05:00",
     "symbols": [
       "ZS"
@@ -4995,6 +4945,56 @@
       "UNH"
     ],
     "headline": "CNBC Halftime Report Final Trades: Fortinet, UnitedHealth Group, CrowdStrike, Walt Disney",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T13:17:18.914651-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "QUICK SPARK: Chip Stocks Eye Worst Two-Month Drop Since 2008",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T13:17:18.918005-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia\u2019s $105 Billion OpenAI Bet Has a 20-Year Catch",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T13:17:19.633315-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "QUICK SPARK: Chip Stocks Eye Worst Two-Month Drop Since 2008",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T13:17:26.595775-05:00",
+    "symbols": [
+      "BE"
+    ],
+    "headline": "Can Anthropic\u2019s IPO Revive Situational Awareness?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T13:17:27.132985-05:00",
+    "symbols": [
+      "TGT"
+    ],
+    "headline": "Target&#39;s $301 Million Tariff Windfall &#39;Flattered&#39; Earnings, Analyst Says",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

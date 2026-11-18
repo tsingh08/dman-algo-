@@ -1,335 +1,5 @@
 [
   {
-    "ts": "2026-11-18T09:38:07.354451-05:00",
-    "symbols": [
-      "BMY"
-    ],
-    "headline": "Bristol Myers Squibb Reports Preliminary Findings From ADEPT-1 12-Week Open-Label Lead-In Period Show Observed Improvements In Hallucination And Delusion Scores From Baseline",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T09:38:07.359505-05:00",
-    "symbols": [
-      "BMY"
-    ],
-    "headline": "Bristol Myers Reports Preliminary Phase 3 Findings Of KarXT Treatment From 12-Week Open-Label Period Of ADEPT-1 Study And 52-Week OLE ADEPT-3 Study In Patients With Psychosis Associated With Alzheimer\u2019s Disease",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T09:38:07.363638-05:00",
-    "symbols": [
-      "BMY"
-    ],
-    "headline": "Erasca Enters Clinical Trial Collaboration And Supply Agreement With Bristol Myers Squibb to Evaluate ERAS-0015 in Combination With Navlimetostat",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T09:38:07.586096-05:00",
-    "symbols": [
-      "TRP"
-    ],
-    "headline": "TC Energy Lifts Force Majeure on Mountaineer XPress Pipeline",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:38:07.589752-05:00",
-    "symbols": [
-      "TRP"
-    ],
-    "headline": "USCapital Advisors Downgrades TC Energy to Hold",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:38:07.816371-05:00",
-    "symbols": [
-      "LHX"
-    ],
-    "headline": "Elon Musk Doubles Down On FAA Criticism Following Sean Duffy\u2019s Starlink Snub: \u2018Wrote This 18 Months Ago\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-18T09:38:07.819907-05:00",
-    "symbols": [
-      "LHX"
-    ],
-    "headline": "Elon Musk Had a Facepalm Moment After Sean Duffy Defends Rejecting Free Starlink for FAA: \u2018Our Airspace Is Very Big\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-18T09:38:07.823280-05:00",
-    "symbols": [
-      "LHX"
-    ],
-    "headline": "U.S. Transportation Secretary Duffy Says Need To Make Sure L3Harris Will Be Good Partner, Hire Better Minds; There Is A Lack Of Clarity On Why This Router Was Able To Have This Impact On The Network",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-18T09:38:08.043242-05:00",
-    "symbols": [
-      "HD"
-    ],
-    "headline": "Evercore ISI Group Maintains Outperform on Home Depot, Lowers Price Target to $385",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-18T09:38:08.046799-05:00",
-    "symbols": [
-      "HD"
-    ],
-    "headline": "Home Depot Analysts Revise Their Forecasts Following Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-18T09:38:08.050226-05:00",
-    "symbols": [
-      "HD"
-    ],
-    "headline": "Truist Securities Maintains Buy on Home Depot, Raises Price Target to $376",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-18T09:38:08.053676-05:00",
-    "symbols": [
-      "HD"
-    ],
-    "headline": "TD Cowen Reiterates Buy on Home Depot, Maintains $410 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-18T09:38:08.057077-05:00",
-    "symbols": [
-      "HD"
-    ],
-    "headline": "Lowe&#39;s Delivers Resilient Quarter Despite Challenging Housing Market",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-18T09:38:08.275466-05:00",
-    "symbols": [
-      "SQM"
-    ],
-    "headline": "12 Materials Stocks Moving In Tuesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:38:08.520412-05:00",
-    "symbols": [
-      "USFD"
-    ],
-    "headline": "JP Morgan Maintains Neutral on US Foods Holdings, Raises Price Target to $110",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:38:08.749448-05:00",
-    "symbols": [
-      "FSV"
-    ],
-    "headline": "FirstService Residential Selected to Manage Swann Cove Property Owners Association",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:38:08.967327-05:00",
-    "symbols": [
-      "OCSL"
-    ],
-    "headline": "Keefe, Bruyette &amp; Woods Maintains Market Perform on Oaktree Specialty Lending, Lowers Price Target to $12.5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-18T09:38:09.233004-05:00",
-    "symbols": [
-      "NJR"
-    ],
-    "headline": "Palo Alto Networks, TJX On Deck Wednesday As Security, Retail Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:38:09.470729-05:00",
-    "symbols": [
-      "CARR"
-    ],
-    "headline": "Carrier Accelerates Integration of 75F Technology Across HVAC Portfolio",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:38:09.912828-05:00",
-    "symbols": [
-      "AA"
-    ],
-    "headline": "Druckenmiller Buys Miners, Warns &#39;27 Could Be &#39;Disappointing&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:38:10.139947-05:00",
-    "symbols": [
-      "UGI"
-    ],
-    "headline": "Palo Alto Networks, TJX On Deck Wednesday As Security, Retail Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T09:38:10.378772-05:00",
-    "symbols": [
-      "GM"
-    ],
-    "headline": "&#39;General Motors seeks to double defence revenue&#39; - FT Interview",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:38:10.382455-05:00",
-    "symbols": [
-      "GM"
-    ],
-    "headline": "&#39;General Motors Seeks Outside CEO Contenders to Succeed Mary Barra&#39; - WSJ",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:38:10.610913-05:00",
-    "symbols": [
-      "BTDR"
-    ],
-    "headline": "Can Anthropic\u2019s IPO Revive Situational Awareness?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:38:10.833778-05:00",
-    "symbols": [
-      "WLY"
-    ],
-    "headline": "Florida Department of Education Approves Sadlier PreK with Wiley Blevins",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T09:38:11.078465-05:00",
-    "symbols": [
-      "SYK"
-    ],
-    "headline": "BTIG Maintains Buy on Stryker, Raises Price Target to $345",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:38:11.293938-05:00",
-    "symbols": [
-      "HUN"
-    ],
-    "headline": "Olin and Huntsman Announce Business Structure and Leadership for Combined OlinHuntsman",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:38:11.528009-05:00",
-    "symbols": [
-      "INTU"
-    ],
-    "headline": "What&#39;s Going On With Intuit Stock Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:38:11.531772-05:00",
-    "symbols": [
-      "INTU"
-    ],
-    "headline": "Microsoft Stock Falls Amid Sector Weakness and Outages",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:38:11.768839-05:00",
-    "symbols": [
-      "INFQ"
-    ],
-    "headline": "11 Information Technology Stocks Moving In Tuesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T09:38:11.772510-05:00",
-    "symbols": [
-      "INFQ"
-    ],
-    "headline": "Infleqtion Reports Record Q3 Revenue, Analyst Notes &#39;Commercial Progress&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T09:38:12.024404-05:00",
-    "symbols": [
-      "AAUC"
-    ],
-    "headline": "Allied Gold Advances Exploration And Design Activities At Tsenge Trend To Expand Additional Mining Area; Affirms Plan For Base Dividend Starting In 2027 And Normal Course Issuer Bid For Up To 10% Of Public Float",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:38:12.243658-05:00",
-    "symbols": [
-      "ASML"
-    ],
-    "headline": "Billionaire Daniel Loeb Swaps Amazon for Meta, Nvidia and Microsoft in Q3 \u2014 Meta Now Third Point&#39;s Top Holding",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-18T09:38:12.473505-05:00",
     "symbols": [
       "BAC"
@@ -4991,6 +4661,336 @@
   },
   {
     "ts": "2026-11-18T12:34:43.983297-05:00",
+    "symbols": [
+      "TGT"
+    ],
+    "headline": "Target Executive Says We Expect To See Some Early Signs Of Progress This Spring In Women\u2019s Fashion Category; Company Taking Comprehensive Look At How Inventory Moves Through Our System, Increasingly Using AI To Make Those Decisions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T12:36:09.081118-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "What&#39;s Going On With Nebius Group Stock Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T12:36:09.902905-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is CrowdStrike Stock Surging on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T12:36:09.905766-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia\u2019s $500B AI Machine Is Getting Bigger. Semiconductor ETFs May Need a Rethink",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T12:36:09.908353-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What&#39;s Going On With Nebius Group Stock Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T12:36:11.061788-05:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Live On CNBC, Josh Brown Announces Bought More Netflix",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T12:36:11.356313-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Live On CNBC, Josh Brown Announces Trimmed Snowflake Position; Trimmed Toast Position",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T12:36:12.209559-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Nvidia\u2019s $500B AI Machine Is Getting Bigger. Semiconductor ETFs May Need a Rethink",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T12:36:15.642528-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Live On CNBC, Josh Brown Announces Bought Rocket Lab",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T12:36:15.924880-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Why Is CrowdStrike Stock Surging on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T12:36:18.324642-05:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "IonQ and IDEMIA Secure Transactions Validate Quantum Key Distribution Interoperability",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-18T12:36:22.759646-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Investigators make progress in hunt for cause of FAA ground stop&#39;- CNBC",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-18T12:36:22.762409-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Daly Says Inflation Has Been Too High For Too Long",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-18T12:36:23.210702-05:00",
+    "symbols": [
+      "AES"
+    ],
+    "headline": "AES Declares $0.06369 Per Share Stub Period Dividend, Subject To Completion Of Acquisition By BlackRock-Led Consortium And EQT",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:36:23.213540-05:00",
+    "symbols": [
+      "AES"
+    ],
+    "headline": "AES Obtains Final Regulatory Approval for Acquisition by Consortium Led by Global Infrastructure Partners and EQT; Acquisition Is Expected To Close On December 2, 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:36:23.503086-05:00",
+    "symbols": [
+      "ARDT"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:36:23.642481-05:00",
+    "symbols": [
+      "QTRX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:36:23.800100-05:00",
+    "symbols": [
+      "JMIA"
+    ],
+    "headline": "Crude Oil Down Over 4%; Target Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:36:23.805369-05:00",
+    "symbols": [
+      "JMIA"
+    ],
+    "headline": "Africa&#39;s E-Commerce Giant Jumia Sounds Alarm Over Holiday Demand",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:36:23.808786-05:00",
+    "symbols": [
+      "JMIA"
+    ],
+    "headline": "Jumia Sees Q4 GMV Growth 4%-8%, Adj. EBITDA Loss $4M-$8M; Still Expects Positive Q4 Cash Flow; To Review 2027 Financial Goals",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:36:23.811428-05:00",
+    "symbols": [
+      "JMIA"
+    ],
+    "headline": "Jumia Sees FY2026 GMV Growth 16%-18%, Adj. EBITDA Loss $31M-$35M; Says Black Friday GMV Growth Well Below Expectations",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:36:23.814210-05:00",
+    "symbols": [
+      "JMIA"
+    ],
+    "headline": "Dolby Laboratories, Jumia Technologies, Applied Optoelectronics And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:36:24.336635-05:00",
+    "symbols": [
+      "GLBE"
+    ],
+    "headline": "Dolby Laboratories, Jumia Technologies, Applied Optoelectronics And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:36:24.339553-05:00",
+    "symbols": [
+      "GLBE"
+    ],
+    "headline": "Global-E Online Stock Is Falling Wednesday: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:36:24.495438-05:00",
+    "symbols": [
+      "SSTI"
+    ],
+    "headline": "Transom Capital Completes Acquisition of SoundThinking",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:36:24.777057-05:00",
+    "symbols": [
+      "SKYA"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:36:25.414164-05:00",
+    "symbols": [
+      "CVE"
+    ],
+    "headline": "Shares of refining and marketing and integrated oil and gas companies are trading lower after API and EIA data showed crude, gasoline and distillate inventory builds above consensus. Also, diesel prices declining for a third straight week and recovering energy exports through the Straight of Hormuz are weighing on refining margin expectations.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T12:36:25.417189-05:00",
+    "symbols": [
+      "CVE"
+    ],
+    "headline": "If You Invested $100 In Cenovus Energy Stock 5 Years Ago, You Would Have This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T12:36:25.529472-05:00",
+    "symbols": [
+      "LOAR"
+    ],
+    "headline": "Dolby Laboratories, Jumia Technologies, Applied Optoelectronics And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:36:25.840517-05:00",
+    "symbols": [
+      "BETA"
+    ],
+    "headline": "Beta Technologies Shares Move Lower; Hearing Gotham City Issues Report On Co",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:36:25.997055-05:00",
+    "symbols": [
+      "TGT"
+    ],
+    "headline": "Target&#39;s Comeback Picks Up Speed Ahead of Crucial Holiday Season",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T12:36:25.999985-05:00",
+    "symbols": [
+      "TGT"
+    ],
+    "headline": "Dow Tumbles Over 800 Points Ahead Of Anthropic IPO; Investor Sentiment Weakens Further, Fear &amp; Greed Index Moves To \u2018Extreme Fear\u2019 Zone",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T12:36:26.002636-05:00",
+    "symbols": [
+      "TGT"
+    ],
+    "headline": "Target Executive Says Lost Focus On Some Foundational Pieces In Women\u2019s Apparel, Weren\u2019t Consistent Enough On Fit, Fabric And Quality; Reducing Style Counts By ~20% In Women\u2019s Apparel, Lowering Prices On Hundreds Of Items;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T12:36:26.005282-05:00",
     "symbols": [
       "TGT"
     ],

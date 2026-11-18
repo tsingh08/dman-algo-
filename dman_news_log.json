@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-11-18T14:27:36.467285-05:00",
-    "symbols": [
-      "TSCO"
-    ],
-    "headline": "Cirata and Tesco Stores Enter Expanded Agreement",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T14:27:36.663401-05:00",
-    "symbols": [
-      "NATL"
-    ],
-    "headline": "NCR Atleos Enters Long Term ATM Services Relationship For 7K+ Circle K And Couche-Tard Stores In The U.S. And Canada",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T14:27:36.858230-05:00",
-    "symbols": [
-      "ORIC"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on ORIC Pharmaceuticals, Lowers Price Target to $23",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T14:27:37.063545-05:00",
-    "symbols": [
-      "WGS"
-    ],
-    "headline": "BTIG Reiterates Buy on GeneDx Holdings, Maintains $85 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T14:27:37.068036-05:00",
-    "symbols": [
-      "WGS"
-    ],
-    "headline": "GeneDx Holdings Affirms FY2026 Sales Guidance of $475.000M-$490.000M vs $482.324M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T14:27:37.072313-05:00",
-    "symbols": [
-      "WGS"
-    ],
-    "headline": "GeneDx Appoints Everett Cunningham As CEO, Succeeding Katherine Stueland",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T14:27:37.263831-05:00",
-    "symbols": [
-      "HAE"
-    ],
-    "headline": "Haemonetics Announces CE Mark Certification for the VASCADE MVP XL Venous Vascular Closure System",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T14:27:37.458944-05:00",
-    "symbols": [
-      "MCO"
-    ],
-    "headline": "Moody\u2019s Sees AI Infrastructure and Private Credit Fueling Growth as Private Markets Demand More Ratings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-18T14:27:37.655143-05:00",
     "symbols": [
       "NXT"
@@ -4996,6 +4916,86 @@
     ],
     "headline": "Dow Drops as Nvidia Slips After Earnings, Dollar Hits 19-Month High: Stock Market Today",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T15:02:34.848250-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Announces Finalists for 2026 App Store Awards",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T15:02:34.854227-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Announces $7 Billion Renewable Energy Investment in India",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T15:02:34.860242-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Splashtop Joins Microsoft Virus Initiative",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T15:02:34.864258-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Wells Fargo to Name JPMorgan Executive Allison Beer as COO",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T15:02:34.868381-05:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Executive Kira Goldberg Departs Netflix for Skydance",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T15:02:40.770882-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Wall Street Says the AI Trade Is Over \u2014 ETF Investors Aren\u2019t Acting Like It",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T15:02:40.774008-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Stock a \u2018Compelling Risk-Reward\u2019: Analysts See \u2018Business as Usual\u2019 After Jensen Huang\u2019s Resignation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T15:03:34.844662-05:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Qualcomm and Cirrascale Collaborate on AI Inference Solutions",
+    "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"
   }

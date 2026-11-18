@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-11-17T15:38:57.192730-05:00",
-    "symbols": [
-      "ELA"
-    ],
-    "headline": "Lake Street Maintains Buy on Envela, Lowers Price Target to $16",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T15:49:30.483526-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Nvidia Earnings\u2014First Without Huang\u2014Options Market Signals 8.5% Stock Move",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T15:49:31.743849-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Nvidia Earnings\u2014First Without Huang\u2014Options Market Signals 8.5% Stock Move",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T15:49:33.463911-05:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Anduril Says It Could Hit Public Markets In Next Few Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T15:49:42.295381-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Nvidia Earnings\u2014First Without Huang\u2014Options Market Signals 8.5% Stock Move",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-17T15:49:53.351881-05:00",
-    "symbols": [
-      "BILL"
-    ],
-    "headline": "BILL Holdings Hits 52-Week High As TPG Eyes Buyout",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-17T15:49:54.281748-05:00",
-    "symbols": [
-      "VIK"
-    ],
-    "headline": "Viking Stock Turns Higher Despite Q3 Earnings Miss, European River Disruptions Hit Profits",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T15:49:54.284378-05:00",
-    "symbols": [
-      "VIK"
-    ],
-    "headline": "Viking Holdings Q3 Adj. EPS $1.11 Misses $1.27 Estimate, Sales $2.184B Miss $2.201B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T16:00:16.178693-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;SEC Is Probing Nvidia Amid Departure of CEO Jensen Huang&#39;- WSJ",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T16:00:16.181473-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Bitcoin Sank Ahead of SpaceX&#39;s IPO. Now It&#39;s Falling Before Anthropic&#39;s \u2014 But for a Different Reason",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-17T19:02:35.151735-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "NVIDIA Reports Financial Results for Third Quarter Fiscal 2027",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-17T19:02:35.382817-05:00",
     "symbols": [
       "NFLX"
@@ -4998,5 +4888,115 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T09:47:33.355491-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Dow Falls Over 300 Points; Nvidia Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T09:47:35.559408-05:00",
+    "symbols": [
+      "DDOG"
+    ],
+    "headline": "Datadog Named a Leader in 2026 Gartner Magic Quadrant for Observability Pipelines",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T09:47:35.892822-05:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Zscaler Included in New Bitwise AI Cyber Defense ETF",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T09:47:35.896514-05:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Oppenheimer Maintains Bullish Rating on Zscaler",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T09:47:35.997944-05:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "MongoDB Announces Acquisition of Firebolt",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T09:47:36.572079-05:00",
+    "symbols": [
+      "RCAT"
+    ],
+    "headline": "Red Cat Q3 Revenue Contracts 42% in Q3, Analysts Cut Price Targets",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T09:47:40.280847-05:00",
+    "symbols": [
+      "UAMY"
+    ],
+    "headline": "B. Riley Securities Maintains Buy on United States Antimony, Lowers Price Target to $6",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T09:47:40.503258-05:00",
+    "symbols": [
+      "SVRE"
+    ],
+    "headline": "Dow Falls Over 300 Points; Nvidia Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T09:47:40.545780-05:00",
+    "symbols": [
+      "HIHO"
+    ],
+    "headline": "Highway Holdings Q2 EPS $0.00 vs $(0.08) YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T09:47:40.676287-05:00",
+    "symbols": [
+      "CUE"
+    ],
+    "headline": "Dow Falls Over 300 Points; Nvidia Posts Upbeat Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T09:47:41.287195-05:00",
+    "symbols": [
+      "PRVA"
+    ],
+    "headline": "Privia Health Gr Raises FY2026 Sales Guidance from $2.500B-$2.550B to $2.550B-$2.600B vs $2.457B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

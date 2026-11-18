@@ -1,315 +1,5 @@
 [
   {
-    "ts": "2026-11-18T09:30:34.773710-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Stock Drops Amid AI, Cybersecurity and Outage Concerns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T09:32:34.908545-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Supermicro Expands All-Flash Storage Server Portfolio with AMD EPYC 9006 Processors",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:32:34.914033-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Introduces Life Sciences AI Agents for Clinical Trials",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T09:32:34.917720-05:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Temu and Mastercard Expand Collaboration on Digital Payments and Local Business Support",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:32:34.921279-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Loblaw Companies Limited Integrates Product Catalogue with Meta's Muse AI",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T09:32:35.008216-05:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Analysts Note Costco Sales Boost from Emergency-Prep Purchases",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:32:35.012036-05:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "FIRST and Qualcomm Technologies, Inc. Launch Next Generation of K-8 Robotics Education",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-18T09:32:35.015745-05:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Costco Wholesale Opens New Location in NE Edmonton",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:32:35.081022-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Hitachi Systems India Launches Advanced Global Delivery Centre in Partnership with CrowdStrike",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:32:35.085704-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Teladoc Health Expands Weight Care Program with Employer Contribution Option for GLP-1s",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T09:32:35.089287-05:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "HSK Chain and Coinbase's Base Announce Strategic Collaboration",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:32:35.092381-05:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "Erste Group Downgrades GE Vernova to Hold From Buy",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:33:34.848403-05:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce Issues Security Advisory Regarding Optimizely Script Incident",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-18T09:33:34.925909-05:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "ChronoScale Holdings Corporation Announces $750 Million Financing and Development Partnership",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-18T09:33:34.987044-05:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "Rivian Automotive Files Certificate of Retirement for Class B Common Stock",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:33:34.990774-05:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Citadel Advisors Discloses Increased Stake in Marvell Technology",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:33:34.994250-05:00",
-    "symbols": [
-      "HIMS"
-    ],
-    "headline": "Hims & Hers Launches Peptides+ Specialty for Personalized Health",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-18T09:33:35.002348-05:00",
-    "symbols": [
-      "MARA"
-    ],
-    "headline": "MARA Holdings, Inc. Prices $185 Million in New Debt for Power Plant Acquisition",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:33:35.054401-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Ads Expands Holiday Sponsorship Program",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T09:33:35.059230-05:00",
-    "symbols": [
-      "SMR"
-    ],
-    "headline": "NuScale Power Implements Everstar's Gordian AI Platform",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T09:35:34.906204-05:00",
-    "symbols": [
-      "CELH"
-    ],
-    "headline": "Wolfe Research Initiates Coverage on Celsius Holdings with Outperform Rating",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:35:44.237148-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "RBC Capital Reiterates Outperform on Micron Technology, Maintains $1500 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:35:48.787911-05:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "UnitedHealthcare Expands Program to Compensate Pharmacists for Medical Services",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:35:48.791433-05:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "UnitedHealth Group Shares Decline Following Proposed Medicare Advantage Audit Framework",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:35:50.498121-05:00",
-    "symbols": [
-      "LWLG"
-    ],
-    "headline": "Freedom Capital Markets Adjusts Lightwave Logic Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:35:51.609744-05:00",
-    "symbols": [
-      "CUE"
-    ],
-    "headline": "B. Riley Securities Reiterates Buy on Cue Biopharma, Lowers Price Target to $25",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:35:53.402287-05:00",
-    "symbols": [
-      "VIK"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Viking Holdings, Raises Price Target to $120",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-18T09:35:53.405831-05:00",
-    "symbols": [
-      "VIK"
-    ],
-    "headline": "These Analysts Boost Their Forecasts On Viking After Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-18T09:37:29.330796-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "RBC Capital Reiterates Outperform on Micron Technology, Maintains $1500 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:37:42.902094-05:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "UnitedHealthcare Expands Program to Compensate Pharmacists for Medical Services",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:37:42.905751-05:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "UnitedHealth Group Shares Decline Following Proposed Medicare Advantage Audit Framework",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-18T09:37:45.754844-05:00",
     "symbols": [
       "SPAI"
@@ -4998,5 +4688,315 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T11:12:53.541032-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Growth Leads Sectors In Wednesday Trading As Cyclicals Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T11:12:53.649041-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What&#39;s going On With Coherent Stock After Nvidia Earnings?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T11:12:53.652555-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "JP Morgan Maintains Overweight on NVIDIA, Raises Price Target to $230",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T11:12:54.237506-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Growth Leads Sectors In Wednesday Trading As Cyclicals Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T11:12:54.293615-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Growth Leads Sectors In Wednesday Trading As Cyclicals Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T11:12:54.355701-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Growth Leads Sectors In Wednesday Trading As Cyclicals Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T11:12:54.923565-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Snowflake Short Interest Falls Ahead Of Q3 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T11:12:55.075836-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Growth Leads Sectors In Wednesday Trading As Cyclicals Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T11:12:55.799645-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Growth Leads Sectors In Wednesday Trading As Cyclicals Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T11:12:56.068877-05:00",
+    "symbols": [
+      "RXRX"
+    ],
+    "headline": "Morgan Stanley Maintains Equal-Weight on Recursion Pharmaceuticals, Lowers Price Target to $5.6",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T11:12:56.220118-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Growth Leads Sectors In Wednesday Trading As Cyclicals Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T11:12:56.436140-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Hitachi Systems India Launches Advanced Global Delivery Centre in Partnership with CrowdStrike",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T11:12:56.539373-05:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Snowflake Short Interest Falls Ahead Of Q3 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T11:12:57.750801-05:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "Erste Group Downgrades GE Vernova to Hold From Buy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T11:12:58.385427-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Growth Leads Sectors In Wednesday Trading As Cyclicals Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T11:12:58.597575-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Growth Leads Sectors In Wednesday Trading As Cyclicals Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T11:12:58.689427-05:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Growth Leads Sectors In Wednesday Trading As Cyclicals Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T11:12:58.950475-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Costco Wholesale Opens New Location in NE Edmonton",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T11:12:58.953644-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Analysts Note Costco Sales Boost from Emergency-Prep Purchases",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T11:12:59.006608-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Growth Leads Sectors In Wednesday Trading As Cyclicals Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T11:12:59.168197-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Growth Leads Sectors In Wednesday Trading As Cyclicals Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-18T11:12:59.227556-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Growth Leads Sectors In Wednesday Trading As Cyclicals Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T11:12:59.278244-05:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Growth Leads Sectors In Wednesday Trading As Cyclicals Trail",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T11:13:00.281642-05:00",
+    "symbols": [
+      "GTM"
+    ],
+    "headline": "Morgan Stanley Maintains Equal-Weight on ZoomInfo Technologies, Lowers Price Target to $4",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T11:13:01.807880-05:00",
+    "symbols": [
+      "IIIV"
+    ],
+    "headline": "Stephens &amp; Co. Reiterates Equal-Weight on i3 Verticals, Maintains $23 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T11:13:01.811744-05:00",
+    "symbols": [
+      "IIIV"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T11:13:01.815361-05:00",
+    "symbols": [
+      "IIIV"
+    ],
+    "headline": "i3 Verticals Q4 Adj. EPS $0.30 Beats $0.27 Estimate, Sales $55.434M Beat $54.438M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T11:13:01.818339-05:00",
+    "symbols": [
+      "IIIV"
+    ],
+    "headline": "i3 Verticals Sees FY2027 Adj EPS $1.23-$1.41 vs $1.21 Est; Sees Sales $220.000M-$235.000M vs $228.381M Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T11:13:02.117044-05:00",
+    "symbols": [
+      "SRFM"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T11:13:02.333031-05:00",
+    "symbols": [
+      "ZONE"
+    ],
+    "headline": "CleanCore Solutions Q1 EPS $(0.75) Up From $(8.09) YoY, Sales $1.376M Up From $904.699K YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T11:13:02.531828-05:00",
+    "symbols": [
+      "ZTO"
+    ],
+    "headline": "ZTO Express (Cayman) Q3 Adj. EPS $0.48 Up From $0.43 YoY, Sales $2.142B Up From $1.667B YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

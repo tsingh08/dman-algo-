@@ -15424,7 +15424,10 @@ def run_breakout_zone_manage(notify: bool = True) -> dict:
     if _n >= BZONE_TRADE_REVIEW_N and min(_avg, _judged) <= 0:
         out["skipped"] = (f"record {_n} trades, mean {_avg:+.1f}% "
                           f"(judged vs SPY {_judged:+.1f}%) — entries off")
-        if not _is_duplicate_alert("__BZONE_OFF__", cooldown_min=7 * 24 * 60):
+        # Once, not weekly: with entries off the record cannot improve, so
+        # the verdict is permanent until someone changes it, and the 7-day
+        # cooldown re-sent the same notice on 2026-11-17 (first sent 11-10).
+        if not _is_duplicate_alert("__BZONE_OFF__", cooldown_min=365 * 24 * 60):
             _save_last_alert("__BZONE_OFF__")
             send_telegram(f"⏹️ <b>Breakout zones switched themselves off</b> — {_n} closed live, "
                           f"mean {_avg:+.1f}%, judged vs SPY {_judged:+.1f}%. The setup is not "

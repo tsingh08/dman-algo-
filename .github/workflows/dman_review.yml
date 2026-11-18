@@ -200,12 +200,16 @@ jobs:
           git checkout -b "$BRANCH"
           echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
 
+      # Both skipped with the review itself: on 2026-11-17 five late crons
+      # each installed Node + the CLI only to skip.
       - name: Set up Node
+        if: steps.kind.outputs.kind != 'skip'
         uses: actions/setup-node@v4
         with:
           node-version: '22'
 
       - name: Install Claude Code CLI
+        if: steps.kind.outputs.kind != 'skip'
         run: npm install -g @anthropic-ai/claude-code
 
       - name: Run review session
@@ -234,9 +238,28 @@ jobs:
           If you are not sure whether something needs a human decision, say
           so explicitly rather than assuming an answer.
 
+          OPERATOR CORE HOLDS. Every symbol set CORE_HOLD_<SYM>: true in
+          dman_flags.json is the operator'"'"'s own long-term position, not the
+          algo'"'"'s: no stop on purpose, left out of the daily loss breaker and
+          of every automated exit, and the operator has ALREADY decided to
+          hold them, through earnings included. Report their P&L in a line if
+          useful, but never ask for a decision on them or raise ATTENTION
+          because of them (2026-11-17: three check-ins in a row flagged the
+          same NVDA calls into earnings). Option legs are OCC symbols, and
+          two legs on one underlying and expiry are ONE spread:
+          NVDA270115C00195000 (long) + NVDA270115C00205000 (short) is a
+          Jan-15-2027 195/205 call debit spread, so the short 205C losing
+          value is a gain on that leg, not a stressed position.
+
           Keep your FINAL reply under 3500 characters -- it is posted
           directly to a phone via Telegram. Use plain text, no markdown
           tables.'
+          # The model had no clock: the 11-17 EOD report was headed "Mon
+          # 2026-11-17" (a Tuesday) and the check-ins guessed the NVDA
+          # report date. Runner TZ handling is correct on Linux.
+          SHARED_CONTEXT="It is now $(TZ=America/New_York date '+%A %Y-%m-%d, %H:%M') ET.
+
+          $SHARED_CONTEXT"
 
           if [ "$KIND" = "midday" ]; then
             ALLOWED_TOOLS="Bash(python dman_algo.py --mode features),Read,Grep,Glob,Bash(git log:*),Bash(git diff:*),Bash(git show:*)"
@@ -275,7 +298,10 @@ jobs:
           scan or the daemon that has silently stopped, a halt or breaker in
           a state the day does not explain, an error repeating in the logs.
           A quiet day with no signals and no trades is STATUS: OK -- that is
-          the normal day here. An OK report is filed in the run log and NOT
+          the normal day here. Also OK on their own: anything about core
+          holds (above), a setup that is kill-switched, retired or on
+          probation, an alert-only signal that was not traded, and an
+          earnings date or macro event the algo already gates. An OK report is filed in the run log and NOT
           sent to the phone, so do not pad it.'
           else
             # EOD only, added 2026-08-24: real Edit/Write/local-commit

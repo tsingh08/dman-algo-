@@ -32465,3 +32465,30 @@ class TestMockEquityCannotPoisonTheCache(unittest.TestCase):
         with patch.object(a, "get_alpaca_client", return_value=_client):
             self.assertEqual(a.get_effective_account(), 2200.23)
         self.assertEqual(a._live_equity_cache["equity"], 2200.23)
+
+
+class TestZonesOffNoticeIsSentOnce(unittest.TestCase):
+    """2026-11-17: the 7-day cooldown re-sent "Breakout zones switched
+    themselves off" a week after the 11-10 verdict. With entries off the
+    record cannot recover, so a week-old notice must not repeat."""
+
+    def _manage(self, last_sent):
+        _alerts = {"__BZONE_OFF__": last_sent.isoformat()} if last_sent else {}
+        with patch.object(a, "_load_last_alerts", return_value=_alerts), \
+             patch.object(a, "_ALERT_DEDUP_FILE", os.path.join(tempfile.gettempdir(), "no_such_dedup.json")), \
+             patch.object(a, "_save_last_alert"), \
+             patch.object(a, "is_market_open", return_value=True), \
+             patch.object(a, "_bzone_open_positions", return_value=[]), \
+             patch.object(a, "_bzone_record", return_value=(a.BZONE_TRADE_REVIEW_N, -6.0)), \
+             patch.object(a, "_bzone_judged_mean", return_value=-6.0), \
+             patch.object(a, "_submit_bzone_entry") as entry, \
+             patch.object(a, "send_telegram") as tg:
+            a.run_breakout_zone_manage()
+        entry.assert_not_called()
+        return [c for c in tg.call_args_list if "switched themselves off" in str(c)]
+
+    def test_first_verdict_is_announced(self):
+        self.assertEqual(len(self._manage(None)), 1)
+
+    def test_a_week_old_notice_is_not_repeated(self):
+        self.assertEqual(len(self._manage(datetime.now(a.ET) - timedelta(days=8))), 0)

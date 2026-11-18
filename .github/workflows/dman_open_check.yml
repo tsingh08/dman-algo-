@@ -150,6 +150,13 @@ jobs:
               return len(sym) > 6 and any(ch.isdigit() for ch in sym)
 
           for sym in held:
+              # Operator core holds (CORE_HOLD_<SYM> in dman_flags.json) carry
+              # no stop on purpose. Without this the four sleeve stocks made
+              # every open check from 2026-11-10 to 11-17 a red "PROBLEMS
+              # FOUND" -- the same false alarm the option exclusion fixed.
+              if algo._is_core_hold(sym):
+                  notes.append(f"{sym}: operator core hold — no stop by design")
+                  continue
               if _is_option(sym):
                   notes.append(f"{sym}: option — no broker stop by design, daemon manages exit")
                   continue
@@ -202,11 +209,16 @@ jobs:
           # off-Linux too.
           stamp = f"{now:%a %b %d}, {now.strftime('%I').lstrip('0')}:{now:%M %p} ET"
           text  = f"{header}\n<i>{stamp}</i>\n\n{html.escape(body)}"
-          requests.post(
-              f"https://api.telegram.org/bot{os.environ['TELEGRAM_TOKEN']}/sendMessage",
-              data={"chat_id": os.environ["TELEGRAM_CHAT_ID"], "text": text,
-                    "parse_mode": "HTML"},
-              timeout=20)
+          # Quiet mode (the default): an all-clear is filed in this log, not
+          # sent -- the phone hears from this job only when there is a problem.
+          if problems or not algo.flag("ENABLE_TELEGRAM_QUIET", algo.ENABLE_TELEGRAM_QUIET):
+              requests.post(
+                  f"https://api.telegram.org/bot{os.environ['TELEGRAM_TOKEN']}/sendMessage",
+                  data={"chat_id": os.environ["TELEGRAM_CHAT_ID"], "text": text,
+                        "parse_mode": "HTML"},
+                  timeout=20)
+          else:
+              print("All clear -- quiet mode, not sent to Telegram.")
 
           print(header)
           for line in problems + notes:

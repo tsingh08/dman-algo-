@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-17T14:18:09.537137-05:00",
-    "symbols": [
-      "OPRA"
-    ],
-    "headline": "Opera To Replace ADSs With Ordinary Shares Listed Directly On Nasdaq",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T14:18:09.541600-05:00",
-    "symbols": [
-      "OPRA"
-    ],
-    "headline": "Opera To Replace Nasdaq-Listed ADSs With Ordinary Shares, Maintains OPRA Ticker And Shareholders&#39; Rights",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-17T14:18:09.605564-05:00",
-    "symbols": [
-      "NKE"
-    ],
-    "headline": "Nike Executive Says 2028 Will Be \u2018A Challenging Year Financially\u2019; Co. Expects Adjusted EPS To Decline Modestly In Fiscal 2028 From Fiscal 2027 Levels",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-17T14:18:10.887493-05:00",
     "symbols": [
       "SUPV"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-17T19:02:35.151735-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA Reports Financial Results for Third Quarter Fiscal 2027",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T19:02:35.382817-05:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Partners with Wonder for Branded Restaurant Concept",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-17T20:02:35.150267-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Teamsters Rally Following Amazon's Termination of Delivery Partner",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

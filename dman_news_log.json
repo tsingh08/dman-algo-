@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-18T09:37:55.995379-05:00",
-    "symbols": [
-      "VIK"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Viking Holdings, Raises Price Target to $120",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-18T09:37:55.998914-05:00",
-    "symbols": [
-      "VIK"
-    ],
-    "headline": "These Analysts Boost Their Forecasts On Viking After Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-18T09:37:56.226801-05:00",
-    "symbols": [
-      "GLBE"
-    ],
-    "headline": "Dolby Laboratories, Jumia Technologies, Applied Optoelectronics And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-18T09:37:56.230455-05:00",
     "symbols": [
       "GLBE"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T11:44:30.359632-05:00",
+    "symbols": [
+      "OPEN"
+    ],
+    "headline": "Opendoor Stock Extends Rally From 52-Week Low: What Investors Need to Know",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T11:44:31.530612-05:00",
+    "symbols": [
+      "BLSH"
+    ],
+    "headline": "Bullish Launches $300 Million Buyback as Tokenization Strategy Advances",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T11:44:31.772110-05:00",
+    "symbols": [
+      "TJX"
+    ],
+    "headline": "TJX Companies Says In The Current Environment, We Believe Value Will Be Top Of Mind For Many Consumers This Holiday Season",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-11-18T09:37:57.026323-05:00",
-    "symbols": [
-      "NOW"
-    ],
-    "headline": "Microsoft Stock Falls Amid Sector Weakness and Outages",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T09:37:57.029890-05:00",
-    "symbols": [
-      "NOW"
-    ],
-    "headline": "Why Is Salesforce Stock Falling on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-18T09:37:57.262094-05:00",
     "symbols": [
       "FENC"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:03:34.857867-05:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "Goldman Sachs lowers price target for Nemetschek SE to 90 Euro",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:03:34.960116-05:00",
+    "symbols": [
+      "STLA"
+    ],
+    "headline": "Stellantis and Volkswagen Reportedly Considering Partnership with China's Hongqi",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

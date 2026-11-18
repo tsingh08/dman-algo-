@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-11-18T10:08:40.448360-05:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce Issues Security Advisory On Third-Party Optimizely Script Incident Affecting Certain Salesforce-Branded Sites; Optimizely Scripts Being Confirmed Disabled",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-18T10:08:40.451322-05:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Reported Earlier, &#39;Salesforce Has Started Cutting More Jobs, Internal Messages Show&#39; - Business Insider",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-18T10:08:40.454807-05:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Nvidia, Salesforce, Nebius Group, Applied Optoelectronics and Nike: Why These 5 Stocks Are on Investors&#39; Radars Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-18T10:08:40.506756-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Why Is Dell Stock Surging Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T10:08:40.510310-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Druckenmiller Buys Miners, Warns &#39;27 Could Be &#39;Disappointing&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T10:08:40.789351-05:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Supermicro Ships First All-Flash Storage Servers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T10:08:40.844275-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "SoftBank Chose OpenAI Over &#39;Wonderful&#39; Anthropic, Now Masayoshi Son Regrets Picking Only One: &#39;I Wish I Had Invested Back Then&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T10:08:40.847514-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Why Is Broadcom Stock Gaining Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-18T10:08:40.851198-05:00",
     "symbols": [
       "AVGO"
@@ -4998,5 +4918,85 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T13:58:48.126400-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Are Recent Outages Really a Coincidence? Welcome to the \u2018Patchpocalypse\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T13:58:48.331357-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Are Recent Outages Really a Coincidence? Welcome to the \u2018Patchpocalypse\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T13:58:51.284236-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Are Recent Outages Really a Coincidence? Welcome to the \u2018Patchpocalypse\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T13:58:52.068339-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Are Recent Outages Really a Coincidence? Welcome to the \u2018Patchpocalypse\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T13:58:52.120075-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Are Recent Outages Really a Coincidence? Welcome to the \u2018Patchpocalypse\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T13:58:54.754161-05:00",
+    "symbols": [
+      "IAM"
+    ],
+    "headline": "Iambic Therapeutics Presents Preclinical Data for IAM-C1 and IAM217 at ENA 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T13:58:54.923499-05:00",
+    "symbols": [
+      "MWH"
+    ],
+    "headline": "This Elevance Health Analyst Turns Bullish; Here Are Top 5 Upgrades For Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T13:58:54.926860-05:00",
+    "symbols": [
+      "MWH"
+    ],
+    "headline": "UBS Upgrades SOLV Energy to Buy, Lowers Price Target to $37",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-18T09:38:17.584946-05:00",
-    "symbols": [
-      "PRVA"
-    ],
-    "headline": "Privia Health Raises FY2026 Adj. EBITDA Guidance To $174M-$177M From $154M-$157M; Raises Care Margin To $565M-$570M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:38:17.733550-05:00",
-    "symbols": [
-      "PRVA"
-    ],
-    "headline": "Privia Raised GAAP Revenue Guidance To $2.55B-$2.60B, Compared With Previous Guidance Of $2.50B-$2.55B",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:38:17.952653-05:00",
-    "symbols": [
-      "ZIM"
-    ],
-    "headline": "ZIM Integrated Shipping Q3 Adj. EPS $5.95 Beats $3.81 Estimate, Sales $2.712B Beat $2.511B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-18T09:38:17.956276-05:00",
     "symbols": [
       "ZIM"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T13:06:56.043054-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Fortinet, UnitedHealth Group, CrowdStrike, Walt Disney",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T13:06:56.650140-05:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Fortinet, UnitedHealth Group, CrowdStrike, Walt Disney",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T13:06:58.330596-05:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Fortinet, UnitedHealth Group, CrowdStrike, Walt Disney",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

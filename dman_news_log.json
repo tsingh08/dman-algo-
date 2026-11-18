@@ -1,185 +1,5 @@
 [
   {
-    "ts": "2026-11-18T09:37:52.603243-05:00",
-    "symbols": [
-      "LZB"
-    ],
-    "headline": "La-Z-Boy Raises Quarterly Dividend From $0.24 To $0.27/Share, Payable December 15",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-18T09:37:52.606944-05:00",
-    "symbols": [
-      "LZB"
-    ],
-    "headline": "La-Z-Boy Q2 Adj. EPS $0.53 Beats $0.48 Estimate, Sales $526.057M Beat $506.650M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-18T09:37:52.610403-05:00",
-    "symbols": [
-      "LZB"
-    ],
-    "headline": "La-Z-Boy Sees Q3 Sales $505.000M-$525.000M vs $532.416M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-18T09:37:53.065959-05:00",
-    "symbols": [
-      "DIS"
-    ],
-    "headline": "Barclays Maintains Overweight on Walt Disney, Raises Price Target to $135",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:37:53.069579-05:00",
-    "symbols": [
-      "DIS"
-    ],
-    "headline": "Dow Tumbles Over 800 Points Ahead Of Anthropic IPO; Investor Sentiment Weakens Further, Fear &amp; Greed Index Moves To \u2018Extreme Fear\u2019 Zone",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:37:53.073031-05:00",
-    "symbols": [
-      "DIS"
-    ],
-    "headline": "Disney CEO Calls Netflix Licensing Deal a \u2018Smart Bet,\u2019 Says In-House AI Cuts Film Rendering Compute Needs by 30%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:37:53.076490-05:00",
-    "symbols": [
-      "DIS"
-    ],
-    "headline": "These Analysts Boost Their Forecasts On Disney After Upbeat Q4 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:37:53.079926-05:00",
-    "symbols": [
-      "DIS"
-    ],
-    "headline": "NVIDIA To $230? Here Are 10 Top Analyst Forecasts For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:37:53.329477-05:00",
-    "symbols": [
-      "SKE"
-    ],
-    "headline": "Druckenmiller Buys Miners, Warns &#39;27 Could Be &#39;Disappointing&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:37:53.550097-05:00",
-    "symbols": [
-      "AS"
-    ],
-    "headline": "BTIG Reiterates Buy on Amer Sports, Maintains $42 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:37:54.225941-05:00",
-    "symbols": [
-      "XENE"
-    ],
-    "headline": "JP Morgan Maintains Overweight on Xenon Pharmaceuticals, Lowers Price Target to $80",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:37:54.451512-05:00",
-    "symbols": [
-      "FIBK"
-    ],
-    "headline": "First Interstate Bank Deploys Sympera AI to Scale Relationship Banking",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:37:54.669199-05:00",
-    "symbols": [
-      "CNX"
-    ],
-    "headline": "Morgan Stanley Upgrades CNX Resources to Equal-Weight, Raises Price Target to $36",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T09:37:54.890039-05:00",
-    "symbols": [
-      "TRU"
-    ],
-    "headline": "TransUnion Releases Q4 2026 Consumer Pulse Study on Gen Z Financial Outlook",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T09:37:55.113827-05:00",
-    "symbols": [
-      "NTNX"
-    ],
-    "headline": "Nutanix Participates in Strategic Equity Financing for ChronoScale",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:37:55.332050-05:00",
-    "symbols": [
-      "CSIQ"
-    ],
-    "headline": "Canadian Solar Unit e-STORAGE Signs Agreements With X-ELIO To Supply Five Battery Energy Storage Projects Totaling 590 MW In Texas And Australia",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:37:55.553267-05:00",
-    "symbols": [
-      "PKX"
-    ],
-    "headline": "POSCO Group Finalizes Three-Year Lithium Supply Agreement with CATL",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:37:55.773628-05:00",
-    "symbols": [
-      "AMP"
-    ],
-    "headline": "Ampeak Energy Announces Grant of LTIP Options to CEO-Designate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-18T09:37:55.995379-05:00",
     "symbols": [
       "VIK"
@@ -4998,5 +4818,185 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T11:33:35.860883-05:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Novo Nordisk Presents New Data at ObesityWeek 2026",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T11:33:43.935079-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Billionaires Walk Away From Alphabet in Q3 - Hedge Funds Google \u2018How to Sell\u2019 and Hit Enter",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T11:33:43.991207-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Billionaires Walk Away From Alphabet in Q3 - Hedge Funds Google \u2018How to Sell\u2019 and Hit Enter",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T11:33:43.994802-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Western Digital Gains, Seagate Flat As Nvidia\u2019s Raised Outlook Lifts AI Storage Hopes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T11:33:44.109969-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Billionaires Walk Away From Alphabet in Q3 - Hedge Funds Google \u2018How to Sell\u2019 and Hit Enter",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T11:33:44.167219-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Billionaires Walk Away From Alphabet in Q3 - Hedge Funds Google \u2018How to Sell\u2019 and Hit Enter",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T11:33:44.220602-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Billionaires Walk Away From Alphabet in Q3 - Hedge Funds Google \u2018How to Sell\u2019 and Hit Enter",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T11:33:49.405629-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "$100 Invested In Visa 15 Years Ago Would Be Worth This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T11:33:56.619169-05:00",
+    "symbols": [
+      "WULF"
+    ],
+    "headline": "TeraWulf Stock Climbs After Nvidia\u2019s Better-Than-Expected Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-18T11:33:56.916846-05:00",
+    "symbols": [
+      "TXT"
+    ],
+    "headline": "Textron Expects $350M-$400M Non-Cash Pre-Tax Impairment Charge From $1.2B Sale Of Industrial Business",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T11:33:56.920351-05:00",
+    "symbols": [
+      "TXT"
+    ],
+    "headline": "Textron Expects Q4 Non-Cash Pre-Tax Impairment Charge Of $350M-$400M Tied To Industrial Segment Sale",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T11:33:56.923705-05:00",
+    "symbols": [
+      "TXT"
+    ],
+    "headline": "Textron To Sell Industrial Segment, Including Kautex And Textron Specialized Vehicles, To Kingswood Capital For $1.2B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T11:33:57.093831-05:00",
+    "symbols": [
+      "CAMT"
+    ],
+    "headline": "Northland Securities Upgrades Camtek to Outperform",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T11:33:57.194620-05:00",
+    "symbols": [
+      "IREN"
+    ],
+    "headline": "Nvidia\u2019s New AI Customers Are Growing 3X Faster Than Big Tech",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T11:33:57.198090-05:00",
+    "symbols": [
+      "IREN"
+    ],
+    "headline": "Why Is CoreWeave Stock Gaining Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T11:33:57.200974-05:00",
+    "symbols": [
+      "IREN"
+    ],
+    "headline": "Why Is IREN Stock Surging Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T11:33:57.204561-05:00",
+    "symbols": [
+      "IREN"
+    ],
+    "headline": "Can Anthropic\u2019s IPO Revive Situational Awareness?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T11:33:57.207705-05:00",
+    "symbols": [
+      "IREN"
+    ],
+    "headline": "Nebius Shares Jump After Hours as Nvidia\u2019s Strong Quarterly Numbers Lift AI Infrastructure Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

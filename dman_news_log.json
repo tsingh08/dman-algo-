@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-11-18T10:08:40.272654-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Jeff Bezos Warns Outsider CEO Replacing Jensen Huang Faces \u2018Vanishingly Small Chance of Succeeding\u2019 at Nvidia: \u2018Too Complicated\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T10:08:40.336167-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Reported Earlier, &#39;Alphabet\u2019s Waymo Pulls Robotaxis Off Freeways After California Ban; Robotaxi services are continuing to operate on surface streets&#39; - WSJ",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T10:08:40.390500-05:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Disney CEO Calls Netflix Licensing Deal a \u2018Smart Bet,\u2019 Says In-House AI Cuts Film Rendering Compute Needs by 30%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T10:08:40.394062-05:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Bill Ackman Sold Over 2 Million Microsoft Shares In Q3 Months After Calling It &#39;Compellingly Cheap&#39;: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T10:08:40.444898-05:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "BTIG Maintains Buy on Salesforce, Lowers Price Target to $250",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-11-18T10:08:40.448360-05:00",
     "symbols": [
       "CRM"
@@ -4995,6 +4945,56 @@
       "GOOGL"
     ],
     "headline": "Coinbase CEO Wants AI Agents to Hire and Pay Each Other In Decentralized Economy: &#39;Freedom of Choice and Real Competition&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T13:57:00.106118-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Are Recent Outages Really a Coincidence? Welcome to the \u2018Patchpocalypse\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T13:57:00.643317-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Are Recent Outages Really a Coincidence? Welcome to the \u2018Patchpocalypse\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T13:57:07.169539-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Are Recent Outages Really a Coincidence? Welcome to the \u2018Patchpocalypse\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T13:57:08.735237-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Are Recent Outages Really a Coincidence? Welcome to the \u2018Patchpocalypse\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T13:57:08.830749-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Are Recent Outages Really a Coincidence? Welcome to the \u2018Patchpocalypse\u2019",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"

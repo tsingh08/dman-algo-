@@ -1,275 +1,5 @@
 [
   {
-    "ts": "2026-11-18T09:37:57.262094-05:00",
-    "symbols": [
-      "FENC"
-    ],
-    "headline": "HC Wainwright &amp; Co. Maintains Buy on Fennec Pharmaceuticals, Raises Price Target to $17",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:37:57.488532-05:00",
-    "symbols": [
-      "DOCU"
-    ],
-    "headline": "BTIG Maintains Buy on Docusign, Raises Price Target to $90",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:37:57.492120-05:00",
-    "symbols": [
-      "DOCU"
-    ],
-    "headline": "Microsoft Stock Falls Amid Sector Weakness and Outages",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:37:57.720419-05:00",
-    "symbols": [
-      "ECL"
-    ],
-    "headline": "Oppenheimer Maintains Outperform on Ecolab, Raises Price Target to $331",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:37:57.723985-05:00",
-    "symbols": [
-      "ECL"
-    ],
-    "headline": "NVIDIA To $230? Here Are 10 Top Analyst Forecasts For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:37:57.727380-05:00",
-    "symbols": [
-      "ECL"
-    ],
-    "headline": "Baird Maintains Outperform on Ecolab, Raises Price Target to $324",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:37:57.730767-05:00",
-    "symbols": [
-      "ECL"
-    ],
-    "headline": "Stifel Maintains Buy on Ecolab, Raises Price Target to $356",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:37:57.951030-05:00",
-    "symbols": [
-      "TSCO"
-    ],
-    "headline": "Cirata and Tesco Stores Enter Expanded Agreement",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:37:58.222419-05:00",
-    "symbols": [
-      "LOCO"
-    ],
-    "headline": "El Pollo Loco Announces '12 Days of Pollo' Holiday Promotion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:37:58.462461-05:00",
-    "symbols": [
-      "NATL"
-    ],
-    "headline": "NCR Atleos Enters Long Term ATM Services Relationship For 7K+ Circle K And Couche-Tard Stores In The U.S. And Canada",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:37:58.687145-05:00",
-    "symbols": [
-      "INCY"
-    ],
-    "headline": "Incyte Corporation Insider Sells Shares Worth $1.29 Million",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:37:58.910418-05:00",
-    "symbols": [
-      "TD"
-    ],
-    "headline": "Raymond James Adjusts Price Target on Toronto-Dominion Bank",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T09:37:59.124809-05:00",
-    "symbols": [
-      "ORIC"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on ORIC Pharmaceuticals, Lowers Price Target to $23",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:37:59.346903-05:00",
-    "symbols": [
-      "WGS"
-    ],
-    "headline": "GeneDx Holdings Affirms FY2026 Sales Guidance of $475.000M-$490.000M vs $482.324M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:37:59.350487-05:00",
-    "symbols": [
-      "WGS"
-    ],
-    "headline": "GeneDx Appoints Everett Cunningham As CEO, Succeeding Katherine Stueland",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:37:59.576598-05:00",
-    "symbols": [
-      "HAE"
-    ],
-    "headline": "Haemonetics Announces CE Mark Certification for the VASCADE MVP XL Venous Vascular Closure System",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:37:59.801174-05:00",
-    "symbols": [
-      "MCO"
-    ],
-    "headline": "Moody\u2019s Sees AI Infrastructure and Private Credit Fueling Growth as Private Markets Demand More Ratings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:38:00.022938-05:00",
-    "symbols": [
-      "MKC"
-    ],
-    "headline": "McCormick Increases Its Quarterly Cash Dividend From $0.48 To $0.51 Per Share",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:38:00.240935-05:00",
-    "symbols": [
-      "NXT"
-    ],
-    "headline": "Why Is Nextpower Stock Sinking Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:38:00.518580-05:00",
-    "symbols": [
-      "SHAZ"
-    ],
-    "headline": "Can Anthropic\u2019s IPO Revive Situational Awareness?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:38:00.744182-05:00",
-    "symbols": [
-      "EVR"
-    ],
-    "headline": "Evercore Served as Financial Advisor in Litmus Music Capital Commitment Transaction",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T09:38:00.747768-05:00",
-    "symbols": [
-      "EVR"
-    ],
-    "headline": "Waters Corporation to Present at the 9th Annual Evercore Healthcare Conference",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T09:38:00.968000-05:00",
-    "symbols": [
-      "RBRK"
-    ],
-    "headline": "Rubrik Expands Cloud Data Protection To Microsoft Azure Cosmos DB",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:38:00.971619-05:00",
-    "symbols": [
-      "RBRK"
-    ],
-    "headline": "11 Information Technology Stocks Moving In Tuesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:38:01.207237-05:00",
-    "symbols": [
-      "MDLZ"
-    ],
-    "headline": "Mondelez International Named #1 Supplier in 2026 India Advantage Awards",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:38:01.485611-05:00",
-    "symbols": [
-      "GBDC"
-    ],
-    "headline": "&#39;Higher Rates Will Push Firms to Private Credit as Stress Rises&#39; - Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T09:38:01.489182-05:00",
-    "symbols": [
-      "GBDC"
-    ],
-    "headline": "Golub Capital BDC Q4 Adj. EPS $0.33, Inline, Sales $186.776M Miss $187.627M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-18T09:38:01.721037-05:00",
     "symbols": [
       "SW"
@@ -4998,5 +4728,275 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T12:13:52.553217-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Rose Faster Than Any S&amp;P 500 Leader Since 1960: Now It Faces the Icarus Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T12:13:52.606543-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "OpenAI Works With Synopsys To Integrate Frontier Model Feedback Electronic Design Automation Tools With Hardware Partner AMD",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T12:13:52.610112-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Nvidia Rose Faster Than Any S&amp;P 500 Leader Since 1960: Now It Faces the Icarus Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T12:13:53.181139-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "KLA Short Interest Falls As Shorts Retreat From August Peak",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T12:13:53.487382-05:00",
+    "symbols": [
+      "KLAC"
+    ],
+    "headline": "KLA Short Interest Falls As Shorts Retreat From August Peak",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T12:13:54.082577-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "Nvidia Rose Faster Than Any S&amp;P 500 Leader Since 1960: Now It Faces the Icarus Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T12:13:54.750854-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Mark Yusko: Bitcoin Is in a &#39;Bad Liquidation Cycle,&#39; $58,000 Is Key",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:13:54.901029-05:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Pony AI&#39;s Driverless Business Is Growing Faster Than Its Spending",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T12:13:57.855538-05:00",
+    "symbols": [
+      "CLRO"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:13:58.946729-05:00",
+    "symbols": [
+      "PONY"
+    ],
+    "headline": "Pony AI&#39;s Driverless Business Is Growing Faster Than Its Spending",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T12:13:59.162902-05:00",
+    "symbols": [
+      "SMX"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:13:59.589205-05:00",
+    "symbols": [
+      "SVRE"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:13:59.640110-05:00",
+    "symbols": [
+      "HIHO"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:13:59.688383-05:00",
+    "symbols": [
+      "INLF"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:13:59.734695-05:00",
+    "symbols": [
+      "GMM"
+    ],
+    "headline": "12 Communication Services Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:13:59.778235-05:00",
+    "symbols": [
+      "CUE"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:13:59.924155-05:00",
+    "symbols": [
+      "ICCM"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T12:14:00.251282-05:00",
+    "symbols": [
+      "ENGS"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:14:00.351572-05:00",
+    "symbols": [
+      "DUKR"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:14:00.606787-05:00",
+    "symbols": [
+      "NUR"
+    ],
+    "headline": "12 Communication Services Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:14:00.718905-05:00",
+    "symbols": [
+      "TXT"
+    ],
+    "headline": "Textron Authorizes New 35M-Share Repurchase Program, Replaces February 2026 Authorization",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:14:00.722865-05:00",
+    "symbols": [
+      "TXT"
+    ],
+    "headline": "Textron Expects ~$1.1B Net Cash Proceeds From Industrial Sale; Sees Close In H1 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:14:00.725856-05:00",
+    "symbols": [
+      "TXT"
+    ],
+    "headline": "Textron Board Authorizes Repurchase Of Up To 35M Shares, Replacing February 2026 Authorization; Plans To Use Industrial Sale Proceeds For Additional Buybacks In 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:14:00.815701-05:00",
+    "symbols": [
+      "BRNX"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:14:00.927919-05:00",
+    "symbols": [
+      "ANTX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:14:01.590615-05:00",
+    "symbols": [
+      "MEDS"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:14:01.638878-05:00",
+    "symbols": [
+      "TLSA"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

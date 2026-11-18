@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-11-18T09:38:01.721037-05:00",
-    "symbols": [
-      "SW"
-    ],
-    "headline": "12 Materials Stocks Moving In Tuesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:38:02.190446-05:00",
-    "symbols": [
-      "PIPR"
-    ],
-    "headline": "Piper Sandler Initiates Coverage on Innoviva",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:38:02.194017-05:00",
-    "symbols": [
-      "PIPR"
-    ],
-    "headline": "Piper Sandler Adjusts Price Target on Nvidia",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:38:02.449904-05:00",
-    "symbols": [
-      "YALA"
-    ],
-    "headline": "Yalla Sees Double-Digit Revenue Growth Next Year As Gaming Business Shows Promise",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T09:38:03.054701-05:00",
-    "symbols": [
-      "TSM"
-    ],
-    "headline": "U.S. Department Of Commerce Issues Interim Final Rule To Prevent Certain Foreign Actors From Leveraging Advanced Computing Power Based On U.S. Technology To Threaten U.S. National Security And Foreign Policy Interests",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:38:03.058249-05:00",
-    "symbols": [
-      "TSM"
-    ],
-    "headline": "Druckenmiller Buys Miners, Warns &#39;27 Could Be &#39;Disappointing&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:38:03.061678-05:00",
-    "symbols": [
-      "TSM"
-    ],
-    "headline": "Micron Technology (MU) Stock Is Trending After Hours: Here&#39;s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:38:03.065173-05:00",
-    "symbols": [
-      "TSM"
-    ],
-    "headline": "Taiwan Semiconductor (TSM) Stock Trending After Nvidia Posts Strong Q3 Results: What You Should Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:38:03.068547-05:00",
-    "symbols": [
-      "TSM"
-    ],
-    "headline": "Billionaire Daniel Loeb Swaps Amazon for Meta, Nvidia and Microsoft in Q3 \u2014 Meta Now Third Point&#39;s Top Holding",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T09:38:03.301805-05:00",
-    "symbols": [
-      "WDAY"
-    ],
-    "headline": "Workday Eyes Honeydew to Accelerate Enterprise AI Adoption",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-18T09:38:03.305873-05:00",
     "symbols": [
       "WDAY"
@@ -4998,5 +4898,105 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:24:12.367857-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "MP Materials Stock In Focus as Needham Reinstates Buy Rating",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T12:24:12.478768-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Bill Ackman Says Believes Board Not Acting In Best Interest Of Shareholders Nor In A Manner Consistent With Their Fiduciary Duties; Should Have Slept On Decision To Replace Jensen Huang And Met Again The Day After To Discuss The Facts",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T12:24:12.870856-05:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Why Is Salesforce Stock Falling on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-18T12:24:16.636512-05:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "&#39;RTX taps Ursa and Avio to develop Tomahawk motors&#39; - Axios Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T12:24:17.740537-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Trump Grows Frustrated With Vance Over Iran War Critique&#39;- New York Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-18T12:24:18.425074-05:00",
+    "symbols": [
+      "CTMX"
+    ],
+    "headline": "CytomX Therapeutics Announces Milestone Achievement in Strategic Collaboration with Regeneron",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-18T12:24:20.997903-05:00",
+    "symbols": [
+      "BRBR"
+    ],
+    "headline": "Crude Oil Down Over 4%; Target Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-18T12:24:21.001489-05:00",
+    "symbols": [
+      "BRBR"
+    ],
+    "headline": "BellRing Brands Beats Q4 Revenue Estimates, Announces New CFO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-18T12:24:21.716560-05:00",
+    "symbols": [
+      "TJX"
+    ],
+    "headline": "Crude Oil Down Over 4%; Target Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-18T12:24:22.436554-05:00",
+    "symbols": [
+      "TGT"
+    ],
+    "headline": "Crude Oil Down Over 4%; Target Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

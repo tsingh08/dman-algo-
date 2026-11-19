@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-11-19T09:37:08.546921-05:00",
-    "symbols": [
-      "CLH"
-    ],
-    "headline": "Clean Harbors to Present at 2026 Goldman Sachs Industrials and Materials Conference",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:37:08.550587-05:00",
-    "symbols": [
-      "CLH"
-    ],
-    "headline": "Explosion and Fire Reported at Clean Harbors Facility Near Houston",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:37:08.601123-05:00",
-    "symbols": [
-      "MTN"
-    ],
-    "headline": "Vail Resorts Issues Investor Presentation Ahead of Annual Meeting",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:37:08.656927-05:00",
-    "symbols": [
-      "BWA"
-    ],
-    "headline": "BorgWarner Named to America's Top Manufacturers 2027 Ranking",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-19T09:37:08.712536-05:00",
     "symbols": [
       "AEO"
@@ -4998,5 +4958,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T12:32:35.025999-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Costain Announces New Medium-Term Targets and Share Buyback Program",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T12:32:35.194980-05:00",
+    "symbols": [
+      "RZLV"
+    ],
+    "headline": "Rezolve AI Publishes November Investor Presentation",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T12:32:59.646194-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What&#39;s Going On With Dell Technologies Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T12:33:24.837712-05:00",
+    "symbols": [
+      "HUT"
+    ],
+    "headline": "Cipher Digital Hovers Near Flatline After Anthropic&#39;s $83 IPO Pricing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

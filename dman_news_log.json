@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-11-18T14:46:19.897984-05:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Cyclicals Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T14:46:19.901205-05:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "Unitedhealthcare Partners With Independent Pharmacies for Telehealth and Testing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T14:46:20.413858-05:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Novo Nordisk Presents New Data at ObesityWeek 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T14:46:20.519282-05:00",
-    "symbols": [
-      "NEM"
-    ],
-    "headline": "Why Is Newmont Stock Falling Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T14:46:20.581027-05:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Costco Wholesale Opens New Location in NE Edmonton",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T14:46:20.584962-05:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Analysts Note Costco Sales Boost from Emergency-Prep Purchases",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T14:46:20.639000-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Cyclicals Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T14:46:20.750275-05:00",
-    "symbols": [
-      "FDX"
-    ],
-    "headline": "Amazon&#39;s Retail Machine Is Emerging As Major AI Beneficiary: Analyst",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T14:46:20.857346-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Nvidia\u2014Wall Street Is Missing China-Linked Margin Risk\u2014Buybacks Support Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T14:46:20.860910-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Growth Leads Sectors In Wednesday Trading As Cyclicals Trail",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-18T14:46:20.907005-05:00",
     "symbols": [
       "IWM"
@@ -4998,5 +4898,105 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-19T09:32:34.857372-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "NVIDIA Receives Analyst Downgrades Following CEO Resignation",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T09:32:34.878976-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Costco Wholesale Opens New Warehouse in Lloydminster, Alberta",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T09:32:34.899410-05:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Uber Technologies Partners with AutoParts.com to Launch Auto Parts Category on Uber Eats",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T09:32:34.903023-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Integrates IDEMIA Mobile Driver's License Verification into Entra",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T09:32:34.906313-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Jamf Integrates Apple Device Management and Security Apps with CrowdStrike Falcon Foundry",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T09:32:34.954551-05:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Selected for U.S. Department of Commerce AI Export Program",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T09:32:35.026145-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "UBS Raises Meta Platforms Price Target Following Muse AI Adoption",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T09:33:35.163715-05:00",
+    "symbols": [
+      "ACHR"
+    ],
+    "headline": "Archer Aviation CEO to Speak at AutoMobility LA 2026",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T09:33:35.167610-05:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "BofA Adjusts Price Target on MongoDB to $450 From $540",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T09:33:35.171094-05:00",
+    "symbols": [
+      "RBLX"
+    ],
+    "headline": "BofA Securities Adjusts Price Target on Roblox to $48 From $45",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

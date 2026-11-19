@@ -1,725 +1,5 @@
 [
   {
-    "ts": "2026-11-19T09:25:55.928919-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA Continuing Jobless Claims Prior Revised From 1,697K To 1,693K",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:25:55.931935-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Philadelphia Fed Manufacturing Index For Nov. 6.3 Vs 20.6 Est.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:25:55.934916-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA Continuing Jobless Claims 1,763K Vs 1,710K Est.; 1,693K Prior",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:25:56.090099-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Anthropic&#39;s Shadow Market Priced It Above $100 Before the Bell: What the First Trade Reveals",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:25:56.093129-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market Today: Dow, S&amp;P 500, Nasdaq 100 Futures Rise as Wall Street Awaits Anthropic\u2019s Listing\u2014 PANW, NTES, SLS in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:25:56.096189-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market Today: Dow, S&amp;P 500 Futures Rise as Wall Street Awaits Anthropic&#39;s Listing\u2014 PANW, NTES, SLS in Focus",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:25:56.099156-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:25:56.361754-05:00",
-    "symbols": [
-      "ADTN"
-    ],
-    "headline": "Argus Research Downgrades ADTRAN Holdings to Sell",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:25:56.364868-05:00",
-    "symbols": [
-      "ADTN"
-    ],
-    "headline": "BlackRock, Inc. Files Voting Rights Notification for ADTRAN Holdings, Inc.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:25:56.368036-05:00",
-    "symbols": [
-      "ADTN"
-    ],
-    "headline": "Adtran Holdings, Inc. Issues Voting Rights Announcement",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:25:56.571300-05:00",
-    "symbols": [
-      "AMC"
-    ],
-    "headline": "Airtel Mobile Commerce N.V. Announces Dividend Declaration",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:25:56.711815-05:00",
-    "symbols": [
-      "ARDX"
-    ],
-    "headline": "Ardelyx, Inc. Receives Schedule 13G Filing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:25:56.820947-05:00",
-    "symbols": [
-      "BBD"
-    ],
-    "headline": "Bradesco in Discussions Regarding Morumbi Stadium Naming Rights",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:25:56.955179-05:00",
-    "symbols": [
-      "BORR"
-    ],
-    "headline": "Borr Drilling Q3 EPS $(0.13) Misses $(0.05) Estimate, Sales $263.100M Beat $256.589M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-19T09:25:57.099241-05:00",
-    "symbols": [
-      "CLRO"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:25:57.240037-05:00",
-    "symbols": [
-      "ENVX"
-    ],
-    "headline": "Enovix Corporation Distributes Stockholder Warrants",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:25:57.393482-05:00",
-    "symbols": [
-      "GOVX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:25:57.542066-05:00",
-    "symbols": [
-      "IAUX"
-    ],
-    "headline": "NetEase Downbeat Q3 Results, Joins Red Robin, Sellas Life Sciences And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:25:57.685540-05:00",
-    "symbols": [
-      "INO"
-    ],
-    "headline": "Inovio Submits Conditional Marketing Authorization Application to European Medicines Agency for VOCERYQ",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:25:57.834330-05:00",
-    "symbols": [
-      "KDK"
-    ],
-    "headline": "Needham Reiterates Buy on Kodiak AI, Maintains $4 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:25:57.985139-05:00",
-    "symbols": [
-      "LCID"
-    ],
-    "headline": "Lucid Group Named Best Luxury Electric Vehicle Brand by U.S. News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:25:58.137757-05:00",
-    "symbols": [
-      "LWLG"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:25:58.258636-05:00",
-    "symbols": [
-      "NUWE"
-    ],
-    "headline": "Nuwellis Announces Educational Webinar on ULTRA-Peds Study Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:25:58.377691-05:00",
-    "symbols": [
-      "PCT"
-    ],
-    "headline": "PureCycle Announces WM To Supply Nearly 25M Pounds Per Year Of Waste Polypropylene Under Multi-Year Feedstock Agreement Beginning November",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:25:58.528746-05:00",
-    "symbols": [
-      "PEPG"
-    ],
-    "headline": "RA Capital Management, L.P. Files Schedule 13D/A for PepGen Inc.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:25:58.666039-05:00",
-    "symbols": [
-      "PLUG"
-    ],
-    "headline": "Plug Power Says Avina\u2019s Clean Hydrogen Facility In Vernon, California, Is Now Operational With Plug\u2019s 5 MW Containerized GenEco PEM Electrolyzer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:25:58.809865-05:00",
-    "symbols": [
-      "POAS"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:25:58.957963-05:00",
-    "symbols": [
-      "RZLV"
-    ],
-    "headline": "Rezolve AI Enters Multi-Million Dollar Strategic Partnership",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:25:59.059562-05:00",
-    "symbols": [
-      "SERV"
-    ],
-    "headline": "Elevate Service Group Inc. Presents at Small Cap Growth Virtual Investor Conference",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:25:59.216492-05:00",
-    "symbols": [
-      "SPCE"
-    ],
-    "headline": "Teachers in Space Plans to Send Two Educators on 2027 Research Flight with Virgin Galactic",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:25:59.478532-05:00",
-    "symbols": [
-      "TROX"
-    ],
-    "headline": "Tronox Says It Has Not Engaged With Creditor Groups Or Their Advisers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:25:59.632620-05:00",
-    "symbols": [
-      "TSHA"
-    ],
-    "headline": "Taysha Gene Therapies Executive Dr. Sukumar Nagendran Makes $5 Million Donation to Phoenix Art Museum",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:25:59.806252-05:00",
-    "symbols": [
-      "UA"
-    ],
-    "headline": "Telsey Advisory Group Lowers Under Armour Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-19T09:26:00.093139-05:00",
-    "symbols": [
-      "VZLA"
-    ],
-    "headline": "Vizsla Silver Provides Update on Panuco Project Development and Production Timeline",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:00.235961-05:00",
-    "symbols": [
-      "WFF"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:00.376490-05:00",
-    "symbols": [
-      "WIT"
-    ],
-    "headline": "Wipro Receives Paragon Commendation for Excellence in Values and Culture",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:26:00.520426-05:00",
-    "symbols": [
-      "WRD"
-    ],
-    "headline": "WeRide-Powered Vehicle Wins Intelligent Driving Challenge in Changsha",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:00.703354-05:00",
-    "symbols": [
-      "YMAT"
-    ],
-    "headline": "J-Star Holding Expands Strategic Collaboration, Establishing Mitsubishi Chemical As Primary Supplier Of Specialty Carbon Fiber Materials For J-Star\u2019s Planned US Manufacturing Operations",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:26:00.840086-05:00",
-    "symbols": [
-      "INHD"
-    ],
-    "headline": "Inno Holdings To Redomicile To British Virgin Islands Through Merger With Wholly Owned Subsidiary EverCircle Holdings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:00.843902-05:00",
-    "symbols": [
-      "INHD"
-    ],
-    "headline": "Why Palo Alto Shares Are Trading Higher By Over 9%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:00.847472-05:00",
-    "symbols": [
-      "INHD"
-    ],
-    "headline": "Inno Holdings (INHD) Stock Soars Over 75% After Hours on Merger Agreement Announcement",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:01.002147-05:00",
-    "symbols": [
-      "GMM"
-    ],
-    "headline": "11 Communication Services Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:01.005838-05:00",
-    "symbols": [
-      "GMM"
-    ],
-    "headline": "Why Palo Alto Shares Are Trading Higher By Over 9%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:01.111334-05:00",
-    "symbols": [
-      "LASE"
-    ],
-    "headline": "This Outlook Therapeutics Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:01.114769-05:00",
-    "symbols": [
-      "LASE"
-    ],
-    "headline": "HC Wainwright &amp; Co. Initiates Coverage On Lase with Buy Rating, Announces Price Target of $2",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:01.118479-05:00",
-    "symbols": [
-      "LASE"
-    ],
-    "headline": "LASE To Premiere Quantum Bullet Anti-Drone Platform at UAS Technology USA Conference",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:01.121862-05:00",
-    "symbols": [
-      "LASE"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:01.267600-05:00",
-    "symbols": [
-      "SPRC"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:01.271626-05:00",
-    "symbols": [
-      "SPRC"
-    ],
-    "headline": "Why Palo Alto Shares Are Trading Higher By Over 9%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:01.275235-05:00",
-    "symbols": [
-      "SPRC"
-    ],
-    "headline": "SciSparc (SPRC) Stock Jumps 39% After Hours as Agentic AI Strategy Draws Attention",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:01.444626-05:00",
-    "symbols": [
-      "INLF"
-    ],
-    "headline": "Inlif China Unit Enters Three-Year Industrial Robot Distribution Agreements With Six Domestic Distributors And Two Overseas Distributors; Reports $32M Of Cumulative Sales To Date",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:01.448290-05:00",
-    "symbols": [
-      "INLF"
-    ],
-    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:01.451352-05:00",
-    "symbols": [
-      "INLF"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:01.601774-05:00",
-    "symbols": [
-      "ONCY"
-    ],
-    "headline": "HC Wainwright &amp; Co. Reiterates Buy on Oncolytics Biotech, Maintains $5 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:01.712003-05:00",
-    "symbols": [
-      "UMAC"
-    ],
-    "headline": "Oppenheimer Initiates Unusual Machines at Outperform With $30 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:01.826236-05:00",
-    "symbols": [
-      "OCSL"
-    ],
-    "headline": "Keefe, Bruyette & Woods Lowers Price Target on Oaktree Specialty Lending Corp (OCSL)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:01.968786-05:00",
-    "symbols": [
-      "EU"
-    ],
-    "headline": "enCore Energy Receives Authorization For First Wellfield At Its Upper Spring Creek Uranium Project In Texas; Expects Begin To Uranium Extraction In Early December",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:02.115973-05:00",
-    "symbols": [
-      "COHR"
-    ],
-    "headline": "Coherent Corp. Authorizes $2 Billion Share Repurchase Program",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:26:02.119392-05:00",
-    "symbols": [
-      "COHR"
-    ],
-    "headline": "Coherent Corp. Named to TIME's America's Top Manufacturers 2027 List",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:26:02.274942-05:00",
-    "symbols": [
-      "SLNH"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:02.400747-05:00",
-    "symbols": [
-      "AREC"
-    ],
-    "headline": "American Resources Corporation Provides Strategic Business and Financial Reporting Update",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:02.543851-05:00",
-    "symbols": [
-      "ASTS"
-    ],
-    "headline": "AST SpaceMobile Stock Climbs After B. Riley Upgrade, Analyst Says Rocket Risk Is Priced In",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:26:02.546842-05:00",
-    "symbols": [
-      "ASTS"
-    ],
-    "headline": "11 Communication Services Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:26:02.702200-05:00",
-    "symbols": [
-      "MAGN"
-    ],
-    "headline": "Wednesday, Magnera Q4 Sales $851M Miss $921.964M Estimate; Net Loss of $141M Vs. Loss of $40M YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:02.849735-05:00",
-    "symbols": [
-      "GLXY"
-    ],
-    "headline": "Galaxy Digital CEO Mike Novogratz Shares Outlook on Bitcoin Price",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:02.985191-05:00",
-    "symbols": [
-      "MTW"
-    ],
-    "headline": "The Manitowoc Company Named a 2026 'Best for Vets' Employer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:26:03.131180-05:00",
-    "symbols": [
-      "P"
-    ],
-    "headline": "These Analysts Revise Their Forecasts On Everpure After Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:26:03.134959-05:00",
-    "symbols": [
-      "P"
-    ],
-    "headline": "Guggenheim Reiterates Buy on Everpure, Maintains $215 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:26:03.138373-05:00",
-    "symbols": [
-      "P"
-    ],
-    "headline": "Wedbush Reiterates Outperform on Everpure, Maintains $130 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:26:03.141478-05:00",
-    "symbols": [
-      "P"
-    ],
-    "headline": "Needham Maintains Buy on Everpure, Lowers Price Target to $150",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:26:03.145037-05:00",
-    "symbols": [
-      "P"
-    ],
-    "headline": "Why Everpure CEO Is Unfazed by AI Data Center Slowdown Fears",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:26:03.387623-05:00",
-    "symbols": [
-      "BE"
-    ],
-    "headline": "Situational Awareness 2.0? Leopold Aschenbrenner Explores Relaunch Amid Anthropic IPO, Months After Steep Losses: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-19T09:26:03.391255-05:00",
     "symbols": [
       "BE"
@@ -4998,5 +4278,725 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T11:02:34.859885-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Chase Reports Cyberattack on Third-Party Vendors",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:02:34.867757-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Profound Launches Integrations for Microsoft Teams and Microsoft 365",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T11:02:34.872989-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Acts as Underwriter for Anthropic IPO",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T11:02:34.877231-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "EndoSoft Launches Argus MedGPT on Oracle Cloud Marketplace",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T11:02:34.881250-05:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "FedEx Featured in 'Threads of Connectivity' Documentary Series",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.487187-05:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "GE Aerospace Joins Initiative to Develop High-Speed Flight Test Corridor",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.491731-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Chase Spokesperson Says Bank Has Learned That Third Parties Who Provide Services To The Company Were Target Of A Cyber Attack; Sees No Disruption To Our Services",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.495307-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Andreas Halvorsen\u2019s Viking Global Reverses Tesla Cut, Boosts Stake 327% \u2014 Exits Microsoft, SpaceX and Qualcomm In Q3",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.498355-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "\u2018We\u2019ve Got to Trust the Government\u2019: Ex-CIA Cyber Chief Says US Wouldn\u2019t Hide Major Cyberattack After Microsoft, JPMorgan Outages",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.502078-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Anthropic Prices IPO At $83, Above Range, In What Could Be Biggest Listing Ever (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.504997-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Anthropic Eyes IPO Price of Up to $85 a Share: Deal Could Become the Biggest Ever",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.508680-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Anthropic Eyes IPO Price at $83 a Share: Deal Could Become the Biggest Ever",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.512305-05:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Andreas Halvorsen\u2019s Viking Global Reverses Tesla Cut, Boosts Stake 327% \u2014 Exits Microsoft, SpaceX and Qualcomm In Q3",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.515573-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Trump Reportedly Traded Over $97 Million Worth of Nvidia Stock in 2 Years \u2014 Elizabeth Warren Wants Congress to Force Him to \u2018Divest\u2019 (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.518713-05:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "Goldman Sachs Adjusts Price Target for Occidental Petroleum",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.522413-05:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Anthropic, UnitedHealth Group, CrowdStrike, Take-Two Interactive and Amazon: Why These 5 Stocks Are on Investors&#39; Radars Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.525696-05:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "Copper Traders Dump AI Bets, Triggering a $50 Billion Wipeout",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.529327-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Walmart Reports Q3 U.S. Total Comp +2.9% YoY; Reflects ~125bps Headwind From Pharmacy Deflation And Brand-To-Generic Transfers Related To Maximum Fair Price Regulation; Partially Offset By ~60bps Growth Primarily From GLP-1",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.532944-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "\u2018We\u2019ve Got to Trust the Government\u2019: Ex-CIA Cyber Chief Says US Wouldn\u2019t Hide Major Cyberattack After Microsoft, JPMorgan Outages",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.536841-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "David Ellison Calls Elon Musk\u2019s $1 Billion Investment \u2018an Honor and a Privilege,\u2019 Open to Future Starlink Collaboration",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.540865-05:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "FedEx Reports 20% Reduction in Credit Notes Through Process Improvements",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.545245-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Stock Market Today: Dow, S&amp;P 500, Nasdaq 100 Futures Rise as Wall Street Awaits Anthropic\u2019s Listing\u2014 PANW, NTES, SLS in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.548751-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA Initial Jobless Claims Prior Revised From 200K To 202K",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.552446-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Anthropic&#39;s Shadow Market Priced It Above $100 Before the Bell: What the First Trade Reveals",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.555687-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Stock Market Today: Dow, S&amp;P 500, Nasdaq 100 Futures Rise as Wall Street Awaits Anthropic\u2019s Listing\u2014 PANW, NTES, SLS in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.558711-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Stock Market Today: Dow, S&amp;P 500 Futures Rise as Wall Street Awaits Anthropic&#39;s Listing\u2014 PANW, NTES, SLS in Focus",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.562252-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.565908-05:00",
+    "symbols": [
+      "ADTN"
+    ],
+    "headline": "Argus Research Downgrades ADTRAN Holdings to Sell",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.569614-05:00",
+    "symbols": [
+      "ADTN"
+    ],
+    "headline": "BlackRock, Inc. Files Voting Rights Notification for ADTRAN Holdings, Inc.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.572717-05:00",
+    "symbols": [
+      "ADTN"
+    ],
+    "headline": "Adtran Holdings, Inc. Issues Voting Rights Announcement",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.575978-05:00",
+    "symbols": [
+      "AMC"
+    ],
+    "headline": "Airtel Mobile Commerce N.V. Announces Dividend Declaration",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.579119-05:00",
+    "symbols": [
+      "ARDX"
+    ],
+    "headline": "Ardelyx, Inc. Receives Schedule 13G Filing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.582485-05:00",
+    "symbols": [
+      "BBD"
+    ],
+    "headline": "Bradesco in Discussions Regarding Morumbi Stadium Naming Rights",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.585793-05:00",
+    "symbols": [
+      "BORR"
+    ],
+    "headline": "Borr Drilling Q3 EPS $(0.13) Misses $(0.05) Estimate, Sales $263.100M Beat $256.589M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.589015-05:00",
+    "symbols": [
+      "CLRO"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.592075-05:00",
+    "symbols": [
+      "ENVX"
+    ],
+    "headline": "Enovix Corporation Distributes Stockholder Warrants",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.595188-05:00",
+    "symbols": [
+      "GOVX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.598936-05:00",
+    "symbols": [
+      "IAUX"
+    ],
+    "headline": "NetEase Downbeat Q3 Results, Joins Red Robin, Sellas Life Sciences And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.605017-05:00",
+    "symbols": [
+      "INO"
+    ],
+    "headline": "Inovio Submits Conditional Marketing Authorization Application to European Medicines Agency for VOCERYQ",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.608324-05:00",
+    "symbols": [
+      "KDK"
+    ],
+    "headline": "Needham Reiterates Buy on Kodiak AI, Maintains $4 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.612117-05:00",
+    "symbols": [
+      "LCID"
+    ],
+    "headline": "Lucid Group Named Best Luxury Electric Vehicle Brand by U.S. News",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.615680-05:00",
+    "symbols": [
+      "LWLG"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.618690-05:00",
+    "symbols": [
+      "NUWE"
+    ],
+    "headline": "Nuwellis Announces Educational Webinar on ULTRA-Peds Study Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.622207-05:00",
+    "symbols": [
+      "PCT"
+    ],
+    "headline": "PureCycle Announces WM To Supply Nearly 25M Pounds Per Year Of Waste Polypropylene Under Multi-Year Feedstock Agreement Beginning November",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.625225-05:00",
+    "symbols": [
+      "PEPG"
+    ],
+    "headline": "RA Capital Management, L.P. Files Schedule 13D/A for PepGen Inc.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.628957-05:00",
+    "symbols": [
+      "PLUG"
+    ],
+    "headline": "Plug Power Says Avina\u2019s Clean Hydrogen Facility In Vernon, California, Is Now Operational With Plug\u2019s 5 MW Containerized GenEco PEM Electrolyzer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.631989-05:00",
+    "symbols": [
+      "POAS"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.635169-05:00",
+    "symbols": [
+      "RZLV"
+    ],
+    "headline": "Rezolve AI Enters Multi-Million Dollar Strategic Partnership",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.638550-05:00",
+    "symbols": [
+      "SERV"
+    ],
+    "headline": "Elevate Service Group Inc. Presents at Small Cap Growth Virtual Investor Conference",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.641679-05:00",
+    "symbols": [
+      "SPCE"
+    ],
+    "headline": "Teachers in Space Plans to Send Two Educators on 2027 Research Flight with Virgin Galactic",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.646138-05:00",
+    "symbols": [
+      "TSHA"
+    ],
+    "headline": "Taysha Gene Therapies Executive Dr. Sukumar Nagendran Makes $5 Million Donation to Phoenix Art Museum",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.649124-05:00",
+    "symbols": [
+      "UA"
+    ],
+    "headline": "Telsey Advisory Group Lowers Under Armour Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.652558-05:00",
+    "symbols": [
+      "VZLA"
+    ],
+    "headline": "Vizsla Silver Provides Update on Panuco Project Development and Production Timeline",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.655946-05:00",
+    "symbols": [
+      "WFF"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.659113-05:00",
+    "symbols": [
+      "WIT"
+    ],
+    "headline": "Wipro Receives Paragon Commendation for Excellence in Values and Culture",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.662293-05:00",
+    "symbols": [
+      "WRD"
+    ],
+    "headline": "WeRide-Powered Vehicle Wins Intelligent Driving Challenge in Changsha",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.665967-05:00",
+    "symbols": [
+      "YMAT"
+    ],
+    "headline": "J-Star Holding Expands Strategic Collaboration, Establishing Mitsubishi Chemical As Primary Supplier Of Specialty Carbon Fiber Materials For J-Star\u2019s Planned US Manufacturing Operations",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:02:48.672412-05:00",
+    "symbols": [
+      "INHD"
+    ],
+    "headline": "Inno Holdings To Redomicile To British Virgin Islands Through Merger With Wholly Owned Subsidiary EverCircle Holdings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.675820-05:00",
+    "symbols": [
+      "INHD"
+    ],
+    "headline": "Why Palo Alto Shares Are Trading Higher By Over 9%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.679200-05:00",
+    "symbols": [
+      "INHD"
+    ],
+    "headline": "Inno Holdings (INHD) Stock Soars Over 75% After Hours on Merger Agreement Announcement",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.683217-05:00",
+    "symbols": [
+      "GMM"
+    ],
+    "headline": "11 Communication Services Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.686536-05:00",
+    "symbols": [
+      "GMM"
+    ],
+    "headline": "Why Palo Alto Shares Are Trading Higher By Over 9%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.691023-05:00",
+    "symbols": [
+      "SPRC"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.694070-05:00",
+    "symbols": [
+      "SPRC"
+    ],
+    "headline": "Why Palo Alto Shares Are Trading Higher By Over 9%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.697226-05:00",
+    "symbols": [
+      "SPRC"
+    ],
+    "headline": "SciSparc (SPRC) Stock Jumps 39% After Hours as Agentic AI Strategy Draws Attention",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.700762-05:00",
+    "symbols": [
+      "LASE"
+    ],
+    "headline": "This Outlook Therapeutics Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.704255-05:00",
+    "symbols": [
+      "LASE"
+    ],
+    "headline": "HC Wainwright &amp; Co. Initiates Coverage On Lase with Buy Rating, Announces Price Target of $2",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.707354-05:00",
+    "symbols": [
+      "LASE"
+    ],
+    "headline": "LASE To Premiere Quantum Bullet Anti-Drone Platform at UAS Technology USA Conference",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.710737-05:00",
+    "symbols": [
+      "LASE"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.714165-05:00",
+    "symbols": [
+      "MAGN"
+    ],
+    "headline": "Wednesday, Magnera Q4 Sales $851M Miss $921.964M Estimate; Net Loss of $141M Vs. Loss of $40M YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.717182-05:00",
+    "symbols": [
+      "SLNH"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:02:48.735023-05:00",
+    "symbols": [
+      "P"
+    ],
+    "headline": "These Analysts Revise Their Forecasts On Everpure After Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

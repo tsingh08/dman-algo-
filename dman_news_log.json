@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-19T11:17:03.687766-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Why Is Nebius Stock Surging on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T11:17:03.999234-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Technology Only Sector Higher Thursday As Defensives Fall",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T11:17:04.066356-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is SMCI Stock Trading Higher on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-19T11:17:04.071585-05:00",
     "symbols": [
       "NVDA"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T16:00:24.640904-05:00",
+    "symbols": [
+      "QTI"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T16:00:24.755998-05:00",
+    "symbols": [
+      "AGCC"
+    ],
+    "headline": "Reported Earlier, Agencia Comercial Spirits Adds $60M-$65M Phase 1B MEP Supply And Installation Contracts To Phase 1A Awards For Planned West Java Data Center",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T16:00:24.878307-05:00",
+    "symbols": [
+      "NTSK"
+    ],
+    "headline": "PDD Holdings, BellRing Brands, Everpure And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

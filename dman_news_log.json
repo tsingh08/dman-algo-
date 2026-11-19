@@ -1,135 +1,5 @@
 [
   {
-    "ts": "2026-11-18T15:54:30.977796-05:00",
-    "symbols": [
-      "KSCP"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T15:54:31.599582-05:00",
-    "symbols": [
-      "HUYA"
-    ],
-    "headline": "TJX Posts Strong Q3 Sales, Joins BellRing Brands, Bullish And Other Big Stocks Moving Higher On Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T15:54:31.646078-05:00",
-    "symbols": [
-      "MFP"
-    ],
-    "headline": "Dow Drops as Nvidia Slips After Earnings, Dollar Hits 19-Month High: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T15:54:31.649313-05:00",
-    "symbols": [
-      "MFP"
-    ],
-    "headline": "Baird Maintains Neutral on Midera Food Processing, Raises Price Target to $43",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T19:02:35.002358-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly Participates in VitriVax $87 Million Series C Financing",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T19:02:35.103257-05:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "GE Aerospace Commits $100,000 to Embry-Riddle to Support Transitioning Service Members",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T19:02:35.298003-05:00",
-    "symbols": [
-      "TNMG"
-    ],
-    "headline": "TNL Mediagene Regains Compliance with Nasdaq Equity Listing Rule",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T19:03:34.941480-05:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Analysts Issue Positive Outlooks on Snowflake's Fiscal Q3 Product Revenue",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T19:03:35.075627-05:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Qualcomm Reports Workforce Reductions in South Bay and India",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T19:03:35.080110-05:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Moderna Taiwan mRNA Innovation Awards Recognize Research Excellence",
-    "source": "fiscal.ai",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T20:02:34.976135-05:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "iFAST Global Bank Expands Multi-Currency Visa Debit Card Access",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T20:02:35.111359-05:00",
-    "symbols": [
-      "UFG"
-    ],
-    "headline": "Uni-Fuels Regains Compliance with Nasdaq Minimum Bid Price Requirement",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T20:02:35.203768-05:00",
-    "symbols": [
-      "POAS"
-    ],
-    "headline": "Phaos Technology Holdings (Cayman) Limited Responds to Unusual Market Activity",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-18T20:02:35.298321-05:00",
     "symbols": [
       "CRM"
@@ -4998,5 +4868,135 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T10:20:09.473598-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Palo Alto\u2019s AI Acquisition Sparks Cybersecurity Rally. These ETFs Are Joining the Party",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T10:20:09.602940-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Barclays Maintains Overweight on Palo Alto Networks, Raises Price Target to $385",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T10:20:09.606672-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto\u2019s AI Acquisition Sparks Cybersecurity Rally. These ETFs Are Joining the Party",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T10:20:09.609779-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Piper Sandler Reiterates Overweight on Palo Alto Networks, Raises Price Target to $450",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T10:20:09.780277-05:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Palo Alto\u2019s AI Acquisition Sparks Cybersecurity Rally. These ETFs Are Joining the Party",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T10:20:10.663545-05:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Palo Alto\u2019s AI Acquisition Sparks Cybersecurity Rally. These ETFs Are Joining the Party",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T10:20:14.263370-05:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "GE Aerospace Commits $100,000 to Embry-Riddle to Support Transitioning Service Members",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T10:20:23.765384-05:00",
+    "symbols": [
+      "TNMG"
+    ],
+    "headline": "TNL Mediagene Regains Compliance with Nasdaq Equity Listing Rule",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T10:20:28.107791-05:00",
+    "symbols": [
+      "COHR"
+    ],
+    "headline": "PDD Holdings, BellRing Brands, Everpure And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T10:20:28.604195-05:00",
+    "symbols": [
+      "AZIO"
+    ],
+    "headline": "AZIO AI Signs General Contracting Agreement With U.S. Military Microgrid Supplier Energy Resilience Partners, Which Is Prime Contractor On Two Contracts With Combined Value Of ~$144.6M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T10:20:28.608771-05:00",
+    "symbols": [
+      "AZIO"
+    ],
+    "headline": "Azio AI Holdings Q3 EPS $(0.34) Up From $(1.79) YoY, Sales $1.872M Up From $1.812M YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T10:20:28.875307-05:00",
+    "symbols": [
+      "SIDU"
+    ],
+    "headline": "Sidus Space Wins Aerospace Customer Order; Terms Not Disclosed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T10:20:29.086545-05:00",
+    "symbols": [
+      "P"
+    ],
+    "headline": "Barclays Maintains Equal-Weight on Everpure, Lowers Price Target to $115",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

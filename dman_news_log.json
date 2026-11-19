@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-19T10:46:23.149969-05:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Marvel Biosciences Announces Grant of Deferred Share Units",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-19T10:46:23.478139-05:00",
     "symbols": [
       "RIOT"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T14:34:18.966787-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed\u2019s Barr Says AI Has The Potential To Increase Access To Financial Services; AI Has To Follow Financial Sector Regulations; AI Could Bring Risk Of Accelerated Bank Runs",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-11-19T09:37:05.782377-05:00",
-    "symbols": [
-      "HUM"
-    ],
-    "headline": "Humana (HUM) Stock Trending After Hours as CMS Proposes $90B Medicare Anti-Fraud Rule",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:37:05.835286-05:00",
-    "symbols": [
-      "WMG"
-    ],
-    "headline": "Warner Music Q4 Adj. OIBDA $477M Up 18% YoY, Margin 23.8% Vs. 21.7%; FY26 Free Cash Flow $766M Vs. $539M YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-19T09:37:05.839005-05:00",
     "symbols": [
       "WMG"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-19T11:32:35.111074-05:00",
+    "symbols": [
+      "BUR"
+    ],
+    "headline": "Burelle SA Announces 2027 Financial Publication Calendar",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:33:35.165388-05:00",
+    "symbols": [
+      "SBS"
+    ],
+    "headline": "Deutsche Bank Research Upgrades STRATEC SE to Buy",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

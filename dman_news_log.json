@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-19T09:37:06.807601-05:00",
-    "symbols": [
-      "HSBC"
-    ],
-    "headline": "HSBC Executes Share Buyback Program",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-19T09:37:06.811254-05:00",
     "symbols": [
       "HSBC"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T12:03:35.155967-05:00",
+    "symbols": [
+      "AMC"
+    ],
+    "headline": "Citigroup Reaffirms Buy Rating for Airtel Mobile Commerce N.V.",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

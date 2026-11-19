@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-11-19T09:37:08.489210-05:00",
-    "symbols": [
-      "GLSI"
-    ],
-    "headline": "H.C. Wainwright Maintains Buy Rating and Raises Price Target for Greenwich LifeSciences",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:37:08.492932-05:00",
-    "symbols": [
-      "GLSI"
-    ],
-    "headline": "Greenwich LifeSciences Reports Quarterly Earnings Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-19T09:37:08.546921-05:00",
     "symbols": [
       "CLH"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T12:22:22.823625-05:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "AstraZeneca Extends Tempus AI Partnership with $200 Million Commitment as Analyst Weighs Multiples",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T12:22:34.659162-05:00",
+    "symbols": [
+      "PLUG"
+    ],
+    "headline": "Plug Power CFO Reiterates Q4 2026 Positive EBITDAS Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

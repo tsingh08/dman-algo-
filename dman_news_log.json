@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-11-18T15:02:40.770882-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Wall Street Says the AI Trade Is Over \u2014 ETF Investors Aren\u2019t Acting Like It",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T15:02:40.774008-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Stock a \u2018Compelling Risk-Reward\u2019: Analysts See \u2018Business as Usual\u2019 After Jensen Huang\u2019s Resignation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T15:03:34.844662-05:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Qualcomm and Cirrascale Collaborate on AI Inference Solutions",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T15:12:55.499902-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Bessent Wants an Outside CEO. Brad Gerstner Says Nvidia Should Wait on Jensen Huang",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T15:12:55.503190-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Freedom Broker Maintains Buy on NVIDIA, Lowers Price Target to $230",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T15:12:58.272708-05:00",
-    "symbols": [
-      "JD"
-    ],
-    "headline": "Freedom Broker Maintains Buy on JD.com, Lowers Price Target to $40",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T15:13:00.600605-05:00",
-    "symbols": [
-      "IAUX"
-    ],
-    "headline": "Freedom Broker Maintains Buy on i-80 Gold, Lowers Price Target to $2.8",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T15:13:03.733259-05:00",
-    "symbols": [
-      "JJSF"
-    ],
-    "headline": "J&amp;J Snack Foods Q4 Adj. EPS $1.39 Beats $1.33 Estimate, Sales $406.017M Beat $398.822M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T15:13:03.841360-05:00",
-    "symbols": [
-      "DIS"
-    ],
-    "headline": "CNBC Halftime Report Final Trades: Fortinet, UnitedHealth Group, CrowdStrike, Walt Disney",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-18T15:13:03.845691-05:00",
-    "symbols": [
-      "DIS"
-    ],
-    "headline": "Disney Stock Moves Higher: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-18T15:13:03.848608-05:00",
     "symbols": [
       "DIS"
@@ -4995,6 +4895,106 @@
       "RERE"
     ],
     "headline": "ATRenew Q3 Adj. EPS $0.15 Beats $0.10 Estimate, Sales $962.500M Beat $944.000M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T09:53:05.673273-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Anthropic IPO Buyers Beware: Hot Debuts Rarely Escape a Steep First-Year Drop",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T09:53:06.675339-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia\u2019s $500 Billion Financing Plan Has Yet to Put a Dollar to Work, WSJ Reports",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T09:53:07.012010-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Anthropic IPO Buyers Beware: Hot Debuts Rarely Escape a Steep First-Year Drop",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T09:53:07.605041-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Anthropic IPO Buyers Beware: Hot Debuts Rarely Escape a Steep First-Year Drop",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T09:53:07.608291-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "What\u2019s Going On With Tesla Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T09:53:08.582685-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Nvidia\u2019s $500 Billion Financing Plan Has Yet to Put a Dollar to Work, WSJ Reports",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T09:53:09.855450-05:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "Anthropic IPO Buyers Beware: Hot Debuts Rarely Escape a Steep First-Year Drop",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T09:53:15.126978-05:00",
+    "symbols": [
+      "JD"
+    ],
+    "headline": "Freedom Broker Maintains Buy on JD.com, Lowers Price Target to $40",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T09:53:19.916853-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "FAA Expects To Announce Root Cause Of Router Outage This Week",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T09:53:21.422664-05:00",
+    "symbols": [
+      "IAUX"
+    ],
+    "headline": "Freedom Broker Maintains Buy on i-80 Gold, Lowers Price Target to $2.8",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

@@ -1,135 +1,5 @@
 [
   {
-    "ts": "2026-11-19T10:30:56.327183-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "AMD Shares See Volume; Hunterbrook Issues Report On Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T10:30:56.879559-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Stock Moves Higher: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T10:30:57.459429-05:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Analysts Issue Positive Outlooks on Snowflake's Fiscal Q3 Product Revenue",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:30:59.681171-05:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Moderna Taiwan mRNA Innovation Awards Recognize Research Excellence",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:30:59.925474-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly Participates in VitriVax $87 Million Series C Financing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:31:01.228220-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "TD Cowen Reiterates Buy on Palo Alto Networks, Maintains $440 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:31:01.232552-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "DA Davidson Maintains Buy on Palo Alto Networks, Raises Price Target to $430",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:31:06.288765-05:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "BofA Securities Maintains Buy Rating on Eaton",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:31:06.750921-05:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "iFAST Global Bank Expands Multi-Currency Visa Debit Card Access",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T10:31:13.290139-05:00",
-    "symbols": [
-      "TROX"
-    ],
-    "headline": "Tronox Issues Company Update Regarding Creditor Engagement",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T10:31:14.117630-05:00",
-    "symbols": [
-      "UFG"
-    ],
-    "headline": "Uni-Fuels Regains Compliance with Nasdaq Minimum Bid Price Requirement",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T10:31:14.914703-05:00",
-    "symbols": [
-      "WRD"
-    ],
-    "headline": "Singapore LTA Directs Pause in Autonomous Vehicle Testing Following Shuttle Incident",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T10:31:18.453823-05:00",
-    "symbols": [
-      "P"
-    ],
-    "headline": "TD Cowen Reiterates Buy on Everpure, Maintains $170 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-19T10:31:18.458673-05:00",
     "symbols": [
       "P"
@@ -4996,6 +4866,136 @@
     ],
     "headline": "Tesla Developing Steering Wheel-Free Model Y Version",
     "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:07:00.219970-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Wall Street Wants to Turn Anthropic Into a Leveraged Trading Machine \u2014 There\u2019s a Catch",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:07:07.972806-05:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "Rosenblatt Securities Maintains Buy Rating and $280 Price Target for Arista Networks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T14:07:09.337340-05:00",
+    "symbols": [
+      "DECK"
+    ],
+    "headline": "StoneX Initiates Coverage of Deckers Brands with Buy Rating",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T14:07:09.491885-05:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Fortinet Named a Leader in Westlands Advisory OT Cybersecurity Navigators 2026 Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T14:07:11.422113-05:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Barclays Maintains Buy Rating and Raises Price Target for Constellation Energy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T14:07:12.391422-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa Launches 'Visa Recurrent' for Recurring Payment Management",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:07:15.002307-05:00",
+    "symbols": [
+      "INSM"
+    ],
+    "headline": "With Dupixent&#39;s Patent Clock Ticking, Sanofi Circles Insmed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T14:07:15.900021-05:00",
+    "symbols": [
+      "PS"
+    ],
+    "headline": "Pershing Square Inc. to Join Russell 3000 Index",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T14:07:16.517883-05:00",
+    "symbols": [
+      "SNY"
+    ],
+    "headline": "With Dupixent&#39;s Patent Clock Ticking, Sanofi Circles Insmed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T14:07:18.363943-05:00",
+    "symbols": [
+      "RERE"
+    ],
+    "headline": "ATRenew Sees Q4 Sales $1.160B-$1.175B vs $1.040B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T14:07:18.366660-05:00",
+    "symbols": [
+      "RERE"
+    ],
+    "headline": "ATRenew Q3 Adj. EPS $0.15 Beats $0.10 Estimate, Sales $962.500M Beat $944.000M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T14:07:19.655602-05:00",
+    "symbols": [
+      "ITT"
+    ],
+    "headline": "ITT Inc. to Participate in the Goldman Sachs Industrials and Materials Conference",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T14:07:19.773912-05:00",
+    "symbols": [
+      "TM"
+    ],
+    "headline": "Toyota Recalls 314,029 Lexus, Toyota Vehicles Over Takata Front Passenger Air Bag Inflators That May Rupture, Risking Serious Injury Or Death",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

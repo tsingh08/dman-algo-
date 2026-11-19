@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-18T15:13:03.848608-05:00",
-    "symbols": [
-      "DIS"
-    ],
-    "headline": "B of A Securities Maintains Buy on Walt Disney, Raises Price Target to $135",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-18T15:13:03.852357-05:00",
     "symbols": [
       "DIS"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T09:56:19.720105-05:00",
+    "symbols": [
+      "P"
+    ],
+    "headline": "PDD Holdings, BellRing Brands, Everpure And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

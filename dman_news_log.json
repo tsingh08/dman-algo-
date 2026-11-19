@@ -1,245 +1,5 @@
 [
   {
-    "ts": "2026-11-19T09:37:06.811254-05:00",
-    "symbols": [
-      "HSBC"
-    ],
-    "headline": "HSBC Participates in Pre-Stabilisation for Uruguay Bond Offering",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:37:06.862884-05:00",
-    "symbols": [
-      "IAG"
-    ],
-    "headline": "iA Financial Group Announces $500M Offering of 4.625% Subordinated Debentures Due 2036",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:37:06.917979-05:00",
-    "symbols": [
-      "BLLN"
-    ],
-    "headline": "BillionToOne Says Fuzzy Panda Research Short Report Contains Inaccurate, Misleading Claims, Says It Is Reviewing Legal Options",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:37:06.973501-05:00",
-    "symbols": [
-      "WLK"
-    ],
-    "headline": "Citigroup Maintains Neutral on Westlake, Lowers Price Target to $65",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:37:07.036591-05:00",
-    "symbols": [
-      "UTI"
-    ],
-    "headline": "Universal Technical Expects More Than $1B Revenue And Nearly $150M Adjusted EBITDA In FY28; Sees Revenue Exceeding $1.2B And EBITDA Approaching $220M By Fiscal 2029",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-19T09:37:07.040230-05:00",
-    "symbols": [
-      "UTI"
-    ],
-    "headline": "Universal Technical Sees FY2027 Adjusted EBITDA, Excluding Planned Growth Investments, Between $135M And $141M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-19T09:37:07.043733-05:00",
-    "symbols": [
-      "UTI"
-    ],
-    "headline": "Universal Technical Sees FY2027 GAAP EPS $0.00-$0.09 vs $0.74 Est; Sees Sales $925.000M-$945.000M vs $968.876M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-19T09:37:07.047195-05:00",
-    "symbols": [
-      "UTI"
-    ],
-    "headline": "Universal Technical Q4 EPS $0.32 Misses $0.33 Estimate, Sales $235.883M Beat $234.962M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-19T09:37:07.112216-05:00",
-    "symbols": [
-      "KLIC"
-    ],
-    "headline": "Kulicke &amp; Soffa Indus Sees Q1 Adj EPS $1.49-$1.82 vs $1.43 Est; Sees Sales $390.000M-$430.000M vs $373.300M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:37:07.115969-05:00",
-    "symbols": [
-      "KLIC"
-    ],
-    "headline": "Kulicke &amp; Soffa Indus Sees Q1 GAAP EPS $1.33-$1.63 vs $1.23 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:37:07.119551-05:00",
-    "symbols": [
-      "KLIC"
-    ],
-    "headline": "Kulicke &amp; Soffa Indus Q4 Adj. EPS $1.52 Beats $1.43 Estimate, Sales $410.281M Beat $376.800M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:37:07.123016-05:00",
-    "symbols": [
-      "KLIC"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:37:07.624729-05:00",
-    "symbols": [
-      "BHP"
-    ],
-    "headline": "Copper Traders Dump AI Bets, Triggering a $50 Billion Wipeout",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:37:07.776256-05:00",
-    "symbols": [
-      "CGON"
-    ],
-    "headline": "Guggenheim Maintains Buy on CG Oncology, Raises Price Target to $120",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:37:07.777582-05:00",
-    "symbols": [
-      "EQH"
-    ],
-    "headline": "Equitable Holdings Chief Legal Officer Fernando Meyers to Join Protective Life",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:37:08.233023-05:00",
-    "symbols": [
-      "TJX"
-    ],
-    "headline": "Guggenheim Reiterates Buy on TJX Companies, Maintains $152 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:37:08.236651-05:00",
-    "symbols": [
-      "TJX"
-    ],
-    "headline": "BTIG Reiterates Buy on TJX Companies, Maintains $190 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:37:08.240121-05:00",
-    "symbols": [
-      "TJX"
-    ],
-    "headline": "Dow Tumbles Over 500 Points as Nvidia Falls After Earnings: Investor Sentiment Weakens Further, Greed Index in \u2018Extreme Fear\u2019 Zone",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:37:08.243547-05:00",
-    "symbols": [
-      "TJX"
-    ],
-    "headline": "Here\u2019s How Much You Would Have Made Owning TJX Companies Stock In The Last 20 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:37:08.243680-05:00",
-    "symbols": [
-      "PL"
-    ],
-    "headline": "Oppenheimer Initiates Coverage on Planet Labs PBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:37:08.358267-05:00",
-    "symbols": [
-      "WWD"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:37:08.362042-05:00",
-    "symbols": [
-      "WWD"
-    ],
-    "headline": "Woodward Sees FY2027 Adj EPS $10.20-$10.70 vs $10.74 Est; Sees Sales $4.618B-$4.793B vs $4.730B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:37:08.365521-05:00",
-    "symbols": [
-      "WWD"
-    ],
-    "headline": "Woodward Q4 Adj. EPS $2.83 Beats $2.51 Estimate, Sales $1.160B Beat $1.141B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:37:08.426103-05:00",
-    "symbols": [
-      "PATH"
-    ],
-    "headline": "UiPath Releases 'The Context Gap' Research on Decision-Making Costs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-19T09:37:08.489210-05:00",
     "symbols": [
       "GLSI"
@@ -4996,6 +4756,246 @@
     ],
     "headline": "Citigroup Reaffirms Buy Rating for Airtel Mobile Commerce N.V.",
     "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T12:11:29.988973-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Anthropic Stock Opens at $111.50 in Record-Breaking Nasdaq Debut",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T12:11:31.140694-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "SanDisk Stock Gains as 8-for-1 Split Approaches During Increased AI Storage Demand",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T12:11:31.144073-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Marvell Short Interest Rises While Bears Remain Below August Peak",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T12:11:31.357282-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Advanced Micro Devices Says Hunterbrook Claims &#39;Misrepresent&#39; Co&#39;s Practices",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T12:11:31.361077-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Marvell Short Interest Rises While Bears Remain Below August Peak",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T12:11:33.096559-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Marvell Short Interest Rises While Bears Remain Below August Peak",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T12:11:33.414615-05:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "SanDisk Stock Gains as 8-for-1 Split Approaches During Increased AI Storage Demand",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T12:11:33.827065-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell Short Interest Rises While Bears Remain Below August Peak",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T12:11:36.165105-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Cybersecurity Stocks Jump Thursday: What&#39;s Driving the Rally?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T12:11:36.294095-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Cybersecurity Stocks Jump Thursday: What&#39;s Driving the Rally?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T12:11:37.349403-05:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Cybersecurity Stocks Jump Thursday: What&#39;s Driving the Rally?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T12:11:38.232853-05:00",
+    "symbols": [
+      "PDD"
+    ],
+    "headline": "Temu Parent PDD Sees No Letup in China&#39;s Fierce E-Commerce Battle",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T12:11:41.907213-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says China Trip Was &#39;Great and Highly Consequential&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T12:11:43.131785-05:00",
+    "symbols": [
+      "CLRO"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T12:11:45.153407-05:00",
+    "symbols": [
+      "POAS"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T12:11:47.368837-05:00",
+    "symbols": [
+      "SEAT"
+    ],
+    "headline": "12 Communication Services Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T12:11:47.522341-05:00",
+    "symbols": [
+      "VIVS"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T12:11:48.337835-05:00",
+    "symbols": [
+      "MRKR"
+    ],
+    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T12:11:49.661558-05:00",
+    "symbols": [
+      "AMBA"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T12:11:49.970777-05:00",
+    "symbols": [
+      "GEVO"
+    ],
+    "headline": "Gevo Raises Financial Outlook; Says Updated Methane-Avoidance Treatment Expected To Add ~$15M To Annual RNG Economics",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T12:11:50.686866-05:00",
+    "symbols": [
+      "CIFR"
+    ],
+    "headline": "Cipher Digital Hovers Near Flatline After Anthropic&#39;s $83 IPO Pricing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T12:11:51.198892-05:00",
+    "symbols": [
+      "ZEO"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T12:11:52.020458-05:00",
+    "symbols": [
+      "P"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Thursday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T12:11:52.296662-05:00",
+    "symbols": [
+      "PL"
+    ],
+    "headline": "Oppenheimer Initiates Coverage on Planet Labs PBC",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

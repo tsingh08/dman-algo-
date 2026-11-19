@@ -4452,6 +4452,33 @@ def _enforce_setup_drift_restrictions(tracker: "WinRateTracker") -> list[str]:
     return newly
 
 
+_SETUPS_DISABLED_PREFIX = "__SETUPS_DISABLED__:"
+
+
+def _disabled_set_changed(key: str) -> bool:
+    """True unless `key` is the most recently stamped disabled-set key.
+
+    The kill-switch notice used a 24-hour cooldown, so the same four disabled
+    setups were re-announced every morning (seen daily 11-10..11-18) although
+    nothing had changed and nothing needed doing. A long cooldown alone is not
+    enough: going A -> B -> A would stay silent on the return to A. So this
+    compares with the LATEST announced set instead. dman_state_merge unions
+    dman_last_alerts.json keeping the newest stamp per key, which preserves
+    "latest", whereas deleting old keys could be undone by a merge.
+    """
+    try:
+        # Parsed, not string-compared: stamps carry -04:00 or -05:00 by DST.
+        _stamped = {k: datetime.fromisoformat(str(v))
+                    for k, v in _load_last_alerts().items()
+                    if str(k).startswith(_SETUPS_DISABLED_PREFIX)}
+        if not _stamped:
+            return True
+        return max(_stamped, key=_stamped.get) != key
+    except Exception as exc:
+        _log_swallowed("disabled set dedup", exc)
+        return not _is_duplicate_alert(key, 24 * 60)
+
+
 def _disabled_setups_alert() -> list:
     """Say which setups the kill switch has turned off. Returns their names.
 
@@ -4471,7 +4498,9 @@ def _disabled_setups_alert() -> list:
 
     Reads the live record directly, so it is true whether or not a signal fires
     today. Deduped on the SET of disabled names, not on time, so it re-announces
-    when another setup joins them and stays quiet otherwise.
+    when another setup joins or leaves them and stays quiet otherwise (see
+    _disabled_set_changed(); until 2026-11-19 a 24-hour cooldown re-sent the
+    same unchanged list every morning).
     """
     _off: list = []
     try:
@@ -4479,10 +4508,14 @@ def _disabled_setups_alert() -> list:
             _dis, _why = _setup_is_disabled(_name)
             if _dis:
                 _off.append((_name, _why))
+        _key = _SETUPS_DISABLED_PREFIX + ",".join(_n for _n, _ in _off)
         if not _off:
+            # Record "none disabled" so that a later kill -- even of the same
+            # set as before -- is announced again rather than read as old news.
+            if _disabled_set_changed(_key):
+                _save_last_alert(_key)
             return []
-        _key = "__SETUPS_DISABLED__:" + ",".join(_n for _n, _ in _off)
-        if not _is_duplicate_alert(_key, 24 * 60):
+        if _disabled_set_changed(_key):
             send_telegram(
                 "\U0001f6d1 <b>" + str(len(_off)) + " setup(s) disabled by the "
                 "kill switch</b>\n"
@@ -29298,8 +29331,14 @@ def _signal_health_label(entry: float, stop: float,
 def get_pending_health() -> list[dict]:
     """
     Read dman_live_signals.json, fetch current price for each,
-    and return health info for signals ≤ 7 calendar days old.
+    and return health info for every signal still inside its hold window.
+
+    The cut-off was a flat 7 calendar days, but a pending signal resolves only
+    after BACKTEST_MAX_HOLD_BARS trading bars (15, about three weeks), so EG
+    (10-29) and CVCO (10-30) were still live yet invisible here (2026-11-18
+    review). The window now spans the full hold plus weekend/holiday slack.
     """
+    max_age_days = BACKTEST_MAX_HOLD_BARS * 7 // 5 + 4
     try:
         data = json.load(open(LIVE_SIGNALS_FILE))
     except Exception:
@@ -29315,7 +29354,7 @@ def get_pending_health() -> list[dict]:
             t2       = float(p.get("target2", entry * 1.50))
             sig_date = date.fromisoformat(p["date"])
             days_old = (today - sig_date).days
-            if days_old > 7:
+            if days_old > max_age_days:
                 continue
             px = get_live_price(ticker)
             if not px:

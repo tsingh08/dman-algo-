@@ -26044,7 +26044,7 @@ class TestADisabledSetupIsAnnounced(unittest.TestCase):
 
     def _run(self, rec=None, dupe=False):
         sent = []
-        with patch.object(a, "_setup_live_record", return_value=rec or self.REC),              patch.object(a, "send_telegram", side_effect=lambda m, **k: sent.append(m)),              patch.object(a, "_is_duplicate_alert", return_value=dupe),              patch.object(a, "_save_last_alert"):
+        with patch.object(a, "_setup_live_record", return_value=rec or self.REC),              patch.object(a, "send_telegram", side_effect=lambda m, **k: sent.append(m)),              patch.object(a, "_disabled_set_changed", return_value=not dupe),              patch.object(a, "_save_last_alert"):
             names = a._disabled_setups_alert()
         return names, sent
 
@@ -26085,8 +26085,8 @@ class TestADisabledSetupIsAnnounced(unittest.TestCase):
         """So it re-announces when another setup joins, and stays quiet
         otherwise -- the standing instruction here is fewer, higher-signal
         messages."""
-        with patch.object(a, "_setup_live_record", return_value=self.REC),              patch.object(a, "send_telegram"),              patch.object(a, "_is_duplicate_alert") as dup,              patch.object(a, "_save_last_alert"):
-            dup.return_value = False
+        with patch.object(a, "_setup_live_record", return_value=self.REC),              patch.object(a, "send_telegram"),              patch.object(a, "_disabled_set_changed") as dup,              patch.object(a, "_save_last_alert"):
+            dup.return_value = True
             a._disabled_setups_alert()
         key = dup.call_args[0][0]
         self.assertIn("Gap & Hold", key)
@@ -32554,3 +32554,95 @@ class TestAiScorecardCountsSignalsNotRows(unittest.TestCase):
             with patch.object(a, "SIGNAL_FEATURES_FILE", f):
                 out = chr(10).join(a.report_signal_features(min_n=1))
         self.assertIn("1 awaiting a label", out)
+
+
+class TestKillSwitchNoticeIsSentOnlyWhenTheSetChanges(unittest.TestCase):
+    """The kill-switch notice re-sent the same four disabled setups every
+    morning (11-10..11-18) on a 24-hour cooldown, although its own docstring
+    promised dedup on the SET. Now it speaks only when the set differs from
+    the most recently announced one -- including a return to an older set and
+    a re-kill after everything had been re-enabled."""
+
+    G = {"n": 35, "wins": 7, "cum_pct": -65.6}
+    B = {"n": 8, "wins": 1, "cum_pct": -31.8}
+
+    def setUp(self):
+        self._d = tempfile.TemporaryDirectory()
+        self._f = os.path.join(self._d.name, "la.json")
+        self._p = patch.object(a, "LAST_ALERTS_FILE", self._f)
+        self._p.start()
+
+    def tearDown(self):
+        self._p.stop()
+        self._d.cleanup()
+
+    def _scan(self, rec):
+        sent = []
+        with patch.object(a, "_setup_live_record", return_value=rec),              patch.object(a, "_disabled_setup_split_lines", return_value=[]),              patch.object(a, "_is_duplicate_alert", return_value=False),              patch.object(a, "send_telegram", side_effect=lambda m, **k: sent.append(m)):
+            a._disabled_setups_alert()
+        return len(sent)
+
+    def _age_all(self, days):
+        with io.open(self._f, encoding="utf-8") as fh:
+            d = json.load(fh)
+        for k in d:
+            d[k] = (datetime.fromisoformat(d[k]) - timedelta(days=days)).isoformat()
+        with io.open(self._f, "w", encoding="utf-8") as fh:
+            fh.write(json.dumps(d))
+
+    def test_an_unchanged_set_is_not_resent_the_next_day(self):
+        self.assertEqual(self._scan({"Gap & Hold": self.G}), 1)
+        self._age_all(2)
+        self.assertEqual(self._scan({"Gap & Hold": self.G}), 0)
+
+    def test_a_setup_joining_is_announced(self):
+        self._scan({"Gap & Hold": self.G})
+        self.assertEqual(self._scan({"Gap & Hold": self.G, "Bear Gap Hold": self.B}), 1)
+
+    def test_returning_to_an_older_set_is_announced(self):
+        self._scan({"Gap & Hold": self.G})
+        self._age_all(1)
+        self._scan({"Gap & Hold": self.G, "Bear Gap Hold": self.B})
+        self.assertEqual(self._scan({"Gap & Hold": self.G}), 1)
+
+    def test_a_re_kill_after_all_clear_is_announced(self):
+        self._scan({"Gap & Hold": self.G})
+        self._age_all(1)
+        self.assertEqual(self._scan({"Day 2 Continuation": {"n": 2, "wins": 1, "cum_pct": 3.6}}), 0)
+        self.assertEqual(self._scan({"Gap & Hold": self.G}), 1)
+
+    def test_mixed_dst_offsets_pick_the_true_latest(self):
+        # 01:10-04:00 is 05:10Z and 00:30-05:00 is 05:30Z, so B is the latest
+        # although a string compare would pick A.
+        with io.open(self._f, "w", encoding="utf-8") as fh:
+            fh.write(json.dumps({
+                a._SETUPS_DISABLED_PREFIX + "A": "2026-11-01T01:10:00-04:00",
+                a._SETUPS_DISABLED_PREFIX + "B": "2026-11-01T00:30:00-05:00"}))
+        self.assertFalse(a._disabled_set_changed(a._SETUPS_DISABLED_PREFIX + "B"))
+        self.assertTrue(a._disabled_set_changed(a._SETUPS_DISABLED_PREFIX + "A"))
+
+
+class TestPendingHealthCoversTheWholeHold(unittest.TestCase):
+    """get_pending_health() dropped signals older than 7 calendar days, while
+    a pending signal stays live for BACKTEST_MAX_HOLD_BARS trading bars, so EG
+    and CVCO were live but missing from the watchlist (2026-11-18 review)."""
+
+    def _health(self, ages):
+        today = date(2026, 11, 19)
+        pend = [dict(ticker=f"T{d}", entry=10.0, stop=9.0, target1=12.0,
+                     target2=14.0, date=(today - timedelta(days=d)).isoformat())
+                for d in ages]
+        with tempfile.TemporaryDirectory() as td:
+            f = os.path.join(td, "ls.json")
+            with io.open(f, "w", encoding="utf-8") as fh:
+                fh.write(json.dumps({"pending": pend}))
+            with patch.object(a, "LIVE_SIGNALS_FILE", f), \
+                 patch.object(a, "_et_today", return_value=today), \
+                 patch.object(a, "get_live_price", return_value=10.5):
+                return {h["ticker"] for h in a.get_pending_health()}
+
+    def test_a_three_week_old_signal_inside_the_hold_is_shown(self):
+        self.assertEqual(self._health([1, 8, 21]), {"T1", "T8", "T21"})
+
+    def test_a_signal_past_the_hold_window_is_dropped(self):
+        self.assertEqual(self._health([40]), set())

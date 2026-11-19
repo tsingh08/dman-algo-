@@ -97,7 +97,8 @@ def audit(verbose: bool = False) -> int:
     for path in sorted(glob.glob(os.path.join(WF, "*.yml"))):
         name = os.path.basename(path)
         spec = INTENDED_ET.get(name, "UNDECLARED")
-        crons = CRON.findall(io.open(path, encoding="utf-8").read())
+        with io.open(path, encoding="utf-8") as fh:
+            crons = CRON.findall(fh.read())
         if not crons:
             continue
         if spec == "UNDECLARED":

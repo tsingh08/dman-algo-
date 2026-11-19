@@ -1,325 +1,5 @@
 [
   {
-    "ts": "2026-11-19T09:32:34.878976-05:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Costco Wholesale Opens New Warehouse in Lloydminster, Alberta",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:32:34.899410-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Uber Technologies Partners with AutoParts.com to Launch Auto Parts Category on Uber Eats",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:32:34.903023-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Integrates IDEMIA Mobile Driver's License Verification into Entra",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T09:32:34.906313-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Jamf Integrates Apple Device Management and Security Apps with CrowdStrike Falcon Foundry",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T09:32:34.954551-05:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce Selected for U.S. Department of Commerce AI Export Program",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T09:32:35.026145-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "UBS Raises Meta Platforms Price Target Following Muse AI Adoption",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T09:33:35.163715-05:00",
-    "symbols": [
-      "ACHR"
-    ],
-    "headline": "Archer Aviation CEO to Speak at AutoMobility LA 2026",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:33:35.167610-05:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "BofA Adjusts Price Target on MongoDB to $450 From $540",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:33:35.171094-05:00",
-    "symbols": [
-      "RBLX"
-    ],
-    "headline": "BofA Securities Adjusts Price Target on Roblox to $48 From $45",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T09:36:57.495808-05:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Adobe Connect and Adobe Video Display Receive 2026 Product of the Year Award",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T09:36:57.499406-05:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Michael Burry Increases Stake in Adobe Inc.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T09:37:02.571696-05:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Adobe Connect and Adobe Video Display Receive 2026 Product of the Year Award",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T09:37:02.575401-05:00",
-    "symbols": [
-      "ADBE"
-    ],
-    "headline": "Michael Burry Increases Stake in Adobe Inc.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T09:37:02.964408-05:00",
-    "symbols": [
-      "SKYA"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:37:03.034400-05:00",
-    "symbols": [
-      "ARDT"
-    ],
-    "headline": "Eight Ardent Health Facilities Earn 'A' Hospital Safety Grades",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:37:03.151568-05:00",
-    "symbols": [
-      "CUE"
-    ],
-    "headline": "Lucid Capital Maintains Buy Rating on Cue Biopharma",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:37:03.220196-05:00",
-    "symbols": [
-      "JMIA"
-    ],
-    "headline": "Cantor Fitzgerald Maintains Overweight on Jumia Technologies, Lowers Price Target to $5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:37:03.269790-05:00",
-    "symbols": [
-      "QTRX"
-    ],
-    "headline": "Quanterix CEO Everett Cunningham Steps Down; Jim Gute Named Interim CEO",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:37:03.334316-05:00",
-    "symbols": [
-      "PRMB"
-    ],
-    "headline": "Doomsday Shopping Lifts Costco and Walmart as Preppers Buy Emergency Supplies",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:37:03.388113-05:00",
-    "symbols": [
-      "BIPC"
-    ],
-    "headline": "Brookfield Infrastructure Completes Corporate Simplification",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:37:03.446065-05:00",
-    "symbols": [
-      "KRNT"
-    ],
-    "headline": "Needham Reiterates Buy on Kornit Digital, Maintains $23 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:37:03.611003-05:00",
-    "symbols": [
-      "WPM"
-    ],
-    "headline": "Gold and Silver Stocks Drop: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-19T09:37:03.663966-05:00",
-    "symbols": [
-      "BIP"
-    ],
-    "headline": "Brookfield Infrastructure Completes Corporate Simplification and Creates BIP Inc.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:37:03.755215-05:00",
-    "symbols": [
-      "BRBR"
-    ],
-    "headline": "Stifel Maintains Buy on BellRing Brands, Raises Price Target to $18",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:37:03.814629-05:00",
-    "symbols": [
-      "TGT"
-    ],
-    "headline": "Stifel Maintains Hold on Target, Raises Price Target to $160",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:37:03.818213-05:00",
-    "symbols": [
-      "TGT"
-    ],
-    "headline": "Guggenheim Maintains Buy on Target, Raises Price Target to $180",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:37:03.821596-05:00",
-    "symbols": [
-      "TGT"
-    ],
-    "headline": "Truist Securities Maintains Hold on Target, Raises Price Target to $172",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:37:03.825104-05:00",
-    "symbols": [
-      "TGT"
-    ],
-    "headline": "Aecom To Rally Around 18%? Here Are 10 Top Analyst Forecasts For Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:37:03.828495-05:00",
-    "symbols": [
-      "TGT"
-    ],
-    "headline": "Target Analysts Boost Their Forecasts Following Better-Than-Expected Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:37:04.557084-05:00",
-    "symbols": [
-      "AU"
-    ],
-    "headline": "Gold and Silver Stocks Drop: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:37:04.616711-05:00",
-    "symbols": [
-      "BETA"
-    ],
-    "headline": "BETA Technologies Shares Decline Following Gotham City Research Short Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:37:04.672238-05:00",
-    "symbols": [
-      "TECK"
-    ],
-    "headline": "Copper Traders Dump AI Bets, Triggering a $50 Billion Wipeout",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-19T09:37:05.576159-05:00",
     "symbols": [
       "TTWO"
@@ -4995,6 +4675,326 @@
       "WULF"
     ],
     "headline": "Andreas Halvorsen\u2019s Viking Global Reverses Tesla Cut, Boosts Stake 327% \u2014 Exits Microsoft, SpaceX and Qualcomm In Q3",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:17:03.687766-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Why Is Nebius Stock Surging on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:17:03.999234-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Technology Only Sector Higher Thursday As Defensives Fall",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T11:17:04.066356-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is SMCI Stock Trading Higher on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T11:17:04.071585-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is Nebius Stock Surging on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T11:17:04.076179-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Technology Only Sector Higher Thursday As Defensives Fall",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T11:17:04.080670-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What&#39;s Going On With IonQ Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T11:17:05.098995-05:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Why Is SMCI Stock Trading Higher on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:17:05.272574-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Technology Only Sector Higher Thursday As Defensives Fall",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T11:17:05.527293-05:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "What&#39;s Going On With Qualcomm Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:17:05.742681-05:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Stock Climbs Thursday: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T11:17:06.573573-05:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "StoneX Maintains Buy on AppLovin, Raises Price Target to $469",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:17:06.687812-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Northland Capital Markets Maintains Market Perform on Palo Alto Networks, Raises Price Target to $379",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:17:06.692726-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto Networks Posts Strong Q1, Announces Plan to Buy AI Startup Founded By 3 Former OpenAI Researchers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:17:08.711915-05:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "What&#39;s Going On With IonQ Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-19T11:17:10.182233-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Wells Fargo Short Interest Rises As Bears Near August Peak",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:17:10.539745-05:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Technology Only Sector Higher Thursday As Defensives Fall",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:17:10.649084-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Here&#39;s How Much $1000 Invested In Costco Wholesale 15 Years Ago Would Be Worth Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:17:10.897634-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Technology Only Sector Higher Thursday As Defensives Fall",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:17:10.962020-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Technology Only Sector Higher Thursday As Defensives Fall",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:17:11.020266-05:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Technology Only Sector Higher Thursday As Defensives Fall",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:17:11.177835-05:00",
+    "symbols": [
+      "INSM"
+    ],
+    "headline": "&#39;Sanofi Weighs Takeover of US Drugmaker Insmed&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:17:11.182876-05:00",
+    "symbols": [
+      "INSM"
+    ],
+    "headline": "Sanofi Weighs Takeover Of Us Drugmaker Insmed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T11:17:11.245374-05:00",
+    "symbols": [
+      "RRGB"
+    ],
+    "headline": "NetEase Downbeat Q3 Results, Joins Red Robin, Sellas Life Sciences And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-19T11:17:11.250326-05:00",
+    "symbols": [
+      "RRGB"
+    ],
+    "headline": "Why Palo Alto Shares Are Trading Higher By Over 9%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-19T11:17:11.254746-05:00",
+    "symbols": [
+      "RRGB"
+    ],
+    "headline": "Red Robin (NASDAQ: RRGB) Shares Fall 17.48% After Hours: Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-19T11:17:11.259150-05:00",
+    "symbols": [
+      "RRGB"
+    ],
+    "headline": "Red Robin Gourmet Burgers Q3 Adj. EPS $(0.54) Misses $(0.40) Estimate, Sales $232.098M Miss $252.090M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-19T11:17:11.431697-05:00",
+    "symbols": [
+      "SNY"
+    ],
+    "headline": "&#39;Sanofi Weighs Takeover of US Drugmaker Insmed&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:17:11.436635-05:00",
+    "symbols": [
+      "SNY"
+    ],
+    "headline": "Sanofi Weighs Takeover Of Us Drugmaker Insmed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:17:11.441075-05:00",
+    "symbols": [
+      "SNY"
+    ],
+    "headline": "Dual Regulatory Wins for Sanofi Bring New Oral Gaucher Therapy and Upgraded Rabies Shot",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:17:11.445359-05:00",
+    "symbols": [
+      "SNY"
+    ],
+    "headline": "Jacobs Scores Key Role in Sanofi&#39;s New Insulin Factory in Germany",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:17:11.449712-05:00",
+    "symbols": [
+      "SNY"
+    ],
+    "headline": "Sanofi Taps Jacobs For Engineering, Procurement, Construction Management Of New Frankfurt Insulin Plant",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T11:17:11.512513-05:00",
+    "symbols": [
+      "SNEX"
+    ],
+    "headline": "StoneX Group Q4 EPS $0.66 Down From $0.70 YoY, Sales $1.461B Up From $1.202B YoY",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

@@ -1,165 +1,5 @@
 [
   {
-    "ts": "2026-11-18T20:02:35.298321-05:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce Initiates New Round of Layoffs",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-18T20:03:35.048046-05:00",
-    "symbols": [
-      "WRD"
-    ],
-    "headline": "Singapore LTA Directs Pause in Autonomous Vehicle Testing Following Shuttle Incident",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-18T20:03:35.144379-05:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "BofA Securities Maintains Buy Rating on Eaton",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:25:44.190081-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Anthropic&#39;s Shadow Market Priced It Above $100 Before the Bell: What the First Trade Reveals",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T09:25:44.193722-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "From Nvidia to Saudi Aramco: One ETF, 15 Heavyweights, Zero Favorites",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T09:25:44.197060-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Andreas Halvorsen\u2019s Viking Global Reverses Tesla Cut, Boosts Stake 327% \u2014 Exits Microsoft, SpaceX and Qualcomm In Q3",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T09:25:44.200024-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Bitcoin\u2019s SpaceX IPO Rally Faded in Five Days: Will ANT Follow the Same Script?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T09:25:44.202969-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Why Is Bloom Energy Stock Surging Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T09:25:44.383643-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Situational Awareness 2.0? Leopold Aschenbrenner Explores Relaunch Amid Anthropic IPO, Months After Steep Losses: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:25:44.621029-05:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Andreas Halvorsen\u2019s Viking Global Reverses Tesla Cut, Boosts Stake 327% \u2014 Exits Microsoft, SpaceX and Qualcomm In Q3",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:25:44.798825-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Stock Market Today: Dow, S&amp;P 500, Nasdaq 100 Futures Rise as Wall Street Awaits Anthropic\u2019s Listing\u2014 PANW, NTES, SLS in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:25:44.801969-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "From Nvidia to Saudi Aramco: One ETF, 15 Heavyweights, Zero Favorites",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:25:44.807768-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "&#39;UK loses bid to keep Apple \u2018backdoor\u2019 order secret; Privacy rights campaigners laud a \u2018big win for accountability, transparency and online security\u2019&#39; - FT",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:25:44.810940-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "GTA 6 vs. Sam Bankman-Fried: Netflix Drops FTX Series on Same Day as Take-Two\u2019s Blockbuster Launch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:25:44.813887-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Intel Secures First External Customer For Advanced 18A Chips, Marking Major Foundry Breakthrough",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:25:45.010735-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Stock Market Today: Dow, S&amp;P 500, Nasdaq 100 Futures Rise as Wall Street Awaits Anthropic\u2019s Listing\u2014 PANW, NTES, SLS in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-19T09:25:45.013744-05:00",
     "symbols": [
       "MSFT"
@@ -4995,6 +4835,166 @@
       "P"
     ],
     "headline": "Barclays Maintains Equal-Weight on Everpure, Lowers Price Target to $115",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T10:30:56.092772-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What Is Going on With CoreWeave Stock on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T10:30:56.096271-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Anthropic Preisdent, CEO Will Not Comment On Jensen Huang Returning To Nvidia",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T10:30:56.327183-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD Shares See Volume; Hunterbrook Issues Report On Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T10:30:56.879559-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Stock Moves Higher: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T10:30:57.459429-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Analysts Issue Positive Outlooks on Snowflake's Fiscal Q3 Product Revenue",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T10:30:59.681171-05:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Moderna Taiwan mRNA Innovation Awards Recognize Research Excellence",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T10:30:59.925474-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Participates in VitriVax $87 Million Series C Financing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T10:31:01.228220-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "TD Cowen Reiterates Buy on Palo Alto Networks, Maintains $440 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T10:31:01.232552-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "DA Davidson Maintains Buy on Palo Alto Networks, Raises Price Target to $430",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T10:31:06.288765-05:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "BofA Securities Maintains Buy Rating on Eaton",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T10:31:06.750921-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "iFAST Global Bank Expands Multi-Currency Visa Debit Card Access",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T10:31:13.290139-05:00",
+    "symbols": [
+      "TROX"
+    ],
+    "headline": "Tronox Issues Company Update Regarding Creditor Engagement",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T10:31:14.117630-05:00",
+    "symbols": [
+      "UFG"
+    ],
+    "headline": "Uni-Fuels Regains Compliance with Nasdaq Minimum Bid Price Requirement",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T10:31:14.914703-05:00",
+    "symbols": [
+      "WRD"
+    ],
+    "headline": "Singapore LTA Directs Pause in Autonomous Vehicle Testing Following Shuttle Incident",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T10:31:18.453823-05:00",
+    "symbols": [
+      "P"
+    ],
+    "headline": "TD Cowen Reiterates Buy on Everpure, Maintains $170 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T10:31:18.458673-05:00",
+    "symbols": [
+      "P"
+    ],
+    "headline": "Piper Sandler Reiterates Overweight on Everpure, Raises Price Target to $166",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

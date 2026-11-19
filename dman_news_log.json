@@ -1,155 +1,5 @@
 [
   {
-    "ts": "2026-11-19T11:02:48.532944-05:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "\u2018We\u2019ve Got to Trust the Government\u2019: Ex-CIA Cyber Chief Says US Wouldn\u2019t Hide Major Cyberattack After Microsoft, JPMorgan Outages",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T11:02:48.536841-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "David Ellison Calls Elon Musk\u2019s $1 Billion Investment \u2018an Honor and a Privilege,\u2019 Open to Future Starlink Collaboration",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T11:02:48.540865-05:00",
-    "symbols": [
-      "FDX"
-    ],
-    "headline": "FedEx Reports 20% Reduction in Credit Notes Through Process Improvements",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T11:02:48.545245-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Stock Market Today: Dow, S&amp;P 500, Nasdaq 100 Futures Rise as Wall Street Awaits Anthropic\u2019s Listing\u2014 PANW, NTES, SLS in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T11:02:48.548751-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA Initial Jobless Claims Prior Revised From 200K To 202K",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T11:02:48.552446-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Anthropic&#39;s Shadow Market Priced It Above $100 Before the Bell: What the First Trade Reveals",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T11:02:48.555687-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market Today: Dow, S&amp;P 500, Nasdaq 100 Futures Rise as Wall Street Awaits Anthropic\u2019s Listing\u2014 PANW, NTES, SLS in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T11:02:48.558711-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market Today: Dow, S&amp;P 500 Futures Rise as Wall Street Awaits Anthropic&#39;s Listing\u2014 PANW, NTES, SLS in Focus",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T11:02:48.562252-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T11:02:48.565908-05:00",
-    "symbols": [
-      "ADTN"
-    ],
-    "headline": "Argus Research Downgrades ADTRAN Holdings to Sell",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T11:02:48.569614-05:00",
-    "symbols": [
-      "ADTN"
-    ],
-    "headline": "BlackRock, Inc. Files Voting Rights Notification for ADTRAN Holdings, Inc.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T11:02:48.572717-05:00",
-    "symbols": [
-      "ADTN"
-    ],
-    "headline": "Adtran Holdings, Inc. Issues Voting Rights Announcement",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T11:02:48.575978-05:00",
-    "symbols": [
-      "AMC"
-    ],
-    "headline": "Airtel Mobile Commerce N.V. Announces Dividend Declaration",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T11:02:48.579119-05:00",
-    "symbols": [
-      "ARDX"
-    ],
-    "headline": "Ardelyx, Inc. Receives Schedule 13G Filing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T11:02:48.582485-05:00",
-    "symbols": [
-      "BBD"
-    ],
-    "headline": "Bradesco in Discussions Regarding Morumbi Stadium Naming Rights",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-19T11:02:48.585793-05:00",
     "symbols": [
       "BORR"
@@ -4996,6 +4846,156 @@
     ],
     "headline": "UBS Maintains Sell on Everpure, Raises Price Target to $89",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T15:02:34.854110-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Camera and Photos Software Chief Jon McCormack Departs",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T15:02:34.861715-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "The Goldman Sachs Group, Inc. Files Voting Rights Notification Regarding CECONOMY AG",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T15:02:34.867083-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Chase Named Associate Sponsor for Wreaths Across America Radio",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T15:02:34.872278-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa Enables Stablecoin Funding for Cross-Border Payouts in APAC",
+    "source": "fiscal.ai",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T15:02:47.855865-05:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Andreas Halvorsen\u2019s Viking Global Reverses Tesla Cut, Boosts Stake 327% \u2014 Exits Microsoft, SpaceX and Qualcomm In Q3",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T15:02:47.860895-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Trump Reportedly Traded Over $97 Million Worth of Nvidia Stock in 2 Years \u2014 Elizabeth Warren Wants Congress to Force Him to \u2018Divest\u2019 (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T15:02:47.865995-05:00",
+    "symbols": [
+      "OXY"
+    ],
+    "headline": "Goldman Sachs Adjusts Price Target for Occidental Petroleum",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T15:02:47.874437-05:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Anthropic, UnitedHealth Group, CrowdStrike, Take-Two Interactive and Amazon: Why These 5 Stocks Are on Investors&#39; Radars Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T15:02:47.879906-05:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "Copper Traders Dump AI Bets, Triggering a $50 Billion Wipeout",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T15:02:47.888376-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Walmart Reports Q3 U.S. Total Comp +2.9% YoY; Reflects ~125bps Headwind From Pharmacy Deflation And Brand-To-Generic Transfers Related To Maximum Fair Price Regulation; Partially Offset By ~60bps Growth Primarily From GLP-1",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T15:02:47.893705-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "\u2018We\u2019ve Got to Trust the Government\u2019: Ex-CIA Cyber Chief Says US Wouldn\u2019t Hide Major Cyberattack After Microsoft, JPMorgan Outages",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T15:02:47.899913-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "David Ellison Calls Elon Musk\u2019s $1 Billion Investment \u2018an Honor and a Privilege,\u2019 Open to Future Starlink Collaboration",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T15:02:47.907344-05:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "FedEx Reports 20% Reduction in Credit Notes Through Process Improvements",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T15:03:34.847134-05:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Moderna Officer Stephen Hoge Sells $16.9 Million in Common Stock",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T15:03:34.853478-05:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "Boeing and GE Aerospace expand digital tracking to combat unapproved parts",
+    "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"
   }

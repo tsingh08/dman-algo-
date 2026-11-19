@@ -9416,5 +9416,53 @@
 "beats_qqq": true,
 "rvol": 0.68,
 "qualified": false
+},
+{
+"date": "2026-11-19",
+"symbol": "NRG",
+"entry_time": "10:55",
+"gap_pct": 1.05,
+"entry": 96.27,
+"stop": 94.25,
+"exit": 94.25,
+"exit_why": "stop",
+"R": -1.0,
+"pct": -2.098,
+"above_vwap": true,
+"beats_qqq": true,
+"rvol": 0.54,
+"qualified": false
+},
+{
+"date": "2026-11-19",
+"symbol": "ON",
+"entry_time": "10:00",
+"gap_pct": 3.7,
+"entry": 70.02,
+"stop": 68.64,
+"exit": 68.64,
+"exit_why": "stop",
+"R": -1.0,
+"pct": -1.971,
+"above_vwap": true,
+"beats_qqq": true,
+"rvol": 0.55,
+"qualified": false
+},
+{
+"date": "2026-11-19",
+"symbol": "XBI",
+"entry_time": "10:05",
+"gap_pct": 0.28,
+"entry": 147.455,
+"stop": 144.35,
+"exit": 144.35,
+"exit_why": "stop",
+"R": -1.0,
+"pct": -2.106,
+"above_vwap": true,
+"beats_qqq": true,
+"rvol": 2.38,
+"qualified": true
 }
 ]

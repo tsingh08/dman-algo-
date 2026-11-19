@@ -1,205 +1,5 @@
 [
   {
-    "ts": "2026-11-19T10:57:23.668557-05:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "$1000 Invested In Fortinet 15 Years Ago Would Be Worth This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T10:57:23.803953-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Palo Alto Earnings Boost Cybersecurity Sentiment: Zscaler Stock Gains",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:57:23.807125-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Why Is Akamai Technologies Stock Gaining Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:57:23.810724-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Why Is CrowdStrike Stock Surging Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:57:23.978699-05:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "MongoDB&#39;s Atlas For Government Achieves FedRAMP Certification And Added Support For Azure Government",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:57:24.154487-05:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Ashton Kutcher-Founded Sound Ventures Could See Its Anthropic Stake Hit $7 Billion After $435 Million Investment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T10:57:24.157678-05:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Elon Musk Doubles Down On Autonomy: Tesla Plans Wheel-Less, Pedal-Less Model Y To Sit Alongside Two-Seat Cybercab",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T10:57:24.288095-05:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Alibaba Executive Says On Earnings Call That 2027-2028 Will Be Period In Which Compute Supply Is At Its Scarcest On Chinese Domestic Market; Proprietary Domestic Chips To Provide Cost Advantages And Support Cloud Compute Gross Margins",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-19T10:57:24.291215-05:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Alibaba Executives Says On Earnings Call That We Have Obtained And Used Compute In Compliance With Applicable Laws And Regulations And Will Continue To Do So; Too Early At This Stage To Evaluate Impact Of New U.S. Rules Coming Out Now",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-19T10:57:24.294748-05:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Alibaba Executive Says On Earnings Call That Cloud Revenue Growth Could Be 30%\u201345% Next Year, With Potential Rebound To 50% Or Higher In Calendar Year 2028",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-19T10:57:24.570640-05:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Alibaba Executive Says On Earnings Call That 2027-2028 Will Be Period In Which Compute Supply Is At Its Scarcest On Chinese Domestic Market; Proprietary Domestic Chips To Provide Cost Advantages And Support Cloud Compute Gross Margins",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:57:24.574288-05:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "&#39;Moonshot AI, the Beijing-based developer of the Kimi models, has scrapped a $150 million deal to access Nvidia Blackwell chips through a data center in Indonesia&#39; - The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:57:24.743879-05:00",
-    "symbols": [
-      "PDD"
-    ],
-    "headline": "PDD Holdings Q3 Adj. EPS $3.14 Beats $2.69 Estimate, Sales $16.159B Miss $17.300B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:57:24.747640-05:00",
-    "symbols": [
-      "PDD"
-    ],
-    "headline": "&#39;Amazon\u2019s Temu Competitor Now Shows up in Search Results&#39;-Adweek",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:57:24.897585-05:00",
-    "symbols": [
-      "JD"
-    ],
-    "headline": "Susquehanna Maintains Neutral on JD.com, Lowers Price Target to $28",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T10:57:25.325255-05:00",
-    "symbols": [
-      "SOUN"
-    ],
-    "headline": "H.C. Wainwright Initiates Coverage of SoundHound AI with Buy Rating",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:57:25.806611-05:00",
-    "symbols": [
-      "RCAT"
-    ],
-    "headline": "CEO Jeffrey M. Thompson Sells 150,000 Shares of Red Cat Holdings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:57:25.967588-05:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "GE Vernova Secures New Wind Energy Order from wpd in Germany",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:57:26.154413-05:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Lockheed Martin Wins $316.6M Air Force Contract",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:57:30.843942-05:00",
-    "symbols": [
-      "HIVE"
-    ],
-    "headline": "Cipher Digital Hovers Near Flatline After Anthropic&#39;s $83 IPO Pricing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-19T10:57:32.983915-05:00",
     "symbols": [
       "KEEL"
@@ -4998,5 +4798,205 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T14:45:38.018849-05:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "GTA 6 vs. Sam Bankman-Fried: Netflix Drops FTX Series on Same Day as Take-Two\u2019s Blockbuster Launch",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:45:38.147974-05:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Consortium Selected in U.S. Commerce Department&#39;s American Super Intelligence Exports Program Under The American SI Exports Program.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:45:38.152486-05:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Consortium Selected By Commerce Department As One Of 33 Initial Priority Packages Under American Super Intelligence Exports Program",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:45:38.156609-05:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "NVIDIA\u2019s Board Must Decide Its Leadership Path: Satya Nadella Tells Jim Cramer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:45:38.573808-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Kevin O\u2019Leary Warns China Is Doing \u2018Everything\u2019 to Outpace North America, Says Industrial Moratoriums Could Weaken Middle Class",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:45:38.578317-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Russian Agent Reportedly Stalked Palantir Employees, Photographed Laptop Screens and Tracked One Worker for 30 Miles: DOJ Calls It &#39;State-Sponsored Operation to Target and Harass&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:45:39.026112-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "From Nvidia to Saudi Aramco: One ETF, 15 Heavyweights, Zero Favorites",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T14:45:39.311417-05:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Kessler Topaz Meltzer & Check, LLP Investigates SK hynix Inc.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T14:45:39.315814-05:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "SK hynix Shares Rise Following Nvidia Earnings Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T14:45:39.431024-05:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Andreas Halvorsen\u2019s Viking Global Reverses Tesla Cut, Boosts Stake 327% \u2014 Exits Microsoft, SpaceX and Qualcomm In Q3",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T14:45:40.164873-05:00",
+    "symbols": [
+      "NIO"
+    ],
+    "headline": "Nordic Iron Ore Reports Revenue of 2.2 Million SEK",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:45:40.857035-05:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "Ashton Kutcher-Founded Sound Ventures Could See Its Anthropic Stake Hit $7 Billion After $435 Million Investment",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:45:41.121475-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Jim Cramer: Rocket Lab Is &#39;Too Cheap,&#39; Recommends Buying This Tech Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:45:41.317616-05:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "Jim Cramer: Rocket Lab Is &#39;Too Cheap,&#39; Recommends Buying This Tech Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T14:45:41.703276-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Stock Market Today: Dow, S&amp;P 500, Nasdaq 100 Futures Rise as Wall Street Awaits Anthropic\u2019s Listing\u2014 PANW, NTES, SLS in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:45:41.707646-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Why Is Akamai Technologies Stock Gaining Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:45:41.818656-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "UBS Maintains Neutral on Palo Alto Networks, Raises Price Target to $400",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T14:45:44.543399-05:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "Reported Earlier, President Trump Says On Social Media That Congress Needs To Pass A Farm Bill In The Remaining Days Of The Current Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:45:49.362529-05:00",
+    "symbols": [
+      "WWD"
+    ],
+    "headline": "UBS Maintains Buy on Woodward, Raises Price Target to $467",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T14:45:49.468952-05:00",
+    "symbols": [
+      "JMIA"
+    ],
+    "headline": "Jumia Technologies Analysts Slash Their Forecasts Following Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

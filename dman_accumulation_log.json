@@ -1,14 +1,5 @@
 [
  {
-  "ts": "2026-09-23T14:39:28.822841-04:00",
-  "ticker": "IAGG",
-  "price": 49.265,
-  "rvol": 1.93,
-  "drift_pct": 0.45,
-  "range_ratio": 0.57,
-  "near_high": 0.974
- },
- {
   "ts": "2026-09-24T10:34:42.064688-04:00",
   "ticker": "CVX",
   "price": 207.22,
@@ -4495,6 +4486,15 @@
   "ticker": "UTZ",
   "price": 14.27,
   "rvol": 2.14,
+  "drift_pct": 0.07,
+  "range_ratio": 0.64,
+  "near_high": 0.997
+ },
+ {
+  "ts": "2026-11-19T14:47:09.891782-05:00",
+  "ticker": "UTZ",
+  "price": 14.27,
+  "rvol": 2.2,
   "drift_pct": 0.07,
   "range_ratio": 0.64,
   "near_high": 0.997

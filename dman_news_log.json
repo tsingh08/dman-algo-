@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-19T09:37:11.475027-05:00",
-    "symbols": [
-      "NJR"
-    ],
-    "headline": "New Jersey Resources Sees FY2027 Adj EPS $3.25-$3.40 vs $3.45 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-19T09:37:11.548375-05:00",
-    "symbols": [
-      "CF"
-    ],
-    "headline": "Canaccord Genuity Participates in Tender Offer for AVI Japan Opportunity Trust",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:37:11.551991-05:00",
-    "symbols": [
-      "CF"
-    ],
-    "headline": "Canaccord Genuity Leads $4 Million Private Placement for Esker Infrastructure Corp.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-19T09:37:11.555479-05:00",
     "symbols": [
       "CF"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-19T12:55:00.903705-05:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "Gold Stocks Fall: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-19T12:55:01.599836-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed\u2019s Goolsbee Said Job Market Is Stable, Inflation Is Way Higher Than Fed\u2019s 2% Target,  Consumer Demand Has Been Very Solid",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T12:55:10.858992-05:00",
+    "symbols": [
+      "EU"
+    ],
+    "headline": "enCore Energy Receives Authorization For First Wellfield At Its Upper Spring Creek Uranium Project In Texas; Expects Begin To Uranium Extraction In Early December",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

@@ -1,23 +1,5 @@
 [
  {
-  "ts": "2026-09-23T14:39:28.822833-04:00",
-  "ticker": "SCHZ",
-  "price": 22.275,
-  "rvol": 1.76,
-  "drift_pct": 1.04,
-  "range_ratio": 0.48,
-  "near_high": 0.963
- },
- {
-  "ts": "2026-09-23T14:39:28.822836-04:00",
-  "ticker": "RWM",
-  "price": 14.1538,
-  "rvol": 1.58,
-  "drift_pct": 0.45,
-  "range_ratio": 0.3,
-  "near_high": 1.0
- },
- {
   "ts": "2026-09-23T14:39:28.822838-04:00",
   "ticker": "VT",
   "price": 159.395,
@@ -4498,5 +4480,23 @@
   "drift_pct": 0.12,
   "range_ratio": 0.5,
   "near_high": 0.976
+ },
+ {
+  "ts": "2026-11-19T09:38:36.508125-05:00",
+  "ticker": "AES",
+  "price": 15.03,
+  "rvol": 2.96,
+  "drift_pct": 0.8,
+  "range_ratio": 0.55,
+  "near_high": 0.999
+ },
+ {
+  "ts": "2026-11-19T09:38:36.508136-05:00",
+  "ticker": "TME",
+  "price": 9.15,
+  "rvol": 1.7,
+  "drift_pct": 1.1,
+  "range_ratio": 0.66,
+  "near_high": 0.957
  }
 ]

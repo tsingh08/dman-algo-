@@ -1,425 +1,5 @@
 [
   {
-    "ts": "2026-11-19T09:53:19.916853-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "FAA Expects To Announce Root Cause Of Router Outage This Week",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T09:53:21.422664-05:00",
-    "symbols": [
-      "IAUX"
-    ],
-    "headline": "Freedom Broker Maintains Buy on i-80 Gold, Lowers Price Target to $2.8",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T09:56:19.720105-05:00",
-    "symbols": [
-      "P"
-    ],
-    "headline": "PDD Holdings, BellRing Brands, Everpure And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:03:35.127288-05:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "Arm Holdings Chief Architect Reports Insider Share Sale",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T10:03:58.121951-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Seeing Reports SpaceX Eyes At Least $32B AI Chip Debt Sale On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T10:03:59.169747-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Short Interest Climbs After Q3 Earnings Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T10:03:59.317973-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Meta Short Interest Climbs After Q3 Earnings Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T10:04:06.231944-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "RBC Capital Reiterates Outperform on Palo Alto Networks, Maintains $475 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:04:06.617082-05:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "PDD Holdings, BellRing Brands, Everpure And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:04:08.237877-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "PDD Holdings, BellRing Brands, Everpure And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:04:08.708303-05:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Alibaba&#39;s AI Engine Is Roaring, but US Chip Curbs Threaten to Hit the Brakes",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-19T10:04:08.877000-05:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Meta Short Interest Climbs After Q3 Earnings Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T10:04:09.204180-05:00",
-    "symbols": [
-      "PDD"
-    ],
-    "headline": "PDD Holdings, BellRing Brands, Everpure And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:04:09.505859-05:00",
-    "symbols": [
-      "IONQ"
-    ],
-    "headline": "PDD Holdings, BellRing Brands, Everpure And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-19T10:04:14.545931-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "US Leading Index (MoM) For October -0.3% Vs 0.0% Est.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:04:16.624996-05:00",
-    "symbols": [
-      "PCT"
-    ],
-    "headline": "PDD Holdings, BellRing Brands, Everpure And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T10:04:19.935355-05:00",
-    "symbols": [
-      "OTLK"
-    ],
-    "headline": "This Outlook Therapeutics Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T10:04:19.939551-05:00",
-    "symbols": [
-      "OTLK"
-    ],
-    "headline": "Piper Sandler Initiates Coverage On Outlook Therapeutics with Overweight Rating, Announces Price Target of $4",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T10:04:20.087757-05:00",
-    "symbols": [
-      "AMBA"
-    ],
-    "headline": "PDD Holdings, BellRing Brands, Everpure And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T10:10:38.346824-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "EXCLUSIVE: AI Data Centers Face Years Waiting for Grid Power. Bloom Says They Don\u2019t Have to Wait",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:10:38.372288-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Anthropic IPO Sympathy Play: Are Investors Ignoring Zoom Stock?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T10:10:38.375985-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Anthropic IPO Sympathy Play: Are Investors Ignoring Zoom Stock?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T10:10:38.380807-05:00",
-    "symbols": [
-      "KLAC"
-    ],
-    "headline": "Here\u2019s How Much You Would Have Made Owning KLA Stock In The Last 20 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:10:38.389089-05:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "Here\u2019s How Much You Would Have Made Owning AppLovin Stock In The Last 15 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:10:39.231841-05:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Doomsday Shopping Lifts Costco and Walmart as Preppers Buy Emergency Supplies",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:10:39.241492-05:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Doomsday Shopping Lifts Costco and Walmart as Preppers Buy Emergency Supplies",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:10:39.246010-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "EXCLUSIVE: AI Data Centers Face Years Waiting for Grid Power. Bloom Says They Don\u2019t Have to Wait",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T10:20:09.473598-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Palo Alto\u2019s AI Acquisition Sparks Cybersecurity Rally. These ETFs Are Joining the Party",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T10:20:09.602940-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Barclays Maintains Overweight on Palo Alto Networks, Raises Price Target to $385",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:20:09.606672-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Palo Alto\u2019s AI Acquisition Sparks Cybersecurity Rally. These ETFs Are Joining the Party",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:20:09.609779-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Piper Sandler Reiterates Overweight on Palo Alto Networks, Raises Price Target to $450",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:20:09.780277-05:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Palo Alto\u2019s AI Acquisition Sparks Cybersecurity Rally. These ETFs Are Joining the Party",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:20:10.663545-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Palo Alto\u2019s AI Acquisition Sparks Cybersecurity Rally. These ETFs Are Joining the Party",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:20:14.263370-05:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "GE Aerospace Commits $100,000 to Embry-Riddle to Support Transitioning Service Members",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:20:23.765384-05:00",
-    "symbols": [
-      "TNMG"
-    ],
-    "headline": "TNL Mediagene Regains Compliance with Nasdaq Equity Listing Rule",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T10:20:28.107791-05:00",
-    "symbols": [
-      "COHR"
-    ],
-    "headline": "PDD Holdings, BellRing Brands, Everpure And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:20:28.604195-05:00",
-    "symbols": [
-      "AZIO"
-    ],
-    "headline": "AZIO AI Signs General Contracting Agreement With U.S. Military Microgrid Supplier Energy Resilience Partners, Which Is Prime Contractor On Two Contracts With Combined Value Of ~$144.6M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T10:20:28.608771-05:00",
-    "symbols": [
-      "AZIO"
-    ],
-    "headline": "Azio AI Holdings Q3 EPS $(0.34) Up From $(1.79) YoY, Sales $1.872M Up From $1.812M YoY",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T10:20:28.875307-05:00",
-    "symbols": [
-      "SIDU"
-    ],
-    "headline": "Sidus Space Wins Aerospace Customer Order; Terms Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T10:20:29.086545-05:00",
-    "symbols": [
-      "P"
-    ],
-    "headline": "Barclays Maintains Equal-Weight on Everpure, Lowers Price Target to $115",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T10:30:56.092772-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "What Is Going on With CoreWeave Stock on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T10:30:56.096271-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Anthropic Preisdent, CEO Will Not Comment On Jensen Huang Returning To Nvidia",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-19T10:30:56.327183-05:00",
     "symbols": [
       "AMD"
@@ -4998,5 +4578,425 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T14:02:34.851405-05:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Mastercard and Yeahka Sign Agreement for AI Agent-Driven Commerce",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:02:34.868072-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Announces 2026 Black Friday Shopping Event",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:02:34.873789-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Elon Musk Comments on Texas Business Outlook Under New Governor",
+    "source": "fiscal.ai",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T14:02:34.881553-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "J.P. Morgan Asset Management Launches JPMorgan All Country Research Enhanced Equity ETF (JALL)",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T14:02:34.887993-05:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Announces Grendel Animated Series",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:02:34.893234-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Teleport Achieves AWS Security Competency Status",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:02:34.898487-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Chevron Selects GEP SMART for Global Digital Procurement Transformation",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T14:02:34.903858-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa Launches 'Visa Recurrent' for Recurring Payment Management",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:02:35.025333-05:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Fortinet Named a Leader in Westlands Advisory OT Cybersecurity Navigators 2026 Report",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T14:02:35.129819-05:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "Rosenblatt Securities Maintains Buy Rating and $280 Price Target for Arista Networks",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T14:02:35.240009-05:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Barclays Maintains Buy Rating and Raises Price Target for Constellation Energy",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T14:02:35.254573-05:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "UBS Upgrades MongoDB to Buy, Raises Price Target",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T14:02:35.263603-05:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "MongoDB Atlas for Government Achieves FedRAMP Class D (High) Certification",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T14:02:35.271071-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Advanced Micro Devices Shares Decline Following Hunterbrook Media Report on China Ties",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:02:35.277795-05:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase Plans to Launch In-House Prediction Markets in H1 2027",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-19T14:02:35.285528-05:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "Rivian R2 Named Finalist for 2027 North American Automotive Technology of the Year",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T14:02:43.785238-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Seeing Reports SpaceX Eyes At Least $32B AI Chip Debt Sale On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:02:43.790509-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Anthropic IPO Buyers Beware: Hot Debuts Rarely Escape a Steep First-Year Drop",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:02:43.816959-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Short Interest Climbs After Q3 Earnings Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:02:43.823563-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Anthropic IPO Buyers Beware: Hot Debuts Rarely Escape a Steep First-Year Drop",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:02:43.844136-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Anthropic IPO Buyers Beware: Hot Debuts Rarely Escape a Steep First-Year Drop",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:02:43.848901-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "What\u2019s Going On With Tesla Stock Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:02:43.865722-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Nvidia\u2019s $500 Billion Financing Plan Has Yet to Put a Dollar to Work, WSJ Reports",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:02:43.881858-05:00",
+    "symbols": [
+      "RIVN"
+    ],
+    "headline": "Anthropic IPO Buyers Beware: Hot Debuts Rarely Escape a Steep First-Year Drop",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T14:02:43.914329-05:00",
+    "symbols": [
+      "DDOG"
+    ],
+    "headline": "PDD Holdings, BellRing Brands, Everpure And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T14:02:43.928120-05:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "PDD Holdings, BellRing Brands, Everpure And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T14:02:43.938726-05:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "Alibaba&#39;s AI Engine Is Roaring, but US Chip Curbs Threaten to Hit the Brakes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-19T14:02:43.946820-05:00",
+    "symbols": [
+      "BIDU"
+    ],
+    "headline": "Meta Short Interest Climbs After Q3 Earnings Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T14:02:43.954911-05:00",
+    "symbols": [
+      "PDD"
+    ],
+    "headline": "PDD Holdings, BellRing Brands, Everpure And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T14:02:43.963270-05:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "PDD Holdings, BellRing Brands, Everpure And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T14:02:44.021487-05:00",
+    "symbols": [
+      "PCT"
+    ],
+    "headline": "PDD Holdings, BellRing Brands, Everpure And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T14:02:44.041259-05:00",
+    "symbols": [
+      "SEAT"
+    ],
+    "headline": "S&amp;P 500 Gains 1%; US Initial Jobless Claims Edge Higher",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T14:02:44.049334-05:00",
+    "symbols": [
+      "VIVS"
+    ],
+    "headline": "S&amp;P 500 Gains 1%; US Initial Jobless Claims Edge Higher",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T14:02:44.076444-05:00",
+    "symbols": [
+      "OTLK"
+    ],
+    "headline": "This Outlook Therapeutics Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T14:02:44.082568-05:00",
+    "symbols": [
+      "OTLK"
+    ],
+    "headline": "Piper Sandler Initiates Coverage On Outlook Therapeutics with Overweight Rating, Announces Price Target of $4",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T14:02:44.095017-05:00",
+    "symbols": [
+      "AMBA"
+    ],
+    "headline": "PDD Holdings, BellRing Brands, Everpure And Other Big Stocks Moving Higher On Thursday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T14:03:34.924013-05:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "Biogen and Eisai Present New Analysis of LEQEMBI Treatment and \u03b1-Synuclein Co-pathology",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T14:03:34.989067-05:00",
+    "symbols": [
+      "AMC"
+    ],
+    "headline": "Comcast Business Deploys Broadband Connectivity for Digital Cinema Distribution Coalition",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T14:03:35.038773-05:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "GameStop CEO Comments on Digital-Only Gaming Trends",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T14:03:35.142243-05:00",
+    "symbols": [
+      "DECK"
+    ],
+    "headline": "StoneX Initiates Coverage of Deckers Brands with Buy Rating",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T14:03:35.148757-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Commences Commercial Operation of Megapack System in Oita, Japan",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T14:03:35.154208-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Developing Steering Wheel-Free Model Y Version",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

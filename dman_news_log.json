@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-11-19T09:37:12.162476-05:00",
-    "symbols": [
-      "WMT"
-    ],
-    "headline": "Walmart&#39;s Weight-Loss Drug Windfall Is Losing Steam",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T09:37:12.166796-05:00",
-    "symbols": [
-      "WMT"
-    ],
-    "headline": "Conference call:\nWalmart Sees Q4 Sales $199.236B-$201.142B vs $200.106B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T09:37:12.170325-05:00",
-    "symbols": [
-      "WMT"
-    ],
-    "headline": "Walmart Executive Says &#39;We&#39;ve had some cost pressures throughout the year on fuel and transportation. I think some of those will remain true as long as diesel fuel remains elevated&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T09:37:12.173864-05:00",
-    "symbols": [
-      "WMT"
-    ],
-    "headline": "Walmart Raises FY2027 Adj EPS Guidance from $2.80-$2.87 to $2.84-$2.89 vs $2.88 Est; Raises FY2027 Sales Guidance from $734.656B-$741.720B to $741.014B-$743.133B vs $752.647B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-19T09:37:12.228954-05:00",
     "symbols": [
       "SONY"
@@ -4998,5 +4958,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T13:18:02.277179-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Palmer Luckey: Nvidia Leadership Shakeup Is Exactly What China Wants",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T13:18:03.193881-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Why Is Snowflake Stock Surging on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T13:18:05.635401-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Why Is Snowflake Stock Surging on Thursday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T13:18:10.767816-05:00",
+    "symbols": [
+      "BORR"
+    ],
+    "headline": "Borr Drilling Limited Announces Third Quarter 2026 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

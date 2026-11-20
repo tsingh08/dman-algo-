@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-11-19T15:02:47.865995-05:00",
-    "symbols": [
-      "OXY"
-    ],
-    "headline": "Goldman Sachs Adjusts Price Target for Occidental Petroleum",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T15:02:47.874437-05:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "Anthropic, UnitedHealth Group, CrowdStrike, Take-Two Interactive and Amazon: Why These 5 Stocks Are on Investors&#39; Radars Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T15:02:47.879906-05:00",
-    "symbols": [
-      "FCX"
-    ],
-    "headline": "Copper Traders Dump AI Bets, Triggering a $50 Billion Wipeout",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T15:02:47.888376-05:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Walmart Reports Q3 U.S. Total Comp +2.9% YoY; Reflects ~125bps Headwind From Pharmacy Deflation And Brand-To-Generic Transfers Related To Maximum Fair Price Regulation; Partially Offset By ~60bps Growth Primarily From GLP-1",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T15:02:47.893705-05:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "\u2018We\u2019ve Got to Trust the Government\u2019: Ex-CIA Cyber Chief Says US Wouldn\u2019t Hide Major Cyberattack After Microsoft, JPMorgan Outages",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T15:02:47.899913-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "David Ellison Calls Elon Musk\u2019s $1 Billion Investment \u2018an Honor and a Privilege,\u2019 Open to Future Starlink Collaboration",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T15:02:47.907344-05:00",
-    "symbols": [
-      "FDX"
-    ],
-    "headline": "FedEx Reports 20% Reduction in Credit Notes Through Process Improvements",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-19T15:03:34.847134-05:00",
     "symbols": [
       "MRNA"
@@ -4995,6 +4925,76 @@
       "ZJK"
     ],
     "headline": "Why Gap Shares Are Trading Higher By Around 4%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T10:17:09.099012-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Lenders Want to Stop Musk From Launching $40 Billion in Nvidia Chips Into Orbit",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T10:17:10.714025-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "SpaceX Lenders Want to Stop Musk From Launching $40 Billion in Nvidia Chips Into Orbit",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T10:17:24.206067-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa Enables Stablecoin Funding for Cross-Border Payouts in APAC",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T10:17:27.395753-05:00",
+    "symbols": [
+      "AKAN"
+    ],
+    "headline": "Dow Jumps Over 200 Points; BJ\u2019s Wholesale Shares Fall After Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T10:17:30.638384-05:00",
+    "symbols": [
+      "PLUG"
+    ],
+    "headline": "RBC Capital Maintains Sector Perform on Plug Power, Lowers Price Target to $1.25",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T10:17:33.500206-05:00",
+    "symbols": [
+      "VWAV"
+    ],
+    "headline": "Dow Jumps Over 200 Points; BJ\u2019s Wholesale Shares Fall After Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T10:17:34.230889-05:00",
+    "symbols": [
+      "ZJK"
+    ],
+    "headline": "Dow Jumps Over 200 Points; BJ\u2019s Wholesale Shares Fall After Q3 Results",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-11-19T15:13:15.777041-05:00",
-    "symbols": [
-      "INO"
-    ],
-    "headline": "Inovio Submits Conditional Marketing Authorization Application to European Medicines Agency for VOCERYQ",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T15:13:15.868345-05:00",
-    "symbols": [
-      "KDK"
-    ],
-    "headline": "Needham Reiterates Buy on Kodiak AI, Maintains $4 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T15:13:16.056005-05:00",
-    "symbols": [
-      "LCID"
-    ],
-    "headline": "Lucid Group Named Best Luxury Electric Vehicle Brand by U.S. News",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T15:23:44.425073-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "NVIDIA, Microsoft Expand Azure AI Offerings With Vera Rubin NVL72 Systems, Foundry Model Access And New Edge AI Options",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T15:23:44.430925-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "NVIDIA, Microsoft Expand Tools For Enterprises To Customize AI Models, Deploy Applications Across Cloud And Local Infrastructure",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T15:23:44.538923-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "NVIDIA, Microsoft Expand Azure AI Offerings With Vera Rubin NVL72 Systems, Foundry Model Access And New Edge AI Options",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T15:23:44.544742-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "NVIDIA, Microsoft Expand Tools For Enterprises To Customize AI Models, Deploy Applications Across Cloud And Local Infrastructure",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T15:23:53.336479-05:00",
-    "symbols": [
-      "NUWE"
-    ],
-    "headline": "Nuwellis Announces Educational Webinar on ULTRA-Peds Study Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T15:23:53.551265-05:00",
-    "symbols": [
-      "PCT"
-    ],
-    "headline": "PureCycle Announces WM To Supply Nearly 25M Pounds Per Year Of Waste Polypropylene Under Multi-Year Feedstock Agreement Beginning November",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-19T15:23:53.656507-05:00",
     "symbols": [
       "PLUG"
@@ -4995,6 +4905,96 @@
       "GE"
     ],
     "headline": "Select China Committee Report Says U.S., European Aerospace Firms Helped Transfer Technology Benefiting Chinese Military; Flags Honeywell, GE Aerospace, Collins For Licenses Involving Chinese Military-Linked Entities",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T10:50:41.547123-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Seven in 10 Nasdaq 100 Stocks Are Bearish: Black Friday Sale or Value Trap?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T10:50:41.771637-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Seven in 10 Nasdaq 100 Stocks Are Bearish: Black Friday Sale or Value Trap?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T10:50:42.318214-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Seven in 10 Nasdaq 100 Stocks Are Bearish: Black Friday Sale or Value Trap?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T10:50:43.022548-05:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Seven in 10 Nasdaq 100 Stocks Are Bearish: Black Friday Sale or Value Trap?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T10:50:44.021422-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Seven in 10 Nasdaq 100 Stocks Are Bearish: Black Friday Sale or Value Trap?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T10:50:44.268765-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Seven in 10 Nasdaq 100 Stocks Are Bearish: Black Friday Sale or Value Trap?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T10:50:44.493455-05:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Seven in 10 Nasdaq 100 Stocks Are Bearish: Black Friday Sale or Value Trap?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T10:50:58.174861-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Seeing Reports Of Explosion Heard In Skies Above Iran\u2019s Qeshm Island, Cause Unknown But May Be Shooting Of Enemy Flying Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T10:50:58.396524-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Seven in 10 Nasdaq 100 Stocks Are Bearish: Black Friday Sale or Value Trap?",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

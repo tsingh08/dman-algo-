@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-11-20T09:37:51.286673-05:00",
-    "symbols": [
-      "PRKS"
-    ],
-    "headline": "SeaWorld Announces Expanded 2027 Nationwide Concert Series",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:51.290292-05:00",
-    "symbols": [
-      "PRKS"
-    ],
-    "headline": "Busch Gardens Announces Largest Concert Lineup for 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:51.497012-05:00",
-    "symbols": [
-      "W"
-    ],
-    "headline": "Spartan Metals Announces Positive Preliminary Economic Assessment for Victorio Tungsten-Molybdenum Project",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:37:51.697819-05:00",
-    "symbols": [
-      "MRK"
-    ],
-    "headline": "Merck&#39;s Pivotal Phase 3 Trofuse-015 Trial Meets Primary Endpoint Of Overall Survival In Pretreated Gastroesophageal Adenocarcinoma",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:37:51.900450-05:00",
-    "symbols": [
-      "NG"
-    ],
-    "headline": "John Paulson\u2019s Hedge Fund Opens New Bet On Calvin Klein Owner PVH With $46 Million Stake, Dumps Alphabet and Adds to Madrigal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-20T09:37:52.101111-05:00",
     "symbols": [
       "MS"
@@ -4998,5 +4948,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T14:12:56.269879-05:00",
+    "symbols": [
+      "GLOB"
+    ],
+    "headline": "TD Cowen Maintains Buy on Globant, Raises Price Target to $46",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T14:12:56.273277-05:00",
+    "symbols": [
+      "GLOB"
+    ],
+    "headline": "Truist Securities Maintains Hold on Globant, Raises Price Target to $44",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T14:12:57.164441-05:00",
+    "symbols": [
+      "VFF"
+    ],
+    "headline": "Canaccord Genuity Initiates Coverage On Village Farms Intl with Buy Rating, Announces Price Target of $5.5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T14:12:57.549513-05:00",
+    "symbols": [
+      "MPT"
+    ],
+    "headline": "Nasdaq 100 Tumbles Over 3% Amid Tech Bloodbath, Nvidia Sinks 7% on 7th Straight Weekly Loss: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T14:12:57.552541-05:00",
+    "symbols": [
+      "MPT"
+    ],
+    "headline": "Buckle Posts Strong Q3 Results, Joins Evolent Health, Bending Spoons And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

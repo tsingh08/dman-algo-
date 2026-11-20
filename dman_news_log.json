@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-11-20T09:37:41.709541-05:00",
-    "symbols": [
-      "SBLK"
-    ],
-    "headline": "Star Bulk Explores Share Transfer Strategy to Athens Exchange",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:37:41.910909-05:00",
-    "symbols": [
-      "MSA"
-    ],
-    "headline": "MSA Safety Appoints Stanley Elliott as Vice President, Investor Relations",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:42.323795-05:00",
-    "symbols": [
-      "STC"
-    ],
-    "headline": "AM Best Affirms Credit Ratings for Stewart Information Services Corporation and Subsidiaries",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:42.519325-05:00",
-    "symbols": [
-      "YSWY"
-    ],
-    "headline": "Yesway Prices 5 Million-Share Secondary Offering by Existing Stockholders at $19 Per Share",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:37:42.711628-05:00",
-    "symbols": [
-      "IESC"
-    ],
-    "headline": "IES Holdings  Repurchased 350K Shares At Avg. $248 Since Fiscal Year End",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:42.715902-05:00",
-    "symbols": [
-      "IESC"
-    ],
-    "headline": "IES Holdings FY26 Residential Rev Down 7% To $1.22B, Operating Income $40.1M vs $103.8M Prior On Weak Housing Demand",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:42.719673-05:00",
-    "symbols": [
-      "IESC"
-    ],
-    "headline": "IES Holdings Completed DBM Global Acquisition On Oct. 5; Expanded Credit Facility To $700M From $300M, Borrowed $525M, Has Repaid $125M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:42.723217-05:00",
-    "symbols": [
-      "IESC"
-    ],
-    "headline": "IES Holdings Says Expects Continued Strong Organic Growth In FY27 In Communications, Commercial &amp; Industrial, Infrastructure Solutions",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:42.726652-05:00",
-    "symbols": [
-      "IESC"
-    ],
-    "headline": "IES Holdings Q4 GAAP EPS $4.50 vs $2.49 Prior",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:42.937439-05:00",
-    "symbols": [
-      "SKM"
-    ],
-    "headline": "Ross Stores, Intuit, Anthropic And Other Big Stocks Moving Lower In Friday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-20T09:37:42.940974-05:00",
     "symbols": [
       "SKM"
@@ -4995,6 +4895,106 @@
       "JACK"
     ],
     "headline": "Jacktel AS Receives Recommended Conditional Cash Purchase Offer",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T13:23:04.960681-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Tesla Stock Tumbles: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T13:23:05.780625-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Stock Tumbles: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T13:23:07.398253-05:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "Why Is Arista Networks Stock Plunging Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T13:23:11.976432-05:00",
+    "symbols": [
+      "GAP"
+    ],
+    "headline": "UBS Maintains Buy on Gap, Lowers Price Target to $36",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T13:23:12.969758-05:00",
+    "symbols": [
+      "IESC"
+    ],
+    "headline": "What&#39;s Going On With IES Holdings Stock on Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T13:23:12.973211-05:00",
+    "symbols": [
+      "IESC"
+    ],
+    "headline": "IES Holdings  Repurchased 350K Shares At Avg. $248 Since Fiscal Year End",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T13:23:12.976235-05:00",
+    "symbols": [
+      "IESC"
+    ],
+    "headline": "IES Holdings FY26 Residential Rev Down 7% To $1.22B, Operating Income $40.1M vs $103.8M Prior On Weak Housing Demand",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T13:23:12.979269-05:00",
+    "symbols": [
+      "IESC"
+    ],
+    "headline": "IES Holdings Completed DBM Global Acquisition On Oct. 5; Expanded Credit Facility To $700M From $300M, Borrowed $525M, Has Repaid $125M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T13:23:12.982097-05:00",
+    "symbols": [
+      "IESC"
+    ],
+    "headline": "IES Holdings Says Expects Continued Strong Organic Growth In FY27 In Communications, Commercial &amp; Industrial, Infrastructure Solutions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T13:23:13.287691-05:00",
+    "symbols": [
+      "YSWY"
+    ],
+    "headline": "Yesway Prices 5 Million-Share Secondary Offering by Existing Stockholders at $19 Per Share",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"

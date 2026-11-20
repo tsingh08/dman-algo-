@@ -1,155 +1,5 @@
 [
   {
-    "ts": "2026-11-19T14:55:28.745204-05:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "\u2018We\u2019ve Got to Trust the Government\u2019: Ex-CIA Cyber Chief Says US Wouldn\u2019t Hide Major Cyberattack After Microsoft, JPMorgan Outages",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T14:55:28.841499-05:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs Acts as Underwriter for Anthropic IPO",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T14:55:29.969758-05:00",
-    "symbols": [
-      "FDX"
-    ],
-    "headline": "FedEx Featured in 'Threads of Connectivity' Documentary Series",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T14:55:31.287546-05:00",
-    "symbols": [
-      "HIVE"
-    ],
-    "headline": "Cipher Digital Hovers Near Flatline After Anthropic&#39;s $83 IPO Pricing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T14:55:31.686682-05:00",
-    "symbols": [
-      "KEEL"
-    ],
-    "headline": "Cipher Digital Hovers Near Flatline After Anthropic&#39;s $83 IPO Pricing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T14:55:35.536649-05:00",
-    "symbols": [
-      "YMM"
-    ],
-    "headline": "Full Truck Alliance Co Sees Q4 Sales $475.800M-$490.715M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T14:55:35.542000-05:00",
-    "symbols": [
-      "YMM"
-    ],
-    "headline": "Full Truck Alliance Co Q3 Adj. EPS $0.21 Beats $0.20 Estimate, Sales $534.814M Beat $496.440M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T14:55:35.639395-05:00",
-    "symbols": [
-      "WDC"
-    ],
-    "headline": "PDD Holdings, BellRing Brands, Everpure And Other Big Stocks Moving Higher On Thursday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T14:55:36.639565-05:00",
-    "symbols": [
-      "P"
-    ],
-    "headline": "UBS Maintains Sell on Everpure, Raises Price Target to $89",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T15:02:34.854110-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Camera and Photos Software Chief Jon McCormack Departs",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T15:02:34.861715-05:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "The Goldman Sachs Group, Inc. Files Voting Rights Notification Regarding CECONOMY AG",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T15:02:34.867083-05:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Chase Named Associate Sponsor for Wreaths Across America Radio",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T15:02:34.872278-05:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Visa Enables Stablecoin Funding for Cross-Border Payouts in APAC",
-    "source": "fiscal.ai",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T15:02:47.855865-05:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Andreas Halvorsen\u2019s Viking Global Reverses Tesla Cut, Boosts Stake 327% \u2014 Exits Microsoft, SpaceX and Qualcomm In Q3",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T15:02:47.860895-05:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Trump Reportedly Traded Over $97 Million Worth of Nvidia Stock in 2 Years \u2014 Elizabeth Warren Wants Congress to Force Him to \u2018Divest\u2019 (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-19T15:02:47.865995-05:00",
     "symbols": [
       "OXY"
@@ -4995,6 +4845,156 @@
       "WRD"
     ],
     "headline": "WeRide Revenue Doubles as Robotaxi Business Grows 204% in Q3",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T10:06:15.844457-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Stock Drops Nearly 6% During AI Pullback, Anthropic Ties, Tesla Merger Talk",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T10:06:16.841920-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Outage and FAA Ground Stop Are &#39;Just the Opening Chapter&#39; Top Cyber Expert Says as AI Gives Hackers a &#39;Negative Seven Days&#39; Head Start",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T10:06:16.845798-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "RBC Capital Reiterates Outperform on Microsoft, Maintains $640 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T10:06:17.126320-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Micron Short Interest Rises As Bears Remain Below August Peak",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T10:06:17.130611-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "U.S. House Committee Calls To Remove China Open-Weight Models From Us Govt",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T10:06:17.407014-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Micron Short Interest Rises As Bears Remain Below August Peak",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T10:06:19.437623-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "SpaceX Stock Drops Nearly 6% During AI Pullback, Anthropic Ties, Tesla Merger Talk",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T10:06:20.122480-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Micron Short Interest Rises As Bears Remain Below August Peak",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T10:06:20.574933-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Short Interest Rises As Bears Remain Below August Peak",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T10:06:29.153776-05:00",
+    "symbols": [
+      "CEG"
+    ],
+    "headline": "Barclays Maintains Overweight on Constellation Energy, Raises Price Target to $371",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T10:06:30.974743-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Microsoft Outage and FAA Ground Stop Are &#39;Just the Opening Chapter&#39; Top Cyber Expert Says as AI Gives Hackers a &#39;Negative Seven Days&#39; Head Start",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T10:06:34.225343-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Michigan Consumer Sentiment For November\u00a051.5 Vs 51.0 Est.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T10:06:34.230207-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Michigan Consumer Expectations For November 52.9 Vs 50.9 Est.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T10:06:41.026883-05:00",
+    "symbols": [
+      "IMCC"
+    ],
+    "headline": "IM Cannabis Appoints Ronen Zalayet As CEO, Effective Immediately; Outgoing CEO Oren Shuster To Vacate Board Seat",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T10:06:41.253589-05:00",
+    "symbols": [
+      "ZJK"
+    ],
+    "headline": "Why Gap Shares Are Trading Higher By Around 4%; Here Are 20 Stocks Moving Premarket",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

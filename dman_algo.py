@@ -4479,6 +4479,31 @@ def _disabled_set_changed(key: str) -> bool:
         return not _is_duplicate_alert(key, 24 * 60)
 
 
+def _setup_kill_announced(setup: str) -> bool:
+    """True if `setup` is in the most recently announced disabled set.
+
+    The per-signal kill notice in _submit_signals_to_alpaca() used its own
+    24-hour cooldown, so Thu 2026-11-19 it re-sent "Setup disabled -- Low
+    Float Catalyst" (killed since October): a retired-setup signal reached the
+    order path, and the setup's NAME carries the quiet-mode keep-word
+    "catalyst" (Gap & Hold's copy was muted). A setup already in the latest
+    announced set is old news; a newly killed one makes the set differ, so
+    _disabled_setups_alert() announces it exactly once.
+    """
+    try:
+        _stamped = {k: datetime.fromisoformat(str(v))
+                    for k, v in _load_last_alerts().items()
+                    if str(k).startswith(_SETUPS_DISABLED_PREFIX)}
+        if not _stamped:
+            return False
+        _latest = max(_stamped, key=_stamped.get)
+        return ((setup or "").strip()
+                in _latest[len(_SETUPS_DISABLED_PREFIX):].split(","))
+    except Exception as exc:
+        _log_swallowed("setup kill announced", exc)
+        return False
+
+
 def _disabled_setups_alert() -> list:
     """Say which setups the kill switch has turned off. Returns their names.
 
@@ -34320,13 +34345,10 @@ def _submit_signals_to_alpaca(signals: list[ProSignal], size_mult: float = 1.0) 
         _kill, _kill_why = _setup_is_disabled(sig.setup)
         if _kill:
             print(f"  🛑 {sig.ticker:<8} {sig.setup} DISABLED — {_kill_why}")
-            _kk = f"__SETUP_KILLED__:{sig.setup}"
-            if not _is_duplicate_alert(_kk, 1440):
-                send_telegram(
-                    f"🛑 <b>Setup disabled</b> — {html.escape(sig.setup)}\n"
-                    f"{html.escape(_kill_why)}.\n\nNo further entries on this setup. "
-                    f"Send <b>/flags setupkill off</b> to override.")
-                _mark_alerted(_kk)
+            # Set-deduped (see _setup_kill_announced). The 24h cooldown re-sent
+            # Low Float Catalyst 11-19, killed since Oct ("catalyst" = keep-word).
+            if not _setup_kill_announced(sig.setup):
+                _disabled_setups_alert()
             # The seventh refusal in this function; the 2026-10-05 pass covered
             # six. Without this the end-of-function sweep still corrects the
             # label, but records the generic "no order placed" instead of the

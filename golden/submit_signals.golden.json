@@ -210,7 +210,7 @@
   "orders": [],
   "telegram": [
    "⚠️ <b>DMan LIVE mode</b>: ACCOUNT_SIZE secret not set — sizing uses $25,000 default. Set the real value in GitHub secrets → ACCOUNT_SIZE.",
-   "🛑 <b>Setup disabled</b> — Gap &amp; Hold\n0W/10L over 10 live trades.\n\nNo further entries on this setup. Send <b>/flags setupkill off</b> to override."
+   "🛑 <b>1 setup(s) disabled by the kill switch</b>\n• Gap &amp; Hold — 0W/10L over 10 live trades\n\nNo automatic entries on these. This is the live record, not a market call. <b>/flags setupkill off</b> overrides it."
   ],
   "opens": [],
   "stdout": [

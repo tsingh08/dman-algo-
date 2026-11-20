@@ -32621,6 +32621,24 @@ class TestKillSwitchNoticeIsSentOnlyWhenTheSetChanges(unittest.TestCase):
         self.assertFalse(a._disabled_set_changed(a._SETUPS_DISABLED_PREFIX + "B"))
         self.assertTrue(a._disabled_set_changed(a._SETUPS_DISABLED_PREFIX + "A"))
 
+    def test_per_signal_kill_is_silent_once_the_set_is_announced(self):
+        # Thu 2026-11-19: "Setup disabled -- Low Float Catalyst" went out again
+        # (24h cooldown; "catalyst" is a quiet-mode keep-word) although the set
+        # holding it was announced weeks earlier.
+        lf = {"n": 31, "wins": 2, "cum_pct": -224.2}
+        rec = {"Gap & Hold": self.G, "Low Float Catalyst": lf}
+        self.assertEqual(self._scan(rec), 1)
+        self._age_all(2)
+        self.assertTrue(a._setup_kill_announced("Low Float Catalyst"))
+        self.assertTrue(a._setup_kill_announced(" Gap & Hold "))
+        self.assertFalse(a._setup_kill_announced("Day 2 Continuation"))
+        src = inspect.getsource(a._submit_signals_to_alpaca)
+        self.assertIn("if not _setup_kill_announced(sig.setup):", src)
+        self.assertNotIn("__SETUP_KILLED__", src)
+
+    def test_nothing_announced_reads_as_not_announced(self):
+        self.assertFalse(a._setup_kill_announced("Gap & Hold"))
+
 
 class TestPendingHealthCoversTheWholeHold(unittest.TestCase):
     """get_pending_health() dropped signals older than 7 calendar days, while

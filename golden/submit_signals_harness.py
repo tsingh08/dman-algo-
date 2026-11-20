@@ -142,6 +142,13 @@ def run(name, over):
         patch.object(a, "_pdt_zero_gap_and_liquidity", return_value=cfg["gap_liq"]),
         patch.object(a, "_earnings_safe_for_naked_hold", return_value=cfg["earn_safe"]),
         patch.object(a, "_setup_is_disabled", return_value=cfg["setup_killed"]),
+        # The kill notice is the set-deduped _disabled_setups_alert() since
+        # 2026-11-20; it read the repo's live dman_last_alerts.json (where the
+        # set is already announced) and the live outcomes file. Pinned.
+        patch.object(a, "_setup_kill_announced", return_value=False),
+        patch.object(a, "_setup_live_record",
+                     return_value={"Gap & Hold": {"n": 10, "wins": 0, "cum_pct": -50.0}}),
+        patch.object(a, "_disabled_setup_split_lines", return_value=[]),
         patch.object(a, "_auto_trade_allowed", return_value=cfg["auto_allowed"]),
         patch.object(a, "_ticker_bench_reason", return_value=cfg["bench"]),
         patch.object(a, "validate_entry_price", return_value=cfg["valid"]),

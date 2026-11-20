@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-11-19T14:55:26.609571-05:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Bitcoin in the &#39;Value Zone&#39; but Anthropic IPO Bounce Could Trap Bulls",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-19T14:55:26.706159-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin, Ethereum, XRP, Dogecoin Extend Decline: Analyst Says BTC Could See \u2018Little\u2019 Resistance If It Holds This \u2018Significant\u2019 Support",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T14:55:26.802025-05:00",
-    "symbols": [
-      "MARA"
-    ],
-    "headline": "Cipher Digital Hovers Near Flatline After Anthropic&#39;s $83 IPO Pricing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T14:55:26.896631-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Ashton Kutcher-Founded Sound Ventures Could See Its Anthropic Stake Hit $7 Billion After $435 Million Investment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T14:55:26.902401-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Elon Musk Doubles Down On Autonomy: Tesla Plans Wheel-Less, Pedal-Less Model Y To Sit Alongside Two-Seat Cybercab",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T14:55:27.195556-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Palo Alto Earnings Boost Cybersecurity Sentiment: Zscaler Stock Gains",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T14:55:27.200378-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Why Is Akamai Technologies Stock Gaining Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T14:55:27.297146-05:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "MongoDB&#39;s Atlas For Government Achieves FedRAMP Certification And Added Support For Azure Government",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-19T14:55:27.393147-05:00",
     "symbols": [
       "ABNB"
@@ -4998,5 +4918,85 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T09:44:46.526505-05:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "MongoDB Atlas for Government Achieves FedRAMP Class D (High) Certification",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T09:44:47.074407-05:00",
+    "symbols": [
+      "VWAV"
+    ],
+    "headline": "VisionWave Acquires Critical Minerals Intelligence Platform For $11M In Deferred Compensation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T09:44:47.325265-05:00",
+    "symbols": [
+      "SAGT"
+    ],
+    "headline": "Sagtec Global CEO Buys Additional 260K Shares In Private Transaction At  $1.03/Share",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T09:44:47.329576-05:00",
+    "symbols": [
+      "SAGT"
+    ],
+    "headline": "Sagtec Global Says It Signed 10-Year, RM96M Lease Of ~400 Acres In Malaysia For Data Center; RM48M Payable In 26,824,557 Class A Shares",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T09:44:47.601467-05:00",
+    "symbols": [
+      "CIGL"
+    ],
+    "headline": "12 Industrials Stocks Moving In Thursday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T09:44:47.832014-05:00",
+    "symbols": [
+      "CVM"
+    ],
+    "headline": "CEL-SCI\u2019s Investigational Cancer Immunotherapy Multikine Granted Official Designation Under Saudi Food And Drug Authority\u2019s New Accelerator Program For Drugs In Rare Diseases",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T09:44:48.135118-05:00",
+    "symbols": [
+      "POST"
+    ],
+    "headline": "Post Holdings Announces That Executive Chairman Robert V. Vitale Will Be Taking A Medical Leave Of Absence; Jeff A. Zadoks Named As Interim Chairman",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T09:44:48.152723-05:00",
+    "symbols": [
+      "POST"
+    ],
+    "headline": "Post Hldgs Q4 Adj. EPS $1.84 Beats $1.78 Estimate, Sales $1.955B Miss $1.999B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

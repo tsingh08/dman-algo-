@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-11-20T09:37:56.559273-05:00",
-    "symbols": [
-      "PRE"
-    ],
-    "headline": "B. Riley Adjusts Prenetics Global Price Target to $31 From $37, Maintains Buy Rating",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:56.762911-05:00",
-    "symbols": [
-      "ASX"
-    ],
-    "headline": "Taiwan Stocks Just Had Their Worst Week Since 1990 \u2014 And The AI Trade Is Unwinding From The East",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:37:56.766464-05:00",
-    "symbols": [
-      "ASX"
-    ],
-    "headline": "Ross Stores, Intuit, Anthropic And Other Big Stocks Moving Lower In Friday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:37:56.958429-05:00",
-    "symbols": [
-      "HUBG"
-    ],
-    "headline": "Hub Group Opposes Proposed Union Pacific-Norfolk Southern Merger",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T09:37:57.184868-05:00",
-    "symbols": [
-      "DHT"
-    ],
-    "headline": "DHT Holdings Declares Dividend of $1.45 Per Share",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-20T09:37:57.389991-05:00",
     "symbols": [
       "KEYS"
@@ -4998,5 +4948,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T15:02:34.843240-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Compute Exchange Announces Live GPU Capacity Auction at NVIDIA GTC DC",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T15:02:34.850456-05:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "UK Trade Remedies Authority Proposes Higher Anti-dumping Duties on Chinese Excavators",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T15:03:34.845743-05:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "HireClix Integrates Cloudflare Turnstile into Verified Apply Solution",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T15:03:34.849564-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Citi Maintains Buy Rating and $265 Price Target on Palantir",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T15:03:34.855014-05:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Bernstein Maintains Hold Rating on Lockheed Martin and Raises Price Target",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

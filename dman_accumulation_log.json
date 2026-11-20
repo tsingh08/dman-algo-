@@ -1,14 +1,5 @@
 [
  {
-  "ts": "2026-09-24T10:34:42.064709-04:00",
-  "ticker": "ATII",
-  "price": 10.7,
-  "rvol": 4.34,
-  "drift_pct": 0.28,
-  "range_ratio": 0.64,
-  "near_high": 0.982
- },
- {
   "ts": "2026-09-24T10:34:42.064713-04:00",
   "ticker": "GFLW",
   "price": 33.52,
@@ -4496,6 +4487,15 @@
   "price": 120.87,
   "rvol": 1.66,
   "drift_pct": 0.83,
+  "range_ratio": 0.4,
+  "near_high": 0.992
+ },
+ {
+  "ts": "2026-11-20T13:12:59.841434-05:00",
+  "ticker": "ED",
+  "price": 120.88,
+  "rvol": 1.66,
+  "drift_pct": 0.82,
   "range_ratio": 0.4,
   "near_high": 0.992
  }

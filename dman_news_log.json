@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-11-19T15:23:53.656507-05:00",
-    "symbols": [
-      "PLUG"
-    ],
-    "headline": "Plug Power Says Avina\u2019s Clean Hydrogen Facility In Vernon, California, Is Now Operational With Plug\u2019s 5 MW Containerized GenEco PEM Electrolyzer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T15:23:53.923974-05:00",
-    "symbols": [
-      "RZLV"
-    ],
-    "headline": "Rezolve AI Enters Multi-Million Dollar Strategic Partnership",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T15:23:54.124413-05:00",
-    "symbols": [
-      "SERV"
-    ],
-    "headline": "Elevate Service Group Inc. Presents at Small Cap Growth Virtual Investor Conference",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T15:23:54.223548-05:00",
-    "symbols": [
-      "TSHA"
-    ],
-    "headline": "Taysha Gene Therapies Executive Dr. Sukumar Nagendran Makes $5 Million Donation to Phoenix Art Museum",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-19T15:23:54.321239-05:00",
     "symbols": [
       "UA"
@@ -4998,5 +4958,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T10:51:01.899875-05:00",
+    "symbols": [
+      "PLUG"
+    ],
+    "headline": "B. Riley Securities Maintains Buy on Plug Power, Lowers Price Target to $3.5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T10:51:05.498124-05:00",
+    "symbols": [
+      "GLOB"
+    ],
+    "headline": "Wells Fargo Maintains Equal-Weight on Globant, Lowers Price Target to $44",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T10:51:05.948183-05:00",
+    "symbols": [
+      "IMDX"
+    ],
+    "headline": "Insight Molecular Diagnostics Enrolls First Several Patients In Its GALACTIC Study Evaluating GraftAssure Molecular Test For Monitoring Rejection In Kidney Transplant Recipients",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T10:51:08.841692-05:00",
+    "symbols": [
+      "NXG"
+    ],
+    "headline": "NexgenRx Announces Third Quarter 2026 Financial Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

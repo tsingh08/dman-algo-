@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-20T09:44:46.526505-05:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "MongoDB Atlas for Government Achieves FedRAMP Class D (High) Certification",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-20T09:44:47.074407-05:00",
     "symbols": [
       "VWAV"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T15:43:40.786627-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "QUICK SPARK: Semiconductor Stocks Head for Worst 2-Month Slump Since 2001",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

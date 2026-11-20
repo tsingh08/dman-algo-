@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-11-20T09:37:55.508422-05:00",
-    "symbols": [
-      "WULF"
-    ],
-    "headline": "Lansing Town Board Votes to Ban AI Data Centers Amid TeraWulf Project Proposal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:37:55.745378-05:00",
-    "symbols": [
-      "WMT"
-    ],
-    "headline": "Evercore ISI Group Maintains Outperform on Walmart, Raises Price Target to $135",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-20T09:37:55.748878-05:00",
     "symbols": [
       "WMT"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T14:43:44.928905-05:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Acorns\u2019 Private-Market Price Falls Over 46% As Robinhood\u2019s Stock Loses Roughly 40% in a Year",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T14:43:50.982888-05:00",
+    "symbols": [
+      "GAP"
+    ],
+    "headline": "Telsey Advisory Group Maintains Outperform on Gap, Lowers Price Target to $26",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

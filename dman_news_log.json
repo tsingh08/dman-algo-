@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-20T09:25:59.400872-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Google Is Turning Its AI Rivals Into Chip Customers. Nvidia Should Pay Attention",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:25:59.405062-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Aswath Damodaran Sets $140 Nvidia \u2018Limit Buy\u2019 After Jensen Huang Exit, Calls Tim Cook \u2018Not A Good Fit\u2019 Except As Temporary CEO During Crisis",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:25:59.408517-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Anthropic (ANT) Stock Is Trending Pre-Market: Here\u2019s What You Should Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:25:59.411968-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Anthropic Stock Slips as Apple Aims to Develop AI Agent",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:25:59.415432-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "&#39;Apple Is Working on AI Agent for Device Control, Apps, Browsing and Coding&#39;- Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:25:59.733371-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Bill Gates Says There&#39;s A Measure of AI&#39;s Success As He Cheers Cambridge Dictionary&#39;s &#39;Human&#39; Word of The Year",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-20T09:25:59.737004-05:00",
     "symbols": [
       "MSFT"
@@ -4998,5 +4938,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T11:21:53.668872-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Apollo And Goldman Sachs Announce Pricing Of $44B SpaceX GPU Financing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T11:21:54.131183-05:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Applied Digital Stock Hits 52-Week Low As AI Infrastructure Stocks Sell Off",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T11:21:54.918002-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Applied Digital Stock Hits 52-Week Low As AI Infrastructure Stocks Sell Off",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T11:22:02.040475-05:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "GameStop Stock Wavers: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T11:22:03.892853-05:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Uber Eats Named Title Sponsor for 13th Edition of Eat Street Colombo",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T11:22:16.307938-05:00",
+    "symbols": [
+      "NWGL"
+    ],
+    "headline": "CL Workshop Group Announces Ecozen as Operations and Management Headquarters",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

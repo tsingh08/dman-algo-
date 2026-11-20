@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-11-19T14:02:35.263603-05:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "MongoDB Atlas for Government Achieves FedRAMP Class D (High) Certification",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T14:02:35.271071-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Advanced Micro Devices Shares Decline Following Hunterbrook Media Report on China Ties",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T14:02:35.277795-05:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase Plans to Launch In-House Prediction Markets in H1 2027",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-19T14:02:35.285528-05:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "Rivian R2 Named Finalist for 2027 North American Automotive Technology of the Year",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-19T14:02:43.785238-05:00",
     "symbols": [
       "SPCX"
@@ -4998,5 +4958,45 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T09:37:23.422328-05:00",
+    "symbols": [
+      "MDB"
+    ],
+    "headline": "UBS Upgrades MongoDB to Buy, Raises Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T09:37:27.465585-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "PayPal Names New CFO, Overhauls Venmo, Crypto and AI Leadership As Three-Year Strategy Takes Shape",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T09:37:38.811376-05:00",
+    "symbols": [
+      "GLOB"
+    ],
+    "headline": "TD Cowen Maintains Buy on Globant, Raises Price Target to $46",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T09:37:38.815210-05:00",
+    "symbols": [
+      "GLOB"
+    ],
+    "headline": "Truist Securities Maintains Hold on Globant, Raises Price Target to $44",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

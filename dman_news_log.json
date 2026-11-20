@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-20T09:37:43.757526-05:00",
-    "symbols": [
-      "TTGT"
-    ],
-    "headline": "Omdia Releases Analysis of Streaming Platform Viewing Habits",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-20T09:37:43.964664-05:00",
     "symbols": [
       "NXE"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T13:43:46.994827-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Fed\u2019s Paulson Argues for Deliberate Rate Hikes to Tame Inflation&#39;- Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

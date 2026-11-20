@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-11-19T11:17:04.071585-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is Nebius Stock Surging on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T11:17:04.076179-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Technology Only Sector Higher Thursday As Defensives Fall",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T11:17:04.080670-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "What&#39;s Going On With IonQ Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T11:17:05.098995-05:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Why Is SMCI Stock Trading Higher on Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T11:17:05.272574-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Technology Only Sector Higher Thursday As Defensives Fall",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-19T11:17:05.527293-05:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "What&#39;s Going On With Qualcomm Stock Thursday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T11:17:05.742681-05:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Robinhood Stock Climbs Thursday: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-19T11:17:06.573573-05:00",
     "symbols": [
       "APP"
@@ -4996,6 +4926,76 @@
     ],
     "headline": "PDD Holdings, BellRing Brands, Everpure And Other Big Stocks Moving Higher On Thursday",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-19T19:02:35.032149-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "The Goldman Sachs Group, Inc. Files Voting Rights Announcement",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T19:03:35.047069-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "ISS Recommends Shareholders Vote Against Tesla Chair Robyn Denholm",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T19:03:35.230075-05:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Qualcomm Insider Executes Share Sale",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T20:02:35.071644-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Third Point LLC Exits Entire Stake in Amazon",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T20:02:35.233746-05:00",
+    "symbols": [
+      "PONY"
+    ],
+    "headline": "Barclays Maintains Hold Rating on Pony.ai and Lowers Price Target",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-19T20:02:35.393955-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Reevaluating 2030 Net Zero Emissions Goal",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-19T20:03:35.018223-05:00",
+    "symbols": [
+      "NWGL"
+    ],
+    "headline": "CL Workshop Group Announces Ecozen as Operations and Management Headquarters",
+    "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": null
   }

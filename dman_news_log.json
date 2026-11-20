@@ -1,235 +1,5 @@
 [
   {
-    "ts": "2026-11-20T09:30:31.405449-05:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "Eisai And Biogen Present Findings From Analysis Of Lecanemab-Irmb Treatment And \u03b1-Syn Co-Pathology In Cerebrospinal Fluid Substudy Of Clarity AD In Early Alzheimer\u2019s Disease, At CTAD Conference",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:30:31.412018-05:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "Opendoor Stock Surges as Retail Interest Builds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T09:30:31.420838-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "STRC Trading Tops $600M, Saylor \u2018Intends to Keep Buying Below $100\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:30:31.453409-05:00",
-    "symbols": [
-      "UNH"
-    ],
-    "headline": "UnitedHealth Stock Slips: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:30:31.465802-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Anthropic Debuts; Trump&#39;s China Visit Puts Taiwan And Ukraine In Focus",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:30:31.473271-05:00",
-    "symbols": [
-      "CLOV"
-    ],
-    "headline": "UnitedHealth Stock Slips: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:30:31.482282-05:00",
-    "symbols": [
-      "OPEN"
-    ],
-    "headline": "Opendoor Stock Surges as Retail Interest Builds",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:32:34.879182-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Palo Alto Networks Announces Participation in Barclays 2026 Global Technology Conference",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:32:34.887293-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "ScaleCapacity Enters Multi-Year Strategic Collaboration Agreement with AWS",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:32:34.892019-05:00",
-    "symbols": [
-      "COST"
-    ],
-    "headline": "Costco Wholesale Opens New Location in East Windsor",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:32:34.896636-05:00",
-    "symbols": [
-      "FDX"
-    ],
-    "headline": "FedEx and Consortium Complete Acquisition of InPost S.A.",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:32:34.900940-05:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Jefferies Initiates Coverage on Moderna with Hold Rating",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:32:34.909274-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Creditors Seek to Block Attempt to Put Microchips Into Orbit",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:32:34.948540-05:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "LongPoint Asset Management Launches Savvy Double Leveraged Single Stock ETF for SanDisk",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:32:57.168919-05:00",
-    "symbols": [
-      "MA"
-    ],
-    "headline": "Mastercard and Yeahka Sign Agreement for AI Agent-Driven Commerce",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:33:34.908556-05:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "AbbVie to Present at the Piper Sandler 38th Annual Healthcare Conference",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:33:34.945733-05:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "Morgan Stanley and Goldman Sachs Adjust Price Targets for Vistra Corp.",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:33:35.171752-05:00",
-    "symbols": [
-      "LUMN"
-    ],
-    "headline": "Lumen Connect Wins 2026 Fierce Network Innovation Award",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:33:35.405472-05:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "BofA Securities Cuts Price Target on Snowflake to $400 From $470",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:33:35.409865-05:00",
-    "symbols": [
-      "TLN"
-    ],
-    "headline": "Oppenheimer Adjusts Price Target on Talen Energy to $450 From $400",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:33:35.413627-05:00",
-    "symbols": [
-      "ABNB"
-    ],
-    "headline": "Bernstein Adjusts Price Target on Airbnb to $234",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:37:23.422328-05:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "UBS Upgrades MongoDB to Buy, Raises Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:37:27.465585-05:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "PayPal Names New CFO, Overhauls Venmo, Crypto and AI Leadership As Three-Year Strategy Takes Shape",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-20T09:37:29.313510-05:00",
     "symbols": [
       "MDB"
@@ -4996,6 +4766,236 @@
     ],
     "headline": "Intersport Elverys Reports Significant Growth Following Rezolve AI Deployment",
     "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T12:39:36.172538-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Oracle Stock Sinks to New 52-Week Low Amid Tech Selloff and Nasdaq Woes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T12:39:37.309319-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Broadcom Stock Plunges Over 11% As Semiconductor Selloff Hits Tech Giants",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T12:39:37.580015-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Broadcom Stock Plunges Over 11% As Semiconductor Selloff Hits Tech Giants",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T12:39:39.338207-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Oracle Stock Sinks to New 52-Week Low Amid Tech Selloff and Nasdaq Woes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T12:39:39.562683-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Broadcom Stock Plunges Over 11% As Semiconductor Selloff Hits Tech Giants",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T12:39:40.995404-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Broadcom Stock Plunges Over 11% As Semiconductor Selloff Hits Tech Giants",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T12:39:44.189384-05:00",
+    "symbols": [
+      "HIMS"
+    ],
+    "headline": "B of A Securities Maintains Neutral on Hims &amp; Hers Health, Lowers Price Target to $21",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T12:39:44.897911-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Oracle Stock Sinks to New 52-Week Low Amid Tech Selloff and Nasdaq Woes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T12:39:45.126616-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Oracle Stock Sinks to New 52-Week Low Amid Tech Selloff and Nasdaq Woes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T12:39:45.131088-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Deal Dispatch: Intuit Sells Mailchimp to Bending Spoons for $3.68B, Gallagher Buys AgriServ, Taco Bell Franchisee Files for Chapter 11",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T12:39:45.579467-05:00",
+    "symbols": [
+      "DDOG"
+    ],
+    "headline": "Oracle Stock Sinks to New 52-Week Low Amid Tech Selloff and Nasdaq Woes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T12:39:47.122061-05:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Oracle Stock Sinks to New 52-Week Low Amid Tech Selloff and Nasdaq Woes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T12:39:47.356641-05:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Oracle Stock Sinks to New 52-Week Low Amid Tech Selloff and Nasdaq Woes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T12:39:47.360637-05:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Live On CNBC, Stephanie Link Announces Bought Zscaler",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T12:39:48.728535-05:00",
+    "symbols": [
+      "SOUN"
+    ],
+    "headline": "Oracle Stock Sinks to New 52-Week Low Amid Tech Selloff and Nasdaq Woes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T12:39:53.027400-05:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Live ON CNBC, Stephanie Link Announces Bought More UnitedHealth Group",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T12:39:53.926728-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Stock Sinks to New 52-Week Low Amid Tech Selloff and Nasdaq Woes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T12:39:54.573934-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says &#34;We Have A Very Political Fed&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T12:39:54.578052-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says I Want To Make A Real Deal With Iran",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T12:39:58.299000-05:00",
+    "symbols": [
+      "LUMN"
+    ],
+    "headline": "Lumen Connect Wins 2026 Fierce Network Innovation Award",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T12:40:05.964884-05:00",
+    "symbols": [
+      "LAB"
+    ],
+    "headline": "Standard BioTools Stockholders Approve Treeline Biosciences Merger and Mass Cytometry Business Sale",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T12:40:06.195009-05:00",
+    "symbols": [
+      "ED"
+    ],
+    "headline": "Morgan Stanley Adjusts Price Target on Consolidated Edison to $105 From $97",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T12:40:07.536783-05:00",
+    "symbols": [
+      "MRSH"
+    ],
+    "headline": "Deal Dispatch: Intuit Sells Mailchimp to Bending Spoons for $3.68B, Gallagher Buys AgriServ, Taco Bell Franchisee Files for Chapter 11",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

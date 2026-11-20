@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-11-20T09:26:25.619874-05:00",
-    "symbols": [
-      "PYXS"
-    ],
-    "headline": "William Blair Upgrades Pyxis Oncology to Outperform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:26:25.623366-05:00",
-    "symbols": [
-      "PYXS"
-    ],
-    "headline": "HC Wainwright &amp; Co. Reiterates Buy on Pyxis Oncology, Maintains $8 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:26:25.835009-05:00",
-    "symbols": [
-      "BUUU"
-    ],
-    "headline": "11 Communication Services Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:26:25.839059-05:00",
-    "symbols": [
-      "BUUU"
-    ],
-    "headline": "12 Communication Services Stocks Moving In Thursday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:26:26.049329-05:00",
-    "symbols": [
-      "AGBK"
-    ],
-    "headline": "Marciano Testa to Reassume CEO Role at Agibank",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:26:26.288152-05:00",
-    "symbols": [
-      "SEAT"
-    ],
-    "headline": "12 Communication Services Stocks Moving In Thursday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:26:26.501762-05:00",
-    "symbols": [
-      "VVV"
-    ],
-    "headline": "JP Morgan Downgrades Valvoline to Underweight, Maintains Price Target to $35",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:26:26.716911-05:00",
-    "symbols": [
-      "AMBA"
-    ],
-    "headline": "Ambarella in Final-Stage Acquisition Talks with NXP Semiconductors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:26:26.932830-05:00",
-    "symbols": [
-      "YRD"
-    ],
-    "headline": "12 Financials Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T09:26:27.144933-05:00",
-    "symbols": [
-      "BRBR"
-    ],
-    "headline": "BellRing Brands Appoints David I. Finkelstein As Interim Board Chairperson",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:26:27.362121-05:00",
-    "symbols": [
-      "TU"
-    ],
-    "headline": "This Tesla Analyst Is No Longer Bearish; Here Are Top 5 Upgrades For Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-20T09:26:27.365855-05:00",
     "symbols": [
       "TU"
@@ -4995,6 +4885,116 @@
       "SVRA"
     ],
     "headline": "Gold Falls Sharply; US Consumer Sentiment Rises In November",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T12:17:43.221056-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Fed&#39;s Cook Says Fed\u2019s Current Monetary Policy Stance Is Not Providing Needed Restraint; Says September\u2019s Interest Rate Hike Was Not Enough To Curtail High Inflation; Says Holding Off On Rate Hikes Increases Risk That Inflation Will Embed In Economy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T12:17:49.846869-05:00",
+    "symbols": [
+      "SVRA"
+    ],
+    "headline": "Gold Falls Sharply; US Consumer Sentiment Rises In November",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T12:17:50.991094-05:00",
+    "symbols": [
+      "MEDS"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T12:17:51.206404-05:00",
+    "symbols": [
+      "VWAV"
+    ],
+    "headline": "Gold Falls Sharply; US Consumer Sentiment Rises In November",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T12:17:51.634122-05:00",
+    "symbols": [
+      "GLOB"
+    ],
+    "headline": "Amazon To Rally Over 20%? Here Are 10 Top Analyst Forecasts For Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T12:17:52.061422-05:00",
+    "symbols": [
+      "GAP"
+    ],
+    "headline": "Gold Falls Sharply; US Consumer Sentiment Rises In November",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T12:17:52.067211-05:00",
+    "symbols": [
+      "GAP"
+    ],
+    "headline": "Baird Maintains Outperform on Gap, Lowers Price Target to $26",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T12:17:53.128901-05:00",
+    "symbols": [
+      "FBIO"
+    ],
+    "headline": "Fortress Biotech Insider Purchases $252,583 in Company Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T12:17:55.482477-05:00",
+    "symbols": [
+      "PYXS"
+    ],
+    "headline": "This Tesla Analyst Is No Longer Bearish; Here Are Top 5 Upgrades For Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T12:17:55.486176-05:00",
+    "symbols": [
+      "PYXS"
+    ],
+    "headline": "William Blair Upgrades Pyxis Oncology to Outperform",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T12:17:55.489638-05:00",
+    "symbols": [
+      "PYXS"
+    ],
+    "headline": "HC Wainwright &amp; Co. Reiterates Buy on Pyxis Oncology, Maintains $8 Price Target",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

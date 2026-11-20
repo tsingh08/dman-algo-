@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-20T09:26:27.365855-05:00",
-    "symbols": [
-      "TU"
-    ],
-    "headline": "Barclays Upgrades TELUS to Overweight, Raises Price Target to $13",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:26:27.572887-05:00",
-    "symbols": [
-      "VRDN"
-    ],
-    "headline": "BofA Securities Initiates Coverage on Viridian Therapeutics With Buy Rating",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:26:27.781862-05:00",
-    "symbols": [
-      "BHVN"
-    ],
-    "headline": "JPMorgan Raises Biohaven Price Target to $35",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-20T09:30:31.384575-05:00",
     "symbols": [
       "NFLX"
@@ -4995,6 +4965,36 @@
       "PYXS"
     ],
     "headline": "HC Wainwright &amp; Co. Reiterates Buy on Pyxis Oncology, Maintains $8 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T12:28:41.049843-05:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "UnitedHealth Stock Rebounds After TD Cowen Buy Upgrade: What to Know",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T12:28:51.314096-05:00",
+    "symbols": [
+      "ESE"
+    ],
+    "headline": "ESCO Technologies Reports Q4 and Fiscal Year 2026 Financial Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T12:28:54.794843-05:00",
+    "symbols": [
+      "BSP"
+    ],
+    "headline": "Why Are Bending Spoons Shares Trading Higher On Friday?",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

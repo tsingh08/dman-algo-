@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-19T15:13:14.827126-05:00",
-    "symbols": [
-      "BBD"
-    ],
-    "headline": "Bradesco in Discussions Regarding Morumbi Stadium Naming Rights",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T15:13:15.481204-05:00",
-    "symbols": [
-      "GOVX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Thursday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-19T15:13:15.677914-05:00",
-    "symbols": [
-      "IAUX"
-    ],
-    "headline": "NetEase Downbeat Q3 Results, Joins Red Robin, Sellas Life Sciences And Other Big Stocks Moving Lower In Thursday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-19T15:13:15.777041-05:00",
     "symbols": [
       "INO"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T10:39:42.815805-05:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "OpenAI Hires Primergy Executive to Lead Clean Energy Efforts",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T10:39:46.442971-05:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "Select China Committee Report Says U.S., European Aerospace Firms Helped Transfer Technology Benefiting Chinese Military; Flags Honeywell, GE Aerospace, Collins For Licenses Involving Chinese Military-Linked Entities",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T10:39:46.666532-05:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "Select China Committee Report Says U.S., European Aerospace Firms Helped Transfer Technology Benefiting Chinese Military; Flags Honeywell, GE Aerospace, Collins For Licenses Involving Chinese Military-Linked Entities",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

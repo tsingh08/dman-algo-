@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-11-20T09:37:39.871587-05:00",
-    "symbols": [
-      "DXYZ"
-    ],
-    "headline": "Ross Stores, Intuit, Anthropic And Other Big Stocks Moving Lower In Friday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:40.067739-05:00",
-    "symbols": [
-      "CNA"
-    ],
-    "headline": "ProPublica Analysis Highlights CNA Financial's Role in Defense Base Act Insurance System",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:40.496577-05:00",
-    "symbols": [
-      "HP"
-    ],
-    "headline": "TD Cowen Maintains Hold on Helmerich &amp; Payne, Lowers Price Target to $48",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:37:40.691350-05:00",
-    "symbols": [
-      "EFOR"
-    ],
-    "headline": "Everforth, Inc. Announces Participation in Upcoming Investor Conferences",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:40.887408-05:00",
-    "symbols": [
-      "LYG"
-    ],
-    "headline": "Lloyds Banking Group Appoints Natasha Condon as Global Head of Transaction Banking",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:41.096657-05:00",
-    "symbols": [
-      "POST"
-    ],
-    "headline": "Post Holdings Announces That Executive Chairman Robert V. Vitale Will Be Taking A Medical Leave Of Absence; Jeff A. Zadoks Named As Interim Chairman",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T09:37:41.100274-05:00",
-    "symbols": [
-      "POST"
-    ],
-    "headline": "Post Hldgs Q4 Adj. EPS $1.84 Beats $1.78 Estimate, Sales $1.955B Miss $1.999B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T09:37:41.298448-05:00",
-    "symbols": [
-      "CI"
-    ],
-    "headline": "Healing Springs Ranch Joins Cigna Healthcare Provider Network",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:41.302002-05:00",
-    "symbols": [
-      "CI"
-    ],
-    "headline": "The Cigna Group Foundation Announces $31.5 Million Commitment to Community Health",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:41.504787-05:00",
-    "symbols": [
-      "P"
-    ],
-    "headline": "Dow Crashes 1,100 Points as Investor Sentiment Sours, Fear and Greed Index Falls Into &#39;Extreme Fear&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-20T09:37:41.709541-05:00",
     "symbols": [
       "SBLK"
@@ -4996,6 +4896,106 @@
     ],
     "headline": "FDA Approves Novo Nordisk's Sogroya\u00ae for Turner Syndrome in Children",
     "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T13:05:31.239921-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Amazon, Target, Verizon Communications",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T13:05:32.041809-05:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Reported Earlier, &#39;SK Hynix to Convert Kioxia Bond and Become Top Shareholder&#39; - Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T13:05:37.393178-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Stock Slides 6%, but Bernstein Says It\u2019s Worth $133 Even if Its AI Data-Center Business Fails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T13:05:38.275312-05:00",
+    "symbols": [
+      "SVRA"
+    ],
+    "headline": "HC Wainwright &amp; Co. Maintains Buy on Savara, Lowers Price Target to $9",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T13:05:38.650589-05:00",
+    "symbols": [
+      "INTU"
+    ],
+    "headline": "JP Morgan Maintains Neutral on Intuit, Lowers Price Target to $321",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T13:05:38.655058-05:00",
+    "symbols": [
+      "INTU"
+    ],
+    "headline": "Oracle Stock Sinks to New 52-Week Low Amid Tech Selloff and Nasdaq Woes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T13:05:38.659205-05:00",
+    "symbols": [
+      "INTU"
+    ],
+    "headline": "Deal Dispatch: Intuit Sells Mailchimp to Bending Spoons for $3.68B, Gallagher Buys AgriServ, Taco Bell Franchisee Files for Chapter 11",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T13:05:38.663389-05:00",
+    "symbols": [
+      "INTU"
+    ],
+    "headline": "Why Are Bending Spoons Shares Trading Higher On Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T13:05:38.667470-05:00",
+    "symbols": [
+      "INTU"
+    ],
+    "headline": "BMO Capital Maintains Outperform on Intuit, Lowers Price Target to $375",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T13:05:38.750061-05:00",
+    "symbols": [
+      "JACK"
+    ],
+    "headline": "Jacktel AS Receives Recommended Conditional Cash Purchase Offer",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

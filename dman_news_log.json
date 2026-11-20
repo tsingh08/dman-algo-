@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-11-20T09:37:42.940974-05:00",
-    "symbols": [
-      "SKM"
-    ],
-    "headline": "Why Gap Shares Are Trading Higher By Around 4%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:43.146882-05:00",
-    "symbols": [
-      "BIRK"
-    ],
-    "headline": "Birkenstock Expands in the Greek Market with the Opening of Two New Retail Destinations in Athens",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:43.351296-05:00",
-    "symbols": [
-      "AVO"
-    ],
-    "headline": "Banco Santander Initiates Coverage of Mission Produce with Buy Rating",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:37:43.556560-05:00",
-    "symbols": [
-      "VEEV"
-    ],
-    "headline": "UBS Lowers Veeva Systems Price Target to $310 From $325",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-20T09:37:43.757526-05:00",
     "symbols": [
       "TTGT"
@@ -4998,5 +4958,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T13:33:25.113958-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "&#39;YouTube Finalizing Multibillion-Dollar Settlement With Schools Over Social Media Addiction Claims&#39;- Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T13:33:28.650926-05:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Boeing to Exceed Production Targets for Patriot Missile Seekers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T13:33:32.590449-05:00",
+    "symbols": [
+      "HUM"
+    ],
+    "headline": "Nasdaq 100 Tumbles Over 3% Amid Tech Bloodbath, Nvidia Sinks 7% on 7th Straight Weekly Loss: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T13:33:32.593807-05:00",
+    "symbols": [
+      "HUM"
+    ],
+    "headline": "TD Cowen Upgrades Humana to Buy, Raises Price Target to $485",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-20T09:37:55.748878-05:00",
-    "symbols": [
-      "WMT"
-    ],
-    "headline": "Keybanc Maintains Overweight on Walmart, Raises Price Target to $145",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:37:55.752274-05:00",
-    "symbols": [
-      "WMT"
-    ],
-    "headline": "Walmart Analysts Raise Their Forecasts Following Strong Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:37:55.755650-05:00",
-    "symbols": [
-      "WMT"
-    ],
-    "headline": "Amazon To Rally Over 20%? Here Are 10 Top Analyst Forecasts For Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:37:55.759040-05:00",
-    "symbols": [
-      "WMT"
-    ],
-    "headline": "Piper Sandler Maintains Overweight on Walmart, Raises Price Target to $138",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:37:55.959426-05:00",
-    "symbols": [
-      "NYT"
-    ],
-    "headline": "Microsoft CEO Satya Nadella Offered 60,000 Employees Buyouts So Everyone &#39;Felt Like They Had Agency&#39; \u2014 Yet Insists Software Engineering Is &#39;Very Much Alive&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:56.358922-05:00",
-    "symbols": [
-      "ARCO"
-    ],
-    "headline": "Lazard Asset Management LLC Files Schedule 13G for Arcos Dorados Holdings Inc.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-20T09:37:56.559273-05:00",
     "symbols": [
       "PRE"
@@ -4998,5 +4938,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T14:54:06.673459-05:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "Bloom Energy Stock Plummets Amid AI Selloff Fears",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T14:54:10.069422-05:00",
+    "symbols": [
+      "IESC"
+    ],
+    "headline": "Bloom Energy Stock Plummets Amid AI Selloff Fears",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T14:54:10.482533-05:00",
+    "symbols": [
+      "EVH"
+    ],
+    "headline": "Gold Falls Sharply; US Consumer Sentiment Rises In November",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T14:54:10.486049-05:00",
+    "symbols": [
+      "EVH"
+    ],
+    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T14:54:10.489009-05:00",
+    "symbols": [
+      "EVH"
+    ],
+    "headline": "Buckle Posts Strong Q3 Results, Joins Evolent Health, Bending Spoons And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T14:54:10.492230-05:00",
+    "symbols": [
+      "EVH"
+    ],
+    "headline": "Truist Securities Upgrades Evolent Health to Buy, Maintains Price Target to $6",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

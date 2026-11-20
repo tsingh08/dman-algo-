@@ -1,195 +1,5 @@
 [
   {
-    "ts": "2026-11-20T09:37:47.737537-05:00",
-    "symbols": [
-      "INTU"
-    ],
-    "headline": "Morgan Stanley Maintains Equal-Weight on Intuit, Lowers Price Target to $310",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:37:47.740924-05:00",
-    "symbols": [
-      "INTU"
-    ],
-    "headline": "Intuit Revenue Forecast Shows AI Disruption Concerns Linger",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:37:48.018275-05:00",
-    "symbols": [
-      "GLOB"
-    ],
-    "headline": "TD Cowen Maintains Buy on Globant, Raises Price Target to $46",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T09:37:48.021804-05:00",
-    "symbols": [
-      "GLOB"
-    ],
-    "headline": "Truist Securities Maintains Hold on Globant, Raises Price Target to $44",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T09:37:48.233904-05:00",
-    "symbols": [
-      "WEST"
-    ],
-    "headline": "Westrock Coffee Company Files Form EFFECT with the SEC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:48.446705-05:00",
-    "symbols": [
-      "PD"
-    ],
-    "headline": "PagerDuty to Report Third Quarter Fiscal Year 2027 Results on December 3, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:48.641400-05:00",
-    "symbols": [
-      "VFF"
-    ],
-    "headline": "Canaccord Genuity Initiates Coverage On Village Farms Intl with Buy Rating, Announces Price Target of $5.5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:48.843139-05:00",
-    "symbols": [
-      "SHLS"
-    ],
-    "headline": "&#39;Republican Lawmakers Urge EPA to Reinstate Solar for All Program&#39;- Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:49.040594-05:00",
-    "symbols": [
-      "ETSY"
-    ],
-    "headline": "PrintKK Partners with Etsy for Print-on-Demand Fulfillment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:37:49.240904-05:00",
-    "symbols": [
-      "FHN"
-    ],
-    "headline": "First Horizon Bank Opens New Corporate Office in Charlotte",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:49.442011-05:00",
-    "symbols": [
-      "ELV"
-    ],
-    "headline": "Elevance Health Insider Purchases Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:37:49.640635-05:00",
-    "symbols": [
-      "FWONA"
-    ],
-    "headline": "Nike and Formula One Group Sign Long-Term Global Partnership",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:50.055803-05:00",
-    "symbols": [
-      "MTH"
-    ],
-    "headline": "Meritage Homes Announces Quarterly Cash Dividend",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:50.262003-05:00",
-    "symbols": [
-      "BMO"
-    ],
-    "headline": "BMO Announces Cash Distributions for Certain ETFs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:50.465406-05:00",
-    "symbols": [
-      "GLBE"
-    ],
-    "headline": "UBS Maintains Buy on Global E Online, Lowers Price Target to $50",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:50.468935-05:00",
-    "symbols": [
-      "GLBE"
-    ],
-    "headline": "Global-E Online Analysts Cut Their Forecasts Following Q3 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:50.678606-05:00",
-    "symbols": [
-      "PTC"
-    ],
-    "headline": "PTC Expands FedRAMP Offerings for U.S. Federal Agencies and Contractors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:50.881197-05:00",
-    "symbols": [
-      "KLIC"
-    ],
-    "headline": "Needham Maintains Buy on Kulicke &amp; Soffa Indus, Lowers Price Target to $80",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:37:51.088445-05:00",
-    "symbols": [
-      "UNM"
-    ],
-    "headline": "Unum Named Title Sponsor for Wreaths Across America's 'Escort to Arlington'",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-20T09:37:51.286673-05:00",
     "symbols": [
       "PRKS"
@@ -4998,5 +4808,195 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T14:05:44.708595-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Exclusive: SpaceX\u2019s Dragon Is the Key to Astronaut Jeanette Epps\u2019 Simple Fix for Space Data Centers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T14:05:45.107700-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Trump Says Jensen Huang Made &#39;Bad Decisions,&#39; Vows China to Get Old Chips Only",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T14:05:45.110490-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Exclusive: SpaceX\u2019s Dragon Is the Key to Astronaut Jeanette Epps\u2019 Simple Fix for Space Data Centers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T14:05:45.113048-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;Spying Suspect\u2019s Chip Network Has Ties to Chinese Military Suppliers&#39;- New York Times",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T14:05:45.223121-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Trump Says Jensen Huang Made &#39;Bad Decisions,&#39; Vows China to Get Old Chips Only",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T14:05:46.039604-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Trump Says Jensen Huang Made &#39;Bad Decisions,&#39; Vows China to Get Old Chips Only",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T14:05:46.250199-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Trump Says Jensen Huang Made &#39;Bad Decisions,&#39; Vows China to Get Old Chips Only",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T14:05:46.329952-05:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Trump Says Jensen Huang Made &#39;Bad Decisions,&#39; Vows China to Get Old Chips Only",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T14:05:46.831256-05:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "Vadzo Imaging Launches Armor-2020CRS-FPD3 Camera Featuring onsemi AR2020 Sensor",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T14:05:47.657186-05:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "Mizuho Securities Adjusts Biogen Price Target to $271 From $241",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T14:05:48.913945-05:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Uber Launches #UberQueens Marketing Campaign in Macau",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T14:05:48.987381-05:00",
+    "symbols": [
+      "DECK"
+    ],
+    "headline": "UGG Partners with Bloomingdale's and Forty Carrots for Holiday 'UGG Parlor' Activation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T14:05:50.295833-05:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "Frequentis Receives FAA Approval for Digital-Tower System with RTX Cooperation",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T14:05:50.510143-05:00",
+    "symbols": [
+      "ETN"
+    ],
+    "headline": "Argus Research Maintains Buy Rating on Eaton Corporation plc",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T14:05:52.015393-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Trump says he still has confidence in Lutnick&#39;- CNBC",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T14:05:52.726666-05:00",
+    "symbols": [
+      "EARN"
+    ],
+    "headline": "12 Financials Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T14:05:52.862555-05:00",
+    "symbols": [
+      "ECOR"
+    ],
+    "headline": "Ecora Royalties CEO Marc Bishop Lafleche Acquires 20,000 Shares",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T14:05:52.992418-05:00",
+    "symbols": [
+      "GPN"
+    ],
+    "headline": "&#39;GTCR Said to Weigh Possible $50 Billion Global Payments Buyout&#39;- Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T14:05:53.377900-05:00",
+    "symbols": [
+      "INTU"
+    ],
+    "headline": "Jefferies Maintains Buy on Intuit, Lowers Price Target to $445",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

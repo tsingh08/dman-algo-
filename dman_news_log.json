@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-11-19T15:03:34.847134-05:00",
-    "symbols": [
-      "MRNA"
-    ],
-    "headline": "Moderna Officer Stephen Hoge Sells $16.9 Million in Common Stock",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T15:03:34.853478-05:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "Boeing and GE Aerospace expand digital tracking to combat unapproved parts",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T15:13:10.365486-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "OpenAI Hires Primergy Executive to Lead Clean Energy Efforts",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T15:13:12.474544-05:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Select China Committee Report Says U.S., European Aerospace Firms Helped Transfer Technology Benefiting Chinese Military; Flags Honeywell, GE Aerospace, Collins For Licenses Involving Chinese Military-Linked Entities",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-19T15:13:12.575248-05:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "Select China Committee Report Says U.S., European Aerospace Firms Helped Transfer Technology Benefiting Chinese Military; Flags Honeywell, GE Aerospace, Collins For Licenses Involving Chinese Military-Linked Entities",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-19T15:13:14.827126-05:00",
     "symbols": [
       "BBD"
@@ -4998,5 +4948,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T10:28:39.860027-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Why Microsoft\u2019s Full-Stack AI Strategy Could Pay Off: Analyst",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T10:28:45.942567-05:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Moderna Officer Stephen Hoge Sells $16.9 Million in Common Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T10:29:00.437567-05:00",
+    "symbols": [
+      "PONY"
+    ],
+    "headline": "Barclays Maintains Equal-Weight on Pony AI, Lowers Price Target to $4",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T10:29:03.503473-05:00",
+    "symbols": [
+      "RSSS"
+    ],
+    "headline": "Maxim Group Downgrades Research Solutions to Hold",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T10:29:05.498618-05:00",
+    "symbols": [
+      "GAP"
+    ],
+    "headline": "Barclays Maintains Equal-Weight on Gap, Lowers Price Target to $20",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

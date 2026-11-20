@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-11-20T09:37:43.964664-05:00",
-    "symbols": [
-      "NXE"
-    ],
-    "headline": "RBC Capital and Morgans Adjust NexGen Energy Price Targets",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:37:44.167414-05:00",
-    "symbols": [
-      "QUAD"
-    ],
-    "headline": "Quad/Graphics, Inc. Announces Participation in StoneX Discovery One-on-One Investor Conference",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:44.584515-05:00",
-    "symbols": [
-      "EL"
-    ],
-    "headline": "The Est\u00e9e Lauder Companies Initiates Voluntary Departure Plan in France",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:37:44.787776-05:00",
-    "symbols": [
-      "HALO"
-    ],
-    "headline": "HC Wainwright &amp; Co. Reiterates Buy on Halozyme Therapeutics, Maintains $130 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:44.994506-05:00",
-    "symbols": [
-      "NVS"
-    ],
-    "headline": "UBS Maintains 'Neutral' Rating on Novartis Following Management Meeting",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-20T09:37:45.188654-05:00",
     "symbols": [
       "MRTN"
@@ -4998,5 +4948,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T13:45:45.078354-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Tesla-SpaceX Merger Could Hand Elon Musk a 60% Stake \u2014 and TSLA Holders a 33% Premium, Analyst Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T13:45:47.369826-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla-SpaceX Merger Could Hand Elon Musk a 60% Stake \u2014 and TSLA Holders a 33% Premium, Analyst Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T13:46:02.125605-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Fed\u2019s Paulson Argues for Deliberate Rate Hikes to Tame Inflation&#39;- Bloomberg",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T13:46:04.360407-05:00",
+    "symbols": [
+      "INTU"
+    ],
+    "headline": "UBS Maintains Neutral on Intuit, Lowers Price Target to $315",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T13:46:04.822939-05:00",
+    "symbols": [
+      "IPX"
+    ],
+    "headline": "Impax Asset Management Group plc to Announce Final Results on 25 November 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

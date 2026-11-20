@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-20T09:37:53.485795-05:00",
-    "symbols": [
-      "EXPD"
-    ],
-    "headline": "UBS Maintains Buy on Expeditors International, Raises Price Target to $252",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:37:53.684493-05:00",
-    "symbols": [
-      "IBN"
-    ],
-    "headline": "ICICI Bank Partners with CotoPay for UPI-Based Business Spending",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:37:53.887890-05:00",
-    "symbols": [
-      "JBS"
-    ],
-    "headline": "UBS Maintains Buy on JBS, Lowers Price Target to $16.5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:54.096671-05:00",
-    "symbols": [
-      "BCC"
-    ],
-    "headline": "Boise Cascade Celebrates Grand Reopening of Expanded Phoenix Distribution Facility",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:54.299806-05:00",
-    "symbols": [
-      "AXP"
-    ],
-    "headline": "PayPal Names New CFO, Overhauls Venmo, Crypto and AI Leadership As Three-Year Strategy Takes Shape",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:37:54.509958-05:00",
-    "symbols": [
-      "AXS"
-    ],
-    "headline": "Mizuho Maintains Outperform on Axis Capital Holdings, Raises Price Target to $129",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-20T09:37:54.911894-05:00",
     "symbols": [
       "BBVA"
@@ -4995,6 +4935,66 @@
       "STM"
     ],
     "headline": "Roth Capital Initiates Coverage On STMicroelectronics with Buy Rating, Announces Price Target of $58",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T14:23:06.317608-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "&#39;US SEC&#39;s Nvidia probe is examining potential accounting issues, sources say&#39;- Reuters Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T14:23:10.335759-05:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "Citigroup Maintains Buy on Alibaba Gr Hldgs, Lowers Price Target to $160",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T14:23:10.845799-05:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "GE Vernova Stock Plunges Amid AI Selloff and Profit-Taking",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T14:23:11.052457-05:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "GE Vernova Stock Plunges Amid AI Selloff and Profit-Taking",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T14:23:12.104613-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;US SEC&#39;s Nvidia probe is examining potential accounting issues, sources say&#39;- Reuters Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T14:23:13.981194-05:00",
+    "symbols": [
+      "IMDX"
+    ],
+    "headline": "Lake Street Maintains Buy on Insight Molecular, Lowers Price Target to $9",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

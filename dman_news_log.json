@@ -1,195 +1,5 @@
 [
   {
-    "ts": "2026-11-20T09:37:29.313510-05:00",
-    "symbols": [
-      "MDB"
-    ],
-    "headline": "UBS Upgrades MongoDB to Buy, Raises Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:37:32.842531-05:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "PayPal Names New CFO, Overhauls Venmo, Crypto and AI Leadership As Three-Year Strategy Takes Shape",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:37:35.772299-05:00",
-    "symbols": [
-      "INSM"
-    ],
-    "headline": "&#39;Sanofi\u2019s New CEO Eyes Mega-Deal to Jump-Start Pipeline Rebuild&#39; - Bloomberg Interview",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:37:35.775825-05:00",
-    "symbols": [
-      "INSM"
-    ],
-    "headline": "Anthropic, Intuit, AMD, Insmed and GameStop: Why These 5 Stocks Are on Investors&#39; Radars Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:37:36.570102-05:00",
-    "symbols": [
-      "MAGN"
-    ],
-    "headline": "Magnera Corporation to Attend 2026 Bank of America Leveraged Finance Conference",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:36.778736-05:00",
-    "symbols": [
-      "UTI"
-    ],
-    "headline": "Truist Securities Maintains Buy on Universal Technical, Lowers Price Target to $26",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T09:37:36.975169-05:00",
-    "symbols": [
-      "NTES"
-    ],
-    "headline": "BofA Securities Adjusts NetEase Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:36.978677-05:00",
-    "symbols": [
-      "NTES"
-    ],
-    "headline": "Bernstein Analysts Provide Outlook on NetEase's Fourth Quarter Performance",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:37:37.176004-05:00",
-    "symbols": [
-      "WSM"
-    ],
-    "headline": "Evercore ISI Group Maintains In-Line on Williams-Sonoma, Lowers Price Target to $235",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:37:37.179565-05:00",
-    "symbols": [
-      "WSM"
-    ],
-    "headline": "Amazon To Rally Over 20%? Here Are 10 Top Analyst Forecasts For Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:37:37.182972-05:00",
-    "symbols": [
-      "WSM"
-    ],
-    "headline": "Stifel Maintains Buy on Williams-Sonoma, Lowers Price Target to $260",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:37:37.186343-05:00",
-    "symbols": [
-      "WSM"
-    ],
-    "headline": "Baird Maintains Outperform on Williams-Sonoma, Lowers Price Target to $255",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:37:37.584862-05:00",
-    "symbols": [
-      "TM"
-    ],
-    "headline": "Toyota Recalls 62,490 Tundra Vehicles Over Camshaft Cracks That May Cause Engine Stall, Loss Of Drive Power And Crash Risk",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:37:38.376212-05:00",
-    "symbols": [
-      "CG"
-    ],
-    "headline": "Carlyle and Blackstone Among Lenders to Take Over Vivid Seats in Debt Deal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:37:38.575077-05:00",
-    "symbols": [
-      "ESTC"
-    ],
-    "headline": "TD Cowen Maintains Hold on Elastic, Lowers Price Target to $70",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:37:38.578670-05:00",
-    "symbols": [
-      "ESTC"
-    ],
-    "headline": "Elastic Analysts Cut Their Forecasts Following Q2 Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:37:38.582076-05:00",
-    "symbols": [
-      "ESTC"
-    ],
-    "headline": "Stifel Maintains Buy on Elastic, Lowers Price Target to $105",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:37:38.616320-05:00",
-    "symbols": [
-      "ESTC"
-    ],
-    "headline": "Cantor Fitzgerald Maintains Neutral on Elastic, Lowers Price Target to $75",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:37:38.619969-05:00",
-    "symbols": [
-      "ESTC"
-    ],
-    "headline": "Elastic Says It Joined Anthropic\u2019s Cyber Verification Program",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-20T09:37:38.811376-05:00",
     "symbols": [
       "GLOB"
@@ -4998,5 +4808,195 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T12:50:38.386402-05:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Nasdaq 100 Tumbles Over 3% Amid Tech Bloodbath, Nvidia Sinks 7% on 7th Straight Weekly Loss: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T12:50:39.326719-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nasdaq 100 Tumbles Over 3% Amid Tech Bloodbath, Nvidia Sinks 7% on 7th Straight Weekly Loss: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T12:50:39.330771-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "President Trump Says Xi And I Agreed We Will Do Joint Guardrails On AI; Says Will Not Allow Companies To Build Data Centers Outside U.S.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T12:50:39.617537-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Nasdaq 100 Tumbles Over 3% Amid Tech Bloodbath, Nvidia Sinks 7% on 7th Straight Weekly Loss: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T12:50:40.211864-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Nasdaq 100 Tumbles Over 3% Amid Tech Bloodbath, Nvidia Sinks 7% on 7th Straight Weekly Loss: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T12:50:41.123312-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "B of A Securities Maintains Buy on Snowflake, Lowers Price Target to $400",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T12:50:43.092705-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Nasdaq 100 Tumbles Over 3% Amid Tech Bloodbath, Nvidia Sinks 7% on 7th Straight Weekly Loss: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T12:50:43.319192-05:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Nasdaq 100 Tumbles Over 3% Amid Tech Bloodbath, Nvidia Sinks 7% on 7th Straight Weekly Loss: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T12:50:46.290891-05:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Jefferies Initiates Coverage on Moderna with Hold Rating",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T12:50:46.513920-05:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "AbbVie to Present at the Piper Sandler 38th Annual Healthcare Conference",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T12:50:49.623784-05:00",
+    "symbols": [
+      "CLSK"
+    ],
+    "headline": "Why Is CleanSpark Stock Falling on Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T12:50:50.125703-05:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "Morgan Stanley and Goldman Sachs Adjust Price Targets for Vistra Corp.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T12:50:55.077130-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "PayPal Names New CFO, Overhauls Venmo, Crypto and AI Leadership As Three-Year Strategy Takes Shape",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-20T12:50:56.416004-05:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Nasdaq 100 Tumbles Over 3% Amid Tech Bloodbath, Nvidia Sinks 7% on 7th Straight Weekly Loss: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T12:50:58.051103-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says Xi And I Agreed We Will Do Joint Guardrails On AI; Says Will Not Allow Companies To Build Data Centers Outside U.S.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T12:50:58.272875-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Nasdaq 100 Tumbles Over 3% Amid Tech Bloodbath, Nvidia Sinks 7% on 7th Straight Weekly Loss: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T12:50:58.506090-05:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Nasdaq 100 Tumbles Over 3% Amid Tech Bloodbath, Nvidia Sinks 7% on 7th Straight Weekly Loss: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T12:51:06.503782-05:00",
+    "symbols": [
+      "GAP"
+    ],
+    "headline": "Nasdaq 100 Tumbles Over 3% Amid Tech Bloodbath, Nvidia Sinks 7% on 7th Straight Weekly Loss: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T12:51:06.507958-05:00",
+    "symbols": [
+      "GAP"
+    ],
+    "headline": "B of A Securities Maintains Neutral on Gap, Lowers Price Target to $23",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-20T09:37:39.284680-05:00",
-    "symbols": [
-      "WWD"
-    ],
-    "headline": "Guggenheim Maintains Buy on Woodward, Raises Price Target to $410",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-20T09:37:39.871587-05:00",
     "symbols": [
       "DXYZ"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T13:02:34.861948-05:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "FDA Approves Novo Nordisk's Sogroya\u00ae for Turner Syndrome in Children",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

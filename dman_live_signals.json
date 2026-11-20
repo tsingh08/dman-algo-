@@ -1,18 +1,6 @@
 {
   "pending": [
     {
-      "ticker": "CVCO",
-      "setup": "Gap & Hold",
-      "bias": "LONG",
-      "entry": 612.61,
-      "stop": 588.79,
-      "target1": 687.07,
-      "target2": 724.31,
-      "score": 100,
-      "date": "2026-10-30",
-      "timestamp": "2026-10-30T12:58:57.730152-04:00"
-    },
-    {
       "ticker": "TMDX",
       "setup": "Morning Runner",
       "bias": "LONG",
@@ -59,18 +47,6 @@
       "score": 100,
       "date": "2026-11-17",
       "timestamp": "2026-11-17T13:30:32.772753-05:00"
-    },
-    {
-      "ticker": "LGHL",
-      "setup": "Low Float Catalyst",
-      "bias": "LONG",
-      "entry": 1.1421,
-      "stop": 0.9137,
-      "target1": 1.71,
-      "target2": 2.86,
-      "score": 100,
-      "date": "2026-11-19",
-      "timestamp": "2026-11-19T09:38:36.504885-05:00"
     },
     {
       "ticker": "WWD",

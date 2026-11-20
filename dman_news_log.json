@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-20T09:50:14.359238-05:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "Fortinet Named a Leader in Westlands Advisory OT Cybersecurity Navigators 2026 Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-20T09:50:15.114642-05:00",
     "symbols": [
       "BABA"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T16:04:38.699132-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "White House Is \u2018Terrified\u2019 of Ending the AI Boom, Paul Kedrosky Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

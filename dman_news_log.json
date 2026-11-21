@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-11-20T09:50:15.114642-05:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Barclays Maintains Overweight on Alibaba Gr Hldgs, Lowers Price Target to $155",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T09:50:15.637081-05:00",
-    "symbols": [
-      "PDD"
-    ],
-    "headline": "Dow Tumbles 900 Points; Walmart Raises Full-Year Guidance",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T09:50:16.546171-05:00",
-    "symbols": [
-      "CEG"
-    ],
-    "headline": "Barclays Maintains Buy Rating and Raises Price Target for Constellation Energy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:50:18.934494-05:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Visa Launches 'Visa Recurrent' for Recurring Payment Management",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T09:50:21.822578-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "U.S. House Committee Calls To Remove China Open-Weight Models From Us Govt",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T09:50:22.727563-05:00",
-    "symbols": [
-      "AMC"
-    ],
-    "headline": "Comcast Business Deploys Broadband Connectivity for Digital Cinema Distribution Coalition",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T09:58:55.824431-05:00",
-    "symbols": [
-      "WRD"
-    ],
-    "headline": "WeRide Revenue Doubles as Robotaxi Business Grows 204% in Q3",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T10:06:15.844457-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX Stock Drops Nearly 6% During AI Pullback, Anthropic Ties, Tesla Merger Talk",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T10:06:16.841920-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Outage and FAA Ground Stop Are &#39;Just the Opening Chapter&#39; Top Cyber Expert Says as AI Gives Hackers a &#39;Negative Seven Days&#39; Head Start",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T10:06:16.845798-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "RBC Capital Reiterates Outperform on Microsoft, Maintains $640 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T10:06:17.126320-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Micron Short Interest Rises As Bears Remain Below August Peak",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-11-20T10:06:17.130611-05:00",
     "symbols": [
       "NVDA"
@@ -4998,5 +4888,115 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T18:02:35.052971-05:00",
+    "symbols": [
+      "FSLR"
+    ],
+    "headline": "First Solar CEO Testifies Before House Select Committee on China",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T18:02:35.202744-05:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Zscaler Collaborates with Anthropic and Mistral to Enhance AI Security",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T18:03:35.104338-05:00",
+    "symbols": [
+      "VST"
+    ],
+    "headline": "Morgan Stanley Revises Rating on Vistra to Neutral",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T18:03:35.280395-05:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "DraftKings Co-Founder Matt Kalish Purchases $1 Million in Company Stock",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-20T18:03:35.460976-05:00",
+    "symbols": [
+      "ENPH"
+    ],
+    "headline": "Enphase Energy Announces Workforce Reduction and Relocation Strategy",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T19:02:35.066306-05:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Lockheed Martin Receives $1.53 Billion U.S. Navy Contract Modification",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T20:02:35.021545-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Chase & Co. Discloses Increased Voting Rights in Ceres Power",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T20:02:35.172504-05:00",
+    "symbols": [
+      "WRD"
+    ],
+    "headline": "WeRide Reports Third Quarter 2026 Financial Results",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T20:02:35.314724-05:00",
+    "symbols": [
+      "YMAT"
+    ],
+    "headline": "J-Star Holding Expands Strategic Partnership with Mitsubishi Chemical",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-20T20:02:35.497556-05:00",
+    "symbols": [
+      "POAS"
+    ],
+    "headline": "Phaos Technology Holdings (Cayman) Limited Corrects Disclosure Regarding Shareholdings",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-20T20:03:35.036180-05:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Set to Exceed Earnings Estimates Amid Low Bar, Agentforce Demand, Oppenheimer Says",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

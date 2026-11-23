@@ -1,335 +1,5 @@
 [
   {
-    "ts": "2026-11-20T15:23:05.059820-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Michael Burry Halves SMH, Nvidia Puts but Keeps Nasdaq 100 Bet",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T15:23:05.266465-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Michael Burry Halves SMH, Nvidia Puts but Keeps Nasdaq 100 Bet",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T15:23:09.852068-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Michael Burry Halves SMH, Nvidia Puts but Keeps Nasdaq 100 Bet",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T15:23:11.466149-05:00",
-    "symbols": [
-      "STLA"
-    ],
-    "headline": "Chrysler Recalls 82,843 US Vehicles Model Year 2022-2024 Ram 1500 Classic Trucks Over ABS Software Defect That May Cause Brake Light Malfunctions, Unintended Vehicle Movement, and Loss of ESC, AutoPark, and Forward Collision Warning Functions",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T15:33:23.753327-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Did the AI Bubble Pop? Polymarket Says It Could Soon, but There&#39;s a Catch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T15:33:24.387893-05:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Did the AI Bubble Pop? Polymarket Says It Could Soon, but There&#39;s a Catch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T15:33:26.255856-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Did the AI Bubble Pop? Polymarket Says It Could Soon, but There&#39;s a Catch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T15:43:40.786627-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "QUICK SPARK: Semiconductor Stocks Head for Worst 2-Month Slump Since 2001",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T15:54:01.455854-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Semiconductor Stocks Heading for Worst 2-Month Slump Since 2001 as Nvidia, Anthropic and the AI Trade Crack: This Week on Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T15:54:01.535928-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Semiconductor Stocks Heading for Worst 2-Month Slump Since 2001 as Nvidia, Anthropic and the AI Trade Crack: This Week on Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T15:54:02.164772-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Semiconductor Stocks Heading for Worst 2-Month Slump Since 2001 as Nvidia, Anthropic and the AI Trade Crack: This Week on Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T15:54:02.286535-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Semiconductor Stocks Heading for Worst 2-Month Slump Since 2001 as Nvidia, Anthropic and the AI Trade Crack: This Week on Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T15:54:02.459815-05:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Semiconductor Stocks Heading for Worst 2-Month Slump Since 2001 as Nvidia, Anthropic and the AI Trade Crack: This Week on Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T15:54:10.569496-05:00",
-    "symbols": [
-      "STLA"
-    ],
-    "headline": "Semiconductor Stocks Heading for Worst 2-Month Slump Since 2001 as Nvidia, Anthropic and the AI Trade Crack: This Week on Wall Street",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T15:54:11.195246-05:00",
-    "symbols": [
-      "VWAV"
-    ],
-    "headline": "VisionWave Acquires Critical Minerals Intelligence Platform For $11M In Deferred Compensation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T15:54:11.253287-05:00",
-    "symbols": [
-      "SAGT"
-    ],
-    "headline": "Sagtec Global CEO Buys Additional 260K Shares In Private Transaction At  $1.03/Share",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T15:54:11.259157-05:00",
-    "symbols": [
-      "SAGT"
-    ],
-    "headline": "Sagtec Global Says It Signed 10-Year, RM96M Lease Of ~400 Acres In Malaysia For Data Center; RM48M Payable In 26,824,557 Class A Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T15:54:12.530817-05:00",
-    "symbols": [
-      "CVM"
-    ],
-    "headline": "CEL-SCI\u2019s Investigational Cancer Immunotherapy Multikine Granted Official Designation Under Saudi Food And Drug Authority\u2019s New Accelerator Program For Drugs In Rare Diseases",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T15:54:12.903276-05:00",
-    "symbols": [
-      "EFOR"
-    ],
-    "headline": "Buckle Posts Strong Q3 Results, Joins Evolent Health, Bending Spoons And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T15:54:12.906492-05:00",
-    "symbols": [
-      "EFOR"
-    ],
-    "headline": "BMO Capital Upgrades Everforth to Outperform, Maintains Price Target to $47",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T16:04:38.699132-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "White House Is \u2018Terrified\u2019 of Ending the AI Boom, Paul Kedrosky Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T18:02:35.052971-05:00",
-    "symbols": [
-      "FSLR"
-    ],
-    "headline": "First Solar CEO Testifies Before House Select Committee on China",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T18:02:35.202744-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Zscaler Collaborates with Anthropic and Mistral to Enhance AI Security",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T18:03:35.104338-05:00",
-    "symbols": [
-      "VST"
-    ],
-    "headline": "Morgan Stanley Revises Rating on Vistra to Neutral",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T18:03:35.280395-05:00",
-    "symbols": [
-      "DKNG"
-    ],
-    "headline": "DraftKings Co-Founder Matt Kalish Purchases $1 Million in Company Stock",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T18:03:35.460976-05:00",
-    "symbols": [
-      "ENPH"
-    ],
-    "headline": "Enphase Energy Announces Workforce Reduction and Relocation Strategy",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T19:02:35.066306-05:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Lockheed Martin Receives $1.53 Billion U.S. Navy Contract Modification",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T20:02:35.021545-05:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Chase & Co. Discloses Increased Voting Rights in Ceres Power",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T20:02:35.172504-05:00",
-    "symbols": [
-      "WRD"
-    ],
-    "headline": "WeRide Reports Third Quarter 2026 Financial Results",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T20:02:35.314724-05:00",
-    "symbols": [
-      "YMAT"
-    ],
-    "headline": "J-Star Holding Expands Strategic Partnership with Mitsubishi Chemical",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T20:02:35.497556-05:00",
-    "symbols": [
-      "POAS"
-    ],
-    "headline": "Phaos Technology Holdings (Cayman) Limited Corrects Disclosure Regarding Shareholdings",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T20:03:35.036180-05:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce Set to Exceed Earnings Estimates Amid Low Bar, Agentforce Demand, Oppenheimer Says",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T09:25:25.979157-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "RKLB Stock Soars Pre-Market: Rocket Lab CFO Sees \u2018Very Strong\u2019 Electron Demand Ahead, Predicts Potential Pricing Surge as Customers Look Beyond SpaceX Rideshare Launches",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-23T09:25:25.983972-05:00",
     "symbols": [
       "SPCX"
@@ -4998,5 +4668,335 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T11:12:51.664272-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T11:12:51.775230-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "IREN Stock Rebounds 30% From 52-Week Low: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T11:12:51.780148-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Marvell Stock Soars After Jensen Huang Reurns as Nvidia CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T11:12:51.784699-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T11:12:51.915972-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Marvell Stock Soars After Jensen Huang Reurns as Nvidia CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T11:12:52.130480-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T11:12:52.215512-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-23T11:12:52.474998-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Marvell Stock Soars After Jensen Huang Reurns as Nvidia CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T11:12:52.900184-05:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Marvell Stock Soars After Jensen Huang Reurns as Nvidia CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T11:12:52.956710-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell Stock Soars After Jensen Huang Reurns as Nvidia CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T11:12:53.610568-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T11:12:53.616023-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "ExxonMobil Short Interest Climbs After Third-Quarter Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T11:12:53.720314-05:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "Marvell Stock Soars After Jensen Huang Reurns as Nvidia CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T11:12:53.978099-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Strategy Buys 457 Bitcoin as Spending Falls 64% Despite Cheaper Prices",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-23T11:12:54.580350-05:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T11:12:54.701312-05:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T11:12:55.028603-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "ExxonMobil Short Interest Climbs After Third-Quarter Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T11:12:55.504282-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T11:12:55.562343-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T11:12:55.619126-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T11:12:55.623786-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Boeing Shares Move Higher; President Trump Said Sold 250 Boeings To China, Think He Will Sell Another 250",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T11:12:55.685916-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T11:12:55.740346-05:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T11:12:56.334651-05:00",
+    "symbols": [
+      "FRMI"
+    ],
+    "headline": "Fermi Stock Surges As Company Confirms Hyperscaler Prepayment Funding",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T11:12:56.491725-05:00",
+    "symbols": [
+      "JMIA"
+    ],
+    "headline": "RBC Capital Maintains Outperform on Jumia Technologies, Lowers Price Target to $4.5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T11:12:56.961621-05:00",
+    "symbols": [
+      "SNAP"
+    ],
+    "headline": "Snap Inc. Representatives Meet with Greek Government Officials Regarding Age Verification Compliance",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T11:12:57.777909-05:00",
+    "symbols": [
+      "IREN"
+    ],
+    "headline": "IREN Stock Rebounds 30% From 52-Week Low: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T11:12:57.786528-05:00",
+    "symbols": [
+      "IREN"
+    ],
+    "headline": "CoreWeave Stock Jumps 29% as Jensen Huang Returns: 10 Nvidia-Linked Names Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T11:12:57.792278-05:00",
+    "symbols": [
+      "IREN"
+    ],
+    "headline": "Nebius Rally Sends Leveraged ETFs Up More Than 50%: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T11:12:57.796690-05:00",
+    "symbols": [
+      "IREN"
+    ],
+    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T11:12:57.801512-05:00",
+    "symbols": [
+      "IREN"
+    ],
+    "headline": "Why Is Nebius Stock Surging on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T11:12:58.028573-05:00",
+    "symbols": [
+      "LITE"
+    ],
+    "headline": "Here&#39;s How Much $100 Invested In Lumentum Holdings 10 Years Ago Would Be Worth Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T11:12:58.033730-05:00",
+    "symbols": [
+      "LITE"
+    ],
+    "headline": "CoreWeave Stock Jumps 29% as Jensen Huang Returns: 10 Nvidia-Linked Names Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

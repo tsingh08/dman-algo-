@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-11-20T13:05:37.393178-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Oracle Stock Slides 6%, but Bernstein Says It\u2019s Worth $133 Even if Its AI Data-Center Business Fails",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T13:05:38.275312-05:00",
-    "symbols": [
-      "SVRA"
-    ],
-    "headline": "HC Wainwright &amp; Co. Maintains Buy on Savara, Lowers Price Target to $9",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T13:05:38.650589-05:00",
-    "symbols": [
-      "INTU"
-    ],
-    "headline": "JP Morgan Maintains Neutral on Intuit, Lowers Price Target to $321",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T13:05:38.655058-05:00",
-    "symbols": [
-      "INTU"
-    ],
-    "headline": "Oracle Stock Sinks to New 52-Week Low Amid Tech Selloff and Nasdaq Woes",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T13:05:38.659205-05:00",
-    "symbols": [
-      "INTU"
-    ],
-    "headline": "Deal Dispatch: Intuit Sells Mailchimp to Bending Spoons for $3.68B, Gallagher Buys AgriServ, Taco Bell Franchisee Files for Chapter 11",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T13:05:38.663389-05:00",
-    "symbols": [
-      "INTU"
-    ],
-    "headline": "Why Are Bending Spoons Shares Trading Higher On Friday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T13:05:38.667470-05:00",
-    "symbols": [
-      "INTU"
-    ],
-    "headline": "BMO Capital Maintains Outperform on Intuit, Lowers Price Target to $375",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T13:05:38.750061-05:00",
-    "symbols": [
-      "JACK"
-    ],
-    "headline": "Jacktel AS Receives Recommended Conditional Cash Purchase Offer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-20T13:23:04.960681-05:00",
     "symbols": [
       "SPCX"
@@ -4991,6 +4911,86 @@
   },
   {
     "ts": "2026-11-23T09:38:04.790133-05:00",
+    "symbols": [
+      "VIVK"
+    ],
+    "headline": "Vivakor To Acquire Direct Midstream For $40M Base Value; Includes 17 Saltwater Disposal Facilities And Nine Fresh Water And Brine Stations",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T09:40:43.151812-05:00",
+    "symbols": [
+      "FFR"
+    ],
+    "headline": "Reported Sunday, FFR Joins California School District Procurement Platform Giving 1,000+ Schools Direct Access To Robots; FFAI Remediates Nine Material Weaknesses In Internal Controls",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T09:40:43.208281-05:00",
+    "symbols": [
+      "SOAR"
+    ],
+    "headline": "SOAR AI Says Shareholders&#39; Equity Of $87.5M Expected To Allow It To Regain NYSE American Listing Compliance In December",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T09:40:43.213863-05:00",
+    "symbols": [
+      "SOAR"
+    ],
+    "headline": "Soar AI Q3 Adj. EPS $(0.04) Down From $0.45 YoY, Sales $1.300M Up From $381.000K YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T09:40:43.409116-05:00",
+    "symbols": [
+      "KITT"
+    ],
+    "headline": "Nauticus Robotics Signs LOI to Acquire Ocean Power Technologies&#39; WAM-V Business Assets for $8M, Plus Up to $2M in Contingent Consideration",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T09:40:43.424052-05:00",
+    "symbols": [
+      "KITT"
+    ],
+    "headline": "Ocean Power Technologies Issues Update On Previously Announced Strategic Review, Including An LoI To Sell Its WAM-V Business To Nauticus Robotics For $8M In KITT Convertible Prefs And Up To $2M In Additional Cash Payments",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T09:40:43.598974-05:00",
+    "symbols": [
+      "DCGO"
+    ],
+    "headline": "DocGo to Sell Cardiac Remote Monitoring Business for Up to $25M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T09:40:43.650878-05:00",
+    "symbols": [
+      "YMAT"
+    ],
+    "headline": "J-Star Holding Advances Plans To Acquire Manufacturing Facility In US With Estimated Acquisition Value Of ~$6M To $7M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T09:40:43.704743-05:00",
     "symbols": [
       "VIVK"
     ],

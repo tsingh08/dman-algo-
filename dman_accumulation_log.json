@@ -1,14 +1,5 @@
 [
  {
-  "ts": "2026-09-25T14:13:42.123286-04:00",
-  "ticker": "GQGU",
-  "price": 26.67,
-  "rvol": 1.94,
-  "drift_pct": 0.23,
-  "range_ratio": 0.51,
-  "near_high": 0.993
- },
- {
   "ts": "2026-09-25T14:13:42.123289-04:00",
   "ticker": "XAGG",
   "price": 48.74,
@@ -4498,5 +4489,14 @@
   "drift_pct": 0.82,
   "range_ratio": 0.4,
   "near_high": 0.992
+ },
+ {
+  "ts": "2026-11-23T11:20:16.198283-05:00",
+  "ticker": "CRAN",
+  "price": 10.14,
+  "rvol": 3.85,
+  "drift_pct": 0.0,
+  "range_ratio": 0.31,
+  "near_high": 1.0
  }
 ]

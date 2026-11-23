@@ -1,245 +1,5 @@
 [
   {
-    "ts": "2026-11-23T09:25:25.983972-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk Hopes All Teslas Will Get SpaceX\u2019s Starlink Connectivity\u2014Except in China, Where It\u2019s \u2018Illegal\u2019: Says It Will Be Key for Unsupervised FSD",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T09:25:25.988990-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Stanley Druckenmiller Sees 70% Chance of Data Centers in Space Within 10 Years \u2014 Duquesne Adds $30 Million to SpaceX Stake in Q3",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T09:25:25.993555-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Dan Ives Says Bears Will Get &#39;Louder and Louder&#39; But AI Boom Will Not Slow: Names Apple, Hyperscalers, SpaceX, Cybersecurity Stocks as Winners",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T09:25:26.042430-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "CoreWeave, Nebius, IREN and Top Neoclouds Get Oversold as AI Bubble Fears Rise",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T09:25:26.094108-05:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Why Is Applied Digital Stock Surging on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T09:25:26.099073-05:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Applied Digital Enters 18-Year Lease Agreement  For 150 MW Of Capacity With Base-Term Contracted Revenue Of ~$5.4B, Or ~$12.7B If All Renewal Options Are Exercised Over A 33-Year Total Term",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T09:25:26.103815-05:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Applied Digital Closes $300M Senior Secured Bridge Facility to Fund Louisiana AI Data Center Development",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T09:25:26.220286-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Microsoft\u2019s Brad Smith Says \u2018We Didn\u2019t Know\u2019 $10 Million Trump Ballroom Donation Would Involve Demolition of the East Wing: \u2019We Never Expect to Get Everything Perfect",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T09:25:26.225523-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Dan Ives Says Bears Will Get &#39;Louder and Louder&#39; But AI Boom Will Not Slow: Names Apple, Hyperscalers, SpaceX, Cybersecurity Stocks as Winners",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T09:25:26.230587-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Trump\u2019s Intelligence Chief Warns Americans to Brace for More Tech Disruptions as AI Era Forces System Upgrades: \u2018Bumps in the Road\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T09:25:26.235038-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Grant Cardone Says Elon Musk Could Buy 50% of Nvidia and Bring Jensen Huang Back, Days After SpaceX CEO\u2019s Hiring Remark",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T09:25:26.288445-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft\u2019s Brad Smith Says \u2018We Didn\u2019t Know\u2019 $10 Million Trump Ballroom Donation Would Involve Demolition of the East Wing: \u2019We Never Expect to Get Everything Perfect",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T09:25:26.292974-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Dan Ives Says Bears Will Get &#39;Louder and Louder&#39; But AI Boom Will Not Slow: Names Apple, Hyperscalers, SpaceX, Cybersecurity Stocks as Winners",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T09:25:26.298222-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Cerence AI And Audi Jointly Develop First LLM-Powered Mobile Work Agent With Microsoft, Enabling Teams And Outlook Access In Car",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T09:25:26.302693-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Trump\u2019s Intelligence Chief Warns Americans to Brace for More Tech Disruptions as AI Era Forces System Upgrades: \u2018Bumps in the Road\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T09:25:26.355276-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Stock Soars as Jensen Huang Returns as CEO",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T09:25:26.359673-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "President Trump Says In Social Media Post That NVIDIA Board Made Correct And Proper Decision To Return Jensen Huang As CEO; No Reason To Believe Huang&#39;s Poses Any Risk To National Security",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T09:25:26.364080-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "NVIDIA Reinstates Jensen Huang As President, CEO And As A Member Of The Board, Effective Immediately",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T09:25:26.368413-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia Board Reinstates Huang As CEO",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T09:25:26.372716-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is Applied Digital Stock Surging on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T09:25:26.425016-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "President Trump Says In Social Media Post That NVIDIA Board Made Correct And Proper Decision To Return Jensen Huang As CEO; No Reason To Believe Huang&#39;s Poses Any Risk To National Security",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T09:25:26.429395-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Why Is AMD Stock Surging on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T09:25:26.433951-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Eric Trump-Backed Robot Startup\u2019s Employees Lose Health Insurance After Weeks Without Pay as Company Scrambles for $150 Million Lifeline: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T09:25:26.438251-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Howard Lutnick &#39;Must Be Fired&#39;: Chris Coons Says Trump Admin &#39;Sacrificed&#39; National Security to Give China Access to Advanced Chips",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-23T09:25:26.509497-05:00",
     "symbols": [
       "META"
@@ -4998,5 +4758,245 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T11:19:11.021742-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T11:19:11.190423-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "IREN Stock Rebounds 30% From 52-Week Low: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T11:19:11.193295-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Marvell Stock Soars After Jensen Huang Reurns as Nvidia CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T11:19:11.195796-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T11:19:11.346437-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Marvell Stock Soars After Jensen Huang Reurns as Nvidia CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T11:19:11.839350-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T11:19:12.027063-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-23T11:19:13.001414-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Marvell Stock Soars After Jensen Huang Reurns as Nvidia CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T11:19:13.799666-05:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Marvell Stock Soars After Jensen Huang Reurns as Nvidia CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T11:19:13.969141-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell Stock Soars After Jensen Huang Reurns as Nvidia CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T11:19:14.696352-05:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "Here&#39;s How Much $1000 Invested In AbbVie 10 Years Ago Would Be Worth Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T11:19:15.739762-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T11:19:15.819681-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "ExxonMobil Short Interest Climbs After Third-Quarter Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T11:19:16.189788-05:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "Marvell Stock Soars After Jensen Huang Reurns as Nvidia CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T11:19:17.007034-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Strategy Buys 457 Bitcoin as Spending Falls 64% Despite Cheaper Prices",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-23T11:19:18.615387-05:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T11:19:18.810492-05:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T11:19:19.922217-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "ExxonMobil Short Interest Climbs After Third-Quarter Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T11:19:20.722483-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T11:19:20.882569-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T11:19:21.075718-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T11:19:21.078579-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Boeing Shares Move Higher; President Trump Said Sold 250 Boeings To China, Think He Will Sell Another 250",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T11:19:21.222855-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T11:19:21.374194-05:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "9 Of 11 Sectors Rise Monday As Growth Leads",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

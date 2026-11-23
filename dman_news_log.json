@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-11-20T13:43:46.994827-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Fed\u2019s Paulson Argues for Deliberate Rate Hikes to Tame Inflation&#39;- Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T13:45:45.078354-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Tesla-SpaceX Merger Could Hand Elon Musk a 60% Stake \u2014 and TSLA Holders a 33% Premium, Analyst Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-20T13:45:47.369826-05:00",
     "symbols": [
       "TSLA"
@@ -4995,6 +4975,26 @@
       "VIVK"
     ],
     "headline": "Nasdaq Jumps Over 1,200 Points; Chicago Fed National Activity Index Falls In October",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T09:56:29.380860-05:00",
+    "symbols": [
+      "RZAI"
+    ],
+    "headline": "Roze AI To Explore Potential Acquisition Of Shares In South Korean Architectural Design Firm BAUM Architects",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T09:56:29.500334-05:00",
+    "symbols": [
+      "MVIS"
+    ],
+    "headline": "MicroVision Raises $3.6M in Insider-Led Equity Financing at Market Price, With No Discounts or Warrants",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

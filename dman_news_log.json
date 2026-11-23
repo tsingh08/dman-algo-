@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-11-20T15:03:34.845743-05:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "HireClix Integrates Cloudflare Turnstile into Verified Apply Solution",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T15:03:34.849564-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Citi Maintains Buy Rating and $265 Price Target on Palantir",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T15:03:34.855014-05:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Bernstein Maintains Hold Rating on Lockheed Martin and Raises Price Target",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T15:12:54.844837-05:00",
-    "symbols": [
-      "SAIH"
-    ],
-    "headline": "SAIHEAT Limited (SAIH) Subject to Trading Halt",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T15:23:04.048665-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Michael Burry Halves SMH, Nvidia Puts but Keeps Nasdaq 100 Bet",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T15:23:04.114951-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Michael Burry Halves SMH, Nvidia Puts but Keeps Nasdaq 100 Bet",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T15:23:04.191583-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Michael Burry Halves SMH, Nvidia Puts but Keeps Nasdaq 100 Bet",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T15:23:04.280605-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Michael Burry Halves SMH, Nvidia Puts but Keeps Nasdaq 100 Bet",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T15:23:04.647772-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Michael Burry Halves SMH, Nvidia Puts but Keeps Nasdaq 100 Bet",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-20T15:23:05.059820-05:00",
     "symbols": [
       "AVGO"
@@ -4998,5 +4908,95 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T11:02:34.844004-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "V2X Expands Collaboration with Microsoft to Advance AI-Powered Mission Operations",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T11:02:34.925180-05:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "U.S. Government Proposes Significant Medicare Advantage Regulatory Changes",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T11:02:34.930616-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "ExxonMobil Announces Pricing Terms and Results of Cash Tender Offers",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T11:02:35.061343-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "David Tepper's Appaloosa Management Discloses New Position in Applied Materials",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T11:02:35.067764-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Klarna Expands Partnership with Visa to Offer Flexible Payment Options",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T11:02:35.073696-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Simfoni Launches Strategic Spend Hub on Snowflake Platform",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T11:02:35.078802-05:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Cloudflare CFO Participates in RBC Capital Markets Global TIMT Conference",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T11:02:35.084641-05:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Qualcomm Launches 2027 Innovation Fellowship Program for North America",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T11:03:35.009646-05:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Citigroup Adjusts Price Target on Salesforce",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

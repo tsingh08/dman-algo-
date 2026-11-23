@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-23T10:32:40.797110-05:00",
-    "symbols": [
-      "OPTX"
-    ],
-    "headline": "Syntec Optics Secures $6.2M in Orders for Laser Blood-Test Cartridges and Optical Reader Subsystems",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T10:32:40.854936-05:00",
-    "symbols": [
-      "AVR"
-    ],
-    "headline": "Reported Sunday, Anteris Highlights DurAVR THV 1-Year Results In Small Aortic Annuli: Mean Gradient 8.9 mmHg, 1% Heart Failure Hospitalization, 9% New Permanent Pacemaker Implantation; PARADIGM Pivotal Trial Enrolling",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T10:42:54.005027-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "CoreWeave Stock Jumps 29% as Jensen Huang Returns: 10 Nvidia-Linked Names Rally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-23T10:42:54.009611-05:00",
     "symbols": [
       "NBIS"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T16:32:35.083884-05:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "FDA Approves AbbVie's RINVOQ for Nonsegmental Vitiligo",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T16:32:35.301871-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon to Acquire AI Startup Decart",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T16:32:35.305192-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Jury Reaches Verdict in Amazon's Lawsuit Against Northstar Commercial Partners",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

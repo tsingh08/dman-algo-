@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-23T10:15:46.063075-05:00",
-    "symbols": [
-      "SHMD"
-    ],
-    "headline": "SCHMID Launched QuantumLine P+ for Void-Free Bottom-Up Copper Filling of Through-Glass Vias",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T10:26:01.164285-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T10:26:01.338681-05:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-23T10:26:01.924532-05:00",
     "symbols": [
       "NVDA"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T15:35:16.523117-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Elon Musk Praises Nvidia Board, Says &#39;The Mistake Has Been Corrected&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-23T15:35:42.192122-05:00",
+    "symbols": [
+      "DELL"
+    ],
+    "headline": "Traders Are Pricing a 13% Swing In Dell Ahead of Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T15:35:42.195836-05:00",
+    "symbols": [
+      "DELL"
+    ],
+    "headline": "Dell, Analog Devices On Deck Tuesday As AI Demand And Guidance Face Test",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

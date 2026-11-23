@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-11-20T11:55:26.160703-05:00",
-    "symbols": [
-      "SOUN"
-    ],
-    "headline": "SoundHound AI Powers AI Voice Agent for Bogot\u00e1's L\u00ednea 195 Service",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T11:55:26.380630-05:00",
-    "symbols": [
-      "ACHR"
-    ],
-    "headline": "Archer Aviation Receives FAA Market Survey Special Airworthiness Certificate for Midnight Aircraft",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T11:55:26.385855-05:00",
-    "symbols": [
-      "ACHR"
-    ],
-    "headline": "Archer Aviation Receives UAM Sustainability & Lifecycle Excellence Award",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T11:55:27.063106-05:00",
-    "symbols": [
-      "TLN"
-    ],
-    "headline": "Oppenheimer Maintains Outperform on Talen Energy, Raises Price Target to $450",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T11:55:27.281079-05:00",
-    "symbols": [
-      "OKLO"
-    ],
-    "headline": "Guggenheim Upgrades Oklo to Buy, Announces $38 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T11:55:27.285235-05:00",
-    "symbols": [
-      "OKLO"
-    ],
-    "headline": "&#39;Andhra govt to tap nuclear power through SMR tech as alternative to thermal power&#39; - Press Trust Of India",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T11:55:27.502035-05:00",
-    "symbols": [
-      "SMR"
-    ],
-    "headline": "&#39;Andhra govt to tap nuclear power through SMR tech as alternative to thermal power&#39; - Press Trust Of India",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T11:55:27.719386-05:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "If You Invested $1000 In Lockheed Martin Stock 20 Years Ago, You Would Have This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-20T11:55:28.168136-05:00",
     "symbols": [
       "GE"
@@ -4998,5 +4918,85 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T09:37:18.611341-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "\u2018The End Of The World\u2019? Evercore Says This Selloff Looks a Lot Like 1987 \u2014 And That\u2019s Bullish",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T09:37:21.021618-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike\u2019s $44B Zscaler Acquisition Could Reshape Cybersecurity ETFs. Here\u2019s What Changes for Investors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T09:37:21.158694-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "CrowdStrike\u2019s $44B Zscaler Acquisition Could Reshape Cybersecurity ETFs. Here\u2019s What Changes for Investors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T09:37:21.218522-05:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "CrowdStrike\u2019s $44B Zscaler Acquisition Could Reshape Cybersecurity ETFs. Here\u2019s What Changes for Investors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T09:37:21.607273-05:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "CrowdStrike\u2019s $44B Zscaler Acquisition Could Reshape Cybersecurity ETFs. Here\u2019s What Changes for Investors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T09:37:21.809869-05:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "CrowdStrike\u2019s $44B Zscaler Acquisition Could Reshape Cybersecurity ETFs. Here\u2019s What Changes for Investors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T09:37:22.775790-05:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "JPMorgan Downgrades Nemetschek to Underweight",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T09:37:25.171163-05:00",
+    "symbols": [
+      "DELL"
+    ],
+    "headline": "Dell Shares Resume Trading, Move Lower; Up 22%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

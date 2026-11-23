@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-11-23T09:38:01.736260-05:00",
-    "symbols": [
-      "AMBA"
-    ],
-    "headline": "Morgan Stanley Maintains Overweight on Ambarella, Lowers Price Target to $70",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:38:01.935237-05:00",
-    "symbols": [
-      "WULF"
-    ],
-    "headline": "B. Riley Securities Maintains Buy on TeraWulf, Lowers Price Target to $22",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:38:02.144588-05:00",
-    "symbols": [
-      "KBH"
-    ],
-    "headline": "KB Home Opens New Design Studio in Houston",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:38:02.347999-05:00",
-    "symbols": [
-      "LMRI"
-    ],
-    "headline": "Lumexa Imaging Appoints Dr. Ayis Pyrros as Chief Clinical Artificial Intelligence Officer",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:38:02.561428-05:00",
-    "symbols": [
-      "CORZ"
-    ],
-    "headline": "Citadel Securities Reports 3.5% Passive Stake in Core Scientific",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:38:03.365586-05:00",
-    "symbols": [
-      "FFR"
-    ],
-    "headline": "Reported Sunday, FFR Joins California School District Procurement Platform Giving 1,000+ Schools Direct Access To Robots; FFAI Remediates Nine Material Weaknesses In Internal Controls",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:38:03.568556-05:00",
-    "symbols": [
-      "SOAR"
-    ],
-    "headline": "SOAR AI Says Shareholders&#39; Equity Of $87.5M Expected To Allow It To Regain NYSE American Listing Compliance In December",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-23T09:38:03.572918-05:00",
     "symbols": [
       "SOAR"
@@ -4998,5 +4928,75 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T14:35:42.756313-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Huang Reinstated\u2014Time To Add Positions In AI And Semi Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T14:35:43.017612-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Huang Reinstated\u2014Time To Add Positions In AI And Semi Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T14:35:43.239750-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Grant Cardone Says &#39;Fire the Board&#39; as Nvidia Directors Pull a Stunning 6-Day U-Turn and Bring Back Ousted CEO Jensen Huang While Shares Rocket 32%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T14:35:44.242991-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Huang Reinstated\u2014Time To Add Positions In AI And Semi Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T14:35:44.456440-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Grant Cardone Says &#39;Fire the Board&#39; as Nvidia Directors Pull a Stunning 6-Day U-Turn and Bring Back Ousted CEO Jensen Huang While Shares Rocket 32%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-23T14:35:44.460172-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Huang Reinstated\u2014Time To Add Positions In AI And Semi Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-23T14:35:57.709494-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Huang Reinstated\u2014Time To Add Positions In AI And Semi Stocks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

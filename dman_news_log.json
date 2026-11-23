@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-11-23T09:37:55.167633-05:00",
-    "symbols": [
-      "GOOG"
-    ],
-    "headline": "Bill Ackman Wasn&#39;t Impressed by Berkshire&#39;s $10 Billion Alphabet Bet: &#39;They Got It at a 6% Discount, But So What?&#39; \u2014 It&#39;s Now Down 24%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T09:37:55.171983-05:00",
-    "symbols": [
-      "GOOG"
-    ],
-    "headline": "Elon Musk Hopes All Teslas Will Get SpaceX\u2019s Starlink Connectivity\u2014Except in China, Where It\u2019s \u2018Illegal\u2019: Says It Will Be Key for Unsupervised FSD",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-23T09:37:55.176331-05:00",
     "symbols": [
       "GOOG"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T13:40:40.316646-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "How Apple Stacks Up Against Dell And Seagate, And The Rest Of The Technology Hardware, Storage &amp; Peripherals Sector.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T13:41:03.149684-05:00",
+    "symbols": [
+      "AAOI"
+    ],
+    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

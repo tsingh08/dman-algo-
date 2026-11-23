@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-23T09:37:41.897429-05:00",
-    "symbols": [
-      "BJ"
-    ],
-    "headline": "Baird Maintains Outperform on BJ&#39;s Wholesale Club Hldgs, Raises Price Target to $120",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-23T09:37:41.901643-05:00",
     "symbols": [
       "BJ"
@@ -4996,6 +4986,16 @@
     ],
     "headline": "Crude Oil Down 4%; Nvidia Shares Spike Higher",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T12:32:34.897415-05:00",
+    "symbols": [
+      "BORR"
+    ],
+    "headline": "Morgan Stanley Initiates Coverage on Borr Drilling",
+    "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": null
   }

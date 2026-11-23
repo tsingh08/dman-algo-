@@ -1,205 +1,5 @@
 [
   {
-    "ts": "2026-11-23T09:37:46.505987-05:00",
-    "symbols": [
-      "WSC"
-    ],
-    "headline": "Morgan Stanley Maintains Equal-Weight on WillScot Holdings, Lowers Price Target to $24.5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:37:46.710505-05:00",
-    "symbols": [
-      "INTC"
-    ],
-    "headline": "President Trump Says In Social Media Post That NVIDIA Board Made Correct And Proper Decision To Return Jensen Huang As CEO; No Reason To Believe Huang&#39;s Poses Any Risk To National Security",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T09:37:46.910442-05:00",
-    "symbols": [
-      "VOR"
-    ],
-    "headline": "Vor Bio Announces Strategic Partnership with RemeGen",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:37:47.112449-05:00",
-    "symbols": [
-      "VRT"
-    ],
-    "headline": "This Insulet Analyst Is No Longer Bullish; Here Are Top 5 Downgrades For Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:37:47.116867-05:00",
-    "symbols": [
-      "VRT"
-    ],
-    "headline": "Baird Downgrades Vertiv Holdings to Neutral, Lowers Price Target to $200",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:37:47.323517-05:00",
-    "symbols": [
-      "CASY"
-    ],
-    "headline": "JP Morgan Maintains Neutral on Casey&#39;s General Stores, Raises Price Target to $709",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:37:47.525746-05:00",
-    "symbols": [
-      "CRL"
-    ],
-    "headline": "Charles River Laboratories Recognized for Significant Improvement in Index Scores",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:37:47.720557-05:00",
-    "symbols": [
-      "DASH"
-    ],
-    "headline": "DoorDash Secures $3.29 Billion in New Debt Financing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T09:37:47.925522-05:00",
-    "symbols": [
-      "GRML"
-    ],
-    "headline": "Greenland Mines President to Represent Raw Materials Sector at EUSPA 2026 User Consultation Platform",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:37:48.121722-05:00",
-    "symbols": [
-      "VLTO"
-    ],
-    "headline": "Argus Research Adjusts Veralto Price Target to $130 From $110",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:37:48.525685-05:00",
-    "symbols": [
-      "SPGI"
-    ],
-    "headline": "Gatwick Funding Limited Terminates Credit Rating Agreement with S&P Global Ratings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T09:37:48.530140-05:00",
-    "symbols": [
-      "SPGI"
-    ],
-    "headline": "S&P Global Reports Stronger-Than-Expected November Growth for German Economy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T09:37:48.534434-05:00",
-    "symbols": [
-      "SPGI"
-    ],
-    "headline": "S&P Global Releases November 2026 Eurozone PMI Flash Data",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T09:37:48.728099-05:00",
-    "symbols": [
-      "PWR"
-    ],
-    "headline": "Director Share Purchase Notification",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:37:48.925542-05:00",
-    "symbols": [
-      "CHA"
-    ],
-    "headline": "CrowdStrike, Capricor Therapeutics And Other Big Stocks Moving Lower In Monday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T09:37:48.929916-05:00",
-    "symbols": [
-      "CHA"
-    ],
-    "headline": "Why Zscaler Shares Are Trading Higher By Over 12%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T09:37:49.138667-05:00",
-    "symbols": [
-      "SNEX"
-    ],
-    "headline": "StoneX Acquires Canadian Grain Marketing Platform GrainFox; Terms Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:37:49.537593-05:00",
-    "symbols": [
-      "GEL"
-    ],
-    "headline": "Graphano Energy Reports Strong Channel Sampling Results at Black Jack Graphite Discovery",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:37:49.735997-05:00",
-    "symbols": [
-      "XPEV"
-    ],
-    "headline": "Reported Earlier, XPENG Rolls Out Advanced ADAS Test Rides At Paris Store, Its First Overseas Retail-Based Intelligent Driving Experience",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T09:37:49.936251-05:00",
-    "symbols": [
-      "IP"
-    ],
-    "headline": "International Paper Approves Spin-Off Of EMEA Packaging Business As DS Smith, Plans LSE Delisting",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-23T09:37:49.940724-05:00",
     "symbols": [
       "IP"
@@ -4998,5 +4798,205 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T13:17:19.731690-05:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Nvidia Soars 32% on Jensen Huang&#39;s Return, Nasdaq 100 Jumps 7%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T13:17:20.299039-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia\u2019s Stunning U-Turn Sparks a 72% ETF Surge. Meet the Biggest Winners",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T13:17:20.301802-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Soars 32% on Jensen Huang&#39;s Return, Nasdaq 100 Jumps 7%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T13:17:20.304288-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Sandisk Stock Climbs After Jensen Huang&#39;s Comeback at Nvidia",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T13:17:20.306724-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Board\u2019s Move To Reinstate Ousted CEO Jensen Huang Was Done Without Consulting Co\u2019s Senior Leadership, Who Were Only Informed At The Last Minute",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T13:17:21.138104-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Nvidia Soars 32% on Jensen Huang&#39;s Return, Nasdaq 100 Jumps 7%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-23T13:17:21.140853-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "China\u2019s Electric Cars Are Taking Over The World. Where Does That Leave Tesla?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-23T13:17:22.266243-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Sandisk Stock Climbs After Jensen Huang&#39;s Comeback at Nvidia",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T13:17:22.465274-05:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Sandisk Stock Climbs After Jensen Huang&#39;s Comeback at Nvidia",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T13:17:22.574645-05:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Sandisk Stock Climbs After Jensen Huang&#39;s Comeback at Nvidia",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T13:17:25.537786-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Nvidia Soars 32% on Jensen Huang&#39;s Return, Nasdaq 100 Jumps 7%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-23T13:17:26.641738-05:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Nvidia Soars 32% on Jensen Huang&#39;s Return, Nasdaq 100 Jumps 7%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T13:17:29.556232-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Nvidia Soars 32% on Jensen Huang&#39;s Return, Nasdaq 100 Jumps 7%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T13:17:29.702547-05:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Nvidia Soars 32% on Jensen Huang&#39;s Return, Nasdaq 100 Jumps 7%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T13:17:29.822278-05:00",
+    "symbols": [
+      "BNAI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T13:17:29.827306-05:00",
+    "symbols": [
+      "BNAI"
+    ],
+    "headline": "Brand Engagement Network Q3 EPS $(0.17) Beats $(0.66) Estimate, Sales $1.960M Beat $1.900M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T13:17:30.103626-05:00",
+    "symbols": [
+      "EROK"
+    ],
+    "headline": "Texas Pacific Land To Acquire EagleRock In All-Stock Transaction; EROK Holders To Receive 0.0831 Shares Of New TPL Stock Per Share, Valuing The Company At ~$23.56 Share At An Implied Equity Valuation Of ~$3B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T13:17:30.491083-05:00",
+    "symbols": [
+      "TPL"
+    ],
+    "headline": "EagleRock Stock Spikes on $3B Deal With Texas Pacific Land",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T13:17:30.495239-05:00",
+    "symbols": [
+      "TPL"
+    ],
+    "headline": "Texas Pacific Land To Acquire EagleRock In All-Stock Transaction; EROK Holders To Receive 0.0831 Shares Of New TPL Stock Per Share, Valuing The Company At ~$23.56 Share At An Implied Equity Valuation Of ~$3B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T13:17:30.644824-05:00",
+    "symbols": [
+      "CUE"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

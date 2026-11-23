@@ -1,23 +1,5 @@
 [
  {
-  "ts": "2026-09-25T14:13:42.123289-04:00",
-  "ticker": "XAGG",
-  "price": 48.74,
-  "rvol": 1.62,
-  "drift_pct": 0.93,
-  "range_ratio": 0.6,
-  "near_high": 0.974
- },
- {
-  "ts": "2026-09-25T14:13:42.123293-04:00",
-  "ticker": "VIGI",
-  "price": 95.83,
-  "rvol": 1.53,
-  "drift_pct": 0.85,
-  "range_ratio": 0.57,
-  "near_high": 0.96
- },
- {
   "ts": "2026-09-25T14:13:42.123297-04:00",
   "ticker": "ICVT",
   "price": 114.14,
@@ -4498,5 +4480,23 @@
   "drift_pct": 0.0,
   "range_ratio": 0.31,
   "near_high": 1.0
+ },
+ {
+  "ts": "2026-11-23T13:18:22.983080-05:00",
+  "ticker": "CRAN",
+  "price": 10.14,
+  "rvol": 3.86,
+  "drift_pct": 0.0,
+  "range_ratio": 0.31,
+  "near_high": 1.0
+ },
+ {
+  "ts": "2026-11-23T13:18:22.983091-05:00",
+  "ticker": "FACT",
+  "price": 10.725,
+  "rvol": 1.94,
+  "drift_pct": 0.88,
+  "range_ratio": 0.58,
+  "near_high": 0.984
  }
 ]

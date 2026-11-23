@@ -1,215 +1,5 @@
 [
   {
-    "ts": "2026-11-20T14:21:56.517355-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;US SEC&#39;s Nvidia probe is examining potential accounting issues, sources say&#39;- Reuters Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T14:22:03.497979-05:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Citigroup Maintains Buy on Alibaba Gr Hldgs, Lowers Price Target to $160",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T14:22:04.822541-05:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "GE Vernova Stock Plunges Amid AI Selloff and Profit-Taking",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T14:22:05.372201-05:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "GE Vernova Stock Plunges Amid AI Selloff and Profit-Taking",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T14:22:08.876146-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;US SEC&#39;s Nvidia probe is examining potential accounting issues, sources say&#39;- Reuters Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T14:22:10.813074-05:00",
-    "symbols": [
-      "GLOB"
-    ],
-    "headline": "TD Cowen Maintains Buy on Globant, Raises Price Target to $46",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T14:22:10.816067-05:00",
-    "symbols": [
-      "GLOB"
-    ],
-    "headline": "Truist Securities Maintains Hold on Globant, Raises Price Target to $44",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T14:22:11.830501-05:00",
-    "symbols": [
-      "BMO"
-    ],
-    "headline": "BMO Announces Cash Distributions for Certain ETFs",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T14:22:12.071580-05:00",
-    "symbols": [
-      "GRRR"
-    ],
-    "headline": "Oracle Stock Sinks to New 52-Week Low Amid Tech Selloff and Nasdaq Woes",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T14:22:12.074687-05:00",
-    "symbols": [
-      "GRRR"
-    ],
-    "headline": "StoneX Maintains Buy on Gorilla Tech Gr, Lowers Price Target to $15",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T14:22:12.197987-05:00",
-    "symbols": [
-      "STM"
-    ],
-    "headline": "This STMicroelectronics Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T14:22:12.200955-05:00",
-    "symbols": [
-      "STM"
-    ],
-    "headline": "Roth Capital Initiates Coverage On STMicroelectronics with Buy Rating, Announces Price Target of $58",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T14:23:06.317608-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;US SEC&#39;s Nvidia probe is examining potential accounting issues, sources say&#39;- Reuters Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T14:23:10.335759-05:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Citigroup Maintains Buy on Alibaba Gr Hldgs, Lowers Price Target to $160",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T14:23:10.845799-05:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "GE Vernova Stock Plunges Amid AI Selloff and Profit-Taking",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T14:23:11.052457-05:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "GE Vernova Stock Plunges Amid AI Selloff and Profit-Taking",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T14:23:12.104613-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;US SEC&#39;s Nvidia probe is examining potential accounting issues, sources say&#39;- Reuters Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T14:23:13.981194-05:00",
-    "symbols": [
-      "IMDX"
-    ],
-    "headline": "Lake Street Maintains Buy on Insight Molecular, Lowers Price Target to $9",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T14:33:25.476436-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nvidia\u2019s AI Business Is Booming. Its Stock Is Cheaper Than It Was in 2013",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T14:33:33.947196-05:00",
-    "symbols": [
-      "UONE"
-    ],
-    "headline": "12 Communication Services Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T14:33:34.202405-05:00",
-    "symbols": [
-      "IBN"
-    ],
-    "headline": "ICICI Bank Partners with CotoPay for UPI-Based Business Spending",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-20T14:43:44.928905-05:00",
     "symbols": [
       "HOOD"
@@ -4998,5 +4788,215 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T10:42:54.005027-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "CoreWeave Stock Jumps 29% as Jensen Huang Returns: 10 Nvidia-Linked Names Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T10:42:54.009611-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nebius Rally Sends Leveraged ETFs Up More Than 50%: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T10:42:54.062403-05:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "CoreWeave Stock Jumps 29% as Jensen Huang Returns: 10 Nvidia-Linked Names Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T10:42:54.179319-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "QUICK SPARK: Nvidia Stock Adds Nearly $900 Billion in a Day, the Largest on Record",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:42:54.238284-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Amazon Stock Pops: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:42:54.243090-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "CoreWeave Stock Jumps 29% as Jensen Huang Returns: 10 Nvidia-Linked Names Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:42:54.247613-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "President Trump Says He Was &#39;Represented&#39; At Nvidia Board Meeting",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:42:54.252446-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "QUICK SPARK: Nvidia Stock Adds Nearly $900 Billion in a Day, the Largest on Record",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:42:54.552987-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Stock Pops: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:42:54.708410-05:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "TD Cowen Maintains Buy on Salesforce, Lowers Price Target to $275",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:42:54.967867-05:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "CoreWeave Stock Jumps 29% as Jensen Huang Returns: 10 Nvidia-Linked Names Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T10:42:55.078339-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "CoreWeave Stock Jumps 29% as Jensen Huang Returns: 10 Nvidia-Linked Names Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T10:42:55.280480-05:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "CoreWeave Stock Jumps 29% as Jensen Huang Returns: 10 Nvidia-Linked Names Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T10:42:58.592515-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "CoreWeave Stock Jumps 29% as Jensen Huang Returns: 10 Nvidia-Linked Names Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:42:58.645737-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "CoreWeave Stock Jumps 29% as Jensen Huang Returns: 10 Nvidia-Linked Names Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:42:58.652837-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says He Was &#39;Represented&#39; At Nvidia Board Meeting",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:42:58.658210-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Asked China President Xi &#39;Why Don\u2019t You Slow Down On Nuclear Weapons?&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:42:58.742533-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "CoreWeave Stock Jumps 29% as Jensen Huang Returns: 10 Nvidia-Linked Names Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T10:43:00.119134-05:00",
+    "symbols": [
+      "DELL"
+    ],
+    "headline": "CoreWeave Stock Jumps 29% as Jensen Huang Returns: 10 Nvidia-Linked Names Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:43:00.262524-05:00",
+    "symbols": [
+      "CRWV"
+    ],
+    "headline": "CoreWeave Stock Jumps 29% as Jensen Huang Returns: 10 Nvidia-Linked Names Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:43:00.267883-05:00",
+    "symbols": [
+      "CRWV"
+    ],
+    "headline": "Nebius Rally Sends Leveraged ETFs Up More Than 50%: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

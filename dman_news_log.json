@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-11-20T14:02:34.962536-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "NVIDIA Subject to Congressional Probe Regarding China Sales",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T14:02:34.966540-05:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Frequentis Receives FAA Approval for Digital-Tower System with RTX Cooperation",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T14:02:34.991423-05:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "Vadzo Imaging Launches Armor-2020CRS-FPD3 Camera Featuring onsemi AR2020 Sensor",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T14:02:35.058633-05:00",
-    "symbols": [
-      "DECK"
-    ],
-    "headline": "UGG Partners with Bloomingdale's and Forty Carrots for Holiday 'UGG Parlor' Activation",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-20T14:03:34.981243-05:00",
     "symbols": [
       "BIIB"
@@ -4995,6 +4955,46 @@
       "GS"
     ],
     "headline": "Sen. Rafael E Cruz Has Sold Up to $500K Worth Of Goldman Sachs Group Stock: Here\u2019s What You Should Know",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:15:45.975200-05:00",
+    "symbols": [
+      "CRWV"
+    ],
+    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:15:45.980596-05:00",
+    "symbols": [
+      "CRWV"
+    ],
+    "headline": "Why Is Nebius Stock Surging on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:15:45.993134-05:00",
+    "symbols": [
+      "KYMR"
+    ],
+    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:15:46.063075-05:00",
+    "symbols": [
+      "SHMD"
+    ],
+    "headline": "SCHMID Launched QuantumLine P+ for Void-Free Bottom-Up Copper Filling of Through-Glass Vias",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

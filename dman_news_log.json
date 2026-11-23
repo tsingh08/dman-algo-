@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-23T10:32:40.389613-05:00",
-    "symbols": [
-      "AXTI"
-    ],
-    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T10:32:40.511440-05:00",
-    "symbols": [
-      "DTSS"
-    ],
-    "headline": "Datasea Intelligent Technology Plans To Expand Application Of AI Agent Technology Into US Digital Entertainment Market Through Its Delaware Subsidiary, Datasea Acoustics",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T10:32:40.565413-05:00",
-    "symbols": [
-      "MBRX"
-    ],
-    "headline": "Moleculin Biotech Announces Results From All 90 Subjects In Part A Of Its MIRACLE Phase 2/3 Trial Of Annamycin; Preliminary Blinded Composite Complete Remission Rate Of 32% Measured After Single Cycle Of Therapy",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-23T10:32:40.797110-05:00",
     "symbols": [
       "OPTX"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T16:02:34.880148-05:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Product Liability Lawsuit Filed Against Novo Nordisk",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T16:02:58.108314-05:00",
+    "symbols": [
+      "AXTI"
+    ],
+    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T16:02:58.330262-05:00",
+    "symbols": [
+      "BSP"
+    ],
+    "headline": "Wells Fargo Maintains Overweight on Bending Spoons, Raises Price Target to $52",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -2658,5 +2658,45 @@
 "extension_pct": 26.7,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "CODI",
+"date": "2026-11-23",
+"close": 13.46,
+"base_days": 297,
+"above_low_pct": 189.5,
+"extension_pct": 15.7,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "ULCC",
+"date": "2026-11-23",
+"close": 8.58,
+"base_days": 104,
+"above_low_pct": 176.8,
+"extension_pct": 18.9,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "XERS",
+"date": "2026-11-23",
+"close": 17.52,
+"base_days": 2,
+"above_low_pct": 231.2,
+"extension_pct": 26.2,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "KYMR",
+"date": "2026-11-23",
+"close": 150.37,
+"base_days": 9,
+"above_low_pct": 134.0,
+"extension_pct": 19.2,
+"fresh_base": false,
+"weak_band": false
 }
 ]

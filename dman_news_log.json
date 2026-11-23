@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-11-23T09:37:33.387194-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "CrowdStrike\u2019s $44B Zscaler Acquisition Could Reshape Cybersecurity ETFs. Here\u2019s What Changes for Investors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T09:37:33.594425-05:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "CrowdStrike\u2019s $44B Zscaler Acquisition Could Reshape Cybersecurity ETFs. Here\u2019s What Changes for Investors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T09:37:34.398261-05:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "CrowdStrike\u2019s $44B Zscaler Acquisition Could Reshape Cybersecurity ETFs. Here\u2019s What Changes for Investors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:37:34.603159-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "CrowdStrike\u2019s $44B Zscaler Acquisition Could Reshape Cybersecurity ETFs. Here\u2019s What Changes for Investors",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:37:37.277992-05:00",
-    "symbols": [
-      "NEM"
-    ],
-    "headline": "JPMorgan Downgrades Nemetschek to Underweight",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:37:39.367257-05:00",
-    "symbols": [
-      "BNAI"
-    ],
-    "headline": "Brand Engagement Network Q3 EPS $(0.17) Beats $(0.66) Estimate, Sales $1.960M Beat $1.900M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:37:39.567769-05:00",
-    "symbols": [
-      "BILL"
-    ],
-    "headline": "Morgan Stanley Maintains Equal-Weight on BILL Holdings, Lowers Price Target to $63.25",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:37:39.761933-05:00",
-    "symbols": [
-      "EARN"
-    ],
-    "headline": "Piper Sandler Maintains Overweight on Ellington Credit, Lowers Price Target to $3.5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-23T09:37:40.153462-05:00",
     "symbols": [
       "SBMT"
@@ -4998,5 +4918,85 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T12:19:49.344232-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike\u2019s $44B Zscaler Acquisition Could Reshape Cybersecurity ETFs. Here\u2019s What Changes for Investors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T12:19:49.352806-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "CrowdStrike\u2019s $44B Zscaler Acquisition Could Reshape Cybersecurity ETFs. Here\u2019s What Changes for Investors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T12:19:49.360133-05:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "CrowdStrike\u2019s $44B Zscaler Acquisition Could Reshape Cybersecurity ETFs. Here\u2019s What Changes for Investors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T12:19:49.369060-05:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "CrowdStrike\u2019s $44B Zscaler Acquisition Could Reshape Cybersecurity ETFs. Here\u2019s What Changes for Investors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T12:19:49.376115-05:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "CrowdStrike\u2019s $44B Zscaler Acquisition Could Reshape Cybersecurity ETFs. Here\u2019s What Changes for Investors",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T12:19:49.387242-05:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Unite Union Announces Strike Action at ABL Alliance Facilities",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T12:19:49.400649-05:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "JPMorgan Downgrades Nemetschek to Underweight",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T12:19:49.461507-05:00",
+    "symbols": [
+      "DELL"
+    ],
+    "headline": "Dell Shares Resume Trading, Move Lower; Up 22%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

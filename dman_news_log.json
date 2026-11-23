@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-23T09:40:43.650878-05:00",
-    "symbols": [
-      "YMAT"
-    ],
-    "headline": "J-Star Holding Advances Plans To Acquire Manufacturing Facility In US With Estimated Acquisition Value Of ~$6M To $7M",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:40:43.704743-05:00",
-    "symbols": [
-      "VIVK"
-    ],
-    "headline": "Vivakor To Acquire Direct Midstream For $40M Base Value; Includes 17 Saltwater Disposal Facilities And Nine Fresh Water And Brine Stations",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:51:36.101580-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Why Is Nebius Stock Surging on Monday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-23T09:51:36.272380-05:00",
     "symbols": [
       "AAPL"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T15:02:34.887789-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Swical Energy\u00ae Extra Strength Launches at Costco Quebec",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T15:02:34.893102-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa Launches New AI Agent Wallet 'Visa CLI'",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T15:03:34.869064-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Duquesne Family Office Discloses New SpaceX Stake",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

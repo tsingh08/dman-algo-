@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-23T09:37:44.133348-05:00",
-    "symbols": [
-      "WRD"
-    ],
-    "headline": "WeRide's WRD 3.0 System Wins Nanchang Round of China Urban Intelligent Driving Competition",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T09:37:44.554699-05:00",
-    "symbols": [
-      "OR"
-    ],
-    "headline": "L'Or\u00e9al Italia Announces Executive Appointments",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:37:44.759583-05:00",
-    "symbols": [
-      "EROK"
-    ],
-    "headline": "Texas Pacific Land To Acquire EagleRock In All-Stock Transaction; EROK Holders To Receive 0.0831 Shares Of New TPL Stock Per Share, Valuing The Company At ~$23.56 Share At An Implied Equity Valuation Of ~$3B",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-23T09:37:44.967229-05:00",
     "symbols": [
       "GLW"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T12:50:52.771941-05:00",
+    "symbols": [
+      "UMC"
+    ],
+    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T12:50:53.164204-05:00",
+    "symbols": [
+      "ALAB"
+    ],
+    "headline": "Broadcom Stock Rises After Jensen Huang&#39;s Reinstatement to Nvidia&#39;s Board",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T12:50:53.169418-05:00",
+    "symbols": [
+      "ALAB"
+    ],
+    "headline": "Marvell Stock Soars After Jensen Huang Reurns as Nvidia CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

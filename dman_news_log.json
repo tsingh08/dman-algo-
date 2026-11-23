@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-11-23T09:51:36.408711-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nasdaq Jumps Over 1,200 Points; Chicago Fed National Activity Index Falls In October",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T09:51:36.414453-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Something Historic Is Happening Between Value and Growth Stocks \u2014 First Time Since 2001",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T09:51:37.150438-05:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "TD Cowen Reiterates Buy on Snowflake, Maintains $450 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T09:51:38.009998-05:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "Mizuho Maintains Outperform on Biogen, Raises Price Target to $271",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:51:38.442525-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Dan Ives Calls CrowdStrike&#39;s $44 Billion Zscaler Deal a &#39;Smart Move&#39; With $1 Billion in Synergies",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:51:39.074629-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Dan Ives Calls CrowdStrike&#39;s $44 Billion Zscaler Deal a &#39;Smart Move&#39; With $1 Billion in Synergies",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:51:40.115580-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA S&amp;P Global Composite PMI For November\u00a054.6 Vs 55.9 Prior",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:51:40.123561-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA S&amp;P Global Manufacturing PMI For November\u00a054.5 Vs 54.5 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:51:40.128141-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "USA S&amp;P Global Services PMI For November 54.7 Vs 55.6 Est.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:51:41.641270-05:00",
-    "symbols": [
-      "POAS"
-    ],
-    "headline": "Nasdaq Jumps Over 1,200 Points; Chicago Fed National Activity Index Falls In October",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-23T09:51:42.988236-05:00",
     "symbols": [
       "VIVK"
@@ -4998,5 +4898,105 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T15:15:33.969262-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Why Is Nebius Stock Surging on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T15:15:34.158494-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Why Is Nebius Stock Surging on Monday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T15:15:39.336668-05:00",
+    "symbols": [
+      "MNRO"
+    ],
+    "headline": "Monro Suspends Quarterly Dividend, Skips Q3 Payout Amid Performance Improvement Efforts; Last Dividend $0.28/Share",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T15:15:39.541706-05:00",
+    "symbols": [
+      "BBY"
+    ],
+    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100 Futures Rise After ANT IPO and Friday\u2019s AI Rout\u2014 ORCL, ZS, ZM in Focus (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T15:15:39.546235-05:00",
+    "symbols": [
+      "BBY"
+    ],
+    "headline": "How to Earn $500 a Month From Best Buy Stock Ahead of Q3 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T15:15:39.550696-05:00",
+    "symbols": [
+      "BBY"
+    ],
+    "headline": "Stock Market Today: Dow Jones, S&amp;P 500, Nasdaq 100 Futures Rise After Friday\u2019s AI Rout \u2014 ORCL, ZS, ZM in Focus",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T15:15:39.555031-05:00",
+    "symbols": [
+      "BBY"
+    ],
+    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T15:15:39.681912-05:00",
+    "symbols": [
+      "VPG"
+    ],
+    "headline": "Vishay Precision Group, Inc. to Present at Sidoti 2026 Year End Virtual Investor Conference",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T15:15:39.736808-05:00",
+    "symbols": [
+      "HPK"
+    ],
+    "headline": "HighPeak Energy, Inc. Completes Comprehensive Refinancing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T15:15:39.908979-05:00",
+    "symbols": [
+      "RLMD"
+    ],
+    "headline": "Relmada Therapeutics to Participate at the Piper Sandler 38th Annual Healthcare Conference",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

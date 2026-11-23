@@ -1,14 +1,5 @@
 [
  {
-  "ts": "2026-09-25T14:13:42.123297-04:00",
-  "ticker": "ICVT",
-  "price": 114.14,
-  "rvol": 1.64,
-  "drift_pct": 0.72,
-  "range_ratio": 0.39,
-  "near_high": 0.958
- },
- {
   "ts": "2026-09-25T14:13:42.123301-04:00",
   "ticker": "IBDT",
   "price": 24.96,
@@ -4498,5 +4489,14 @@
   "drift_pct": 0.88,
   "range_ratio": 0.58,
   "near_high": 0.984
+ },
+ {
+  "ts": "2026-11-23T15:16:27.790209-05:00",
+  "ticker": "CRAN",
+  "price": 10.14,
+  "rvol": 3.87,
+  "drift_pct": 0.0,
+  "range_ratio": 0.31,
+  "near_high": 1.0
  }
 ]

@@ -1,195 +1,5 @@
 [
   {
-    "ts": "2026-11-20T14:03:34.981243-05:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "Mizuho Securities Adjusts Biogen Price Target to $271 From $241",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T14:03:34.984977-05:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "JPMorgan Chase CEO Plans Strategy to Offset UK Bank Tax Increase",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T14:03:35.001632-05:00",
-    "symbols": [
-      "HIMS"
-    ],
-    "headline": "BofA Securities Maintains Hims & Hers Health With Hold Rating and $21 Price Target",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T14:05:44.708595-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Exclusive: SpaceX\u2019s Dragon Is the Key to Astronaut Jeanette Epps\u2019 Simple Fix for Space Data Centers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T14:05:45.107700-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Trump Says Jensen Huang Made &#39;Bad Decisions,&#39; Vows China to Get Old Chips Only",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T14:05:45.110490-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Exclusive: SpaceX\u2019s Dragon Is the Key to Astronaut Jeanette Epps\u2019 Simple Fix for Space Data Centers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T14:05:45.113048-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;Spying Suspect\u2019s Chip Network Has Ties to Chinese Military Suppliers&#39;- New York Times",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T14:05:45.223121-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Trump Says Jensen Huang Made &#39;Bad Decisions,&#39; Vows China to Get Old Chips Only",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T14:05:46.039604-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Trump Says Jensen Huang Made &#39;Bad Decisions,&#39; Vows China to Get Old Chips Only",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T14:05:46.250199-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Trump Says Jensen Huang Made &#39;Bad Decisions,&#39; Vows China to Get Old Chips Only",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T14:05:46.329952-05:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Trump Says Jensen Huang Made &#39;Bad Decisions,&#39; Vows China to Get Old Chips Only",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T14:05:46.831256-05:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "Vadzo Imaging Launches Armor-2020CRS-FPD3 Camera Featuring onsemi AR2020 Sensor",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T14:05:47.657186-05:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "Mizuho Securities Adjusts Biogen Price Target to $271 From $241",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T14:05:48.913945-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Uber Launches #UberQueens Marketing Campaign in Macau",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T14:05:48.987381-05:00",
-    "symbols": [
-      "DECK"
-    ],
-    "headline": "UGG Partners with Bloomingdale's and Forty Carrots for Holiday 'UGG Parlor' Activation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T14:05:50.295833-05:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Frequentis Receives FAA Approval for Digital-Tower System with RTX Cooperation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T14:05:50.510143-05:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "Argus Research Maintains Buy Rating on Eaton Corporation plc",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T14:05:52.015393-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Trump says he still has confidence in Lutnick&#39;- CNBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T14:05:52.726666-05:00",
-    "symbols": [
-      "EARN"
-    ],
-    "headline": "12 Financials Stocks Moving In Friday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-20T14:05:52.862555-05:00",
     "symbols": [
       "ECOR"
@@ -4995,6 +4805,196 @@
       "SHMD"
     ],
     "headline": "SCHMID Launched QuantumLine P+ for Void-Free Bottom-Up Copper Filling of Through-Glass Vias",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:26:01.164285-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T10:26:01.338681-05:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T10:26:01.924532-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "President Trump Says Not Concerned About AI Bubble",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:26:01.929179-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "President Trump Says He Spoke To Jensen Huang Last Night, Said He &#39;Knew What Was Going On&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:26:01.934099-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "President Trump Says Not Bothered By Selling Obsolete Technology; Says Huang Has Apologized, They\u2019ve Accepted; Says Scandal Could Be A Net Positive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:26:01.939182-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia Stock Skyrockets After Jensen Huang&#39;s Reinstatement",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:26:01.944079-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Trump Personally Intervened To Support Jensen Huang\u2019s Return As NVIDIA CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:26:02.839377-05:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T10:26:03.035147-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T10:26:03.637298-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T10:26:05.091953-05:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:26:05.230255-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "TD Cowen Reiterates Buy on CrowdStrike Holdings, Maintains $280 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:26:05.878092-05:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:26:07.050693-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:26:07.210154-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says Not Concerned About AI Bubble",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:26:07.215349-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says He Spoke To Jensen Huang Last Night, Said He &#39;Knew What Was Going On&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:26:07.220220-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "President Trump Says Not Bothered By Selling Obsolete Technology; Says Huang Has Apologized, They\u2019ve Accepted; Says Scandal Could Be A Net Positive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:26:07.225370-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Trump Personally Intervened To Support Jensen Huang\u2019s Return As NVIDIA CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:26:09.357522-05:00",
+    "symbols": [
+      "KEEL"
+    ],
+    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

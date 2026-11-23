@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-11-23T10:26:05.878092-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T10:26:07.050693-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T10:26:07.210154-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Says Not Concerned About AI Bubble",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T10:26:07.215349-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Says He Spoke To Jensen Huang Last Night, Said He &#39;Knew What Was Going On&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T10:26:07.220220-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "President Trump Says Not Bothered By Selling Obsolete Technology; Says Huang Has Apologized, They\u2019ve Accepted; Says Scandal Could Be A Net Positive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T10:26:07.225370-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Trump Personally Intervened To Support Jensen Huang\u2019s Return As NVIDIA CEO",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T10:26:09.357522-05:00",
-    "symbols": [
-      "KEEL"
-    ],
-    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T10:32:34.870156-05:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Novo Nordisk A/S Share Repurchase Programme Update",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-23T10:32:34.878117-05:00",
     "symbols": [
       "NVO"
@@ -4998,5 +4918,85 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T15:57:14.918710-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "\u2018The Mistake Has Been Corrected\u2019: What Elon Musk, Bill Ackman and 7 Other Heavyweights Said About Jensen Huang\u2019s Comeback",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T15:57:16.061066-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "\u2018The Mistake Has Been Corrected\u2019: What Elon Musk, Bill Ackman and 7 Other Heavyweights Said About Jensen Huang\u2019s Comeback",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-23T15:57:16.940402-05:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T15:57:17.583241-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T15:57:18.598539-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T15:57:21.696643-05:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T15:57:21.909087-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "TD Cowen Reiterates Buy on CrowdStrike Holdings, Maintains $280 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-23T15:57:24.426048-05:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

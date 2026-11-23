@@ -1,135 +1,5 @@
 [
   {
-    "ts": "2026-11-20T13:45:47.369826-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla-SpaceX Merger Could Hand Elon Musk a 60% Stake \u2014 and TSLA Holders a 33% Premium, Analyst Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T13:46:02.125605-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Fed\u2019s Paulson Argues for Deliberate Rate Hikes to Tame Inflation&#39;- Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T13:46:04.360407-05:00",
-    "symbols": [
-      "INTU"
-    ],
-    "headline": "UBS Maintains Neutral on Intuit, Lowers Price Target to $315",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T13:46:04.822939-05:00",
-    "symbols": [
-      "IPX"
-    ],
-    "headline": "Impax Asset Management Group plc to Announce Final Results on 25 November 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T14:02:34.847975-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Apollo and Goldman Sachs Price $44 Billion Financing for SpaceX GPU Buildout",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T14:02:34.860416-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Law Firms Announce Securities Investigations into Advanced Micro Devices, Inc.",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T14:02:34.879193-05:00",
-    "symbols": [
-      "ANET"
-    ],
-    "headline": "Goldman Sachs Maintains Buy Rating on Arista Networks",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T14:02:34.942591-05:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "Argus Research Maintains Buy Rating on Eaton Corporation plc",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T14:02:34.945985-05:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase Submits Comment Letter Supporting CFTC Proposal on Event Contracts",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T14:02:34.949389-05:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Novo Nordisk Receives FDA Approval for Sogroya\u00ae in Children with Turner Syndrome",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T14:02:34.952498-05:00",
-    "symbols": [
-      "AFRM"
-    ],
-    "headline": "Truist Reiterates Buy Rating on Affirm Holdings, Inc.",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T14:02:34.956179-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Uber Launches #UberQueens Marketing Campaign in Macau",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T14:02:34.959427-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "California Attorney General Launches Investigation into NVIDIA",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-11-20T14:02:34.962536-05:00",
     "symbols": [
       "NVDA"
@@ -4995,6 +4865,136 @@
       "MVIS"
     ],
     "headline": "MicroVision Raises $3.6M in Insider-Led Equity Financing at Market Price, With No Discounts or Warrants",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:06:14.443205-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Elon Musk Praises Nvidia Board, Says &#39;The Mistake Has Been Corrected&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T10:06:15.105743-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Trump Nearly Fired Lutnick. Then Came a $25 Million Donation: WSJ",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:06:15.110435-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Taiwan Semiconductor Short Interest Climbs After Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:06:15.116338-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Senator Gallego Calls For Probe Into Stock Positions Taken Ahead Of Nvidia Announcement",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:06:15.122254-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Donald Trump Gets His Nvidia Wish as Company Brings Back Jensen Huang: \u2018Great Patriot and National Treasure\u2019",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:06:15.126705-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Elon Musk Praises Nvidia Board, Says &#39;The Mistake Has Been Corrected&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:06:15.189153-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Taiwan Semiconductor Short Interest Climbs After Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T10:06:15.261063-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "If You Invested $1000 In Meta Platforms Stock 10 Years Ago, You Would Have This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:06:15.607030-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Elon Musk Praises Nvidia Board, Says &#39;The Mistake Has Been Corrected&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-23T10:06:16.076567-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Taiwan Semiconductor Short Interest Climbs After Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T10:06:16.152594-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Taiwan Semiconductor Short Interest Climbs After Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T10:06:19.135927-05:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "TD Cowen Reiterates Buy on Cloudflare, Maintains $375 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:06:21.306574-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Sen. Rafael E Cruz Has Sold Up to $500K Worth Of Goldman Sachs Group Stock: Here\u2019s What You Should Know",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

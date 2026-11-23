@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-11-23T09:37:57.700000-05:00",
-    "symbols": [
-      "HUCK"
-    ],
-    "headline": "Huckleberry.ai Disagrees With Delaware Court Of Chancery&#39;s November 10 Ruling On Potential Asset Distribution To Stockholders After Progress Software Deal, Evaluating Options",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:37:57.895382-05:00",
-    "symbols": [
-      "BBUC"
-    ],
-    "headline": "Brookfield Stock Climbs as $1.7B PGP Glass Deal Targets AI Growth",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T09:37:57.899764-05:00",
-    "symbols": [
-      "BBUC"
-    ],
-    "headline": "Reported Earlier, Brookfield To Acquire Specialty Glass Packaging Maker PGP Glass From Blackstone For $1.7B, Targets AI-Led Transformation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T09:37:58.095933-05:00",
-    "symbols": [
-      "CUBE"
-    ],
-    "headline": "This Insulet Analyst Is No Longer Bullish; Here Are Top 5 Downgrades For Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:37:58.100404-05:00",
-    "symbols": [
-      "CUBE"
-    ],
-    "headline": "Evercore ISI Group Downgrades CubeSmart to In-Line, Maintains Price Target to $45",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:37:58.300175-05:00",
-    "symbols": [
-      "EGO"
-    ],
-    "headline": "Eldorado Gold&#39;s Skouries Mine In Northern Greece Reaches Four Operational Tailings Filter Presses, Advancing Ramp-Up Toward Commercial Production Expected Late This Quarter",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:37:58.697119-05:00",
-    "symbols": [
-      "SMTC"
-    ],
-    "headline": "Semtech Likely To Report Higher Q3 Earnings; These Most Accurate Analysts Revise Forecasts Ahead Of Earnings Call",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:37:58.898388-05:00",
-    "symbols": [
-      "SGMT"
-    ],
-    "headline": "CrowdStrike, Capricor Therapeutics And Other Big Stocks Moving Lower In Monday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:37:59.319783-05:00",
-    "symbols": [
-      "FOSL"
-    ],
-    "headline": "Why Zscaler Shares Are Trading Higher By Over 12%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:37:59.517161-05:00",
-    "symbols": [
-      "GWW"
-    ],
-    "headline": "Here&#39;s How Much $100 Invested In W.W. Grainger 5 Years Ago Would Be Worth Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T09:37:59.716612-05:00",
-    "symbols": [
-      "ADSK"
-    ],
-    "headline": "Cantor Fitzgerald Reiterates Neutral on Autodesk, Maintains $215 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-23T09:37:59.924700-05:00",
     "symbols": [
       "EOG"
@@ -4996,6 +4886,116 @@
     ],
     "headline": "CoreWeave Stock Surges After Nvidia Reinstates Jensen Huang as CEO",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T14:02:34.867617-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Elon Musk Comments on SpaceX's AI Development Progress",
+    "source": "fiscal.ai",
+    "tag": "macro",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T14:02:34.874717-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Releases New FSD v15 Self-Driving Software",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-23T14:02:34.878549-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Acquires AI Startup Decart",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T14:02:35.218004-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto Networks Partners with PGA Tour for Challenger Series Sponsorship",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T14:02:35.435269-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Announces Innovation Day 2026",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T14:02:35.647374-05:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "FedEx Announces 2026 Five-Star Program Grant Recipients",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T14:02:35.861550-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs to Host 2026 Financial Services Conference",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T14:02:36.071173-05:00",
+    "symbols": [
+      "DDOG"
+    ],
+    "headline": "Datadog Named a Challenger in the 2026 Gartner Magic Quadrant for SIEM",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T14:02:36.308647-05:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "RTX Partners with Cohen Veterans Network to Address Food Insecurity",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T14:02:36.608439-05:00",
+    "symbols": [
+      "BIIB"
+    ],
+    "headline": "Biogen and Stoke Therapeutics Announce Long-Term Clinical Data for Zorevunersen",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T14:02:36.817475-05:00",
+    "symbols": [
+      "AFRM"
+    ],
+    "headline": "USD.AI Appoints Former Affirm Capital Markets Director Tony Giacin",
+    "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": null
   }

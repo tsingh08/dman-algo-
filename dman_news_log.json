@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-11-20T14:05:52.862555-05:00",
-    "symbols": [
-      "ECOR"
-    ],
-    "headline": "Ecora Royalties CEO Marc Bishop Lafleche Acquires 20,000 Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T14:05:52.992418-05:00",
-    "symbols": [
-      "GPN"
-    ],
-    "headline": "&#39;GTCR Said to Weigh Possible $50 Billion Global Payments Buyout&#39;- Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T14:05:53.377900-05:00",
-    "symbols": [
-      "INTU"
-    ],
-    "headline": "Jefferies Maintains Buy on Intuit, Lowers Price Target to $445",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-20T14:12:56.269879-05:00",
-    "symbols": [
-      "GLOB"
-    ],
-    "headline": "TD Cowen Maintains Buy on Globant, Raises Price Target to $46",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T14:12:56.273277-05:00",
-    "symbols": [
-      "GLOB"
-    ],
-    "headline": "Truist Securities Maintains Hold on Globant, Raises Price Target to $44",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T14:12:57.164441-05:00",
-    "symbols": [
-      "VFF"
-    ],
-    "headline": "Canaccord Genuity Initiates Coverage On Village Farms Intl with Buy Rating, Announces Price Target of $5.5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T14:12:57.549513-05:00",
-    "symbols": [
-      "MPT"
-    ],
-    "headline": "Nasdaq 100 Tumbles Over 3% Amid Tech Bloodbath, Nvidia Sinks 7% on 7th Straight Weekly Loss: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T14:12:57.552541-05:00",
-    "symbols": [
-      "MPT"
-    ],
-    "headline": "Buckle Posts Strong Q3 Results, Joins Evolent Health, Bending Spoons And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-20T14:21:56.517355-05:00",
     "symbols": [
       "NVDA"
@@ -4998,5 +4918,85 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:32:34.870156-05:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Novo Nordisk A/S Share Repurchase Programme Update",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:32:34.878117-05:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Precision Biotools and Novo Nordisk to Present Joint Research at Antibody Engineering & Therapeutics Conference",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:32:40.267030-05:00",
+    "symbols": [
+      "DELL"
+    ],
+    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:32:40.389613-05:00",
+    "symbols": [
+      "AXTI"
+    ],
+    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:32:40.511440-05:00",
+    "symbols": [
+      "DTSS"
+    ],
+    "headline": "Datasea Intelligent Technology Plans To Expand Application Of AI Agent Technology Into US Digital Entertainment Market Through Its Delaware Subsidiary, Datasea Acoustics",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:32:40.565413-05:00",
+    "symbols": [
+      "MBRX"
+    ],
+    "headline": "Moleculin Biotech Announces Results From All 90 Subjects In Part A Of Its MIRACLE Phase 2/3 Trial Of Annamycin; Preliminary Blinded Composite Complete Remission Rate Of 32% Measured After Single Cycle Of Therapy",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:32:40.797110-05:00",
+    "symbols": [
+      "OPTX"
+    ],
+    "headline": "Syntec Optics Secures $6.2M in Orders for Laser Blood-Test Cartridges and Optical Reader Subsystems",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:32:40.854936-05:00",
+    "symbols": [
+      "AVR"
+    ],
+    "headline": "Reported Sunday, Anteris Highlights DurAVR THV 1-Year Results In Small Aortic Annuli: Mean Gradient 8.9 mmHg, 1% Heart Failure Hospitalization, 9% New Permanent Pacemaker Implantation; PARADIGM Pivotal Trial Enrolling",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

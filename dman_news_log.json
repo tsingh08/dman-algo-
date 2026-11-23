@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-11-20T14:43:44.928905-05:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Acorns\u2019 Private-Market Price Falls Over 46% As Robinhood\u2019s Stock Loses Roughly 40% in a Year",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T14:43:50.982888-05:00",
-    "symbols": [
-      "GAP"
-    ],
-    "headline": "Telsey Advisory Group Maintains Outperform on Gap, Lowers Price Target to $26",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T14:54:06.673459-05:00",
-    "symbols": [
-      "ETN"
-    ],
-    "headline": "Bloom Energy Stock Plummets Amid AI Selloff Fears",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-20T14:54:10.069422-05:00",
-    "symbols": [
-      "IESC"
-    ],
-    "headline": "Bloom Energy Stock Plummets Amid AI Selloff Fears",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T14:54:10.482533-05:00",
-    "symbols": [
-      "EVH"
-    ],
-    "headline": "Gold Falls Sharply; US Consumer Sentiment Rises In November",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T14:54:10.486049-05:00",
-    "symbols": [
-      "EVH"
-    ],
-    "headline": "12 Health Care Stocks Moving In Friday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T14:54:10.489009-05:00",
-    "symbols": [
-      "EVH"
-    ],
-    "headline": "Buckle Posts Strong Q3 Results, Joins Evolent Health, Bending Spoons And Other Big Stocks Moving Higher On Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T14:54:10.492230-05:00",
-    "symbols": [
-      "EVH"
-    ],
-    "headline": "Truist Securities Upgrades Evolent Health to Buy, Maintains Price Target to $6",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-20T15:02:34.843240-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Compute Exchange Announces Live GPU Capacity Auction at NVIDIA GTC DC",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-20T15:02:34.850456-05:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "UK Trade Remedies Authority Proposes Higher Anti-dumping Duties on Chinese Excavators",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-20T15:03:34.845743-05:00",
     "symbols": [
       "NET"
@@ -4995,6 +4895,106 @@
       "CRWV"
     ],
     "headline": "Nebius Rally Sends Leveraged ETFs Up More Than 50%: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:53:15.171829-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Bernstein Upgrades NVIDIA to Outperform, Maintains Price Target to $200",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:53:17.259728-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Bitmine Buys 7,819 Ethereum as BMNR Surges 17%: What\u2019s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-23T10:53:20.810655-05:00",
+    "symbols": [
+      "MEDS"
+    ],
+    "headline": "Nasdaq Jumps Over 1,200 Points; Chicago Fed National Activity Index Falls In October",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:53:20.921825-05:00",
+    "symbols": [
+      "DWTX"
+    ],
+    "headline": "Dogwood Therapeutics Drug Cuts Chemo-Induced Nerve Pain By Half",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:53:21.277683-05:00",
+    "symbols": [
+      "HPE"
+    ],
+    "headline": "CoreWeave Stock Jumps 29% as Jensen Huang Returns: 10 Nvidia-Linked Names Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T10:53:21.648679-05:00",
+    "symbols": [
+      "DFDV"
+    ],
+    "headline": "DeFi Development Corp. Announces Continued Growth in Solana Treasury Holdings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:53:21.702408-05:00",
+    "symbols": [
+      "ABTC"
+    ],
+    "headline": "American Bitcoin Subsidiary Enters Into $150M Committed Revolving Credit Facility With FalconX, Secured By Certain Of Its Bitcoin Holdings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:53:21.978060-05:00",
+    "symbols": [
+      "EROK"
+    ],
+    "headline": "EagleRock Stock Spikes on $3B Deal With Texas Pacific Land",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:53:22.088561-05:00",
+    "symbols": [
+      "FUTU"
+    ],
+    "headline": "Barclays Maintains Overweight on Futu Holdings, Lowers Price Target to $144",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T10:53:22.145978-05:00",
+    "symbols": [
+      "SAIQ"
+    ],
+    "headline": "WISeSat.Space Submits Amended Draft Registration Statement on Form F-4",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null

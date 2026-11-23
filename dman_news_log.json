@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-11-23T09:37:59.924700-05:00",
-    "symbols": [
-      "EOG"
-    ],
-    "headline": "Eco Atlantic Provides Update on Falkland Islands Licence PL001",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T09:38:00.120967-05:00",
-    "symbols": [
-      "VZ"
-    ],
-    "headline": "Verizon, Amazon And A Major Retailer On CNBC\u2019s &#39;Final Trades&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-23T09:38:00.330168-05:00",
     "symbols": [
       "J"
@@ -4996,6 +4976,26 @@
     ],
     "headline": "USD.AI Appoints Former Affirm Capital Markets Director Tony Giacin",
     "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T14:13:46.226712-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Hakeem Jeffries Issues Statement On Jensen Huang Being Reinstated; Says Decision Is &#39;Indefensible, Irresponsible And Incomprehensible&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T14:14:01.863136-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Hakeem Jeffries Issues Statement On Jensen Huang Being Reinstated; Says Decision Is &#39;Indefensible, Irresponsible And Incomprehensible&#39;",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

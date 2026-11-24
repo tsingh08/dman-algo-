@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-11-24T11:26:00.321820-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Palantir Technologies Inc. Receives Zero Score in 2026 CPA-Zicklin Index",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T11:26:00.332140-05:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Jim Cramer: Vertex Pharmaceuticals Is \u2018Sensational\u2019, Recommends Buying This Tech Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T11:26:00.338723-05:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Nvidia Drops 5% After Jensen Huang\u2019s Return Rally Sparks Washington Backlash",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T11:26:00.345048-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Stock Drops After Monday\u2019s Surge as Nvidia Scrutiny Hits Chipmakers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-24T11:26:00.349427-05:00",
     "symbols": [
       "MU"
@@ -4998,5 +4958,45 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T15:54:33.369386-05:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Applied Digital Completes Base-Build Commissioning For First 75 MW Of Initial 150 MW Data Center Building At Polaris Forge 2 In Harwood, North Dakota",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T15:54:33.545620-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Big Tech Just Became a Value Trade \u2014 Something Wall Street Hasn&#39;t Seen in 20 Years",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T15:54:33.722841-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "JP Morgan Maintains Overweight on Meta Platforms, Lowers Price Target to $775",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T15:54:33.728312-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Nvidia Drops 5% After Jensen Huang\u2019s Return Rally Sparks Washington Backlash",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

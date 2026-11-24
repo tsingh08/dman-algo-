@@ -1,45 +1,5 @@
 [
   {
-    "ts": "2026-11-23T10:42:54.009611-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nebius Rally Sends Leveraged ETFs Up More Than 50%: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T10:42:54.062403-05:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "CoreWeave Stock Jumps 29% as Jensen Huang Returns: 10 Nvidia-Linked Names Rally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T10:42:54.179319-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "QUICK SPARK: Nvidia Stock Adds Nearly $900 Billion in a Day, the Largest on Record",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T10:42:54.238284-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Amazon Stock Pops: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-23T10:42:54.243090-05:00",
     "symbols": [
       "NVDA"
@@ -4998,5 +4958,45 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T20:02:35.187200-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple Plans Return of (PRODUCT)RED Lineup",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-23T20:02:35.393530-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly and Company to Present New Breast Cancer Portfolio Data at Upcoming Symposium",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-23T20:02:35.628537-05:00",
+    "symbols": [
+      "GMM"
+    ],
+    "headline": "Portnoy Law Firm Announces Investigation into Global Mofy AI Limited",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-23T20:03:35.086048-05:00",
+    "symbols": [
+      "BTDR"
+    ],
+    "headline": "B. Riley Cuts Price Target on Bitdeer Technologies Group to $12 From $19",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

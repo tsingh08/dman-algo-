@@ -1,185 +1,5 @@
 [
   {
-    "ts": "2026-11-24T10:42:33.688071-05:00",
-    "symbols": [
-      "ANTY"
-    ],
-    "headline": "Wall Street Goes 2X on Anthropic As 7 Leveraged ETFs Follow IPO",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T10:42:35.203381-05:00",
-    "symbols": [
-      "GRDN"
-    ],
-    "headline": "SharkNinja To Replace AES in S&amp;P 500, Paycom Software To Replace SharkNinja in S&amp;P MidCap 400, and Guardian Pharmacy Services To Replace Paycom Software in S&amp;P SmallCap 600 Effective December 2",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T10:53:10.339766-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "&#39;Ranking Member Raskin Demands Records From Four Companies Linked to Don Jr.\u2019s 1789 Capital That Received Suspiciously Well-Timed Government Favors&#39; -House Committee Post",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T10:53:10.345040-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Tesla Vs. SpaceX: Which Elon Musk Stock Has the Stronger Setup?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T10:53:13.114163-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla Vs. SpaceX: Which Elon Musk Stock Has the Stronger Setup?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T10:53:20.376651-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Amerx Upgrades CrowdStrike Holdings to Hold",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-24T10:53:20.382012-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Stifel Maintains Buy on CrowdStrike Holdings, Raises Price Target to $245",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-24T10:53:21.688894-05:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "If You Invested $100 In Fortinet Stock 15 Years Ago, You Would Have This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T10:53:26.245759-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Ranking Member Raskin Demands Records From Four Companies Linked to Don Jr.\u2019s 1789 Capital That Received Suspiciously Well-Timed Government Favors&#39; -House Committee Post",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T10:53:28.798119-05:00",
-    "symbols": [
-      "DJT"
-    ],
-    "headline": "&#39;Ranking Member Raskin Demands Records From Four Companies Linked to Don Jr.\u2019s 1789 Capital That Received Suspiciously Well-Timed Government Favors&#39; -House Committee Post",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T10:53:34.903024-05:00",
-    "symbols": [
-      "EMBC"
-    ],
-    "headline": "Abercrombie &amp; Fitch Posts Strong Q3 Results, Joins Insmed, Kohls And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T10:53:35.123753-05:00",
-    "symbols": [
-      "INSM"
-    ],
-    "headline": "Abercrombie &amp; Fitch Posts Strong Q3 Results, Joins Insmed, Kohls And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T10:53:35.361903-05:00",
-    "symbols": [
-      "AMTM"
-    ],
-    "headline": "Abercrombie &amp; Fitch Posts Strong Q3 Results, Joins Insmed, Kohls And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T10:53:35.581096-05:00",
-    "symbols": [
-      "ANF"
-    ],
-    "headline": "Abercrombie &amp; Fitch Posts Strong Q3 Results, Joins Insmed, Kohls And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T10:53:35.800101-05:00",
-    "symbols": [
-      "DKS"
-    ],
-    "headline": "Abercrombie &amp; Fitch Posts Strong Q3 Results, Joins Insmed, Kohls And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T10:53:36.454568-05:00",
-    "symbols": [
-      "SNY"
-    ],
-    "headline": "Abercrombie &amp; Fitch Posts Strong Q3 Results, Joins Insmed, Kohls And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T10:53:37.095905-05:00",
-    "symbols": [
-      "MPLT"
-    ],
-    "headline": "Abercrombie &amp; Fitch Posts Strong Q3 Results, Joins Insmed, Kohls And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T10:53:38.638015-05:00",
-    "symbols": [
-      "COGT"
-    ],
-    "headline": "Abercrombie &amp; Fitch Posts Strong Q3 Results, Joins Insmed, Kohls And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-24T10:53:40.627758-05:00",
     "symbols": [
       "KSS"
@@ -4998,5 +4818,185 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T14:45:29.160755-05:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Moderna Stock Pops: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T14:45:29.350368-05:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "William Blair Initiates Coverage On Gilead Sciences with Outperform Rating",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T14:45:31.616249-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;U.S. Spy Agencies Suffer Breach of Some Unclassified Information&#39; -NYT Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T14:45:31.926936-05:00",
+    "symbols": [
+      "INSM"
+    ],
+    "headline": "Moderna Stock Pops: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T14:45:31.931425-05:00",
+    "symbols": [
+      "INSM"
+    ],
+    "headline": "William Blair Downgrades Insmed to Market Perform",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T14:45:32.275634-05:00",
+    "symbols": [
+      "SNY"
+    ],
+    "headline": "Moderna Stock Pops: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T14:45:32.846427-05:00",
+    "symbols": [
+      "FDMT"
+    ],
+    "headline": "4D Molecular Therapeutics Seen Benefiting From In-Line Competitor Trial Results, RBC Says",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T14:45:32.917013-05:00",
+    "symbols": [
+      "BSP"
+    ],
+    "headline": "Evercore ISI Group Maintains In-Line on Bending Spoons, Raises Price Target to $48",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T14:45:32.983180-05:00",
+    "symbols": [
+      "BBIO"
+    ],
+    "headline": "Moderna Stock Pops: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T14:45:33.106380-05:00",
+    "symbols": [
+      "MDT"
+    ],
+    "headline": "BTIG Maintains Buy on Medtronic, Lowers Price Target to $108",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T14:45:33.110903-05:00",
+    "symbols": [
+      "MDT"
+    ],
+    "headline": "Medtronic Reaffirms Fiscal 2027 Outlook While Warning of Harder Second-Half Comparisons and China Pressures",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T14:45:33.115259-05:00",
+    "symbols": [
+      "MDT"
+    ],
+    "headline": "Medtronic Affirms FY2027 Adj EPS Guidance of $5.94-$6.00 vs $5.97 Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T14:45:33.119570-05:00",
+    "symbols": [
+      "MDT"
+    ],
+    "headline": "Medtronic Q2 Adj. EPS $1.34 Beats $1.33 Estimate, Sales $9.364B Miss $9.481B Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T14:45:33.123891-05:00",
+    "symbols": [
+      "MDT"
+    ],
+    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T14:45:33.180141-05:00",
+    "symbols": [
+      "GRRR"
+    ],
+    "headline": "Gorilla Technology CEO Jay Chandan Awarded 2026 Nobel Sustainability Trust Medal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T14:45:33.329766-05:00",
+    "symbols": [
+      "CCCC"
+    ],
+    "headline": "Abercrombie &amp; Fitch Posts Strong Q3 Results, Joins Insmed, Kohls And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T14:45:33.388330-05:00",
+    "symbols": [
+      "KYMR"
+    ],
+    "headline": "Moderna Stock Pops: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T14:45:33.486313-05:00",
+    "symbols": [
+      "BZUN"
+    ],
+    "headline": "Baozun Q3 Adj. EPS $(0.12) Down From $(0.10) YoY, Sales $355.900M Up From $302.885M YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

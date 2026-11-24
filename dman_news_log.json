@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-11-24T10:20:16.811755-05:00",
-    "symbols": [
-      "GMRS"
-    ],
-    "headline": "GMR Solutions Authorizes $75M Share Repurchase Program, Prioritizes Reducing Leverage to 3.0x by 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T10:20:18.679277-05:00",
-    "symbols": [
-      "SYM"
-    ],
-    "headline": "Symbotic CEO Sees \u2018Path To Unlocking\u2019 $5 Billion-Plus Order Beyond $7 Billion Walmart Expansion",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T10:30:51.176399-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is IREN Stock Falling on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T10:30:54.777664-05:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Oppenheimer Maintains Outperform on Marvell Technology, Lowers Price Target to $325",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T10:31:20.829364-05:00",
-    "symbols": [
-      "SYM"
-    ],
-    "headline": "Oppenheimer Maintains Outperform on Symbotic, Raises Price Target to $87",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T10:34:34.873366-05:00",
-    "symbols": [
-      "MBLY"
-    ],
-    "headline": "Seaport Global Securities Initiates Coverage on Mobileye Global Inc. with Buy Rating",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T10:42:09.097540-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is SMCI Stock Falling on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T10:42:09.643482-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Stock Dips: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T10:42:11.533382-05:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Why Is SMCI Stock Falling on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T10:42:19.162992-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Amerx Downgrades Zscaler to Hold",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T10:42:19.167796-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Stifel Downgrades Zscaler to Hold, Raises Price Target to $260",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-24T10:42:33.688071-05:00",
     "symbols": [
       "ANTY"
@@ -4995,6 +4885,116 @@
       "VST"
     ],
     "headline": "Here\u2019s How Much You Would Have Made Owning Vistra Stock In The Last 5 Years",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T14:45:12.976140-05:00",
+    "symbols": [
+      "MRNA"
+    ],
+    "headline": "Moderna Stock Pops: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T14:45:13.193528-05:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "William Blair Initiates Coverage On Gilead Sciences with Outperform Rating",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T14:45:15.496990-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;U.S. Spy Agencies Suffer Breach of Some Unclassified Information&#39; -NYT Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T14:45:17.833079-05:00",
+    "symbols": [
+      "INSM"
+    ],
+    "headline": "Moderna Stock Pops: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T14:45:17.837638-05:00",
+    "symbols": [
+      "INSM"
+    ],
+    "headline": "William Blair Downgrades Insmed to Market Perform",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T14:45:18.363975-05:00",
+    "symbols": [
+      "SNY"
+    ],
+    "headline": "Moderna Stock Pops: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T14:45:18.623480-05:00",
+    "symbols": [
+      "KYMR"
+    ],
+    "headline": "Moderna Stock Pops: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T14:45:19.585587-05:00",
+    "symbols": [
+      "BBIO"
+    ],
+    "headline": "Moderna Stock Pops: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T14:45:19.689261-05:00",
+    "symbols": [
+      "CCCC"
+    ],
+    "headline": "Abercrombie &amp; Fitch Posts Strong Q3 Results, Joins Insmed, Kohls And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T14:45:19.749316-05:00",
+    "symbols": [
+      "SYM"
+    ],
+    "headline": "Oppenheimer Maintains Outperform on Symbotic, Raises Price Target to $87",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T14:45:19.754569-05:00",
+    "symbols": [
+      "SYM"
+    ],
+    "headline": "Symbotic CEO Sees \u2018Path To Unlocking\u2019 $5 Billion-Plus Order Beyond $7 Billion Walmart Expansion",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"

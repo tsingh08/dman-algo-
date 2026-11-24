@@ -52449,7 +52449,7 @@
 "setup": "Gap & Hold",
 "bias": "LONG",
 "taken": false,
-"reject": "bearish catalyst: Stifel Downgrades Insmed to Hold, Lowers P",
+"reject": "bearish catalyst: William Blair Downgrades Insmed to Market ",
 "score": 100,
 "final_score": 100.0,
 "ai_scored": false,
@@ -52502,8 +52502,8 @@
 "ai_score": 3,
 "ai_v": 2,
 "ai_p": 0.22,
-"seen": 13,
-"last_ts": "2026-11-24T14:34:56.947458-05:00",
+"seen": 14,
+"last_ts": "2026-11-24T14:45:24.350234-05:00",
 "entry_min": 170.22,
 "entry_max": 170.26
 },
@@ -52629,8 +52629,8 @@
 "ai_score": 3,
 "ai_v": 2,
 "ai_p": 0.25,
-"seen": 24,
-"last_ts": "2026-11-24T14:34:58.809275-05:00",
+"seen": 26,
+"last_ts": "2026-11-24T14:45:25.084282-05:00",
 "entry_min": 51.41,
 "entry_max": 51.51
 },
@@ -52725,8 +52725,8 @@
 "Gap Size": 0,
 "News Catalyst": 5
 },
-"seen": 22,
-"last_ts": "2026-11-24T14:34:56.154655-05:00",
+"seen": 24,
+"last_ts": "2026-11-24T14:45:23.420680-05:00",
 "entry_min": 5.05,
 "entry_max": 5.05
 },
@@ -52973,8 +52973,8 @@
 "Gap Size": 5,
 "News Catalyst": 5
 },
-"seen": 4,
-"last_ts": "2026-11-24T14:34:59.237993-05:00",
+"seen": 6,
+"last_ts": "2026-11-24T14:45:25.713186-05:00",
 "entry_min": 172.34,
 "entry_max": 172.34
 }

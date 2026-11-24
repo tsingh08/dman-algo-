@@ -1,155 +1,5 @@
 [
   {
-    "ts": "2026-11-24T11:26:00.484842-05:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "Needham Initiates Coverage On GameStop with Buy Rating, Announces Price Target of $33",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-24T11:26:00.490227-05:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Mizuho Initiates Coverage On Rocket Lab with Underperform Rating, Announces Price Target of $40",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T11:26:00.494598-05:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Jim Farley\u2019s Ford Makes Unexpected Space Move, Eyes $1.8 Trillion Opportunity With New Bet Against Elon Musk\u2019s SpaceX",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T11:26:00.499619-05:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "BTIG Reiterates Buy on AppLovin, Maintains $450 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T11:26:00.507550-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "RBC Capital Reiterates Outperform on CrowdStrike Holdings, Maintains $260 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-24T11:26:00.512432-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Big Tech Just Became a Value Trade \u2014 Something Wall Street Hasn&#39;t Seen in 20 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T11:26:00.519311-05:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Goldman Sachs Maintains Buy on Coinbase Global, Lowers Price Target to $181",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T11:26:00.523750-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Grant Cardone: Bitcoin Will Go 5X, MSTR Is &#39;So Cheap, You Have to Buy&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T11:26:00.528787-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin, Ethereum, XRP, Dogecoin Gain Amid Crypto\u2019s Relief Rally on Jensen Huang\u2019s Return: Analyst Says BTC\u2019s \u2018Big Move\u2019 Will Come",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T11:26:00.534696-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Peter Schiff&#39;s Wrath Turns From Bitcoin to Nvidia: \u2018Are We Back to the Mad Men Days?\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T11:26:00.539612-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Lucid Says It Has Delivered Fleet Of More Than 100 Robotaxi Vehicles For Nuro/Uber Program; Employee Driverless Rides To Begin Soon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T11:26:00.544286-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Lucid and Uber Begin Fully Driverless Public-Road Testing in San Francisco Ahead of Q1 2027 Robotaxi Launch",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T11:26:00.549384-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Lucid, Uber And Nuro Begin Fully Driverless Robotaxi Testing On Public Roads In San Francisco Bay Area; Public Launch Expected In Q1 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T11:26:00.557664-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Jefferies Downgrades Zscaler to Hold, Raises Price Target to $260",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T11:26:00.562778-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Truist Securities Maintains Buy on Zscaler, Raises Price Target to $340",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-24T11:26:00.567578-05:00",
     "symbols": [
       "BABA"
@@ -4998,5 +4848,155 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T16:02:20.037257-05:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "Jim Cramer: Vertex Pharmaceuticals Is \u2018Sensational\u2019, Recommends Buying This Tech Stock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T16:02:20.041957-05:00",
+    "symbols": [
+      "HIMS"
+    ],
+    "headline": "Hims & Hers Health Launches Testosterone Care in the United Kingdom",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-24T16:02:20.047716-05:00",
+    "symbols": [
+      "SPOT"
+    ],
+    "headline": "Spotify Reports Service Recovery Following User Outage",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T16:02:20.054091-05:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "This Tesla Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-24T16:02:20.059572-05:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "Needham Initiates Coverage On GameStop with Buy Rating, Announces Price Target of $33",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-24T16:02:20.066694-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Mizuho Initiates Coverage On Rocket Lab with Underperform Rating, Announces Price Target of $40",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T16:02:20.071778-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Jim Farley\u2019s Ford Makes Unexpected Space Move, Eyes $1.8 Trillion Opportunity With New Bet Against Elon Musk\u2019s SpaceX",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T16:02:20.076580-05:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "BTIG Reiterates Buy on AppLovin, Maintains $450 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T16:02:20.085555-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Big Tech Just Became a Value Trade \u2014 Something Wall Street Hasn&#39;t Seen in 20 Years",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T16:02:20.091266-05:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Goldman Sachs Maintains Buy on Coinbase Global, Lowers Price Target to $181",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T16:02:20.096830-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Grant Cardone: Bitcoin Will Go 5X, MSTR Is &#39;So Cheap, You Have to Buy&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T16:02:20.101245-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Bitcoin, Ethereum, XRP, Dogecoin Gain Amid Crypto\u2019s Relief Rally on Jensen Huang\u2019s Return: Analyst Says BTC\u2019s \u2018Big Move\u2019 Will Come",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T16:02:20.106076-05:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Lucid Says It Has Delivered Fleet Of More Than 100 Robotaxi Vehicles For Nuro/Uber Program; Employee Driverless Rides To Begin Soon",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T16:02:20.110916-05:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Lucid and Uber Begin Fully Driverless Public-Road Testing in San Francisco Ahead of Q1 2027 Robotaxi Launch",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T16:02:20.115285-05:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Lucid, Uber And Nuro Begin Fully Driverless Robotaxi Testing On Public Roads In San Francisco Bay Area; Public Launch Expected In Q1 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

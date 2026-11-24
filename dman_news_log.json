@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-11-24T10:08:40.173223-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "What Is Going on With Marvell Tech Stock on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T10:08:40.503329-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Why Is AMD Stock Plunging Today Despite Strong Wall Street Buy Ratings?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-24T10:08:40.509703-05:00",
     "symbols": [
       "AMD"
@@ -4996,6 +4976,26 @@
     ],
     "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Pre-Market Session",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T14:05:34.863422-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "RBC Capital Markets Projects Marvell Technology Fiscal Q3 Beat Driven by Optical Demand",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T14:05:34.956968-05:00",
+    "symbols": [
+      "SNAP"
+    ],
+    "headline": "Appeals Court Rules Snap Not Liable in 2022 Buffalo Mass Shooting Case",
+    "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": null
   }

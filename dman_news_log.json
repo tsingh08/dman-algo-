@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-24T11:26:00.567578-05:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Alibaba Cloud Opens Third Data Centre in Johor, Malaysia",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T11:26:00.572011-05:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Alibaba Challenges US Export-Control Blacklisting of Singapore Subsidiary",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T11:26:00.576948-05:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "Alibaba.com Announces Winner of CoCreate Pitch Competition",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T11:26:00.581737-05:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "Baidu Announces Open Source Release of ERNIE 5.5 Flash Preview",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T11:26:00.587275-05:00",
-    "symbols": [
-      "JD"
-    ],
-    "headline": "Michael Burry Just Made a Big Move in NVDA Before Its 31% Rally \u2014 Fires Fresh Warning at Nvidia Following Jensen Huang\u2019s Return: \u2018Weaker, More Craven\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T11:26:00.591991-05:00",
-    "symbols": [
-      "LUNR"
-    ],
-    "headline": "Mizuho Initiates Coverage On Intuitive Machines with Outperform Rating, Announces Price Target of $15",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-24T11:26:00.597018-05:00",
     "symbols": [
       "LUNR"
@@ -4996,6 +4936,66 @@
     ],
     "headline": "Lucid, Uber And Nuro Begin Fully Driverless Robotaxi Testing On Public Roads In San Francisco Bay Area; Public Launch Expected In Q1 2027",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T16:32:34.991996-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly Canada Sponsors Survey on Type 2 Diabetes Awareness",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T16:32:35.044181-05:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "German Voice Actors Initiate Legal Action Against Netflix Over AI Training Clauses",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T16:32:35.136481-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Oppenheimer and Fubon Adjust Price Targets for Marvell Technology",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T16:32:35.259279-05:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Qualcomm Highlights Long-Term Commitment to Innovation and Ecosystem Development",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T16:32:35.376205-05:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "Coign Capital Advisors LLC Acquires Shares of Vertex Pharmaceuticals Incorporated",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T16:32:35.494376-05:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "PT Freeport Indonesia Announces Redemption of 2027 Senior Notes",
+    "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

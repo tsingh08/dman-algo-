@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-11-24T09:58:03.228405-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Freedom Capital Markets Maintains Buy Rating on Nebius",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:58:03.233797-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nebius Secures 80 MW AI Infrastructure Contract with Mega DC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:58:04.367148-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is Intel Stock Pulling Back After Monday\u2019s Semiconductor Rally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T09:58:04.640592-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Why Is Intel Stock Pulling Back After Monday\u2019s Semiconductor Rally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T09:58:06.913842-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Why Is Intel Stock Pulling Back After Monday\u2019s Semiconductor Rally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-24T09:58:13.189350-05:00",
     "symbols": [
       "CRWD"
@@ -4995,6 +4945,56 @@
       "ANF"
     ],
     "headline": "BTIG Maintains Buy on Abercrombie &amp; Fitch, Raises Price Target to $205",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T13:59:23.526186-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Netflix Faces Big Thanksgiving Week Test: Will Shareholders Be Rewarded?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T13:59:23.663458-05:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Faces Big Thanksgiving Week Test: Will Shareholders Be Rewarded?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T13:59:26.902182-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Hormuz Made Refiners Wall Street&#39;s Big Winners: Now They Can&#39;t Stop Falling",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T13:59:30.838961-05:00",
+    "symbols": [
+      "BBIO"
+    ],
+    "headline": "BridgeBio Pharma Drug Secures First FDA Approval for Rare Muscle Weakness Disorder",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T13:59:30.844238-05:00",
+    "symbols": [
+      "BBIO"
+    ],
+    "headline": "Morgan Stanley Maintains Overweight on BridgeBio Pharma, Raises Price Target to $95",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

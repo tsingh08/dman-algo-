@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-11-24T09:37:03.421556-05:00",
-    "symbols": [
-      "ASPE"
-    ],
-    "headline": "UBS Initiates Coverage On Aspen Neuroscience with Buy Rating, Announces Price Target of $35",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T09:37:03.625356-05:00",
-    "symbols": [
-      "OSS"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:37:03.825077-05:00",
-    "symbols": [
-      "RY"
-    ],
-    "headline": "CIBC Capital Markets Lowers Price Target on Royal Bank of Canada",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T09:37:03.827913-05:00",
-    "symbols": [
-      "RY"
-    ],
-    "headline": "KBW Analyst Adjusts Price Target for Royal Bank of Canada",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T09:37:04.037924-05:00",
-    "symbols": [
-      "VIPS"
-    ],
-    "headline": "Vipshop Stock Falls Despite Earnings Beat As Q4 Sales Outlook Points Lower",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-24T09:37:04.040803-05:00",
     "symbols": [
       "VIPS"
@@ -4998,5 +4948,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T13:17:45.583378-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Senate Majority Leader Schumer Says &#39;Jensen Huang shipped extremely advanced chips to China, violating US export control law, in what amounts to the equivalent of selling rocket engines to the Soviets during the Space Race&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T13:17:49.811687-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Senate Majority Leader Schumer Says &#39;Jensen Huang shipped extremely advanced chips to China, violating US export control law, in what amounts to the equivalent of selling rocket engines to the Soviets during the Space Race&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T13:17:52.651632-05:00",
+    "symbols": [
+      "CHGG"
+    ],
+    "headline": "Chegg to be Removed from Russell Microcap Index",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T13:17:53.331035-05:00",
+    "symbols": [
+      "ZH"
+    ],
+    "headline": "Zhihu Q3 Adj. EPS $(0.06) Down From $(0.04) YoY, Sales $98.234M Up From $92.559M YoY",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-24T13:17:53.435480-05:00",
+    "symbols": [
+      "COGT"
+    ],
+    "headline": "Cogent Biosciences Wins FDA Approval for First New Stomach Cancer Treatment in Over 20 Years",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

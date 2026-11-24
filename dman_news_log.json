@@ -1,195 +1,5 @@
 [
   {
-    "ts": "2026-11-24T11:13:56.307031-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T11:13:56.746194-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Trump administration officials debating targeting Iran\u2019s leaders, sources say&#39; -NBC News Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T11:13:56.751537-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T11:13:56.974389-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T11:13:56.979793-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Why Is Applied Digital Stock Trading Lower Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T11:13:57.197409-05:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T11:13:58.714097-05:00",
-    "symbols": [
-      "BTDR"
-    ],
-    "headline": "B. Riley Cuts Price Target on Bitdeer Technologies Group to $12 From $19",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T11:14:00.216439-05:00",
-    "symbols": [
-      "GMM"
-    ],
-    "headline": "Portnoy Law Firm Announces Investigation into Global Mofy AI Limited",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T11:14:01.634741-05:00",
-    "symbols": [
-      "LCID"
-    ],
-    "headline": "Lucid Stock Rises As Robotaxi Testing Begins: What&#39;s Happening?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T11:20:11.630902-05:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Why Is Applied Digital Stock Trading Lower Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T11:20:12.123713-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Has Declared &#39;Code Red&#39; For M365 Core Service Health After Nov 12 Outage, Internal Memos Show",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T11:20:12.522565-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Dell Stock Is Falling Today Despite a 133% Rally in 2026?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-24T11:20:12.527129-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Shorts Made $13.7 Billion Betting Against Nvidia Stock After Huang\u2019s Exit: If They Held, Monday Wiped Out Nearly 90% of Their Gains",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-24T11:20:12.530814-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-24T11:20:12.534363-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is Applied Digital Stock Trading Lower Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-24T11:20:12.960397-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "JP Morgan Maintains Overweight on Meta Platforms, Lowers Price Target to $775",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T11:20:13.825339-05:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T11:20:15.022837-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T11:20:17.748719-05:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-24T11:20:17.940038-05:00",
     "symbols": [
       "LLY"
@@ -4998,5 +4808,195 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T15:26:03.866575-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX, Anthropic Could Rewrite the IPO Playbook As Private Companies Find New Ways to Retain Control",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-24T15:26:17.998460-05:00",
+    "symbols": [
+      "AMTM"
+    ],
+    "headline": "Amentum&#39;s 10% Stock Buyback Steal the Earnings Show",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T15:26:21.466535-05:00",
+    "symbols": [
+      "DC"
+    ],
+    "headline": "BMO Capital Maintains Outperform on Dakota Gold, Lowers Price Target to $10",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T15:26:21.469798-05:00",
+    "symbols": [
+      "DC"
+    ],
+    "headline": "HC Wainwright &amp; Co. Reiterates Buy on Dakota Gold, Maintains $10.75 Price Target",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T15:26:21.771820-05:00",
+    "symbols": [
+      "AMBA"
+    ],
+    "headline": "Ambarella And Sigma Connectivity Announce Strategic Collaboration To Accelerate Development And Industrialization Of Edge AI Products",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T15:26:21.912695-05:00",
+    "symbols": [
+      "DY"
+    ],
+    "headline": "Anthropic Drops Below IPO Prices, Nvidia Sinks 7% After Record Rally: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T15:26:21.915898-05:00",
+    "symbols": [
+      "DY"
+    ],
+    "headline": "Why Dycom Stock Is Plunging to a 52-Week Low Despite an Earnings Beat",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T15:26:21.918872-05:00",
+    "symbols": [
+      "DY"
+    ],
+    "headline": "Dycom Industries Authorizes New $200M Share Repurchase Program, Replacing Previous $150M Plan",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T15:26:21.921775-05:00",
+    "symbols": [
+      "DY"
+    ],
+    "headline": "Dycom Industries Raises FY2027 Sales Guidance from $7.480B-$7.660B to $7.660B-$7.730B vs $7.656B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T15:26:21.924709-05:00",
+    "symbols": [
+      "DY"
+    ],
+    "headline": "Dycom Industries Sees Q4 Adj EPS $2.48-$2.78 vs $2.76 Est; Sees Sales $1.630B-$1.700B vs $1.689B Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T15:26:22.046820-05:00",
+    "symbols": [
+      "EROK"
+    ],
+    "headline": "Piper Sandler Downgrades EagleRock Land to Neutral, Lowers Price Target to $23",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T15:26:22.179981-05:00",
+    "symbols": [
+      "TGTX"
+    ],
+    "headline": "Moderna Stock Pops: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T15:26:22.183241-05:00",
+    "symbols": [
+      "TGTX"
+    ],
+    "headline": "TG Therapeutics Stock Soars After FDA Accepts BRIUMVI sBLA",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T15:26:22.186283-05:00",
+    "symbols": [
+      "TGTX"
+    ],
+    "headline": "TG Therapeutics Receives FDA Approval Of Its Supplemental Biologics License Application For BRIUMVI Single Dose Initiation Schedule For Treatment Of Adults With Relapsing Forms Of Multiple Sclerosis",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T15:26:22.357206-05:00",
+    "symbols": [
+      "HPE"
+    ],
+    "headline": "QUICK SPARK: HPE Stock Drops 17%, Marks Worst Day in Company&#39;s History",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T15:26:22.360658-05:00",
+    "symbols": [
+      "HPE"
+    ],
+    "headline": "Bloom Energy Stock Slides Amid Broader AI Sell-Off",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T15:26:22.363793-05:00",
+    "symbols": [
+      "HPE"
+    ],
+    "headline": "Anthropic Drops Below IPO Prices, Nvidia Sinks 7% After Record Rally: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T15:26:22.366714-05:00",
+    "symbols": [
+      "HPE"
+    ],
+    "headline": "Dow Outperforms Nike Stock 100x Since Inclusion: Jay Woods Expects &#39;Underperformer&#39; to Get the Boot",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T15:26:22.369639-05:00",
+    "symbols": [
+      "HPE"
+    ],
+    "headline": "Wells Fargo Maintains Equal-Weight on Hewlett Packard, Lowers Price Target to $50",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

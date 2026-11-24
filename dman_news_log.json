@@ -1,155 +1,5 @@
 [
   {
-    "ts": "2026-11-24T09:58:13.189350-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Bernstein Maintains Market Perform on CrowdStrike Holdings, Lowers Price Target to $174",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-24T09:58:13.661371-05:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Datadog Named a Challenger in the 2026 Gartner Magic Quadrant for SIEM",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:58:16.852149-05:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Bernstein Maintains Market Perform on RTX, Raises Price Target to $231",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:58:17.546208-05:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs to Host 2026 Financial Services Conference",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T09:58:19.639826-05:00",
-    "symbols": [
-      "FDX"
-    ],
-    "headline": "FedEx Announces 2026 Five-Star Program Grant Recipients",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T09:58:19.914719-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Why Is Intel Stock Pulling Back After Monday\u2019s Semiconductor Rally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:58:20.226941-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Why Is Intel Stock Pulling Back After Monday\u2019s Semiconductor Rally",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:58:21.007789-05:00",
-    "symbols": [
-      "AKAN"
-    ],
-    "headline": "Nasdaq Down Over 400 Points; Best Buy Earnings Top Views",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T09:58:28.047329-05:00",
-    "symbols": [
-      "BENF"
-    ],
-    "headline": "Nasdaq Down Over 400 Points; Best Buy Earnings Top Views",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T09:58:28.263658-05:00",
-    "symbols": [
-      "LGHL"
-    ],
-    "headline": "Nasdaq Down Over 400 Points; Best Buy Earnings Top Views",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T09:58:30.414753-05:00",
-    "symbols": [
-      "ALDX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T09:58:30.419513-05:00",
-    "symbols": [
-      "ALDX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Monday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T10:08:39.610740-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Steve Jobs, Larry Page, Jensen Huang: Why Big Tech Keeps Going Back to Its Founders",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T10:08:40.161366-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is AMD Stock Plunging Today Despite Strong Wall Street Buy Ratings?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T10:08:40.167775-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is Broadcom Stock Sliding Today Alongside Nvidia\u2019s Post-Rally Dip?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-24T10:08:40.173223-05:00",
     "symbols": [
       "NVDA"
@@ -4998,5 +4848,155 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T14:03:34.869273-05:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "German Voice Actors Protest Netflix Over AI Usage",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T14:03:34.879289-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple to Host Special Event at SoHo Store Marking 20 Years of (RED) Partnership",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T14:03:34.885387-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Visa Opens New Representative Office in Cameroon",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T14:03:34.891196-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "SDG Group Deploys Snowflake-Native HL7 FHIR Server for Healthcare Provider",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T14:03:35.009926-05:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "FedEx Expands Trans-Pacific Air Cargo Capacity",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T14:03:35.015234-05:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Co-Leads $5 Million Seed Investment in Onchain Trading Platform Rialto",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T14:03:35.137961-05:00",
+    "symbols": [
+      "PARA"
+    ],
+    "headline": "Parabolic Technologies Announces Launch of OpenReel AI",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T14:03:35.143961-05:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "Vadzo Imaging Launches Armor-234MGS-GMSL2 Camera Using onsemi AR0234 Sensor",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T14:03:35.149938-05:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "Vadzo Imaging Launches Bolt-234MGS Camera Featuring onsemi AR0234 Sensor",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T14:03:37.306497-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Why Is Intel Stock Pulling Back After Monday\u2019s Semiconductor Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T14:03:37.370864-05:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "Bernstein Maintains Market Perform on RTX, Raises Price Target to $231",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T14:03:37.404115-05:00",
+    "symbols": [
+      "AKAN"
+    ],
+    "headline": "Nasdaq Down Over 400 Points; Best Buy Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T14:03:37.437778-05:00",
+    "symbols": [
+      "BENF"
+    ],
+    "headline": "Nasdaq Down Over 400 Points; Best Buy Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T14:03:37.443840-05:00",
+    "symbols": [
+      "LGHL"
+    ],
+    "headline": "Nasdaq Down Over 400 Points; Best Buy Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T14:03:37.472957-05:00",
+    "symbols": [
+      "ALDX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

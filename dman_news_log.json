@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-11-24T09:36:55.533637-05:00",
-    "symbols": [
-      "SYM"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T09:36:55.536335-05:00",
-    "symbols": [
-      "SYM"
-    ],
-    "headline": "Symbotic Q4 Adj. EPS $0.17 Beats $0.15 Estimate, Sales $777.606M Beat $774.304M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T09:36:55.949392-05:00",
-    "symbols": [
-      "CAR"
-    ],
-    "headline": "Miami Towing Company Owner Charged in Fraud Scheme Involving Rental Car Companies",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-24T09:36:56.159578-05:00",
-    "symbols": [
-      "FDMT"
-    ],
-    "headline": "4D Molecular Therapeutics Seen Benefiting From In-Line Competitor Trial Results, RBC Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T09:36:56.367909-05:00",
-    "symbols": [
-      "HLNE"
-    ],
-    "headline": "Hamilton Lane-Backed Cosette Pharmaceuticals Acquires MARGENZA, Establishing Oncology As Core Growth Franchise; Terms Not Disclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-24T09:36:56.572069-05:00",
     "symbols": [
       "SJM"
@@ -4998,5 +4948,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T12:36:04.730547-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Live On CNBC, Josh Brown Announces Bought SpaceX",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T12:36:13.770635-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Live On CNBC, Josh Brown Announces Bought More Rocket Lab",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T12:36:14.545507-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Mizuho Maintains Outperform on CrowdStrike Holdings, Lowers Price Target to $260",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-24T12:36:16.312710-05:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Mizuho Maintains Outperform on Zscaler, Raises Price Target to $265",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T12:36:31.083073-05:00",
+    "symbols": [
+      "INSM"
+    ],
+    "headline": "Stifel Downgrades Insmed to Hold, Lowers Price Target to $175",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

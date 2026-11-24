@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-11-23T15:24:26.519728-05:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "TD Cowen Reiterates Buy on Snowflake, Maintains $450 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T15:24:30.219363-05:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "Mizuho Maintains Outperform on Biogen, Raises Price Target to $271",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T15:24:44.646124-05:00",
-    "symbols": [
-      "POAS"
-    ],
-    "headline": "Nasdaq Jumps Over 1,200 Points; Chicago Fed National Activity Index Falls In October",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T15:24:49.077717-05:00",
-    "symbols": [
-      "ASX"
-    ],
-    "headline": "Intel Stock Soars as Nvidia Reinstates Jensen Huang, Reviving AI Optimism",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T15:24:50.972537-05:00",
-    "symbols": [
-      "PENG"
-    ],
-    "headline": "Sandisk Stock Climbs After Jensen Huang&#39;s Comeback at Nvidia",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T15:24:52.242840-05:00",
-    "symbols": [
-      "TSEM"
-    ],
-    "headline": "Intel Stock Soars as Nvidia Reinstates Jensen Huang, Reviving AI Optimism",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T15:24:52.458240-05:00",
-    "symbols": [
-      "HUT"
-    ],
-    "headline": "CoreWeave Stock Surges After Nvidia Reinstates Jensen Huang as CEO",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-23T15:33:38.547298-05:00",
     "symbols": [
       "SPCX"
@@ -4996,6 +4926,76 @@
     ],
     "headline": "Seaport Global Securities Initiates Coverage on Mobileye Global Inc. with Buy Rating",
     "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T10:42:09.097540-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is SMCI Stock Falling on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T10:42:09.643482-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Stock Dips: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T10:42:11.533382-05:00",
+    "symbols": [
+      "SMCI"
+    ],
+    "headline": "Why Is SMCI Stock Falling on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T10:42:19.162992-05:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Amerx Downgrades Zscaler to Hold",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T10:42:19.167796-05:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Stifel Downgrades Zscaler to Hold, Raises Price Target to $260",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T10:42:33.688071-05:00",
+    "symbols": [
+      "ANTY"
+    ],
+    "headline": "Wall Street Goes 2X on Anthropic As 7 Leveraged ETFs Follow IPO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T10:42:35.203381-05:00",
+    "symbols": [
+      "GRDN"
+    ],
+    "headline": "SharkNinja To Replace AES in S&amp;P 500, Paycom Software To Replace SharkNinja in S&amp;P MidCap 400, and Guardian Pharmacy Services To Replace Paycom Software in S&amp;P SmallCap 600 Effective December 2",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

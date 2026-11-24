@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-11-24T10:08:40.509703-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Why Is Broadcom Stock Sliding Today Alongside Nvidia\u2019s Post-Rally Dip?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T10:08:40.514696-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "What Is Going on With Marvell Tech Stock on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T10:08:41.079409-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Alphabet Stock Pops: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T10:08:41.084980-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Steve Jobs, Larry Page, Jensen Huang: Why Big Tech Keeps Going Back to Its Founders",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T10:08:43.172559-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Why Is AMD Stock Plunging Today Despite Strong Wall Street Buy Ratings?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T10:08:43.177189-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Why Is Broadcom Stock Sliding Today Alongside Nvidia\u2019s Post-Rally Dip?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T10:08:43.186613-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "What Is Going on With Marvell Tech Stock on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T10:08:44.284846-05:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "What Is Going on With Marvell Tech Stock on Tuesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T10:08:44.711654-05:00",
-    "symbols": [
-      "ON"
-    ],
-    "headline": "Intel Stock Soars as Nvidia Reinstates Jensen Huang, Reviving AI Optimism",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-24T10:08:46.245687-05:00",
     "symbols": [
       "ABBV"
@@ -4998,5 +4908,95 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T14:13:51.459841-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Elon Musk Built an AI Empire to Challenge Anthropic \u2014 Now Anthropic Is Helping Pay for It",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-24T14:13:52.036669-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Why Is AMD Stock Plunging Today Despite Strong Wall Street Buy Ratings?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T14:13:52.042109-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Why Is Broadcom Stock Sliding Today Alongside Nvidia\u2019s Post-Rally Dip?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T14:13:52.046695-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "What Is Going on With Marvell Tech Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T14:13:52.169943-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Elon Musk Built an AI Empire to Challenge Anthropic \u2014 Now Anthropic Is Helping Pay for It",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T14:13:52.731894-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Why Is AMD Stock Plunging Today Despite Strong Wall Street Buy Ratings?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T14:13:52.736845-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Why Is Broadcom Stock Sliding Today Alongside Nvidia\u2019s Post-Rally Dip?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T14:13:52.742231-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "What Is Going on With Marvell Tech Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T14:13:53.164155-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "What Is Going on With Marvell Tech Stock on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

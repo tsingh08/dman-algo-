@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-11-24T11:13:55.442485-05:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Product Liability Lawsuit Filed Against Novo Nordisk",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T11:13:55.874789-05:00",
-    "symbols": [
-      "NEM"
-    ],
-    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-24T11:13:56.307031-05:00",
     "symbols": [
       "ORCL"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T15:23:20.897248-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX, Anthropic Could Rewrite the IPO Playbook As Private Companies Find New Ways to Retain Control",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-24T15:23:28.281330-05:00",
+    "symbols": [
+      "DPRO"
+    ],
+    "headline": "Draganfly Signs Strategic Agreements to Advance Canada\u2013Ukraine Unmanned Systems Collaboration",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

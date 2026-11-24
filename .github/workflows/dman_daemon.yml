@@ -111,7 +111,16 @@ jobs:
           # uncovered until the evening run. These boundaries hold in both
           # clocks (morning 8:23-11:29, afternoon 11:53-14:59, evening 15:53+).
           _hhmm = now.hour * 100 + now.minute
-          if _hhmm < 1130:
+          # Overnight: nothing to run. Tue 2026-11-24 the 16:05 ET evening
+          # cron was DELIVERED at 00:10 ET; `< 1130` read that as a morning
+          # session to 12:55, so it sat overnight until the 330-min timeout
+          # (05:40 ET, before the briefing dispatches the real one), and a
+          # timeout counts as a failure, which sends "daemon session FAILED".
+          # Before 07:30 the early-dispatch hold above does not apply either,
+          # and a 07:00 start would time out at 12:30, before its handover.
+          if _hhmm >= 2005 or _hhmm < 730:
+              until = "skip"
+          elif _hhmm < 1130:
               until = "1255"
           elif _hhmm < 1500:
               until = "1700"
@@ -123,6 +132,7 @@ jobs:
           EOF
 
       - name: Run daemon session
+        if: steps.session.outputs.until != 'skip'
         env:
           APCA_API_KEY_ID:     ${{ secrets.APCA_API_KEY_ID }}
           APCA_API_SECRET_KEY: ${{ secrets.APCA_API_SECRET_KEY }}

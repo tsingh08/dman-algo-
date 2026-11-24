@@ -2544,6 +2544,13 @@ def prewarm_alpaca_bars(tickers: list[str], period_days: int = 430,
         return 0
 
 
+# Calendar days the newest bar may lag today before a yfinance frame is
+# treated as a stale cached copy. 1d: a weekend. 1wk: bars are stamped with
+# the week's Monday, so a weekend after a full week is 6 days and the week
+# after a Monday holiday can be 7; 10 still rejects a frame missing a week.
+_STALE_BAR_DAYS = {"1d": 3, "1wk": 10}
+
+
 def fetch_df(ticker: str, period_days: int = 430,
              interval: str = "1d") -> Optional[pd.DataFrame]:
     """
@@ -2579,7 +2586,14 @@ def fetch_df(ticker: str, period_days: int = 430,
             # Staleness check — last bar must be within 3 calendar days (handles weekends/holidays)
             # Protects against yfinance returning cached prior-session data as "today"
             _last_bar_date = raw.index[-1].date() if hasattr(raw.index[-1], "date") else raw.index[-1]
-            if (_et_today() - _last_bar_date).days > 3:
+            # A weekly bar is dated by its week's MONDAY, so the current week's
+            # bar is 4 days "old" every Friday. Found 2026-11-20: PDD and TU
+            # weekly frames were dropped as stale all day, and check_mtf() then
+            # passes on missing data -- the MTF hard gate was off every Friday
+            # (and weekend scan). A weekly frame is stale only when the newest
+            # bar is from before LAST week.
+            _stale_days = _STALE_BAR_DAYS.get(interval, 3)
+            if (_et_today() - _last_bar_date).days > _stale_days:
                 print(f"  [fetch_df] {ticker} data stale (last bar {_last_bar_date}) — skipping", file=sys.stderr)
                 return None
             _cache[key] = raw
@@ -4237,11 +4251,18 @@ def _setup_probation_bonus(setup: str) -> int:
         if age_days >= SETUP_PROBATION_MAX_DAYS:
             del state[key]
             _save_setup_probation(state)
-            if not _is_duplicate_alert(f"__SETUP_PROBATION_EXPIRED__:{key}"):
+            # Silent for a setup that cannot trade: Mon 2026-11-23 told the
+            # operator Low Float Catalyst was "back to its normal bar" while it
+            # is retired. And no "/setupprobation to restrict again" advice:
+            # _enforce_setup_drift_restrictions() re-restricts a setup still
+            # under the drift floor on the next scan by itself.
+            if (not _setup_cannot_trade(key)
+                    and not _is_duplicate_alert(f"__SETUP_PROBATION_EXPIRED__:{key}")):
                 send_telegram(
                     f"🟡 <b>Setup probation expired</b> — {key}, {age_days} days since "
-                    f"restricted. Back to its normal SETUP_MIN_CONFLUENCE bar. Send "
-                    f"<b>/setupprobation {key}</b> to restrict it again if it's still weak."
+                    f"restricted. Back to its normal SETUP_MIN_CONFLUENCE bar; if its "
+                    f"live win rate is still under the drift floor the next scan "
+                    f"restricts it again automatically."
                 )
                 _save_last_alert(f"__SETUP_PROBATION_EXPIRED__:{key}")
             return 0
@@ -4438,7 +4459,12 @@ def _enforce_setup_drift_restrictions(tracker: "WinRateTracker") -> list[str]:
             # last live fill 2026-08-24, re-entered probation 2026-11-12 on
             # the same frozen 1W/5L record). Skip them here and in the EOD
             # alert; un-retiring a setup puts it straight back under watch.
-            if _setup_retired(_d["setup"]):
+            # A KILL-SWITCHED setup is the same case: it cannot take money
+            # either, and its record is just as frozen. 2026-11-23 15:34 put
+            # Gap & Hold (disabled since October) on probation off three
+            # August fills, which would loop probation -> expiry notice ->
+            # re-restriction every 10 days. _setup_cannot_trade() covers both.
+            if _setup_cannot_trade(_d["setup"]):
                 continue
             if _enter_setup_probation(
                     _d["setup"],
@@ -4641,6 +4667,18 @@ def _disabled_setup_split_lines() -> list:
                     "-4.97%/5d against +0.17% for executable ones — a different "
                     "population. The gate still uses the combined record.")
     return _out
+
+
+def _setup_cannot_trade(setup: str) -> bool:
+    """True if `setup` is retired or kill-switched, so a probation bonus on
+    it changes nothing. Kill-switch lookups fail to False (still watched)."""
+    if _setup_retired(setup):
+        return True
+    try:
+        return bool(_setup_is_disabled(str(setup or "").replace("SWING — ", ""))[0])
+    except Exception as exc:
+        _log_swallowed("setup cannot trade", exc)
+        return False
 
 
 def _setup_is_disabled(setup: str) -> tuple[bool, str]:
@@ -26425,6 +26463,16 @@ def _dip_candidates_notify(cands: list, n: int, mean: float, wr: float) -> None:
     """
     if not cands:
         return
+    # The shadow has answered: by 2026-11-23 it was n=249 resolved, mean
+    # -1.95%, 38% win against the +0.45% / 52.5% in-sample claim, and its own
+    # 30-trade milestone already said "negative, do not promote". Offering
+    # /enter on a rule with a negative verdict every evening is advice the
+    # evidence contradicts. The shadow keeps logging; a positive mean at or
+    # past the verdict size turns the offer back on by itself.
+    if n >= DIP_SHADOW_REVIEW_N and mean <= 0:
+        print(f"  \U0001f4d0 dip candidates: not offered -- shadow verdict negative "
+              f"(n={n}, mean {mean:+.2f}%)")
+        return
     _now = datetime.now(ET)
     _today = _now.date().isoformat()
     _bar = max(c["date"] for c in cands)
@@ -28130,17 +28178,32 @@ def _scan_near_miss_tier(_b_tier, _near_misses, min_score, regime, tickers, trac
 
 
 def _scan_friday_closeout():
-    """Extracted verbatim from run_pro_scanner() on 2026-09-14 (refx).
+    """Friday 15:30-15:59 ET reminder to flatten positions short of T1.
+
+    Fri 2026-11-20 it went out THREE times (15:33/15:43/15:54, one per scan)
+    saying "Open: TMDX, SGRY" with no position open: it listed
+    LIVE_SIGNALS_FILE, the alerted signals awaiting a simulated outcome
+    (alert-only names from kill-switched setups), not anything held. It now
+    names the positions the algo manages (POSITIONS_FILE -- core holds are
+    never adopted into it), says nothing when there are none, and is sent
+    once per Friday.
     """
     try:
         _now_co = datetime.now(ET)
         if _now_co.weekday() == 4:  # Friday
             _hhmm_co = _now_co.hour * 100 + _now_co.minute
             if 1530 <= _hhmm_co <= 1559:
+                _key_co = f"__FRIDAY_CLOSEOUT__:{_now_co.date().isoformat()}"
+                if _is_alerted_today(_key_co):
+                    return
                 _pending_co = []
-                if os.path.exists(LIVE_SIGNALS_FILE):
-                    with open(LIVE_SIGNALS_FILE) as _fco:
-                        _pending_co = json.load(_fco).get("pending", [])
+                if os.path.exists(POSITIONS_FILE):
+                    with open(POSITIONS_FILE) as _fco:
+                        _pending_co = [p for p in (json.load(_fco) or [])
+                                       if isinstance(p, dict) and p.get("ticker")
+                                       and not _is_core_hold(p.get("ticker"))]
+                if not _pending_co:
+                    return
                 _mins_left = (16 * 60) - (_now_co.hour * 60 + _now_co.minute)
                 # Find upcoming FOMC within 7 days
                 _td_co = _now_co.date()
@@ -28152,14 +28215,14 @@ def _scan_friday_closeout():
                         break
                     if _d_co > 7:
                         break
-                _pos_co = ""
-                if _pending_co:
-                    _pos_co = "\nOpen: " + ", ".join(p.get("ticker","?") for p in _pending_co)
+                _pos_co = "\nOpen: " + ", ".join(
+                    sorted({str(p.get("ticker")) for p in _pending_co}))
                 send_telegram(
                     f"⚠️ <b>FRIDAY — {_mins_left} min to close</b>\n"
                     f"Exit positions not at T1 to avoid weekend risk.{_fomc_co}"
                     f"{_pos_co}"
                 )
+                _mark_alerted(_key_co)
                 print(f"\n  ⚠️  Friday close-out advisory sent ({_mins_left} min to bell)")
     except Exception:
         pass
@@ -31857,7 +31920,7 @@ def send_account_pnl_telegram(label: str = "EOD") -> None:
         # setup. Same filter as _enforce_setup_drift_restrictions().
         _sweep_expired_setup_probation()
         _drift = [_d for _d in WinRateTracker().setup_performance_drift()
-                  if not _setup_retired(_d["setup"])]
+                  if not _setup_cannot_trade(_d["setup"])]
         # 24h, not the 30-min default: this rides the EOD summary's callers,
         # which run several times in the last hour (sent twice 2026-11-03).
         if _drift and not _is_duplicate_alert("__SETUP_PERF_DRIFT__", 24 * 60):

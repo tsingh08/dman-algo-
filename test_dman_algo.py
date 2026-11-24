@@ -95,6 +95,7 @@ _flags_isolation = None
 _wl_isolation = None
 _halt_isolation = None
 _probation_isolation = None
+_outcomes_isolation = None
 _state_write_isolation: list = []
 
 
@@ -132,6 +133,15 @@ def setUpModule():
         a, "SETUP_PROBATION_FILE",
         os.path.join(tempfile.gettempdir(), "dman_setup_probation_test_isolation_absent.json"))
     _probation_isolation.start()
+    # Same for dman_live_outcomes.csv, the kill switch's input: since
+    # 2026-11-24 probation skips kill-switched setups, and the live file
+    # really does disable Gap & Hold / Morning Runner, the very names the
+    # drift and probation fixtures use. Kill-switch tests patch their own.
+    global _outcomes_isolation
+    _outcomes_isolation = patch.object(
+        a, "LIVE_OUTCOMES_FILE",
+        os.path.join(tempfile.gettempdir(), "dman_live_outcomes_test_isolation_absent.csv"))
+    _outcomes_isolation.start()
     global _halt_isolation
     _halt_isolation = patch.object(
         a, "_daily_loss_limit_hit",
@@ -191,6 +201,8 @@ def tearDownModule():
         _p.stop()
     if _probation_isolation is not None:
         _probation_isolation.stop()
+    if _outcomes_isolation is not None:
+        _outcomes_isolation.stop()
     if _halt_isolation is not None:
         _halt_isolation.stop()
     if _flags_isolation is not None:
@@ -11428,7 +11440,11 @@ class TestSetupProbation(unittest.TestCase):
             "started": (datetime.now(a.ET) - timedelta(days=a.SETUP_PROBATION_MAX_DAYS + 1)).isoformat(),
             "note": "x"}}
         a._save_setup_probation(state)
-        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+        # Low Float Catalyst is retired, and a setup that cannot trade expires
+        # silently since 2026-11-24 (TestProbationSkipsSetupsThatCannotTrade);
+        # this test is about expiry, so treat it as tradable.
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg, \
+             patch.object(a, "_setup_cannot_trade", return_value=False):
             self.assertEqual(a._setup_probation_bonus("Low Float Catalyst"), 0)
         self.assertTrue(any("expired" in c.args[0].lower() for c in mock_tg.call_args_list))
         self.assertNotIn("Low Float Catalyst", a._load_setup_probation(),
@@ -11439,7 +11455,8 @@ class TestSetupProbation(unittest.TestCase):
             "started": (datetime.now(a.ET) - timedelta(days=a.SETUP_PROBATION_MAX_DAYS + 1)).isoformat(),
             "note": "x"}}
         a._save_setup_probation(state)
-        with patch.object(a, "send_telegram", return_value=True) as mock_tg:
+        with patch.object(a, "send_telegram", return_value=True) as mock_tg, \
+             patch.object(a, "_setup_cannot_trade", return_value=False):
             a._setup_probation_bonus("Low Float Catalyst")
             a._save_setup_probation(state)   # simulate it drifting back in on a later check
             a._setup_probation_bonus("Low Float Catalyst")
@@ -18142,6 +18159,14 @@ class TestDriftRestrictionsEnforcedEveryScan(unittest.TestCase):
     """Review 2026-09-08: restrictions expired on a clock and were only ever
     re-applied inside an EOD window that delayed crons routinely miss."""
 
+    def setUp(self):
+        # Enforcement skips kill-switched setups (2026-11-24), and the kill
+        # switch reads the LIVE outcomes file, where Morning Runner really is
+        # disabled. This fixture is about drift, so the kill switch is off.
+        _p = patch.object(a, "_setup_is_disabled", return_value=(False, ""))
+        _p.start()
+        self.addCleanup(_p.stop)
+
     def _tracker(self, wr_floor_breach=True, setup="Morning Runner"):
         # The drifting fixture must be a setup that is NOT in RETIRED_SETUPS
         # (it was "Low Float Catalyst" until that name was hand-retired):
@@ -19656,6 +19681,7 @@ class TestSetupProbationExpires(unittest.TestCase):
         self._write(a.SETUP_PROBATION_MAX_DAYS + 1)
         with patch.object(a, "send_telegram") as tg, \
              patch.object(a, "_is_duplicate_alert", return_value=False), \
+             patch.object(a, "_setup_cannot_trade", return_value=False), \
              patch.object(a, "_save_last_alert"):
             a._setup_probation_bonus("Low Float Catalyst")
         tg.assert_called_once()
@@ -32664,3 +32690,197 @@ class TestPendingHealthCoversTheWholeHold(unittest.TestCase):
 
     def test_a_signal_past_the_hold_window_is_dropped(self):
         self.assertEqual(self._health([40]), set())
+
+
+class TestWeeklyBarsAreNotStaleOnFriday(unittest.TestCase):
+    """Fri 2026-11-20: a weekly bar is dated by its week's Monday, so the
+    current week read as 4 days old and fetch_df dropped it as stale --
+    check_mtf() then passes on missing data, so the MTF gate was off."""
+
+    def _weekly(self, last_monday):
+        import pandas as pd
+        idx = pd.date_range(end=last_monday, periods=60, freq="W-MON")
+        n = len(idx)
+        return pd.DataFrame({"Open": [10.0] * n, "High": [11.0] * n, "Low": [9.0] * n,
+                             "Close": [10.5] * n, "Volume": [1e6] * n}, index=idx)
+
+    def _fetch(self, frame, today, interval="1wk"):
+        a._cache.clear()
+        try:
+            with patch.object(a.yf, "download", return_value=frame), \
+                 patch.object(a, "_fetch_alpaca_daily", return_value=None), \
+                 patch.object(a, "_et_today", return_value=today), \
+                 contextlib.redirect_stderr(io.StringIO()):
+                return a.fetch_df("TESTW", period_days=730, interval=interval)
+        finally:
+            a._cache.clear()
+
+    def test_the_current_week_on_friday_is_kept(self):
+        self.assertIsNotNone(self._fetch(self._weekly("2026-11-16"), date(2026, 11, 20)))
+
+    def test_last_week_on_the_tuesday_after_is_kept(self):
+        self.assertIsNotNone(self._fetch(self._weekly("2026-11-16"), date(2026, 11, 24)))
+
+    def test_a_frame_missing_a_whole_week_is_still_stale(self):
+        self.assertIsNone(self._fetch(self._weekly("2026-11-09"), date(2026, 11, 20)))
+
+    def test_daily_bars_keep_the_three_day_bar(self):
+        import pandas as pd
+        idx = pd.date_range(end="2026-11-16", periods=30, freq="B")
+        daily = pd.DataFrame({"Open": 1.0, "High": 1.0, "Low": 1.0, "Close": 1.0,
+                              "Volume": 1.0}, index=idx)
+        self.assertIsNone(self._fetch(daily, date(2026, 11, 20), interval="1d"))
+
+
+class TestFridayCloseoutNamesRealPositions(unittest.TestCase):
+    """Fri 2026-11-20 sent "Open: TMDX, SGRY" three times with nothing held:
+    it listed pending alert-only signals and had no dedup."""
+
+    def _run(self, positions, calls=2):
+        import datetime as _dt
+        d = tempfile.mkdtemp()
+        pos = os.path.join(d, "pos.json")
+        sig = os.path.join(d, "sig.json")
+        with open(pos, "w") as f:
+            json.dump(positions, f)
+        with open(sig, "w") as f:
+            json.dump({"pending": [{"ticker": "TMDX"}, {"ticker": "SGRY"}]}, f)
+        fri = _dt.datetime(2026, 11, 20, 15, 33, tzinfo=a.ET)
+        with patch.object(a, "datetime") as dtm, \
+             patch.object(a, "POSITIONS_FILE", pos), \
+             patch.object(a, "LIVE_SIGNALS_FILE", sig), \
+             patch.object(a, "_ALERT_DEDUP_FILE", os.path.join(d, "dd.json")), \
+             patch.object(a, "_is_core_hold", side_effect=lambda s: s == "AVGO"), \
+             patch.object(a, "send_telegram") as tg, \
+             contextlib.redirect_stdout(io.StringIO()):
+            dtm.now.return_value = fri
+            dtm.fromisoformat = _dt.datetime.fromisoformat
+            for _ in range(calls):
+                a._scan_friday_closeout()
+        return tg
+
+    def test_no_positions_means_no_message(self):
+        self._run([]).assert_not_called()
+
+    def test_pending_signals_are_not_positions(self):
+        tg = self._run([{"ticker": "AMD", "setup": "Day 2 Continuation"}])
+        tg.assert_called_once()
+        msg = tg.call_args[0][0]
+        self.assertIn("AMD", msg)
+        self.assertNotIn("TMDX", msg)
+
+    def test_once_per_friday_and_core_holds_ignored(self):
+        self._run([{"ticker": "AVGO"}], calls=3).assert_not_called()
+        self._run([{"ticker": "AMD"}], calls=3).assert_called_once()
+
+
+class TestProbationSkipsSetupsThatCannotTrade(unittest.TestCase):
+    """Mon 2026-11-23: "Low Float Catalyst ... back to its normal bar" for a
+    retired setup, and Gap & Hold (kill-switched) put on probation off three
+    August fills -- a loop that changes nothing for trading."""
+
+    def _tracker(self, setup):
+        tr = a.WinRateTracker(filepath=os.path.join(tempfile.mkdtemp(), "wr.json"))
+        for i in range(a.SETUP_PERFORMANCE_ALERT_MIN_TRADES + 1):
+            tr.record(a.TradeRecord(
+                ticker=f"T{i}", date=str(a._et_today()), bias="LONG", setup=setup,
+                entry=10.0, exit=9.0, outcome="LOSS", pnl_pct=-9.0, score=90,
+                is_live=True))
+        return tr
+
+    def test_a_kill_switched_setup_is_not_restricted(self):
+        prob = os.path.join(tempfile.mkdtemp(), "prob.json")
+        with patch.object(a, "SETUP_PROBATION_FILE", prob), \
+             patch.object(a, "_setup_is_disabled", return_value=(True, "x")), \
+             patch.object(a, "send_telegram"):
+            self.assertEqual(a._enforce_setup_drift_restrictions(
+                self._tracker("Gap & Hold")), [])
+
+    def _expire(self, setup, disabled):
+        prob = os.path.join(tempfile.mkdtemp(), "prob.json")
+        old = (datetime.now(a.ET) - timedelta(days=a.SETUP_PROBATION_MAX_DAYS + 1)).isoformat()
+        with open(prob, "w") as f:
+            json.dump({setup: {"started": old, "note": "x"}}, f)
+        d = tempfile.mkdtemp()
+        with patch.object(a, "SETUP_PROBATION_FILE", prob), \
+             patch.object(a, "LAST_ALERTS_FILE", os.path.join(d, "la.json")), \
+             patch.object(a, "_setup_is_disabled", return_value=(disabled, "")), \
+             patch.object(a, "send_telegram") as tg:
+            self.assertEqual(a._setup_probation_bonus(setup), 0)
+        return tg
+
+    def test_expiry_is_silent_for_retired_and_killed_setups(self):
+        self._expire("Low Float Catalyst", False).assert_not_called()
+        self._expire("Gap & Hold", True).assert_not_called()
+
+    def test_expiry_of_a_live_setup_is_announced_without_contradiction(self):
+        tg = self._expire("Day 2 Continuation", False)
+        tg.assert_called_once()
+        self.assertIn("automatically", tg.call_args[0][0])
+        self.assertNotIn("/setupprobation", tg.call_args[0][0])
+
+
+class TestDipOfferStopsOnANegativeVerdict(unittest.TestCase):
+    """2026-11-23: the shadow stood at n=249, mean -1.95%, and the evening
+    message still offered /enter on the rule."""
+
+    def _cands(self):
+        return [{"ticker": "CRM", "date": "2026-10-22", "close": 230.10, "rsi2": 1.0,
+                 "over_ma": 21.6}]
+
+    def _send_rec(self, n, mean):
+        import datetime as _dt
+        d = tempfile.mkdtemp()
+        with patch.object(a, "datetime") as dtm, \
+             patch.dict(os.environ, {"MASSIVE_API_KEY": "k"}, clear=False), \
+             patch.object(a, "is_market_open", return_value=False), \
+             patch.object(a, "check_macro_safe", return_value=(True, 0)), \
+             patch.object(a, "get_effective_account", return_value=2528.0), \
+             patch.object(a, "_et_today", return_value=date(2026, 10, 23)), \
+             patch.object(a, "_fetch_massive_earnings", return_value=[]), \
+             patch.object(a, "_ALERT_DEDUP_FILE", os.path.join(d, "dd.json")), \
+             patch.object(a, "LAST_ALERTS_FILE", os.path.join(d, "la.json")), \
+             patch.object(a, "DIP_CANDIDATES_FILE", os.path.join(d, "dc.json")), \
+             patch.object(a, "send_telegram") as tg, \
+             contextlib.redirect_stdout(io.StringIO()):
+            dtm.now.return_value = _dt.datetime(2026, 10, 23, 7, 0, tzinfo=a.ET)
+            dtm.fromisoformat = _dt.datetime.fromisoformat
+            a._dip_candidates_notify(self._cands(), n, mean, 38.0)
+        return tg
+
+    def test_negative_verdict_offers_nothing(self):
+        self._send_rec(249, -1.95).assert_not_called()
+
+    def test_before_the_verdict_or_when_positive_it_still_offers(self):
+        self._send_rec(a.DIP_SHADOW_REVIEW_N - 1, -1.0).assert_called_once()
+        self._send_rec(a.DIP_SHADOW_REVIEW_N, 0.3).assert_called_once()
+
+
+class TestDaemonSkipsOvernightStarts(unittest.TestCase):
+    """Tue 2026-11-24: the 16:05 ET evening cron arrived at 00:10 ET and ran
+    as a "morning" session overnight until the job timeout."""
+
+    def _src(self):
+        path = os.path.join(os.path.dirname(os.path.abspath(a.__file__)),
+                            ".github", "workflows", "dman_daemon.yml")
+        with open(path, encoding="utf-8") as f:
+            return f.read()
+
+    def _until(self, hhmm):
+        import textwrap
+        block = self._src().split("_hhmm = now.hour * 100 + now.minute", 1)[1]
+        block = block.split("print(", 1)[0]
+        ns = {"_hhmm": hhmm}
+        exec(textwrap.dedent(block), ns)
+        return ns["until"]
+
+    def test_windows(self):
+        self.assertEqual(self._until(10), "skip")
+        self.assertEqual(self._until(700), "skip")
+        self.assertEqual(self._until(2100), "skip")
+        self.assertEqual(self._until(800), "1255")
+        self.assertEqual(self._until(1253), "1700")
+        self.assertEqual(self._until(1605), "2005")
+
+    def test_the_run_step_honours_skip(self):
+        self.assertIn("if: steps.session.outputs.until != 'skip'", self._src())

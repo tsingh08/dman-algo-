@@ -1,205 +1,5 @@
 [
   {
-    "ts": "2026-11-23T15:33:38.547298-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk Praises Nvidia Board, Says &#39;The Mistake Has Been Corrected&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-23T15:33:56.665054-05:00",
-    "symbols": [
-      "BURL"
-    ],
-    "headline": "Dell, Analog Devices On Deck Tuesday As AI Demand And Guidance Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T15:33:57.085896-05:00",
-    "symbols": [
-      "BBY"
-    ],
-    "headline": "Traders Are Pricing a 13% Swing In Dell Ahead of Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T15:33:57.089563-05:00",
-    "symbols": [
-      "BBY"
-    ],
-    "headline": "Dell, Analog Devices On Deck Tuesday As AI Demand And Guidance Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T15:33:58.419313-05:00",
-    "symbols": [
-      "KSS"
-    ],
-    "headline": "Traders Are Pricing a 13% Swing In Dell Ahead of Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T15:33:58.422978-05:00",
-    "symbols": [
-      "KSS"
-    ],
-    "headline": "Dell, Analog Devices On Deck Tuesday As AI Demand And Guidance Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T15:33:58.638761-05:00",
-    "symbols": [
-      "DELL"
-    ],
-    "headline": "Traders Are Pricing a 13% Swing In Dell Ahead of Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T15:33:58.642425-05:00",
-    "symbols": [
-      "DELL"
-    ],
-    "headline": "Dell, Analog Devices On Deck Tuesday As AI Demand And Guidance Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T15:33:58.855919-05:00",
-    "symbols": [
-      "VOD"
-    ],
-    "headline": "Citigroup Downgrades Vodafone to Sell Rating",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T15:33:58.859565-05:00",
-    "symbols": [
-      "VOD"
-    ],
-    "headline": "Vodafone and Frequentis Successfully Test Mission-Critical Communication System",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T15:33:59.531448-05:00",
-    "symbols": [
-      "LAZ"
-    ],
-    "headline": "Lazard Served as Financial Advisor to Pollen Street in PAIR Finance Transaction",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T15:33:59.535116-05:00",
-    "symbols": [
-      "LAZ"
-    ],
-    "headline": "Morgan Stanley Upgrades Lazard to Overweight",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T15:35:16.523117-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk Praises Nvidia Board, Says &#39;The Mistake Has Been Corrected&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-23T15:35:42.192122-05:00",
-    "symbols": [
-      "DELL"
-    ],
-    "headline": "Traders Are Pricing a 13% Swing In Dell Ahead of Earnings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T15:35:42.195836-05:00",
-    "symbols": [
-      "DELL"
-    ],
-    "headline": "Dell, Analog Devices On Deck Tuesday As AI Demand And Guidance Face Test",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T15:46:19.675219-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T15:46:19.888921-05:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T15:46:20.842962-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "Taiwan Semiconductor Short Interest Climbs After Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T15:46:21.055471-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "If You Invested $1000 In Meta Platforms Stock 10 Years Ago, You Would Have This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T15:46:22.994077-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Taiwan Semiconductor Short Interest Climbs After Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-23T15:46:28.234567-05:00",
     "symbols": [
       "NET"
@@ -4998,5 +4798,205 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T10:53:10.339766-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "&#39;Ranking Member Raskin Demands Records From Four Companies Linked to Don Jr.\u2019s 1789 Capital That Received Suspiciously Well-Timed Government Favors&#39; -House Committee Post",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T10:53:10.345040-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Tesla Vs. SpaceX: Which Elon Musk Stock Has the Stronger Setup?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T10:53:13.114163-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Vs. SpaceX: Which Elon Musk Stock Has the Stronger Setup?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T10:53:20.376651-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Amerx Upgrades CrowdStrike Holdings to Hold",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-24T10:53:20.382012-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Stifel Maintains Buy on CrowdStrike Holdings, Raises Price Target to $245",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-24T10:53:21.688894-05:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "If You Invested $100 In Fortinet Stock 15 Years Ago, You Would Have This Much Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T10:53:26.245759-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Ranking Member Raskin Demands Records From Four Companies Linked to Don Jr.\u2019s 1789 Capital That Received Suspiciously Well-Timed Government Favors&#39; -House Committee Post",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T10:53:28.798119-05:00",
+    "symbols": [
+      "DJT"
+    ],
+    "headline": "&#39;Ranking Member Raskin Demands Records From Four Companies Linked to Don Jr.\u2019s 1789 Capital That Received Suspiciously Well-Timed Government Favors&#39; -House Committee Post",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T10:53:34.903024-05:00",
+    "symbols": [
+      "EMBC"
+    ],
+    "headline": "Abercrombie &amp; Fitch Posts Strong Q3 Results, Joins Insmed, Kohls And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T10:53:35.123753-05:00",
+    "symbols": [
+      "INSM"
+    ],
+    "headline": "Abercrombie &amp; Fitch Posts Strong Q3 Results, Joins Insmed, Kohls And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T10:53:35.361903-05:00",
+    "symbols": [
+      "AMTM"
+    ],
+    "headline": "Abercrombie &amp; Fitch Posts Strong Q3 Results, Joins Insmed, Kohls And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T10:53:35.581096-05:00",
+    "symbols": [
+      "ANF"
+    ],
+    "headline": "Abercrombie &amp; Fitch Posts Strong Q3 Results, Joins Insmed, Kohls And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T10:53:35.800101-05:00",
+    "symbols": [
+      "DKS"
+    ],
+    "headline": "Abercrombie &amp; Fitch Posts Strong Q3 Results, Joins Insmed, Kohls And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T10:53:36.454568-05:00",
+    "symbols": [
+      "SNY"
+    ],
+    "headline": "Abercrombie &amp; Fitch Posts Strong Q3 Results, Joins Insmed, Kohls And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T10:53:37.095905-05:00",
+    "symbols": [
+      "MPLT"
+    ],
+    "headline": "Abercrombie &amp; Fitch Posts Strong Q3 Results, Joins Insmed, Kohls And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T10:53:38.638015-05:00",
+    "symbols": [
+      "COGT"
+    ],
+    "headline": "Abercrombie &amp; Fitch Posts Strong Q3 Results, Joins Insmed, Kohls And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T10:53:40.627758-05:00",
+    "symbols": [
+      "KSS"
+    ],
+    "headline": "Abercrombie &amp; Fitch Posts Strong Q3 Results, Joins Insmed, Kohls And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T10:53:40.848827-05:00",
+    "symbols": [
+      "DLTR"
+    ],
+    "headline": "Abercrombie &amp; Fitch Posts Strong Q3 Results, Joins Insmed, Kohls And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T10:53:40.854331-05:00",
+    "symbols": [
+      "DLTR"
+    ],
+    "headline": "Target Stock Hits 52-Week High: What&#39;s Driving Shares?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T10:53:41.076210-05:00",
+    "symbols": [
+      "SYM"
+    ],
+    "headline": "Abercrombie &amp; Fitch Posts Strong Q3 Results, Joins Insmed, Kohls And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

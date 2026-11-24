@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-24T11:13:48.859363-05:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "GameStop Stock Hovers Near Flatline: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-24T11:13:51.682228-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "This UGI Analyst Is No Longer Bullish; Here Are Top 5 Downgrades For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T11:13:52.335749-05:00",
-    "symbols": [
-      "JD"
-    ],
-    "headline": "JP Morgan Maintains Overweight on JD.com, Raises Price Target to $42",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T11:13:53.645881-05:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T11:13:53.890388-05:00",
-    "symbols": [
-      "CAT"
-    ],
-    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T11:13:54.125335-05:00",
-    "symbols": [
-      "JPM"
-    ],
-    "headline": "Bank of America Short Interest Falls From October Peak",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-24T11:13:55.442485-05:00",
     "symbols": [
       "NVO"
@@ -4998,5 +4938,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T15:12:54.450578-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Jensen Huang Return to Nvidia: Positive for Even the Broader AI Ecosystem",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T15:12:54.455222-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "TSMC&#39;s $22.6 Billion Texas Chip Plant Hinges on Two Tax Breaks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T15:12:54.518333-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "TSMC&#39;s $22.6 Billion Texas Chip Plant Hinges on Two Tax Breaks",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T15:12:56.720310-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Zscaler Analysts Weigh CrowdStrike&#39;s $43.9 Billion Takeover",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-24T15:12:56.785217-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Zscaler Analysts Weigh CrowdStrike&#39;s $43.9 Billion Takeover",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T15:12:57.163359-05:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Zscaler Analysts Weigh CrowdStrike&#39;s $43.9 Billion Takeover",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

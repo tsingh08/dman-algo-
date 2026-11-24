@@ -1,175 +1,5 @@
 [
   {
-    "ts": "2026-11-23T14:02:35.218004-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Palo Alto Networks Partners with PGA Tour for Challenger Series Sponsorship",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T14:02:35.435269-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly Announces Innovation Day 2026",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T14:02:35.647374-05:00",
-    "symbols": [
-      "FDX"
-    ],
-    "headline": "FedEx Announces 2026 Five-Star Program Grant Recipients",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T14:02:35.861550-05:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Goldman Sachs to Host 2026 Financial Services Conference",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T14:02:36.071173-05:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Datadog Named a Challenger in the 2026 Gartner Magic Quadrant for SIEM",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T14:02:36.308647-05:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "RTX Partners with Cohen Veterans Network to Address Food Insecurity",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T14:02:36.608439-05:00",
-    "symbols": [
-      "BIIB"
-    ],
-    "headline": "Biogen and Stoke Therapeutics Announce Long-Term Clinical Data for Zorevunersen",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T14:02:36.817475-05:00",
-    "symbols": [
-      "AFRM"
-    ],
-    "headline": "USD.AI Appoints Former Affirm Capital Markets Director Tony Giacin",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T14:13:46.226712-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Hakeem Jeffries Issues Statement On Jensen Huang Being Reinstated; Says Decision Is &#39;Indefensible, Irresponsible And Incomprehensible&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T14:14:01.863136-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "Hakeem Jeffries Issues Statement On Jensen Huang Being Reinstated; Says Decision Is &#39;Indefensible, Irresponsible And Incomprehensible&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T14:24:48.846250-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Steve Jobs, Larry Page, Jensen Huang: Why Big Tech Keeps Going Back to Its Founders",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T14:24:49.271514-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Jim Cramer, Anthony Pompliano Say Nvidia Board Has to Resign: \u2018Disloyalty Has to Have Repercussions\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T14:24:49.274726-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Alphabet Stock Pops: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T14:24:49.277745-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Jensen Huang To Nvidia Employees Says I\u2019m Going To Be A Better CEO The Second Time Around",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T14:24:49.280795-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Steve Jobs, Larry Page, Jensen Huang: Why Big Tech Keeps Going Back to Its Founders",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T14:24:50.300165-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Alphabet Stock Pops: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T14:24:50.303639-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Steve Jobs, Larry Page, Jensen Huang: Why Big Tech Keeps Going Back to Its Founders",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-23T14:25:16.638084-05:00",
     "symbols": [
       "P"
@@ -4998,5 +4828,175 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T09:58:03.228405-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Freedom Capital Markets Maintains Buy Rating on Nebius",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T09:58:03.233797-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nebius Secures 80 MW AI Infrastructure Contract with Mega DC",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T09:58:04.367148-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is Intel Stock Pulling Back After Monday\u2019s Semiconductor Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T09:58:04.640592-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Why Is Intel Stock Pulling Back After Monday\u2019s Semiconductor Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T09:58:06.913842-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Why Is Intel Stock Pulling Back After Monday\u2019s Semiconductor Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T09:58:13.189350-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Bernstein Maintains Market Perform on CrowdStrike Holdings, Lowers Price Target to $174",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-24T09:58:13.661371-05:00",
+    "symbols": [
+      "DDOG"
+    ],
+    "headline": "Datadog Named a Challenger in the 2026 Gartner Magic Quadrant for SIEM",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T09:58:16.852149-05:00",
+    "symbols": [
+      "RTX"
+    ],
+    "headline": "Bernstein Maintains Market Perform on RTX, Raises Price Target to $231",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T09:58:17.546208-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs to Host 2026 Financial Services Conference",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T09:58:19.639826-05:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "FedEx Announces 2026 Five-Star Program Grant Recipients",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T09:58:19.914719-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Why Is Intel Stock Pulling Back After Monday\u2019s Semiconductor Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T09:58:20.226941-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Why Is Intel Stock Pulling Back After Monday\u2019s Semiconductor Rally",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T09:58:21.007789-05:00",
+    "symbols": [
+      "AKAN"
+    ],
+    "headline": "Nasdaq Down Over 400 Points; Best Buy Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T09:58:28.047329-05:00",
+    "symbols": [
+      "BENF"
+    ],
+    "headline": "Nasdaq Down Over 400 Points; Best Buy Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T09:58:28.263658-05:00",
+    "symbols": [
+      "LGHL"
+    ],
+    "headline": "Nasdaq Down Over 400 Points; Best Buy Earnings Top Views",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T09:58:30.414753-05:00",
+    "symbols": [
+      "ALDX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T09:58:30.419513-05:00",
+    "symbols": [
+      "ALDX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Monday&#39;s After-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

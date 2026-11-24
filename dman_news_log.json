@@ -1,275 +1,5 @@
 [
   {
-    "ts": "2026-11-23T15:57:21.909087-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "TD Cowen Reiterates Buy on CrowdStrike Holdings, Maintains $280 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-23T15:57:24.426048-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T15:57:29.067942-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T15:57:33.527476-05:00",
-    "symbols": [
-      "KEEL"
-    ],
-    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T16:02:34.880148-05:00",
-    "symbols": [
-      "NVO"
-    ],
-    "headline": "Product Liability Lawsuit Filed Against Novo Nordisk",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T16:02:58.108314-05:00",
-    "symbols": [
-      "AXTI"
-    ],
-    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T16:02:58.330262-05:00",
-    "symbols": [
-      "BSP"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Bending Spoons, Raises Price Target to $52",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T16:32:35.083884-05:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "FDA Approves AbbVie's RINVOQ for Nonsegmental Vitiligo",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T16:32:35.301871-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon to Acquire AI Startup Decart",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T16:32:35.305192-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Jury Reaches Verdict in Amazon's Lawsuit Against Northstar Commercial Partners",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T20:02:35.187200-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Plans Return of (PRODUCT)RED Lineup",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T20:02:35.393530-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly and Company to Present New Breast Cancer Portfolio Data at Upcoming Symposium",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T20:02:35.628537-05:00",
-    "symbols": [
-      "GMM"
-    ],
-    "headline": "Portnoy Law Firm Announces Investigation into Global Mofy AI Limited",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T20:03:35.086048-05:00",
-    "symbols": [
-      "BTDR"
-    ],
-    "headline": "B. Riley Cuts Price Target on Bitdeer Technologies Group to $12 From $19",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T09:26:00.745997-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Why Tesla-SpaceX Merger Talks Face \u2018More Friction Than People Assume\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:26:00.750725-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Congress Isn\u2019t Done With Jensen Huang: Nvidia CEO Still Faces Probe Into Chip Smuggling to China",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:26:00.755995-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Robert Reich Blasts Trump\u2019s Nvidia Intervention as \u2018Rotten,\u2019 Says Jensen Huang Has Become \u2018Too Big to Fail\u2019 \u2014 but Elon Musk Celebrates",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:26:00.761179-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk&#39;s $3.5 Trillion SpaceX-Tesla Merger Gets a Five-Director Team \u2014 But They Face a Tough Test: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:26:00.765517-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Jim Farley\u2019s Ford Makes Unexpected Space Move, Eyes $1.8 Trillion Opportunity With New Bet Against Elon Musk\u2019s SpaceX",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:26:01.191428-05:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Applied Digital Completes Base-Build Commissioning For First 75 MW Of Initial 150 MW Data Center Building At Polaris Forge 2 In Harwood, North Dakota",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:26:01.457563-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Attorney General Bonta Files Amicus Brief in Epic v. Apple; Asks U.S. Supreme Court to Affirm That Apple Cannot Sidestep Court Order",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T09:26:01.736480-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Big Tech Just Became a Value Trade \u2014 Something Wall Street Hasn&#39;t Seen in 20 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T09:26:01.741791-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Nvidia Drops 5% After Jensen Huang\u2019s Return Rally Sparks Washington Backlash",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T09:26:01.746534-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;Anthropic and OpenAI employees fear unreleased AI models are too unsafe to release&#39; - Axios Exclusive",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T09:26:01.962597-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Big Tech Just Became a Value Trade \u2014 Something Wall Street Hasn&#39;t Seen in 20 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T09:26:01.967032-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Trump Is Bringing Tariffs Back, and China Will Likely Get Hit Hardest: WSJ",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T09:26:01.971315-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "StoneX Upgrades NVIDIA to Buy, Announces $270 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-24T09:26:01.976209-05:00",
     "symbols": [
       "NVDA"
@@ -4996,6 +4726,276 @@
     ],
     "headline": "Freeport-McMoRan's Indonesian Joint Venture Closes $750 Million Senior Notes Offering",
     "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T11:13:40.907981-05:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Why Is Applied Digital Stock Trading Lower Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T11:13:41.493785-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Has Declared &#39;Code Red&#39; For M365 Core Service Health After Nov 12 Outage, Internal Memos Show",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T11:13:41.785904-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Dell Stock Is Falling Today Despite a 133% Rally in 2026?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-24T11:13:41.791713-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Shorts Made $13.7 Billion Betting Against Nvidia Stock After Huang\u2019s Exit: If They Held, Monday Wiped Out Nearly 90% of Their Gains",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-24T11:13:41.798103-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-24T11:13:41.803595-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is Applied Digital Stock Trading Lower Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-24T11:13:43.369715-05:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T11:13:44.525475-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T11:13:47.516235-05:00",
+    "symbols": [
+      "ABBV"
+    ],
+    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T11:13:47.736474-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T11:13:48.859363-05:00",
+    "symbols": [
+      "GME"
+    ],
+    "headline": "GameStop Stock Hovers Near Flatline: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-24T11:13:51.682228-05:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "This UGI Analyst Is No Longer Bullish; Here Are Top 5 Downgrades For Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T11:13:52.335749-05:00",
+    "symbols": [
+      "JD"
+    ],
+    "headline": "JP Morgan Maintains Overweight on JD.com, Raises Price Target to $42",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T11:13:53.645881-05:00",
+    "symbols": [
+      "GE"
+    ],
+    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T11:13:53.890388-05:00",
+    "symbols": [
+      "CAT"
+    ],
+    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T11:13:54.125335-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "Bank of America Short Interest Falls From October Peak",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T11:13:55.442485-05:00",
+    "symbols": [
+      "NVO"
+    ],
+    "headline": "Product Liability Lawsuit Filed Against Novo Nordisk",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T11:13:55.874789-05:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T11:13:56.307031-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T11:13:56.746194-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "&#39;Trump administration officials debating targeting Iran\u2019s leaders, sources say&#39; -NBC News Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T11:13:56.751537-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T11:13:56.974389-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T11:13:56.979793-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Why Is Applied Digital Stock Trading Lower Today?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T11:13:57.197409-05:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T11:13:58.714097-05:00",
+    "symbols": [
+      "BTDR"
+    ],
+    "headline": "B. Riley Cuts Price Target on Bitdeer Technologies Group to $12 From $19",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T11:14:00.216439-05:00",
+    "symbols": [
+      "GMM"
+    ],
+    "headline": "Portnoy Law Firm Announces Investigation into Global Mofy AI Limited",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T11:14:01.634741-05:00",
+    "symbols": [
+      "LCID"
+    ],
+    "headline": "Lucid Stock Rises As Robotaxi Testing Begins: What&#39;s Happening?",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
   }

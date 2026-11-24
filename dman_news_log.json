@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-24T11:13:44.525475-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T11:13:47.516235-05:00",
-    "symbols": [
-      "ABBV"
-    ],
-    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T11:13:47.736474-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-24T11:13:48.859363-05:00",
     "symbols": [
       "GME"
@@ -4995,6 +4965,36 @@
       "SYM"
     ],
     "headline": "Abercrombie &amp; Fitch Posts Strong Q3 Results, Joins Insmed, Kohls And Other Big Stocks Moving Higher On Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T15:02:34.980150-05:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Visa, Mastercard Seen Gaining From Expansion of Tokenized Payments, UBS Says",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T15:02:40.462534-05:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Nova Registry and Linkme Announce Strategic Partnership with Cloudflare Registrar",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T15:02:40.498625-05:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "Freeport-McMoRan's Indonesian Joint Venture Closes $750 Million Senior Notes Offering",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"

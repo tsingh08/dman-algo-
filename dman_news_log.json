@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-23T15:15:39.555031-05:00",
-    "symbols": [
-      "BBY"
-    ],
-    "headline": "Stock Market: Will S&amp;P 500 Open Up or Down Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T15:15:39.681912-05:00",
-    "symbols": [
-      "VPG"
-    ],
-    "headline": "Vishay Precision Group, Inc. to Present at Sidoti 2026 Year End Virtual Investor Conference",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T15:15:39.736808-05:00",
-    "symbols": [
-      "HPK"
-    ],
-    "headline": "HighPeak Energy, Inc. Completes Comprehensive Refinancing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-23T15:15:39.908979-05:00",
     "symbols": [
       "RLMD"
@@ -4995,6 +4965,36 @@
       "SYM"
     ],
     "headline": "Symbotic CEO Sees \u2018Path To Unlocking\u2019 $5 Billion-Plus Order Beyond $7 Billion Walmart Expansion",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T10:30:51.176399-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is IREN Stock Falling on Tuesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T10:30:54.777664-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Oppenheimer Maintains Outperform on Marvell Technology, Lowers Price Target to $325",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T10:31:20.829364-05:00",
+    "symbols": [
+      "SYM"
+    ],
+    "headline": "Oppenheimer Maintains Outperform on Symbotic, Raises Price Target to $87",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"

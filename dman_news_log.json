@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-24T09:42:08.958010-05:00",
-    "symbols": [
-      "GCL"
-    ],
-    "headline": "GCL Global Holdings Regains Compliance With Nasdaq&#39;s Minimum Bid Price Requirement",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-24T09:58:03.228405-05:00",
     "symbols": [
       "NBIS"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T13:49:04.128206-05:00",
+    "symbols": [
+      "ANF"
+    ],
+    "headline": "BTIG Maintains Buy on Abercrombie &amp; Fitch, Raises Price Target to $205",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

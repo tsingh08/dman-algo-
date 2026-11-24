@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-11-23T13:51:41.499736-05:00",
-    "symbols": [
-      "MARA"
-    ],
-    "headline": "CoreWeave Stock Surges After Nvidia Reinstates Jensen Huang as CEO",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T13:51:42.553206-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Palo Alto Networks&#39; Acquisition Spree Continues During $44 Billion CrowdStrike, Zscaler Cybersecurity Megadeal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T13:51:47.238889-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Huang Reinstated\u2014Time To Add Positions In AI And Semi Stocks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T13:51:50.562375-05:00",
-    "symbols": [
-      "HIVE"
-    ],
-    "headline": "CoreWeave Stock Surges After Nvidia Reinstates Jensen Huang as CEO",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T13:51:50.982574-05:00",
-    "symbols": [
-      "KEEL"
-    ],
-    "headline": "CoreWeave Stock Surges After Nvidia Reinstates Jensen Huang as CEO",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T13:51:55.402204-05:00",
-    "symbols": [
-      "CRWV"
-    ],
-    "headline": "CoreWeave Stock Surges After Nvidia Reinstates Jensen Huang as CEO",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T13:51:55.823830-05:00",
-    "symbols": [
-      "IREN"
-    ],
-    "headline": "CoreWeave Stock Surges After Nvidia Reinstates Jensen Huang as CEO",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T14:02:34.867617-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Elon Musk Comments on SpaceX's AI Development Progress",
-    "source": "fiscal.ai",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T14:02:34.874717-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Tesla Releases New FSD v15 Self-Driving Software",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-23T14:02:34.878549-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Amazon Acquires AI Startup Decart",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-23T14:02:35.218004-05:00",
     "symbols": [
       "PANW"
@@ -4995,6 +4895,106 @@
       "BBIO"
     ],
     "headline": "BridgeBio Says FDA Granted Full Approval To Welgemda For Limb-Girdle Muscular Dystrophy Type 2I/R9; Receives Priority Review Voucher, Plans Immediate U.S. Launch",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T09:41:39.993378-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "CoreWeave Stock Surges After Nvidia Reinstates Jensen Huang as CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T09:41:46.479116-05:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "CoreWeave Stock Surges After Nvidia Reinstates Jensen Huang as CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T09:41:51.233002-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto Networks&#39; Acquisition Spree Continues During $44 Billion CrowdStrike, Zscaler Cybersecurity Megadeal",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T09:41:52.124877-05:00",
+    "symbols": [
+      "MARA"
+    ],
+    "headline": "CoreWeave Stock Surges After Nvidia Reinstates Jensen Huang as CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T09:42:01.429561-05:00",
+    "symbols": [
+      "HIVE"
+    ],
+    "headline": "CoreWeave Stock Surges After Nvidia Reinstates Jensen Huang as CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T09:42:02.155341-05:00",
+    "symbols": [
+      "KEEL"
+    ],
+    "headline": "CoreWeave Stock Surges After Nvidia Reinstates Jensen Huang as CEO",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T09:42:08.052362-05:00",
+    "symbols": [
+      "ALTG"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T09:42:08.058218-05:00",
+    "symbols": [
+      "ALTG"
+    ],
+    "headline": "Alta Equipment Group Stock Climbs 15.84% After-Hours: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T09:42:08.062833-05:00",
+    "symbols": [
+      "ALTG"
+    ],
+    "headline": "Alta Equipment Group Agrees To Acquire Jackson Group Peterbilt For Estimated Enterprise Value Of ~$399M",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T09:42:08.958010-05:00",
+    "symbols": [
+      "GCL"
+    ],
+    "headline": "GCL Global Holdings Regains Compliance With Nasdaq&#39;s Minimum Bid Price Requirement",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

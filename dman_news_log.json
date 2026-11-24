@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-24T09:32:34.778861-05:00",
-    "symbols": [
-      "CRM"
-    ],
-    "headline": "Salesforce Joins Industry Backing for Open Standard in AI Agent Context Sharing",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-24T09:32:34.880175-05:00",
     "symbols": [
       "UBER"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T12:03:34.929359-05:00",
+    "symbols": [
+      "RIG"
+    ],
+    "headline": "Transocean to Join S&P MidCap 400 Index",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

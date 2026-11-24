@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-23T15:57:21.696643-05:00",
-    "symbols": [
-      "ARM"
-    ],
-    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-23T15:57:21.909087-05:00",
     "symbols": [
       "CRWD"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T11:03:35.132935-05:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "Freeport-McMoRan's Indonesian Joint Venture Closes $750 Million Senior Notes Offering",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

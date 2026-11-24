@@ -32736,7 +32736,7 @@ class TestFridayCloseoutNamesRealPositions(unittest.TestCase):
     """Fri 2026-11-20 sent "Open: TMDX, SGRY" three times with nothing held:
     it listed pending alert-only signals and had no dedup."""
 
-    def _run(self, positions, calls=2):
+    def _run(self, positions, calls=2, when=None):
         import datetime as _dt
         d = tempfile.mkdtemp()
         pos = os.path.join(d, "pos.json")
@@ -32745,7 +32745,7 @@ class TestFridayCloseoutNamesRealPositions(unittest.TestCase):
             json.dump(positions, f)
         with open(sig, "w") as f:
             json.dump({"pending": [{"ticker": "TMDX"}, {"ticker": "SGRY"}]}, f)
-        fri = _dt.datetime(2026, 11, 20, 15, 33, tzinfo=a.ET)
+        fri = when or _dt.datetime(2026, 11, 20, 15, 33, tzinfo=a.ET)
         with patch.object(a, "datetime") as dtm, \
              patch.object(a, "POSITIONS_FILE", pos), \
              patch.object(a, "LIVE_SIGNALS_FILE", sig), \
@@ -32772,6 +32772,17 @@ class TestFridayCloseoutNamesRealPositions(unittest.TestCase):
     def test_once_per_friday_and_core_holds_ignored(self):
         self._run([{"ticker": "AVGO"}], calls=3).assert_not_called()
         self._run([{"ticker": "AMD"}], calls=3).assert_called_once()
+
+    def test_half_day_fires_before_the_one_pm_close(self):
+        import datetime as _dt
+        # Fri 2026-11-27 closes at 13:00: 12:40 is 20 min to close...
+        tg = self._run([{"ticker": "AMD"}],
+                       when=_dt.datetime(2026, 11, 27, 12, 40, tzinfo=a.ET))
+        tg.assert_called_once()
+        self.assertIn("20 min to close", tg.call_args[0][0])
+        # ...and 15:33 is after it, so nothing goes out.
+        self._run([{"ticker": "AMD"}],
+                  when=_dt.datetime(2026, 11, 27, 15, 33, tzinfo=a.ET)).assert_not_called()
 
 
 class TestProbationSkipsSetupsThatCannotTrade(unittest.TestCase):

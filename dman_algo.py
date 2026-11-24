@@ -28191,8 +28191,14 @@ def _scan_friday_closeout():
     try:
         _now_co = datetime.now(ET)
         if _now_co.weekday() == 4:  # Friday
-            _hhmm_co = _now_co.hour * 100 + _now_co.minute
-            if 1530 <= _hhmm_co <= 1559:
+            # The last 30 minutes before THIS session's close. A fixed
+            # 15:30-15:59 never arrives in-session on a 1 PM early close --
+            # the Friday after Thanksgiving is always one -- so the reminder
+            # was skipped on exactly the Friday before a long weekend.
+            _ch_co, _cm_co = _session_close_hm(_now_co.date())
+            _close_min_co = _ch_co * 60 + _cm_co
+            _now_min_co = _now_co.hour * 60 + _now_co.minute
+            if _close_min_co - 30 <= _now_min_co < _close_min_co:
                 _key_co = f"__FRIDAY_CLOSEOUT__:{_now_co.date().isoformat()}"
                 if _is_alerted_today(_key_co):
                     return
@@ -28204,7 +28210,7 @@ def _scan_friday_closeout():
                                        and not _is_core_hold(p.get("ticker"))]
                 if not _pending_co:
                     return
-                _mins_left = (16 * 60) - (_now_co.hour * 60 + _now_co.minute)
+                _mins_left = _close_min_co - _now_min_co
                 # Find upcoming FOMC within 7 days
                 _td_co = _now_co.date()
                 _fomc_co = ""

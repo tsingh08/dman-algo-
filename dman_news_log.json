@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-23T13:51:40.659358-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Palo Alto Networks&#39; Acquisition Spree Continues During $44 Billion CrowdStrike, Zscaler Cybersecurity Megadeal",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-23T13:51:41.499736-05:00",
     "symbols": [
       "MARA"
@@ -3768,6 +3758,16 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T09:35:34.909113-05:00",
+    "symbols": [
+      "LUNR"
+    ],
+    "headline": "Mizuho Securities Initiates Coverage on Intuitive Machines With Outperform Rating",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
   },
   {
     "ts": "2026-11-24T09:36:41.499071-05:00",

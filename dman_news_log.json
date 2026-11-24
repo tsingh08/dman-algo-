@@ -1,385 +1,5 @@
 [
   {
-    "ts": "2026-11-24T09:32:34.880175-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Uber, Lucid, and Nuro Begin Driverless Robotaxi Testing in San Francisco Bay Area",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:32:34.896470-05:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "RTX's Raytheon Selected to Advance Development of Submarine-Launched Missile for U.S. Navy",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:32:34.934117-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "J.P. Morgan Maintains Buy Rating and $355 Price Target for Apple",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T09:33:35.176108-05:00",
-    "symbols": [
-      "GILD"
-    ],
-    "headline": "William Blair Initiates Coverage of Gilead Sciences with Outperform Rating",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:33:35.182309-05:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Form3 Partners with Coinbase Infrastructure to Enable Stablecoin Payments",
-    "source": "fiscal.ai",
-    "tag": "macro",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T09:33:35.189010-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Seaport Initiates Coverage of Tesla with Buy Rating",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:33:35.194686-05:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Mizuho Initiates Lockheed Martin at Outperform With $765 Price Target",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T09:33:35.485007-05:00",
-    "symbols": [
-      "ANET"
-    ],
-    "headline": "BNP Paribas Adjusts Price Target on Arista Networks to $260 From $290",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T09:33:35.490871-05:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "Seaport Initiates Rivian Automotive at Buy With $18 Price Target",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T09:33:35.497704-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "BNP Paribas Adjusts Broadcom Price Target",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:33:35.503032-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Multiple Analysts Adjust Price Targets for CrowdStrike Holdings",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-24T09:33:35.508664-05:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "BNP Paribas Adopts Positive Stance on Marvell Technology",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:33:35.514071-05:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Oppenheimer Adjusts Price Target on Marvell Technology to $325 From $425",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:34:35.176137-05:00",
-    "symbols": [
-      "LUMN"
-    ],
-    "headline": "Netskrt Highlights Partnership with Lumen Technologies in Series B Funding Announcement",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T09:34:35.184916-05:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Applied Digital Completes Base-Build Commissioning and Achieves Ready for Service at Polaris Forge 2",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:34:55.649143-05:00",
-    "symbols": [
-      "COGT"
-    ],
-    "headline": "Cogent Biosciences Announces FDA Approval and Launch of EKITNA\u2122 (bezuclastinib) for GIST",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T09:35:34.909113-05:00",
-    "symbols": [
-      "LUNR"
-    ],
-    "headline": "Mizuho Securities Initiates Coverage on Intuitive Machines With Outperform Rating",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:36:41.499071-05:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Coinbase Brings Trading to ChatGPT. Is Robinhood Facing a New Rival?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T09:36:45.598511-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Argus Research Maintains Buy on CrowdStrike Holdings, Lowers Price Target to $350",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-24T09:36:46.221001-05:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "Coinbase Brings Trading to ChatGPT. Is Robinhood Facing a New Rival?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T09:36:52.142656-05:00",
-    "symbols": [
-      "BNAI"
-    ],
-    "headline": "A 3,167% Revenue Surge Can&#39;t Hide This AI Company&#39;s Financial Troubles",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T09:36:52.145608-05:00",
-    "symbols": [
-      "BNAI"
-    ],
-    "headline": "Brand Engagement Network To Issue Cohen &amp; Co. Two-Year Warrant For 63,334 Shares At Exercise Price Of $12.00/Share As Part Of Settlement",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T09:36:52.148229-05:00",
-    "symbols": [
-      "BNAI"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Monday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T09:36:52.553920-05:00",
-    "symbols": [
-      "KYMR"
-    ],
-    "headline": "RBC Capital Maintains Sector Perform on Kymera Therapeutics, Raises Price Target to $145",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:36:52.556791-05:00",
-    "symbols": [
-      "KYMR"
-    ],
-    "headline": "Guggenheim Maintains Buy on Kymera Therapeutics, Raises Price Target to $235",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:36:52.559315-05:00",
-    "symbols": [
-      "KYMR"
-    ],
-    "headline": "Morgan Stanley Maintains Overweight on Kymera Therapeutics, Raises Price Target to $198",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:36:52.561768-05:00",
-    "symbols": [
-      "KYMR"
-    ],
-    "headline": "BTIG Maintains Buy on Kymera Therapeutics, Raises Price Target to $201",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:36:52.564250-05:00",
-    "symbols": [
-      "KYMR"
-    ],
-    "headline": "Reported Earlier, Kymera Therapeutics Prices $1.75B Public Offering Of 11.64M Shares At $150.37/Share",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:36:52.782600-05:00",
-    "symbols": [
-      "BURL"
-    ],
-    "headline": "Burlington Stores Sees Q4 Adj EPS $4.85-$4.95 vs $5.20 Est; Sees Sales $3.897B-$3.970B vs $3.969B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T09:36:52.785396-05:00",
-    "symbols": [
-      "BURL"
-    ],
-    "headline": "Burlington Stores Lowers FY2026 Adj EPS Guidance from $11.77-$11.97 to $11.70-$11.80 vs $11.79 Est; Lowers FY2026 Sales Guidance from $12.724B-$12.839B to $12.705B vs $12.817B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T09:36:52.787916-05:00",
-    "symbols": [
-      "BURL"
-    ],
-    "headline": "Burlington Stores Q3 Adj. EPS $1.73, Inline, Sales $2.937B Miss $2.982B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T09:36:53.007553-05:00",
-    "symbols": [
-      "CENTA"
-    ],
-    "headline": "Hewlett Packard Enterprise, Semtech, Dell And Other Big Stocks Moving Lower In Tuesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T09:36:53.010319-05:00",
-    "symbols": [
-      "CENTA"
-    ],
-    "headline": "Central Garden &amp; Pet FY2027  Adj EPS expected to be more than $2.65 vs $3.14 Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T09:36:53.012817-05:00",
-    "symbols": [
-      "CENTA"
-    ],
-    "headline": "Central Garden &amp; Pet Q4 Adj. EPS $(0.04) Beats $(0.06) Estimate, Sales $537.466M Miss $599.520M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T09:36:53.219087-05:00",
-    "symbols": [
-      "AVTX"
-    ],
-    "headline": "Avalo Therapeutics to Participate in Upcoming Investor Conferences",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T09:36:53.655748-05:00",
-    "symbols": [
-      "MGN"
-    ],
-    "headline": "Magnora Data Center ASA Provides Project Progress and Commercial Traction Update",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T09:36:53.865146-05:00",
-    "symbols": [
-      "BBY"
-    ],
-    "headline": "Best Buy Co Raises FY2027 Adj EPS Guidance from $6.70-$6.90 to $6.90-$7.05 vs $6.81 Est; Raises FY2027 Sales Guidance from $42.300B-$42.800B to $43.000B-$43.300B vs $42.668B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:36:53.868130-05:00",
-    "symbols": [
-      "BBY"
-    ],
-    "headline": "Best Buy Co Q3 Adj. EPS $1.62 Beats $1.49 Estimate, Sales $10.236B Beat $9.892B Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-24T09:36:53.870745-05:00",
     "symbols": [
       "BBY"
@@ -4998,5 +4618,385 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T12:13:41.292142-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Wall Street Loved Nvidia Yesterday. Today, It\u2019s Buying This 3X Bear ETF",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-24T12:13:41.513530-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Wall Street Loved Nvidia Yesterday. Today, It\u2019s Buying This 3X Bear ETF",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T12:13:41.786953-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Wall Street Loved Nvidia Yesterday. Today, It\u2019s Buying This 3X Bear ETF",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T12:13:42.059159-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Wall Street Loved Nvidia Yesterday. Today, It\u2019s Buying This 3X Bear ETF",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T12:13:42.354744-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Wall Street Loved Nvidia Yesterday. Today, It\u2019s Buying This 3X Bear ETF",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T12:13:43.041274-05:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Joins Industry Backing for Open Standard in AI Agent Context Sharing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T12:13:44.463543-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Wall Street Loved Nvidia Yesterday. Today, It\u2019s Buying This 3X Bear ETF",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T12:13:45.124660-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Wall Street Loved Nvidia Yesterday. Today, It\u2019s Buying This 3X Bear ETF",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T12:13:45.641292-05:00",
+    "symbols": [
+      "ON"
+    ],
+    "headline": "Wall Street Loved Nvidia Yesterday. Today, It\u2019s Buying This 3X Bear ETF",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T12:13:47.703238-05:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "William Blair Initiates Coverage of Gilead Sciences with Outperform Rating",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T12:13:49.425147-05:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "BNP Paribas Adjusts Price Target on Arista Networks to $260 From $290",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T12:13:53.979806-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Clapp Finance Launches Crypto Card on Visa Network",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T12:13:53.985220-05:00",
+    "symbols": [
+      "V"
+    ],
+    "headline": "Odola Fintech Platform to Offer Visa Debit Card for Migrant Workers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T12:13:55.848792-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Wall Street Loved Nvidia Yesterday. Today, It\u2019s Buying This 3X Bear ETF",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T12:13:57.364786-05:00",
+    "symbols": [
+      "AKAN"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T12:14:01.253088-05:00",
+    "symbols": [
+      "LUMN"
+    ],
+    "headline": "Netskrt Highlights Partnership with Lumen Technologies in Series B Funding Announcement",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T12:14:02.712397-05:00",
+    "symbols": [
+      "PASW"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T12:14:04.470371-05:00",
+    "symbols": [
+      "VNET"
+    ],
+    "headline": "11 Information Technology Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-24T12:14:04.685462-05:00",
+    "symbols": [
+      "FGL"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T12:14:05.346873-05:00",
+    "symbols": [
+      "YFOR"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T12:14:05.921074-05:00",
+    "symbols": [
+      "APUS"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T12:14:06.141686-05:00",
+    "symbols": [
+      "EMBC"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T12:14:06.146970-05:00",
+    "symbols": [
+      "EMBC"
+    ],
+    "headline": "Gold Down 2%; Dollar Tree Shares Jump After Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T12:14:06.586643-05:00",
+    "symbols": [
+      "AMTM"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T12:14:06.591848-05:00",
+    "symbols": [
+      "AMTM"
+    ],
+    "headline": "Gold Down 2%; Dollar Tree Shares Jump After Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T12:14:06.810276-05:00",
+    "symbols": [
+      "ANF"
+    ],
+    "headline": "QUICK SPARK: Abercrombie &amp; Fitch Just Did It Again \u2014 a Third 20% Earnings Jump in 12 Months",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T12:14:06.815997-05:00",
+    "symbols": [
+      "ANF"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T12:14:06.821516-05:00",
+    "symbols": [
+      "ANF"
+    ],
+    "headline": "Gold Down 2%; Dollar Tree Shares Jump After Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T12:14:07.045023-05:00",
+    "symbols": [
+      "BDRX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T12:14:07.743811-05:00",
+    "symbols": [
+      "ALDX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T12:14:08.192538-05:00",
+    "symbols": [
+      "DLTR"
+    ],
+    "headline": "Gold Down 2%; Dollar Tree Shares Jump After Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T12:14:09.854826-05:00",
+    "symbols": [
+      "ALTG"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T12:14:10.074661-05:00",
+    "symbols": [
+      "KSS"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T12:14:10.079994-05:00",
+    "symbols": [
+      "KSS"
+    ],
+    "headline": "Kohl&#39;s Shares Rally on Confidence in Holiday Readiness",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T12:14:11.371796-05:00",
+    "symbols": [
+      "VIVS"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T12:14:11.857185-05:00",
+    "symbols": [
+      "TRXB"
+    ],
+    "headline": "12 Health Care Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T12:14:14.010500-05:00",
+    "symbols": [
+      "LVWR"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Tuesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T12:14:14.231749-05:00",
+    "symbols": [
+      "SYM"
+    ],
+    "headline": "Craig-Hallum Maintains Buy on Symbotic, Lowers Price Target to $50",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

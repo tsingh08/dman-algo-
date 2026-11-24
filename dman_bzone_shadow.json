@@ -2698,5 +2698,35 @@
 "extension_pct": 19.2,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "TGT",
+"date": "2026-11-24",
+"close": 176.06,
+"base_days": 64,
+"above_low_pct": 115.5,
+"extension_pct": 10.6,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "KYMR",
+"date": "2026-11-24",
+"close": 173.92,
+"base_days": 0,
+"above_low_pct": 170.6,
+"extension_pct": 35.9,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "TGTX",
+"date": "2026-11-24",
+"close": 70.13,
+"base_days": 9,
+"above_low_pct": 160.3,
+"extension_pct": 13.2,
+"fresh_base": false,
+"weak_band": false
 }
 ]

@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-11-24T09:26:29.828939-05:00",
-    "symbols": [
-      "HPE"
-    ],
-    "headline": "Stock Market Today: Dow, S&amp;P 500 Futures Fall After Scott Bessent Unveils Fresh Iran Sanctions, Hormuz Warnings \u2014 HPE, SMTC, DELL in Focus",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:26:30.043524-05:00",
-    "symbols": [
-      "BSP"
-    ],
-    "headline": "Evercore ISI Group Maintains In-Line on Bending Spoons, Raises Price Target to $48",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T09:26:30.254284-05:00",
-    "symbols": [
-      "BAK"
-    ],
-    "headline": "Braskem Restructuring Terms Include $2.25B Equity Rights Offering, $1.3B Backstopped By Main Shareholders; New Secured Debt At 10.5% Starting Rate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T09:26:30.259223-05:00",
-    "symbols": [
-      "BAK"
-    ],
-    "headline": "Braskem Reaches Agreement In Principle With Creditor Steering Committee On Restructuring Plan Terms; Seeks Up To ~$3.6B Debt Reduction",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T09:26:30.684616-05:00",
-    "symbols": [
-      "LEU"
-    ],
-    "headline": "Centrus Energy to Host Investor Day on December 7, 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-24T09:32:34.778861-05:00",
     "symbols": [
       "CRM"
@@ -4998,5 +4948,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T12:02:35.164594-05:00",
+    "symbols": [
+      "STLA"
+    ],
+    "headline": "Stellantis Renews Research Partnership with Politecnico di Torino",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T12:02:35.171254-05:00",
+    "symbols": [
+      "STLA"
+    ],
+    "headline": "Stellantis CEO Antonio Filosa to Participate in Goldman Sachs Industrials & Autos Week",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T12:02:35.178699-05:00",
+    "symbols": [
+      "NEM"
+    ],
+    "headline": "Director Transaction: Kurt Dobitsch Purchases Nemetschek SE Shares",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T12:03:08.779493-05:00",
+    "symbols": [
+      "OPTU"
+    ],
+    "headline": "Optimum Communications Engages with FCC on Permitting Reforms",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T12:03:08.794995-05:00",
+    "symbols": [
+      "BBIO"
+    ],
+    "headline": "B of A Securities Maintains Buy on BridgeBio Pharma, Raises Price Target to $104",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

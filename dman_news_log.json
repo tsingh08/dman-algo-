@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-11-23T15:46:28.234567-05:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "TD Cowen Reiterates Buy on Cloudflare, Maintains $375 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T15:46:33.006614-05:00",
-    "symbols": [
-      "GS"
-    ],
-    "headline": "Sen. Rafael E Cruz Has Sold Up to $500K Worth Of Goldman Sachs Group Stock: Here\u2019s What You Should Know",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T15:46:44.475940-05:00",
-    "symbols": [
-      "CRWV"
-    ],
-    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-23T15:46:47.437353-05:00",
-    "symbols": [
-      "ASST"
-    ],
-    "headline": "Strive ETFs Announce Primary Listing Transfer to NYSE Arca",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T15:46:47.441112-05:00",
-    "symbols": [
-      "ASST"
-    ],
-    "headline": "Strive Maintains Bitcoin Treasury Position Amid Market Downturn",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-23T15:57:14.918710-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "\u2018The Mistake Has Been Corrected\u2019: What Elon Musk, Bill Ackman and 7 Other Heavyweights Said About Jensen Huang\u2019s Comeback",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T15:57:16.061066-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "\u2018The Mistake Has Been Corrected\u2019: What Elon Musk, Bill Ackman and 7 Other Heavyweights Said About Jensen Huang\u2019s Comeback",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-23T15:57:16.940402-05:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T15:57:17.583241-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-23T15:57:18.598539-05:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Nvidia, Micron, Arm Holdings, Kymera Therapeutics And Other Big Stocks Moving Higher On Monday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-23T15:57:21.696643-05:00",
     "symbols": [
       "ARM"
@@ -4998,5 +4898,105 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T11:02:34.878067-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Secures 51MW Geothermal Energy Contract in New Zealand",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T11:02:34.884404-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Moody's Expands Data Integration with Snowflake Marketplace",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T11:02:34.891663-05:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Robinhood Launches Cboe KPI Binary Options for Earnings Trading",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T11:02:34.896440-05:00",
+    "symbols": [
+      "APP"
+    ],
+    "headline": "OpenClips.AI Integrates Playable Ad Generation for AppLovin",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T11:02:34.903008-05:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Uber Expands Platform to Include Train Ticket Sales in France",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T11:02:35.151685-05:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Nova Registry and Linkme Announce Strategic Partnership with Cloudflare Registrar",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T11:02:35.592159-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Oracle Commodity Holding Restores Royalty on Pulacayo-Paca Silver Project",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T11:02:35.597699-05:00",
+    "symbols": [
+      "XOM"
+    ],
+    "headline": "ExxonMobil Guyana Oil Output Expected to Exceed 1 Million Barrels Per Day",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T11:03:08.015891-05:00",
+    "symbols": [
+      "XCH"
+    ],
+    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-24T11:03:08.243134-05:00",
+    "symbols": [
+      "TEX"
+    ],
+    "headline": "Terex To Sell Its Aerials Segment, Including The Genie Brand, To Linamar For ~$1.4B In Cash",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

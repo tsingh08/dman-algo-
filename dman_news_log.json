@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-25T09:37:49.197783-05:00",
-    "symbols": [
-      "DKS"
-    ],
-    "headline": "Sailpoint To Rally Around 14%? Here Are 10 Top Analyst Forecasts For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-25T09:37:49.635413-05:00",
     "symbols": [
       "WVE"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T15:02:34.860486-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Supreme Court of British Columbia Rules in Class Action Regarding Supplement Labeling",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

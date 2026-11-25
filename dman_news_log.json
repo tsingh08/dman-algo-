@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-25T09:37:47.088611-05:00",
-    "symbols": [
-      "NTNX"
-    ],
-    "headline": "Stock Market Today: Dow, S&amp;P 500, Nasdaq Futures Fall as Traders Bet on December Fed Hike; Trump Tells Huang to \u2018Just Tell the Truth\u2019\u2014DELL, WDAY, ADSK in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-25T09:37:47.092898-05:00",
     "symbols": [
       "NTNX"
@@ -4998,5 +4988,15 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T14:05:34.849573-05:00",
+    "symbols": [
+      "BULL"
+    ],
+    "headline": "Webull Canada Announces Integration Project with TradingView",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-11-24T15:48:58.208639-05:00",
-    "symbols": [
-      "NAMS"
-    ],
-    "headline": "Abercrombie &amp; Fitch Posts Strong Q3 Results, Joins Insmed, Kohls And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T15:48:58.398867-05:00",
-    "symbols": [
-      "ELDN"
-    ],
-    "headline": "Eledon Pharmaceuticals Says Tegoprubart Used In Regimen For Pig Kidney Recipient Who Has Reached One Year Of Organ Survival, Longest Reported In A Living Human",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T15:48:58.601943-05:00",
-    "symbols": [
-      "ELDN"
-    ],
-    "headline": "Eledon Pharmaceuticals Notes That Patient With End Stage Kidney Disease Who Received Genetically Engineered Pig Kidney On November 22, 2025, Has Reached One Year Of Kidney Function",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T15:48:58.793701-05:00",
-    "symbols": [
-      "GHRS"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on GH Research, Lowers Price Target to $38",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T15:48:58.996453-05:00",
-    "symbols": [
-      "SMTC"
-    ],
-    "headline": "Anthropic Drops Below IPO Prices, Nvidia Sinks 7% After Record Rally: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T15:48:59.000187-05:00",
-    "symbols": [
-      "SMTC"
-    ],
-    "headline": "Craig-Hallum Maintains Buy on Semtech, Lowers Price Target to $160",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T15:48:59.003667-05:00",
-    "symbols": [
-      "SMTC"
-    ],
-    "headline": "Gold Down 2%; Dollar Tree Shares Jump After Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T15:48:59.007134-05:00",
-    "symbols": [
-      "SMTC"
-    ],
-    "headline": "TD Cowen Reiterates Buy on Semtech, Maintains $145 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-24T15:48:59.010595-05:00",
     "symbols": [
       "SMTC"
@@ -4998,5 +4918,85 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T11:02:34.855088-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Duracell and Amazon Partner for 'Power Playland on the Pier' Holiday Event",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T11:02:34.861093-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "UBS Adjusts Broadcom Price Target",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T11:02:35.071615-05:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "GE Vernova Launches Hypact-145g Hybrid Switchgear",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T11:02:35.074685-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Tradr ETFs Announces Upcoming Launch of Leveraged ETF Featuring Micron Technology, Inc.",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T11:02:35.077718-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "Goldman Sachs Reports Market Sentiment Indicator at Low Levels",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T11:02:35.268560-05:00",
+    "symbols": [
+      "GILD"
+    ],
+    "headline": "Gilead Sciences Announces First Generic Deliveries of Lenacapavir for HIV Prevention in Zambia",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-25T11:02:35.272113-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "CrowdStrike Announces Participation in Upcoming Investor Conferences",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T11:03:34.859855-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "CIBC Mellon Expands Use of Snowflake AI Data Cloud",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

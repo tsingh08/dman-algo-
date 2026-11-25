@@ -1,14 +1,5 @@
 [
  {
-  "ts": "2026-09-25T14:13:42.123301-04:00",
-  "ticker": "IBDT",
-  "price": 24.96,
-  "rvol": 1.53,
-  "drift_pct": 0.16,
-  "range_ratio": 0.48,
-  "near_high": 0.99
- },
- {
   "ts": "2026-09-25T14:13:42.123305-04:00",
   "ticker": "PRF",
   "price": 55.28,
@@ -4498,5 +4489,14 @@
   "drift_pct": 0.0,
   "range_ratio": 0.31,
   "near_high": 1.0
+ },
+ {
+  "ts": "2026-11-25T09:39:03.404967-05:00",
+  "ticker": "PDD",
+  "price": 86.76,
+  "rvol": 2.21,
+  "drift_pct": 0.88,
+  "range_ratio": 0.61,
+  "near_high": 0.995
  }
 ]

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-25T09:37:54.908205-05:00",
-    "symbols": [
-      "CMP"
-    ],
-    "headline": "Freedom Capital Markets Maintains Buy on Compass Minerals Intl, Lowers Price Target to $31",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-25T09:37:55.127745-05:00",
     "symbols": [
       "III"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T16:02:34.965155-05:00",
+    "symbols": [
+      "BBD"
+    ],
+    "headline": "Bradesco Principal Announces Black Friday Benefits for Cardholders",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

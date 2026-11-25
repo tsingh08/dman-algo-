@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-24T14:55:37.250333-05:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "Oppenheimer Maintains Outperform on Marvell Technology, Lowers Price Target to $325",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T14:55:38.516438-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Amerx Upgrades CrowdStrike Holdings to Hold",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-24T14:55:38.522864-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Stifel Maintains Buy on CrowdStrike Holdings, Raises Price Target to $245",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-24T14:55:39.065026-05:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "If You Invested $100 In Fortinet Stock 15 Years Ago, You Would Have This Much Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T14:55:39.127093-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Amerx Downgrades Zscaler to Hold",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T14:55:39.131816-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Stifel Downgrades Zscaler to Hold, Raises Price Target to $260",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-24T14:55:41.260359-05:00",
     "symbols": [
       "DJT"
@@ -3656,6 +3596,66 @@
     ],
     "headline": "General Motors Korea to Adopt Tesla's North American Charging Standard",
     "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T09:36:40.500573-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "TSMC Has a &#39;Substantially Wider Moat&#39; Than Nvidia, Says Investor Joseph Carlson",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T09:36:40.503704-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "CoreWeave Stock Slides as AI Debt Fears Return After Huang Comeback, Bond Yield Tops 17%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T09:36:40.665870-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "TSMC Has a &#39;Substantially Wider Moat&#39; Than Nvidia, Says Investor Joseph Carlson",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T09:36:41.302353-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "How Amazon.com Stacks Up Against MercadoLibre And eBay, And The Rest Of The Broadline Retail Sector.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T09:36:43.877241-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "How Eli Lilly Stacks Up Against Johnson &amp; Johnson, And Merck &amp; Co, And The Rest Of The Pharmaceuticals Sector.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T09:36:48.580157-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "CoreWeave Stock Slides as AI Debt Fears Return After Huang Comeback, Bond Yield Tops 17%",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
   },

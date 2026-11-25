@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-25T09:37:46.634172-05:00",
-    "symbols": [
-      "GDRX"
-    ],
-    "headline": "GoodRx Q3 Pharma Direct Revenue Up 93% To $83.6M, Subscription Revenue Up 41% To $29.2M; Prescription Transactions Revenue Down 20%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:37:46.638446-05:00",
-    "symbols": [
-      "GDRX"
-    ],
-    "headline": "GoodRx Holdings Files Q3 2026 Form 10-Q, Expects To Regain Compliance With Nasdaq Listing Rule",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:37:46.642688-05:00",
-    "symbols": [
-      "GDRX"
-    ],
-    "headline": "GoodRx Files Q3 10-Q, Expects To Regain Compliance With Nasdaq Listing Rule",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:37:46.863554-05:00",
-    "symbols": [
-      "GRDN"
-    ],
-    "headline": "Guardian Pharmacy Services Joins S&P SmallCap 600",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:37:47.079601-05:00",
-    "symbols": [
-      "NTNX"
-    ],
-    "headline": "Oppenheimer Maintains Outperform on Nutanix, Lowers Price Target to $70",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:37:47.084338-05:00",
-    "symbols": [
-      "NTNX"
-    ],
-    "headline": "Piper Sandler Reiterates Overweight on Nutanix, Lowers Price Target to $67",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-25T09:37:47.088611-05:00",
     "symbols": [
       "NTNX"
@@ -4998,5 +4938,65 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T14:03:34.850244-05:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Roth Capital Partners Adjusts Applied Digital Price Target Following Data Center Lease",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T14:03:34.859092-05:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Applied Digital Named as Featured Speaker for Data Center Americas 2027",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T14:03:34.867437-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Tradr ETFs Announces Upcoming Launch of Tradr 2X Short MRVL Daily ETF",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T14:03:34.885413-05:00",
+    "symbols": [
+      "FDX"
+    ],
+    "headline": "Deutsche Bank Adjusts FedEx Price Target to $386 From $479",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T14:03:34.924598-05:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Tigress Finance Raises Price Target on Mastercard",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T14:04:34.863281-05:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Scotiabank Downgrades Zscaler to Sector Perform",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

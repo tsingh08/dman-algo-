@@ -1,165 +1,5 @@
 [
   {
-    "ts": "2026-11-25T09:25:39.618714-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Ross Gerber Warns SpaceX Could \u2018Dilute\u2019 Shareholders With TSLA Stock Amid Merger Talks, Explains Why He Avoids IPOs Like SPCX, ANT",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:25:39.621306-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "This Analyst Sees $4 Billion in Robotaxi Revenue for Tesla, Initiates Coverage With 25% Upside",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:25:39.623864-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Elon Musk Confirms Free Starlink Hardware for Eligible Americans as SpaceX Gives Up $738 Million in Federal Grants",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:25:39.748844-05:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Cathie Wood Buys $62M in Anthropic Stock as Shares Slip Below IPO Price; Ark Sells Meta, Netflix and Palantir",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:25:39.751760-05:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Cathie Wood Buys $62 Million in Anthropic Stock as Shares Slip Below IPO Price; Ark Sells Meta, Netflix and Palantir",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:25:39.867739-05:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Tide Migrates Data Infrastructure from Snowflake to Google Cloud",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:40.013153-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Why Is Palantir Stock Falling on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:25:40.016135-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Cathie Wood Buys $62M in Anthropic Stock as Shares Slip Below IPO Price; Ark Sells Meta, Netflix and Palantir",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:25:40.018846-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Cathie Wood Buys $62 Million in Anthropic Stock as Shares Slip Below IPO Price; Ark Sells Meta, Netflix and Palantir",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:25:40.190705-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Why Is Broadcom Stock Falling on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:25:40.193960-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "What Is Going on With Micron Tech Stock on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:25:40.196844-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "What Is Going on With AMD Stock on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:25:40.388813-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Why Is Sandisk Stock Trading Lower on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:25:40.391780-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "What Is Going on With Micron Tech Stock on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:25:40.394746-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Ambarella Posts Downbeat Q3 Results, Joins Workday, Dell And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:25:40.541864-05:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Why Is Sandisk Stock Trading Lower on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-25T09:25:40.544786-05:00",
     "symbols": [
       "SNDK"
@@ -4998,5 +4838,165 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-25T12:17:04.265257-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "&#39;Chinese AI Firms Confront Dire Future as U.S. Tightens Access to Chips and Tokens&#39; -The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T12:17:04.272770-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Joe Rogan Says Elon Musk Expects SpaceX Rockets to Explode During Testing: &#39;Pushing It to the Limit&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T12:17:04.276015-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX (SPCX) Stock Is Trending in Pre-Market as Gary Black Eyes $100 Entry Point Amid Tesla Merger Dilution Fears",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T12:17:04.636361-05:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Applied Digital Stock Is Falling Today Near Its 52-Week Low: Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:17:04.862839-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Microsoft Launches \u2018Code Red\u2019 After 24-Hour Outage, Wants Critical Fixes Deployed Worldwide in Just 1 Hour: Report",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T12:17:04.865832-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Elon Musk Wants Neuralink to Tackle Neck and Back Pain: &#39;One Day&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T12:17:04.868544-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Jensen Huang Reportedly Says Succession Plan Risks \u2018Unnecessary Hierarchy\u2019 At Nvidia \u2014 Crypto Bettors Wager on Another Exit",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T12:17:05.024936-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "&#39;Chinese AI Firms Confront Dire Future as U.S. Tightens Access to Chips and Tokens&#39; -The Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T12:17:05.028231-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Why Is Sandisk Stock Trading Lower on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T12:17:05.603761-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Why Is Sandisk Stock Trading Lower on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T12:17:05.606827-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Are Amazon And Meta Exploring Muse AI Shopping Truce?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T12:17:05.609727-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "&#39;Meta And Amazon Discuss Ending Muse Shopping Bot Blockade, As Ads, Search Emerge As Key Issues&#39; - Fortune Exclusive",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T12:17:05.808492-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Live On CNBC, Bryn Talkington Announces Bought More Tesla; Bought More Alphabet; Goldman Sachs Nasdaq-100 Premium Income ETF",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T12:17:06.201362-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Live On CNBC, Bryn Talkington Announces Bought More Tesla; Bought More Alphabet; Goldman Sachs Nasdaq-100 Premium Income ETF",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T12:17:11.833482-05:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Class Action Lawsuit Filed Against Uber Regarding October 2026 Data Breach",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T12:17:24.350401-05:00",
+    "symbols": [
+      "KSS"
+    ],
+    "headline": "Jim Cramer Sees More Upside in These Retail Stocks as XRT ETF Leaves Tech Behind",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

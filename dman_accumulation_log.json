@@ -1,14 +1,5 @@
 [
  {
-  "ts": "2026-09-28T13:07:04.489978-04:00",
-  "ticker": "TSPA",
-  "price": 48.5236,
-  "rvol": 1.58,
-  "drift_pct": 0.95,
-  "range_ratio": 0.46,
-  "near_high": 0.989
- },
- {
   "ts": "2026-09-28T13:07:04.489993-04:00",
   "ticker": "DIVI",
   "price": 43.12,
@@ -4498,5 +4489,14 @@
   "drift_pct": 0.66,
   "range_ratio": 0.6,
   "near_high": 0.969
+ },
+ {
+  "ts": "2026-11-25T13:52:53.420196-05:00",
+  "ticker": "TSI",
+  "price": 4.315,
+  "rvol": 4.38,
+  "drift_pct": 0.35,
+  "range_ratio": 0.6,
+  "near_high": 0.978
  }
 ]

@@ -53035,8 +53035,8 @@
 "Gap Size": 0,
 "News Catalyst": 0
 },
-"seen": 50,
-"last_ts": "2026-11-25T12:43:38.907419-05:00",
+"seen": 52,
+"last_ts": "2026-11-25T12:54:24.835145-05:00",
 "entry_min": 5.2,
 "entry_max": 5.2
 },
@@ -53066,7 +53066,7 @@
 "mtf_ok": true,
 "regime_ok": false,
 "earnings_ok": true,
-"macro_ok": false,
+"macro_ok": true,
 "divergence_free": false,
 "breakdown": {
 "Regime": 0,
@@ -53077,7 +53077,7 @@
 "AI Theme": 0,
 "Insider": 0,
 "Earnings": 5,
-"Macro": 0,
+"Macro": 5,
 "Earn React": 0,
 "Fibonacci": 0,
 "VWAP": 8,
@@ -53097,8 +53097,8 @@
 "Gap Size": 5,
 "News Catalyst": 10
 },
-"seen": 8,
-"last_ts": "2026-11-25T09:37:03.767403-05:00",
+"seen": 10,
+"last_ts": "2026-11-25T12:54:26.253009-05:00",
 "entry_min": 51.9,
 "entry_max": 51.9
 }

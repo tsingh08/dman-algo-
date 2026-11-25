@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-24T16:00:11.807439-05:00",
-    "symbols": [
-      "FSLR"
-    ],
-    "headline": "Baird Adjusts Price Target on First Solar to $773 From $266",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T16:00:12.074605-05:00",
-    "symbols": [
-      "BLNE"
-    ],
-    "headline": "Halper Sadeh LLC Investigates Beeline Holdings Regarding Merger with TYTL Corp.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T16:00:12.102067-05:00",
-    "symbols": [
-      "TGLS"
-    ],
-    "headline": "Reported Earlier, Tecnoglass to Replace MarineMax in S&amp;P SmallCap 600 Index Effective December 1",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-24T16:00:12.109347-05:00",
     "symbols": [
       "BBIO"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T11:23:48.553345-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "What Is Going On With IREN Stock on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T11:23:48.751271-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What Is Going On With IREN Stock on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T11:23:49.345355-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "What Is Going On With IREN Stock on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

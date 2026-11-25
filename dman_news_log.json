@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-11-24T11:26:00.597018-05:00",
-    "symbols": [
-      "LUNR"
-    ],
-    "headline": "Intuitive Machines Completes Preliminary Design Review For The Stirling Technology Space Research Experiment",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T11:26:00.601800-05:00",
-    "symbols": [
-      "RCAT"
-    ],
-    "headline": "12 Industrials Stocks Moving In Monday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T11:26:00.606727-05:00",
-    "symbols": [
-      "GEV"
-    ],
-    "headline": "Baird Adjusts Price Target on GE Vernova",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T11:26:00.611603-05:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "This Tesla Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T11:26:00.616242-05:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Mizuho Initiates Coverage On Lockheed Martin with Outperform Rating, Announces Price Target of $765",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T11:26:00.620668-05:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "&#39;Pentagon Delays Patriot Missile Shipments to Ukraine&#39; - FT",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T11:26:00.626522-05:00",
-    "symbols": [
-      "RTX"
-    ],
-    "headline": "Mizuho Initiates Coverage On RTX with Neutral Rating, Announces Price Target of $205",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-24T11:26:00.631999-05:00",
     "symbols": [
       "RTX"
@@ -4995,6 +4925,76 @@
       "FCX"
     ],
     "headline": "PT Freeport Indonesia Announces Redemption of 2027 Senior Notes",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T19:02:35.201743-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron Discloses Increased Executive Security Expenses",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-24T19:02:35.436194-05:00",
+    "symbols": [
+      "UBER"
+    ],
+    "headline": "Class Action Lawsuit Filed Against Uber Regarding October 2026 Data Breach",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T19:02:35.701792-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "RBC Capital and Seaport Initiate Coverage of Tesla",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T20:02:35.180058-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Microsoft Declares 'Code Red' Following Historic Outage",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T20:02:35.184067-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Maverick Medical AI Integrates CodeAgent with Microsoft Dragon Copilot",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-24T20:02:35.398293-05:00",
+    "symbols": [
+      "QFIN"
+    ],
+    "headline": "Qfin Holdings, Inc. Announces Unaudited Financial Results for the Third Quarter of 2026",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-24T20:02:35.610641-05:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "Lockheed Martin CEO and CFO to Participate in UBS Global Industrials & Transportation Conference",
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "neutral"

@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-25T09:25:54.728862-05:00",
-    "symbols": [
-      "MMED"
-    ],
-    "headline": "Barclays Maintains Equal-Weight on Minimed Group, Raises Price Target to $21",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-25T09:25:54.731910-05:00",
     "symbols": [
       "MMED"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T12:56:04.271639-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Jensen Huang Spy Scandal Becomes Part of \u2018South Park\u2019 Plot, Here\u2019s How to Watch",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

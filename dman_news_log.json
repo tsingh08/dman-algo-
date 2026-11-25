@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-24T15:33:46.813302-05:00",
-    "symbols": [
-      "NEM"
-    ],
-    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T15:33:46.873138-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T15:33:47.029440-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Trump administration officials debating targeting Iran\u2019s leaders, sources say&#39; -NBC News Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T15:33:47.085861-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T15:33:47.091397-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Why Is Applied Digital Stock Trading Lower Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T15:33:47.145971-05:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "8 Of 11 Sectors Rise Tuesday As Defensives Lead",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-24T15:33:47.491018-05:00",
     "symbols": [
       "BTDR"
@@ -4998,5 +4938,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T10:28:33.525204-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Nebius Stock Falls Near 52-Week Low - Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T10:28:34.222766-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nebius Stock Falls Near 52-Week Low - Here&#39;s Why",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T10:28:35.859945-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "UBS Maintains Buy on Applied Materials, Lowers Price Target to $575",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T10:28:42.344258-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "U.S. Military Detonates Lead-Based Explosives In Iowa",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T10:28:44.284811-05:00",
+    "symbols": [
+      "FLNC"
+    ],
+    "headline": "Goldman Sachs Maintains Neutral on Fluence Energy, Lowers Price Target to $5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-25T10:28:44.287852-05:00",
+    "symbols": [
+      "FLNC"
+    ],
+    "headline": "Roth Capital Maintains Buy on Fluence Energy, Lowers Price Target to $9",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

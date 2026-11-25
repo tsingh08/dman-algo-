@@ -1,105 +1,5 @@
 [
   {
-    "ts": "2026-11-25T09:37:47.555856-05:00",
-    "symbols": [
-      "URBN"
-    ],
-    "headline": "JP Morgan Maintains Overweight on Urban Outfitters, Lowers Price Target to $106",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-25T09:37:47.560139-05:00",
-    "symbols": [
-      "URBN"
-    ],
-    "headline": "Ambarella Posts Downbeat Q3 Results, Joins Workday, Dell And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-25T09:37:48.006992-05:00",
-    "symbols": [
-      "MDT"
-    ],
-    "headline": "Medtronic Analysts Raise Their Forecasts Following Q2 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:37:48.011402-05:00",
-    "symbols": [
-      "MDT"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Medtronic, Raises Price Target to $110",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:37:48.015701-05:00",
-    "symbols": [
-      "MDT"
-    ],
-    "headline": "Barclays Maintains Equal-Weight on Medtronic, Raises Price Target to $100",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:37:48.238728-05:00",
-    "symbols": [
-      "BILI"
-    ],
-    "headline": "Barclays Maintains Overweight on Bilibili, Lowers Price Target to $17",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:37:48.461365-05:00",
-    "symbols": [
-      "DLTR"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Dollar Tree, Raises Price Target to $170",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:37:48.466096-05:00",
-    "symbols": [
-      "DLTR"
-    ],
-    "headline": "Dollar Tree Analysts Increase Their Forecasts Following Better-Than-Expected Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:37:48.470548-05:00",
-    "symbols": [
-      "DLTR"
-    ],
-    "headline": "Stifel Reiterates Buy on Dollar Tree, Raises Price Target to $180",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:37:48.475460-05:00",
-    "symbols": [
-      "DLTR"
-    ],
-    "headline": "Truist Securities Maintains Buy on Dollar Tree, Raises Price Target to $169",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-25T09:37:48.479671-05:00",
     "symbols": [
       "DLTR"
@@ -4995,6 +4895,106 @@
       "HPQ"
     ],
     "headline": "HP Stock Pops After Strong Q4 Results and Guidance",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T14:38:28.760744-05:00",
+    "symbols": [
+      "URBN"
+    ],
+    "headline": "Barclays Maintains Overweight on Urban Outfitters, Lowers Price Target to $94",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T14:38:28.763975-05:00",
+    "symbols": [
+      "URBN"
+    ],
+    "headline": "These Analysts Cut Their Forecasts On Urban Outfitters After Q3 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T14:38:29.598342-05:00",
+    "symbols": [
+      "GDRX"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T14:38:30.019549-05:00",
+    "symbols": [
+      "BAR"
+    ],
+    "headline": "Barco Announces 'ANYTHING BUT GHOSTS' to be Released in Premium HDR by Barco",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T14:38:30.434594-05:00",
+    "symbols": [
+      "NMAD"
+    ],
+    "headline": "Nomad Power Solutions Unveils Third-Generation Voyager Battery Systems",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T14:38:30.648474-05:00",
+    "symbols": [
+      "DELL"
+    ],
+    "headline": "RBC Capital Maintains Outperform on Dell Technologies, Lowers Price Target to $550",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T14:38:30.651684-05:00",
+    "symbols": [
+      "DELL"
+    ],
+    "headline": "B of A Securities Maintains Buy on Dell Technologies, Lowers Price Target to $500",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T14:38:30.654574-05:00",
+    "symbols": [
+      "DELL"
+    ],
+    "headline": "Deutsche Bank Maintains Hold on Dell Technologies, Lowers Price Target to $400",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T14:38:30.657444-05:00",
+    "symbols": [
+      "DELL"
+    ],
+    "headline": "Raymond James Maintains Outperform on Dell Technologies, Lowers Price Target to $570",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T14:38:30.660259-05:00",
+    "symbols": [
+      "DELL"
+    ],
+    "headline": "Bernstein Maintains Outperform on Dell Technologies, Lowers Price Target to $580",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

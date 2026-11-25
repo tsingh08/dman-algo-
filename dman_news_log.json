@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-24T15:12:54.455222-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "TSMC&#39;s $22.6 Billion Texas Chip Plant Hinges on Two Tax Breaks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T15:12:54.518333-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "TSMC&#39;s $22.6 Billion Texas Chip Plant Hinges on Two Tax Breaks",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T15:12:56.720310-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Zscaler Analysts Weigh CrowdStrike&#39;s $43.9 Billion Takeover",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
     "ts": "2026-11-24T15:12:56.785217-05:00",
     "symbols": [
       "PANW"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T09:59:09.300738-05:00",
+    "symbols": [
+      "NRSN"
+    ],
+    "headline": "Nasdaq Down Over 4%; US Core PCE Prices Increase 0.3% In October",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T09:59:09.304020-05:00",
+    "symbols": [
+      "RAYA"
+    ],
+    "headline": "Nasdaq Down Over 4%; US Core PCE Prices Increase 0.3% In October",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T09:59:09.647704-05:00",
+    "symbols": [
+      "CTRI"
+    ],
+    "headline": "Centuri Holdings To Replace DoubleVerify Holdings in the S&amp;P SmallCap 600 Effective Prior To The Opening Of Trading On Tuesday, December 1",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

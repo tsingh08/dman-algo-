@@ -52997,8 +52997,8 @@
 "rvol": 3.34,
 "atr": 1.0876071428571448,
 "beta": 5.0,
-"catalyst_tier": "C",
-"news_boost": true,
+"catalyst_tier": "",
+"news_boost": false,
 "regime": "BEAR",
 "regime_score": 4,
 "mtf_ok": false,
@@ -53033,10 +53033,10 @@
 "Float/Short": 10,
 "RVOL Tier": 6,
 "Gap Size": 0,
-"News Catalyst": 5
+"News Catalyst": 0
 },
-"seen": 40,
-"last_ts": "2026-11-25T11:56:19.372448-05:00",
+"seen": 42,
+"last_ts": "2026-11-25T12:06:38.233018-05:00",
 "entry_min": 5.2,
 "entry_max": 5.2
 },

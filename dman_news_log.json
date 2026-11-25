@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-25T09:25:38.790956-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is Sandisk Stock Trading Lower on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-25T09:25:38.793617-05:00",
     "symbols": [
       "NVDA"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:06:34.650862-05:00",
+    "symbols": [
+      "BZ"
+    ],
+    "headline": "Gold Down 3%; Deere Share Gain After Q4 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

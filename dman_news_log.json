@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-11-24T12:56:07.823211-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "Anthropic Drops Below IPO Prices, Nvidia Sinks 7% After Record Rally: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T12:56:07.880568-05:00",
-    "symbols": [
-      "IWM"
-    ],
-    "headline": "Anthropic Drops Below IPO Prices, Nvidia Sinks 7% After Record Rally: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T12:56:09.969350-05:00",
-    "symbols": [
-      "INSM"
-    ],
-    "headline": "Anthropic Drops Below IPO Prices, Nvidia Sinks 7% After Record Rally: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T12:56:10.026241-05:00",
-    "symbols": [
-      "AMTM"
-    ],
-    "headline": "Anthropic Drops Below IPO Prices, Nvidia Sinks 7% After Record Rally: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T12:56:10.175506-05:00",
-    "symbols": [
-      "DKS"
-    ],
-    "headline": "Anthropic Drops Below IPO Prices, Nvidia Sinks 7% After Record Rally: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T12:56:10.392728-05:00",
-    "symbols": [
-      "DLTR"
-    ],
-    "headline": "Anthropic Drops Below IPO Prices, Nvidia Sinks 7% After Record Rally: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T12:56:10.447576-05:00",
-    "symbols": [
-      "SNY"
-    ],
-    "headline": "Anthropic Drops Below IPO Prices, Nvidia Sinks 7% After Record Rally: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T12:56:10.925400-05:00",
-    "symbols": [
-      "BURL"
-    ],
-    "headline": "Burlington Stores Stock Jumps Despite Earnings Outlook Cut \u2014 Holiday Shopping Hopes Remain Intact",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T12:56:10.929980-05:00",
-    "symbols": [
-      "BURL"
-    ],
-    "headline": "Abercrombie &amp; Fitch Posts Strong Q3 Results, Joins Insmed, Kohls And Other Big Stocks Moving Higher On Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T12:56:10.934896-05:00",
-    "symbols": [
-      "BURL"
-    ],
-    "headline": "Burlington Stores Sees Q4 Adj EPS $4.85-$4.95 vs $5.20 Est; Sees Sales $3.897B-$3.970B vs $3.969B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T12:56:10.939726-05:00",
-    "symbols": [
-      "BURL"
-    ],
-    "headline": "Burlington Stores Lowers FY2026 Adj EPS Guidance from $11.77-$11.97 to $11.70-$11.80 vs $11.79 Est; Lowers FY2026 Sales Guidance from $12.724B-$12.839B to $12.705B vs $12.817B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-24T12:56:10.944329-05:00",
     "symbols": [
       "BURL"
@@ -4998,5 +4888,115 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T09:32:34.856995-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "The AA Deploys Microsoft Dynamics 365 and Azure for Digital Workflow",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T09:32:35.034832-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Chevron Faces Regulatory Probe Following Methane Emissions at Gorgon LNG Plant",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T09:32:35.038609-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Schneider Electric Integrates Industrial Intelligence Solutions with AWS",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T09:32:35.041889-05:00",
+    "symbols": [
+      "RBLX"
+    ],
+    "headline": "ARK Invest Reduces Roblox Holdings",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T09:32:35.045361-05:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "Arista Networks Gains Market Share in AI Back-End Ethernet Switches",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T09:32:35.048960-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta and Amazon Conclude Discussions to Lift Muse Shopping Robot Blockade",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T09:32:35.052244-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Deploys Autonomous Food Preparation System in London Office",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T09:32:35.055738-05:00",
+    "symbols": [
+      "PLTR"
+    ],
+    "headline": "Palantir Technologies Insiders Report Significant Stock Transactions",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T09:33:35.030949-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "UBS Adjusts Price Target on Applied Materials",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T09:33:35.034455-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Eli Lilly and Novo Nordisk Face Lawsuits Over Rare Eye Condition Linked to GLP-1 Drugs",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T09:33:35.037278-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "General Motors Korea to Adopt Tesla's North American Charging Standard",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

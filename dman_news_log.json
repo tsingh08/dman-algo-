@@ -1,255 +1,5 @@
 [
   {
-    "ts": "2026-11-24T15:12:56.785217-05:00",
-    "symbols": [
-      "PANW"
-    ],
-    "headline": "Zscaler Analysts Weigh CrowdStrike&#39;s $43.9 Billion Takeover",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T15:12:57.163359-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Zscaler Analysts Weigh CrowdStrike&#39;s $43.9 Billion Takeover",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T15:23:20.897248-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX, Anthropic Could Rewrite the IPO Playbook As Private Companies Find New Ways to Retain Control",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-24T15:23:28.281330-05:00",
-    "symbols": [
-      "DPRO"
-    ],
-    "headline": "Draganfly Signs Strategic Agreements to Advance Canada\u2013Ukraine Unmanned Systems Collaboration",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T15:26:03.866575-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX, Anthropic Could Rewrite the IPO Playbook As Private Companies Find New Ways to Retain Control",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-24T15:26:17.998460-05:00",
-    "symbols": [
-      "AMTM"
-    ],
-    "headline": "Amentum&#39;s 10% Stock Buyback Steal the Earnings Show",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T15:26:21.466535-05:00",
-    "symbols": [
-      "DC"
-    ],
-    "headline": "BMO Capital Maintains Outperform on Dakota Gold, Lowers Price Target to $10",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T15:26:21.469798-05:00",
-    "symbols": [
-      "DC"
-    ],
-    "headline": "HC Wainwright &amp; Co. Reiterates Buy on Dakota Gold, Maintains $10.75 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T15:26:21.771820-05:00",
-    "symbols": [
-      "AMBA"
-    ],
-    "headline": "Ambarella And Sigma Connectivity Announce Strategic Collaboration To Accelerate Development And Industrialization Of Edge AI Products",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T15:26:21.912695-05:00",
-    "symbols": [
-      "DY"
-    ],
-    "headline": "Anthropic Drops Below IPO Prices, Nvidia Sinks 7% After Record Rally: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T15:26:21.915898-05:00",
-    "symbols": [
-      "DY"
-    ],
-    "headline": "Why Dycom Stock Is Plunging to a 52-Week Low Despite an Earnings Beat",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T15:26:21.918872-05:00",
-    "symbols": [
-      "DY"
-    ],
-    "headline": "Dycom Industries Authorizes New $200M Share Repurchase Program, Replacing Previous $150M Plan",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T15:26:21.921775-05:00",
-    "symbols": [
-      "DY"
-    ],
-    "headline": "Dycom Industries Raises FY2027 Sales Guidance from $7.480B-$7.660B to $7.660B-$7.730B vs $7.656B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T15:26:21.924709-05:00",
-    "symbols": [
-      "DY"
-    ],
-    "headline": "Dycom Industries Sees Q4 Adj EPS $2.48-$2.78 vs $2.76 Est; Sees Sales $1.630B-$1.700B vs $1.689B Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T15:26:22.046820-05:00",
-    "symbols": [
-      "EROK"
-    ],
-    "headline": "Piper Sandler Downgrades EagleRock Land to Neutral, Lowers Price Target to $23",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T15:26:22.179981-05:00",
-    "symbols": [
-      "TGTX"
-    ],
-    "headline": "Moderna Stock Pops: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T15:26:22.183241-05:00",
-    "symbols": [
-      "TGTX"
-    ],
-    "headline": "TG Therapeutics Stock Soars After FDA Accepts BRIUMVI sBLA",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T15:26:22.186283-05:00",
-    "symbols": [
-      "TGTX"
-    ],
-    "headline": "TG Therapeutics Receives FDA Approval Of Its Supplemental Biologics License Application For BRIUMVI Single Dose Initiation Schedule For Treatment Of Adults With Relapsing Forms Of Multiple Sclerosis",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T15:26:22.357206-05:00",
-    "symbols": [
-      "HPE"
-    ],
-    "headline": "QUICK SPARK: HPE Stock Drops 17%, Marks Worst Day in Company&#39;s History",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T15:26:22.360658-05:00",
-    "symbols": [
-      "HPE"
-    ],
-    "headline": "Bloom Energy Stock Slides Amid Broader AI Sell-Off",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T15:26:22.363793-05:00",
-    "symbols": [
-      "HPE"
-    ],
-    "headline": "Anthropic Drops Below IPO Prices, Nvidia Sinks 7% After Record Rally: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T15:26:22.366714-05:00",
-    "symbols": [
-      "HPE"
-    ],
-    "headline": "Dow Outperforms Nike Stock 100x Since Inclusion: Jay Woods Expects &#39;Underperformer&#39; to Get the Boot",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T15:26:22.369639-05:00",
-    "symbols": [
-      "HPE"
-    ],
-    "headline": "Wells Fargo Maintains Equal-Weight on Hewlett Packard, Lowers Price Target to $50",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T15:33:42.880651-05:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Why Is Applied Digital Stock Trading Lower Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T15:33:43.111239-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Has Declared &#39;Code Red&#39; For M365 Core Service Health After Nov 12 Outage, Internal Memos Show",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-24T15:33:43.174298-05:00",
     "symbols": [
       "NVDA"
@@ -4998,5 +4748,255 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T10:07:10.223988-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Fed&#39;s Preferred Inflation Gauge Hits 3.8% as Expected: Q3 GDP Growth Revised Up to 4.3% (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T10:07:10.452916-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Fed&#39;s Preferred Inflation Gauge Hits 3.8% as Expected: Q3 GDP Growth Revised Up to 4.3% (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T10:07:10.652077-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Fed&#39;s Preferred Inflation Gauge Hits 3.8% as Expected: Q3 GDP Growth Revised Up to 4.3% (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T10:07:10.657128-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "AMD Short Interest Climbs After Q3 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T10:07:10.660202-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is Bloom Energy Stock Falling on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T10:07:10.840202-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "Fed&#39;s Preferred Inflation Gauge Hits 3.8% as Expected: Q3 GDP Growth Revised Up to 4.3% (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T10:07:10.843504-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD Short Interest Climbs After Q3 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T10:07:11.019480-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Fed&#39;s Preferred Inflation Gauge Hits 3.8% as Expected: Q3 GDP Growth Revised Up to 4.3% (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T10:07:11.222313-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Fed&#39;s Preferred Inflation Gauge Hits 3.8% as Expected: Q3 GDP Growth Revised Up to 4.3% (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T10:07:11.416466-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Fed&#39;s Preferred Inflation Gauge Hits 3.8% as Expected: Q3 GDP Growth Revised Up to 4.3% (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T10:07:11.419972-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Short Interest Rises As Bears Add To Bets",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T10:07:11.566845-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Fed&#39;s Preferred Inflation Gauge Hits 3.8% as Expected: Q3 GDP Growth Revised Up to 4.3% (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T10:07:12.174216-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Fed&#39;s Preferred Inflation Gauge Hits 3.8% as Expected: Q3 GDP Growth Revised Up to 4.3% (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T10:07:12.177605-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "AMD Short Interest Climbs After Q3 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T10:07:12.571486-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Fed&#39;s Preferred Inflation Gauge Hits 3.8% as Expected: Q3 GDP Growth Revised Up to 4.3% (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T10:07:12.574663-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "AMD Short Interest Climbs After Q3 Earnings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T10:07:16.207066-05:00",
+    "symbols": [
+      "CRWD"
+    ],
+    "headline": "Zscaler Analysts Weigh CrowdStrike&#39;s $43.9 Billion Takeover",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T10:07:16.385604-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Zscaler Analysts Weigh CrowdStrike&#39;s $43.9 Billion Takeover",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T10:07:17.604986-05:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "Zscaler Analysts Weigh CrowdStrike&#39;s $43.9 Billion Takeover",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T10:07:17.925806-05:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "Amazon Short Interest Rises As Bears Add To Bets",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T10:07:18.243352-05:00",
+    "symbols": [
+      "PDD"
+    ],
+    "headline": "Amazon Short Interest Rises As Bears Add To Bets",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T10:07:20.241510-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Fed&#39;s Preferred Inflation Gauge Hits 3.8% as Expected: Q3 GDP Growth Revised Up to 4.3% (UPDATED)",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T10:07:20.544173-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA New Home Sales (MoM) For October 14.2% Vs -9.7% Prior",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T10:07:20.547563-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "USA New Home Sales For October 701K Vs 650K Est",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T10:07:20.550748-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "White House Adviser Hasset Says Expect More 4% Quarters And More GDP Upward Revisions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

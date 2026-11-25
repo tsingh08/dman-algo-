@@ -135,11 +135,39 @@ jobs:
           # the review-session step agree on which kind this run is,
           # instead of recomputing (and risking drifting from) it twice.
           ET_HHMM=$(TZ="America/New_York" date +%H%M)
+          # Market calendar, read from dman_algo.py's own _MARKET_HOLIDAYS /
+          # _EARLY_CLOSE_DATES so there is no second list to keep in step.
+          # The crons are Mon-Fri only, so on Labor Day 2026-09-07 two reviews
+          # ran anyway against a closed market (the daemon's dispatches already
+          # skip holidays). Any parse failure reads "normal", which is the old
+          # behaviour.
+          CAL=$(python3 - <<'PY' 2>/dev/null || echo normal
+          import re, datetime, zoneinfo
+          src = open("dman_algo.py", encoding="utf-8").read()
+          def dates(name):
+              m = re.search(name + r"\s*:\s*set\[date\]\s*=\s*\{(.*?)\n\}", src, re.S)
+              return {datetime.date(*map(int, t)) for t in
+                      re.findall(r"date\((\d{4}),\s*(\d+),\s*(\d+)\)", m.group(1))} if m else set()
+          today = datetime.datetime.now(zoneinfo.ZoneInfo("America/New_York")).date()
+          print("holiday" if today in dates("_MARKET_HOLIDAYS")
+                else "early" if today in dates("_EARLY_CLOSE_DATES") else "normal")
+          PY
+          )
+          echo "Market calendar today: ${CAL:-normal}"
+          if [ "$CAL" = "holiday" ] && [ "$GITHUB_EVENT_NAME" != "workflow_dispatch" ]; then
+            echo "Market holiday -- no session to review, skipping this cron."
+            echo "kind=skip" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           # 10#: a leading zero ("0945") must not be read as octal.
           # 15:15, not 15:00: the 19:40 UTC check-in is 14:40 ET in winter and
           # must run; the summer EOD cron (20:24 UTC) is 15:24 ET in winter
-          # and must still skip.
-          if [ "$((10#$ET_HHMM))" -ge 1000 ] && [ "$((10#$ET_HHMM))" -lt 1515 ]; then
+          # and must still skip. On a 1 PM early close the window ends at
+          # 13:00, so a late 14:40 cron is not a "midday" review of a closed
+          # session (the daemon's own slots already drop it).
+          MID_END=1515
+          [ "$CAL" = "early" ] && MID_END=1300
+          if [ "$((10#$ET_HHMM))" -ge 1000 ] && [ "$((10#$ET_HHMM))" -lt "$MID_END" ]; then
             # The daemon now dispatches the check-ins on the clock (10:15,
             # 12:35, 14:40 ET -- dman_daemon.py _dispatch_due_review), because
             # on 2026-11-16 GitHub delivered all three of these crons after

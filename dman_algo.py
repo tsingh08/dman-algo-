@@ -3717,6 +3717,13 @@ def run_readiness_scan() -> None:
     """
     now_et   = datetime.now(ET)
     date_str = now_et.strftime("%A %b %d, %Y")
+    # Once per eve. On a weekday holiday every scanner run (its own crons, the
+    # market-open dispatch, the hourly cloud backstop) takes the eve-of-session
+    # branch: Labor Day 2026-09-07 sent this report 10 times.
+    _ready_key = f"__READINESS__:{now_et.date().isoformat()}"
+    if _is_alerted_today(_ready_key):
+        print(f"  Readiness report already sent today ({date_str}) — not repeating it.")
+        return
     print(f"  Running Sunday readiness scan ({date_str})...")
 
     ready:   list[str] = []   # all 3 filters pass
@@ -3792,6 +3799,8 @@ def run_readiness_scan() -> None:
         f"<i>Primed names only matter to setups listed as able to open a position.</i>"
     )
     sent = send_telegram(msg)
+    if sent:
+        _mark_alerted(_ready_key)
     print(f"  {'✅ Sent' if sent else '⚠️  Telegram not configured'} — "
           f"{len(ready)} ready, {len(partial)} partial")
 
@@ -6972,7 +6981,14 @@ def run_watchdog() -> None:
     if now_et.weekday() >= 5:
         print("  🐕 Watchdog: weekend, skipping.")
         return
+    # Labor Day 2026-09-07: the daemon correctly stayed down, so this read
+    # "Daemon sync stale -- 4212 min" and re-dispatched it every cycle.
+    if now_et.date() in _MARKET_HOLIDAYS:
+        print("  🐕 Watchdog: market holiday, skipping.")
+        return
     t = now_et.hour * 100 + now_et.minute
+    _close_h, _close_m = _session_close_hm(now_et.date())
+    _close_t = _close_h * 100 + _close_m
     issues: list[str] = []
 
     # 1. Hard failures — most recent run of each critical workflow.
@@ -7006,7 +7022,7 @@ def run_watchdog() -> None:
     # a while, so a check that fires right at the open doesn't false-alarm
     # on things that legitimately haven't happened yet.
     daemon_likely_down = False
-    if 930 <= t <= 1600:
+    if 930 <= t <= _close_t:     # 13:00 on an early close, not 16:00
         try:
             from datetime import timezone as _tz
             with open(ALPACA_SYNC_FILE) as f:
@@ -10373,6 +10389,9 @@ def run_premarket_early_scan() -> None:
     """
     import re as _re
     now_et = datetime.now(ET)
+    if now_et.date() in _MARKET_HOLIDAYS:      # same reason as the briefing
+        print("  Market holiday — no early pre-market scan.")
+        return
     print(f"\n  ⚡ EARLY PRE-MARKET SCAN — {now_et.astimezone(MT).strftime('%I:%M %p MT')}")
 
     # Broad pre-market gap sweep — catches movers outside the curated watchlist
@@ -16187,6 +16206,13 @@ def run_premarket_briefing() -> None:
     """
     now_et = datetime.now(ET)
     date_str = now_et.strftime("%A %b %d, %Y")
+    # The cloud routine dispatches this every weekday, and the workflow only
+    # skips weekends: Labor Day 2026-09-07 got a full "pre-market" briefing
+    # for a closed market. The scanner's eve-of-session readiness check
+    # covers the next session.
+    if now_et.date() in _MARKET_HOLIDAYS:
+        print(f"  Market holiday ({date_str}) — no briefing.")
+        return
 
     # Second home for the news-first pass. The premarket-early job owns it,
     # but GitHub dropped both of that job's schedule events on 2026-09-09
@@ -24143,8 +24169,11 @@ def _submit_strangle(result: dict, event: str) -> str:
     _needed = result.get("move_needed_pct")
     _expected = result.get("expected_move_pct")
     if _needed is not None and _expected is not None and _needed > _expected * STRANGLE_MOVE_HEADROOM:
-        return (f"⛔ Not executed — needs {_needed:.1f}% to break even but {result['ticker']} "
-                f"only covers about {_expected:.1f}% in {result['dte']}d.")
+        # 2026-11-24 read "needs 5.2% ... but QQQ only covers about 6.4%",
+        # which is a refusal that looks like a pass. Show the bar it missed.
+        return (f"⛔ Not executed — needs {_needed:.1f}% to break even; the limit is "
+                f"{STRANGLE_MOVE_HEADROOM*100:.0f}% of {result['ticker']}'s typical "
+                f"{result['dte']}d range ({_expected:.1f}%) = {_expected * STRANGLE_MOVE_HEADROOM:.1f}%.")
     # Price both legs FIRST, then size and pay-check against what will actually
     # be sent. Sizing on the quoted premium while submitting at premium + 3%
     # overspent the per-position budget by the buffer, the same gap already
@@ -27975,6 +28004,31 @@ def _position_heat_pct(pos, stop_px, eff_account: float) -> float:
     return SMALLCAP_RISK_PCT
 
 
+def _signal_heat_charge(sig, eff_account) -> float:
+    """Share of the account this signal would put at risk, or 0.0 for a
+    signal no order can come from.
+
+    The heat budget is meant for trades that can happen. On 2026-11-24 an LGHL
+    signal (Low Float Catalyst, a retired setup and also kill-switched, and
+    off the WATCHLIST) used the whole 6% at 09:42 on every scan for the rest
+    of the day. _submit_signals_to_alpaca() refuses such a signal, so the
+    budget was held by nothing. BDRX was then dropped as "heat cap" at 12:14,
+    and any tradable signal sorted after LGHL would have been dropped too.
+    Matches the refusals at the top of the submit loop: a setup that is
+    retired or kill-switched, or a ticker that cannot be auto-traded. Those
+    signals are still alerted and logged as before. They just do not use up
+    the budget.
+    """
+    if eff_account <= 0:
+        return 0.0
+    try:
+        if _setup_cannot_trade(sig.setup) or not _auto_trade_allowed(sig.ticker)[0]:
+            return 0.0
+    except Exception as exc:
+        _log_swallowed("signal heat charge", exc)   # unsure -> charge it
+    return sig.risk_usd / eff_account
+
+
 def _scan_portfolio_heat(eff_account, total_risk_pct):
     """Extracted verbatim from run_pro_scanner() on 2026-09-14 (refx).
     Returns: total_risk_pct.
@@ -28627,7 +28681,7 @@ def run_pro_scanner(tickers: list[str] = WATCHLIST,
     if total_risk_pct > 0:
         print(f"  🌡  Existing position heat: {total_risk_pct*100:.1f}% of account")
     for sig in signals:
-        trade_risk_pct = sig.risk_usd / eff_account if eff_account > 0 else 0
+        trade_risk_pct = _signal_heat_charge(sig, eff_account)
         if total_risk_pct + trade_risk_pct <= PORTFOLIO_HEAT_LIMIT:
             heat_capped.append(sig)
             total_risk_pct += trade_risk_pct

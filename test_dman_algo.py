@@ -18631,7 +18631,19 @@ class TestStrangleMoveMath(unittest.TestCase):
              patch.object(a, "_is_duplicate_alert", return_value=False):
             note = a._submit_strangle(self._result(needed=2.4, expected=1.2), "OPEX")
         cl.submit_order.assert_not_called()
-        self.assertIn("only covers about", note)
+        self.assertIn("Not executed", note)
+        self.assertIn("typical 7d range (1.2%)", note)
+
+    def test_the_refusal_names_the_bar_it_missed(self):
+        """2026-11-24: "needs 5.2% ... only covers about 6.4%" -- a refusal
+        whose numbers read as a pass. 5.2 > 0.8 x 6.4 = 5.1 is the real reason."""
+        with patch.object(a, "get_alpaca_client", return_value=MagicMock()), \
+             patch.object(a, "_entry_circuit_breakers_ok", return_value=(True, "")), \
+             patch.object(a, "_is_duplicate_alert", return_value=False):
+            note = a._submit_strangle(self._result(needed=5.2, expected=6.4), "PCE")
+        self.assertIn("needs 5.2%", note)
+        self.assertIn(f"= {6.4 * a.STRANGLE_MOVE_HEADROOM:.1f}%", note)
+        self.assertNotIn("only covers", note)
 
     def test_reachable_breakeven_still_trades(self):
         cl = MagicMock()
@@ -28767,7 +28779,9 @@ class TestDaemonDispatchesTheSessionReview(unittest.TestCase):
                 self.assertGreaterEqual(int(start), 1605)
         with io.open(".github/workflows/dman_review.yml", encoding="utf-8") as f:
             yml = f.read()
-        self.assertIn('-ge 1000 ] && [ "$((10#$ET_HHMM))" -lt 1515 ]', yml)
+        # The 15:15 end now lives in MID_END (13:00 on an early close).
+        self.assertIn("MID_END=1515", yml)
+        self.assertIn('-ge 1000 ] && [ "$((10#$ET_HHMM))" -lt "$MID_END" ]', yml)
         self.assertIn('-ge 1605 ]', yml)
 
     def test_a_run_that_already_exists_counts_as_the_slot(self):
@@ -32895,3 +32909,172 @@ class TestDaemonSkipsOvernightStarts(unittest.TestCase):
 
     def test_the_run_step_honours_skip(self):
         self.assertIn("if: steps.session.outputs.until != 'skip'", self._src())
+
+
+def _pinned_dt(when):
+    """a.datetime with now() pinned to `when` (an ET-aware datetime)."""
+    dt = MagicMock(wraps=datetime)
+    dt.now.side_effect = lambda tz=None: when.astimezone(tz) if tz else when.replace(tzinfo=None)
+    dt.fromisoformat = datetime.fromisoformat
+    dt.strptime = datetime.strptime
+    dt.combine = datetime.combine
+    return dt
+
+
+class TestHeatIsOnlyChargedForOrderableSignals(unittest.TestCase):
+    """2026-11-24: an LGHL Low Float Catalyst signal (retired, kill-switched,
+    off-list) used the whole 6% heat budget from 09:42 on every scan, and BDRX
+    was dropped as "heat cap" behind it. The submit path refuses LGHL, so the
+    budget was being held by a signal that could never become an order."""
+
+    def _sig(self, setup="Day 2 Continuation", ticker="AAPL", risk=60.0):
+        return SimpleNamespace(setup=setup, ticker=ticker, risk_usd=risk)
+
+    def test_a_tradable_signal_is_charged_its_risk(self):
+        with patch.object(a, "_setup_cannot_trade", return_value=False), \
+             patch.object(a, "_auto_trade_allowed", return_value=(True, "")):
+            self.assertAlmostEqual(a._signal_heat_charge(self._sig(), 2000.0), 0.03)
+
+    def test_a_disabled_or_retired_setup_is_free(self):
+        with patch.object(a, "_setup_cannot_trade", return_value=True), \
+             patch.object(a, "_auto_trade_allowed", return_value=(True, "")):
+            self.assertEqual(a._signal_heat_charge(self._sig("Low Float Catalyst"), 2000.0), 0.0)
+
+    def test_an_off_watchlist_ticker_is_free(self):
+        with patch.object(a, "_setup_cannot_trade", return_value=False), \
+             patch.object(a, "_auto_trade_allowed", return_value=(False, "alert only")):
+            self.assertEqual(a._signal_heat_charge(self._sig(ticker="LGHL"), 2000.0), 0.0)
+
+    def test_unsure_means_charged(self):
+        """A lookup error must not free the budget for a real trade."""
+        with patch.object(a, "_setup_cannot_trade", side_effect=RuntimeError("x")):
+            self.assertAlmostEqual(a._signal_heat_charge(self._sig(), 2000.0), 0.03)
+
+    def test_no_account_means_no_charge(self):
+        self.assertEqual(a._signal_heat_charge(self._sig(), 0), 0.0)
+
+    def test_the_scanner_uses_it(self):
+        src = inspect.getsource(a.run_pro_scanner)
+        self.assertIn("trade_risk_pct = _signal_heat_charge(sig, eff_account)", src)
+        self.assertIn("total_risk_pct + trade_risk_pct <= PORTFOLIO_HEAT_LIMIT", src)
+
+
+class TestHolidaysAreQuiet(unittest.TestCase):
+    """Labor Day 2026-09-07: full pre-market briefing on Telegram, a watchdog
+    "Daemon sync stale -- 4212 min" alarm with daemon re-dispatches, and two
+    Claude reviews of a closed market. Thanksgiving 2026-11-26 is next."""
+
+    THANKSGIVING = datetime(2026, 11, 26, 11, 0, tzinfo=a.ET)
+
+    def test_the_calendar_still_has_thanksgiving_and_the_half_day(self):
+        self.assertIn(date(2026, 11, 26), a._MARKET_HOLIDAYS)
+        self.assertIn(date(2026, 11, 27), a._EARLY_CLOSE_DATES)
+
+    def test_watchdog_stays_silent_on_a_holiday(self):
+        with patch.object(a, "datetime", _pinned_dt(self.THANKSGIVING)), \
+             patch.object(a, "send_telegram") as tg, \
+             patch.object(a, "_trigger_workflow_restart") as restart, \
+             patch.object(a, "requests") as req:
+            a.run_watchdog()
+        tg.assert_not_called()
+        restart.assert_not_called()
+        req.get.assert_not_called()
+
+    def test_watchdog_freshness_window_ends_at_an_early_close(self):
+        """14:00 on the 1 PM Friday: the session is over, no stale alarm."""
+        tmp = tempfile.mkdtemp()
+        sync = os.path.join(tmp, "sync.json")
+        with open(sync, "w") as f:
+            json.dump({"last_sync": "2026-11-27T12:00:00+00:00"}, f)   # hours old
+        with patch.object(a, "datetime", _pinned_dt(datetime(2026, 11, 27, 14, 0, tzinfo=a.ET))), \
+             patch.object(a, "ALPACA_SYNC_FILE", sync), \
+             patch.object(a, "SCAN_LOG_FILE", os.path.join(tmp, "none.json")), \
+             patch.object(a, "_RATE_LIMIT_EVENTS_FILE", os.path.join(tmp, "none2.json")), \
+             patch.object(a, "send_telegram") as tg, \
+             patch.object(a, "_trigger_workflow_restart") as restart, \
+             patch.object(a, "requests") as req:
+            req.get.return_value = MagicMock(json=lambda: {"workflow_runs": []})
+            a.run_watchdog()
+        restart.assert_not_called()
+        tg.assert_not_called()
+
+    def test_no_briefing_on_a_holiday(self):
+        with patch.object(a, "datetime", _pinned_dt(self.THANKSGIVING.replace(hour=8))), \
+             patch.object(a, "pre_gap_catalyst_pass") as pg, \
+             patch.object(a, "send_telegram") as tg:
+            a.run_premarket_briefing()
+        pg.assert_not_called()
+        tg.assert_not_called()
+
+    def test_no_early_scan_on_a_holiday(self):
+        with patch.object(a, "datetime", _pinned_dt(self.THANKSGIVING.replace(hour=7))), \
+             patch.object(a, "fetch_premarket_gap_universe") as fp, \
+             patch.object(a, "send_telegram") as tg:
+            a.run_premarket_early_scan()
+        fp.assert_not_called()
+        tg.assert_not_called()
+
+
+class TestReviewWorkflowReadsTheAlgoCalendar(unittest.TestCase):
+    """dman_review.yml decides holiday / early close by parsing dman_algo.py,
+    so there is no second list. Pinned: the parse must agree with the sets."""
+
+    def _src(self):
+        with io.open(".github/workflows/dman_review.yml", encoding="utf-8") as f:
+            return f.read()
+
+    def _dates_fn(self):
+        import textwrap
+        src = self._src()
+        snippet = src.split("<<'PY'", 1)[1].split("\n", 1)[1]
+        snippet = textwrap.dedent(snippet.split("today = ", 1)[0])
+        ns = {}
+        exec(snippet, ns)
+        return ns["dates"]
+
+    def test_the_parse_matches_both_sets(self):
+        dates = self._dates_fn()
+        self.assertEqual(dates("_MARKET_HOLIDAYS"), a._MARKET_HOLIDAYS)
+        self.assertEqual(dates("_EARLY_CLOSE_DATES"), a._EARLY_CLOSE_DATES)
+
+    def test_a_holiday_skips_crons_but_not_a_dispatch(self):
+        src = self._src()
+        self.assertIn('if [ "$CAL" = "holiday" ] && [ "$GITHUB_EVENT_NAME" != "workflow_dispatch" ]', src)
+
+    def test_an_early_close_ends_the_midday_window_at_13(self):
+        src = self._src()
+        self.assertIn('[ "$CAL" = "early" ] && MID_END=1300', src)
+        self.assertIn('-lt "$MID_END"', src)
+
+
+class TestReadinessIsSentOncePerEve(unittest.TestCase):
+    """Labor Day 2026-09-07: every scanner run took the eve-of-session branch
+    and the readiness report went out 10 times."""
+
+    def test_second_run_the_same_day_is_silent(self):
+        tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        tmp.write(b"{}"); tmp.close()
+        self.addCleanup(os.unlink, tmp.name)
+        sent = []
+        with patch.object(a, "_ALERT_DEDUP_FILE", tmp.name), \
+             patch.object(a, "datetime", _pinned_dt(datetime(2026, 11, 26, 9, 40, tzinfo=a.ET))), \
+             patch.object(a, "WATCHLIST", []), \
+             patch.object(a, "_weekend_tape_lines", return_value=[]), \
+             patch.object(a, "send_telegram", side_effect=lambda m, **k: sent.append(m) or True):
+            a.run_readiness_scan()
+            a.run_readiness_scan()
+        self.assertEqual(len(sent), 1)
+
+    def test_a_failed_send_does_not_mark_it_sent(self):
+        tmp = tempfile.NamedTemporaryFile(suffix=".json", delete=False)
+        tmp.write(b"{}"); tmp.close()
+        self.addCleanup(os.unlink, tmp.name)
+        calls = []
+        with patch.object(a, "_ALERT_DEDUP_FILE", tmp.name), \
+             patch.object(a, "datetime", _pinned_dt(datetime(2026, 11, 26, 9, 40, tzinfo=a.ET))), \
+             patch.object(a, "WATCHLIST", []), \
+             patch.object(a, "_weekend_tape_lines", return_value=[]), \
+             patch.object(a, "send_telegram", side_effect=lambda m, **k: calls.append(m) and False):
+            a.run_readiness_scan()
+            a.run_readiness_scan()
+        self.assertEqual(len(calls), 2)

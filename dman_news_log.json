@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-11-24T16:02:20.071778-05:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Jim Farley\u2019s Ford Makes Unexpected Space Move, Eyes $1.8 Trillion Opportunity With New Bet Against Elon Musk\u2019s SpaceX",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T16:02:20.076580-05:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "BTIG Reiterates Buy on AppLovin, Maintains $450 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-24T16:02:20.085555-05:00",
     "symbols": [
       "PANW"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T11:45:27.821513-05:00",
+    "symbols": [
+      "WIT"
+    ],
+    "headline": "Wedbush Initiates Coverage On Wipro with Underperform Rating, Announces Price Target of $1.72",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T11:45:30.447209-05:00",
+    "symbols": [
+      "DAVA"
+    ],
+    "headline": "Wedbush Initiates Coverage On Endava with Underperform Rating, Announces Price Target of $1.57",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

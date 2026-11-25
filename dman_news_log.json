@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-11-25T09:37:46.397303-05:00",
-    "symbols": [
-      "ANF"
-    ],
-    "headline": "Ambarella Warns Of Memory Shortages, Delayed Orders And Revenue Pressure",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:37:46.401563-05:00",
-    "symbols": [
-      "ANF"
-    ],
-    "headline": "JP Morgan Maintains Neutral on Abercrombie &amp; Fitch, Raises Price Target to $191",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:37:46.405795-05:00",
-    "symbols": [
-      "ANF"
-    ],
-    "headline": "BMO Capital Downgrades Abercrombie &amp; Fitch to Market Perform, Raises Price Target to $180",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:37:46.625618-05:00",
-    "symbols": [
-      "GDRX"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:37:46.629950-05:00",
-    "symbols": [
-      "GDRX"
-    ],
-    "headline": "GoodRx Holdings Raises FY2026 Sales Guidance from $790.000M-$805.000M to $844.000M-$850.000M vs $798.291M Est",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-25T09:37:46.634172-05:00",
     "symbols": [
       "GDRX"
@@ -4998,5 +4948,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T14:02:34.857869-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "J.P. Morgan Analyzes Potential Tesla-SpaceX Merger Impact on S&P 500 Eligibility",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T14:02:34.868574-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "FCC Authorizes SpaceX to Deploy 1 Million Satellites for Space-Based Data Centers",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T14:02:34.874813-05:00",
+    "symbols": [
+      "FTNT"
+    ],
+    "headline": "Fortinet Releases 2027 Cybersecurity Predictions Report",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T14:02:34.880388-05:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase Wallet Launches Direct Deposit Feature for USDC",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T14:02:34.885810-05:00",
+    "symbols": [
+      "GS"
+    ],
+    "headline": "The Goldman Sachs Group, Inc. Discloses Increased Holding in ASOS PLC",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-25T09:37:55.127745-05:00",
-    "symbols": [
-      "III"
-    ],
-    "headline": "Information Services Group Announces Winners of ISG Startup Challenges",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:37:55.348906-05:00",
-    "symbols": [
-      "FIP"
-    ],
-    "headline": "FTAI Infrastructure Power Business Performance and Outlook",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:37:55.789141-05:00",
-    "symbols": [
-      "MANE"
-    ],
-    "headline": "Jim Cramer Backs DuPont, Says Buy Nvidia",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-25T09:37:56.014568-05:00",
     "symbols": [
       "BBY"
@@ -4998,5 +4968,35 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T16:32:34.952568-05:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "Kirby McInerney LLP Investigates UnitedHealth Group Inc. Following Medicare Advantage Audit Rule Proposal",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T16:32:35.054889-05:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Cloud Maven, Inc. Launches LightningDocs Connector for Salesforce",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T16:32:35.150534-05:00",
+    "symbols": [
+      "SNOW"
+    ],
+    "headline": "Analysts Update Ratings and Price Targets for Snowflake",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

@@ -1,215 +1,5 @@
 [
   {
-    "ts": "2026-11-25T09:25:54.731910-05:00",
-    "symbols": [
-      "MMED"
-    ],
-    "headline": "BTIG Reiterates Buy on Minimed Group, Maintains $28 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:25:54.871804-05:00",
-    "symbols": [
-      "ALEC"
-    ],
-    "headline": "Alector to Participate in the 9th Annual Evercore Healthcare Conference",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:54.991834-05:00",
-    "symbols": [
-      "SNDX"
-    ],
-    "headline": "Syndax Pharmaceuticals Announces Participation in December Investor Conferences",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:25:55.097362-05:00",
-    "symbols": [
-      "GLOB"
-    ],
-    "headline": "Wedbush Securities Initiates Bullish Rating on Globant",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:55.100835-05:00",
-    "symbols": [
-      "GLOB"
-    ],
-    "headline": "UBS Adjusts Price Target on Globant SA to $47 From $43",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:55.211495-05:00",
-    "symbols": [
-      "RCUS"
-    ],
-    "headline": "Arcus Biosciences Announces New Employment Inducement Grants",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:55.350117-05:00",
-    "symbols": [
-      "XNCR"
-    ],
-    "headline": "Xencor to Participate at Upcoming Investor Conferences",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:55.498424-05:00",
-    "symbols": [
-      "VRDN"
-    ],
-    "headline": "Viridian Therapeutics to Participate in the 9th Annual Evercore Healthcare Conference",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:55.647785-05:00",
-    "symbols": [
-      "GPRO"
-    ],
-    "headline": "GoPro, Inc. Files Preliminary Proxy Statement (PRER14A)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:55.797495-05:00",
-    "symbols": [
-      "CYTK"
-    ],
-    "headline": "Cytokinetics to Participate in December Investor Conferences",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:32:34.856995-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "The AA Deploys Microsoft Dynamics 365 and Azure for Digital Workflow",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:32:35.034832-05:00",
-    "symbols": [
-      "CVX"
-    ],
-    "headline": "Chevron Faces Regulatory Probe Following Methane Emissions at Gorgon LNG Plant",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:32:35.038609-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Schneider Electric Integrates Industrial Intelligence Solutions with AWS",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:32:35.041889-05:00",
-    "symbols": [
-      "RBLX"
-    ],
-    "headline": "ARK Invest Reduces Roblox Holdings",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:32:35.045361-05:00",
-    "symbols": [
-      "ANET"
-    ],
-    "headline": "Arista Networks Gains Market Share in AI Back-End Ethernet Switches",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:32:35.048960-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta and Amazon Conclude Discussions to Lift Muse Shopping Robot Blockade",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:32:35.052244-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Meta Deploys Autonomous Food Preparation System in London Office",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:32:35.055738-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Palantir Technologies Insiders Report Significant Stock Transactions",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:33:35.030949-05:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "UBS Adjusts Price Target on Applied Materials",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:33:35.034455-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "Eli Lilly and Novo Nordisk Face Lawsuits Over Rare Eye Condition Linked to GLP-1 Drugs",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:33:35.037278-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "General Motors Korea to Adopt Tesla's North American Charging Standard",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-25T09:36:40.500573-05:00",
     "symbols": [
       "NVDA"
@@ -4995,6 +4785,216 @@
       "NVDA"
     ],
     "headline": "Jensen Huang Spy Scandal Becomes Part of \u2018South Park\u2019 Plot, Here\u2019s How to Watch",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T13:07:20.214380-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "POET Stock Drops Amid Tech Weakness and AI Concerns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T13:07:20.220311-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nasdaq 100 Drops 2.5% on AI Credit Fears, Nvidia Sinks 7%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T13:07:20.327721-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "POET Stock Drops Amid Tech Weakness and AI Concerns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T13:07:20.579902-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Nasdaq 100 Drops 2.5% on AI Credit Fears, Nvidia Sinks 7%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T13:07:21.212601-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "POET Stock Drops Amid Tech Weakness and AI Concerns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T13:07:21.391028-05:00",
+    "symbols": [
+      "AMAT"
+    ],
+    "headline": "Nasdaq 100 Drops 2.5% on AI Credit Fears, Nvidia Sinks 7%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T13:07:21.507941-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Nasdaq 100 Drops 2.5% on AI Credit Fears, Nvidia Sinks 7%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T13:07:21.615235-05:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "Nasdaq 100 Drops 2.5% on AI Credit Fears, Nvidia Sinks 7%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T13:07:21.915388-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "POET Stock Drops Amid Tech Weakness and AI Concerns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T13:07:22.092727-05:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "CNBC Halftime Report Final Trades: Robinhood Markets, Anthropic, Leidos, Walt Disney",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T13:07:22.980263-05:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "POET Stock Drops Amid Tech Weakness and AI Concerns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T13:07:24.441249-05:00",
+    "symbols": [
+      "DKNG"
+    ],
+    "headline": "Nasdaq 100 Drops 2.5% on AI Credit Fears, Nvidia Sinks 7%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T13:07:24.533926-05:00",
+    "symbols": [
+      "BABA"
+    ],
+    "headline": "&#39;ASML\u2019s CEO makes the case for selling chips to China&#39; - Semafor Interview",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T13:07:24.630322-05:00",
+    "symbols": [
+      "BIDU"
+    ],
+    "headline": "&#39;ASML\u2019s CEO makes the case for selling chips to China&#39; - Semafor Interview",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T13:07:25.640131-05:00",
+    "symbols": [
+      "CVX"
+    ],
+    "headline": "Chevron Faces Regulatory Probe Following Methane Emissions at Gorgon LNG Plant",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T13:07:26.383364-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Nasdaq 100 Drops 2.5% on AI Credit Fears, Nvidia Sinks 7%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T13:07:26.480800-05:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Nasdaq 100 Drops 2.5% on AI Credit Fears, Nvidia Sinks 7%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-25T13:07:29.275743-05:00",
+    "symbols": [
+      "POET"
+    ],
+    "headline": "POET Stock Drops Amid Tech Weakness and AI Concerns",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T13:07:29.645587-05:00",
+    "symbols": [
+      "QFIN"
+    ],
+    "headline": "Qfin Holdings, Inc. Announces Unaudited Financial Results for the Third Quarter of 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-25T13:07:30.411175-05:00",
+    "symbols": [
+      "NRSN"
+    ],
+    "headline": "Why is Microcap NeuroSense Therapeutics Stock Rallying on Wednesday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T13:07:31.353752-05:00",
+    "symbols": [
+      "HPQ"
+    ],
+    "headline": "Nasdaq 100 Drops 2.5% on AI Credit Fears, Nvidia Sinks 7%: Stock Market Today",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

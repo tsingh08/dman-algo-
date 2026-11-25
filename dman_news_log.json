@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-11-25T09:37:53.261261-05:00",
-    "symbols": [
-      "DELL"
-    ],
-    "headline": "Ambarella Posts Downbeat Q3 Results, Joins Workday, Dell And Other Big Stocks Moving Lower In Wednesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:37:53.481962-05:00",
-    "symbols": [
-      "SMTC"
-    ],
-    "headline": "Wall Street Analysts Update Ratings and Price Targets for Semtech Corporation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-25T09:37:53.699950-05:00",
     "symbols": [
       "ENOV"
@@ -4996,6 +4976,26 @@
     ],
     "headline": "UBS Adjusts Price Target on Inter & Co to $6.60",
     "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T15:44:54.486227-05:00",
+    "symbols": [
+      "XTIA"
+    ],
+    "headline": "XTI Aerospace Announced Elimination Of All Outstanding Class B Units Held By Sellers Of Drone Nerds Sellers; Entered Warrant Exchange Agreements With Holders Representing Approximately 40% Of Outstanding Warrants",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T15:44:54.845576-05:00",
+    "symbols": [
+      "MLCO"
+    ],
+    "headline": "S&P Global Ratings Revises Outlook for Melco Resorts (Macau) and Studio City to Negative",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

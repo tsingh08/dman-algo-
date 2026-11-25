@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-25T09:37:46.166456-05:00",
-    "symbols": [
-      "TEX"
-    ],
-    "headline": "Scotiabank Analyst Provides Neutral Outlook on Terex Following Acquisition",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:37:46.388685-05:00",
-    "symbols": [
-      "ANF"
-    ],
-    "headline": "This Anheuser-Busch Inbev Analyst Is No Longer Bullish; Here Are Top 4 Downgrades For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:37:46.393098-05:00",
-    "symbols": [
-      "ANF"
-    ],
-    "headline": "Whats&#39;s Going On With Abercrombie &amp; Fitch Shares On Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-25T09:37:46.397303-05:00",
     "symbols": [
       "ANF"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T14:00:15.907400-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "How Nvidia&#39;s Jensen Huang Survived the Kind of Scandal That Ends CEO Careers",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T14:00:27.733300-05:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "Tigress Financial Maintains Strong Buy on Mastercard, Raises Price Target to $770",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T14:00:34.000792-05:00",
+    "symbols": [
+      "GRDX"
+    ],
+    "headline": "GridAI Technologies Corp. Changes Name to GridAI Power Corp.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

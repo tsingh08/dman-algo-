@@ -1,345 +1,5 @@
 [
   {
-    "ts": "2026-11-25T09:25:47.800137-05:00",
-    "symbols": [
-      "BRAI"
-    ],
-    "headline": "Braiin Limited Furnishes FY2026 Pro Forma Combined Financial Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:25:47.905078-05:00",
-    "symbols": [
-      "BSBR"
-    ],
-    "headline": "Banco Santander (Brasil) S.A. Acts as Financial Advisor in Transaction Agreement",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:48.040910-05:00",
-    "symbols": [
-      "BULL"
-    ],
-    "headline": "Webull Canada Integrates With TradingView",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-25T09:25:48.182612-05:00",
-    "symbols": [
-      "CCOI"
-    ],
-    "headline": "Pomerantz LLP Investigates Cogent Communications Holdings, Inc. for Potential Securities Fraud",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:48.327437-05:00",
-    "symbols": [
-      "DCH"
-    ],
-    "headline": "Dauch Corporation to Participate in UBS Global Industrials and Transportation Conference",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:48.454721-05:00",
-    "symbols": [
-      "FLNC"
-    ],
-    "headline": "Barclays Maintains Underweight on Fluence Energy, Lowers Price Target to $5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-25T09:25:48.457634-05:00",
-    "symbols": [
-      "FLNC"
-    ],
-    "headline": "Truist Securities Maintains Hold on Fluence Energy, Lowers Price Target to $5",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-25T09:25:48.460272-05:00",
-    "symbols": [
-      "FLNC"
-    ],
-    "headline": "Canaccord Genuity Maintains Buy on Fluence Energy, Lowers Price Target to $9",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-25T09:25:48.581116-05:00",
-    "symbols": [
-      "FMFC"
-    ],
-    "headline": "Kandal M Venture Ltd Files Form S-8 with the SEC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:48.730964-05:00",
-    "symbols": [
-      "GT"
-    ],
-    "headline": "JPMorgan Downgrades Goodyear Tire & Rubber to Neutral",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:48.835170-05:00",
-    "symbols": [
-      "KEEL"
-    ],
-    "headline": "Keel Infrastructure Corp. Receives Final State Environmental Permit for Sharon Data Center",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:48.976672-05:00",
-    "symbols": [
-      "KOPN"
-    ],
-    "headline": "Kopin to Showcase Advanced Soldier Vision and Training Solutions at I/ITSEC 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:49.131277-05:00",
-    "symbols": [
-      "LCID"
-    ],
-    "headline": "Nuro, Lucid, and Uber Begin Driverless Testing on Public Roads in the San Francisco Bay Area",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:25:49.265726-05:00",
-    "symbols": [
-      "LYG"
-    ],
-    "headline": "RBC Raises Price Target on Lloyds Banking Group",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:49.268670-05:00",
-    "symbols": [
-      "LYG"
-    ],
-    "headline": "Lloyds Banking Group plc - Holding(s) in Company",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:49.400698-05:00",
-    "symbols": [
-      "LZ"
-    ],
-    "headline": "LegalZoom to Participate in the UBS Global Technology and AI Conference",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:49.536762-05:00",
-    "symbols": [
-      "NG"
-    ],
-    "headline": "NOVAGOLD Exercises Prepayment Option and Completes Full Repayment of Barrick Promissory Note",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:25:49.668068-05:00",
-    "symbols": [
-      "NUVB"
-    ],
-    "headline": "Nuvation Bio to Participate in Upcoming Investor Conferences",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:49.792584-05:00",
-    "symbols": [
-      "NUWE"
-    ],
-    "headline": "Nuwellis to Showcase Aquadex SmartFlow System at 2026 Pediatric Cardiac Intensive Care Society Annual Meeting",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:50.043819-05:00",
-    "symbols": [
-      "PONY"
-    ],
-    "headline": "Is WeRide Overtaking Rival Pony AI?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:50.182379-05:00",
-    "symbols": [
-      "PRME"
-    ],
-    "headline": "Prime Medicine Announces Participation in Upcoming Healthcare Conferences",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:50.332134-05:00",
-    "symbols": [
-      "PTON"
-    ],
-    "headline": "Peloton Executives to Speak at JOURNEY Leadership Summit",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:25:50.464523-05:00",
-    "symbols": [
-      "QFIN"
-    ],
-    "headline": "Qifu Technology Q3 Adj. EPS $0.51 Beats $0.46 Estimate, Sales $460.666M Beat $439.730M Estimate",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-25T09:25:50.603500-05:00",
-    "symbols": [
-      "SMX"
-    ],
-    "headline": "SMX Expands Plastic Circularity Platform with Digital Plastic Passport and Marketplace",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:50.824875-05:00",
-    "symbols": [
-      "SPCE"
-    ],
-    "headline": "12 Industrials Stocks Moving In Tuesday&#39;s After-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:50.971780-05:00",
-    "symbols": [
-      "STLA"
-    ],
-    "headline": "Stellantis Plans Increased Fiat 500 Production at Mirafiori for 2027",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:51.117159-05:00",
-    "symbols": [
-      "TLRY"
-    ],
-    "headline": "Tilray Brands Announces Charitable Partnership with Shepherd's Men for Giving Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:25:51.250556-05:00",
-    "symbols": [
-      "UNIT"
-    ],
-    "headline": "Uniti Group Inc. to Present at the BofA Securities 2026 Leveraged Finance Conference",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:51.395872-05:00",
-    "symbols": [
-      "WIT"
-    ],
-    "headline": "BP, Wipro Announced Strategic Partnership To Build Best-In-Class Finance Operations Through AI, Automation, ~3K BP Employees In India, Hungary, Malaysia To Transfer To Wipro",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:51.528912-05:00",
-    "symbols": [
-      "WHLR"
-    ],
-    "headline": "Why Li Auto Shares Are Trading Higher By 5%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:25:51.693408-05:00",
-    "symbols": [
-      "SVRE"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:25:51.697551-05:00",
-    "symbols": [
-      "SVRE"
-    ],
-    "headline": "SaverOne Signs Non-Binding LOI To Acquire Drew Therapeutics; Terms Undisclosed",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:25:51.700424-05:00",
-    "symbols": [
-      "SVRE"
-    ],
-    "headline": "Why Li Auto Shares Are Trading Higher By 5%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:25:51.703234-05:00",
-    "symbols": [
-      "SVRE"
-    ],
-    "headline": "SaverOne Enters Into Letter Of Intent To Acquire Drew Therapeutics Corporation",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-25T09:25:51.841739-05:00",
     "symbols": [
       "DKI"
@@ -4998,5 +4658,345 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:32:35.071505-05:00",
+    "symbols": [
+      "BORR"
+    ],
+    "headline": "Borr Drilling Limited - Notification of PDMR Transaction",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:32:35.078825-05:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "Netcall plc Announces Issue of Contingent Consideration Shares",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T12:32:54.062884-05:00",
+    "symbols": [
+      "ASM"
+    ],
+    "headline": "ASM International Reports Weekly Share Buyback Transactions",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:32:54.066149-05:00",
+    "symbols": [
+      "BRAI"
+    ],
+    "headline": "Braiin Limited Furnishes FY2026 Pro Forma Combined Financial Information",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T12:32:54.069388-05:00",
+    "symbols": [
+      "BSBR"
+    ],
+    "headline": "Banco Santander (Brasil) S.A. Acts as Financial Advisor in Transaction Agreement",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:32:54.073131-05:00",
+    "symbols": [
+      "BULL"
+    ],
+    "headline": "Webull Canada Integrates With TradingView",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-25T12:32:54.076492-05:00",
+    "symbols": [
+      "CCOI"
+    ],
+    "headline": "Pomerantz LLP Investigates Cogent Communications Holdings, Inc. for Potential Securities Fraud",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:32:54.079366-05:00",
+    "symbols": [
+      "DCH"
+    ],
+    "headline": "Dauch Corporation to Participate in UBS Global Industrials and Transportation Conference",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:32:54.083142-05:00",
+    "symbols": [
+      "FLNC"
+    ],
+    "headline": "Barclays Maintains Underweight on Fluence Energy, Lowers Price Target to $5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-25T12:32:54.086242-05:00",
+    "symbols": [
+      "FLNC"
+    ],
+    "headline": "Truist Securities Maintains Hold on Fluence Energy, Lowers Price Target to $5",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-25T12:32:54.111502-05:00",
+    "symbols": [
+      "FMFC"
+    ],
+    "headline": "Kandal M Venture Ltd Files Form S-8 with the SEC",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:32:54.114157-05:00",
+    "symbols": [
+      "GT"
+    ],
+    "headline": "JPMorgan Downgrades Goodyear Tire & Rubber to Neutral",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:32:54.117927-05:00",
+    "symbols": [
+      "KEEL"
+    ],
+    "headline": "Keel Infrastructure Corp. Receives Final State Environmental Permit for Sharon Data Center",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:32:54.180548-05:00",
+    "symbols": [
+      "KOPN"
+    ],
+    "headline": "Kopin to Showcase Advanced Soldier Vision and Training Solutions at I/ITSEC 2026",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:32:54.183530-05:00",
+    "symbols": [
+      "LCID"
+    ],
+    "headline": "Nuro, Lucid, and Uber Begin Driverless Testing on Public Roads in the San Francisco Bay Area",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T12:32:54.186747-05:00",
+    "symbols": [
+      "LYG"
+    ],
+    "headline": "RBC Raises Price Target on Lloyds Banking Group",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:32:54.189345-05:00",
+    "symbols": [
+      "LYG"
+    ],
+    "headline": "Lloyds Banking Group plc - Holding(s) in Company",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:32:54.197500-05:00",
+    "symbols": [
+      "LZ"
+    ],
+    "headline": "LegalZoom to Participate in the UBS Global Technology and AI Conference",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:32:54.201185-05:00",
+    "symbols": [
+      "NG"
+    ],
+    "headline": "NOVAGOLD Exercises Prepayment Option and Completes Full Repayment of Barrick Promissory Note",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T12:32:54.205004-05:00",
+    "symbols": [
+      "NUVB"
+    ],
+    "headline": "Nuvation Bio to Participate in Upcoming Investor Conferences",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:32:54.207857-05:00",
+    "symbols": [
+      "NUWE"
+    ],
+    "headline": "Nuwellis to Showcase Aquadex SmartFlow System at 2026 Pediatric Cardiac Intensive Care Society Annual Meeting",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:32:54.211288-05:00",
+    "symbols": [
+      "PONY"
+    ],
+    "headline": "Is WeRide Overtaking Rival Pony AI?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:32:54.213988-05:00",
+    "symbols": [
+      "PRME"
+    ],
+    "headline": "Prime Medicine Announces Participation in Upcoming Healthcare Conferences",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:32:54.216792-05:00",
+    "symbols": [
+      "PTON"
+    ],
+    "headline": "Peloton Executives to Speak at JOURNEY Leadership Summit",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:32:54.219468-05:00",
+    "symbols": [
+      "QFIN"
+    ],
+    "headline": "Qifu Technology Q3 Adj. EPS $0.51 Beats $0.46 Estimate, Sales $460.666M Beat $439.730M Estimate",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-25T12:32:54.222562-05:00",
+    "symbols": [
+      "SMX"
+    ],
+    "headline": "SMX Expands Plastic Circularity Platform with Digital Plastic Passport and Marketplace",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:32:54.226157-05:00",
+    "symbols": [
+      "STLA"
+    ],
+    "headline": "Stellantis Plans Increased Fiat 500 Production at Mirafiori for 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:32:54.228955-05:00",
+    "symbols": [
+      "TLRY"
+    ],
+    "headline": "Tilray Brands Announces Charitable Partnership with Shepherd's Men for Giving Tuesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T12:32:54.231620-05:00",
+    "symbols": [
+      "UNIT"
+    ],
+    "headline": "Uniti Group Inc. to Present at the BofA Securities 2026 Leveraged Finance Conference",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:32:54.234956-05:00",
+    "symbols": [
+      "WIT"
+    ],
+    "headline": "BP, Wipro Announced Strategic Partnership To Build Best-In-Class Finance Operations Through AI, Automation, ~3K BP Employees In India, Hungary, Malaysia To Transfer To Wipro",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:32:54.241543-05:00",
+    "symbols": [
+      "WHLR"
+    ],
+    "headline": "Why Li Auto Shares Are Trading Higher By 5%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:32:54.244857-05:00",
+    "symbols": [
+      "SVRE"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T12:32:54.247795-05:00",
+    "symbols": [
+      "SVRE"
+    ],
+    "headline": "SaverOne Signs Non-Binding LOI To Acquire Drew Therapeutics; Terms Undisclosed",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T12:32:54.250773-05:00",
+    "symbols": [
+      "SVRE"
+    ],
+    "headline": "Why Li Auto Shares Are Trading Higher By 5%; Here Are 20 Stocks Moving Premarket",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

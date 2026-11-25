@@ -200,6 +200,14 @@ jobs:
               date(2027,  7,  5), date(2027,  9,  6), date(2027, 11, 25),
               date(2027, 12, 24),
           }
+          # NYSE 1:00 PM closes -- must match dman_algo._EARLY_CLOSE_DATES
+          # (test-pinned, as MARKET_HOLIDAYS is). Orders are already refused
+          # after 13:00 by is_market_open(); this stops the 13:00-16:00 scans.
+          EARLY_CLOSES = {
+              date(2026, 11, 27), date(2026, 12, 24),
+              date(2027, 11, 26),
+          }
+          close_t = 1300 if today in EARLY_CLOSES else 1600
           def _is_session(d):
               return d.weekday() < 5 and d not in MARKET_HOLIDAYS
 
@@ -215,6 +223,21 @@ jobs:
           # actual next session, got no readiness report at all. Every holiday
           # weekend had the same shape.
           if not _is_session(today) and _is_session(today + timedelta(days=1)):
+              # Once per eve. The report marks __READINESS__:<date> in
+              # dman_alerts_dedup.json, but this checkout is the commit from
+              # trigger time, so a run queued behind the one that sent it would
+              # not see the mark. Read it from origin/main, as the briefing does
+              # with its marker. Labor Day 2026-09-07 sent the report 10 times.
+              try:
+                  import json
+                  subprocess.run(["git", "fetch", "-q", "origin", "main"], timeout=60)
+                  _dd = subprocess.run(["git", "show", "FETCH_HEAD:dman_alerts_dedup.json"],
+                                       capture_output=True, text=True, timeout=30)
+                  if _dd.returncode == 0 and f"__READINESS__:{today.isoformat()}" in json.loads(_dd.stdout):
+                      print("Readiness report already sent today (origin/main) — not repeating it.")
+                      sys.exit(0)
+              except Exception as _e:
+                  print(f"Readiness marker check failed ({_e}) — the report's own check still applies.")
               print(f"Eve of the next session ({(today + timedelta(days=1)).strftime('%a %b %d')}) "
                     f"— running readiness check.")
               result = subprocess.run(
@@ -305,7 +328,7 @@ jobs:
               )
               sys.exit(result.returncode)
 
-          if now.weekday() >= 5 or not (930 <= t <= 1600):
+          if now.weekday() >= 5 or not (930 <= t <= close_t):
               print(f"Market closed ({now.strftime('%a %H:%M ET')}) — skipping scan.")
               sys.exit(0)
           # Daily watchlist fires on the 9:45 AM scan (first scan of the day)
@@ -335,7 +358,7 @@ jobs:
           # Detects breakout setups forming + exit/trail signals on open positions.
           # Options positions have no broker-side exit — they rely entirely on this
           # loop for T1/T2 alerts. Must run through the full session, not just open.
-          if 1000 <= t <= 1600:
+          if 1000 <= t <= close_t:
               run_with_retry(
                   [sys.executable, "dman_algo.py", "--mode", "momentum-watch"]
               )

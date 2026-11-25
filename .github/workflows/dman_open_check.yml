@@ -103,6 +103,11 @@ jobs:
           today = now.date().isoformat()
 
           import dman_algo as algo
+          # The 14:05 UTC cloud backstop dispatches this every weekday; on a
+          # holiday there was no open to verify.
+          if now.date() in algo._MARKET_HOLIDAYS:
+              print(f"Market holiday ({now:%a %b %d}) -- no open to check.")
+              sys.exit(0)
           from alpaca.trading.requests import GetOrdersRequest
           from alpaca.trading.enums import QueryOrderStatus
 

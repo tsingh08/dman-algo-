@@ -24456,7 +24456,7 @@ class TestEventStrangleDecidedOnLiveQuotes(unittest.TestCase):
 
     def test_the_scanner_calls_it_inside_market_hours(self):
         src = io.open(".github/workflows/dman_scanner.yml", encoding="utf-8").read()
-        gate = src.index('if now.weekday() >= 5 or not (930 <= t <= 1600):')
+        gate = src.index('if now.weekday() >= 5 or not (930 <= t <= close_t):')   # 13:00 on a half day
         call = src.index('"--mode", "strangle"')
         scan = src.index('"--mode", "scan",\n               "--universe", universe')
         self.assertLess(gate, call)
@@ -33078,3 +33078,72 @@ class TestReadinessIsSentOncePerEve(unittest.TestCase):
             a.run_readiness_scan()
             a.run_readiness_scan()
         self.assertEqual(len(calls), 2)
+
+
+class TestScannerWorkflowCalendarMatchesTheAlgo(unittest.TestCase):
+    """dman_scanner.yml keeps its own hand-copied MARKET_HOLIDAYS and (since
+    2026-11-25) EARLY_CLOSES. Nothing compared them with the algo's sets."""
+
+    def _src(self):
+        with io.open(".github/workflows/dman_scanner.yml", encoding="utf-8") as f:
+            return f.read()
+
+    def _set(self, name):
+        blk = self._src().split(name + " = {", 1)[1].split("}", 1)[0]
+        return {date(*map(int, t)) for t in
+                re.findall(r"date\((\d{4}),\s*(\d+),\s*(\d+)\)", blk)}
+
+    def test_holidays_match(self):
+        self.assertEqual(self._set("MARKET_HOLIDAYS"), a._MARKET_HOLIDAYS)
+
+    def test_early_closes_match(self):
+        self.assertEqual(self._set("EARLY_CLOSES"), a._EARLY_CLOSE_DATES)
+
+    def test_scans_and_momentum_watch_stop_at_the_close(self):
+        src = self._src()
+        self.assertIn("close_t = 1300 if today in EARLY_CLOSES else 1600", src)
+        self.assertIn("not (930 <= t <= close_t)", src)
+        self.assertIn("if 1000 <= t <= close_t:", src)
+
+    def test_readiness_checks_origin_before_sending(self):
+        src = self._src()
+        i = src.index("if not _is_session(today) and _is_session(today + timedelta(days=1)):")
+        blk = src[i:i + 1500]
+        self.assertIn("FETCH_HEAD:dman_alerts_dedup.json", blk)
+        self.assertIn('f"__READINESS__:{today.isoformat()}"', blk)
+        self.assertLess(blk.index("FETCH_HEAD"), blk.index('"--mode", "readiness"'))
+
+
+class TestOpenCheckSkipsHolidays(unittest.TestCase):
+    def test_holiday_exit_comes_before_any_broker_call(self):
+        with io.open(".github/workflows/dman_open_check.yml", encoding="utf-8") as f:
+            src = f.read()
+        self.assertIn("if now.date() in algo._MARKET_HOLIDAYS:", src)
+        self.assertLess(src.index("algo._MARKET_HOLIDAYS"), src.index("algo.get_alpaca_client()"))
+
+
+class TestDaemonMarketHoursEndAtTheRealClose(unittest.TestCase):
+    """market_hours() was a fixed 09:25-16:05; on the 1 PM Friday the guard,
+    scan and earnings loops would have run three hours past the bell."""
+
+    def setUp(self):
+        import dman_daemon
+        self.d = dman_daemon
+
+    def _at(self, y, mo, dd, h, mi):
+        return patch.object(self.d, "datetime",
+                            _pinned_dt(datetime(y, mo, dd, h, mi, tzinfo=a.ET)))
+
+    def test_a_normal_day_is_unchanged(self):
+        for (h, m), want in {(9, 24): False, (9, 25): True, (16, 5): True, (16, 6): False}.items():
+            with self._at(2026, 11, 25, h, m):
+                self.assertEqual(self.d.market_hours(), want, f"{h}:{m}")
+
+    def test_a_half_day_ends_at_13_05(self):
+        for (h, m), want in {(12, 59): True, (13, 5): True, (13, 6): False, (15, 0): False}.items():
+            with self._at(2026, 11, 27, h, m):
+                self.assertEqual(self.d.market_hours(), want, f"{h}:{m}")
+
+    def test_a_holiday_is_closed(self):
+        with self._at(2026, 11, 26, 11, 0):
+            self.assertFalse(self.d.market_hours())

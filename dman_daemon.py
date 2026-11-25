@@ -473,11 +473,17 @@ def log(msg: str) -> None:
 
 
 def market_hours() -> bool:
+    """09:25 to five minutes past the close: 16:05, or 13:05 on a half day.
+
+    It was a fixed 16:05, so on 2026-11-27 (1 PM close) the options guard,
+    the scan loop and the earnings loop would have kept working for three
+    hours after the bell. A DAY order sent then is held for Monday's open."""
     now = datetime.now(algo.ET)
-    if now.weekday() >= 5:
+    if now.weekday() >= 5 or now.date() in algo._MARKET_HOLIDAYS:
         return False
     t = now.hour * 100 + now.minute
-    return 925 <= t <= 1605
+    _ch, _cm = algo._session_close_hm(now.date())
+    return 925 <= t <= _ch * 100 + _cm + 5
 
 
 def _git(*args: str) -> subprocess.CompletedProcess:

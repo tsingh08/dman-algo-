@@ -1,115 +1,5 @@
 [
   {
-    "ts": "2026-11-25T09:37:49.635413-05:00",
-    "symbols": [
-      "WVE"
-    ],
-    "headline": "Wave Life Sciences Announces CEO Participation in Upcoming Investor Conferences",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:37:49.863064-05:00",
-    "symbols": [
-      "CNS"
-    ],
-    "headline": "Corero Network Security Launches New Cloud DDoS Protection Service",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:37:50.525662-05:00",
-    "symbols": [
-      "DC"
-    ],
-    "headline": "BMO Capital Maintains Outperform Rating on Dakota Gold",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:37:50.751099-05:00",
-    "symbols": [
-      "DY"
-    ],
-    "headline": "These Analysts Slash Their Forecasts On Dycom After Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:37:50.755585-05:00",
-    "symbols": [
-      "DY"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on Dycom Industries, Lowers Price Target to $275",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:37:50.759919-05:00",
-    "symbols": [
-      "DY"
-    ],
-    "headline": "JP Morgan Maintains Overweight on Dycom Industries, Lowers Price Target to $385",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:37:50.764255-05:00",
-    "symbols": [
-      "DY"
-    ],
-    "headline": "Sailpoint To Rally Around 14%? Here Are 10 Top Analyst Forecasts For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:37:50.768582-05:00",
-    "symbols": [
-      "DY"
-    ],
-    "headline": "Cantor Fitzgerald Maintains Overweight on Dycom Industries, Lowers Price Target to $304",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:37:51.321054-05:00",
-    "symbols": [
-      "SRZN"
-    ],
-    "headline": "Surrozen, Inc. Announces Management Presentation at Upcoming Healthcare Investor Conference",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T09:37:51.778550-05:00",
-    "symbols": [
-      "HPE"
-    ],
-    "headline": "Barclays Maintains Equal-Weight on Hewlett Packard, Lowers Price Target to $51",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:37:51.783006-05:00",
-    "symbols": [
-      "HPE"
-    ],
-    "headline": "Truist Securities Maintains Buy on Hewlett Packard, Lowers Price Target to $66",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-25T09:37:52.015898-05:00",
     "symbols": [
       "BURL"
@@ -4996,6 +4886,116 @@
     ],
     "headline": "Supreme Court of British Columbia Rules in Class Action Regarding Supplement Labeling",
     "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T15:04:09.597854-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "SpaceX Stock Rebounds as FCC Approves Starmind Data Center Satellites",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T15:04:09.740678-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "SpaceX Stock Rebounds as FCC Approves Starmind Data Center Satellites",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T15:04:10.178913-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Billionaire Investor Made Meta a Top Bet Right Before Its AI Spending Shock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T15:04:10.320364-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "SpaceX Stock Rebounds as FCC Approves Starmind Data Center Satellites",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T15:04:10.324059-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Billionaire Investor Made Meta a Top Bet Right Before Its AI Spending Shock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T15:04:10.674600-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Billionaire Investor Made Meta a Top Bet Right Before Its AI Spending Shock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T15:04:10.870896-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Billionaire Investor Made Meta a Top Bet Right Before Its AI Spending Shock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T15:04:11.057389-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "SpaceX Stock Rebounds as FCC Approves Starmind Data Center Satellites",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T15:04:11.061076-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Billionaire Investor Made Meta a Top Bet Right Before Its AI Spending Shock",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T15:04:20.196660-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "SpaceX Stock Rebounds as FCC Approves Starmind Data Center Satellites",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T15:04:21.881294-05:00",
+    "symbols": [
+      "DELL"
+    ],
+    "headline": "If You Invested $1000 In Dell Technologies Stock 5 Years Ago, You Would Have This Much Today",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
   }

@@ -1,255 +1,5 @@
 [
   {
-    "ts": "2026-11-24T19:02:35.201743-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Discloses Increased Executive Security Expenses",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T19:02:35.436194-05:00",
-    "symbols": [
-      "UBER"
-    ],
-    "headline": "Class Action Lawsuit Filed Against Uber Regarding October 2026 Data Breach",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T19:02:35.701792-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "RBC Capital and Seaport Initiate Coverage of Tesla",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T20:02:35.180058-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Declares 'Code Red' Following Historic Outage",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T20:02:35.184067-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Maverick Medical AI Integrates CodeAgent with Microsoft Dragon Copilot",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T20:02:35.398293-05:00",
-    "symbols": [
-      "QFIN"
-    ],
-    "headline": "Qfin Holdings, Inc. Announces Unaudited Financial Results for the Third Quarter of 2026",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-24T20:02:35.610641-05:00",
-    "symbols": [
-      "LMT"
-    ],
-    "headline": "Lockheed Martin CEO and CFO to Participate in UBS Global Industrials & Transportation Conference",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:25:37.907742-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "&#39;Chinese AI Firms Confront Dire Future as U.S. Tightens Access to Chips and Tokens&#39; -The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:25:37.910768-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Joe Rogan Says Elon Musk Expects SpaceX Rockets to Explode During Testing: &#39;Pushing It to the Limit&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:25:37.913707-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SpaceX (SPCX) Stock Is Trending in Pre-Market as Gary Black Eyes $100 Entry Point Amid Tesla Merger Dilution Fears",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:25:37.916407-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "Ross Gerber Warns SpaceX Could \u2018Dilute\u2019 Shareholders With TSLA Stock Amid Merger Talks, Explains Why He Avoids IPOs Like SPCX, ANT",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:25:37.919019-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "SPCX, ANT, SKHY Trade Below IPO Prices as Coinbase CEO Says Listings Were \u2018Not So Great\u2019 for Average Investors, Calls for Private-Market Access",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:25:38.057433-05:00",
-    "symbols": [
-      "NBIS"
-    ],
-    "headline": "Nebius Shares Decline Following HPE Financing Warning",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:25:38.202606-05:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Applied Digital Stock Is Falling Today Near Its 52-Week Low: Here&#39;s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-25T09:25:38.417429-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Microsoft Launches \u2018Code Red\u2019 After 24-Hour Outage, Wants Critical Fixes Deployed Worldwide in Just 1 Hour: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:25:38.420607-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Elon Musk Wants Neuralink to Tackle Neck and Back Pain: &#39;One Day&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:25:38.423183-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Jensen Huang Reportedly Says Succession Plan Risks \u2018Unnecessary Hierarchy\u2019 At Nvidia \u2014 Crypto Bettors Wager on Another Exit",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:25:38.425757-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Congressman Buys Apple Stock Again, Shows Off Power of Dividend Reinvestments",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:25:38.597136-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "&#39;Chinese AI Firms Confront Dire Future as U.S. Tightens Access to Chips and Tokens&#39; -The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:25:38.603907-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Why Is Sandisk Stock Trading Lower on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:25:38.609071-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Microsoft Launches \u2018Code Red\u2019 After 24-Hour Outage, Wants Critical Fixes Deployed Worldwide in Just 1 Hour: Report",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:25:38.614127-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Yahoo CEO Bets on AI Search Comeback After 17 Years of Relying on Microsoft, Sets Sights on Google: &#39;We Own Our Own Destiny&#39;",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T09:25:38.782418-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Applied Digital Stock Is Falling Today Near Its 52-Week Low: Here&#39;s Why",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:25:38.785262-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "&#39;Chinese AI Firms Confront Dire Future as U.S. Tightens Access to Chips and Tokens&#39; -The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:25:38.788343-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is Broadcom Stock Falling on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-25T09:25:38.790956-05:00",
     "symbols": [
       "NVDA"
@@ -4998,5 +4748,255 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T12:03:34.897796-05:00",
+    "symbols": [
+      "STLA"
+    ],
+    "headline": "Stellantis Files Lawsuit Against Unifor Over Brampton Plant Access",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:03:34.901453-05:00",
+    "symbols": [
+      "STLA"
+    ],
+    "headline": "Stellantis Scales Back French Plant Operations",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:06:17.317573-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "This Mastercard Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T12:06:18.824565-05:00",
+    "symbols": [
+      "QCOM"
+    ],
+    "headline": "Qualcomm Highlights Long-Term Commitment to Innovation and Ecosystem Development",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T12:06:19.240075-05:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Stock of the Day: Will Robinhood Rally from Here?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T12:06:20.162176-05:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "Coign Capital Advisors LLC Acquires Shares of Vertex Pharmaceuticals Incorporated",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T12:06:20.577630-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "Watching Space-Telecom Companies; FCC Authorizes 1 Million Satellites For Data Centers In Space&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T12:06:23.765738-05:00",
+    "symbols": [
+      "LUNR"
+    ],
+    "headline": "Watching Space-Telecom Companies; FCC Authorizes 1 Million Satellites For Data Centers In Space&#39;",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T12:06:24.060940-05:00",
+    "symbols": [
+      "LMT"
+    ],
+    "headline": "This Mastercard Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T12:06:24.918284-05:00",
+    "symbols": [
+      "MA"
+    ],
+    "headline": "This Mastercard Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Wednesday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T12:06:25.445660-05:00",
+    "symbols": [
+      "FCX"
+    ],
+    "headline": "PT Freeport Indonesia Announces Redemption of 2027 Senior Notes",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T12:06:26.847108-05:00",
+    "symbols": [
+      "ARRY"
+    ],
+    "headline": "Citigroup Maintains Buy on Array Technologies, Lowers Price Target to $7",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:06:27.997320-05:00",
+    "symbols": [
+      "BYAH"
+    ],
+    "headline": "11 Consumer Discretionary Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:06:30.155622-05:00",
+    "symbols": [
+      "PASW"
+    ],
+    "headline": "11 Consumer Discretionary Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:06:31.882074-05:00",
+    "symbols": [
+      "XLAB"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:06:32.046063-05:00",
+    "symbols": [
+      "NRSN"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:06:32.049103-05:00",
+    "symbols": [
+      "NRSN"
+    ],
+    "headline": "Gold Down 3%; Deere Share Gain After Q4 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:06:32.167406-05:00",
+    "symbols": [
+      "RAYA"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:06:32.457707-05:00",
+    "symbols": [
+      "SVRE"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T12:06:32.625050-05:00",
+    "symbols": [
+      "BNAI"
+    ],
+    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:06:32.789295-05:00",
+    "symbols": [
+      "APUS"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:06:33.376783-05:00",
+    "symbols": [
+      "ALGS"
+    ],
+    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T12:06:33.500958-05:00",
+    "symbols": [
+      "HPQ"
+    ],
+    "headline": "Gold Down 3%; Deere Share Gain After Q4 Results",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T12:06:33.620238-05:00",
+    "symbols": [
+      "BGLC"
+    ],
+    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T12:06:34.040902-05:00",
+    "symbols": [
+      "JEM"
+    ],
+    "headline": "11 Consumer Discretionary Stocks Moving In Wednesday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

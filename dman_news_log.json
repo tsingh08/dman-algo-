@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-25T09:37:47.092898-05:00",
-    "symbols": [
-      "NTNX"
-    ],
-    "headline": "Nutanix Bets On Enterprise AI, CEO To Step Down",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-25T09:37:47.097161-05:00",
     "symbols": [
       "NTNX"
@@ -4998,5 +4988,15 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-25T14:15:01.676084-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Another Congressman Sold Nvidia Stock Right Before Huang\u2019s Resignation, But He\u2019s Been Selling for Years",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

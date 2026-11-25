@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-11-25T09:36:40.500573-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "TSMC Has a &#39;Substantially Wider Moat&#39; Than Nvidia, Says Investor Joseph Carlson",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T09:36:40.503704-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "CoreWeave Stock Slides as AI Debt Fears Return After Huang Comeback, Bond Yield Tops 17%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-25T09:36:40.665870-05:00",
     "symbols": [
       "AMD"
@@ -4995,6 +4975,26 @@
       "HPQ"
     ],
     "headline": "Nasdaq 100 Drops 2.5% on AI Credit Fears, Nvidia Sinks 7%: Stock Market Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T13:17:59.566869-05:00",
+    "symbols": [
+      "RBLX"
+    ],
+    "headline": "ARK Invest Reduces Roblox Holdings",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T13:18:00.027828-05:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "Arista Networks Gains Market Share in AI Back-End Ethernet Switches",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

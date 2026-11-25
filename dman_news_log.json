@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-11-24T16:00:12.109347-05:00",
-    "symbols": [
-      "BBIO"
-    ],
-    "headline": "Wells Fargo Maintains Overweight on BridgeBio Pharma, Raises Price Target to $116",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T16:00:12.239512-05:00",
-    "symbols": [
-      "DFTX"
-    ],
-    "headline": "HC Wainwright &amp; Co. Reiterates Buy on Definium Therapeutics, Maintains $70 Price Target",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T16:02:20.037257-05:00",
-    "symbols": [
-      "VRTX"
-    ],
-    "headline": "Jim Cramer: Vertex Pharmaceuticals Is \u2018Sensational\u2019, Recommends Buying This Tech Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T16:02:20.041957-05:00",
-    "symbols": [
-      "HIMS"
-    ],
-    "headline": "Hims & Hers Health Launches Testosterone Care in the United Kingdom",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-24T16:02:20.047716-05:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "Spotify Reports Service Recovery Following User Outage",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T16:02:20.054091-05:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "This Tesla Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Tuesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-24T16:02:20.059572-05:00",
-    "symbols": [
-      "GME"
-    ],
-    "headline": "Needham Initiates Coverage On GameStop with Buy Rating, Announces Price Target of $33",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-24T16:02:20.066694-05:00",
-    "symbols": [
-      "RKLB"
-    ],
-    "headline": "Mizuho Initiates Coverage On Rocket Lab with Underperform Rating, Announces Price Target of $40",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-24T16:02:20.071778-05:00",
     "symbols": [
       "RKLB"
@@ -4998,5 +4918,85 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T11:34:31.504571-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Nvidia\u2019s Biggest Advantage Could Become Its Biggest Weakness, Says Former Intel AI Chief",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T11:34:31.941773-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia\u2019s Biggest Advantage Could Become Its Biggest Weakness, Says Former Intel AI Chief",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T11:34:31.944999-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Nvidia\u2019s AI Empire Doesn\u2019t Run on Nvidia Alone. This New ETF Knows It",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T11:34:34.059523-05:00",
+    "symbols": [
+      "SKHY"
+    ],
+    "headline": "Nvidia\u2019s AI Empire Doesn\u2019t Run on Nvidia Alone. This New ETF Knows It",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T11:34:37.394926-05:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Coinbase Stock Hits 3-Year Low as Crypto Slides: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T11:34:37.561836-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Coinbase Stock Hits 3-Year Low as Crypto Slides: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T11:34:37.860900-05:00",
+    "symbols": [
+      "CLSK"
+    ],
+    "headline": "CleanSpark Analysts Back Sandersville After Q4 Miss, Split on Texas Lease Outlook",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T11:34:41.488013-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Seeing Reports Michael Burry Says He Sold Rest Of His NASDAQ 100 Put Position",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
   }
 ]

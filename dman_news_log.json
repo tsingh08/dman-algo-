@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-25T09:37:53.256992-05:00",
-    "symbols": [
-      "DELL"
-    ],
-    "headline": "Stock Market Today: Dow, S&amp;P 500, Nasdaq Futures Fall as Traders Bet on December Fed Hike; Trump Tells Huang to \u2018Just Tell the Truth\u2019\u2014DELL, WDAY, ADSK in Focus (UPDATED)",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-25T09:37:53.261261-05:00",
     "symbols": [
       "DELL"
@@ -4996,6 +4986,16 @@
     ],
     "headline": "New York Regulators Fine Rocket Mortgage and Mr. Cooper $6.75 Million for Cybersecurity Violations",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T15:32:34.853228-05:00",
+    "symbols": [
+      "INTR"
+    ],
+    "headline": "UBS Adjusts Price Target on Inter & Co to $6.60",
+    "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": null
   }

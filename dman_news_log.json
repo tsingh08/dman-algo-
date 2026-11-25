@@ -1,255 +1,5 @@
 [
   {
-    "ts": "2026-11-24T15:48:59.010595-05:00",
-    "symbols": [
-      "SMTC"
-    ],
-    "headline": "These Analysts Cut Their Forecasts On Semtech After Q3 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T15:54:33.369386-05:00",
-    "symbols": [
-      "APLD"
-    ],
-    "headline": "Applied Digital Completes Base-Build Commissioning For First 75 MW Of Initial 150 MW Data Center Building At Polaris Forge 2 In Harwood, North Dakota",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T15:54:33.545620-05:00",
-    "symbols": [
-      "MSFT"
-    ],
-    "headline": "Big Tech Just Became a Value Trade \u2014 Something Wall Street Hasn&#39;t Seen in 20 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T15:54:33.722841-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "JP Morgan Maintains Overweight on Meta Platforms, Lowers Price Target to $775",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T15:54:33.728312-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "Nvidia Drops 5% After Jensen Huang\u2019s Return Rally Sparks Washington Backlash",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T16:00:11.697831-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "Why Tesla-SpaceX Merger Talks Face \u2018More Friction Than People Assume\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T16:00:11.704699-05:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Amodei Siblings Each Sell $280 Million In Anthropic Shares After Record IPO, CEO Dario Retains $20.9 Billion Stake",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T16:00:11.711545-05:00",
-    "symbols": [
-      "SNOW"
-    ],
-    "headline": "Keybanc Maintains Overweight on Snowflake, Lowers Price Target to $400",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-24T16:00:11.716334-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Palantir Technologies Inc. Receives Zero Score in 2026 CPA-Zicklin Index",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T16:00:11.725764-05:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Jim Cramer: Vertex Pharmaceuticals Is \u2018Sensational\u2019, Recommends Buying This Tech Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T16:00:11.730432-05:00",
-    "symbols": [
-      "AMAT"
-    ],
-    "headline": "Nvidia Drops 5% After Jensen Huang\u2019s Return Rally Sparks Washington Backlash",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T16:00:11.735901-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Micron Stock Drops After Monday\u2019s Surge as Nvidia Scrutiny Hits Chipmakers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T16:00:11.741060-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Why Is Sandisk Stock Pulling Back Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T16:00:11.745906-05:00",
-    "symbols": [
-      "MU"
-    ],
-    "headline": "Hewlett Packard Enterprise, Semtech, Dell And Other Big Stocks Moving Lower In Tuesday\u2019s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T16:00:11.750296-05:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Evercore ISI Group Maintains Outperform on SanDisk, Lowers Price Target to $175",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T16:00:11.754618-05:00",
-    "symbols": [
-      "SNDK"
-    ],
-    "headline": "Why Is Sandisk Stock Pulling Back Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T16:00:11.759346-05:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Micron Stock Drops After Monday\u2019s Surge as Nvidia Scrutiny Hits Chipmakers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T16:00:11.763987-05:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Jim Cramer Says Anthropic Must Rally \u2018Or Else There Will Be No OpenAI\u2019 \u2014 and Calls It Key to Stabilizing \u2018the World That Jensen Built\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T16:00:11.768601-05:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "Why Is Sandisk Stock Pulling Back Today?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T16:00:11.773208-05:00",
-    "symbols": [
-      "SKHY"
-    ],
-    "headline": "\u2018What If He Gets Hit By a Bus?\u2019: Peter Schiff Wants Secret Service Protection for Jensen Huang After $3 Trillion Market Surge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T16:00:11.780174-05:00",
-    "symbols": [
-      "MRVL"
-    ],
-    "headline": "\u2018What If He Gets Hit By a Bus?\u2019: Peter Schiff Wants Secret Service Protection for Jensen Huang After $3 Trillion Market Surge",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-24T16:00:11.785478-05:00",
-    "symbols": [
-      "KLAC"
-    ],
-    "headline": "Big Tech Just Became a Value Trade \u2014 Something Wall Street Hasn&#39;t Seen in 20 Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T16:00:11.791908-05:00",
-    "symbols": [
-      "HOOD"
-    ],
-    "headline": "Jim Cramer: Vertex Pharmaceuticals Is \u2018Sensational\u2019, Recommends Buying This Tech Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T16:00:11.798469-05:00",
-    "symbols": [
-      "RIVN"
-    ],
-    "headline": "Seaport Global Initiates Coverage On Rivian Automotive with Buy Rating, Announces Price Target of $18",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-24T16:00:11.803051-05:00",
-    "symbols": [
-      "NIO"
-    ],
-    "headline": "NIO Announces NIO Day 2026 to be Held in Wuhan",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-24T16:00:11.807439-05:00",
     "symbols": [
       "FSLR"
@@ -4996,6 +4746,256 @@
     ],
     "headline": "CIBC Mellon Expands Use of Snowflake AI Data Cloud",
     "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T11:13:11.484770-05:00",
+    "symbols": [
+      "APLD"
+    ],
+    "headline": "Shares of crypto-linked companies are trading lower amid weakness in Bitcoin and renewed concerns over a potential crypto winter cycle, as hotter-than-expected U.S. inflation data fuels expectations of further Fed rate hikes, supporting a stronger U.S. dollar and weighing on risk-sensitive assets.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T11:13:12.000227-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Alphabet Stock Slips: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T11:13:12.003397-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Defensives Lead Sectors In Wednesday Trading As Growth Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T11:13:12.006125-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Marvell Stock Drops 8%: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T11:13:12.618829-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Alphabet Stock Slips: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T11:13:12.621988-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Defensives Lead Sectors In Wednesday Trading As Growth Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T11:13:12.781165-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Defensives Lead Sectors In Wednesday Trading As Growth Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T11:13:12.957697-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Defensives Lead Sectors In Wednesday Trading As Growth Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T11:13:13.119483-05:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Defensives Lead Sectors In Wednesday Trading As Growth Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T11:13:13.574200-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Defensives Lead Sectors In Wednesday Trading As Growth Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T11:13:14.644069-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "Marvell Stock Drops 8%: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T11:13:14.796353-05:00",
+    "symbols": [
+      "RIOT"
+    ],
+    "headline": "Shares of crypto-linked companies are trading lower amid weakness in Bitcoin and renewed concerns over a potential crypto winter cycle, as hotter-than-expected U.S. inflation data fuels expectations of further Fed rate hikes, supporting a stronger U.S. dollar and weighing on risk-sensitive assets.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T11:13:14.991915-05:00",
+    "symbols": [
+      "HOOD"
+    ],
+    "headline": "Shares of crypto-linked companies are trading lower amid weakness in Bitcoin and renewed concerns over a potential crypto winter cycle, as hotter-than-expected U.S. inflation data fuels expectations of further Fed rate hikes, supporting a stronger U.S. dollar and weighing on risk-sensitive assets.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T11:13:15.616945-05:00",
+    "symbols": [
+      "LLY"
+    ],
+    "headline": "Johnson &amp; Johnson Short Interest Rises As Shorts Stay Below Peak",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T11:13:16.964004-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto Networks Participates in AmCham Korea AI Roundtable",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T11:13:17.438006-05:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "Shares of crypto-linked companies are trading lower amid weakness in Bitcoin and renewed concerns over a potential crypto winter cycle, as hotter-than-expected U.S. inflation data fuels expectations of further Fed rate hikes, supporting a stronger U.S. dollar and weighing on risk-sensitive assets.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T11:13:17.607936-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Shares of crypto-linked companies are trading lower amid weakness in Bitcoin and renewed concerns over a potential crypto winter cycle, as hotter-than-expected U.S. inflation data fuels expectations of further Fed rate hikes, supporting a stronger U.S. dollar and weighing on risk-sensitive assets.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T11:13:17.768907-05:00",
+    "symbols": [
+      "MARA"
+    ],
+    "headline": "Shares of crypto-linked companies are trading lower amid weakness in Bitcoin and renewed concerns over a potential crypto winter cycle, as hotter-than-expected U.S. inflation data fuels expectations of further Fed rate hikes, supporting a stronger U.S. dollar and weighing on risk-sensitive assets.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-25T11:13:20.970797-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Jim Cramer Sees More Upside in These Retail Stocks as XRT ETF Leaves Tech Behind",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-25T11:13:21.142755-05:00",
+    "symbols": [
+      "ORCL"
+    ],
+    "headline": "Defensives Lead Sectors In Wednesday Trading As Growth Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T11:13:21.474106-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Defensives Lead Sectors In Wednesday Trading As Growth Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T11:13:21.636316-05:00",
+    "symbols": [
+      "QQQ"
+    ],
+    "headline": "Defensives Lead Sectors In Wednesday Trading As Growth Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-25T11:13:21.789628-05:00",
+    "symbols": [
+      "IWM"
+    ],
+    "headline": "Defensives Lead Sectors In Wednesday Trading As Growth Trails",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-25T11:13:23.229901-05:00",
+    "symbols": [
+      "BULL"
+    ],
+    "headline": "Shares of crypto-linked companies are trading lower amid weakness in Bitcoin and renewed concerns over a potential crypto winter cycle, as hotter-than-expected U.S. inflation data fuels expectations of further Fed rate hikes, supporting a stronger U.S. dollar and weighing on risk-sensitive assets.",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-25T11:13:25.992944-05:00",
+    "symbols": [
+      "SBET"
+    ],
+    "headline": "Shares of crypto-linked companies are trading lower amid weakness in Bitcoin and renewed concerns over a potential crypto winter cycle, as hotter-than-expected U.S. inflation data fuels expectations of further Fed rate hikes, supporting a stronger U.S. dollar and weighing on risk-sensitive assets.",
+    "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
   }

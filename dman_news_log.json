@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-25T12:27:53.235944-05:00",
-    "symbols": [
-      "MSTR"
-    ],
-    "headline": "Bitcoin, Ethereum, XRP, Dogecoin Pull Back Amid Trump Tariff Jitters: Analyst Charts &#39;Phenomenal&#39; BTC Buying Opportunity",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T12:27:53.667279-05:00",
-    "symbols": [
-      "CLSK"
-    ],
-    "headline": "CleanSpark Analysts Cut Their Forecasts Following Weak Q4 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T12:27:53.670227-05:00",
-    "symbols": [
-      "CLSK"
-    ],
-    "headline": "Cantor Fitzgerald Maintains Overweight on Cleanspark, Lowers Price Target to $14",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T12:27:53.673107-05:00",
-    "symbols": [
-      "CLSK"
-    ],
-    "headline": "HC Wainwright &amp; Co. Maintains Buy on Cleanspark, Lowers Price Target to $18",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T12:27:53.952490-05:00",
-    "symbols": [
-      "FTNT"
-    ],
-    "headline": "Nvidia&#39;s Earnings Gap Filled In Hours. A Study Of 37,675 Reports Shows Which Gaps Don&#39;t.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T12:27:54.084568-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Amazon, Quest Diagnostics, United Therapeutics and a Tech Stock: CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-25T12:27:54.248190-05:00",
     "symbols": [
       "MDB"
@@ -4998,5 +4938,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-27T11:02:13.388441-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan Chase Discloses Change in Voting Rights in Ashtead Technology",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-27T11:02:25.292479-05:00",
+    "symbols": [
+      "PBR"
+    ],
+    "headline": "Why Are Petrobras Shares Trading Higher On Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T11:02:25.404826-05:00",
+    "symbols": [
+      "TIMB"
+    ],
+    "headline": "XP, Inter &amp; Co, Sandisk And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-27T11:02:25.513466-05:00",
+    "symbols": [
+      "AYA"
+    ],
+    "headline": "XP, Inter &amp; Co, Sandisk And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-27T11:02:25.635262-05:00",
+    "symbols": [
+      "DOGZ"
+    ],
+    "headline": "11 Consumer Discretionary Stocks Moving In Friday&#39;s Pre-Market Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-27T11:03:13.385576-05:00",
+    "symbols": [
+      "PANW"
+    ],
+    "headline": "Palo Alto Networks Collaborates with Google Cloud and Fujitsu on AI-Driven Security",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

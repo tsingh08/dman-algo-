@@ -1,14 +1,5 @@
 [
  {
-  "ts": "2026-09-28T14:19:49.440801-04:00",
-  "ticker": "CEPF",
-  "price": 10.27,
-  "rvol": 5.66,
-  "drift_pct": 0.44,
-  "range_ratio": 0.38,
-  "near_high": 0.978
- },
- {
   "ts": "2026-09-28T14:40:56.841397-04:00",
   "ticker": "GQGU",
   "price": 26.41,
@@ -4498,5 +4489,14 @@
   "drift_pct": 0.12,
   "range_ratio": 0.6,
   "near_high": 0.974
+ },
+ {
+  "ts": "2026-11-27T09:39:15.105938-05:00",
+  "ticker": "TSI",
+  "price": 4.35,
+  "rvol": 4.18,
+  "drift_pct": 0.93,
+  "range_ratio": 0.58,
+  "near_high": 0.986
  }
 ]

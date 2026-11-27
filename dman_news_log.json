@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-11-25T11:56:03.138168-05:00",
-    "symbols": [
-      "SPOT"
-    ],
-    "headline": "EarthLabs Reports Results for the Third Quarter of 2026",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T11:56:04.745347-05:00",
-    "symbols": [
-      "CLSK"
-    ],
-    "headline": "CleanSpark Stock Drops: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T11:56:08.279735-05:00",
-    "symbols": [
-      "QQQ"
-    ],
-    "headline": "QUICK SPARK: Nasdaq 100 Index Is Heading for Its Worst 2-Month Drop Since 2008",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T12:03:34.897796-05:00",
-    "symbols": [
-      "STLA"
-    ],
-    "headline": "Stellantis Files Lawsuit Against Unifor Over Brampton Plant Access",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T12:03:34.901453-05:00",
-    "symbols": [
-      "STLA"
-    ],
-    "headline": "Stellantis Scales Back French Plant Operations",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T12:06:17.317573-05:00",
-    "symbols": [
-      "TSLA"
-    ],
-    "headline": "This Mastercard Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Wednesday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T12:06:18.824565-05:00",
-    "symbols": [
-      "QCOM"
-    ],
-    "headline": "Qualcomm Highlights Long-Term Commitment to Innovation and Ecosystem Development",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-25T12:06:19.240075-05:00",
     "symbols": [
       "HOOD"
@@ -4996,6 +4926,76 @@
     ],
     "headline": "Dow Gains Over 150 Points But Nasdaq Settles Lower; Investor Sentiment Improves, Fear &amp; Greed Index Remains In \u2018Extreme Fear\u2019 Zone",
     "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T09:32:13.661566-05:00",
+    "symbols": [
+      "UNH"
+    ],
+    "headline": "UnitedHealthcare to Close Medicare Advantage Plans in Idaho",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T09:32:13.806372-05:00",
+    "symbols": [
+      "SNAP"
+    ],
+    "headline": "Snap Integrates Linktree for Profile Links",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-27T09:32:13.812775-05:00",
+    "symbols": [
+      "JPM"
+    ],
+    "headline": "JPMorgan and BlackRock Contending to Manage Portion of Singapore's Public Pension Fund",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-27T09:32:13.818793-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Launches Instagram for TV in India",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T09:32:13.825385-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "Meta Cited in South African High Court Ruling Regarding Pseudonymous Content",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T09:34:13.512068-05:00",
+    "symbols": [
+      "ZS"
+    ],
+    "headline": "B. Riley Downgrades Zscaler to Neutral",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T09:35:13.562460-05:00",
+    "symbols": [
+      "GEV"
+    ],
+    "headline": "GE Vernova Hitachi Nuclear Energy Co-Hosts Briefing for UK Small Modular Reactor Program",
+    "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "positive"
   }

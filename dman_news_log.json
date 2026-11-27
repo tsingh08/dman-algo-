@@ -1,65 +1,5 @@
 [
   {
-    "ts": "2026-11-25T12:27:51.977538-05:00",
-    "symbols": [
-      "APP"
-    ],
-    "headline": "BTIG Reiterates Buy Rating on AppLovin",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T12:27:52.234857-05:00",
-    "symbols": [
-      "ANET"
-    ],
-    "headline": "Arista Networks Insider Executes Stock Sale",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T12:27:52.361952-05:00",
-    "symbols": [
-      "CRWD"
-    ],
-    "headline": "Amazon, Quest Diagnostics, United Therapeutics and a Tech Stock: CNBC\u2019s \u2018Final Trades\u2019",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T12:27:52.719799-05:00",
-    "symbols": [
-      "NET"
-    ],
-    "headline": "Cloudflare Director Carl Ledbetter Sells Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T12:27:52.885883-05:00",
-    "symbols": [
-      "DDOG"
-    ],
-    "headline": "Datadog Director Alexis Le-Quoc Sells 44,400 Shares of Common Stock",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T12:27:53.085798-05:00",
-    "symbols": [
-      "COIN"
-    ],
-    "headline": "SPCX, ANT, SKHY Trade Below IPO Prices as Coinbase CEO Says Listings Were \u2018Not So Great\u2019 for Average Investors, Calls for Private-Market Access",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-25T12:27:53.235944-05:00",
     "symbols": [
       "MSTR"
@@ -4998,5 +4938,65 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-27T10:56:29.714242-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "Alpha Buying: The $958 Billion Firm Most Investors Have Never Heard Of",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-27T10:56:29.922211-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Apple&#39;s 57% US Smartphone Share Defies Industry Slump, But Analysts Warn of Holiday Weakness",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-27T10:56:30.487899-05:00",
+    "symbols": [
+      "GOOGL"
+    ],
+    "headline": "Apple&#39;s 57% US Smartphone Share Defies Industry Slump, But Analysts Warn of Holiday Weakness",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-27T10:56:30.694660-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Tesla Stock Rises After Filing Reveals EMAG Acquisition Pursuit: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-27T10:56:37.639327-05:00",
+    "symbols": [
+      "STUB"
+    ],
+    "headline": "Alpha Buying: The $958 Billion Firm Most Investors Have Never Heard Of",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-27T10:56:38.183970-05:00",
+    "symbols": [
+      "XNDU"
+    ],
+    "headline": "Alpha Buying: The $958 Billion Firm Most Investors Have Never Heard Of",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

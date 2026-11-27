@@ -1,35 +1,5 @@
 [
   {
-    "ts": "2026-11-25T13:07:20.214380-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "POET Stock Drops Amid Tech Weakness and AI Concerns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T13:07:20.220311-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Nasdaq 100 Drops 2.5% on AI Credit Fears, Nvidia Sinks 7%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T13:07:20.327721-05:00",
-    "symbols": [
-      "AMD"
-    ],
-    "headline": "POET Stock Drops Amid Tech Weakness and AI Concerns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-25T13:07:20.579902-05:00",
     "symbols": [
       "GOOGL"
@@ -4998,5 +4968,35 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-27T12:26:19.228212-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Black Friday Spending Is Booming, But These Retail ETFs Could Tell a Different Story",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-27T12:26:19.344961-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Black Friday Spending Is Booming, But These Retail ETFs Could Tell a Different Story",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-27T12:26:20.926819-05:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "Vertex Stock Dips After FDA Delays PDUFA to 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

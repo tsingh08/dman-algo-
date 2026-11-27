@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-25T13:07:21.212601-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "POET Stock Drops Amid Tech Weakness and AI Concerns",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-25T13:07:21.391028-05:00",
     "symbols": [
       "AMAT"
@@ -4998,5 +4988,15 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T12:36:50.082148-05:00",
+    "symbols": [
+      "IONQ"
+    ],
+    "headline": "Why Is IonQ Stock Surging on Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
   }
 ]

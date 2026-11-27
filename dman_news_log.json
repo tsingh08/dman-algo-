@@ -1,25 +1,5 @@
 [
   {
-    "ts": "2026-11-25T12:32:54.231620-05:00",
-    "symbols": [
-      "UNIT"
-    ],
-    "headline": "Uniti Group Inc. to Present at the BofA Securities 2026 Leveraged Finance Conference",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T12:32:54.234956-05:00",
-    "symbols": [
-      "WIT"
-    ],
-    "headline": "BP, Wipro Announced Strategic Partnership To Build Best-In-Class Finance Operations Through AI, Automation, ~3K BP Employees In India, Hungary, Malaysia To Transfer To Wipro",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-25T12:32:54.241543-05:00",
     "symbols": [
       "WHLR"
@@ -4998,5 +4978,25 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-27T11:32:13.614186-05:00",
+    "symbols": [
+      "LYG"
+    ],
+    "headline": "Lloyds Banking Group Resumes Online Services Following Outage",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T11:33:44.112947-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "Here&#39;s How Much $1000 Invested In Broadcom 5 Years Ago Would Be Worth Today",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

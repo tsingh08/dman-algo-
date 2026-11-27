@@ -1,275 +1,5 @@
 [
   {
-    "ts": "2026-11-25T13:17:59.566869-05:00",
-    "symbols": [
-      "RBLX"
-    ],
-    "headline": "ARK Invest Reduces Roblox Holdings",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T13:18:00.027828-05:00",
-    "symbols": [
-      "ANET"
-    ],
-    "headline": "Arista Networks Gains Market Share in AI Back-End Ethernet Switches",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T13:28:31.729846-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Peter Thiel Buys $122M of PLTR After Years Of Selling \u2014 And He Could Buy Millions More Shares",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T13:28:36.161656-05:00",
-    "symbols": [
-      "GE"
-    ],
-    "headline": "GE Aerospace Lands First GEnx Engine Deal with Malaysia Aviation Group as Regional Demand Grows",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T13:28:36.868681-05:00",
-    "symbols": [
-      "NEM"
-    ],
-    "headline": "Why Is Newmont Stock Falling on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T13:28:42.557339-05:00",
-    "symbols": [
-      "CTRI"
-    ],
-    "headline": "Centuri Holdings Set to Join S&P SmallCap 600",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T13:39:05.438076-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Why Is Super Micro Computer Stock Falling on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T13:39:06.459765-05:00",
-    "symbols": [
-      "SMCI"
-    ],
-    "headline": "Why Is Super Micro Computer Stock Falling on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T13:39:16.708898-05:00",
-    "symbols": [
-      "GLXG"
-    ],
-    "headline": "12 Industrials Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T13:49:35.982749-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Stock Is Trending Today: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T13:49:36.313096-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Vice President Vance Says This Is An Opportunity For Nvidia To Comply With Export Controls; Says I Don\u2019t Think Huang Needs A Pardon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T13:49:36.325250-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Apple Stock Is Trending Today: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T13:49:39.567534-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "How Eli Lilly Stacks Up Against Johnson &amp; Johnson, And Merck &amp; Co, And The Rest Of The Pharmaceuticals Sector.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T13:49:43.121990-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "CoreWeave Stock Slides as AI Debt Fears Return After Huang Comeback, Bond Yield Tops 17%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T13:51:56.569580-05:00",
-    "symbols": [
-      "AAPL"
-    ],
-    "headline": "Apple Stock Is Trending Today: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T13:51:57.049220-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Vice President Vance Says This Is An Opportunity For Nvidia To Comply With Export Controls; Says I Don\u2019t Think Huang Needs A Pardon",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T13:51:57.052524-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Apple Stock Is Trending Today: What&#39;s Going On?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T13:52:02.136965-05:00",
-    "symbols": [
-      "LLY"
-    ],
-    "headline": "How Eli Lilly Stacks Up Against Johnson &amp; Johnson, And Merck &amp; Co, And The Rest Of The Pharmaceuticals Sector.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T13:52:08.822773-05:00",
-    "symbols": [
-      "V"
-    ],
-    "headline": "Klarna Expands Global Reach With European Shopping Tool, Canadian Virtual Card Ahead Of Black Friday",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T13:52:10.121255-05:00",
-    "symbols": [
-      "ORCL"
-    ],
-    "headline": "CoreWeave Stock Slides as AI Debt Fears Return After Huang Comeback, Bond Yield Tops 17%",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T13:52:11.214196-05:00",
-    "symbols": [
-      "AMBA"
-    ],
-    "headline": "Ambarella&#39;s Memory Crisis Forces Analyst to Slash Forecasts, but AI Recovery Remains in Sight",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-25T13:52:11.934084-05:00",
-    "symbols": [
-      "URBN"
-    ],
-    "headline": "Urban Outfitters&#39; Anthropologie Inventory Clouds Holiday Quarter Outlook, Analyst Says",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-25T13:52:12.579615-05:00",
-    "symbols": [
-      "NTNX"
-    ],
-    "headline": "Nasdaq 100 Drops 2.5% on AI Credit Fears, Nvidia Sinks 7%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T13:52:12.582790-05:00",
-    "symbols": [
-      "NTNX"
-    ],
-    "headline": "RBC Capital Maintains Outperform on Nutanix, Lowers Price Target to $65",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T13:52:12.585692-05:00",
-    "symbols": [
-      "NTNX"
-    ],
-    "headline": "B of A Securities Downgrades Nutanix to Neutral, Lowers Price Target to $62",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T13:52:12.588588-05:00",
-    "symbols": [
-      "NTNX"
-    ],
-    "headline": "12 Information Technology Stocks Moving In Wednesday&#39;s Intraday Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T13:52:12.591453-05:00",
-    "symbols": [
-      "NTNX"
-    ],
-    "headline": "Gold Down 3%; Deere Share Gain After Q4 Results",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-25T13:52:12.804321-05:00",
     "symbols": [
       "GDRX"
@@ -4998,5 +4728,275 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": null
+  },
+  {
+    "ts": "2026-11-27T14:52:47.513900-05:00",
+    "symbols": [
+      "NBIS"
+    ],
+    "headline": "Why Is Nebius Stock Surging on Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-27T14:52:48.536384-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Why Is Nebius Stock Surging on Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-27T14:52:48.541035-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Micron CEO Expects Memory Shortages to Worsen in 2028, but TrendForce Sees Prices Falling",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-27T14:52:48.751091-05:00",
+    "symbols": [
+      "META"
+    ],
+    "headline": "CoreWeave Eyes $4.5B Loan, but Bankruptcy Odds Rise to 21% on Prediction Markets",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T14:52:49.057041-05:00",
+    "symbols": [
+      "TSLA"
+    ],
+    "headline": "Elon Musk to End Cybertruck: Used Demand for Tesla EV Picks Up",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-27T14:52:49.237405-05:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Salesforce Holiday Sales Forecast",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T14:52:49.573901-05:00",
+    "symbols": [
+      "MU"
+    ],
+    "headline": "Micron CEO Expects Memory Shortages to Worsen in 2028, but TrendForce Sees Prices Falling",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T14:52:49.667655-05:00",
+    "symbols": [
+      "SNDK"
+    ],
+    "headline": "BigBear.ai Stock Surges on Tech Rebound, Then Slips After Hours: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T14:52:50.631167-05:00",
+    "symbols": [
+      "HIMS"
+    ],
+    "headline": "Truist Securities Adjusts Hims & Hers Health Price Target to $18 From $32",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-27T14:52:51.150474-05:00",
+    "symbols": [
+      "ANET"
+    ],
+    "headline": "BigBear.ai Stock Surges on Tech Rebound, Then Slips After Hours: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T14:52:51.425472-05:00",
+    "symbols": [
+      "NET"
+    ],
+    "headline": "BigBear.ai Stock Surges on Tech Rebound, Then Slips After Hours: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-27T14:52:51.595041-05:00",
+    "symbols": [
+      "MSTR"
+    ],
+    "headline": "Strategy Plunges 44% in a Month: Could It Survive Bitcoin at $20,000?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-27T14:52:52.514509-05:00",
+    "symbols": [
+      "BBAI"
+    ],
+    "headline": "BigBear.ai Stock Surges on Tech Rebound, Then Slips After Hours: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-27T14:52:54.087192-05:00",
+    "symbols": [
+      "ADBE"
+    ],
+    "headline": "Adobe Digital Insights Reports US Online Spending Exceeded $7 Billion on Thanksgiving Day",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T14:52:54.529983-05:00",
+    "symbols": [
+      "AMBA"
+    ],
+    "headline": "HP To $29? Here Are 5 Top Analyst Forecasts For Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-27T14:52:54.621173-05:00",
+    "symbols": [
+      "NCT"
+    ],
+    "headline": "12 Industrials Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-27T14:52:54.713897-05:00",
+    "symbols": [
+      "NTNX"
+    ],
+    "headline": "HP To $29? Here Are 5 Top Analyst Forecasts For Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "negative"
+  },
+  {
+    "ts": "2026-11-27T14:52:54.971237-05:00",
+    "symbols": [
+      "HPQ"
+    ],
+    "headline": "Congressman Discloses First Public Stock Trades, and It\u2019s All Sales",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T14:52:54.975840-05:00",
+    "symbols": [
+      "HPQ"
+    ],
+    "headline": "HP To $29? Here Are 5 Top Analyst Forecasts For Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T14:52:55.062280-05:00",
+    "symbols": [
+      "KXIN"
+    ],
+    "headline": "12 Consumer Discretionary Stocks Moving In Friday&#39;s Intraday Session",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-27T14:52:55.572784-05:00",
+    "symbols": [
+      "DELL"
+    ],
+    "headline": "BigBear.ai Stock Surges on Tech Rebound, Then Slips After Hours: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T14:52:55.577934-05:00",
+    "symbols": [
+      "DELL"
+    ],
+    "headline": "Dell Gets a Second Wind as AI Orders Hit Record $132B",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T14:52:55.582236-05:00",
+    "symbols": [
+      "DELL"
+    ],
+    "headline": "Meta Stock Climbs: What&#39;s Going On?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T14:52:56.283672-05:00",
+    "symbols": [
+      "MLCO"
+    ],
+    "headline": "This HubSpot Analyst Is No Longer Bullish; Here Are Top Downgrades For Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-27T14:52:56.369959-05:00",
+    "symbols": [
+      "CBRE"
+    ],
+    "headline": "CBRE India Facilitates Joint Venture for Hotel101 Development in Hyderabad",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-27T14:52:57.828132-05:00",
+    "symbols": [
+      "IQMX"
+    ],
+    "headline": "BigBear.ai Stock Surges on Tech Rebound, Then Slips After Hours: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-27T14:52:58.586400-05:00",
+    "symbols": [
+      "AAOI"
+    ],
+    "headline": "BigBear.ai Stock Surges on Tech Rebound, Then Slips After Hours: What&#39;s Happening?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
   }
 ]

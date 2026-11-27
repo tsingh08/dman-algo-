@@ -1,14 +1,5 @@
 [
  {
-  "ts": "2026-09-28T14:40:56.841416-04:00",
-  "ticker": "DIVI",
-  "price": 43.15,
-  "rvol": 2.0,
-  "drift_pct": 0.83,
-  "range_ratio": 0.66,
-  "near_high": 0.964
- },
- {
   "ts": "2026-09-29T12:58:31.356659-04:00",
   "ticker": "TDTT",
   "price": 23.1937,
@@ -4498,5 +4489,14 @@
   "drift_pct": 0.32,
   "range_ratio": 0.52,
   "near_high": 0.994
+ },
+ {
+  "ts": "2026-11-27T14:54:01.953960-05:00",
+  "ticker": "TSI",
+  "price": 4.34,
+  "rvol": 4.22,
+  "drift_pct": 0.7,
+  "range_ratio": 0.58,
+  "near_high": 0.984
  }
 ]

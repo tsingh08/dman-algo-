@@ -2738,5 +2738,55 @@
 "extension_pct": 12.1,
 "fresh_base": false,
 "weak_band": false
+},
+{
+"ticker": "TLS",
+"date": "2026-11-27",
+"close": 8.59,
+"base_days": 262,
+"above_low_pct": 121.4,
+"extension_pct": 28.5,
+"fresh_base": true,
+"weak_band": false
+},
+{
+"ticker": "ANF",
+"date": "2026-11-27",
+"close": 184.43,
+"base_days": 15,
+"above_low_pct": 161.3,
+"extension_pct": 19.6,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "KSS",
+"date": "2026-11-27",
+"close": 27.77,
+"base_days": 0,
+"above_low_pct": 140.4,
+"extension_pct": 15.8,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "FLYW",
+"date": "2026-11-27",
+"close": 23.74,
+"base_days": 0,
+"above_low_pct": 123.1,
+"extension_pct": 10.9,
+"fresh_base": false,
+"weak_band": false
+},
+{
+"ticker": "ROIV",
+"date": "2026-11-27",
+"close": 43.25,
+"base_days": 56,
+"above_low_pct": 115.2,
+"extension_pct": 10.7,
+"fresh_base": false,
+"weak_band": true
 }
 ]

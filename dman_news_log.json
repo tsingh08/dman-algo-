@@ -1,95 +1,5 @@
 [
   {
-    "ts": "2026-11-25T12:27:48.005071-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Live On CNBC, Jim Lebenthal Announces Bought More Alphabet",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T12:27:48.153126-05:00",
-    "symbols": [
-      "AMZN"
-    ],
-    "headline": "Sam Altman Says In Social Media Post That OpenAI Is Testing Private Inference With Small Group Of Customers",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T12:27:48.506950-05:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Cathie Wood Buys $62M in Anthropic Stock as Shares Slip Below IPO Price; Ark Sells Meta, Netflix and Palantir",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T12:27:48.510120-05:00",
-    "symbols": [
-      "NFLX"
-    ],
-    "headline": "Cathie Wood Buys $62 Million in Anthropic Stock as Shares Slip Below IPO Price; Ark Sells Meta, Netflix and Palantir",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T12:27:48.855088-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Michael Burry\u2019s Nvidia Calls Just Doubled \u2014 And He Already Plans to Short It",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T12:27:48.858012-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Why Is Palantir Stock Falling on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T12:27:48.860907-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Cathie Wood Buys $62M in Anthropic Stock as Shares Slip Below IPO Price; Ark Sells Meta, Netflix and Palantir",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T12:27:48.863693-05:00",
-    "symbols": [
-      "PLTR"
-    ],
-    "headline": "Cathie Wood Buys $62 Million in Anthropic Stock as Shares Slip Below IPO Price; Ark Sells Meta, Netflix and Palantir",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T12:27:49.041688-05:00",
-    "symbols": [
-      "AVGO"
-    ],
-    "headline": "Why Is Broadcom Stock Falling on Wednesday?",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
     "ts": "2026-11-25T12:27:49.045973-05:00",
     "symbols": [
       "AVGO"
@@ -4998,5 +4908,95 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-27T10:24:52.922602-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "FCC Chair Carr Says &#39;Still Reviewing&#39; Disney/ABC Case; Says Case Is &#39;Small Portion&#39; Of Their Work At FCC; Cites SpaceX Datacenter Approvals",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-27T10:24:52.927988-05:00",
+    "symbols": [
+      "SPCX"
+    ],
+    "headline": "FCC Chair Carr Says FCC Has A Space Division For Licensing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-27T10:24:53.447466-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "What&#39;s Moving ARM Stock on Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-27T10:24:53.910365-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "FCC Chair Carr Says FCC Has A Space Division For Licensing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-27T10:24:55.772176-05:00",
+    "symbols": [
+      "VRTX"
+    ],
+    "headline": "Vertex Faces FDA Delay for Povetacicept, Analyst Sees Likely Approval",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T10:24:56.150406-05:00",
+    "symbols": [
+      "RKLB"
+    ],
+    "headline": "FCC Chair Carr Says FCC Has A Space Division For Licensing",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T10:24:56.247704-05:00",
+    "symbols": [
+      "ARM"
+    ],
+    "headline": "What&#39;s Moving ARM Stock on Friday?",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-27T10:25:03.326322-05:00",
+    "symbols": [
+      "ITUB"
+    ],
+    "headline": "XP, Inter &amp; Co, Sandisk And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-27T10:25:04.739427-05:00",
+    "symbols": [
+      "NU"
+    ],
+    "headline": "XP, Inter &amp; Co, Sandisk And Other Big Stocks Moving Higher On Friday",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

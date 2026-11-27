@@ -1,15 +1,5 @@
 [
   {
-    "ts": "2026-11-25T13:07:20.579902-05:00",
-    "symbols": [
-      "GOOGL"
-    ],
-    "headline": "Nasdaq 100 Drops 2.5% on AI Credit Fears, Nvidia Sinks 7%: Stock Market Today",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-25T13:07:21.212601-05:00",
     "symbols": [
       "AVGO"
@@ -4995,6 +4985,16 @@
       "VRTX"
     ],
     "headline": "Vertex Stock Dips After FDA Delays PDUFA to 2027",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T12:26:24.317118-05:00",
+    "symbols": [
+      "COST"
+    ],
+    "headline": "Black Friday Spending Is Booming, But These Retail ETFs Could Tell a Different Story",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-11-25T12:16:46.573878-05:00",
-    "symbols": [
-      "AMBA"
-    ],
-    "headline": "Morgan Stanley Downgrades Ambarella to Equal-Weight, Lowers Price Target to $42",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-25T12:16:46.577288-05:00",
-    "symbols": [
-      "AMBA"
-    ],
-    "headline": "Roth Capital Maintains Neutral on Ambarella, Lowers Price Target to $35",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-25T12:16:46.743025-05:00",
-    "symbols": [
-      "URBN"
-    ],
-    "headline": "UBS Maintains Neutral on Urban Outfitters, Lowers Price Target to $76",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-25T12:16:46.746624-05:00",
-    "symbols": [
-      "URBN"
-    ],
-    "headline": "Morgan Stanley Downgrades Urban Outfitters to Equal-Weight, Lowers Price Target to $80",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-25T12:17:04.265257-05:00",
-    "symbols": [
-      "SPCX"
-    ],
-    "headline": "&#39;Chinese AI Firms Confront Dire Future as U.S. Tightens Access to Chips and Tokens&#39; -The Information",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
     "ts": "2026-11-25T12:17:04.272770-05:00",
     "symbols": [
       "SPCX"
@@ -4998,5 +4948,55 @@
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-27T09:53:21.498499-05:00",
+    "symbols": [
+      "COIN"
+    ],
+    "headline": "QUICK SPARK: Fidelity Takes on Grayscale, Bitwise With New Chainlink ETF",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T09:53:24.359563-05:00",
+    "symbols": [
+      "SPY"
+    ],
+    "headline": "Dallas Fed&#39;s Trimmed Mean PCE Price Index 2.8%",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-27T09:53:26.227412-05:00",
+    "symbols": [
+      "UFG"
+    ],
+    "headline": "Dow Surges Over 300 Points; US Goods Trade Deficit Widens In October",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-27T09:53:26.713358-05:00",
+    "symbols": [
+      "POM"
+    ],
+    "headline": "Dow Surges Over 300 Points; US Goods Trade Deficit Widens In October",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-27T09:53:26.975214-05:00",
+    "symbols": [
+      "DCX"
+    ],
+    "headline": "Dow Surges Over 300 Points; US Goods Trade Deficit Widens In October",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]

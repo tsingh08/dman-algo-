@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-11-25T12:43:16.970524-05:00",
-    "symbols": [
-      "META"
-    ],
-    "headline": "&#39;CoreWeave\u2019s Banks to Sell $4.5B Meta-Tied Loan Next Week&#39;- Bloomberg",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T12:43:23.420788-05:00",
-    "symbols": [
-      "BABA"
-    ],
-    "headline": "&#39;Nvidia sellers seek new buyers as U.S. curbs China AI chip access&#39; - CNBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T12:43:23.584524-05:00",
-    "symbols": [
-      "BIDU"
-    ],
-    "headline": "&#39;Nvidia sellers seek new buyers as U.S. curbs China AI chip access&#39; - CNBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T12:43:26.347681-05:00",
-    "symbols": [
-      "SPY"
-    ],
-    "headline": "&#39;Nvidia sellers seek new buyers as U.S. curbs China AI chip access&#39; - CNBC",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T12:43:28.315174-05:00",
-    "symbols": [
-      "FLNC"
-    ],
-    "headline": "RBC Capital Maintains Sector Perform on Fluence Energy, Raises Price Target to $6",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-25T12:43:32.785830-05:00",
-    "symbols": [
-      "APUS"
-    ],
-    "headline": "12 Health Care Stocks Moving In Wednesday&#39;s Pre-Market Session",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T12:43:32.948744-05:00",
-    "symbols": [
-      "DKI"
-    ],
-    "headline": "Why Li Auto Shares Are Trading Higher By 5%; Here Are 20 Stocks Moving Premarket",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-25T12:43:32.951717-05:00",
     "symbols": [
       "DKI"
@@ -4995,6 +4925,76 @@
       "ZS"
     ],
     "headline": "Deal Dispatch: Starbucks Puts Japan Business On the Block, CrowdStrike Buys Zscaler, John Deere Acquires Orchard Robotics",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T11:54:43.029313-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Congressman Discloses First Public Stock Trades, and It\u2019s All Sales",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-27T11:54:43.154733-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "Anthropic Stock Surges as Tech Rebounds from Selling Pressure",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-27T11:54:43.160379-05:00",
+    "symbols": [
+      "NVDA"
+    ],
+    "headline": "AMD Stock Rises Over 2% as Chipmakers Rebound Despite AI Export, Security Scrutiny",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-27T11:54:43.263349-05:00",
+    "symbols": [
+      "AMD"
+    ],
+    "headline": "AMD Stock Rises Over 2% as Chipmakers Rebound Despite AI Export, Security Scrutiny",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T11:54:44.147351-05:00",
+    "symbols": [
+      "AVGO"
+    ],
+    "headline": "AMD Stock Rises Over 2% as Chipmakers Rebound Despite AI Export, Security Scrutiny",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T11:54:44.757677-05:00",
+    "symbols": [
+      "MRVL"
+    ],
+    "headline": "AMD Stock Rises Over 2% as Chipmakers Rebound Despite AI Export, Security Scrutiny",
+    "source": "scan-prefetch",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T11:54:55.237489-05:00",
+    "symbols": [
+      "HCM"
+    ],
+    "headline": "Hutchmed Rallies as China Clears Review for Lung-Cancer Expansion",
     "source": "scan-prefetch",
     "tag": "watchlist",
     "sentiment": "positive"

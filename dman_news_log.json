@@ -1,75 +1,5 @@
 [
   {
-    "ts": "2026-11-25T14:04:34.863281-05:00",
-    "symbols": [
-      "ZS"
-    ],
-    "headline": "Scotiabank Downgrades Zscaler to Sector Perform",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T14:05:34.849573-05:00",
-    "symbols": [
-      "BULL"
-    ],
-    "headline": "Webull Canada Announces Integration Project with TradingView",
-    "source": "fiscal.ai",
-    "tag": "watchlist",
-    "sentiment": "negative"
-  },
-  {
-    "ts": "2026-11-25T14:15:01.676084-05:00",
-    "symbols": [
-      "NVDA"
-    ],
-    "headline": "Another Congressman Sold Nvidia Stock Right Before Huang\u2019s Resignation, But He\u2019s Been Selling for Years",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T14:25:44.931374-05:00",
-    "symbols": [
-      "NEM"
-    ],
-    "headline": "Shares of precious metals-related companies are trading lower as gold prices fall to their lowest level in over a year, pressured by a stronger U.S. dollar and rising expectations of further Fed interest rate hikes following the latest hotter-than-expected inflation data.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "neutral"
-  },
-  {
-    "ts": "2026-11-25T14:25:47.373017-05:00",
-    "symbols": [
-      "NG"
-    ],
-    "headline": "Shares of precious metals-related companies are trading lower as gold prices fall to their lowest level in over a year, pressured by a stronger U.S. dollar and rising expectations of further Fed interest rate hikes following the latest hotter-than-expected inflation data.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": "positive"
-  },
-  {
-    "ts": "2026-11-25T14:25:48.668512-05:00",
-    "symbols": [
-      "USAS"
-    ],
-    "headline": "Shares of precious metals-related companies are trading lower as gold prices fall to their lowest level in over a year, pressured by a stronger U.S. dollar and rising expectations of further Fed interest rate hikes following the latest hotter-than-expected inflation data.",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
-    "ts": "2026-11-25T14:25:49.880017-05:00",
-    "symbols": [
-      "SID"
-    ],
-    "headline": "BofA Securities Lowers Price Target on Companhia Sider\u00fargica Nacional",
-    "source": "scan-prefetch",
-    "tag": "watchlist",
-    "sentiment": null
-  },
-  {
     "ts": "2026-11-25T14:25:50.116863-05:00",
     "symbols": [
       "HPQ"
@@ -4998,5 +4928,75 @@
     "source": "fiscal.ai",
     "tag": "watchlist",
     "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-27T20:02:13.427965-05:00",
+    "symbols": [
+      "AMZN"
+    ],
+    "headline": "Amazon Blocks AI Shopping Agents from Its Platform",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-27T20:02:13.478950-05:00",
+    "symbols": [
+      "AAPL"
+    ],
+    "headline": "Reports Suggest Apple Exploring Ceramic Components for 2027 iPhone",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-27T20:02:13.525908-05:00",
+    "symbols": [
+      "MSFT"
+    ],
+    "headline": "Anthropic's Expansion in Enterprise AI Challenges Microsoft's Market Position",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "neutral"
+  },
+  {
+    "ts": "2026-11-27T20:02:13.572332-05:00",
+    "symbols": [
+      "CRM"
+    ],
+    "headline": "Carahsoft Technology Corp. Awarded $413.8 Million Contract for Salesforce Products and Services",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T20:02:13.613976-05:00",
+    "symbols": [
+      "PONY"
+    ],
+    "headline": "Pony AI Inc. Issues Shares to Settle Restricted Share Units",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
+  },
+  {
+    "ts": "2026-11-27T20:02:13.657934-05:00",
+    "symbols": [
+      "NFLX"
+    ],
+    "headline": "Netflix Announces New Spanish Comedy Series 'O Aristocrata Decadente'",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": "positive"
+  },
+  {
+    "ts": "2026-11-27T20:02:13.706529-05:00",
+    "symbols": [
+      "BTDR"
+    ],
+    "headline": "Tether Increases Stake in Bitdeer Technologies Group with $10 Million Share Purchase",
+    "source": "fiscal.ai",
+    "tag": "watchlist",
+    "sentiment": null
   }
 ]
